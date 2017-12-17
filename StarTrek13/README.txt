@@ -13,5 +13,7 @@ Configs ~ Kmc
 Jobs.dm ~Kmc
 unary_devices.dmi ~Kmc (keek's scrubber sprites)
 doors/airlock.dm ~Kmc, perspective doors
+flags.dm ~Kmc
+mind.dm
 
 Thanks ~Kmc
