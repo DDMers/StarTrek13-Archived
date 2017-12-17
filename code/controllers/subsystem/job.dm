@@ -231,11 +231,9 @@ SUBSYSTEM_DEF(job)
 	JobDebug("Running DO")
 
 	//Holder for Triumvirate is stored in the SSticker, this just processes it
-	if(SSticker.triai)
-		for(var/datum/job/ai/A in occupations)
-			A.spawn_positions = 3
-		for(var/obj/effect/landmark/start/ai/secondary/S in GLOB.start_landmarks_list)
-			S.latejoin_active = TRUE
+//	if(SSticker.triai)
+//		for(var/obj/effect/landmark/start/ai/secondary/S in GLOB.start_landmarks_list)
+//			S.latejoin_active = TRUE
 
 	//Get the players who are ready
 	for(var/mob/dead/new_player/player in GLOB.player_list)
@@ -361,7 +359,7 @@ SUBSYSTEM_DEF(job)
 		var/allowed_to_be_a_loser = !jobban_isbanned(player, SSjob.overflow_role)
 		if(QDELETED(player) || !allowed_to_be_a_loser)
 			RejectPlayer(player)
-		else 
+		else
 			if(!AssignRole(player, SSjob.overflow_role))
 				RejectPlayer(player)
 	else if(player.client.prefs.joblessrole == BERANDOMJOB)

@@ -1,0 +1,8 @@
+Find out what the hell server_tools.dm is and how to properly configure it.
+
+And ST_INTERFACE
+
+And also ST_COMMANDS
+
+
+If you see this and know what the hell they are ping Kmc#2481 on discord.

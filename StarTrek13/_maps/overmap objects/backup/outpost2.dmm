@@ -1,0 +1,94 @@
+"aa" = (/turf/open/space/basic,/area/space)
+"ab" = (/turf/closed/wall/r_wall,/area/ruin/powered)
+"ac" = (/obj/structure/table,/obj/item/device/flashlight,/turf/open/floor/plasteel,/area/ruin/powered)
+"ad" = (/obj/structure/fluff/helm/desk/tactical,/turf/open/floor/plasteel,/area/ruin/powered)
+"ae" = (/obj/machinery/space_battle/shield_generator,/turf/open/floor/plasteel,/area/ruin/powered)
+"af" = (/obj/structure/sink{dir = 8; pixel_x = -12},/obj/structure/sign/poster/contraband/lusty_xenomorph{pixel_y = 32},/turf/open/floor/plasteel/white,/area/ruin/powered)
+"ag" = (/obj/structure/toilet{pixel_y = 10},/turf/open/floor/plasteel/white,/area/ruin/powered)
+"ah" = (/obj/structure/table,/obj/item/melee/baton/loaded,/obj/item/gun/energy/e_gun/mini,/obj/machinery/light{dir = 8},/turf/open/floor/plasteel,/area/ruin/powered)
+"ai" = (/turf/open/floor/plasteel,/area/ruin/powered)
+"aj" = (/obj/structure/chair{dir = 8},/obj/machinery/light{dir = 4},/turf/open/floor/plasteel,/area/ruin/powered)
+"ak" = (/obj/structure/table,/obj/machinery/recharger,/turf/open/floor/plasteel,/area/ruin/powered)
+"al" = (/obj/structure/table,/obj/item/storage/fancy/donut_box,/obj/item/restraints/handcuffs,/turf/open/floor/plasteel,/area/ruin/powered)
+"am" = (/obj/structure/grille,/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/plating,/area/ruin/powered)
+"an" = (/obj/machinery/door/airlock,/turf/open/floor/plasteel,/area/ruin/powered)
+"ao" = (/obj/machinery/light{dir = 8},/turf/open/floor/plasteel,/area/ruin/powered)
+"ap" = (/obj/structure/table,/obj/item/toy/figure/assistant,/obj/machinery/light{dir = 4; light_color = "#e8eaff"},/turf/open/floor/plasteel,/area/ruin/powered)
+"aq" = (/obj/structure/table,/obj/item/folder{pixel_x = -7},/obj/item/folder{pixel_x = 7},/obj/item/folder,/turf/open/floor/plasteel,/area/ruin/powered)
+"ar" = (/obj/structure/sign/poster/official/work_for_a_future{pixel_y = 32},/turf/open/floor/plasteel,/area/ruin/powered)
+"as" = (/obj/machinery/conveyor{dir = 4; id = "tradingoutpost1"},/turf/open/floor/plasteel,/area/ruin/powered)
+"at" = (/obj/machinery/conveyor{dir = 4; id = "tradingoutpost1"},/obj/structure/plasticflaps,/turf/open/floor/plasteel,/area/ruin/powered)
+"au" = (/turf/open/floor/plasteel/delivery,/area/ruin/powered)
+"av" = (/obj/structure/chair{dir = 8},/turf/open/floor/plasteel,/area/ruin/powered)
+"aw" = (/obj/structure/table,/obj/item/folder/red{pixel_x = -7},/obj/item/folder/red{pixel_x = 7},/obj/item/folder/red,/turf/open/floor/plasteel,/area/ruin/powered)
+"ax" = (/obj/structure/ladder,/turf/open/floor/plasteel,/area/ruin/powered)
+"ay" = (/obj/machinery/conveyor_switch{id = "tradingoutpost1"},/obj/structure/extinguisher_cabinet{dir = 4; pixel_x = 24},/turf/open/floor/plasteel,/area/ruin/powered)
+"az" = (/obj/structure/chair{dir = 8},/obj/structure/sign/poster/random{pixel_x = 30},/turf/open/floor/plasteel,/area/ruin/powered)
+"aA" = (/obj/structure/filingcabinet,/obj/machinery/light{dir = 8},/turf/open/floor/plasteel,/area/ruin/powered)
+"aB" = (/obj/structure/chair/office/dark,/turf/open/floor/plasteel,/area/ruin/powered)
+"aC" = (/obj/structure/table/reinforced,/obj/machinery/door/window/eastleft,/obj/machinery/door/window/westleft,/turf/open/floor/plasteel,/area/ruin/powered)
+"aD" = (/obj/structure/window/reinforced,/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/plasteel,/area/ruin/powered)
+"aE" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1; layer = 2.9},/turf/open/floor/plasteel,/area/ruin/powered)
+"aF" = (/obj/structure/chair{dir = 8},/obj/structure/extinguisher_cabinet{dir = 4; pixel_x = 24},/turf/open/floor/plasteel,/area/ruin/powered)
+"aG" = (/obj/structure/table,/obj/item/paper_bin{pixel_x = -4; pixel_y = 3},/obj/item/pen/fourcolor,/turf/open/floor/plasteel,/area/ruin/powered)
+"aH" = (/obj/structure/table,/obj/item/paper_bin{pixel_x = -4; pixel_y = 3},/obj/item/pen/fourcolor,/obj/item/stamp/denied{pixel_x = 8},/obj/item/stamp/qm{pixel_x = 8; pixel_y = 4},/obj/machinery/button/flasher{id = "munted1"; name = "Flash The Peons"; pixel_x = 8; pixel_y = 8},/turf/open/floor/plasteel,/area/ruin/powered)
+"aI" = (/obj/machinery/flasher{id = "munted1"; pixel_x = -30},/turf/open/floor/plasteel,/area/ruin/powered)
+"aJ" = (/obj/structure/chair/office/dark{dir = 1},/turf/open/floor/plasteel,/area/ruin/powered)
+"aK" = (/obj/structure/table,/obj/item/newspaper,/obj/machinery/newscaster{pixel_x = 30},/obj/machinery/light{dir = 4; light_color = "#e8eaff"},/turf/open/floor/plasteel,/area/ruin/powered)
+"aL" = (/obj/machinery/newscaster{pixel_x = -30},/turf/open/floor/plasteel,/area/ruin/powered)
+"aM" = (/obj/structure/sign/poster/contraband/space_up{pixel_y = 32},/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/plasteel,/area/ruin/powered)
+"aN" = (/obj/structure/sign/poster/contraband/space_up{pixel_y = -32},/turf/open/floor/plasteel,/area/ruin/powered)
+"aO" = (/obj/structure/chair/comfy/brown{color = "#c45c57"; dir = 4; icon_state = "comfychair"},/turf/open/floor/plasteel,/area/ruin/powered)
+"aP" = (/obj/structure/table,/turf/open/floor/plasteel,/area/ruin/powered)
+"aQ" = (/obj/machinery/vending/cola,/turf/open/floor/plasteel,/area/ruin/powered)
+"aR" = (/obj/machinery/vending/cigarette,/turf/open/floor/plasteel,/area/ruin/powered)
+"aS" = (/obj/machinery/vending/snack/random,/turf/open/floor/plasteel,/area/ruin/powered)
+"aT" = (/obj/machinery/door/airlock/external{name = "Dock Access"},/turf/open/floor/plating,/area/ruin/powered)
+"aU" = (/turf/open/floor/plating,/area/ruin/powered)
+"aV" = (/obj/structure/sign/vacuum{pixel_x = 30},/turf/open/floor/plating,/area/ruin/powered)
+"aW" = (/obj/machinery/light{dir = 1},/turf/open/floor/plasteel/delivery,/area/ruin/powered)
+"aX" = (/obj/machinery/button/door{id = "tradingpostshutters1"; pixel_x = -25},/turf/open/floor/plasteel,/area/ruin/powered)
+"aY" = (/obj/machinery/button/door{id = "tradingpostshutters1"; pixel_y = 25},/turf/open/floor/plasteel,/area/ruin/powered)
+"aZ" = (/obj/machinery/door/poddoor/shutters{id = "tradingpostshutters1"},/turf/open/floor/plasteel,/area/ruin/powered)
+"ba" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel,/area/ruin/powered)
+"bb" = (/obj/machinery/light{dir = 4},/turf/open/floor/plasteel,/area/ruin/powered)
+"bc" = (/obj/machinery/light,/turf/open/floor/plasteel/delivery,/area/ruin/powered)
+"bd" = (/turf/open/floor/plasteel/white,/area/ruin/powered)
+"be" = (/obj/machinery/door/airlock,/turf/open/floor/plasteel/white,/area/ruin/powered)
+"bf" = (/turf/template_noop,/area/template_noop)
+
+(1,1,1) = {"
+ababababababbfbfbfbfababababbf
+abacacadaeabbfbfbfbfabafagabbf
+abahaiaiajabbfbfbfbfabbdbdabbf
+abakaiaialabamamamamabbeababbf
+abababanababaoaiaiaiaiaiapabbf
+amaqaraiasatasauaiaiaiaiavabbf
+amawaiaxayabaiaiaiaiaiaiazabbf
+amaAaiaiaBaCaDaEaEaEaiaiaFabbf
+amaGaiaiaHabaIaiaiaiaiaiazabbf
+ababaiaiaJaCaDaEaEaEaiaiavabbf
+bfabanabababaiaiaiaiaiaiaKabbf
+bfabaLaMaianaiaiaiaNaiaiaiabbf
+bfabaOaPaQabaRaSaQabaTaTababbf
+bfababamababababababaUaVababbf
+bfbfbfbfbfbfbfbfbfabaTaTabbfbf
+"}
+
+(1,1,2) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaababababababababaaaa
+aaaaaaaaaaabauauaWauauauabaaaa
+aaabababababaXaiaiaiaiaiabaaaa
+aaabaiaiaYaZaiaiaiaiaiaiabaaaa
+aaabbaaxaiaZaiaiaiaiaibbabaaaa
+aaabaiaiaiaZaiaiaiaiaiaiabaaaa
+aaabababababaiaiaiaiaiaiabaaaa
+aaaaaaaaaaabauaubcauauauabaaaa
+aaaaaaaaaaababababababababaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

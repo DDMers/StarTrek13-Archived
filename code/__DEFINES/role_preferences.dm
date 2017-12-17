@@ -26,6 +26,7 @@
 #define ROLE_SERVANT_OF_RATVAR	"servant of Ratvar"
 #define ROLE_BROTHER			"blood brother"
 #define ROLE_BRAINWASHED		"brainwashed victim"
+#define ROLE_BORG				"borg drone"
 
 //Missing assignment means it's not a gamemode specific role, IT'S NOT A BUG OR ERROR.
 //The gamemode specific ones are just so the gamemodes can query whether a player is old enough

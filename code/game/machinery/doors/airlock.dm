@@ -94,6 +94,8 @@
 
 	var/air_tight = FALSE	//TRUE means density will be set as soon as the door begins to close
 	var/prying_so_hard = FALSE
+	var/open_door_layer = OPEN_DOOR_LAYER //For perspective doors
+	var/closed_door_layer = CLOSED_DOOR_LAYER
 
 	var/static/list/airlock_overlays = list()
 
@@ -1084,7 +1086,7 @@
 	density = FALSE
 	air_update_turf(1)
 	sleep(1)
-	layer = OPEN_DOOR_LAYER
+	layer = open_door_layer
 	update_icon(AIRLOCK_OPEN, 1)
 	operating = FALSE
 	if(delayed_close_requested)
@@ -1121,7 +1123,7 @@
 
 	operating = TRUE
 	update_icon(AIRLOCK_CLOSING, 1)
-	layer = CLOSED_DOOR_LAYER
+	layer = closed_door_layer
 	if(air_tight)
 		density = TRUE
 		air_update_turf(1)

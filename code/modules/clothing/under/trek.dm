@@ -2,7 +2,7 @@
 
 
 /obj/item/clothing/under/trek
-	can_adjust = FALSE
+	can_adjust = 0
 
 
 //TOS
@@ -44,6 +44,12 @@
 /obj/item/clothing/under/trek/medsci/next
 	icon_state = "trek_next_medsci"
 	item_color = "trek_next_medsci"
+
+/obj/item/clothing/under/trek/grey //TNG for now, when I sprite other versions I'll add them.
+	name = "uncomissioned officer's uniform"
+	desc = "worn by those that hold a crewman rank, or below."
+	icon_state = "trek_next_grey"
+	item_color = "trek_next_grey"
 
 
 //ENT
