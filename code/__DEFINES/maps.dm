@@ -18,6 +18,7 @@ Last space-z level = empty
 
 #define MAIN_STATION "Main Station"
 #define CENTCOM "CentCom"
+#define OVERMAP "Overmap"
 #define CITY_OF_COGS "City of Cogs"
 #define EMPTY_AREA_1 "Empty Area 1"
 #define EMPTY_AREA_2 "Empty Area 2"
@@ -38,14 +39,15 @@ Last space-z level = empty
 //zlevel defines, can be overridden for different maps in the appropriate _maps file.
 #define ZLEVEL_CENTCOM 1
 #define ZLEVEL_STATION_PRIMARY 2
+#define ZLEVEL_OVERMAP 3
 #define ZLEVEL_MINING 5
 #define ZLEVEL_LAVALAND 5
 #define ZLEVEL_CITYOFCOGS 6
 #define ZLEVEL_EMPTY_SPACE 12
 //Unless you modify it in map config should be equal to ZLEVEL_SPACEMAX
-#define ZLEVEL_TRANSIT 13
+#define ZLEVEL_TRANSIT 14
 
-#define ZLEVEL_SPACEMIN 3
-#define ZLEVEL_SPACEMAX 13
+#define ZLEVEL_SPACEMIN 4
+#define ZLEVEL_SPACEMAX 14
 
 #define SPACERUIN_MAP_EDGE_PAD 15

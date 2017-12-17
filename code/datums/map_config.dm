@@ -16,6 +16,7 @@
 									MAIN_STATION = CROSSLINKED,
 									EMPTY_AREA_1 = CROSSLINKED,
 									EMPTY_AREA_2 = CROSSLINKED,
+									OVERMAP = SELFLOOPING,	//STAR TREK STUFF, this is to prevent the overmap Z level from being looped onto other, weird Z levels. NOTE TO SELF: may wanna make it a tad bigger.
 									MINING = SELFLOOPING,
 									CITY_OF_COGS = SELFLOOPING,
 									EMPTY_AREA_3 = CROSSLINKED,
@@ -120,6 +121,8 @@
 			return CENTCOM
 		if("CITY_OF_COGS")
 			return CITY_OF_COGS
+		if("OVERMAP")
+			return OVERMAP
 		if("MINING")
 			return MINING
 		if("EMPTY_AREA_1")

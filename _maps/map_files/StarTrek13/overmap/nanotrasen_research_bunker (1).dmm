@@ -3,6 +3,7 @@
 "ac" = (/obj/structure/ladder/unbreakable{height = 1; id = "research2"},/turf/open/floor/plating,/area/ship/overmap/nanotrasen/research)
 "ad" = (/turf/closed/wall/r_wall,/area/ship/overmap/nanotrasen/research)
 "ae" = (/obj/structure/sign/poster/contraband/fun_police{pixel_y = 32},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
+"af" = (/obj/machinery/door/airlock/external,/turf/open/floor/plating,/area/ship/overmap/nanotrasen/research)
 "ag" = (/obj/effect/landmark/shield,/turf/closed/wall/r_wall,/area/ship/overmap/nanotrasen/research)
 "ah" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/research)
 "ai" = (/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/research)
@@ -177,10 +178,10 @@
 "dG" = (/obj/structure/mopbucket,/obj/item/mop,/obj/item/reagent_containers/glass/bucket,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 
 (1,1,1) = {"
-aadgadadadadadalaladadadadadadadadadadag
+aadgadadadadadafafadadadadadadadadadadag
 aadgadahaiajakalamadanaoapaqaradasatauag
 aadgadaiavawaxalayadaAaCaCaCaDadaEaFaGag
-aaadadaJadadadalaladaLaMaOaPaCadaRadadag
+aaadadaJadadadafafadaLaMaOaPaCadaRadadag
 aaadaSaTaTaTaTaUaVaWaCaMaOaPaCaXaCaxdgaa
 aaadaYaZbabbbbbbbcaWaCaCaCbdaCaCaCaxdgaa
 aaadbebfadadadadadadadbgadadadbgadaddgaa
