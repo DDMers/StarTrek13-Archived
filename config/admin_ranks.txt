@@ -39,7 +39,10 @@ Badmin			= +@ +POSSESS +POLL +BUILDMODE +SERVER +FUN
 Game Admin		= +@ +STEALTH +SOUNDS +DEBUG
 Game Master		= +EVERYTHING
 Lazy Master 	= +EVERYTHING -AUTOLOGIN
+Super Admin		= +EVERYTHING
 
 Host			= +EVERYTHING
 
 Coder			= +DEBUG +VAREDIT +SERVER +SPAWN +POLL -AUTOLOGIN
+Junior Coder		= +DEBUG +VAREDIT
+

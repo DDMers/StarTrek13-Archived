@@ -1,0 +1,98 @@
+"aa" = (/turf/open/space/basic,/area/space)
+"ab" = (/turf/open/space/basic,/area/ship/overmap/nanotrasen/trading_outpost)
+"ac" = (/obj/effect/landmark/shield,/turf/closed/wall/r_wall,/area/ship/overmap/nanotrasen/trading_outpost)
+"ad" = (/turf/closed/wall/r_wall,/area/ship/overmap/nanotrasen/trading_outpost)
+"ae" = (/obj/machinery/light{dir = 1},/turf/open/space/basic,/area/ship/overmap/nanotrasen/trading_outpost)
+"af" = (/obj/structure/table,/obj/item/device/flashlight,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"ag" = (/obj/structure/fluff/helm/desk/tactical/nanotrasen,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"ah" = (/obj/machinery/space_battle/shield_generator,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"ai" = (/obj/machinery/button/door{id = "tradingpostshutters1"; pixel_x = -25},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aj" = (/obj/structure/sink{dir = 8; pixel_x = -12},/obj/structure/sign/poster/contraband/lusty_xenomorph{pixel_y = 32},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/trading_outpost)
+"ak" = (/obj/structure/toilet{pixel_y = 10},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/trading_outpost)
+"al" = (/obj/structure/table,/obj/item/melee/baton/loaded,/obj/item/gun/energy/e_gun/mini,/obj/machinery/light{dir = 8},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"am" = (/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"an" = (/obj/structure/chair{dir = 8},/obj/machinery/light{dir = 4},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"ao" = (/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/trading_outpost)
+"ap" = (/obj/structure/table,/obj/machinery/recharger,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aq" = (/obj/structure/table,/obj/item/storage/fancy/donut_box,/obj/item/restraints/handcuffs,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"ar" = (/obj/structure/grille,/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/plating,/area/ship/overmap/nanotrasen/trading_outpost)
+"as" = (/obj/machinery/door/airlock,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/trading_outpost)
+"at" = (/obj/machinery/door/airlock,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"au" = (/obj/machinery/button/door{id = "tradingpostshutters1"; pixel_y = 25},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"av" = (/obj/machinery/light{dir = 8},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aw" = (/obj/structure/table,/obj/item/toy/figure/assistant,/obj/machinery/light{dir = 4; light_color = "#e8eaff"},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"ax" = (/obj/machinery/door/poddoor/shutters{id = "tradingpostshutters1"},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"ay" = (/obj/structure/grille,/obj/effect/spawner/structure/window/reinforced,/obj/effect/landmark/shield,/turf/open/floor/plating,/area/ship/overmap/nanotrasen/trading_outpost)
+"az" = (/obj/structure/table,/obj/item/folder{pixel_x = -7},/obj/item/folder{pixel_x = 7},/obj/item/folder,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aA" = (/obj/structure/sign/poster/official/work_for_a_future{pixel_y = 32},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aB" = (/obj/machinery/conveyor{dir = 4; id = "tradingoutpost1"},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aC" = (/obj/machinery/conveyor{dir = 4; id = "tradingoutpost1"},/obj/structure/plasticflaps,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aD" = (/obj/machinery/light,/turf/open/space/basic,/area/ship/overmap/nanotrasen/trading_outpost)
+"aE" = (/obj/structure/chair{dir = 8},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aF" = (/obj/structure/table,/obj/item/folder/red{pixel_x = -7},/obj/item/folder/red{pixel_x = 7},/obj/item/folder/red,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aG" = (/obj/structure/ladder/unbreakable{height = 2; id = "tradestation"},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aH" = (/obj/machinery/conveyor_switch{id = "tradingoutpost1"},/obj/structure/extinguisher_cabinet{dir = 4; pixel_x = 24},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aI" = (/obj/structure/chair{dir = 8},/obj/structure/sign/poster/random{pixel_x = 30},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aJ" = (/obj/structure/filingcabinet,/obj/machinery/light{dir = 8},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aK" = (/obj/structure/chair/office/dark,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aL" = (/obj/structure/table/reinforced,/obj/machinery/door/window/eastleft,/obj/machinery/door/window/westleft,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aM" = (/obj/structure/window/reinforced,/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aN" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1; layer = 2.9},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aO" = (/obj/structure/chair{dir = 8},/obj/structure/extinguisher_cabinet{dir = 4; pixel_x = 24},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aP" = (/obj/structure/table,/obj/item/paper_bin{pixel_x = -4; pixel_y = 3},/obj/item/pen/fourcolor,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aQ" = (/obj/structure/table,/obj/item/paper_bin{pixel_x = -4; pixel_y = 3},/obj/item/pen/fourcolor,/obj/item/stamp/denied{pixel_x = 8},/obj/item/stamp/qm{pixel_x = 8; pixel_y = 4},/obj/machinery/button/flasher{id = "munted1"; name = "Flash The Peons"; pixel_x = 8; pixel_y = 8},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aR" = (/obj/machinery/flasher{id = "munted1"; pixel_x = -30},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aS" = (/obj/structure/chair/office/dark{dir = 1},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aT" = (/obj/structure/table,/obj/item/newspaper,/obj/machinery/newscaster{pixel_x = 30},/obj/machinery/light{dir = 4; light_color = "#e8eaff"},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aU" = (/obj/machinery/newscaster{pixel_x = -30},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aV" = (/obj/structure/sign/poster/contraband/space_up{pixel_y = 32},/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aW" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aX" = (/obj/machinery/light{dir = 4},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"aZ" = (/obj/effect/landmark/shield,/turf/open/space/basic,/area/ship/overmap/nanotrasen/trading_outpost)
+"ba" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/overmap/away/station/nanotrasen/shop,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"bb" = (/obj/structure/ladder/unbreakable{height = 1; id = "tradestation"},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"bd" = (/obj/structure/sign/poster/contraband/space_up{pixel_y = -32},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"be" = (/obj/structure/chair/comfy/brown{color = "#c45c57"; dir = 4; icon_state = "comfychair"},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"bg" = (/obj/structure/table,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"bh" = (/obj/machinery/vending/cola,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"bi" = (/obj/machinery/vending/cigarette,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"bj" = (/obj/machinery/vending/snack/random,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/trading_outpost)
+"bk" = (/obj/machinery/door/airlock/external{name = "Dock Access"},/turf/open/floor/plating,/area/ship/overmap/nanotrasen/trading_outpost)
+"bl" = (/turf/open/floor/plating,/area/ship/overmap/nanotrasen/trading_outpost)
+"bm" = (/obj/structure/sign/vacuum{pixel_x = 30},/turf/open/floor/plating,/area/ship/overmap/nanotrasen/trading_outpost)
+
+(1,1,1) = {"
+acadadadadadaaaaaaaaadadadadaZ
+acafafagahadaaaaaaaaadajakadaZ
+acalamamanadaaaaaaaaadaoaoadaZ
+acapamamaqadararararadasadadaZ
+acadadatadadavamamamamamawadaZ
+ayazaAamaBaCaBabamamamamaEadaZ
+ayaFambbaHadamamamamamamaIadaZ
+ayaJamamaKaLaMaNbaaNamamaOadaZ
+ayaPamamaQadaRamamamamamaIadaZ
+acadamamaSaLaMaNaNaNamamaEadaZ
+aZadatadadadamamamamamamaTadaZ
+aZadaUaVamatamamambdamamamadaZ
+aZadbebgbhadbibjbhadbkbkadadaZ
+aZadadaradadadadadadblbmadadaZ
+aZaaaaaaaaaaaaaaaaadbkbkadaaaZ
+"}
+
+(1,1,2) = {"
+aZaaaaaaaaaaaaaaaaaaaaaaaaaaaZ
+aZaaaaaaaaaaaaaaaaaaaaaaaaaaaZ
+aZaaaaaaaaadadadadadadadadaaaZ
+aZaaaaaaaaadababaeabababadaaaZ
+aZadadadadadaiamamamamamadaaaZ
+aZadamamauaxamamamamamamadaaaZ
+aZadaWaGamaxamamamamamaXadaaaZ
+aZadamamamaxamamamamamamadaaaZ
+aZadadadadadamamamamamamadaaaZ
+aZaaaaaaaaadababaDabababadaaaZ
+aZaaaaaaaaadadadadadadadadaaaZ
+aZaaaaaaaaaaaaaaaaaaaaaaaaaaaZ
+aZaaaaaaaaaaaaaaaaaaaaaaaaaaaZ
+aZaaaaaaaaaaaaaaaaaaaaaaaaaaaZ
+aZaaaaaaaaaaaaaaaaaaaaaaaaaaaZ
+"}
