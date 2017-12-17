@@ -328,7 +328,7 @@
 "gp" = (/turf/open/floor/plasteel/neutral,/area/space)
 "gq" = (/turf/open/floor/plasteel/yellowsiding{dir = 1},/area/space)
 "gr" = (/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/plasteel/neutral,/area/centcom/supply{name = "starbase 59"})
-"gs" = (/obj/docking_port/mobile/trek/shuttlepod{dir = 1; !INVALID_VAR! = 1; port_direction = 2; preferred_direction = 1},/obj/machinery/computer/camera_advanced/transporter_control{dir = 8},/turf/open/floor/borg/trek/beige,/area/shuttle{name = "shuttlepod1"})
+"gs" = (/obj/docking_port/mobile/trek/shuttlepod{dir = 1; port_direction = 2; preferred_direction = 1},/obj/machinery/computer/camera_advanced/transporter_control{dir = 8},/turf/open/floor/borg/trek/beige,/area/shuttle{name = "shuttlepod1"})
 "gt" = (/turf/open/floor/borg/trek/dark,/area/shuttle{name = "shuttlepod1"})
 "gu" = (/obj/machinery/door/airlock/trek{dir = 4},/obj/docking_port/stationary{dheight = 9; dir = 1; dwidth = 6; height = 15; id = "trekshuttlestarbase"; name = "Starbase59"; turf_type = /turf/open/space; width = 9},/turf/open/floor/borg/trek/light,/area/shuttle{name = "shuttlepod1"})
 "gv" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/plasteel,/area/centcom/supply{name = "starbase 59"})
