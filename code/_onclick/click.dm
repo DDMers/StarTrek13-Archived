@@ -112,6 +112,10 @@
 		RestrainedClickOn(A)
 		return
 
+	if(istype(loc,/obj/structure/overmap))
+		var/obj/structure/overmap/S = loc //Overmap ship code, so that they can fire.
+		return S.click_action(A,src,params)
+
 	if(in_throw_mode)
 		throw_item(A)
 		return

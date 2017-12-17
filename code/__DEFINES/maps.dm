@@ -27,6 +27,8 @@ require only minor tweaks.
 
 #define SPACERUIN_MAP_EDGE_PAD 15
 
+#define ZLEVEL_SPACEMIN 4
+#define ZLEVEL_SPACEMAX 14
 // traits
 // boolean - marks a level as having that property if present
 #define ZTRAIT_CENTCOM "CentCom"
