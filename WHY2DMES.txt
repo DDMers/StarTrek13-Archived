@@ -1,0 +1,3 @@
+When we pull from TG, you're gonna wanna look at the DME changes that it comes with and transfer those to StarTrek13.dme
+
+Keeping the name scheme so it runs without the annoying warning messages.
