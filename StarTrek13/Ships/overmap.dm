@@ -220,13 +220,15 @@ var/global/list/overmap_objects = list()
 /obj/structure/overmap/CtrlClick(mob/user)
 	if(pilot == user)
 		set_nav_target(user)
-//	if(pilot == user) //don't change the firing mode of enemy ships etc.
-	//	if(mode != TORPEDO_MODE)
-	//		mode = TORPEDO_MODE
-	//		to_chat(pilot, "switched to torpedo firing mode")
-	//	else
-	//		mode = PHASER_MODE
-	//		to_chat(pilot, "switched to phaser firing mode")
+
+/obj/structure/overmap/ShiftClick(mob/user)
+	if(pilot == user) //don't change the firing mode of enemy ships etc.
+		if(mode != TORPEDO_MODE)
+			mode = TORPEDO_MODE
+			to_chat(pilot, "switched to torpedo firing mode")
+		else
+			mode = PHASER_MODE
+			to_chat(pilot, "switched to phaser firing mode")
 
 /obj/structure/overmap/process()
 	recharge --
