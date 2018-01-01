@@ -3,6 +3,9 @@
 
 //	face_atom(A)//////
 
+/area/ // fuck your idea of shoving everything into one file
+	var/current_overmap = "none" // current map an area is on.
+
 var/global/list/overmap_objects = list()
 
 /area/overmap
