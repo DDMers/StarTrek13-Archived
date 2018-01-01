@@ -491,8 +491,13 @@
 
 /obj/effect/ebeam/phaser
 	name = "high density photon beam"
+	var/datum/effect_system/trail_follow/ion/ion_trail
 //	max_distance = "5000"
 
+/obj/effect/ebeam/phaser/New()
+	..()
+	ion_trail = new
+	ion_trail.set_up(src)
 
 /obj/item/circuitboard/machine/phase_cannon
 	name = "phaser array circuit board"
