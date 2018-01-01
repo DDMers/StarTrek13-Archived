@@ -141,7 +141,7 @@
 				S.activate()
 				S.active = 1
 				ship.shields_active = 1
-			shield_system.integrity += health_addition
+			shield_system.integrity += min(shield_system.integrity + health_addition, shield_system.max_integrity)
 			health_addition = 0
 			return
 		else
