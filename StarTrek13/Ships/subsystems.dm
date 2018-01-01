@@ -26,6 +26,13 @@
 	var/datum/shipsystem/sensors/sensors
 	var/datum/shipsystem/engines/engines
 
+/datum/shipsystem_controller/proc/generate_shipsystems()
+	shields = new()
+	weapons = new()
+	hull_integrity = new()
+	sensors = new()
+	engines = new()
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	Alrighty, so our shipsystem controller will hold all the shipsystems, you'll be able to monitor it through the shipsystem monitors, where you can overclock and such, play with the power draw and all that goodness.	//
 //  Then it's just a case of adding the shipsystem controller to the overmap ship, it'll handle the rest																													//
@@ -76,6 +83,21 @@
 	power_draw = 0//just so it's not an empty type TBH.
 
 /datum/shipsystem/shields
+	integrity = 0 // start off
+	var/max_integrity = 20000
+	var/heat = 0
+	var/breakingpoint = 50 //at 50 heat, shields will take double damage
+	var/heat_resistance = 0.5 // how much we resist gaining heat
 	power_draw = 0//just so it's not an empty type TBH.
+	var/list/obj/machinery/space_battle/shield_generator/linked_generators = list()
+
+/datum/shipsystem/shields/fail()
+	..()
+	for(var/obj/machinery/space_battle/shield_generator/S in linked_generators)
+		for(var/obj/effect/adv_shield/S2 in S.shields)
+			S2.deactivate()
+			S2.active = FALSE
+		S.ship.shields_active = FALSE
+	failed = TRUE
 
 //round(100 * value / max_value PERCENTAGE CALCULATIONS, quick maths.

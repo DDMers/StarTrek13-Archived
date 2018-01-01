@@ -44,24 +44,27 @@
 	var/shields_maintained = 0
 	var/inactivity_time = 0
 	idle_power_usage = 200
-	var/on = 0 // power me up daddy
+	var/on = FALSE
 	var/controller = null
-	var/health = 1050 //charge them up
-	var/maxhealth = 20000
+	var/health_addition = 1050 // added to shipsystem shields.
+	var/max_health_addition = 1050
 	var/flux_rate = 100
 	var/flux = 1
 	var/heat = 0
 	var/regen = 0
 	var/obj/structure/overmap/ship = null
+	var/datum/shipsystem/shields/shield_system = null
 
 
 /obj/machinery/space_battle/shield_generator/proc/calculate()
 	for(var/obj/effect/adv_shield/S in shields)
 		S.health += regen
-	//	if(S.health >= maxhealth)
-		//	S.health = maxhealth
 
 /obj/machinery/space_battle/shield_generator/process()
+	if(shield_system.failed)
+		STOP_PROCESSING(SSobj, src)
+		return
+
 	flux_rate = flux*100
 	regen = (flux*flux_rate)
 	for(var/obj/effect/adv_shield/S in shields)
@@ -72,13 +75,13 @@
 		if(S.health <= 2000) //once they go down, they must charge back up a bit
 			for(var/obj/effect/adv_shield/A in shields)
 				A.health += 50 //slowly recharge
-				ship.shields_active = 0
+				ship.shields_active = FALSE
 		else //problem here
 			for(var/obj/effect/adv_shield/A in shields)
 				A.activate()
-				ship.shields_active = 1
+				ship.shields_active = TRUE
 	if(S.active) //we are active
-		ship.shields_active = 1
+		ship.shields_active = TRUE
 		if(S.health < S.maxhealth)
 			for(var/obj/effect/adv_shield/A in shields)
 				A.health += regen
@@ -112,6 +115,9 @@
 	toggle(user)
 
 /obj/machinery/space_battle/shield_generator/proc/toggle(mob/user)
+	if(shield_system.failed)
+		to_chat(user, "Shield Systems have failed.")
+		return
 	if(on)
 		to_chat(user, "shields dropped")
 		on = 0 //turn off
@@ -119,6 +125,8 @@
 			S.deactivate()
 			S.active = 0
 			ship.shields_active = 0
+		shield_system.integrity -= health_addition
+		health_addition = max_health_addition
 		return
 	if(!on)
 		var/sample
@@ -133,6 +141,8 @@
 				S.activate()
 				S.active = 1
 				ship.shields_active = 1
+			shield_system.integrity += health_addition
+			health_addition = 0
 			return
 		else
 			on = 0
@@ -155,17 +165,13 @@
 		shield.icon_state = "shieldwalloff"
 		shields += shield
 
-/obj/machinery/space_battle/shield_generator/take_damage(var/damage, damage_type = PHYSICAL)
+/obj/machinery/space_battle/shield_generator/take_damage(damage, damage_type = PHYSICAL)
 	src.say("Shield taking damage: [damage] : [damage_type == PHYSICAL ? "PHYSICAL" : "ENERGY"]")
 	var/obj/effect/adv_shield/S = pick(shields)
+	if(shield_system)
+		shield_system.integrity -= damage
 	if(!S.density)
 		return 0
-//	if(S.damage_taken + damage > flux_allocation)
-	//	active_shields.Remove(S)
-	///	inactive_shields.Add(S)
-	//	S.damage_taken = 0
-	//	S.density = 0
-		//S.icon_state = "shieldwalloff"
 	else
 		S.take_damage(damage)
 	return 1

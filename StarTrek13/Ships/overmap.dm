@@ -4,6 +4,7 @@
 //	face_atom(A)//////
 
 var/global/list/overmap_objects = list()
+var/global/list/global_ship_list = list()
 
 /area/overmap
 	name = "generic overmap area"
@@ -99,6 +100,13 @@ var/global/list/overmap_objects = list()
 	name = "USS Cadaver"
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	icon_state = "generic"
+	var/datum/shipsystem_controller/SC
+
+/obj/structure/overmap/ship/New()
+	..()
+	SC = new(src)
+	SC.generate_shipsystems()
+	global_ship_list += src
 
 /obj/structure/overmap/away/station/nanotrasen/shop
 	name = "NSV Mercator trading outpost"
@@ -187,12 +195,18 @@ var/global/list/overmap_objects = list()
 	for(var/obj/machinery/space_battle/shield_generator/G in linked_ship)
 		generator = G
 		G.ship = src
+		if(isovermapship(src))
+			var/obj/structure/overmap/ship/S = src
+			S.SC.shields.linked_generators += G
 	for(var/obj/machinery/computer/camera_advanced/transporter_control/T in linked_ship)
 		transporters += T
 
 /obj/structure/overmap/take_damage(amount,turf/target)
 	if(has_shields())
 		generator.take_damage(amount)//shields now handle the hit
+		if(isovermapship(src))
+			var/obj/structure/overmap/ship/S = src
+			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
 		var/datum/effect_system/spark_spread/s = new
 		s.set_up(2, 1, src)
 		s.start() //make a better overlay effect or something, this is for testing
@@ -321,6 +335,12 @@ var/global/list/overmap_objects = list()
 		return 1
 	else//no
 		return 0
+
+/obj/structure/overmap/ship/has_shields()
+	if(SC.shields.heat >= 100)
+		return 0
+	else
+		return ..()
 
 /obj/structure/overmap/bullet_act(var/obj/item/projectile/P)
 	. = ..()

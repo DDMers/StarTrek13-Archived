@@ -2372,6 +2372,7 @@
 #include "StarTrek13\computer\messagetypes\message.dm"
 #include "StarTrek13\Ships\elevator.dm"
 #include "StarTrek13\Ships\factions.dm"
+#include "StarTrek13\Ships\is_defines.dm"
 #include "StarTrek13\Ships\job_types.dm"
 #include "StarTrek13\Ships\overmap.dm"
 #include "StarTrek13\Ships\ship.dm"
