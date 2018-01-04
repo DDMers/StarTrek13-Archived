@@ -30,7 +30,13 @@
 		return FALSE
 	return 0
 
-
+/obj/item/device/generator_fan
+	name = "attachable fan"
+	desc = "Attach this to a shield generator to prevent heat overloads."
+	var/fanhealth = 100
+	var/fanmax = 70
+	var/fanmin = 0
+	var/fancurrent = 0
 
 /obj/machinery/space_battle/shield_generator
 	name = "shield generator"
@@ -55,6 +61,15 @@
 	var/obj/structure/overmap/ship = null
 	var/datum/shipsystem/shields/shield_system = null
 
+	var/obj/item/device/generator_fan/current_fan = null // lowers heat
+
+/obj/machinery/space_battle/shield_generator/attackby(obj/item/weapon/W, mob/user, params)
+	if(istype(W, /obj/item/device/generator_fan))
+		if(!current_fan)
+			W.forceMove(src)
+			current_fan = W
+			return
+	..()
 
 /obj/machinery/space_battle/shield_generator/proc/calculate()
 	for(var/obj/effect/adv_shield/S in shields)
@@ -96,6 +111,15 @@
 	else if(!S.active)
 		for(var/obj/effect/adv_shield/A in shields)
 			A.deactivate()
+
+	if(current_fan)
+		if(current_fan.fancurrent > 0)
+			if(heat)
+				heat -= current_fan.fancurrent/10
+				current_fan.fanhealth -= current_fan.fancurrent*0.50
+			if(current_fan.fancurrent > 3)
+				if(current_fan.fanhealth < -50) // maintain your fans!
+					explosion(get_turf(src), 0, 4, 4, flame_range = 14)
 //	calculate()
 
 /obj/effect/adv_shield/proc/percentage(damage)
@@ -112,7 +136,51 @@
 	return
 
 /obj/machinery/space_battle/shield_generator/attack_hand(mob/user)
-	toggle(user)
+	if(shield_system.failed)
+		to_chat(user, "Shield Systems have failed.")
+		return
+	var/obj/machinery/space_battle/shield_generator/s = ""
+
+	s += "<B>CONTROL PANEL</B><BR>"
+
+	s += "<A href='?src=\ref[src];toggle=1;clicker=\ref[user]'>Toggle Power</A><BR><BR>"
+
+	s += "Fan Power: [current_fan ? current_fan.fancurrent : "?"]<BR>"
+	s += "<A href='?src=\ref[src];fandecrease=1;clicker=\ref[user]'>-</A> -------- <A href='?src=\ref[src];fanincrease=1;clicker=\ref[user]'>+</A><BR><BR>"
+
+	s += "<B>STATISTICS</B><BR>"
+	s += "Shields Maintained: [shields_maintained]<BR>"
+	s += "Flux Rate: [flux_rate]<BR>"
+	s += "Power Usage: [idle_power_usage]<BR>"
+	s += "Heat: [heat]<BR>"
+	if(current_fan)
+		s += "Fan Utility: [current_fan.fanhealth]"
+
+	var/datum/browser/popup = new(user, "Shield Generator Options", name, 360, 350)
+	popup.set_content(s)
+	popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
+	popup.open()
+	if(user.canUseTopic(src))
+		addtimer(CALLBACK(src,/atom/proc/attack_hand, user), 20)
+
+/obj/machinery/space_battle/shield_generator/Topic(href, href_list)
+	..()
+	var/client/user = locate(href_list["clicker"])
+	if(href_list["toggle"] )
+		toggle(user)
+		return
+
+	if(!current_fan)
+		to_chat(user, "There are no fans attached to the shield generator.")
+		return
+
+	// TODO: Add cool sound effects
+	// For future coders: current_fan is meant to be hidden. you're suppose t
+	if(href_list["fandecrease"])
+		current_fan.fancurrent = max(current_fan.fanmin, current_fan.fancurrent - 5)
+
+	if(href_list["fanincrease"])
+		current_fan.fancurrent = min(current_fan.fanmax, current_fan.fancurrent + 5)
 
 /obj/machinery/space_battle/shield_generator/proc/toggle(mob/user)
 	if(shield_system.failed)
@@ -170,6 +238,8 @@
 	var/obj/effect/adv_shield/S = pick(shields)
 	if(shield_system)
 		shield_system.integrity -= damage
+	if(current_fan)
+		current_fan.fanhealth -= damage*0.10
 	if(!S.density)
 		return 0
 	else
