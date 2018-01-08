@@ -107,10 +107,10 @@ var/global/list/global_ship_list = list()
 	var/datum/shipsystem_controller/SC
 
 /obj/structure/overmap/ship/New()
-	..()
 	SC = new(src)
 	SC.generate_shipsystems()
 	global_ship_list += src
+	..()
 
 /obj/structure/overmap/away/station/nanotrasen/shop
 	name = "NSV Mercator trading outpost"
@@ -281,8 +281,9 @@ var/global/list/global_ship_list = list()
 	if(health <= 0)
 		destroy(1)
 	//	transporter.destinations = list()
-	if(pilot.loc != src)
-		exit() //pilot has been tele'd out, remove them!
+	if(pilot)
+		if(pilot.loc != src)
+			exit() //pilot has been tele'd out, remove them!
 
 
 

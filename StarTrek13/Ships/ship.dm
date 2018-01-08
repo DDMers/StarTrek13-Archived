@@ -76,6 +76,9 @@
 		S.health += regen
 
 /obj/machinery/space_battle/shield_generator/process()
+	if(!shield_system)
+		return
+
 	if(shield_system.failed)
 		STOP_PROCESSING(SSobj, src)
 		return
