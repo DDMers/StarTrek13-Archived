@@ -106,6 +106,14 @@ GLOBAL_PROTECT(security_mode)
 
 	if(GLOB.round_id)
 		log_game("Round ID: [GLOB.round_id]")
+		var/thing = "The Alpha Quadrant"//temporary fix this shit
+		var/list/webhookData = list(\
+			"map_name" = thing,\
+			"round" = GLOB.round_id,       \
+			"revision" = GLOB.revdata.commit,      \
+			"changelog_hash" = GLOB.changelog_hash)
+
+		webhook_send_roundstatus("lobby", webhookData)
 
 /world/proc/CheckSecurityMode()
 	//try to write to data
@@ -158,6 +166,7 @@ GLOBAL_PROTECT(security_mode)
 		C.AnnouncePR(final_composed)
 
 /world/Reboot(reason = 0, fast_track = FALSE)
+	webhook_send_roundstatus("endgame")
 	SERVER_TOOLS_ON_REBOOT
 	if (reason || fast_track) //special reboot, do none of the normal stuff
 		if (usr)

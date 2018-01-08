@@ -53,7 +53,7 @@ var/global/list/overmap_objects = list()
 	var/spawn_name = "ship_spawn"
 	var/spawn_random = 1
 	var/turf/initial_loc = null //where our pilot was standing upon entry
-	var/station = 0 // are we a station
+	var/can_move = 1 // are we a station
 	var/notified = 1 //notify pilot of visitable structures
 	var/recharge = 0 //
 	var/recharge_max = 1.4 //not quite spam, but not prohibitive either
@@ -128,7 +128,8 @@ var/global/list/overmap_objects = list()
 	//	transport_zone = get_area(T)
 	var/obj/effect/landmark/A = pick(thelist)
 	var/turf/theloc = get_turf(A)
-	forceMove(theloc)
+	if(spawn_random)
+		forceMove(theloc)
 	if(has_turrets)
 		fore_turrets = new /obj/ship_turrets(src.loc)
 		aft_turrets = new /obj/ship_turrets/aft_turrets(src.loc)
@@ -162,7 +163,7 @@ var/global/list/overmap_objects = list()
 	icon = 'StarTrek13/icons/trek/large_overmap.dmi'
 	icon_state = "station"
 	spawn_random = 0
-	station = 1
+	can_move = 0
 	spawn_name = "station_spawn"
 	initial_icon_state = "station"
 
@@ -253,16 +254,17 @@ var/global/list/overmap_objects = list()
 //So basically we're going to have ships that fly around in a box and shoot each other, i'll probably have the pilot mob possess the objects to fly them or something like that, otherwise I'll use cameras.
 
 /obj/structure/overmap/ship/relaymove(mob/user,direction)
-	if(user.incapacitated())
-		return //add things here!
-	if(!Process_Spacemove(direction) || world.time < next_vehicle_move || !isturf(loc))
-		return
-	if(navigating)
-		navigating = 0
-	step(src, direction)
-	next_vehicle_move = world.time + vehicle_move_delay
-	if(has_turrets)
-		update_turrets()
+	if(can_move)
+		if(user.incapacitated())
+			return //add things here!
+		if(!Process_Spacemove(direction) || world.time < next_vehicle_move || !isturf(loc))
+			return
+		if(navigating)
+			navigating = 0
+		step(src, direction)
+		next_vehicle_move = world.time + vehicle_move_delay
+		if(has_turrets)
+			update_turrets()
 	//use_power
 
 //obj/structure/overmap/ship/Move(atom/newloc, direct)
@@ -611,9 +613,6 @@ var/global/list/overmap_objects = list()
 //	pilot.status_flags -= GODMODE
 	pilot = null
 
-
-
-
 /obj/structure/overmap/proc/navigate()
 	update_turrets()
 	if(world.time < next_vehicle_move)
@@ -629,7 +628,7 @@ var/global/list/overmap_objects = list()
 		to_chat(pilot, "finished tracking [nav_target]. Autopilot disengaged")
 
 /obj/structure/overmap/proc/set_nav_target(mob/user)
-	if(!station)
+	if(can_move)
 		var/A
 		A = input("What ship shall we track?", "Ship navigation", A) as null|anything in overmap_objects
 		var/obj/structure/overmap/O = A
