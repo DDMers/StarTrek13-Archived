@@ -60,6 +60,12 @@
 	var/regen = 0
 	var/obj/structure/overmap/ship = null
 	var/datum/shipsystem/shields/shield_system = null
+//	var/efficiency = 1
+//	var/heat_capacity = 20000
+//	var/conduction_coefficient = 0.3
+//	var/list/datum/gas_mixture/airs
+//	var/temperature = 0
+//	var/connected = 1
 
 	var/obj/item/device/generator_fan/current_fan = null // lowers heat
 
@@ -226,6 +232,10 @@
 
 /obj/machinery/space_battle/shield_generator/proc/initialize()
 	var/area/thearea = get_area(src)
+//	var/i
+//	var/datum/gas_mixture/A = new
+//	A.volume = 200
+//	airs[i] = A
 	for(var/obj/effect/landmark/shield/marker in thearea)
 		if(!marker in thearea)
 			return
@@ -236,7 +246,8 @@
 		shield.icon_state = "shieldwalloff"
 		shields += shield
 
-/obj/machinery/space_battle/shield_generator/take_damage(damage, damage_type = PHYSICAL)
+
+/obj/machinery/space_battle/shield_generator/take_damage(var/damage, damage_type = PHYSICAL)
 	src.say("Shield taking damage: [damage] : [damage_type == PHYSICAL ? "PHYSICAL" : "ENERGY"]")
 	var/obj/effect/adv_shield/S = pick(shields)
 	if(shield_system)
@@ -248,6 +259,30 @@
 	else
 		S.take_damage(damage)
 	return 1
+
+/*
+/obj/machinery/space_battle/shield_generator/process_atmos()
+	..()
+	if(!on)
+		return
+	var/datum/gas_mixture/air1 = airs[1]
+	if(/*!nodes[1]*/!connected|| !airs[1] || !air1.gases.len || air1.gases[/datum/gas/oxygen][MOLES] < 5) // Turn off if the machine won't work.
+		on = FALSE
+		update_icon()
+		return
+	if(on)
+		var/cold_protection = 0
+		var/temperature_delta = air1.temperature - temperature // Heat generated - temperature of the gas mix
+		if(abs(temperature_delta) > 1)
+			var/air_heat_capacity = air1.heat_capacity()
+			var/heat = ((1 - cold_protection) * 0.1 + conduction_coefficient) * temperature_delta * (air_heat_capacity * heat_capacity / (air_heat_capacity + heat_capacity))
+
+			air1.temperature = max(air1.temperature - heat / air_heat_capacity, TCMB)
+			temperature = max(heat / heat_capacity, TCMB)
+
+		air1.gases[/datum/gas/oxygen][MOLES] -= 0.5 / efficiency // Magically consume gas? why not, I don't get atmos code
+
+*/
 
 
 		//S.calculate()
@@ -559,18 +594,19 @@
 	dir = 4
 	density = 0
 	pixel_x = -64
-	var/charge = 10000 //current power levels
-	var/charge_rate = 30000
+	var/charge = 1000 //current power levels
+	var/charge_rate = 300
 	var/state = 1
 	var/locked = 0
 	var/obj/item/gun/shipweapon/phaser
 	var/obj/structure/cable/attached		// the attached cable
 	var/max_power = 1000		// max power it can hold
-	var/fire_cost = 100
+	var/fire_cost = 700
 	var/percentage = 0 //percent charged
 	var/list/shipareas = list()
 	var/target = null
 	var/obj/machinery/space_battle/shield_generator/shieldgen
+	var/damage = 500
 
 /obj/machinery/power/ship/phaser/opposite
 	dir = 8
@@ -715,6 +751,10 @@
 	name = "NSV Crates"
 	icon_state = "ship"
 
+/area/ship/nanotrasen/capital_class
+	name = "NSV Annulment"
+	icon_state = "ship"
+
 /area/ship/overmap/nanotrasen
 	name = "Nanotrasen station"
 	icon_state = "ship"
@@ -832,7 +872,7 @@
 				if(AR == current)
 					shipareas -= AR.name
 					shipareas -= AR
-	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren","fire torpedo")
+	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren","fire torpedo","turret control")
 	switch(mode)
 		if("choose target")
 			theship.exit(user)
@@ -861,6 +901,8 @@
 				START_PROCESSING(SSobj,src)
 		if("fire torpedo")
 			fire_torpedo(target,user)
+		if("turret control")
+			set_gun_turret_target(user)
 
 
 /obj/structure/fluff/helm/desk/tactical/proc/fire_phasers(atom/target, mob/user)

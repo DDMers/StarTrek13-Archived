@@ -5,6 +5,18 @@
 
 	var/turf/turf_source = get_turf(source)
 
+	if(turf_source.z == 2)
+		var/area/HA
+		var/list/affected_overmaps = list()
+		for(var/obj/structure/overmap/O in oview(7 + extrarange))
+			affected_overmaps += O
+		for(var/mob/living/carbon/human/H in GLOB.mob_living_list)
+			HA = get_area(H)
+			for(var/obj/structure/overmap/O in affected_overmaps)
+				if(HA.current_overmap == O.name)
+					H.playsound_local(get_turf(H), soundin, (300 / (get_dist(source, O))) * 2 , vary, frequency, falloff, channel, pressure_affected, sound(get_sfx(soundin)))
+					break
+
 	//allocate a channel if necessary now so its the same for everyone
 	channel = channel || open_sound_channel()
 

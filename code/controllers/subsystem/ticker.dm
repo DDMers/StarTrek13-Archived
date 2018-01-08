@@ -140,6 +140,7 @@ SUBSYSTEM_DEF(ticker)
 			if(CONFIG_GET(flag/irc_announce_new_game))
 				SERVER_TOOLS_CHAT_BROADCAST("New round starting on [SSmapping.config.map_name]!")
 			current_state = GAME_STATE_PREGAME
+			webhook_send_roundstatus("ingame")
 			//Everyone who wants to be an observer is now spawned
 			create_observers()
 			fire()
