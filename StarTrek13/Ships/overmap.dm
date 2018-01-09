@@ -7,6 +7,7 @@
 	var/current_overmap = "none" // current map an area is on.
 
 var/global/list/overmap_objects = list()
+var/global/list/global_ship_list = list()
 
 /area/overmap
 	name = "generic overmap area"
@@ -33,13 +34,13 @@ var/global/list/overmap_objects = list()
 	var/shield_health = 1050 //How much health do the shields have left, for UI type stuff and icon_states
 	var/atom/movable/pilot
 	var/view_range = 7 //change the view range for looking at a long range.
-	anchored = 0
-	can_be_unanchored = 0 //Don't anchor a ship with a wrench, these are going to be people sized
-	density = 1
+	anchored = FALSE
+	can_be_unanchored = FALSE //Don't anchor a ship with a wrench, these are going to be people sized
+	density = TRUE
 	var/list/interactables_near_ship = list()
 	var/area/linked_ship //CHANGE ME WITH THE DIFFERENT TYPES!
 	var/max_shield_health = 20000 //default max shield health, changes on process
-	var/shields_active = 0
+	var/shields_active = FALSE
 	pixel_y = -32
 	var/next_vehicle_move = 0 //used for move delays
 	var/vehicle_move_delay = 4 //tick delay between movements, lower = faster, higher = slower
@@ -47,21 +48,21 @@ var/global/list/overmap_objects = list()
 	var/damage = 800 //standard damage for phasers, this will tank shields really quickly though so be warned!
 	var/atom/targetmeme = null //for testing
 	var/weapons_charge_time = 60 //6 seconds inbetween shots.
-	var/in_use1 = 0 //firing weapons?
+	var/in_use1 = FALSE //firing weapons?
 	var/initial_icon_state = "generic"
 	var/obj/machinery/computer/camera_advanced/transporter_control/transporters = list()//linked transporter CONTROLLER
 	var/spawn_name = "ship_spawn"
-	var/spawn_random = 1
+	var/spawn_random = TRUE
 	var/turf/initial_loc = null //where our pilot was standing upon entry
-	var/can_move = 1 // are we a station
-	var/notified = 1 //notify pilot of visitable structures
-	var/recharge = 0 //
+	var/can_move = TRUE // are we a station
+	var/notified = TRUE //notify pilot of visitable structures
+	var/recharge = FALSE //
 	var/recharge_max = 1.4 //not quite spam, but not prohibitive either
 	var/sensor_range = 10 //radius in which ships can be beamed to, amongst other things
 	var/area/transport_zone = null
 	var/marker = "cadaver"
 	var/atom/movable/nav_target = null
-	var/navigating = 0
+	var/navigating = FALSE
 	var/faction = "federation" //So the ai ships don't shoot it.
 	var/charge = 4000 //Phaser chareg													////TESTING REMOVE ME AND PUT BME BACK TO 0 OR THIS WILL KILL ALL BALANCE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	var/phaser_charge_total = 0 //How much power all the ship phasers draw together
@@ -84,6 +85,7 @@ var/global/list/overmap_objects = list()
 	var/has_target = 0 //Are we tracking a target with our guns?
 	//IDEA! put whitespace/alpha where turrets will go and UNDERLAY them so they stay under the shield?
 	var/tempmode = 0
+	var/datum/shipsystem_controller/SC
 
 /obj/item/gun/energy/laser/ship_weapon/turret_gun
 	name = "fuck"
@@ -162,10 +164,14 @@ var/global/list/overmap_objects = list()
 	name = "space station 13"
 	icon = 'StarTrek13/icons/trek/large_overmap.dmi'
 	icon_state = "station"
-	spawn_random = 0
-	can_move = 0
+	spawn_random = FALSE
+	can_move = FALSE
 	spawn_name = "station_spawn"
 	initial_icon_state = "station"
+	var/datum/shipsystem/shields/station_shields = null
+
+/obj/structure/overmap/away/station/New()
+	station_shields = new()
 
 /obj/structure/overmap/ship //dummy for testing woo
 	name = "USS thingy"
@@ -189,6 +195,13 @@ var/global/list/overmap_objects = list()
 	pixel_x = -100
 	pixel_y = -100
 	var/datum/looping_sound/trek/engine_hum/soundloop
+//	var/datum/shipsystem_controller/SC
+
+/obj/structure/overmap/ship/New()
+	SC = new(src)
+	SC.generate_shipsystems()
+	global_ship_list += src
+	..()
 
 /obj/structure/overmap/ship/capital_class/nanotrasen
 	name = "NSV annulment"
@@ -286,6 +299,14 @@ var/global/list/overmap_objects = list()
 	for(var/obj/machinery/space_battle/shield_generator/G in linked_ship)
 		generator = G
 		G.ship = src
+		if(isovermapship(src))
+			var/obj/structure/overmap/ship/S = src
+			S.SC.shields.linked_generators += G
+			G.shield_system = S.SC.shields
+		if(isovermapstation(src))
+			var/obj/structure/overmap/away/station/station = src
+			station.station_shields.linked_generators += G
+			G.shield_system = station.station_shields
 	for(var/obj/machinery/computer/camera_advanced/transporter_control/T in linked_ship)
 		transporters += T
 
@@ -306,7 +327,17 @@ var/global/list/overmap_objects = list()
 
 /obj/structure/overmap/take_damage(amount,turf/target)
 	if(has_shields())
-		generator.take_damage(amount)//shields now handle the hit
+		var/heat_multi = 1
+		if(isovermapship(src))
+			var/obj/structure/overmap/ship/S = src
+			heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
+			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
+		if(isovermapstation(src))
+			var/obj/structure/overmap/away/station/station = src
+			heat_multi = station.station_shields.heat >= 50 ? 2 : 1
+			station.station_shields.heat += round(amount/station.station_shields.heat_resistance)
+
+		generator.take_damage(amount*heat_multi)
 		var/datum/effect_system/spark_spread/s = new
 		s.set_up(2, 1, src)
 		s.start() //make a better overlay effect or something, this is for testing
@@ -576,8 +607,9 @@ var/global/list/overmap_objects = list()
 	if(health <= 0)
 		destroy(1)
 	//	transporter.destinations = list()
-	if(pilot.loc != src)
-		exit() //pilot has been tele'd out, remove them!
+	if(pilot)
+		if(pilot.loc != src)
+			exit() //pilot has been tele'd out, remove them!
 
 	if(counter >= 10)//every 10 ticks it'll charge
 		if(charge < max_charge)
@@ -679,6 +711,12 @@ var/global/list/overmap_objects = list()
 		return 1
 	else//no
 		return 0
+
+/obj/structure/overmap/ship/has_shields()
+	if(SC.shields.heat >= 100)
+		return 0
+	else
+		return ..()
 
 /obj/structure/overmap/bullet_act(var/obj/item/projectile/P)
 	. = ..()
