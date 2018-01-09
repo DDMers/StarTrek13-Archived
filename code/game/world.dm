@@ -3,6 +3,9 @@
 GLOBAL_VAR(security_mode)
 GLOBAL_VAR(restart_counter)
 GLOBAL_PROTECT(security_mode)
+var/global/list/serverswap = list()
+var/global/serverswap_open_status = 1 // if this is 1, we're the active server
+var/global/serverswap_closed = 0
 
 /world/New()
 	log_world("World loaded at [time_stamp()]")

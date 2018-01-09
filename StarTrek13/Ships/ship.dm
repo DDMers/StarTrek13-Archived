@@ -72,7 +72,7 @@
 /obj/machinery/space_battle/shield_generator/attackby(obj/item/weapon/W, mob/user, params)
 	if(istype(W, /obj/item/device/generator_fan))
 		if(!current_fan)
-			W.forceMove(src)
+			W.loc = src
 			current_fan = W
 			return
 	..()
@@ -84,19 +84,22 @@
 /obj/machinery/space_battle/shield_generator/process()
 	if(!shield_system)
 		return
-
 	if(shield_system.failed)
-		STOP_PROCESSING(SSobj, src)
-		return
-
+		var/obj/effect/adv_shield/SH = pick(shields)
+	//	STOP_PROCESSING(SSobj, src)
+		for(var/obj/effect/adv_shield/AB in shields)
+			if(SH.health <= 2000)
+				AB.health += 50+flux_rate //slowly recharge
+				ship.shields_active = FALSE
+				return
 	flux_rate = flux*100
 	regen = (flux*flux_rate)
+	var/obj/effect/adv_shield/SH = pick(shields)
 	for(var/obj/effect/adv_shield/S in shields)
-		if(S.active)
+		if(SH.active)
 			S.regen = regen
-	var/obj/effect/adv_shield/S = pick(shields)
-	if(S.active && !S.density) //Active means the shieldgen is turning  it on, if it's not active the shieldgen cut it off
-		if(S.health <= 2000) //once they go down, they must charge back up a bit
+	if(SH.active && !SH.density) //Active means the shieldgen is turning  it on, if it's not active the shieldgen cut it off
+		if(SH.health <= 2000) //once they go down, they must charge back up a bit
 			for(var/obj/effect/adv_shield/A in shields)
 				A.health += 50 //slowly recharge
 				ship.shields_active = FALSE
@@ -104,27 +107,26 @@
 			for(var/obj/effect/adv_shield/A in shields)
 				A.activate()
 				ship.shields_active = TRUE
-	if(S.active) //we are active
+	if(SH.active) //we are active
 		ship.shields_active = TRUE
-		if(S.health < S.maxhealth)
+		if(SH.health < SH.maxhealth)
 			for(var/obj/effect/adv_shield/A in shields)
 				A.health += regen
 		//	health += regen
 		else
 			return
-		if(S.health <= 0)
+		if(SH.health <= 0)
 			for(var/obj/effect/adv_shield/A in shields)
 				A.health = 0
 				ship.shields_active = 0
 				A.deactivate()
-	else if(!S.active)
+	else if(!SH.active)
 		for(var/obj/effect/adv_shield/A in shields)
 			A.deactivate()
-
 	if(current_fan)
 		if(current_fan.fancurrent > 0)
-			if(heat)
-				heat -= current_fan.fancurrent/10
+			if(shield_system.heat)
+				shield_system.heat -= current_fan.fancurrent/10
 				current_fan.fanhealth -= current_fan.fancurrent*0.50
 			if(current_fan.fancurrent > 3)
 				if(current_fan.fanhealth < -50) // maintain your fans!

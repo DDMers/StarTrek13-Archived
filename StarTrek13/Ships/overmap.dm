@@ -54,7 +54,7 @@ var/global/list/global_ship_list = list()
 	var/spawn_name = "ship_spawn"
 	var/spawn_random = TRUE
 	var/turf/initial_loc = null //where our pilot was standing upon entry
-	var/station = FALSE // are we a station
+	var/can_move = TRUE // are we a station
 	var/notified = TRUE //notify pilot of visitable structures
 	var/recharge = FALSE //
 	var/recharge_max = 1.4 //not quite spam, but not prohibitive either
@@ -85,6 +85,7 @@ var/global/list/global_ship_list = list()
 	var/has_target = 0 //Are we tracking a target with our guns?
 	//IDEA! put whitespace/alpha where turrets will go and UNDERLAY them so they stay under the shield?
 	var/tempmode = 0
+	var/datum/shipsystem_controller/SC
 
 /obj/item/gun/energy/laser/ship_weapon/turret_gun
 	name = "fuck"
@@ -164,7 +165,7 @@ var/global/list/global_ship_list = list()
 	icon = 'StarTrek13/icons/trek/large_overmap.dmi'
 	icon_state = "station"
 	spawn_random = FALSE
-	station = FALSE
+	can_move = FALSE
 	spawn_name = "station_spawn"
 	initial_icon_state = "station"
 	var/datum/shipsystem/shields/station_shields = null
@@ -194,7 +195,7 @@ var/global/list/global_ship_list = list()
 	pixel_x = -100
 	pixel_y = -100
 	var/datum/looping_sound/trek/engine_hum/soundloop
-	var/datum/shipsystem_controller/SC
+//	var/datum/shipsystem_controller/SC
 
 /obj/structure/overmap/ship/New()
 	SC = new(src)
