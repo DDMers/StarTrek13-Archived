@@ -1,0 +1,60 @@
+"a" = (/turf/open/space/basic,/area/space)
+"b" = (/turf/closed/wall/mineral/titanium,/area/space)
+"c" = (/turf/open/floor/oldshuttle,/area/space)
+"d" = (/obj/machinery/power/emitter/anchored,/turf/open/floor/oldshuttle,/area/space)
+"e" = (/obj/structure/lattice/catwalk,/turf/open/space/basic,/area/space)
+"f" = (/obj/structure/tank_dispenser/plasma,/turf/open/floor/oldshuttle,/area/space)
+"g" = (/obj/structure/reflector/double{tag = "icon-reflector_double (NORTH)"; icon_state = "reflector_double"; dir = 1; anchored = 1},/turf/open/floor/oldshuttle,/area/space)
+"h" = (/obj/structure/shuttle/engine/heater{dir = 4},/turf/open/floor/oldshuttle,/area/space)
+"i" = (/obj/structure/lattice/catwalk,/obj/machinery/power/emitter/anchored,/turf/open/space/basic,/area/space)
+"j" = (/obj/structure/lattice/catwalk,/obj/structure/reflector/double{tag = "icon-reflector_double (NORTH)"; icon_state = "reflector_double"; dir = 1; anchored = 1},/turf/open/space/basic,/area/space)
+"k" = (/obj/structure/lattice/catwalk,/obj/machinery/power/emitter/anchored{dir = 1; state = 2},/turf/open/space/basic,/area/space)
+"l" = (/obj/structure/shuttle/engine/huge{dir = 4; icon_state = "huge_engine"; tag = ""},/turf/open/floor/oldshuttle,/area/space)
+"m" = (/turf/closed/wall/ship,/area/space)
+"n" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/beige,/area/space)
+"o" = (/turf/open/floor/borg/trek/light,/area/space)
+"p" = (/turf/open/floor/borg/trek/blue,/area/space)
+"q" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/ship/light/m,/area/space)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbba
+aaaaaaaaaaaaaaaaaaaabbcdecfeeeeeeegchcca
+aaaaaaaaaaaaaaaaaaaabceeeeeeeieeeeeehcca
+aaaaaaaaaaaaaaaaaaaabbeeeeeeejeeeekchlca
+aaaaaaaaaaaaaaaaaaaaabbbbbbcbbbbbbbbbbba
+aaaaaaaaaaaaaaaaaaaaaaacccccccccaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaccccccccccaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ammmmmmmmmmmmmmmmmmmmmmnmmmmmmnnnmmmmmmm
+mmaaaaaaaaaaooooooooooooooooooooooooooom
+maaaaaaaaaaappppppppppppppppppppppppppom
+maaaaaaaaaaammmmmmmmmmmmaaaaopmqqmmmmpom
+maaaaaaaaaaamaaaaaaaaaaaaaaaaaaaaaaampom
+maaaaaaaaaaamaaaaaaaaaaaaaaaaaaaaaaampom
+maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaampom
+maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaampom
+maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaampom
+maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaampom
+maaaaaaaaaaammaaaaaaaaaaaaaaaaaaaaaampom
+maaaaaaaaaaamaaaaaaaaaaaaaaaaaaaaaaampom
+maaaaaaaaaaammmmmmmmmmmmaaaammmmmmmmmpom
+maaaaaaaaaaappppppppppppppppppppppppppom
+mmaaaaaaaaaaooooooooooooooooooooooooooom
+ammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaccccccccccaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaacccccccccaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaabbbbbbcbbbbbbbbbbbaa
+aaaaaaaaaaaaaaaaaaabbcdecfeeeeeeegchccaa
+aaaaaaaaaaaaaaaaaaabceeeeeeeieeeeeehccaa
+aaaaaaaaaaaaaaaaaaabbeeeeeeejeeeekchlcaa
+aaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbaa
+"}

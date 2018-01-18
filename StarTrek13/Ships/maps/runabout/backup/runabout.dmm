@@ -14,8 +14,10 @@
 "an" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/ship/light/m{dir = 1},/area/space)
 "ao" = (/obj/structure/torpedo_launcher,/turf/open/floor/borg/trek/beige,/area/space)
 "ap" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/beige,/area/space)
+"aq" = (/turf/open/floor/borg/trek/beige,/area/space)
 "ar" = (/obj/structure/chair/office/dark{desc = "Should my butt go in this one?"; dir = 8},/turf/open/floor/borg/trek/beige,/area/space)
 "as" = (/obj/machinery/door/airlock/external,/turf/open/floor/borg/trek/dark,/area/space)
+"at" = (/obj/machinery/computer/transporter_control,/turf/open/floor/borg/trek/beige,/area/space)
 "au" = (/obj/structure/chair/office/dark{dir = 8},/turf/open/floor/borg/trek/beige,/area/space)
 "av" = (/obj/machinery/atmospherics/components/unary/vent_pump/on,/turf/open/floor/borg/trek/beige,/area/space)
 "aw" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on,/turf/open/floor/borg/trek/beige,/area/space)
@@ -44,7 +46,7 @@
 "aT" = (/obj/structure/window/spawner/east,/turf/open/floor/borg/trek/beige,/area/space)
 "aU" = (/obj/structure/grille,/obj/structure/window/shuttle,/turf/open/floor/borg/trek/light,/area/ship)
 "aV" = (/obj/structure/fluff/helm/desk/noisy{dir = 4},/turf/open/floor/borg/trek/red,/area/space)
-"aW" = (/turf/open/floor/borg/trek/beige,/area/space)
+"aW" = (/obj/structure/trek/transporter,/turf/open/floor/borg/trek/beige,/area/space)
 "aX" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden,/turf/open/floor/borg/trek/blue,/area/space)
 "aY" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{dir = 8},/turf/open/floor/borg/trek/beige,/area/space)
 "aZ" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on{dir = 8},/turf/open/floor/borg/trek/beige,/area/space)
@@ -55,7 +57,8 @@
 "be" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/turf/open/floor/borg/trek/beige,/area/space)
 "bf" = (/obj/machinery/door/airlock/trek{name = "bridge airlock"; req_access_txt = "19"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/borg/trek/blue,/area/space)
 "bg" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/turf/open/floor/borg/trek/blue,/area/space)
-"bh" = (/obj/machinery/atmospherics/pipe/manifold/supply/hidden{dir = 1},/turf/open/floor/borg/trek/blue,/area/space)
+"bh" = (/obj/structure/trek/transporter,/obj/machinery/atmospherics/pipe/manifold/supply/hidden{dir = 1},/turf/open/floor/borg/trek/blue,/area/space)
+"bi" = (/obj/structure/trek/transporter,/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/borg/trek/blue,/area/space)
 "bj" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/borg/trek/blue,/area/space)
 "bk" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/machinery/door/airlock/trek,/turf/open/floor/borg/trek/blue,/area/space)
 "bl" = (/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden,/turf/open/floor/borg/trek/blue,/area/space)
@@ -111,17 +114,17 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababacababababababababab
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamamamamamamamamamamanamamamanamamacacacacacaeaeaeaeaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaamamamamamamamanamamaoaoaoamapaWaramamanananananamamasamaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaamamamamamamaWaWauaWamaWavawamaWavawamaxayazaAaBaCaDamaEamaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaFaGaGaGaGaGamaHaHaHaIamaWaJaKamaWaJaKamaLaWaWaWaMaWaLamasamamamamamamaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaamaNaNaOauaWamaWaWaWaWamamaPaQanamaPaQamaLaWawaWaRaWaLamaWaSaTaWaWaWamaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaUaVauaWaWawamawaWaWaWamaWaXaYaZbabbaKamaLaWaKavbcaWaLamavapbdaWaWaWamaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaUaNaWaWbabebfbgbhbjbjbkbjblbgbjbjblbgbkbjbjbgbmbjbjbjbnboapbdbpaWbqamaaaaaa
-aaaaaaaaaaaaaaaaaaaaaabraUbsauaWaWbtbubvbwbxbxbubybwbzbybybwbzbubAbybBbybybybAbubCapbdaWaWaWamaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaabDaNaNbEauaKamaWaXaWaWamamaPaQaGamaPaQamaLaWapaRaraWaLambFaWaTaWaWaWamaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaabGananananbHamambIamamamaWaJaKamaWaJaKamaLaWapaRaraWaLamasamamamamamamaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaabJbubybybybKambabLbMbMamaWbNbFamaWbNbFamaLaWaWaWaWaWaLamaEamaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaambObPbQamaWbRbSboamapaWaramapaWaramamanananananamamasamaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaamamamamamamamanamamaoaoaoamapaqaramamanananananamamasamaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaamamamamamamataqauaqamaqavawamaqavawamaxayazaAaBaCaDamaEamaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaFaGaGaGaGaGamaHaHaHaIamaqaJaKamaqaJaKamaLaqaqaqaMaqaLamasamamamamamamaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaamaNaNaOauaqamaqaqaqaqamamaPaQanamaPaQamaLaqawaqaRaqaLamaqaSaTaqaqaqamaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaUaVauaqaqawamawaWaWaqamaqaXaYaZbabbaKamaLaqaKavbcaqaLamavapbdaqaqaqamaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaUaNaqaqbabebfbgbhbibjbkbjblbgbjbjblbgbkbjbjbgbmbjbjbjbnboapbdbpaqbqamaaaaaa
+aaaaaaaaaaaaaaaaaaaaaabraUbsauaqaqbtbubvbwbxbxbubybwbzbybybwbzbubAbybBbybybybAbubCapbdaqaqaqamaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaabDaNaNbEauaKamaqaXaqaqamamaPaQaGamaPaQamaLaqapaRaraqaLambFaqaTaqaqaqamaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaabGananananbHamambIamamamaqaJaKamaqaJaKamaLaqapaRaraqaLamasamamamamamamaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaabJbubybybybKambabLbMbMamaqbNbFamaqbNbFamaLaqaqaqaqaqaLamaEamaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaambObPbQamaqbRbSboamapaqaramapaqaramamanananananamamasamaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamamamamamamamamamamanamamamanamamacacacacacaeaeaeaeaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
