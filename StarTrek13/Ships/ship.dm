@@ -30,7 +30,13 @@
 		return FALSE
 	return 0
 
-
+/obj/item/device/generator_fan
+	name = "attachable fan"
+	desc = "Attach this to a shield generator to prevent heat overloads."
+	var/fanhealth = 100
+	var/fanmax = 70
+	var/fanmin = 0
+	var/fancurrent = 0
 
 /obj/machinery/space_battle/shield_generator
 	name = "shield generator"
@@ -44,55 +50,87 @@
 	var/shields_maintained = 0
 	var/inactivity_time = 0
 	idle_power_usage = 200
-	var/on = 0 // power me up daddy
+	var/on = FALSE
 	var/controller = null
-	var/health = 1050 //charge them up
-	var/maxhealth = 20000
+	var/health_addition = 1050 // added to shipsystem shields.
+	var/max_health_addition = 1050
 	var/flux_rate = 100
 	var/flux = 1
 	var/heat = 0
 	var/regen = 0
 	var/obj/structure/overmap/ship = null
+	var/datum/shipsystem/shields/shield_system = null
+//	var/efficiency = 1
+//	var/heat_capacity = 20000
+//	var/conduction_coefficient = 0.3
+//	var/list/datum/gas_mixture/airs
+//	var/temperature = 0
+//	var/connected = 1
 
+	var/obj/item/device/generator_fan/current_fan = null // lowers heat
+
+/obj/machinery/space_battle/shield_generator/attackby(obj/item/weapon/W, mob/user, params)
+	if(istype(W, /obj/item/device/generator_fan))
+		if(!current_fan)
+			W.loc = src
+			current_fan = W
+			return
+	..()
 
 /obj/machinery/space_battle/shield_generator/proc/calculate()
 	for(var/obj/effect/adv_shield/S in shields)
 		S.health += regen
-	//	if(S.health >= maxhealth)
-		//	S.health = maxhealth
 
 /obj/machinery/space_battle/shield_generator/process()
+	if(!shield_system)
+		return
+	if(shield_system.failed)
+		var/obj/effect/adv_shield/SH = pick(shields)
+	//	STOP_PROCESSING(SSobj, src)
+		for(var/obj/effect/adv_shield/AB in shields)
+			if(SH.health <= 2000)
+				AB.health += 50+flux_rate //slowly recharge
+				ship.shields_active = FALSE
+				return
 	flux_rate = flux*100
 	regen = (flux*flux_rate)
+	var/obj/effect/adv_shield/SH = pick(shields)
 	for(var/obj/effect/adv_shield/S in shields)
-		if(S.active)
+		if(SH.active)
 			S.regen = regen
-	var/obj/effect/adv_shield/S = pick(shields)
-	if(S.active && !S.density) //Active means the shieldgen is turning  it on, if it's not active the shieldgen cut it off
-		if(S.health <= 2000) //once they go down, they must charge back up a bit
+	if(SH.active && !SH.density) //Active means the shieldgen is turning  it on, if it's not active the shieldgen cut it off
+		if(SH.health <= 2000) //once they go down, they must charge back up a bit
 			for(var/obj/effect/adv_shield/A in shields)
 				A.health += 50 //slowly recharge
-				ship.shields_active = 0
+				ship.shields_active = FALSE
 		else //problem here
 			for(var/obj/effect/adv_shield/A in shields)
 				A.activate()
-				ship.shields_active = 1
-	if(S.active) //we are active
-		ship.shields_active = 1
-		if(S.health < S.maxhealth)
+				ship.shields_active = TRUE
+	if(SH.active) //we are active
+		ship.shields_active = TRUE
+		if(SH.health < SH.maxhealth)
 			for(var/obj/effect/adv_shield/A in shields)
 				A.health += regen
 		//	health += regen
 		else
 			return
-		if(S.health <= 0)
+		if(SH.health <= 0)
 			for(var/obj/effect/adv_shield/A in shields)
 				A.health = 0
 				ship.shields_active = 0
 				A.deactivate()
-	else if(!S.active)
+	else if(!SH.active)
 		for(var/obj/effect/adv_shield/A in shields)
 			A.deactivate()
+	if(current_fan)
+		if(current_fan.fancurrent > 0)
+			if(shield_system.heat)
+				shield_system.heat -= current_fan.fancurrent/10
+				current_fan.fanhealth -= current_fan.fancurrent*0.50
+			if(current_fan.fancurrent > 3)
+				if(current_fan.fanhealth < -50) // maintain your fans!
+					explosion(get_turf(src), 0, 4, 4, flame_range = 14)
 //	calculate()
 
 /obj/effect/adv_shield/proc/percentage(damage)
@@ -109,9 +147,56 @@
 	return
 
 /obj/machinery/space_battle/shield_generator/attack_hand(mob/user)
-	toggle(user)
+	if(shield_system.failed)
+		to_chat(user, "Shield Systems have failed.")
+		return
+	var/obj/machinery/space_battle/shield_generator/s = ""
+
+	s += "<B>CONTROL PANEL</B><BR>"
+
+	s += "<A href='?src=\ref[src];toggle=1;clicker=\ref[user]'>Toggle Power</A><BR><BR>"
+
+	s += "Fan Power: [current_fan ? current_fan.fancurrent : "?"]<BR>"
+	s += "<A href='?src=\ref[src];fandecrease=1;clicker=\ref[user]'>-</A> -------- <A href='?src=\ref[src];fanincrease=1;clicker=\ref[user]'>+</A><BR><BR>"
+
+	s += "<B>STATISTICS</B><BR>"
+	s += "Shields Maintained: [shields_maintained]<BR>"
+	s += "Flux Rate: [flux_rate]<BR>"
+	s += "Power Usage: [idle_power_usage]<BR>"
+	s += "Heat: [heat]<BR>"
+	if(current_fan)
+		s += "Fan Utility: [current_fan.fanhealth]"
+
+	var/datum/browser/popup = new(user, "Shield Generator Options", name, 360, 350)
+	popup.set_content(s)
+	popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
+	popup.open()
+	if(user.canUseTopic(src))
+		addtimer(CALLBACK(src,/atom/proc/attack_hand, user), 20)
+
+/obj/machinery/space_battle/shield_generator/Topic(href, href_list)
+	..()
+	var/client/user = locate(href_list["clicker"])
+	if(href_list["toggle"] )
+		toggle(user)
+		return
+
+	if(!current_fan)
+		to_chat(user, "There are no fans attached to the shield generator.")
+		return
+
+	// TODO: Add cool sound effects
+	// For future coders: current_fan is meant to be hidden. you're suppose t
+	if(href_list["fandecrease"])
+		current_fan.fancurrent = max(current_fan.fanmin, current_fan.fancurrent - 5)
+
+	if(href_list["fanincrease"])
+		current_fan.fancurrent = min(current_fan.fanmax, current_fan.fancurrent + 5)
 
 /obj/machinery/space_battle/shield_generator/proc/toggle(mob/user)
+	if(shield_system.failed)
+		to_chat(user, "Shield Systems have failed.")
+		return
 	if(on)
 		to_chat(user, "shields dropped")
 		on = 0 //turn off
@@ -119,6 +204,8 @@
 			S.deactivate()
 			S.active = 0
 			ship.shields_active = 0
+		shield_system.integrity -= health_addition
+		health_addition = max_health_addition
 		return
 	if(!on)
 		var/sample
@@ -133,6 +220,8 @@
 				S.activate()
 				S.active = 1
 				ship.shields_active = 1
+			shield_system.integrity += min(shield_system.integrity + health_addition, shield_system.max_integrity)
+			health_addition = 0
 			return
 		else
 			on = 0
@@ -145,6 +234,10 @@
 
 /obj/machinery/space_battle/shield_generator/proc/initialize()
 	var/area/thearea = get_area(src)
+//	var/i
+//	var/datum/gas_mixture/A = new
+//	A.volume = 200
+//	airs[i] = A
 	for(var/obj/effect/landmark/shield/marker in thearea)
 		if(!marker in thearea)
 			return
@@ -155,20 +248,43 @@
 		shield.icon_state = "shieldwalloff"
 		shields += shield
 
+
 /obj/machinery/space_battle/shield_generator/take_damage(var/damage, damage_type = PHYSICAL)
 	src.say("Shield taking damage: [damage] : [damage_type == PHYSICAL ? "PHYSICAL" : "ENERGY"]")
 	var/obj/effect/adv_shield/S = pick(shields)
+	if(shield_system)
+		shield_system.integrity -= damage
+	if(current_fan)
+		current_fan.fanhealth -= damage*0.10
 	if(!S.density)
 		return 0
-//	if(S.damage_taken + damage > flux_allocation)
-	//	active_shields.Remove(S)
-	///	inactive_shields.Add(S)
-	//	S.damage_taken = 0
-	//	S.density = 0
-		//S.icon_state = "shieldwalloff"
 	else
 		S.take_damage(damage)
 	return 1
+
+/*
+/obj/machinery/space_battle/shield_generator/process_atmos()
+	..()
+	if(!on)
+		return
+	var/datum/gas_mixture/air1 = airs[1]
+	if(/*!nodes[1]*/!connected|| !airs[1] || !air1.gases.len || air1.gases[/datum/gas/oxygen][MOLES] < 5) // Turn off if the machine won't work.
+		on = FALSE
+		update_icon()
+		return
+	if(on)
+		var/cold_protection = 0
+		var/temperature_delta = air1.temperature - temperature // Heat generated - temperature of the gas mix
+		if(abs(temperature_delta) > 1)
+			var/air_heat_capacity = air1.heat_capacity()
+			var/heat = ((1 - cold_protection) * 0.1 + conduction_coefficient) * temperature_delta * (air_heat_capacity * heat_capacity / (air_heat_capacity + heat_capacity))
+
+			air1.temperature = max(air1.temperature - heat / air_heat_capacity, TCMB)
+			temperature = max(heat / heat_capacity, TCMB)
+
+		air1.gases[/datum/gas/oxygen][MOLES] -= 0.5 / efficiency // Magically consume gas? why not, I don't get atmos code
+
+*/
 
 
 		//S.calculate()
@@ -457,8 +573,13 @@
 
 /obj/effect/ebeam/phaser
 	name = "high density photon beam"
+	var/datum/effect_system/trail_follow/ion/ion_trail
 //	max_distance = "5000"
 
+/obj/effect/ebeam/phaser/New()
+	..()
+	ion_trail = new
+	ion_trail.set_up(src)
 
 /obj/item/circuitboard/machine/phase_cannon
 	name = "phaser array circuit board"
@@ -475,18 +596,19 @@
 	dir = 4
 	density = 0
 	pixel_x = -64
-	var/charge = 10000 //current power levels
-	var/charge_rate = 30000
+	var/charge = 1000 //current power levels
+	var/charge_rate = 300
 	var/state = 1
 	var/locked = 0
 	var/obj/item/gun/shipweapon/phaser
 	var/obj/structure/cable/attached		// the attached cable
 	var/max_power = 1000		// max power it can hold
-	var/fire_cost = 100
+	var/fire_cost = 700
 	var/percentage = 0 //percent charged
 	var/list/shipareas = list()
 	var/target = null
 	var/obj/machinery/space_battle/shield_generator/shieldgen
+	var/damage = 500
 
 /obj/machinery/power/ship/phaser/opposite
 	dir = 8
@@ -631,6 +753,10 @@
 	name = "NSV Crates"
 	icon_state = "ship"
 
+/area/ship/nanotrasen/capital_class
+	name = "NSV Annulment"
+	icon_state = "ship"
+
 /area/ship/overmap/nanotrasen
 	name = "Nanotrasen station"
 	icon_state = "ship"
@@ -702,6 +828,7 @@
 
 /obj/structure/fluff/helm/desk/tactical/process()
 	var/area/thearea = get_area(src)
+	get_weapons()
 	if(world.time >= saved_time + cooldown2)
 		saved_time = world.time
 		for(var/mob/M in thearea)
@@ -735,7 +862,6 @@
 	for(var/obj/structure/torpedo_launcher/T in thearea)
 		torpedoes += T
 
-
 /obj/structure/fluff/helm/desk/tactical/attack_hand(mob/user)
 	get_weapons()
 	get_shieldgen()
@@ -748,7 +874,7 @@
 				if(AR == current)
 					shipareas -= AR.name
 					shipareas -= AR
-	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren","fire torpedo")
+	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren","fire torpedo","turret control")
 	switch(mode)
 		if("choose target")
 			theship.exit(user)
@@ -777,6 +903,8 @@
 				START_PROCESSING(SSobj,src)
 		if("fire torpedo")
 			fire_torpedo(target,user)
+		if("turret control")
+			set_gun_turret_target(user)
 
 
 /obj/structure/fluff/helm/desk/tactical/proc/fire_phasers(atom/target, mob/user)
@@ -789,14 +917,12 @@
 	else
 		to_chat(user, "ERROR, no target selected")
 
-/obj/structure/fluff/helm/desk/tactical/proc/fire_torpedo(atom/target,mob/user)
-	if(!target)
-		new_target()
+/obj/structure/fluff/helm/desk/tactical/proc/fire_torpedo(turf/target,mob/user)
 	for(var/obj/structure/torpedo_launcher/T in torpedoes)
 		src.say("firing torpedoes at [target_area.name]")
-		T.target = target
-		T.fire()
+		T.fire(target, user)
 		playsound(src.loc, 'StarTrek13/sound/borg/machines/bleep2.ogg', 100,1)
+		to_chat(user, "attempting to fire torpedoes")
 
 
 
@@ -864,7 +990,7 @@ obj/structure/torpedo_launcher
 	var/list/loaded = list()
 	var/list/sounds = list('StarTrek13/sound/borg/machines/torpedo1.ogg','StarTrek13/sound/borg/machines/torpedo2.ogg')
 	var/obj/machinery/space_battle/shield_generator/shieldgen
-	var/atom/target = null
+//	var/atom/target = null
 	density = 1
 	anchored = 1
 
@@ -897,7 +1023,7 @@ obj/structure/torpedo_launcher/proc/find_generator()
 	for(var/obj/machinery/space_battle/shield_generator/S in thearea)
 		shieldgen = S
 
-obj/structure/torpedo_launcher/proc/fire()
+obj/structure/torpedo_launcher/proc/fire(atom/movable/target, mob/user)
 	icon_state = "torpedolauncher"
 	var/sound = pick(sounds)
 	find_generator()
@@ -913,8 +1039,10 @@ obj/structure/torpedo_launcher/proc/fire()
 			T.armed = 1
 			T.icon_state = "torpedo_armed"
 		var/atom/throw_at = get_turf(target)
-		A.throw_at(throw_at, 500, 1)
+	//	A.forceMove(throw_at)
+		A.throw_at(throw_at, 1000, 1)
 		loaded = list()
+		to_chat(user, "Success")
 	if(!loaded.len)
 		src.say("Nothing is loaded")
 
