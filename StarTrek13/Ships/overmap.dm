@@ -200,6 +200,7 @@ var/global/list/global_ship_list = list()
 /obj/structure/overmap/ship/New()
 	SC = new(src)
 	SC.generate_shipsystems()
+	SC.theship = src
 	global_ship_list += src
 	..()
 
@@ -309,6 +310,9 @@ var/global/list/global_ship_list = list()
 			G.shield_system = station.station_shields
 	for(var/obj/machinery/computer/camera_advanced/transporter_control/T in linked_ship)
 		transporters += T
+	for(var/obj/structure/hull_structure/HS in linked_ship)
+		SC.hull_integrity.damageables = list()
+		SC.hull_integrity.damageables += HS
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	damage = 0
@@ -344,13 +348,15 @@ var/global/list/global_ship_list = list()
 		return
 	else//no shields are up! take the hit
 		icon_state = initial_icon_state
-		var/turf/theturf = get_turf(target)
-		explosion(theturf,2,5,11)
+		//var/turf/theturf = get_turf(target)
+		//explosion(theturf,2,5,11)	//The is really lame and just demolishes your ship, we're switchin gthis to damage the hull subsystem instead
 		var/datum/effect_system/spark_spread/s = new
 		s.set_up(2, 1, src)
 		s.start() //make a better overlay effect or something, this is for testing
-		health -= amount
+		//health -= amount
 		playsound(src.loc, 'StarTrek13/sound/borg/machines/shiphit.ogg',100,0) //clang
+		health -= SC.take_hull_damage(amount)
+		SC.take_damage(amount)
 		return
 
 /obj/structure/overmap/proc/update_transporters()
