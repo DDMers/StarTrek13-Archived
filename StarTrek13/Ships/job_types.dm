@@ -805,6 +805,9 @@ Chief Engineer
 	head = null
 	internals_slot = slot_s_store
 
+/datum/outfit/job/ce/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(..(), ..(), ..(), rand(60, 90), 25)
 
 /*
 Station Engineer
@@ -861,6 +864,10 @@ Station Engineer
 	head = null
 	internals_slot = slot_s_store
 
+/datum/outfit/job/engineer/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(engineering = rand(45, 70))
+
 
 /*
 Atmospheric Technician
@@ -909,6 +916,10 @@ Atmospheric Technician
 	suit = /obj/item/clothing/suit/space/hardsuit/engine/atmos
 	suit_store = /obj/item/tank/internals/oxygen
 	internals_slot = slot_s_store
+
+/datum/outfit/job/atmos/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(engineering = rand(45, 70))
 
 /*
 Chief Medical Officer
@@ -959,6 +970,7 @@ Chief Medical Officer
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 /datum/outfit/job/cmo/pre_equip(mob/living/carbon/human/H)
+	..()
 	H.add_skills(rand(10, 25), rand(10, 25), rand(60, 80), rand(10, 25), rand(25, 45))
 //NOTICE: ALL SCIENCE RElATED JOBS/RESEARCH WILL WORK ON STARBASES, ONLY MEDICAL DOCTORS ETC. WILL WORK ON THE SHIPS.
 
@@ -998,6 +1010,7 @@ Medical Doctor
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 /datum/outfit/job/doctor/pre_equip(mob/living/carbon/human/H)
+	..()
 	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(10, 25))
 
 /*
@@ -1036,6 +1049,7 @@ Chemist
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 /datum/outfit/job/chemist/pre_equip(mob/living/carbon/human/H)
+	..()
 	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(25, 45), rand(10, 25))
 
 /*
@@ -1074,6 +1088,7 @@ Geneticist
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 /datum/outfit/job/geneticist/pre_equip(mob/living/carbon/human/H)
+	..()
 	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(25, 45), rand(10, 25))
 
 /*
@@ -1114,6 +1129,7 @@ Virologist
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 /datum/outfit/job/virologist/pre_equip(mob/living/carbon/human/H)
+	..()
 	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(10, 25))
 
 /*
