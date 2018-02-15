@@ -21,6 +21,7 @@
 	var/merge_type = null // This path and its children should merge with this stack, defaults to src.type
 	var/full_w_class = WEIGHT_CLASS_NORMAL //The weight class the stack should have at amount > 2/3rds max_amount
 	var/novariants = TRUE //Determines whether the item should update it's sprites based on amount.
+	var/skill_requirement = 25 //The user's engineering skill has to be higher than this for them to be able to construct things with it.
 	//NOTE: When adding grind_results, the amounts should be for an INDIVIDUAL ITEM - these amounts will be multiplied by the stack size in on_grind()
 
 /obj/item/stack/on_grind()
@@ -100,6 +101,9 @@
 		. = (amount)
 
 /obj/item/stack/attack_self(mob/user)
+	if(user.engineering_skill < skill_requirement)
+		to_chat(user, "<span class='warning'>Agh! I'm not skilled enough to utilize this material in construction.<span>")
+		return
 	interact(user)
 
 /obj/item/stack/interact(mob/user, sublist)

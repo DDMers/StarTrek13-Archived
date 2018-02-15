@@ -33,6 +33,9 @@
 /obj/machinery/space_battle/computer/shield/attack_hand(var/mob/user)
 	if(stat & (BROKEN|NOPOWER))
 		return 0
+	if(user.engineering_skill <= 45) //This is one fuckin' complex button, man!
+		to_chat(user, "<span class='warning'>I'm not experienced enough to operate this machine!<span>")
+		return
 	if(!(generator && istype(generator)))
 		reconnect()
 		if(!generator)
