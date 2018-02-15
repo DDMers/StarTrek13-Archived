@@ -5,11 +5,11 @@
 
 /mob
     //skills
-	var/melee_skill = 28 //Unimplimented AT THE MOMENT. // Unlike the other skills, this one will determine not only how well you can land a hit, but how quickly you can grab, and other combat stuff.
-	var/ranged_skill = 50 //Unimplimented AT THE MOMENT. //Rolls on contact with a mob/object to determine if you actually managed to hit it.
-	var/medical_skill = 20 //Simply a success roll. Critical failure will do more harm than good, so watch out! Though, already dangerous stuff, such as surgury and usage of advanced medical machinery will only require a failure to harm.
-	var/engineering_skill = 20 // SEMI-IMPLEMENTED AT THE MOMENT. Basically, how well can you maintain, repair, and operate machinery? Stuff like consoles won't be an issue, but on the other hand, who said a wrench could use itself?
-	var/pilot_skill = 15 // Could probably use some more instances, but it's in for the moment.
+	var/melee_skill = 25 //Unimplimented AT THE MOMENT. // Unlike the other skills, this one will determine not only how well you can land a hit, but how quickly you can grab, and other combat stuff.
+	var/ranged_skill = 45 //Unimplimented AT THE MOMENT. //Rolls on contact with a mob/object to determine if you actually managed to hit it.
+	var/medical_skill = 10 //Simply a success roll. Critical failure will do more harm than good, so watch out! Though, already dangerous stuff, such as surgury and usage of advanced medical machinery will only require a failure to harm.
+	var/engineering_skill = 10 // SEMI-IMPLEMENTED AT THE MOMENT. Basically, how well can you maintain, repair, and operate machinery? Stuff like consoles won't be an issue, but on the other hand, who said a wrench could use itself?
+	var/pilot_skill = 10 // Could probably use some more instances, but it's in for the moment.
 
 	//TODO: SPECIALTIES. Thus, preventing klingons from being masters of romulan technology, ect. Research staff would be more likely to spawn with the ability to operate another faction's equipment. Borg will be able to aquire these with their tool, probably. ~Cdey
 
