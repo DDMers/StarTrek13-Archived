@@ -17,5 +17,10 @@ flags.dm ~Kmc
 mind.dm
 map_config.dm ~Kmc
 maps.dm ~Kmc
+skills.dm ~Cdey
+medical.dm ~Cdey
+surgery_step.dm ~Cdey
+syringes.dm ~Cdey
+patch.dm ~Cdey
 
 Thanks ~Kmc

@@ -23,6 +23,7 @@
 
 /datum/game_mode/proc/equip_borg(mob/living/carbon/human/borg_mob)
 	var/mob/living/carbon/human/H = borg_mob
+	H.add_skills(110, 110, 110, 110, 110) //Borg are the perfectly enhanced humanoids. I'll probably add something to make it so we don't need to keep coming back here every time a new skill is added.
 	H.set_species(/datum/species/human, 1) //or the lore makes 0% sense
 //	var/datum/mind/fuckfuckmeme = H.mind
 //	if(!fuckfuckmeme in borgs)
