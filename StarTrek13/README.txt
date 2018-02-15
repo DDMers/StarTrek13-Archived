@@ -22,5 +22,10 @@ medical.dm ~Cdey
 surgery_step.dm ~Cdey
 syringes.dm ~Cdey
 patch.dm ~Cdey
+rods.dm ~Cdey
+glass.dm ~Cdey
+mineral.dm ~Cdey
+sheet_types.dm ~Cdey
+stack.dm ~Cdey
 
 Thanks ~Kmc
