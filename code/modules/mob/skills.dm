@@ -9,7 +9,7 @@
 	var/ranged_skill = 50 //Unimplimented AT THE MOMENT. //Rolls on contact with a mob/object to determine if you actually managed to hit it.
 	var/medical_skill = 20 //Simply a success roll. Critical failure will do more harm than good, so watch out! Though, already dangerous stuff, such as surgury and usage of advanced medical machinery will only require a failure to harm.
 	var/engineering_skill = 20 // Unimplimented AT THE MOMENT.
-	var/pilot_skill = 15 // Unimplimented AT THE MOMENT.
+	var/pilot_skill = 15 // Could probably use some more instances, but it's in for the moment.
 
 	//TODO: SPECIALTIES. Thus, preventing klingons from being masters of romulan technology, ect. Research staff would be more likely to spawn with the ability to operate another faction's equipment. Borg will be able to aquire these with their tool, probably. ~Cdey
 
@@ -19,17 +19,10 @@
 	var/crit_success_modifier = 0
 	var/crit_failure_modifier = 0
 
-/mob/proc/get_success_chance()
-	return crit_success_chance + crit_success_modifier
-
-/mob/proc/get_failure_chance()
-	return crit_failure_chance + crit_failure_modifier
-
-
 
 /mob/proc/skillcheck(var/skill, var/requirement, var/show_message, var/message = pick("I have failed..","This task seems too complicated for me..","It's too complicated!"))
 	if(prob(get_chance(skill, requirement)))//Roll, to see if we pass. If the skill surpasses, the requirement, it'll still give a 100% or more chance of succeeding.
-		if(prob(get_success_chance()))//Only thing we roll for is a crit success.
+		if(prob(get_success_chance()))//If we pass, attempt a critical success.
 			return 2
 		return 1
 	else
@@ -48,6 +41,12 @@
 	percentage = num1 / num2
 	percentage = percentage * 100
 	return percentage
+
+/mob/proc/get_success_chance()
+	return crit_success_chance + crit_success_modifier
+
+/mob/proc/get_failure_chance()
+	return crit_failure_chance + crit_failure_modifier
 
 /mob/proc/skillnumtodesc(var/skill)
 	switch(skill)

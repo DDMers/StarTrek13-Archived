@@ -1611,7 +1611,7 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 /datum/outfit/job/soldier/post_equip(mob/living/carbon/human/H)
 	if(prob(5)) //5% chance to be a legendary soldier
 		H.add_skills(110, rand(60, 68), rand(24, 32), ..(), ..())
-		to_chat(H, "<big>You are a legendary soldier! You've had some experience, and are well-versed in the arts of close-quarters combat.</big>")
+		to_chat(H, "<big>You are a legendary soldier! You've had some experience, and are well versed in the arts of close-quarters combat.</big>")
 		return
 	else
 		H.add_skills(rand(60, 66), rand(60, 68), rand(24, 32), ..(), ..())
