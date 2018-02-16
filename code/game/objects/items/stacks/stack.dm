@@ -101,9 +101,6 @@
 		. = (amount)
 
 /obj/item/stack/attack_self(mob/user)
-	if(user.engineering_skill < skill_requirement)
-		to_chat(user, "<span class='warning'>Agh! I'm not skilled enough to utilize this material in construction.<span>")
-		return
 	interact(user)
 
 /obj/item/stack/interact(mob/user, sublist)
@@ -190,6 +187,8 @@
 			if (!do_after(usr, R.time, target = usr))
 				return
 			if(!building_checks(R, multiplier))
+				return
+			if(usr.skillcheck(usr.engineering_skill, skill_requirement, TRUE) != (1 || 2))
 				return
 
 		var/obj/O

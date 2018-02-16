@@ -27,5 +27,10 @@ glass.dm ~Cdey
 mineral.dm ~Cdey
 sheet_types.dm ~Cdey
 stack.dm ~Cdey
+hud/_defines.dm ~Cdey
+hud.dm ~Cdey
+hud/human.dm ~Cdey
+screen_objects.dm ~Cdey
+screen_midnight.dmi ~Cdey
 
 Thanks ~Kmc

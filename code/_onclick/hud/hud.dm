@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/obj/screen/healths
 	var/obj/screen/healthdoll
 	var/obj/screen/internals
-	var/obj/screen/mood
+	var/obj/screen/skill
 
 	// subtypes can override this to force a specific UI style
 	var/ui_style
@@ -101,6 +101,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	healths = null
 	healthdoll = null
 	internals = null
+	skill = null
 	mood = null
 	lingchemdisplay = null
 	devilsouldisplay = null

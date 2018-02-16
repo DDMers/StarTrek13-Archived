@@ -75,9 +75,7 @@
 	if(piloting)
 		pilot_skill = piloting
 
-/mob/living/carbon/human/verb/check_skills()//Not bothering with UIs at the moment, so have another tab option for the while. ~Cdey
-	set name = "Check Skills"
-	set category = "IC"
+/mob/proc/show_skills(mob/living/target)//For showing the player their skills.
 
 	var/message = "<big><b>Skills:</b></big>\n"
 	message += "I am [skillnumtodesc(melee_skill)] at melee.\n"
@@ -87,4 +85,4 @@
 	message += "I am [skillnumtodesc(pilot_skill)] at piloting.\n"
 	message += "<b>*---------------------------------*</b>"
 
-	to_chat(src, message)
+	to_chat(target, message)
