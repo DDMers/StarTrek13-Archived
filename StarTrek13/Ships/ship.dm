@@ -888,7 +888,7 @@
 	//		for(var/obj/structure/torpedo_launcher/T in torpedoes)
 	//			T.target = target
 		if("fly ship")
-			if(user.pilot_skill <= required_skill)
+			if(user.pilot_skill < required_skill)
 				to_chat(user, "<span class='warning'> Agh! You're not skilled enough to pilot this vessel!<span>")
 				return
 			theship.enter(user)
