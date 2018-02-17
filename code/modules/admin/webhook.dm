@@ -21,3 +21,5 @@
 	var/query = "[webhook_address]?key=[webhook_key]&method=[method]&data=[json_encode(data)]"
 	spawn(-1)
 		world.Export(query)
+
+//We haven't enabled yogbot yet. Until we do, this will cause errors.
