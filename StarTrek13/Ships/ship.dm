@@ -467,7 +467,6 @@
 		add_fingerprint(L)
 	if(current_target)
 		LoseTarget()
-	current_target = target
 	active = 1
 	current_beam = new(source,current_target,time=30,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 	spawn(0)
@@ -874,7 +873,7 @@
 				if(AR == current)
 					shipareas -= AR.name
 					shipareas -= AR
-	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren","fire torpedo","turret control")
+	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren","fire torpedo")
 	switch(mode)
 		if("choose target")
 			theship.exit(user)
@@ -903,8 +902,6 @@
 				START_PROCESSING(SSobj,src)
 		if("fire torpedo")
 			fire_torpedo(target,user)
-		if("turret control")
-			set_gun_turret_target(user)
 
 
 /obj/structure/fluff/helm/desk/tactical/proc/fire_phasers(atom/target, mob/user)
@@ -945,6 +942,13 @@
 	var/armed = 0
 	var/damage = 400 //Quite damaging, but not really for battering shields
 	//var/obj/structure/torpedo_launcher/launcher
+
+/obj/structure/photon_torpedo/proc/force_explode()
+	var/area/thearea = get_area(src)
+	for(var/mob/M in thearea)
+		shake_camera(M, 20, 1)
+		SEND_SOUND(M, 'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg')
+		explosion(src.loc,2,5,20,8)
 
 /obj/structure/photon_torpedo/Bump(atom/movable/AM)
 	if(armed)
@@ -1023,28 +1027,40 @@ obj/structure/torpedo_launcher/proc/find_generator()
 	for(var/obj/machinery/space_battle/shield_generator/S in thearea)
 		shieldgen = S
 
-obj/structure/torpedo_launcher/proc/fire(atom/movable/target, mob/user)
+obj/structure/torpedo_launcher/proc/fire(atom/movable/target, mob/user, overriden_start_loc)
 	icon_state = "torpedolauncher"
 	var/sound = pick(sounds)
 	find_generator()
 	playsound(src.loc, sound, 300,1)
-	for(var/atom/movable/A in loaded)
-		var/obj/effect/adv_shield/S = pick(shieldgen.shields) //new shield each time, prevent spam
-		A.forceMove(get_turf(S))
-	//	if(istype(A,/mob/living/))
-//			var/mob/living/M = A
-	//		M.Weaken(5)
-		if(istype(A, /obj/structure/photon_torpedo))
-			var/obj/structure/photon_torpedo/T = A
-			T.armed = 1
-			T.icon_state = "torpedo_armed"
-		var/atom/throw_at = get_turf(target)
-	//	A.forceMove(throw_at)
-		A.throw_at(throw_at, 1000, 1)
-		loaded = list()
-		to_chat(user, "Success")
-	if(!loaded.len)
-		src.say("Nothing is loaded")
+	if(!overriden_start_loc)
+		for(var/atom/movable/A in loaded)
+			var/obj/effect/adv_shield/S = pick(shieldgen.shields) //new shield each time, prevent spam
+			A.forceMove(get_turf(S))
+		//	if(istype(A,/mob/living/))
+	//			var/mob/living/M = A
+		//		M.Weaken(5)
+			if(istype(A, /obj/structure/photon_torpedo))
+				var/obj/structure/photon_torpedo/T = A
+				T.armed = 1
+				T.icon_state = "torpedo_armed"
+			var/atom/throw_at = get_turf(target)
+		//	A.forceMove(throw_at)
+			A.throw_at(throw_at, 1000, 1)
+			loaded = list()
+			to_chat(user, "Success")
+		if(!loaded.len)
+			src.say("Nothing is loaded")
+	else
+		find_generator()
+		if(loaded.len)
+			for(var/atom/movable/A in loaded)
+				var/atom/movable/our_ship = shieldgen.ship
+				A.forceMove(our_ship.loc)
+				var/atom/movable/targetship = shieldgen.ship.target_ship
+				A.throw_at(targetship, 1000, 1)
+			return 1
+		else
+			to_chat(shieldgen.ship.pilot, "Unable to launch torpedoes! nothing is loaded!")
 
 
 /obj/machinery/shieldgen/wallmounted

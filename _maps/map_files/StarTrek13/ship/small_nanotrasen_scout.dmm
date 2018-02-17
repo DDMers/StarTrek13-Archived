@@ -42,12 +42,14 @@
 "P" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/light,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
 "Q" = (/obj/structure/closet/crate,/obj/effect/turf_decal/stripes/line,/obj/machinery/light,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
 "R" = (/obj/structure/catwalk,/obj/structure/table/glass,/obj/structure/overmap/ship/nanotrasen/freighter,/turf/open/floor/plating,/area/ship/nanotrasen/freighter)
+"S" = (/obj/machinery/power/ship/phaser,/turf/closed/wall/ship/steel,/area/ship/nanotrasen/freighter)
+"T" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/nanotrasen/freighter)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
 aabbbbbbbbbbbbbbbbaa
-cabdbeeffMMffeebdbac
+cabdbeeffMMffeebdSac
 cabbbggggggggggbbbac
 caaabBBBggggBBBbaaac
 cabbbbbbhiihbbbbbbac
@@ -62,6 +64,6 @@ caaabBBBggggBBBbaaac
 cabbbggggggggggbbbac
 cabdbDDEEQQEEDDbdbac
 cabbbbbbbbbbbbbbbbac
-aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaTaa
 aaaaaaaaaaaaaaaaaaaa
 "}
