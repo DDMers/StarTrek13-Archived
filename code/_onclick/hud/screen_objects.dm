@@ -98,6 +98,16 @@
 	var/datum/language_holder/H = M.get_language_holder()
 	H.open_language_menu(usr)
 
+/obj/screen/skill
+	name = "skill check"
+	icon = 'icons/mob/screen_midnight.dmi'
+	icon_state = "skillchecker"
+	screen_loc = ui_skillcheck
+
+/obj/screen/skill/Click()
+	var/mob/M = usr
+	M.show_skills(M)
+
 /obj/screen/inventory
 	var/slot_id	// The indentifier for the slot. It has nothing to do with ID cards.
 	var/icon_empty // Icon when empty. For now used only by humans.
