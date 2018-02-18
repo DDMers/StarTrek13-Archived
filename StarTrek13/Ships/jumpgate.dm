@@ -1,6 +1,5 @@
 var/global/list/jumpgates = list()
 
-
 /obj/structure/jumpgate
 	name = "Jumpgate"
 	icon = 'StarTrek13/icons/trek/jumpgate.dmi'
