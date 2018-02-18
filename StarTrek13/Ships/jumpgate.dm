@@ -53,6 +53,5 @@ var/global/list/jumpgates = list()
 		var/turf/theturf = pick(temp)
 		mover.forceMove(theturf)
 		if(isovermapship(mover))
-			say("hihihi")
 			var/obj/structure/overmap/ship/S = mover
-			S.do_warp(target_gate, 50)
+			S.do_warp(target_gate, 100)
