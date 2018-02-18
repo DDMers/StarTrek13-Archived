@@ -283,6 +283,9 @@
 	healthdoll = new /obj/screen/healthdoll()
 	infodisplay += healthdoll
 
+	skill = new /obj/screen/skill()
+	infodisplay += skill
+
 	pull_icon = new /obj/screen/pull()
 	pull_icon.icon = ui_style
 	pull_icon.update_icon(mymob)
@@ -308,7 +311,7 @@
 			inv.hud = src
 			inv_slots[inv.slot_id] = inv
 			inv.update_icon()
-	
+
 	update_locked_slots()
 
 /datum/hud/human/update_locked_slots()

@@ -95,6 +95,9 @@ Captain
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
 
+/datum/outfit/job/captain/post_equip(mob/living/carbon/human/H)
+	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
+
 
 /datum/job/admiral
 	title = "Admiral"
@@ -153,6 +156,7 @@ Captain
 	var/datum/job/aide/L= SSjob.GetJobType(jobtype)
 	L.admirals++
 	L.total_positions = L.admirals //admirals require aides.
+	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
 /*
 Head of Personnel
 */
@@ -200,6 +204,9 @@ Head of Personnel
 	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(/obj/item/storage/box/ids=1,\
 		/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced = 1,/obj/item/device/tricorder)
+
+/datum/outfit/job/firstofficer/post_equip(mob/living/carbon/human/H)
+	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
 
 /*
 Clown
@@ -261,6 +268,7 @@ Clown
 		return
 
 	H.dna.add_mutation(CLOWNMUT)
+	H.add_skills(rand(66, 82), rand(0, 24), rand(0,24), rand(25, 79), rand(25, 59))
 
 /*
 Mime
@@ -797,6 +805,9 @@ Chief Engineer
 	head = null
 	internals_slot = slot_s_store
 
+/datum/outfit/job/ce/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(..(), ..(), ..(), rand(60, 90), 25)
 
 /*
 Station Engineer
@@ -853,6 +864,10 @@ Station Engineer
 	head = null
 	internals_slot = slot_s_store
 
+/datum/outfit/job/engineer/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(engineering = rand(45, 70))
+
 
 /*
 Atmospheric Technician
@@ -902,6 +917,10 @@ Atmospheric Technician
 	suit_store = /obj/item/tank/internals/oxygen
 	internals_slot = slot_s_store
 
+/datum/outfit/job/atmos/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(engineering = rand(45, 70))
+
 /*
 Chief Medical Officer
 */
@@ -950,6 +969,9 @@ Chief Medical Officer
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
+/datum/outfit/job/cmo/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(rand(10, 25), rand(10, 25), rand(60, 80), rand(10, 25), rand(25, 45))
 //NOTICE: ALL SCIENCE RElATED JOBS/RESEARCH WILL WORK ON STARBASES, ONLY MEDICAL DOCTORS ETC. WILL WORK ON THE SHIPS.
 
 
@@ -987,6 +1009,10 @@ Medical Doctor
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
+/datum/outfit/job/doctor/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(10, 25))
+
 /*
 Chemist
 */
@@ -1022,6 +1048,10 @@ Chemist
 	satchel = /obj/item/storage/backpack/satchel/chem
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
+/datum/outfit/job/chemist/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(25, 45), rand(10, 25))
+
 /*
 Geneticist
 */
@@ -1056,6 +1086,10 @@ Geneticist
 	backpack = /obj/item/storage/backpack/genetics
 	satchel = /obj/item/storage/backpack/satchel/gen
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+
+/datum/outfit/job/geneticist/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(25, 45), rand(10, 25))
 
 /*
 Virologist
@@ -1093,6 +1127,10 @@ Virologist
 	backpack = /obj/item/storage/backpack/virology
 	satchel = /obj/item/storage/backpack/satchel/vir
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+
+/datum/outfit/job/virologist/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(10, 25))
 
 /*
 Research Director
@@ -1585,3 +1623,12 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	box = /obj/item/storage/box/security
 
 	implants = list(/obj/item/implant/mindshield)
+
+/datum/outfit/job/soldier/post_equip(mob/living/carbon/human/H)
+	if(prob(5)) //5% chance to be a legendary soldier
+		H.add_skills(110, rand(60, 68), rand(24, 32), ..(), ..())
+		to_chat(H, "<big>You are a legendary soldier! You've had some experience, and are well versed in the arts of close-quarters combat.</big>")
+		return
+	else
+		H.add_skills(rand(60, 66), rand(60, 68), rand(24, 32), ..(), ..())
+

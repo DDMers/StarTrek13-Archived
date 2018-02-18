@@ -10,6 +10,7 @@
 
 /datum/surgery_step/proc/try_op(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	var/success = 0
+
 	if(accept_hand)
 		if(!tool)
 			success = 1
@@ -26,6 +27,7 @@
 
 	if(success)
 		if(target_zone == surgery.location)
+
 			if(get_location_accessible(target, target_zone) || surgery.ignore_clothes)
 				initiate(user, target, target_zone, tool, surgery)
 				return 1
@@ -64,23 +66,30 @@
 		var/advance = 0
 		var/prob_chance = 100
 
+
 		if(implement_type)	//this means it isn't a require hand or any item step.
 			prob_chance = implements[implement_type]
 		prob_chance *= surgery.get_propability_multiplier()
 
-		if(prob(prob_chance) || iscyborg(user))
+		if(prob(prob_chance) || iscyborg(user)) //Still, though, it would be MUCH better to attempt this in a proper operating theatre.
 			if(success(user, target, target_zone, tool, surgery))
 				advance = 1
 		else
 			if(failure(user, target, target_zone, tool, surgery))
 				advance = 1
 
+		if(user.skillcheck(user.medical_skill, 60, FALSE) != (1 || 2)) //Only a trained professional may do each surgery PERFECTLY.
+			target.apply_damage(8, BRUTE, target_zone)
+			user.visible_message("<span class='warning'>[user] screws up!<span>", "<span class='warning'>You screw up!</span>")
+			advance = 0
+
 		if(advance && !repeatable)
 			surgery.status++
+			user.visible_message("[user] succeeds!", "<span class='notice'>You succeed.</span>")
 			if(surgery.status > surgery.steps.len)
 				surgery.complete()
 
-	surgery.step_in_progress = 0
+		surgery.step_in_progress = 0
 
 
 /datum/surgery_step/proc/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
@@ -88,7 +97,7 @@
 
 
 /datum/surgery_step/proc/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	user.visible_message("[user] succeeds!", "<span class='notice'>You succeed.</span>")
+	//user.visible_message("[user] succeeds!", "<span class='notice'>You succeed.</span>")
 	return 1
 
 /datum/surgery_step/proc/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
