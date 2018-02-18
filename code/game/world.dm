@@ -3,9 +3,9 @@
 GLOBAL_VAR(security_mode)
 GLOBAL_VAR(restart_counter)
 GLOBAL_PROTECT(security_mode)
-var/global/list/serverswap = list()
-var/global/serverswap_open_status = 1 // if this is 1, we're the active server
-var/global/serverswap_closed = 0
+//var/global/list/serverswap = list()	we will set this up later, but for now it's breaking travis
+//var/global/serverswap_open_status = 1 // if this is 1, we're the active server
+//var/global/serverswap_closed = 0
 
 //This happens after the Master subsystem new(s) (it's a global datum)
 //So subsystems globals exist, but are not initialised
@@ -118,14 +118,16 @@ var/global/serverswap_closed = 0
 
 	if(GLOB.round_id)
 		log_game("Round ID: [GLOB.round_id]")
-		var/thing = "The Alpha Quadrant"//temporary fix this shit
+	//	var/thing = "The Alpha Quadrant"//temporary fix this shit
+		/*
 		var/list/webhookData = list(\
 			"map_name" = thing,\
 			"round" = GLOB.round_id,       \
 			"revision" = GLOB.revdata.commit,      \
 			"changelog_hash" = GLOB.changelog_hash)
+		*/ //We've not added yogbot yet, and this breaks things!
 
-		webhook_send_roundstatus("lobby", webhookData)
+	//	webhook_send_roundstatus("lobby", webhookData) We've not added yogbot yet, and this breaks things!
 
 /world/proc/CheckSecurityMode()
 	//try to write to data
