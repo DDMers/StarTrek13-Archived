@@ -23,6 +23,7 @@
 
 /datum/game_mode/proc/equip_borg(mob/living/carbon/human/borg_mob)
 	var/mob/living/carbon/human/H = borg_mob
+	H.add_skills(110, 110, 110, 110, 110) //Borg are the perfectly enhanced humanoids. I'll probably add something to make it so we don't need to keep coming back here every time a new skill is added.
 	H.set_species(/datum/species/human, 1) //or the lore makes 0% sense
 //	var/datum/mind/fuckfuckmeme = H.mind
 //	if(!fuckfuckmeme in borgs)
@@ -59,12 +60,12 @@
 			return
 
 /datum/game_mode/proc/greet_borg(datum/mind/borg)
-	borg.current << "<font style = 3><B><span class = 'notice'>We don't belong here...not in this universe</B></font>"
-	borg.current << "<b>The last thing the collective remembers is a flash of white light and a quiet whooshing sound.</b>"
-	borg.current << "<b>Our ship was damaged, we must construct a new one.</b>"
-	borg.current << "<b>We have detected a medium sized space station nearby, we must use the last remaining energy reserves to plough our damaged ship into their station, and assimilate them.</b>"
+	borg.current << "<font style = 3><B><span class = 'notice'>We are the borg. One of many.</B></font>"
+	borg.current << "<b>We are a scouting party.We must prepare this sector for an invasion.</b>"
+	borg.current << "<b>We are weak alone. We must assimilate the species here.</b>"
+	borg.current << "<b>We have detected multiple vessels in the sector, we must assimilate them aswell.</b>"
 	borg.current << "<b>We can communicate with the collective via :l, you are but a drone, the queen is your overseer </b>"
-	borg.current << "<b>We have detected <span class='warning'>Species 5618 (or humans)</span>on this station, but also some unknown species including silicon based life forms, they should prove useful.</b>"
+	borg.current << "<b>We have detected <span class='warning'>Species 5618 (or humans)</span>in this sector, but also some unknown species including silicon based life forms, they should prove useful.</b>"
 	borg.current << "<b>We have a borg tool, it can be used to <span class='warning'>assimilate</span> objects, and people.</b>"
 	borg.current << "<b>Use it on a victim, and after 5 seconds you will inject borg nanites into their bloodstream, making them a <span class='warning'>half drone</span>, once they are a half drone (with grey skin) take them to a conversion table (buildable)</b>"
 	borg.current << "<b>Buckle them into the conversion table and keep them down for 10 seconds, after this they will join the collective as a full drone</b>"
@@ -86,7 +87,8 @@
 /datum/game_mode/borg/pre_setup() //changing this to the aliens code to spawn a load in maint
 	hivemind = new /datum/borg_hivemind(src)
 	to_chat(world, "borg hivemind established")
-	var/validareas = /area/ai_monitored/nuke_storage //change me
+	new /obj/structure/overmap/ship/borg()
+	var/validareas = /area/tcommsat //change me
 //	var/validareas = list(/area/bridge,/area/bridge/meeting_room,/area/tcommsat,/area/crew_quarters/fitness,/area/security/brig,/area/atmos, /area/engine/engineering, /area/crew_quarters/locker) //valid areas that are large enough for the borgos to overtake
 	hivemind.borg_target_area = pick(validareas)
 //	var/n_players = num_players()
@@ -110,7 +112,7 @@
 		return 0
 
 /datum/objective/assimilate
-	explanation_text = "Convert BLANK into a borg cube by assimilating ALL turfs inside, and building an FTL drive, shield subsystem, a queen's throne and a navigational console."
+	explanation_text = "Convert a ship into a borg cube by !!NOT YET FINISHED!!"//assimilating ALL turfs inside, and building an FTL drive, shield subsystem, a queen's throne and a navigational console."
 
 /datum/objective/assimilate/check_completion()
 	return
@@ -140,8 +142,8 @@
 
 /datum/game_mode/borg/announce()
 	world << "<B>The current game mode is - Borg!</B>"
-	world << "<B>A massive temporal rift has been detected, a large green object suddenly appeared on NT sensors.. \
-				You must destroy ALL the Xel, Xel: assimilate the station!</B>"
+	world << "<B>A massive temporal rift has been detected, a large green object suddenly appeared on galactic sensors. \
+				You must destroy ALL Xel. Xel; assimilate the sector!</B>"
 
 //species 4678 (or unathi)</span> and <span class='warning'>Species 4468 (or phytosians) 5618 (or humans)
 
