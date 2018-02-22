@@ -1,0 +1,7 @@
+<ui-display title='title'>
+  <ui-section label='Tricorders'>
+  {{#each data.tricorders}}
+    <div><p>test</p></div>
+  {{/each}}
+  </ui-section>
+</ui-display>

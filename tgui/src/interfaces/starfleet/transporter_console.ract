@@ -1,0 +1,10 @@
+<ui-display>
+  <ui-section label='Tricorders'>
+    <script>
+	for(i=0; i<data.length; i++)
+	{
+	    <span>{{data[i]}}</span>
+	}
+    </script>
+  </ui-section>
+</ui-display>

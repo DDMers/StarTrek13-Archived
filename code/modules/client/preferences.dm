@@ -112,6 +112,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/action_buttons_screen_locs = list()
 
+	//Star Trek 13 Factions
+	var/list/factions = list("Independent", "Starfleet", "Klingon Empire")
+	var/datum/list/factionDescriptions = list("Independent Description", "Starfleet Description", "Klingon Description")
+	var/faction = 1
+
 /datum/preferences/New(client/C)
 	parent = C
 	custom_names["human"] = random_unique_name()
@@ -509,9 +514,23 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
 
 	else
-		HTML += "<b>Choose occupation chances</b><br>"
+		HTML += "<b>Choose occupation chances and Faction.</b><br>"
 		HTML += "<div align='center'>Left-click to raise an occupation preference, right-click to lower it.<br></div>"
 		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
+
+		HTML += "<center>Faction: <a href='?_src_=prefs;factionchange=true' "
+		if(faction==1)
+			HTML += "style='background-color: green'"
+		else if(faction==2)
+			HTML += "style='background-color: blue'"
+		else if(faction==3)
+			HTML += "style='background-color: red'"
+		HTML += ">[factions[faction]]</a></center><br>"
+
+		HTML += "<p>[factionDescriptions[faction]]</p>"
+
+		HTML += "<p>[GLOB.factionRosters[faction][1]]</p><br>"
+
 		HTML += "<script type='text/javascript'>function setJobPrefRedirect(level, rank) { window.location.href='?_src_=prefs;preference=job;task=setJobLevel;level=' + level + ';text=' + encodeURIComponent(rank); return false; }</script>"
 		HTML += "<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>" // Table within a table for alignment, also allows you to easily add more colomns.
 		HTML += "<table width='100%' cellpadding='1' cellspacing='0'>"
@@ -751,6 +770,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	return 0
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
+	if(href_list["factionchange"] == "true")
+		if(faction == factions.len)
+			faction = 1
+		else
+			faction++
+
+		SetChoices(user)
+
+		return
+
 	if(href_list["jobbancheck"])
 		var/job = sanitizeSQL(href_list["jobbancheck"])
 		var/sql_ckey = sanitizeSQL(user.ckey)

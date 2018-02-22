@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" id="svg3336" version="1.1" inkscape:version="0.48.5 r10040" width="582.09363" height="790.79492" sodipodi:docname="Early_2270s_Starfleet.png">
+  <metadata id="metadata3342">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs id="defs3340" />
+  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1366" inkscape:window-height="706" id="namedview3338" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:zoom="0.32777778" inkscape:cx="1133.3068" inkscape:cy="539.40917" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="svg3336" />
+  <g id="g3214" transform="matrix(6.7808502,0,0,6.7808502,-0.63570471,-9.2579098)">
+    <path style="fill:white;fill-opacity:1;fill-rule:evenodd;stroke:black;stroke-width:2.35958624;stroke-opacity:1" d="m 84.757631,56.164159 c 0,22.567584 -18.690442,40.862226 -41.746273,40.862226 -23.055828,0 -41.7462725,-18.294642 -41.7462725,-40.862226 0,-22.567585 18.6904445,-40.862225 41.7462725,-40.862225 23.055831,0 41.746273,18.29464 41.746273,40.862225 z" id="path3211" inkscape:connector-curvature="0" />
+    <g id="g3257" transform="matrix(0.43915287,0,0,0.43915287,1.8964371,0.50364696)">
+      <g id="g3027">
+        <path sodipodi:nodetypes="csccc" inkscape:connector-curvature="0" id="path3023" d="m 14.060032,267.52291 c 0,0 85.969248,-104.45459 108.688788,-101.89574 20.11244,2.26522 55.13428,81.75356 55.13428,81.75356 C 173.21478,167.99693 147.88497,86.399396 96.050553,1.962085 32.36159,89.380579 23.536986,178.46163 14.060032,267.52291 z" style="fill:black;stroke:none" />
+        <path style="fill:white;fill-opacity:1;stroke:none" d="m 26.066351,229.60822 c 0,0 71.696897,-80.2076 97.946289,-77.25119 17.02382,1.91735 33.64929,33.09637 33.64929,33.09637 C 141.88727,113.84255 109.13532,42.323528 94.339901,20.180463 62.748004,65.087482 35.543305,140.54694 26.066351,229.60822 z" id="path3025" inkscape:connector-curvature="0" sodipodi:nodetypes="csccc" />
+      </g>
+      <path style="fill:black;stroke:none" d="M 110.70187,146.09522 97.297,128.33377 l -13.516576,20.33072 2.234145,-23.23511 -18.208279,-9.38341 20.219009,-7.8195 8.266335,-75.067263 9.830236,75.178963 20.88925,8.93658 -18.87852,8.37805 z" id="path3049" inkscape:connector-curvature="0" sodipodi:nodetypes="ccccccccccc" />
+    </g>
+  </g>
+</svg>

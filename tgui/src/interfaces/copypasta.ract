@@ -1,0 +1,5 @@
+<ui-display title='My Copypasta Section'>
+  <ui-section label='Var'>
+    <span>{{data.tricorders}}</span>
+  </ui-section>
+</ui-display>
