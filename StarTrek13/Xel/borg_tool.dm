@@ -162,7 +162,7 @@
 						var/datum/mind/oneofus = A.mind
 						SSticker.mode.greet_borg(oneofus)
 						SSticker.mode.hivemind.borgs += oneofus //doing this here so that halfdrones are considered antags
-						oneofus.special_role = "Xel"
+						oneofus.special_role = "Borg"
 
 
 			else if(issilicon(I) && isliving(I))

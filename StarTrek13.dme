@@ -15,6 +15,7 @@
 // BEGIN_INCLUDE
 #include "_maps\basemap.dm"
 #include "_maps\star_trek.dm"
+#include "_maps\map_files\StarTrek13\borg_system.dmm"
 #include "_maps\map_files\StarTrek13\overmap.dmm"
 #include "_maps\map_files\StarTrek13\system_1.dmm"
 #include "_maps\map_files\StarTrek13\warp.dmm"
@@ -22,6 +23,7 @@
 #include "_maps\map_files\StarTrek13\overmap\nanotrasen_research_bunker (1).dmm"
 #include "_maps\map_files\StarTrek13\overmap\outpost2 (1).dmm"
 #include "_maps\map_files\StarTrek13\overmap\small_derelict_asteroid.dmm"
+#include "_maps\map_files\StarTrek13\ship\borg_mothership.dmm"
 #include "_maps\map_files\StarTrek13\ship\capital_class1.dmm"
 #include "_maps\map_files\StarTrek13\ship\frigate1.dmm"
 #include "_maps\map_files\StarTrek13\ship\nt_capital_class.dmm"

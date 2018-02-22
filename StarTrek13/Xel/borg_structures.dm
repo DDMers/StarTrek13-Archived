@@ -29,7 +29,8 @@
 	name = "borgified chair"
 	desc = "Assimilated chair"
 	icon_state = "borg1"
-	anchored = 1
+	icon = 'StarTrek13/icons/borg/chairs.dmi'
+	anchored = TRUE
 
 /obj/structure/chair/borg/attackby(obj/I,mob/user,proximity, params)
 	. = ..()

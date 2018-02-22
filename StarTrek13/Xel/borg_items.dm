@@ -249,8 +249,8 @@
 /datum/action/item_action/xelchat
 	name = "collective chat"
 
-/obj/item/device/radio/headset/borg/alt/ui_action_click(mob/user, actiontype)
-	if(actiontype == /datum/action/item_action/xelchat)
+/obj/item/device/radio/headset/borg/alt/ui_action_click(mob/user, action)
+	if(istype(action, /datum/action/item_action/xelchat))
 		collective_chat(user)
 
 /obj/item/device/radio/headset/borg/proc/collective_chat(mob/user)
@@ -259,15 +259,16 @@
 	var/message = stripped_input(user,"Communicate with the collective.","Send Message")
 //	var/mob/living/carbon/human/B = user
 	if(!message)
+		to_chat(user, "span class='warning'> You must provide a message! </span>")
 		return
 	var/ping = "<font color='green' size='2'><B><i>Xel collective</i> [usr.real_name]: [message]</B></font></span>"
 	for(var/mob/living/I in world)
 		if(I.mind in SSticker.mode.hivemind.borgs)
-			I << ping
+			to_chat(I, "[ping]")
 			continue
 	for(var/mob/M in GLOB.dead_mob_list)
 		var/link = FOLLOW_LINK(M, user)
-		M << "[link] [ping]"
+		to_chat(M, "[link] [ping]")
 	log_game("[key_name(user)] Messaged Xel collective: [message].")
 
 /obj/item/clothing/under/borg
@@ -458,13 +459,14 @@
 	icon_state = "borg"
 	item_state = null
 	siemens_coefficient = 0
+	flags_inv = null
 	flags_1 = NODROP_1 | MASKINTERNALS_1
 	var/cooldown2 = 60 //6 second cooldown
 	var/saved_time = 0
 	actions_types = list(/datum/action/item_action/futile)
 
-/obj/item/clothing/mask/gas/borg/ui_action_click(mob/user, actiontype)
-	if(actiontype == /datum/action/item_action/futile)
+/obj/item/clothing/mask/gas/borg/ui_action_click(mob/user, action)
+	if(istype(action, /datum/action/item_action/futile))
 		futile(user)
 
 /obj/item/clothing/mask/gas/borg/cyborg
@@ -495,7 +497,7 @@
 				phrase_text = "You will be assimilated."
 				phrase_sound = "assimilated"
 			if(5)
-				phrase_text = "Submit yourself to the collective"
+				phrase_text = "Submit yourself to the collective."
 				phrase_sound = "submit"
 
 	//feminine vox now
@@ -509,14 +511,14 @@
 				phrase_text = "Your existence as you know it is over."
 				phrase_sound = "existencefem"
 			if(9)
-				phrase_text = "You will be assimilated"
+				phrase_text = "You will be assimilated."
 				phrase_sound = "assimilatedfem"
 			if(10)
-				phrase_text = "Submit yourself to the collective"
+				phrase_text = "Submit yourself to the collective."
 				phrase_sound = "submitfem"
-		src.audible_message("[user]'s Voice synthesiser: <font color='green' size='4'><b>[phrase_text]</b></font>")
+		user.audible_message("[user]'s Voice synthesiser: <font color='green' size='4'><b>[phrase_text]</b></font>")
 		playsound(src.loc, "StarTrek13/StarTrek13/sound/borg/[phrase_sound].ogg", 100, 0, 4)
 	else
-		user << "<span class='danger'>[src] is not recharged yet.</span>"
+		to_chat(user, "<span class='danger'>[src] is not recharged yet.</span>")
 
 

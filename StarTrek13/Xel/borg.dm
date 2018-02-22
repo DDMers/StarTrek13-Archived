@@ -10,14 +10,14 @@
 	name = "borg invasion"
 	config_tag = "borg"
 	antag_flag = ROLE_BORG
-	required_players = 1 //change me
-	required_enemies = 1//3
+	required_players = 1 //For tests, this will be 4.
+	required_enemies = 1// For testing purposes, this will be changed to 2.
 	recommended_enemies = 5
 	restricted_jobs = list("Cyborg", "AI")
 	var/borgs_to_make = 1
 	var/borgs_to_win = 0
 	var/escaped_borg = 0
-	var/players_per_borg = 1
+	var/players_per_borg = 1 // Probably should be 3.
 	var/const/drones_possible = 5
 	var/finished = 0
 
@@ -29,11 +29,9 @@
 //	if(!fuckfuckmeme in borgs)
 	//	borgs += fuckfuckmeme
 	hivemind.BORGinitialname = borg_mob.name
-	world << "reeee!!" //SKREE
 	for(var/obj/item/W in H)
 		qdel(W)
 	H.equipOutfit(/datum/outfit/borg, visualsOnly = FALSE)
-	world << "reee"//SKREE
 	H.skin_tone = "albino"
 	H.update_body()
 	for(var/obj/item/organ/O in H.internal_organs) //what if the borg to make already has the organ? :thonkig:
@@ -60,51 +58,50 @@
 			return
 
 /datum/game_mode/proc/greet_borg(datum/mind/borg)
-	borg.current << "<font style = 3><B><span class = 'notice'>We are the borg. One of many.</B></font>"
-	borg.current << "<b>We are a scouting party.We must prepare this sector for an invasion.</b>"
-	borg.current << "<b>We are weak alone. We must assimilate the species here.</b>"
-	borg.current << "<b>We have detected multiple vessels in the sector, we must assimilate them aswell.</b>"
-	borg.current << "<b>We can communicate with the collective via :l, you are but a drone, the queen is your overseer </b>"
-	borg.current << "<b>We have detected <span class='warning'>Species 5618 (or humans)</span>in this sector, but also some unknown species including silicon based life forms, they should prove useful.</b>"
-	borg.current << "<b>We have a borg tool, it can be used to <span class='warning'>assimilate</span> objects, and people.</b>"
-	borg.current << "<b>Use it on a victim, and after 5 seconds you will inject borg nanites into their bloodstream, making them a <span class='warning'>half drone</span>, once they are a half drone (with grey skin) take them to a conversion table (buildable)</b>"
-	borg.current << "<b>Buckle them into the conversion table and keep them down for 10 seconds, after this they will join the collective as a full drone</b>"
-	borg.current << "<b>Half drones are loyal to the collective, we should use them to remain somewhat discreet in our kidnapping of the crew as our drones build a base.</b>"
-	borg.current << "<b>Killing is an absolute last resort, a dead human cannot be assimilated.</b>"
-	borg.current << "<b>We do not require food, but we can't heal ourselves through conventional means, we require a <span class='warning'>specialized recharger (buildable)</span> </b>"
-	borg.current << "<b>We must construct a new ship in a suitably large room on this station, only begin this when we are ready to take on the crew.</b>"
-	borg.current << "<b>We can assimilate turfs (walls and floors) by clicking them with the borg tool on ASSIMILATE MODE, these are upgradeable by our queen later</b>"
-	borg.current << "<b>Finally, If you are struggling, refer to this guide: LINK GOES HERE.com</b>"
+	var/greeting = "<font style = 3><B><span class = 'notice'>We are the borg. One of many.</B></font> /n"
+	greeting += "<b>We are a scouting party.We must prepare this sector for an invasion.</b> /n"
+	greeting += "<b>We are weak alone. We must assimilate the species here.</b> /n"
+	greeting += "<b>We have detected multiple vessels in the sector, we must assimilate them aswell.</b> /n"
+	greeting += "<b>We can communicate with the collective via :l, you are but a drone, the queen is your overseer </b> /n"
+	greeting += "<b>We have detected <span class='warning'>Species 5618 (or humans)</span>in this sector, but also some unknown species including silicon based life forms, they should prove useful.</b> /n"
+	greeting += "<b>We have a borg tool, it can be used to <span class='warning'>assimilate</span> objects, and people.</b> /n"
+	greeting += "<b>Use it on a victim, and after 5 seconds you will inject borg nanites into their bloodstream, making them a <span class='warning'>half drone</span>, once they are a half drone (with grey skin) take them to a conversion table (buildable)</b> /n"
+	greeting += "<b>Buckle them into the conversion table and keep them down for 10 seconds, after this they will join the collective as a full drone</b> /n"
+	greeting += "<b>Half drones are loyal to the collective, we should use them to remain somewhat discreet in our kidnapping of the crew as our drones build a base.</b> /n"
+	greeting += "<b>Killing is an absolute last resort, a dead human cannot be assimilated.</b> /n"
+	greeting += "<b>We do not require food, but we can't heal ourselves through conventional means, we require a <span class='warning'>specialized recharger (buildable)</span> </b> /n"
+	greeting += "<b>We must construct a new ship in a suitably large room on this station, only begin this when we are ready to take on the crew.</b> /n"
+	greeting += "<b>We can assimilate turfs (walls and floors) by clicking them with the borg tool on ASSIMILATE MODE, these are upgradeable by our queen later</b> /n"
+	greeting += "<b>Finally, If you are struggling, refer to this guide: LINK GOES HERE.com</b>"
+	to_chat(borg.current, greeting)
 
-/area/borgship
-	name = "Xel mothership"
+/area/ship/borg/borgship
+	name = "Borg mothership"
 	icon_state = "xel"
 	requires_power = 0
 	has_gravity = 1
 	noteleport = 1
-	blob_allowed = 0 //Should go without saying, no blobs should take over centcom as a win condition.
+	blob_allowed = 0
 
 /datum/game_mode/borg/pre_setup() //changing this to the aliens code to spawn a load in maint
 	hivemind = new /datum/borg_hivemind(src)
 	to_chat(world, "borg hivemind established")
-	new /obj/structure/overmap/ship/borg()
-	var/validareas = /area/tcommsat //change me
-//	var/validareas = list(/area/bridge,/area/bridge/meeting_room,/area/tcommsat,/area/crew_quarters/fitness,/area/security/brig,/area/atmos, /area/engine/engineering, /area/crew_quarters/locker) //valid areas that are large enough for the borgos to overtake
-	hivemind.borg_target_area = pick(validareas)
+//	for(var/obj/structure/overmap/ship/borg/B)
+//		to_chat(world, "<b> <big> <font color=red> SHIP SPAWN LOCATED.  BORG SHIP SPAWNED AT [B.loc] ([B.x], [B.y], [B.z]).</font> </big> </b>")
 //	var/n_players = num_players()
 	var/n_drones = 1 //min(round(n_players / 10, 1), drones_possible)
 //	var/n_drones = 5
-	if(antag_candidates.len < n_drones) //In the case of having less candidates than the selected number of agents
+	if(antag_candidates.len < n_drones) //In the case of having less candidates than the selected number of borgs
 		n_drones = antag_candidates.len
 	var/list/datum/mind/borg_drone
-	if(antag_candidates.len>0)
+	if(antag_candidates.len > 0)
 		for(var/i = 0, i < n_drones, i++)
 			borg_drone += pick(antag_candidates)///pick_candidate(amount = n_drones)
 		for(var/v in borg_drone)
 			var/datum/mind/new_borg = v
 			hivemind.borgs += new_borg
-			new_borg.assigned_role = "xel"
-			new_borg.special_role = "xel"//So they actually have a special role/N
+			new_borg.assigned_role = "borg"
+			new_borg.special_role = "borg"//So they actually have a special role/N
 		if(!hivemind)
 			new /datum/borg_hivemind
 		return 1
@@ -112,9 +109,9 @@
 		return 0
 
 /datum/objective/assimilate
-	explanation_text = "Convert a ship into a borg cube by !!NOT YET FINISHED!!"//assimilating ALL turfs inside, and building an FTL drive, shield subsystem, a queen's throne and a navigational console."
+	explanation_text = "NO WIN CONDITION AS OF YET."
 
-/datum/objective/assimilate/check_completion()
+/datum/objective/assimilate/check_completion() // Objective: Assimilate all flagships, and the federation starbase
 	return
 
 /datum/game_mode/proc/forge_borg_objectives(datum/mind/borg_mind)
@@ -125,12 +122,12 @@
 
 /datum/game_mode/borg/post_setup()
 	for(var/obj/effect/landmark/A in GLOB.landmarks_list)
-		if(A.name == "xel_spawn")
+		if(A.name == "borg_spawn")
 			hivemind.borgspawn2 = A.loc
-			world << "<b> Found a borg spawn! </b>"
+			to_chat(world, "<b> Found a borg spawn! </b>")
 			continue
 	for(var/datum/mind/borg_mind in hivemind.borgs)
-	//	world << "<b> TEST! borgmind is [borg_mind] at [borg_mind.current.loc] </b>"
+		world << "<b> TEST! borgmind is [borg_mind] at [borg_mind.current.loc] </b>"
 		//var/fuck = new /mob/living/carbon/human
 		greet_borg(borg_mind)
 		equip_borg(borg_mind.current)
@@ -143,7 +140,7 @@
 /datum/game_mode/borg/announce()
 	world << "<B>The current game mode is - Borg!</B>"
 	world << "<B>A massive temporal rift has been detected, a large green object suddenly appeared on galactic sensors. \
-				You must destroy ALL Xel. Xel; assimilate the sector!</B>"
+				You must destroy ALL borg. Borg; assimilate the sector!</B>"
 
 //species 4678 (or unathi)</span> and <span class='warning'>Species 4468 (or phytosians) 5618 (or humans)
 
@@ -155,9 +152,9 @@
 
 /datum/game_mode/proc/auto_declare_completion_borg()
 	if(hivemind.borgs.len || (SSticker && istype(SSticker.mode,/datum/game_mode/borg)) )
-		var/text = "<br><font size=3><b>The Xel drones were:</b></font>"
-		for(var/datum/mind/xel in hivemind.borgs)
-			text += printplayer(xel)
+		var/text = "<br><font size=3><b>The borg drones were:</b></font>"
+		for(var/datum/mind/borg in hivemind.borgs)
+			text += printplayer(borg)
 		text += "<br>"
 		world << text
 
@@ -182,8 +179,8 @@
 
 //datum/game_mode/borg/declare_completion() //Dont need this yet
 //	if(hivemind.borg_completion_assimilation && hivemind.borg_machines_room_has_ftl && hivemind.borg_machines_room_has_nav && hivemind.borg_machines_room_has_throne) //add in the other once i've made their structures
-//		SSticker.mode_result = "round_end_result","Major Victory - Xel"
-//		to_chat(world,"<span class='greentext'>The Xel collective constructed a new cube! they now live to spread their evil throughout the sector!</span>")
+//		SSticker.mode_result = "round_end_result","Major Victory - borg"
+//		to_chat(world,"<span class='greentext'>The borg collective constructed a new cube! they now live to spread their evil throughout the sector!</span>")
 //	else
 //		SSticker.mode_result = "round_end_result","loss - staff defeated the borg!"
 //		to_chat(world, "<span class='userdanger'><FONT size = 3>The staff managed contain the borg!</FONT></span>")
@@ -239,7 +236,7 @@
 	message_admins("borg hivemind started up.")
 
 /datum/borg_hivemind/proc/message_collective()
-	var/ping = "<font color='green' size='2'><B><i>Xel collective</i> Hivemind notice: [message]</B></font></span>"
+	var/ping = "<font color='green' size='2'><B><i>Borg collective</i> Hivemind notice: [message]</B></font></span>"
 	for(var/mob/living/I in world)
 		if(I.mind in borgs)
 			I << ping

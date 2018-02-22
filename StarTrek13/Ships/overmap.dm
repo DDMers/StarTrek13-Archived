@@ -703,22 +703,20 @@ var/global/list/global_ship_list = list()
 	weapons.fire_torpedo(theturf, pilot)
 	SEND_SOUND(pilot, sound('StarTrek13/sound/borg/machines/torpedo1.ogg'))
 
-/obj/structure/overmap/ship/borg
+/obj/structure/overmap/ship/borg // TODO: TRACTOR BEAM, ??REGENERATIVE HULL??, ION CANNONS | A.K.A Borg balancing tool. They'll have everything needed to take a 1v1, but multiple ships will prove a difficult task to take on.
 	name = "borg cube"
 	icon_state = "borg_cube"
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	initial_icon_state = "cube"
 	spawn_name = "BORG"
+	marker = "borg cube"
+	faction = "borg collective"
+	pixel_x = -32
+	damage = 600 // We're here to take the sheilds down, not obliterate their ship!
+	health = 10000 //To compensate for a lack of shields, becuz muh LORE! Might be able to factor in regenerative capabilities eventually
+	view_range = 12//muh advanced sensors
 
 #undef TORPEDO_MODE
 #undef PHASER_MODE
 
-
-/obj/structure/overmap/ship/nanotrasen
-	name = "NSV Muffin"
-	icon_state = "whiteship"
-	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
-	initial_icon_state = "whiteship"
-	spawn_name = "NT_SHIP"
-	pixel_x = 0
-	pixel_y = -32
+//var/area/linked_ship //CHANGE ME WITH THE DIFFERENT TYPES!
