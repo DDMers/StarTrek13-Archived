@@ -283,6 +283,9 @@
 	healthdoll = new /obj/screen/healthdoll()
 	infodisplay += healthdoll
 
+	skill = new /obj/screen/skill()
+	infodisplay += skill
+
 	if(!CONFIG_GET(flag/disable_human_mood))
 		mood = new /obj/screen/mood()
 		infodisplay += mood

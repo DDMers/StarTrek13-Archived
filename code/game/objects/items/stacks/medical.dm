@@ -52,7 +52,6 @@
 	if(isliving(M))
 		if(!M.can_inject(user, 1))
 			return
-
 	if(user)
 		if (M != user)
 			if (isanimal(M))
@@ -76,6 +75,8 @@
 			user.visible_message("<span class='notice'>[user] starts to apply [src] on [t_himself]...</span>", "<span class='notice'>You begin applying [src] on yourself...</span>")
 			if(!do_mob(user, M, self_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject,user,1)))
 				return
+			if(user.skillcheck(user.medical_skill, 25, TRUE) != (1 || 2))
+				return
 			user.visible_message("<span class='green'>[user] applies [src] on [t_himself].</span>", "<span class='green'>You apply [src] on yourself.</span>")
 
 
@@ -84,6 +85,8 @@
 		affecting = C.get_bodypart(check_zone(user.zone_selected))
 		if(!affecting) //Missing limb?
 			to_chat(user, "<span class='warning'>[C] doesn't have \a [parse_zone(user.zone_selected)]!</span>")
+			return
+		if(user.skillcheck(user.medical_skill, 25, TRUE) != (1 || 2))
 			return
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
@@ -99,7 +102,6 @@
 		M.heal_bodypart_damage((src.heal_brute/2), (src.heal_burn/2))
 
 	use(1)
-
 
 
 /obj/item/stack/medical/bruise_pack

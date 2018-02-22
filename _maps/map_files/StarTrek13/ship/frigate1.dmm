@@ -10,15 +10,14 @@
 "aj" = (/turf/open/floor/engine,/area/ship/target)
 "ak" = (/turf/open/floor/borg/trek,/area/ship/target)
 "al" = (/obj/structure/shuttle/engine/propulsion{dir = 4; icon_state = "burst_l"},/turf/open/space/basic,/area/ship/target)
-"am" = (/obj/machinery/power/ship/phaser/opposite,/turf/open/space,/area/ship/target)
+"am" = (/obj/machinery/power/ship/phaser,/turf/closed/wall/ship,/area/ship/target)
 "an" = (/obj/machinery/door/airlock/external,/obj/machinery/door/firedoor,/turf/open/floor/engine,/area/ship/target)
 "ao" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/ship/light/m,/area/ship/target)
 "ap" = (/obj/machinery/shieldgen/wallmounted,/turf/closed/wall/ship/light/m,/area/ship/target)
 "aq" = (/obj/machinery/door/airlock/trek,/turf/open/floor/borg/trek/light,/area/ship/target)
 "ar" = (/obj/structure/shuttle/engine/propulsion{dir = 4; icon_state = "burst_l"},/turf/open/space,/area/space)
-"as" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/borg/trek/light,/area/ship/target)
-"at" = (/obj/item/clothing/under/trek/engsec/next,/obj/item/clothing/under/trek/command/next,/obj/item/clothing/under/trek/command/next,/turf/open/floor/borg/trek/light,/area/space)
-"au" = (/obj/structure/disposalpipe/segment{dir = 8; icon_state = "pipe-c"},/obj/structure/sign/securearea{desc = "A warning sign which reads 'HIGH VOLTAGE'"; icon_state = "shock"; name = "HIGH VOLTAGE"; pixel_y = 32},/turf/open/floor/borg/trek/light,/area/ship/target)
+"as" = (/obj/item/clothing/under/trek/engsec/next,/obj/item/clothing/under/trek/command/next,/obj/item/clothing/under/trek/command/next,/turf/open/floor/borg/trek/light,/area/ship/target)
+"at" = (/obj/structure/sign/securearea{desc = "A warning sign which reads 'HIGH VOLTAGE'"; icon_state = "shock"; name = "HIGH VOLTAGE"; pixel_y = 32},/turf/open/floor/borg/trek/light,/area/ship/target)
 "av" = (/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek/light,/area/ship/target)
 "aw" = (/turf/open/floor/borg/trek/light,/area/ship/target)
 "ax" = (/turf/open/floor/borg/trek/blue,/area/ship/target)
@@ -84,7 +83,6 @@
 "bF" = (/obj/structure/sign/viewscreen{dir = 1; icon_state = "trekscreen"},/turf/open/floor/borg/trek/light,/area/ship/target)
 "bG" = (/obj/machinery/light,/turf/open/floor/borg/trek/light,/area/ship/target)
 "bH" = (/obj/structure/closet,/obj/item/clothing/shoes/jackboots,/turf/open/floor/borg/trek/light,/area/ship/target)
-"bI" = (/obj/structure/disposalpipe/segment{dir = 2; icon_state = "pipe-c"},/turf/open/floor/borg/trek/light,/area/ship/target)
 "bJ" = (/obj/effect/landmark/shield,/turf/open/space/basic,/area/ship/target)
 "bK" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/beige,/area/ship/target)
 "bL" = (/obj/structure/table,/obj/item/twohanded/required/kirbyplants{icon_state = "plant-15"; pixel_x = -6; pixel_y = 12},/turf/open/floor/borg/trek,/area/ship/target)
@@ -126,8 +124,7 @@
 "cv" = (/obj/machinery/hydroponics/constructable,/turf/open/floor/borg/trek/beige,/area/ship/target)
 "cw" = (/obj/machinery/vending/hydronutrients,/turf/open/floor/borg/trek/beige,/area/ship/target)
 "cx" = (/turf/open/water,/area/space)
-"cy" = (/turf/open/floor/borg/trek/light,/area/space)
-"cz" = (/turf/open/floor/borg/trek/blue,/area/space)
+"cA" = (/obj/machinery/power/ship/phaser,/turf/closed/wall/mineral/titanium,/area/ship/target)
 "cB" = (/obj/machinery/computer/shipcomms{dir = 4; icon_state = "computer"; ship_name = "USS Entax"},/turf/open/floor/borg/trek/red,/area/ship/target)
 
 (1,1,1) = {"
@@ -139,10 +136,10 @@ abacacacacacacacacacacacacacacacacacadadadadadadadadadadadadadadadadadacacacacab
 abacacacacacacacacacacacacacacacacacaeafafafagagagagagagagagagagagagafacacacacab
 abacacacacacacacacacacacacacacacaeahaeaiaiaiaiaiaiaiaiaiaiaiaiaiaeaeaeacacacacab
 abacacacacacacacacacadadadaeaeaeaeajaeaiaiakakakakakakakakakaiaiaealacacacacacab
-abacacacacacacacacacadamaeaeaiaiaianaiaoaoaoaoaoaoapaqaoaoaoaoaoaiaearacacacacab
-abacacacacacacacacacadaeaeaiaiasatasauavcycycyawawawaxawawawawavaiaeaeaeaeaeacab
-abacacacacacacacacacaeayazaiawaxaxaxaxaxczczczaxaxaxaxaxaxaxaxaxaAaiaBaCaiaiacab
-abadadadadadadaeaeaeaeaiaiaiawaxawawawawcyczcyawawawaxawawawawaxaDawaEawawaFacab
+abacacacacacacacacacadadaeaeaiaiamanaiaoaoaoaoaoaoapaqaoaoaoaoaoaiaearacacacacab
+abacacacacacacacacacadaeaeaiaiawasawatavawawawawawawaxawawawawavaiaeaeaeaeaeacab
+abacacacacacacacacacaeayazaiawaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaAaiaBaCaiaiacab
+abadadadadadadaeaeaeaeaiaiaiawaxawawawawawaxawawawawaxawawawawaxaDawaEawawaFacab
 abadadadaeaeaeaeaiaiaiaGaiaiaCaHaiaiaiaiaiaqaiaiaiaIaJaKaLaMaMaMaiaNaOaPawaFacab
 abadadadaeaeaeaeaiaQaRawawawawawaSaiaTajaAaxawaiawaiakaUakaVaWaXaiaNaOaPaYaFacab
 abadadaeaeaeaeaeaiaZbaaPbbbcbkawbeaiajajbfaxawaiaiaibgbgbgbgbgbgbeawbhawbiaiacab
@@ -152,10 +149,10 @@ abadadadaeaeaeaeaiaQawawawawawawaSaiaTajaAaxawaiawaiakaLakbxbybzaibAbAawawaFacab
 abbBadadaeaeaeaeaiaibCaiaiaBaCaHaiaiaiaiaiaqaiaiaiaIaJaKaLbDbDbDaiawawawawaFacab
 abadadadadadadaeaeaebEaiaiaiawaxawawawawawaxawawawawaxawawbFawaxaDawbGbHaYaFacab
 abacacacacacacacacacaeayazaiawaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaAaiaBaCaiaiacab
-abacacacacacaaacacacadaeaeaiaiasatasbIbGawawawawawawaxawawawawbGaiaeaeaeaeaeacab
+abacacacacacaaacacacadaeaeaiaiawasawawbGawawawawawawaxawawawawbGaiaeaeaeaeaeacab
 abacacacacacacacacacadadaeaeaiaiaianaiaoaoaoaoaoaoapaqaoaoaoaoaoaiaearacacacacab
 abacacacacacacacacacadadadaeaeaeaeajaeaiaiakakakakakakakakakaiaiaealacacacacacab
-abacacacacacacacacacadamadadadadaeahaeaiaiaiaiaiaiaiaiaiaiaiaiaiaeaeaeacacacacab
+abacacacacacacacacacadadadadadadcAahaeaiaiaiaiaiaiaiaiaiaiaiaiaiaeaeaeacacacacab
 abacacacacacacacacacacacacacacacacacaeafafafagagagagagagagagagagagagafacacacacab
 abacacacacacacacacacacacacacacacacacadadadadadadadadadadadadadadadadadacacacacab
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacab

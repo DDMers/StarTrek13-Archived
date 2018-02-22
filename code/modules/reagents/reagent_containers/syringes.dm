@@ -76,6 +76,8 @@
 
 			if(L) //living mob
 				var/drawn_amount = reagents.maximum_volume - reagents.total_volume
+				if(user.skillcheck(user.medical_skill, 45, TRUE) != (1 || 2))
+					return
 				if(target != user)
 					target.visible_message("<span class='danger'>[user] is trying to take a blood sample from [target]!</span>", \
 									"<span class='userdanger'>[user] is trying to take a blood sample from [target]!</span>")
@@ -86,6 +88,8 @@
 					if(reagents.total_volume >= reagents.maximum_volume)
 						return
 				busy = FALSE
+				if(user.skillcheck(user.medical_skill, 45, TRUE) != (1 || 2))
+					return
 				if(L.transfer_blood_to(src, drawn_amount))
 					user.visible_message("[user] takes a blood sample from [L].")
 				else
@@ -139,6 +143,8 @@
 					L.visible_message("<span class='danger'>[user] injects [L] with the syringe!", \
 									"<span class='userdanger'>[user] injects [L] with the syringe!</span>")
 
+				if(user.skillcheck(user.medical_skill, 45, TRUE) != (1 || 2))
+					return
 				if(L != user)
 					add_logs(user, L, "injected", src, addition="which had [contained]")
 				else
