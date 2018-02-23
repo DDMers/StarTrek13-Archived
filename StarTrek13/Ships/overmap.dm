@@ -31,7 +31,7 @@ var/global/list/global_ship_list = list()
 	jumpgate_position = 2
 
 /area/overmap/system/z2
-	name = "Amann"
+	name = "Amann" //Test
 	jumpgate_position = 3
 
 #define TORPEDO_MODE 1//1309
