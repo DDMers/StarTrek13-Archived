@@ -2,7 +2,6 @@
 	name = "Starfury"
 	icon_state = "fighter"
 	icon = 'StarTrek13/icons/trek/overmap_fighter.dmi'
-	initial_icon_state = "fighter"
 	spawn_name = "NT_SHIP"
 	pixel_x = 0
 	pixel_y = 0
@@ -16,7 +15,7 @@
 	take_damage_traditionally = FALSE
 	var/turf/origin_turf = null //For re-teleporting the ship back when it's done docking.
 	damage = 100
-	recharge_max = 0.7
+	recharge_max = 1.2
 	//Add a communcations box sometime ok cool really neat.
 
 /obj/structure/overmap/ship/fighter/attack_hand(mob/user)

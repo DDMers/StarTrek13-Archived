@@ -1,6 +1,6 @@
-"a" = (/turf/open/floor/plasteel{icon = 'icons/turf/space.dmi'; icon_plating = "speedspace_ew_14"; icon_regular_floor = "speedspace_ew_14"; icon_state = "speedspace_ew_14"},/area/overmap/hyperspace)
-"b" = (/obj/effect/landmark{name = "hyperspace"},/turf/open/floor/plasteel{icon = 'icons/turf/space.dmi'; icon_plating = "speedspace_ew_14"; icon_regular_floor = "speedspace_ew_14"; icon_state = "speedspace_ew_14"},/area/overmap/hyperspace)
-"c" = (/turf/closed/indestructible{icon = 'icons/turf/space.dmi'; icon_state = "speedspace_ew_14"},/area/overmap/hyperspace)
+"a" = (/turf/open/floor/fakespace,/area/overmap/hyperspace)
+"b" = (/obj/effect/landmark{name = "hyperspace"},/turf/open/floor/fakespace,/area/overmap/hyperspace)
+"c" = (/turf/closed/indestructible{alpha = 0; icon = 'icons/turf/space.dmi'; icon_state = "speedspace_ew_14"},/area/overmap/hyperspace)
 
 (1,1,1) = {"
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc

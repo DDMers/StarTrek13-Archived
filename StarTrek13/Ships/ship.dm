@@ -720,6 +720,7 @@
 //DEFINE TARGET
 
 /area/ship
+	parallax_movedir = FALSE
 	name = "USS Cadaver"
 	icon_state = "ship"
 	requires_power = 0 //fix
