@@ -202,7 +202,7 @@
 "dT" = (/obj/structure/table/glass,/obj/item/storage/firstaid/toxin,/obj/item/storage/firstaid/toxin,/turf/open/floor/borg/trek/beige,/area/ship)
 "dU" = (/obj/machinery/chem_master,/turf/open/floor/borg/trek/blue,/area/ship)
 "dV" = (/obj/structure/table/wood/poker,/obj/item/dice,/obj/item/device/modular_computer/tablet/preset/advanced,/turf/open/floor/borg/trek/red,/area/ship)
-"dW" = (/obj/structure/overmap/ship/capital_class,/turf/open/space,/area/ship)
+"dW" = (/obj/structure/overmap/ship/federation_capitalclass,/turf/open/space,/area/ship)
 "dX" = (/obj/structure/table/glass,/turf/open/floor/borg/trek/light,/area/ship)
 "dY" = (/obj/machinery/power/ship/phaser,/turf/open/floor/plating,/area/ship)
 "dZ" = (/obj/machinery/power/ship/phaser,/turf/closed/wall/ship,/area/ship)

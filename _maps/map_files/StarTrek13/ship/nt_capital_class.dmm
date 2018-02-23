@@ -6,7 +6,7 @@
 "f" = (/obj/machinery/shieldgen/wallmounted,/turf/closed/wall/ship/steel,/area/ship/nanotrasen/capital_class)
 "g" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/ship/steel,/area/ship/nanotrasen/capital_class)
 "h" = (/obj/structure/fluff/helm/desk/tactical/nanotrasen{icon_state = "computer"; dir = 8},/turf/open/floor/pod,/area/ship/nanotrasen/capital_class)
-"i" = (/obj/structure/overmap/ship/capital_class/nanotrasen,/turf/open/floor/pod,/area/ship/nanotrasen/capital_class)
+"i" = (/obj/structure/overmap/ship/nanotrasen_capitalclass,/turf/open/floor/pod,/area/ship/nanotrasen/capital_class)
 "j" = (/obj/machinery/power/ship/phaser,/turf/closed/wall/ship/steel,/area/ship/nanotrasen/capital_class)
 "k" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/nanotrasen/capital_class)
 "l" = (/obj/machinery/power/ship/phaser,/turf/open/floor/pod,/area/ship/nanotrasen/capital_class)
