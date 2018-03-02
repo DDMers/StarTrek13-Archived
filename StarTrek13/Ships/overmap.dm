@@ -685,7 +685,11 @@ var/global/list/global_ship_list = list()
 	if(!isOVERMAP(mover))
 		if(!istype(mover, /obj/structure/jumpgate))
 			if(!shields_active)
-				var/turf/theturf = pick(get_area_turfs(linked_ship))
+				var/turf/open/space/turfs = list()
+				for(var/turf/T in get_area_turfs(linked_ship))
+					if(istype(T, /turf/open/space))
+						turfs += T
+				var/turf/theturf = pick(turfs)
 				mover.forceMove(theturf) //Force them into a random turf
 				if(istype(mover, /obj/structure/photon_torpedo))
 					var/obj/structure/photon_torpedo/P = mover
