@@ -1,5 +1,5 @@
 //ADAPTED FROM SPACE BATTLES SERVER, I'm not sure who exactly made them and they don't have a github, ask Cdey for info I guess.
-
+/*
 #define PHYSICAL 1
 #define ENERGY 2
 /obj/machinery/space_battle/shielding
@@ -267,3 +267,5 @@
 	if(ismob(AM))
 		var/mob/M = AM
 		M.canmove = 1
+
+*/
