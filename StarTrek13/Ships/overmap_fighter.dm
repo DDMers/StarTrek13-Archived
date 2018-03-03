@@ -99,7 +99,7 @@
 /obj/structure/overmap/ship/fighter/destroy()
 	to_chat(pilot, "The cabin of [src] explodes into a ball of flames!")
 //	pilot.forceMove(loc)
-	pilot.gib()
+	qdel(pilot)
 	pilot = null
 	. = ..()
 

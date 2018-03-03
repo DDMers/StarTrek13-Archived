@@ -419,7 +419,7 @@ SUBSYSTEM_DEF(job)
 				N.new_character = H
 			else
 				M = H
-
+	SSfaction.addToFaction(M)
 		SSpersistence.antag_rep_change[M.client.ckey] += job.GetAntagRep()
 
 	to_chat(M, "<b>You are the [rank].</b>")
