@@ -359,7 +359,7 @@ var/global/list/global_ship_list = list()
 		else//no shields are up! take the hit
 			icon_state = initial(icon_state)
 			var/turf/theturf = pick(get_area_turfs(target_ship))
-			if(prob(20))
+			if(prob(40))
 				explosion(theturf,2,5,11)
 			for(var/mob/L in linked_ship.contents)
 				shake_camera(L, 1, 10)

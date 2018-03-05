@@ -141,3 +141,12 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	if(D in member_factions)
 		member_factions -= D
 		D.broadcast("Your faction has been removed from [name]!")
+
+/datum/objective/faction
+	completed = 0
+	explanation_text = "lead your faction to greatness"
+
+/datum/objective/faction/dominate
+	explanation_text = "All those other factions are opressing their members, liberate them by making sure your faction is the only one left"
+
+//datum/objective/faction/
