@@ -112,6 +112,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/action_buttons_screen_locs = list()
 
+	//Star Trek 13 Factions
+	var/datum/faction/factions = list()
+//	var/datum/list/factionDescriptions = list("Independent Description", "Starfleet Description", "Klingon Description")
+	var/faction = 1
+	var/datum/faction/player_faction = null
+	var/num_factions = 0 //how many factions are there to be chosen from
+
 /datum/preferences/New(client/C)
 	parent = C
 	custom_names["human"] = random_unique_name()
@@ -136,6 +143,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		save_preferences()
 	save_character()		//let's save this new random character so it doesn't keep generating new ones.
 	menuoptions = list()
+	getFactions()
 	return
 
 /datum/preferences/proc/ShowChoices(mob/user)
@@ -492,7 +500,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	popup.set_content(dat)
 	popup.open(0)
 
+
+/datum/preferences/proc/getFactions()
+	factions = SSfaction.factions
+
 /datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
+	getFactions()
 	if(!SSjob)
 		return
 
@@ -509,9 +522,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
 
 	else
-		HTML += "<b>Choose occupation chances</b><br>"
+		HTML += "<b>Choose occupation chances and Faction.</b><br>"
 		HTML += "<div align='center'>Left-click to raise an occupation preference, right-click to lower it.<br></div>"
 		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
+
+		HTML += "<center>Faction: <a href='?_src_=prefs;factionchange=true' "
+		if(!player_faction)
+			player_faction = pick(factions) //the runtimes boy oh!
+		HTML += "style='background-color: [player_faction.pref_colour]'" //For some reason this doesnt work.
+		HTML += ">[player_faction.name]</a></center><br>"
+		HTML += "<p>[player_faction.description]]</p>"
+
+//		HTML += "<p>[factionRosters[faction][1]]</p><br>"
+
 		HTML += "<script type='text/javascript'>function setJobPrefRedirect(level, rank) { window.location.href='?_src_=prefs;preference=job;task=setJobLevel;level=' + level + ';text=' + encodeURIComponent(rank); return false; }</script>"
 		HTML += "<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>" // Table within a table for alignment, also allows you to easily add more colomns.
 		HTML += "<table width='100%' cellpadding='1' cellspacing='0'>"
@@ -751,6 +774,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	return 0
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
+	if(href_list["factionchange"] == "true")
+	//	if(faction == num_factions)
+	//		faction = 1
+	//	else
+	//		faction++
+		var/A
+		A = input("Choose a faction to start as", "Preferences", A) as null|anything in factions
+		if(!A)
+			return 0
+		var/datum/faction/thefaction = A
+		player_faction = thefaction
+		SetChoices(user)
+
+		return
+
 	if(href_list["jobbancheck"])
 		var/job = sanitizeSQL(href_list["jobbancheck"])
 		var/sql_ckey = sanitizeSQL(user.ckey)

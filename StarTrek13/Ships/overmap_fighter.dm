@@ -2,7 +2,6 @@
 	name = "Starfury"
 	icon_state = "fighter"
 	icon = 'StarTrek13/icons/trek/overmap_fighter.dmi'
-	initial_icon_state = "fighter"
 	spawn_name = "NT_SHIP"
 	pixel_x = 0
 	pixel_y = 0
@@ -11,12 +10,14 @@
 	spawn_random = 0
 	can_move = 0
 	pixel_x = -15
+	vehicle_move_delay = 0
 	var/starting = 0
 	var/obj/structure/overmap/carrier_ship = null
 	take_damage_traditionally = FALSE
 	var/turf/origin_turf = null //For re-teleporting the ship back when it's done docking.
 	damage = 100
-	recharge_max = 0.7
+	recharge_max = 1.2
+	var/exiting = FALSE
 	//Add a communcations box sometime ok cool really neat.
 
 /obj/structure/overmap/ship/fighter/attack_hand(mob/user)
@@ -51,6 +52,7 @@
 		if(carrier_ship)
 			to_chat(pilot, "Moving to re-dock with [carrier_ship]")
 			nav_target = carrier_ship
+			exiting = TRUE
 			starting = 0
 	else
 		. = ..()
@@ -85,14 +87,19 @@
 	if(d & (d-1))//not a cardinal direction
 		setDir(d)
 		step(src,dir)
-	if(src in orange(4, nav_target))
+	if(exiting && src in orange(2, nav_target))
+		exiting = FALSE
 		navigating = 0
 		to_chat(pilot, "Movement towards [nav_target] complete. Engaging auto-dock subsystem.")
 		forceMove(origin_turf)
+	if(src in orange(4, nav_target))
+		navigating = 0
+		to_chat(pilot, "Movement towards [nav_target] complete. Engaging auto-dock subsystem.")
 
 /obj/structure/overmap/ship/fighter/destroy()
-	to_chat(pilot, "WARNING: CRITICAL DAMAGE SUSTAINED. BAILING OUT!")
-	pilot.forceMove(loc)
+	to_chat(pilot, "The cabin of [src] explodes into a ball of flames!")
+//	pilot.forceMove(loc)
+	qdel(pilot)
 	pilot = null
 	. = ..()
 

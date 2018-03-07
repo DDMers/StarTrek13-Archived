@@ -401,7 +401,7 @@ SUBSYSTEM_DEF(job)
 				N.new_character = H
 			else
 				M = H
-
+	SSfaction.addToFaction(M)
 	to_chat(M, "<b>You are the [rank].</b>")
 	to_chat(M, "<b>As the [rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
 	to_chat(M, "<b>To speak on your departments radio, use the :h button. To see others, look closely at your headset.</b>")
