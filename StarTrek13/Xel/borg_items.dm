@@ -373,6 +373,7 @@
 /obj/item/clothing/shoes/magboots/borg
 	name = "borg shoes"
 	desc = "Grotesque looking feet, they are magnetized."
+	icon = 'StarTrek13/icons/borg/borg_gear.dmi'
 	icon_state = "borg0"
 	magboot_state = "borg1"
 	item_state = null
@@ -517,7 +518,7 @@
 				phrase_text = "Submit yourself to the collective."
 				phrase_sound = "submitfem"
 		user.audible_message("[user]'s Voice synthesiser: <font color='green' size='4'><b>[phrase_text]</b></font>")
-		playsound(src.loc, "StarTrek13/StarTrek13/sound/borg/[phrase_sound].ogg", 100, 0, 4)
+		playsound(src.loc, "StarTrek13/sound/borg/[phrase_sound].ogg", 100, 0, 4)
 	else
 		to_chat(user, "<span class='danger'>[src] is not recharged yet.</span>")
 

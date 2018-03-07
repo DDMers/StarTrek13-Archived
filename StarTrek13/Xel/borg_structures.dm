@@ -70,7 +70,7 @@
 /obj/structure/chair/borg/conversion/user_buckle_mob(mob/living/M, mob/user)
 	. = ..()
 	if(check_elegibility(M) && loc == M.loc)
-		to_chat(M, "<span class='warning'>You feel an immense wave of dread wash over you as [user] starts to strap you into [src]</span>")
+		to_chat(M, "<span class='warning'>You feel an immense wave of dread wash over you as [user] begins to strap you into [src]</span>")
 		to_chat(user, "<span class='warning'>We begin to prepare [M] for assimilation into the collective.</span>")
 		var/mob/living/carbon/human/H = M
 		if(do_after(user, 100, target = H))
@@ -78,11 +78,11 @@
 			restrained = 1
 			icon_state = "borg_off"
 			M.do_jitter_animation(50)
-			src.visible_message("<span class='warning'>[M] looks terrified as they lay on [src]</span>")
+			src.visible_message("<span class='warning'>[M] looks terrified as they lay on the [src]!</span>")
 			sleep(60)
 			to_chat(M, "<span class='warning'>You feel several sharp stings as the [src] cuts into you!</span>")
 			sleep(10)
-			to_chat(M, "<span class='warning'>OH GOD THE AGONY!</span>")
+			to_chat(M, "<span class='warning'>OH GOD, THE AGONY!</span>")
 			playsound(loc, 'StarTrek13/sound/borg/machines/convert_table.ogg', 50, 1, -1)
 			src.visible_message("<span class='warning'>[M] screams in agony as the [src] forces grotesque metal parts onto their grey flesh!</span>")
 			playsound(loc, 'sound/effects/megascream.ogg', 50, 1, -1) //https://youtu.be/5QvgLlFyeok?t=1m48s
@@ -98,12 +98,13 @@
 			sleep(40)
 			playsound(loc, 'StarTrek13/sound/borg/machines/convert_table2.ogg', 50, 1, -1)
 			sleep(20)
-			var/datum/mind/borg_mind = M.mind
-			borg_mind.make_xel()
+			if(M.client)
+				var/datum/mind/borg_mind = M.mind
+				borg_mind.make_xel()
 			overlays -= armoverlay
 			overlays -= armoroverlay
 			icon_state = "borg_off"
-			to_chat(M, "<span class='warning'>We feel different as the straps binding us to the [src] release, our designation is [M.name].</span>")
+			to_chat(M, "<span class='warning'>We feel like one as the straps binding us to the [src] release. Our new designation is [M.name].</span>")
 			restrained = 0
 	else //error meme
 		src.visible_message("<span class='warning'>[M] is not ready to be augmented.</span>")
@@ -200,55 +201,83 @@
 							/obj/item/stock_parts/borg/bin = 2,
 							/obj/item/stock_parts/borg/capacitor = 1,
 							/obj/item/stock_parts/borg = 3)
-/obj/machinery/borg/ftl/New()
-	. = ..()
-	var/area/A = get_area(src)
-	if(SSticker.mode.hivemind.borg_machines_room_has_ftl == 0)
-		if(istype(A, SSticker.mode.hivemind.borg_target_area))
-			SSticker.mode.hivemind.borg_machines_room_has_ftl = 1
-		//	src.say(SSticker.mode.borg_machines_in_area)
-		else
-			src.say("not in the right area")
-	else
-		alreadyonehere = 1
-		src.say("there is already one of those here")
-		qdel(src)
 
-/obj/machinery/borg/ftl/Destroy()
-	. = ..()
-	if(!alreadyonehere)
-		SSticker.mode.hivemind.borg_machines_room_has_ftl = 0 //when you delete it, if there is already one, means that you cant make infinite ones.
 
-/obj/machinery/borg/helm
+/obj/structure/fluff/helm/desk/tactical/borg
 	name = "xel cube helm control"
-	desc = "Symbols flash on its holographic display as it constantly flickers and hums, used to fly ships it would seem."
+	desc = "Symbols flash on its holographic display as it constantly flickers and hums."
+	icon = 'StarTrek13/icons/borg/borg.dmi'
 	icon_state = "navicomp"
-	anchored = 1
-//	pixel_x = -32
+	pixel_x = -32
 	bound_width = 96
 	layer = 4.5
-	parts = list(
-							/obj/item/stock_parts/borg/bin = 2,
-							/obj/item/stock_parts/borg/capacitor = 1,
-							/obj/item/stock_parts/borg = 3)
 
-/obj/machinery/borg/helm/New()
-	. = ..()
-	var/area/A = get_area(src)
-	if(SSticker.mode.hivemind.borg_machines_room_has_nav == 0)
-		if(istype(A, SSticker.mode.hivemind.borg_target_area))
-			SSticker.mode.hivemind.borg_machines_room_has_nav = 1
-		//	src.say(SSticker.mode.borg_machines_in_area)
-		else
-			src.say("not in the right area")
+/obj/machinery/borg/converter
+	name = "conversion device"
+	desc = "The final stage of the assimilation process of the borg. May god have mercy on your crew."
+	icon_state = "converter"
+	bound_width = 96
+	layer = 5.5
+	var/running
+
+/obj/machinery/borg/converter/update_icon()
+	if(running)
+		icon_state = "converter_active"
 	else
-		src.say("there is already one of those here")
-		qdel(src)
+		icon_state = "converter"
 
-/obj/machinery/borg/helm/Destroy()
-	. = ..()
-	if(!alreadyonehere)
-		SSticker.mode.hivemind.borg_machines_room_has_nav = 0 //when you delete it, if there is already one, means that you cant make infinite ones.
+/obj/machinery/borg/converter/attack_hand(mob/living/carbon/human/user)
+	if(running)
+		to_chat(user, "<span class='userdanger'> The device is already running!</span>")
+	if(!isborg(user))
+		to_chat(user, "<span class='warning'>You don't know how to use this.. Yet.</span>")
+		return
+	var/area = get_area(src)
+	for(var/obj/structure/fluff/helm/desk/tactical/T in area)
+		if(T.theship.assimilated)
+			to_chat(user, "<span class='warning'>This ship has already been assimilated!</span>")
+			return
+		to_chat(user, "<span class='notice'>We begin to initiate assimilation protocols for the [T.theship.name].</span>")
+		if(!do_after(user, 150, target = src))
+			to_chat(world, "<big>Failed do_after!</big>")
+			return
+		to_chat(world, "<big>do_after complete!</big>")
+		SSticker.mode.hivemind.message_collective("We have begun assimilation protocols onboard the [T.theship.name].")
+		to_chat(world, "<big>hivemind messaged</big>")
+		var/surviving_humans
+		for(var/mob/living/carbon/human/H in area)
+			if(isliving(H))
+				if(!isborg(H))
+					++surviving_humans
+					to_chat(world, "<big>Surviving human found! Non-borg humans: [surviving_humans].</big>")
+		var/timer = 600 * surviving_humans + 600 // A minute for every living human in the ship, with the default minute..
+		icon_state = "converter_active"
+		to_chat(world, "<big>icon updated!</big>")
+		if(!process_timer(timer))
+			to_chat(world, "<big>process_timer failed!</big>")
+			SSticker.mode.hivemind.message_collective("We have failed to assimilate the [T.theship.name].")
+			running = FALSE
+			icon_state = "converter"
+			return
+		to_chat(world, "<big>process_timer suceeded!</big>")
+		running = FALSE
+		icon_state = "converter"
+		if(T.theship.assimilate())
+			SSticker.mode.hivemind.message_collective("We have successfully assimilated the [T.theship.name].")
+		else
+			SSticker.mode.hivemind.message_collective("We have failed to assimilate the [T.theship.name].")
+
+/obj/machinery/borg/proc/process_timer(var/delay)//Shameless copy of do_after, this is for attempting to assimilate the ship.
+	if(!src)
+		return FALSE
+	var/endtime = world.time + delay
+	while(world.time < endtime)
+		sleep(1)
+		//input failure requirements here.
+	return TRUE
+
+
+
 /*
 
 /obj/machinery/borg/throne
@@ -351,26 +380,13 @@
 	buckle_mob(P)
 //	P.computer.attack_hand(user)
 */ //shitcode, fix
-
+/*
 /obj/machinery/computer/camera_advanced/borg/throne/New()
 	. = ..()
-	var/area/A = get_area(src)
-	if(SSticker.mode.hivemind.borg_machines_room_has_throne == 0)
-		if(istype(A, SSticker.mode.hivemind.borg_target_area))
-			SSticker.mode.hivemind.borg_machines_room_has_throne = 1
-		//	src.say(SSticker.mode.borg_machines_in_area)
-		else
-			src.say("not in the right area")
-	else
-		src.say("there is already one of those here")
+	if(var/obj/machinery/computer/camera_advances/borg/throne/T in world)
+		audible_message(src, "<span class='warning'><b>ERROR; A THRONE CURRENTLY EXISTS AT [T.get_area]</b></span>")
 		qdel(src)
-
-/obj/machinery/computer/camera_advanced/borg/throne/Destroy()
-	. = ..()
-	if(!alreadyonehere)
-		SSticker.mode.hivemind.borg_machines_room_has_throne = 0 //when you delete it, if there is already one, means that you cant make infinite ones.
-
-
+*/
 /obj/item/stock_parts/borg
 	name = "gravimetric interspatial manifold field manipulator"
 	desc = "oh, it's a gravimetric field interspatial manifold used to regenerate transphasic presequenced waves, DUH!"
@@ -399,15 +415,15 @@
 							/obj/item/stock_parts/borg/bin = 2,
 							/obj/item/stock_parts/borg/capacitor = 2,
 							/obj/item/stock_parts/borg/dilithium = 1)
-
+/*
 /obj/item/circuitboard/machine/borg/navicomp
 	name = "assimilated circuit-board (navigational computer)"
-	build_path = /obj/machinery/borg/helm
+	build_path = /obj/structure/fluff/helm/desk/tactical/borg
 	req_components = list(
 							/obj/item/stock_parts/borg/bin = 2,
 							/obj/item/stock_parts/borg/capacitor = 1,
 							/obj/item/stock_parts/borg = 3)
-
+*/
 /obj/item/circuitboard/machine/borg/throne
 	name = "assimilated circuit-board (queen throne)"
 	build_path = /obj/machinery/computer/camera_advanced/borg/throne

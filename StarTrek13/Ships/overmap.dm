@@ -94,6 +94,8 @@ var/global/list/global_ship_list = list()
 	var/turret_firing_cost = 100 //How much does it cost to fire your turrets?
 	var/obj/structure/overmap/ship/fighter/fighters = list()
 	var/take_damage_traditionally = TRUE
+	var/assimilated = FALSE
+	var/flagship = FALSE // Borg's objective? Will probably end up with more uses later, but currently this is just the borg's target.
 
 /obj/item/ammo_casing/energy/ship_turret
 	projectile_type = /obj/item/projectile/beam/laser/ship_turret_laser
@@ -197,6 +199,7 @@ var/global/list/global_ship_list = list()
 	initial_icon_state = "cadaver"
 	pixel_x = -100
 	pixel_y = -100
+	flagship = TRUE
 	var/datum/looping_sound/trek/engine_hum/soundloop
 //	var/datum/shipsystem_controller/SC
 
@@ -716,7 +719,21 @@ var/global/list/global_ship_list = list()
 	health = 10000 //To compensate for a lack of shields, becuz muh LORE! Might be able to factor in regenerative capabilities eventually
 	view_range = 12//muh advanced sensors
 
+//TEMPORARY PLACEMENT OF ASSIMILATION PROCS
+
+/obj/structure/overmap/proc/assimilate()  // R.I.P you ~Cdey
+	if(src.assimilated)
+		return FALSE
+	if(istype(src, /obj/structure/overmap/ship) || istype(src, /obj/structure/overmap/away/station/starbase))
+		src.assimilated = TRUE
+		src.icon_state = "[src.icon_state]_assimilated"
+		if(istype(src, /obj/structure/overmap/away/station/starbase))
+			SSticker.mode.hivemind.starbase_assimilated = TRUE
+		return TRUE
+	else
+		return FALSE
+
 #undef TORPEDO_MODE
 #undef PHASER_MODE
 
-//var/area/linked_ship //CHANGE ME WITH THE DIFFERENT TYPES!
+

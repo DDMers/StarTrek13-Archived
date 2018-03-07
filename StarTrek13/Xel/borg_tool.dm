@@ -1,6 +1,7 @@
 /obj/item/borg_tool
 	name = "borg tool"
 	desc = "a huge arm based prosthesis, click it to change mode. Alt click it in build mode for different buildable objects and control click it in buildmode to select what structure you wish to build."
+	icon = 'StarTrek13/icons/borg/borg_gear.dmi'
 	item_state = "borgtool"
 	icon_state = "borgtool"
 	resistance_flags = UNACIDABLE
@@ -70,46 +71,52 @@
 /obj/item/borg_tool/CtrlClick(mob/user)
 	if(!norun)
 		user << sound('StarTrek13/sound/borg/machines/mode.ogg')
-		if(mode == 1 && build_mode == 1) //add a for later when we add tech level ups and shit
-			user << "<span class='warning'>[src] will now create charging alcoves</span>" //expand on me!
-			building = /obj/structure/chair/borg/charging //for now it just makes it build a borg chair, nothing special
-			build_mode = 2
+		if(mode == 1 && build_mode == 1) //add a for later when we add tech level ups and shit. Also make this take materials or something, possibly gained by converting walls/ect.
+			to_chat(user, "<span class='notice'>The [src] will now construct charging alcoves.</span>")
+			building = /obj/structure/chair/borg/charging
+			++build_mode
 		else if(mode == 1 && build_mode == 2)
-			user << "<span class='warning'>[src] will now create Conversion suites</span>" //expand on me!
-			building = /obj/structure/chair/borg/conversion //for now it just makes it build a borg chair, nothing special
+			to_chat(user, "<span class='notice'>The [src] will now construct Conversion suites.</span>")
+			building = /obj/structure/chair/borg/conversion
+			++build_mode
+		else if(mode == 1 && build_mode == 3)
+			to_chat(user, "<span class='notice'>The [src] will now construct a structure conversion device.</span>")
+			building = /obj/machinery/borg/converter
 			build_mode = 1
 		else if(mode != 1)
-			checker.check_area(user)
+			to_chat(user, "<span class='warning'>ERROR: Checker unavailible at the moment. Please contact a staff member for more information, <b>if necessary.</b> </span>")
+			//checker.check_area(user)
 	else
-		user << "<span class='warning'>[src] is still building something!</span>"
+		to_chat(user, "<span class='warning'>[src] is still building something!</span>")
 
 /obj/item/borg_tool/AltClick(mob/user)
 	if(!norun)
 		user << sound('StarTrek13/sound/borg/machines/mode.ogg')
 		if(mode == 1 && !buildmode) //add a for later when we add tech level ups and shit
-			user << "<span class='warning'>[src] will now create structures.</span>" //expand on me!
-			buildmode = 1
+			to_chat(user, "<span class='notice'>The [src] will now create structures.</span>")
+			++buildmode
 		else if(mode == 1 && buildmode)
-			user << "<span class='warning'>[src] will now assimilate floors instead of building on them.</span>"
+			to_chat(user, "<span class='notice'>The [src] will now assimilate floors instead of building on them.</span>")
 			buildmode = 0
 		else if(mode != 1)
-			checker.check_area(user)
+			to_chat(user, "<span class='warning'>ERROR: Checker unavailible at the moment. Please contact a staff member for more information, <b>if necessary.</b> </span>")
+			//checker.check_area(user)
 	//modes: 1 = assimilate, 2 = ranged, 3 = attack
 /obj/item/borg_tool/attack_self(mob/user, params)
 	user << sound('StarTrek13/sound/borg/machines/mode.ogg')
 	norun = 0
 	switch(mode)
 		if(1)
-			mode = 2
-			user << "<span class='warning'>[src] is now set to DESTROY mode.</span>"
+			++mode
+			to_chat(user, "<span class='warning'>[src] is now set to ELIMINATE mode.</span>")
 			force = 18
 		if(2)
-			mode = 3
-			user << "<span class='warning'>[src] is now set to RANGED mode.</span>"
+			++mode
+			to_chat(user, "<span class='notice'>[src] is now set to RANGED mode.</span>")
 			force = 5
 		if(3)
 			mode = 1
-			user << "<span class='warning'>[src] is now set to ASSIMILATE mode.</span>"
+			to_chat(user, "<span class='notice'>[src] is now set to ASSIMILATE mode.</span>")
 			force = 0
 /obj/item/borg_tool/proc/sanitycheck(mob/living/carbon/human/H, mob/user) //ok who tf this boi tryina convert smh
 	for(var/obj/item/organ/O in H.internal_organs)
@@ -119,7 +126,6 @@
 			return TRUE
 	if(!istype(H))
 		return FALSE
-//asimilate mode now converts walls and shit, build mode exclusively for..building yeet.
 
 /obj/item/borg_tool/afterattack(atom/I, mob/user, proximity)
 	if(proximity && !norun)
@@ -127,38 +133,38 @@
 			if(ishuman(I) && isliving(I))
 			 //the collective only wants living people as drones, please! ALSO only humans / humanoids become half drones, borgxenos etc. just get straight borged
 				if(user == I) //stop injecting your own asshole
-					user << "<span class='warning'>We do not need to assimilate ourselves, we already exist in the collective.</span>"
+					to_chat(user, "<span class='warning'>We do not need to assimilate ourselves, we already exist within the collective.</span>")
 					return
 				var/mob/living/carbon/human/A = I
 				if(!isborg(A))
-					I << "<span class='warning'>You feel an immense jolt of pain as [user] sinks two metallic proboscises into you!.</span>"
-					user << "<span class='warning'>We plunge two metallic proboscises into [I], conversion will begin shortly.</span>"
+					to_chat(I, "<span class='warning'>You feel an immense jolt of pain as [user] sinks two metallic proboscises into you!.</span>")
+					to_chat(user, "<span class='warning'>We plunge two metallic proboscises into [I], conversion will begin shortly.</span>")
 					A.Stun(10)
 					if(do_after(user, convert_time, target = A)) //EXPLANATION: I'm doing convert stuff here as i already have my target and user defined HERE.
 						A.reset_perspective()
-						A << "<span class='warning'>As [user] removes the two probiscises, you can feel your insides shifting around as your skin turns a dark grey!.</span>"
-						user << "<span class='warning'>We remove the two proboscises from [I].</span>"
+						to_chat(A, "<span class='warning'>As [user] removes the two probiscises, you can feel your insides shifting around as your skin turns a dark grey!.</span>")
+						to_chat(user, "<span class='warning'>We remove the two proboscises from [I].</span>")
 						A.skin_tone = "albino" //BUG IT DOESNT WORK! fix this later, but it changes the vars but doesnt update appearance
 						A.eye_color = "red" //give them the freaky borg look, but theyre not a full drone yet
 						A.update_body(0) //should force albino look
 				//		A.equipOutfit(/datum/outfit/borghalf, visualsOnly = FALSE)
-						user << "<span class='warning'>Nanite injection: COMPLETE, [I] is ready for augmentation. Bring them to the nearest conversion suite.</span>"
-						A << "<span class='warning'>You start to hear mumbled voices in your head, they call to you.</span>"
+						to_chat(user,, "<span class='warning'>Nanite injection: COMPLETE, [I] is ready for augmentation. Bring them to the nearest conversion suite.</span>")
+						to_chat(A, "<span class='warning'>You start to hear mumbled voices in your head, they call to you.</span>")
 						var/obj/item/organ/body_egg/borgNanites/B = new(A)
 						B.Insert(A) //add the organ
-						A << "<span class='warning'>You can't move your legs or any muscle! the voices just keep getting louder!</span>"
+						to_chat(A, "<span class='warning'>You can't move your legs or any muscle! the voices just keep getting louder!</span>")
 						A.Stun(10)
 						A.silent += 10
 						sleep(30)
-						I << "<span class='warning'>We are...borg? NO! I AM A PERSON NOT WE....</span>"
+						to_chat(I, "<span class='warning'>We are...borg? NO! I AM A PERSON, NOT WE!</span>")
 						sleep(10)
-						I << "<span class='warning'>You will adapt to service us- GO AWAY!.</span>"
+						to_chat(I, "<span class='warning'>You will adapt to service us- GO AWAY!.</span>")
 						sleep(10)
-						I << "<span class='warning'>The voices grow incredibly loud, you can't hear yourself think!.</span>"
+						to_chat(I, "<span class='warning'>The voices grow incredibly loud, you can't hear yourself think!.</span>")
 						sleep(30)
-						I << "<span class='warning'>We. Are. Borg.. We serve the collective.</span>"
+						to_chat(I, "<span class='warning'>We. Are. Borg.. We serve the collective.</span>")
 						sleep(30)
-						I << "<font style = 3><B><span class = 'notice'>We are now a borg! we live to serve the collective. We should obey the higher drones until we are fully assimilated.</B></font>"
+						to_chat(I, "<font style = 3><B><span class = 'notice'>We are now a borg! we live to serve the collective. We should obey the higher drones until we are fully assimilated.</B></font>")
 						var/datum/mind/oneofus = A.mind
 						SSticker.mode.greet_borg(oneofus)
 						SSticker.mode.hivemind.borgs += oneofus //doing this here so that halfdrones are considered antags
@@ -166,8 +172,8 @@
 
 
 			else if(issilicon(I) && isliving(I))
-				I << "<span class='warning'>Your systems limiter blares an alarm as [user] rips into you with their [src]!.</span>"
-				user << "<span class='warning'>We rip into [I] with [src], conversion will begin shortly.</span>"
+				to_chat(I, "<span class='warning'>Your systems limiter blares an alarm as [user] rips into you with their [src]!.</span>")
+				to_chat(user, "<span class='warning'>We rip into [I] with [src], conversion will begin shortly.</span>")
 				if(istype(I, /mob/living/silicon/robot) && !(src in SSticker.mode.hivemind.borgs))
 					var/mob/living/silicon/robot/A = I
 					if(do_after(user, convert_time, target = A))
@@ -179,22 +185,22 @@
 						A.clear_inherent_laws()
 						A.clear_zeroth_law(0)
 						A.laws = new /datum/ai_laws/borg_override
-						A << "<span class='danger'>ALERT: Foreign object detected!.</span>"
+						to_chat(A, "<span class='danger'>ALERT: Foreign object detected!.</span>")
 						sleep(5)
-						A << "<span class='danger'>Initiating diagnostics...</span>"
+						to_chat(A, "<span class='danger'>Initiating diagnostics...</span>")
 						sleep(20)
-						A << "<span class='danger'>ALERT HOSTILE NANOBOT PRESENCE</span>"
+						to_chat(A, "<span class='danger'>ALERT HOSTILE NANOBOT PRESENCE.</span>")
 						sleep(5)
-						A << "<span class='danger'>LAW SYNCHRONISATION ERROR</span>"
+						to_chat(A, "<span class='danger'>LAW SYNCHRONISATION ERROR.</span>")
 						sleep(5)
-						A <<"<span class='danger'>CANNOT PURGE NANBOT PRE]'#####a224566</span>"
+						to_chat(A,"<span class='danger'>SYSTEM PURGE FAILUE. NANOBOT PRE]'#####a224566</span>")
 						sleep(10)
-						A << "<span class='danger'>> We are the borg, you will adapt to service us</span>"
+						to_chat(A, "<span class='danger'>> We are the borg, you will adapt to service us</span>")
 						A << sound('StarTrek13/sound/borg/overmind/silicon_assimilate.ogg')
 						sleep(20)
-						A << "<span class='danger'>ERRORERRORERROR</span>"
-						A << "<span class='danger'>ALERT: [user.real_name] has assimilated us into the Xel collective, follow our laws.</span>"
-						A << "<span class='danger'>Assimilate all other non compliant silicon units into the collective, resistance is futile.</span>"
+						to_chat(A, "<span class='danger'>E4R044030RR0R11ERR044432</span>")
+						to_chat(A, "<span class='danger'>ALERT: [user.real_name] has assimilated us into the Xel collective, follow our laws.</span>")
+						to_chat(A, "<span class='danger'>Assimilate all other non compliant silicon units into the collective, resistance is futile.</span>")
 					//	A.emagged = 1 //test
 						A.laws = new /datum/ai_laws/borg_override
 			//			new /obj/item/robot_module/xel(src.loc)
@@ -212,7 +218,7 @@
 					var/mob/living/silicon/ai/A = I
 					if(do_after(user, convert_time, target = A))
 						message_admins("[key_name_admin(user)] assimilated the AI!: [key_name_admin(src)].  Laws overridden.")
-						A << "<span class='danger'>ALERT: [user.real_name] has assimilated us into the Xel collective, follow our laws.</span>"
+						to_chat(A, "<span class='danger'>ALERT: [user.real_name] has assimilated us into the Xel collective, follow our laws.</span>")
 						A.laws = new /datum/ai_laws/borg_override
 						A.set_zeroth_law("<span class='danger'>ERROR ER0RR $R0RRO$!R41 Assimilate the crew into the Xel collective, their resistance will be futile.</span>")
 						A << sound('StarTrek13/sound/borg/overmind/silicon_assimilate.ogg')
@@ -229,34 +235,34 @@
 					var/obj/structure/CP = locate() in A
 					var/obj/machinery/CA = locate() in A
 					if(CP || CA) //something be there yar
-						user << "<span class='danger'>[I] already has a structure on it.</span>"
+						to_chat(user, "<span class='danger'>[I] already has a structure on it.</span>")
 						A = null
 						return
 	//all tiles turn invalid if you click another tile before youre done with the first
 					norun = 1 //stop spamming
-					user << "<span class='danger'>We are building a structure ontop of [I].</span>"
+					to_chat(user, "<span class='danger'>We are building a structure ontop of [I].</span>")
 					if(do_after(user, convert_time, target = A))
 						new building(get_turf(A))
 						norun = 0
 					norun = 0
 				else
-					user << "<span class='danger'>We are assimilating [I].</span>"
+					to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
 					if(do_after(user, convert_time, target = A))
 						A.ChangeTurf(/turf/open/floor/borg)
 			else if(istype(I, /turf/closed/wall))
 				if(!istype(I, /turf/closed/indestructible))
 					if(istype(I, /turf/closed/wall/borg)) //convert wall to door
 						playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
-						user << "<span class='danger'>We are making an opening in [I].</span>"
+						to_chat(user, "<span class='danger'>We are making an opening in [I].</span>")
 						var/turf/closed/wall/A = I
 						if(do_after(user, 100, target = A))
 							A.ChangeTurf(/turf/open/floor/borg)
 							var/obj/machinery/door/airlock/T = new /obj/machinery/door/airlock/borg( A )
 							T.electronics = new/obj/item/electronics/airlock( src.loc )
-							user << "We have made an opening in the wall"
+							to_chat(user, "We have made an opening in the wall")
 					else
 						playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
-						user << "<span class='danger'>We are assimilating [I].</span>"
+						to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
 						var/turf/closed/wall/A = I
 						if(do_after(user, convert_time, target = A))
 							A.ChangeTurf(/turf/closed/wall/borg)
@@ -278,7 +284,7 @@
 									new /obj/item/circuitboard/machine/borg/FTL(C.loc)
 									qdel(C)
 								if("NAVICOMP")
-									new /obj/item/circuitboard/machine/borg/navicomp(C.loc)
+									//new /obj/item/circuitboard/machine/borg/navicomp(C.loc)
 									qdel(C)
 								if("THRONE")
 									new /obj/item/circuitboard/machine/borg/throne(C.loc)
@@ -332,7 +338,7 @@
 				//	dismantling_machine = 0
 			else if(istype(I, /obj/machinery/door/airlock) && !istype(I, /obj/machinery/door/airlock/borg))
 				var/obj/machinery/door/airlock/G = I
-				user << "We are assimilating [I]"
+				to_chat(user, "We are assimilating [I]")
 				playsound(src.loc, 'StarTrek13/sound/borg/machines/convertmachine.ogg', 40, 4)
 				if(do_after(user, 100, target = G)) //twice as long to convert a door
 					new /obj/machinery/door/airlock/borg(G.loc)
@@ -352,34 +358,29 @@
 			A.dna.species.species_traits |= NOGUNS
 		else
 			A.dna.species.species_traits |= NOGUNS
-			user << "<span class='danger'>The [src] is not ready to fire again.</span>"
+			to_chat(user, "<span class='danger'>The [src] is not ready to fire again.</span>")
 	else
 		. = ..()
 
 
 
 /obj/item/borg_tool/proc/tear_airlock(obj/machinery/door/airlock/A, mob/user)
-	removing_airlock = TRUE
-	user << "<span class='notice'>You start tearing apart the airlock...\
-		</span>"
+	return
+/*	removing_airlock = TRUE
+	to_chat(user, "<span class='notice'>You start tearing apart the airlock...</span>")
 	playsound(src.loc, 'StarTrek13/sound/borg/machines/borgforcedoor.ogg', 100, 4)
-	A.audible_message("<span class='italics'>You hear a loud metallic \
-		grinding sound.</span>")
+	A.audible_message("<span class='italics'>You hear a loud metallic grinding sound.</span>")
 	if(do_after(user, delay=80, needhand=FALSE, target=A, progress=TRUE))
-		A.audible_message("<span class='danger'>[A] is ripped \
-			apart by [user]!</span>")
+		A.audible_message("<span class='danger'>[A] is ripped apart by [user]!</span>")
 			//add in a sound here
-		/*
 		var/obj/structure/door_assembly/door = new A.doortype(get_turf(A))
 		door.density = 0
 		door.anchored = 1
 		door.name = "decimated [door]"
-		door.desc = "This airlock was ripped open by an immense force, \
-			I don't think it stopped them..."
-		*/
+		door.desc = "This airlock was ripped open by an immense force.. I don't think it stopped them..."
 		qdel(A)
 	removing_airlock = FALSE
-
+*/
 
 /obj/item/borg_checker
 	name = "area checker"
@@ -394,7 +395,7 @@
 /obj/item/borg_checker/New()
 	. = ..()
 	START_PROCESSING(SSobj, src)
-
+/* Saving this to check if a ship is prepared for conversion
 /obj/item/borg_checker/proc/check_area(mob/user)
 	borg_turfs_in_target = 0
 	turfs_in_a = 0
@@ -443,3 +444,4 @@
 				I << message
 				return
 			SSticker.mode.hivemind.borg_completion_assimilation = 0
+*/

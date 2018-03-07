@@ -9,11 +9,7 @@
 ###############################################################################################
 
 Kmc2000	= Host
-<<<<<<< HEAD
 Cdey = Host
-=======
-Cdey = Junior Coder
->>>>>>> master
 HeadyBucket = Coder
 MASMC = Game-Admin
 Kyrac = Game-Admin

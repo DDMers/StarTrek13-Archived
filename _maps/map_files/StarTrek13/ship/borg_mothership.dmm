@@ -12,11 +12,11 @@
 "al" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/borg/borgship)
 "am" = (/obj/machinery/computer/camera_advanced/borg/throne,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/borg/borgship)
 "an" = (/obj/machinery/door/airlock/borg,/obj/structure/catwalk,/turf/open/floor/borg/trek/dark,/area/ship/borg/borgship)
-"ao" = (/obj/machinery/borg,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/borg/borgship)
+"ao" = (/obj/structure/catwalk,/obj/structure/fluff/helm/desk/tactical/borg,/turf/open/floor/plating,/area/ship/borg/borgship)
 "ap" = (/obj/structure/catwalk,/obj/structure/fluff/helm/desk/tactical{dir = 4},/turf/open/floor/plating,/area/ship/borg/borgship)
 "aq" = (/obj/machinery/trek/transporter,/turf/open/floor/plating,/area/ship/borg/borgship)
-"ar" = (/obj/item/device/tricorder,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/borg/borgship)
-"as" = (/obj/machinery/computer/camera_advanced/transporter_control,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/borg/borgship)
+"ar" = (/obj/structure/catwalk,/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/plating,/area/ship/borg/borgship)
+"as" = (/obj/structure/catwalk,/obj/item/device/tricorder,/turf/open/floor/plating,/area/ship/borg/borgship)
 "at" = (/obj/structure/catwalk,/obj/machinery/door/airlock/borg,/turf/open/floor/plating,/area/ship/borg/borgship)
 "au" = (/obj/machinery/door/airlock/borg,/turf/open/floor/plating,/area/ship/borg/borgship)
 "av" = (/obj/structure/chair/borg/conversion,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/borg/borgship)
@@ -143,9 +143,9 @@ aaaaaaaaaaabababababacacacacacababababafafafanacacacacacacacacacacabababababaaal
 aaaaaaaaaaaaabababacacacacacacacabababababababacacacacacacacacacacababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaabababacacacacacacacacacakacacacacakacacacacacacacacacacabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaabababacacacacacacacacacababababababacacacacacacacacacacababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaabababacacaoacacacapababaqacacacabacacacacacacacacacacabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaababababababababababababaqarasacatacacacacacacacacacacabaiabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaabababababababababababababaqacacacababacacacacacacacacababacacaeababababaaaaabababaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaabababacacacaoacacapababaqaqaqacabacacacacacacacacacacabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaababababababababababababaqaraqasatacacacacacacacacacacabaiabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaabababababababababababababaqaqaqacababacacacacacacacacababacacaeababababaaaaabababaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaabababababaaaaababababababababababababababakakabababababacacababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaababababaaaaaaaaabaaabababababababababababacacababababaeacacaeabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaabaaababaaaaaaaaaaaaaaababacacacacacacakacacacabababababacacababababababababaaabaaababaaaaaaaaaaaaaaaaaaaaaa
