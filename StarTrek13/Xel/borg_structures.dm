@@ -219,6 +219,7 @@
 	bound_width = 96
 	layer = 5.5
 	var/running
+	var/required_points = 100 // Different converters require different ammounts of recources to function.
 
 /obj/machinery/borg/converter/update_icon()
 	if(running)
@@ -237,13 +238,14 @@
 		if(T.theship.assimilated)
 			to_chat(user, "<span class='warning'>This ship has already been assimilated!</span>")
 			return
+		if(SSticker.mode.hivemind.cons_points < required_points)
+			to_chat(user, "<span_class='warning'>We do not have enough material to assimilate this ship. Asimilate more floors and walls.</span>")
+			return
+		SSticker.mode.hivemind.cons_points -= 80
 		to_chat(user, "<span class='notice'>We begin to initiate assimilation protocols for the [T.theship.name].</span>")
 		if(!do_after(user, 150, target = src))
-			to_chat(world, "<big>Failed do_after!</big>")
 			return
-		to_chat(world, "<big>do_after complete!</big>")
 		SSticker.mode.hivemind.message_collective("We have begun assimilation protocols onboard the [T.theship.name].")
-		to_chat(world, "<big>hivemind messaged</big>")
 		var/surviving_humans
 		for(var/mob/living/carbon/human/H in area)
 			if(isliving(H))
@@ -254,12 +256,10 @@
 		icon_state = "converter_active"
 		to_chat(world, "<big>icon updated!</big>")
 		if(!process_timer(timer))
-			to_chat(world, "<big>process_timer failed!</big>")
 			SSticker.mode.hivemind.message_collective("We have failed to assimilate the [T.theship.name].")
 			running = FALSE
 			icon_state = "converter"
 			return
-		to_chat(world, "<big>process_timer suceeded!</big>")
 		running = FALSE
 		icon_state = "converter"
 		if(T.theship.assimilate())

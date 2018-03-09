@@ -1,6 +1,6 @@
 /obj/item/borg_tool
 	name = "borg tool"
-	desc = "a huge arm based prosthesis, click it to change mode. Alt click it in build mode for different buildable objects and control click it in buildmode to select what structure you wish to build."
+	desc = "a huge arm based prosthesis, click it to change mode. Alt click it in build mode for different buildable objects and control click it in buildmode to select what structure you wish to build. Current points availible for construction: [SSticker.mode.hivemind.cons_points]"
 	icon = 'StarTrek13/icons/borg/borg_gear.dmi'
 	item_state = "borgtool"
 	icon_state = "borgtool"
@@ -10,7 +10,7 @@
 	flags_1 = NODROP_1
 	force = 18 //hella strong
 	var/removing_airlock = FALSE //from zombie claw, are we opening an airlock right now?
-	var/canbuild = list(/obj/structure/chair/borg/conversion,/obj/structure/chair/borg/charging)
+	var/canbuild = list(/obj/structure/chair/borg/conversion,/obj/structure/chair/borg/charging, /obj/machinery/borg/converter)
 	var/building = /obj/structure/chair/borg/conversion
 	var/buildmode = 0 //if buildmode, you don't convert floors, rather you build stuff on them
 	var/obj/item/gun/energy/disabler/borg/gun
@@ -18,6 +18,7 @@
 	var/saved_time = 0
 	var/inprogress = 0
 	var/build_mode = 1
+	var/cost = 40 //How many upgrade points it takes to build this
 	var/norun = 0 //stops infinite chair spam
 	var/obj/item/borg_checker/checker
 	var/dismantling_machine = 0
@@ -28,16 +29,6 @@
 	desc = "A modified Xel tool, it hangs from the arm slightly more daintily than the usual type."
 	item_state = "borgtool"
 	icon_state = "borgtool"
-
-/obj/item/borg_tool/examine(mob/user)
-	. = ..()
-	user << "Click it in hand to its cycle modes"
-	user << "It has three modes; DESTROY, assimilate and ranged, if you alt click it whilst in assimilate mode it will change whether you're going to assimilate the turf below you, or build a structure"
-	user << "<b>DESTROY</b> mode does a lot of damage, <b>RANGED</b> will fire a disabler shot and <b>ASSIMILATE</b> lets you convert turfs, people, AIs and cyborgs into xel drones"
-	user << "If you CTRL click a tool in ASSIMILATE mode, it changes what structure you're going to build, note that to build one the turf MUST be clear with no other structure on it"
-	user << "To that effect, if your tool bugs out, click it in hand back to assimilate mode, this will clear it (it's a beta :^) )"
-	user << "You can tear down doors with [src]! set it to <b>DESTROY</b> mode and hit a door on HARM intent!"
-	user << "You need to convert areas into Xel turfs to win, to that effect CTRL or ALT click your tool on any mode apart from assimilate to check an area's validity (note that it takes a few seconds! you will be vulnerable)"
 
 
 /obj/item/borg_tool/New()
@@ -74,14 +65,17 @@
 		if(mode == 1 && build_mode == 1) //add a for later when we add tech level ups and shit. Also make this take materials or something, possibly gained by converting walls/ect.
 			to_chat(user, "<span class='notice'>The [src] will now construct charging alcoves.</span>")
 			building = /obj/structure/chair/borg/charging
+			cost = 110
 			++build_mode
 		else if(mode == 1 && build_mode == 2)
 			to_chat(user, "<span class='notice'>The [src] will now construct Conversion suites.</span>")
 			building = /obj/structure/chair/borg/conversion
+			cost = 60
 			++build_mode
 		else if(mode == 1 && build_mode == 3)
 			to_chat(user, "<span class='notice'>The [src] will now construct a structure conversion device.</span>")
 			building = /obj/machinery/borg/converter
+			cost = 140
 			build_mode = 1
 		else if(mode != 1)
 			to_chat(user, "<span class='warning'>ERROR: Checker unavailible at the moment. Please contact a staff member for more information, <b>if necessary.</b> </span>")
@@ -240,15 +234,19 @@
 						return
 	//all tiles turn invalid if you click another tile before youre done with the first
 					norun = 1 //stop spamming
+					if(!SSticker.mode.hivemind.use_cons_points(cost))
+						to_chat(user, "<span class='userdanger'>This structure requires [cost] materials.</span>")
+						return
 					to_chat(user, "<span class='danger'>We are building a structure ontop of [I].</span>")
 					if(do_after(user, convert_time, target = A))
 						new building(get_turf(A))
 						norun = 0
 					norun = 0
 				else
-					to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
+					to_chat(user, "<span class='danger'>We begin to assimilate [I].</span>")
 					if(do_after(user, convert_time, target = A))
 						A.ChangeTurf(/turf/open/floor/borg)
+						SSticker.mode.hivemind.cons_points += 15
 			else if(istype(I, /turf/closed/wall))
 				if(!istype(I, /turf/closed/indestructible))
 					if(istype(I, /turf/closed/wall/borg)) //convert wall to door
@@ -256,6 +254,9 @@
 						to_chat(user, "<span class='danger'>We are making an opening in [I].</span>")
 						var/turf/closed/wall/A = I
 						if(do_after(user, 100, target = A))
+							if(!SSticker.mode.hivemind.use_cons_points(60))
+								to_chat(user, "<span class='userdanger'>We require 60 materials to create an opening here.</span>")
+								return
 							A.ChangeTurf(/turf/open/floor/borg)
 							var/obj/machinery/door/airlock/T = new /obj/machinery/door/airlock/borg( A )
 							T.electronics = new/obj/item/electronics/airlock( src.loc )
@@ -266,6 +267,7 @@
 						var/turf/closed/wall/A = I
 						if(do_after(user, convert_time, target = A))
 							A.ChangeTurf(/turf/closed/wall/borg)
+							SSticker.mode.hivemind.cons_points += 20
 
 
 
@@ -341,6 +343,9 @@
 				to_chat(user, "We are assimilating [I]")
 				playsound(src.loc, 'StarTrek13/sound/borg/machines/convertmachine.ogg', 40, 4)
 				if(do_after(user, 100, target = G)) //twice as long to convert a door
+					if(SSticker.mode.hivemind.use_cons_points(50))
+						to_chat(user, "<span class='userdanger'>We require 50 materials to assimilate this door.</span>")
+						return
 					new /obj/machinery/door/airlock/borg(G.loc)
 					qdel(G)
 
@@ -373,7 +378,8 @@
 	if(do_after(user, delay=80, needhand=FALSE, target=A, progress=TRUE))
 		A.audible_message("<span class='danger'>[A] is ripped apart by [user]!</span>")
 			//add in a sound here
-		var/obj/structure/door_assembly/door = new A.doortype(get_turf(A))
+		var/obj/structure/door_assembly/door
+		door = new A.doortype(get_turf(A))
 		door.density = 0
 		door.anchored = 1
 		door.name = "decimated [door]"

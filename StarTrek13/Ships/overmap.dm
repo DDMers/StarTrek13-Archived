@@ -96,17 +96,14 @@ var/global/list/global_ship_list = list()
 	var/datum/shipsystem_controller/SC
 	var/turret_firing_cost = 100 //How much does it cost to fire your turrets?
 	var/obj/structure/overmap/ship/fighter/fighters = list()
-<<<<<<< HEAD
-	var/take_damage_traditionally = TRUE
 	var/assimilated = FALSE
 	var/flagship = FALSE // Borg's objective? Will probably end up with more uses later, but currently this is just the borg's target.
-=======
 	var/take_damage_traditionally = TRUE //Are we a real ship? that will have a shield generator and such? exceptions include fighters.
 	var/datum/looping_sound/trek/engine_hum/soundloop
 	var/obj/structure/overmap/agressor = null //Who is attacking us? this is done to reset their targeting systems when they destroy us!
 	var/warp_capable = FALSE //Does this ship have a warp drive?
 	////IMPORTANT VAR!!!////
->>>>>>> master
+
 
 /obj/item/ammo_casing/energy/ship_turret
 	projectile_type = /obj/item/projectile/beam/laser/ship_turret_laser
@@ -208,11 +205,7 @@ var/global/list/global_ship_list = list()
 	icon_state = "cadaver"
 	pixel_x = -100
 	pixel_y = -100
-<<<<<<< HEAD
 	flagship = TRUE
-	var/datum/looping_sound/trek/engine_hum/soundloop
-=======
->>>>>>> master
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 
@@ -749,7 +742,6 @@ var/global/list/global_ship_list = list()
 	name = "borg cube"
 	icon_state = "borg_cube"
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
-	initial_icon_state = "cube"
 	spawn_name = "BORG"
 	marker = "borg cube"
 	faction = "borg collective"
@@ -766,6 +758,7 @@ var/global/list/global_ship_list = list()
 	if(istype(src, /obj/structure/overmap/ship) || istype(src, /obj/structure/overmap/away/station/starbase))
 		src.assimilated = TRUE
 		src.icon_state = "[src.icon_state]_assimilated"
+		src.update_icon()
 		if(istype(src, /obj/structure/overmap/away/station/starbase))
 			SSticker.mode.hivemind.starbase_assimilated = TRUE
 		return TRUE
