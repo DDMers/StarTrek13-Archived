@@ -101,6 +101,11 @@ var/global/list/global_ship_list = list()
 	var/obj/structure/overmap/agressor = null //Who is attacking us? this is done to reset their targeting systems when they destroy us!
 	var/warp_capable = FALSE //Does this ship have a warp drive?
 	////IMPORTANT VAR!!!////
+	var/datum/action/innate/exit/exit_action = new
+	var/datum/action/innate/warp/warp_action = new
+	var/datum/action/innate/stopfiring/stopfiring_action = new
+	var/datum/action/innate/redalert/redalert_action = new
+	var/datum/action/innate/autopilot/autopilot_action = new
 
 /obj/item/ammo_casing/energy/ship_turret
 	projectile_type = /obj/item/projectile/beam/laser/ship_turret_laser
@@ -393,15 +398,14 @@ var/global/list/global_ship_list = list()
 	if(pilot == user)
 		set_nav_target(user)
 
-/obj/structure/overmap/ShiftClick(mob/user)//Hi my name is KMC and I don't know how to make UIs :^)
-	if(pilot == user) //don't change the firing mode of enemy ships etc.
+//obj/structure/overmap/ShiftClick(mob/user)//Hi my name is KMC and I don't know how to make UIs :^)
+
+/obj/structure/overmap/proc/stop_firing()
+	if(pilot)
 		to_chat(pilot, "RESET WEAPON TARGETING SYSTEMS, fire on a new target to begin tracking.")
 		target_ship = null
 		target_fore = null
 		target_aft = null
-		if(isovermapship(src))
-			var/obj/structure/overmap/ship/theship = src
-			theship.input_warp_target(user)
 
 /obj/structure/overmap/proc/update_turrets()
 	return
@@ -539,12 +543,14 @@ var/global/list/global_ship_list = list()
 	initial_loc = user.loc
 	user.loc = src
 	pilot = user
+	GrantActions()
 //	pilot.status_flags |= GODMODE
 
 /obj/structure/overmap/AltClick()
 	exit()
 
 /obj/structure/overmap/proc/exit(mob/user)
+	RemoveActions()
 	to_chat(pilot,"you have stopped controlling [src]")
 	pilot.forceMove(initial_loc)
 	initial_loc = null
