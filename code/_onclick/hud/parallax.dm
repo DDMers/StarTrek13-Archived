@@ -194,6 +194,7 @@
 	C.previous_turf = posobj
 	C.last_parallax_shift = world.time
 
+
 	for(var/thing in C.parallax_layers)
 		var/obj/screen/parallax_layer/L = thing
 		L.update_status(mymob)
@@ -252,6 +253,8 @@
 	screen_loc = "CENTER-7,CENTER-7"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
+///obj/screen/parallax_layer/overmap
+//	icon = 'icons/effects/parallax_overmap.dmi'
 
 /obj/screen/parallax_layer/Initialize(mapload, view)
 	. = ..()

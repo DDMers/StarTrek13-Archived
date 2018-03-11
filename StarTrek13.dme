@@ -2376,6 +2376,7 @@
 #include "interface\skin.dmf"
 #include "StarTrek13\computer\shipcomms.dm"
 #include "StarTrek13\computer\messagetypes\message.dm"
+#include "StarTrek13\Ships\actions_overmap.dm"
 #include "StarTrek13\Ships\ai_ships.dm"
 #include "StarTrek13\Ships\elevator.dm"
 #include "StarTrek13\Ships\factions.dm"

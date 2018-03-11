@@ -896,18 +896,23 @@
 		if("shield control")
 			shieldgen.toggle(user)
 		if("red alert siren")
-			redalertsound = pick(redalertsounds)
-			if(REDALERT)
-				src.say("RED ALERT DEACTIVATED")
-				REDALERT = 0
-				STOP_PROCESSING(SSobj,src)
-			else
-				src.say("RED ALERT ACTIVATED")
-				REDALERT = 1
-				START_PROCESSING(SSobj,src)
+			redalert()
 		if("fire torpedo")
 			fire_torpedo(target,user)
 
+
+/obj/structure/fluff/helm/desk/tactical/proc/redalert()
+	redalertsound = pick(redalertsounds)
+	if(REDALERT)
+		src.say("RED ALERT DEACTIVATED")
+		REDALERT = 0
+		STOP_PROCESSING(SSobj,src)
+		return 0
+	else
+		src.say("RED ALERT ACTIVATED")
+		REDALERT = 1
+		START_PROCESSING(SSobj,src)
+		return 1
 
 /obj/structure/fluff/helm/desk/tactical/proc/fire_phasers(atom/target, mob/user)
 	playsound(src.loc, 'StarTrek13/sound/borg/machines/bleep1.ogg', 100,1)
