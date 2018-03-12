@@ -362,19 +362,7 @@ var/global/list/global_ship_list = list()
 			s.start() //make a better overlay effect or something, this is for testing
 			return
 		else//no shields are up! take the hit
-			icon_state = initial(icon_state)
-			var/turf/theturf = pick(get_area_turfs(target_ship))
-			if(prob(40))
-				explosion(theturf,2,5,11)
-			for(var/mob/L in linked_ship.contents)
-				shake_camera(L, 1, 10)
-				var/sound/thesound = pick(ship_damage_sounds)
-				SEND_SOUND(L, thesound)
-
-			var/datum/effect_system/spark_spread/s = new
-			s.set_up(2, 1, src)
-			s.start() //make a better overlay effect or something, this is for testing
-			//health -= amount
+			apply_damage(amount)
 
 			health -= amount
 			return
@@ -656,10 +644,31 @@ var/global/list/global_ship_list = list()
 		return 0
 
 /obj/structure/overmap/proc/destroy(severity)
+	var/thesound = pick(ship_damage_ambience) //blowing up noises
+	for(var/obj/structure/overmap/L in orange(30, src))
+		var/obj/structure/overmap/O = L
+		SEND_SOUND(O.pilot, thesound)
 	STOP_PROCESSING(SSfastprocess,src)
 	exit()
 	if(agressor)
 		agressor.target_ship = null
+	SpinAnimation(1000, 1)
+	var/image/explosion = image('StarTrek13/icons/trek/overmap_effects.dmi')
+	explosion.icon_state = "shipexplode"
+	explosion.layer = 4.5
+	overlays += explosion
+	sleep(10)
+	overlays -= explosion
+	qdel(explosion)
+	sleep(40)
+	var/image/explosion1 = image('StarTrek13/icons/trek/overmap_effects.dmi')
+	explosion1.icon_state = "shipexplode2"
+	explosion1.layer = 4.5
+	overlays += explosion1
+	sleep(10)
+	overlays -= explosion1
+	qdel(explosion1)
+	sleep(30)
 	switch(severity)
 		if(1)
 			//Here we will blow up the ship map as well, 0 is if you dont want to lag the server.
