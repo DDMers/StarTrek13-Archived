@@ -727,6 +727,7 @@
 	has_gravity = 1
 	noteleport = 0
 	blob_allowed = 0 //Should go without saying, no blobs should take over centcom as a win condition.
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 
 /area/ship/bridge
 	name = "A starship bridge"
