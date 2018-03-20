@@ -750,6 +750,10 @@
 	name = "NSV Muffin"
 	icon_state = "ship"
 
+/area/ship/nanotrasen_cruiser
+	name = "NSV Hyperion"
+	icon_state = "ship"
+
 /area/ship/nanotrasen/freighter
 	name = "NSV Crates"
 	icon_state = "ship"
@@ -786,17 +790,6 @@
 
 /obj/ship_marker/crew
 	name = "crew quaters"
-
-
-/obj/structure/fluff/helm/desk
-	name = "desk computer"
-	desc = "A generic deskbuilt computer"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "desk"
-	anchored = TRUE
-	density = 1 //SKREE
-	opacity = 0
-	layer = 4.5
 
 /obj/structure/fluff/helm/desk/tactical
 	name = "tactical"

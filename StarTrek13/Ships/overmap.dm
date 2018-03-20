@@ -106,6 +106,7 @@ var/global/list/global_ship_list = list()
 	var/datum/action/innate/stopfiring/stopfiring_action = new
 	var/datum/action/innate/redalert/redalert_action = new
 	var/datum/action/innate/autopilot/autopilot_action = new
+	var/obj/structure/ship_component/components = list()
 
 /obj/item/ammo_casing/energy/ship_turret
 	projectile_type = /obj/item/projectile/beam/laser/ship_turret_laser
@@ -152,13 +153,6 @@ var/global/list/global_ship_list = list()
 	var/turf/theloc = get_turf(A)
 	if(spawn_random)
 		forceMove(theloc)
-	if(has_turrets)
-		fore_turrets = new /obj/ship_turrets(src.loc)
-		aft_turrets = new /obj/ship_turrets/aft_turrets(src.loc)
-		fore_turrets.icon_state = initial(icon_state) + "-fore_turrets"	//Remember! fore = front, if you want your turrets to visibly turn and shoot ships you need to make them their own layer.
-		aft_turrets.icon_state = initial(icon_state) + "-aft_turrets"
-		update_turrets()
-		return
 /*
 		fore_turrets = new /obj/ship_turrets
 		aft_turrets = new /obj/ship_turrets/aft_turrets
@@ -177,7 +171,7 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/overmap/away/station
 	name = "space station 13"
-	icon = 'StarTrek13/icons/trek/huge_overmap.dmi'
+	icon = 'StarTrek13/icons/trek/large_overmap.dmi'
 	icon_state = "station"
 	spawn_random = FALSE
 	can_move = FALSE
@@ -203,12 +197,32 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/overmap/ship/federation_capitalclass
 	name = "USS Cadaver"
-	icon = 'StarTrek13/icons/trek/capitalships.dmi'
+	icon = 'StarTrek13/icons/trek/large_ships/cadaver.dmi'
 	icon_state = "cadaver"
 	pixel_x = -100
 	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
+
+/obj/structure/overmap/ship/cruiser
+	name = "USS Excelsior"
+	icon = 'StarTrek13/icons/trek/large_ships/excelsior.dmi'
+	icon_state = "excelsior"
+	pixel_x = -100
+	pixel_y = -100
+//	var/datum/shipsystem_controller/SC
+	warp_capable = TRUE
+
+/obj/structure/overmap/ship/cruiser/nanotrasen
+	name = "NSV Hyperion"
+	icon = 'StarTrek13/icons/trek/large_ships/hyperion.dmi'
+	icon_state = "hyperion"
+	pixel_x = -100
+	pixel_y = -100
+//	var/datum/shipsystem_controller/SC
+	warp_capable = TRUE
+	spawn_name = "nt_capital"
+
 
 /obj/structure/overmap/ship/New()
 	SC = new(src)
@@ -220,7 +234,7 @@ var/global/list/global_ship_list = list()
 /obj/structure/overmap/ship/nanotrasen_capitalclass
 	name = "NSV annulment"
 	desc = "Contract anulled....forever"
-	icon = 'StarTrek13/icons/trek/capitalships.dmi'
+	icon = 'StarTrek13/icons/trek/large_ships/annulment.dmi'
 	icon_state = "annulment"
 	spawn_name = "nt_capital"
 	has_turrets = 1
@@ -324,21 +338,12 @@ var/global/list/global_ship_list = list()
 		F.carrier_ship = src
 		if(!F in fighters)
 			fighters += F
+	for(var/obj/structure/fluff/helm/desk/functional/F in linked_ship)
+		F.our_ship = src
+	get_damageable_components()
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
-	damage = 0	//R/HMMM
-	phaser_fire_cost = 0
-	max_charge = 0
-	phaser_charge_rate = 0
-	var/counter = 0
-	var/temp = 0
-	for(var/obj/machinery/power/ship/phaser/P in weapons.weapons)
-		phaser_charge_rate += P.charge_rate
-		damage += P.damage
-		phaser_fire_cost += P.fire_cost
-		counter ++
-		temp = P.charge
-	max_charge += counter*temp //To avoid it dropping to 0 on update, so then the charge spikes to maximum due to process()
+	SC.weapons.update_weapons()
 	for(var/obj/structure/overmap/ship/fighter/F in linked_ship) //Update any fighters inside of us
 		F.carrier_ship = src
 		if(!F in fighters)
@@ -397,72 +402,32 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/overmap/proc/update_turrets()
 	return
-/*
-	if(has_turrets)
-		fore_turrets.forceMove(src.loc)
-		aft_turrets.forceMove(src.loc)
-		fore_turrets.layer = 4.5
-		aft_turrets.layer = 4.5
-		fore_turrets.icon = src.icon
-		aft_turrets.icon = src.icon
-		fore_turrets.icon_state = initial(icon_state) + "-fore_turrets"	//Remember! fore = front, if you want your turrets to visibly turn and shoot ships you need to make them their own layer.
-		aft_turrets.icon_state = initial(icon_state) + "-aft_turrets"
-		fore_turrets.dir = get_dir(src,target_fore)
-		aft_turrets.dir = get_dir(src,target_aft)
-		fore_turrets.pixel_x = src.pixel_x
-		aft_turrets.pixel_x = src.pixel_x
-		fore_turrets.pixel_y = src.pixel_y
-		aft_turrets.pixel_y = src.pixel_y
-		switch(dir)
-			if(2)
-				fore_turrets.icon_state = initial(icon_state) + "-fore_turrets_south"
-				aft_turrets.icon_state = initial(icon_state) + "-aft_turrets_south"
-				fore_turrets.dir = get_dir(src,target_fore)
-				aft_turrets.dir = get_dir(src,target_aft)
-			if(1)
-				fore_turrets.icon_state = initial(icon_state) + "-fore_turrets_north"
-				aft_turrets.icon_state = initial(icon_state) + "-aft_turrets_north"
-				fore_turrets.dir = get_dir(src,target_fore)
-				aft_turrets.dir = get_dir(src,target_aft)
-			if(4)
-				fore_turrets.icon_state = initial(icon_state) + "-fore_turrets_east"
-				aft_turrets.icon_state = initial(icon_state) + "-aft_turrets_east"
-				fore_turrets.dir = get_dir(src,target_fore)
-				aft_turrets.dir = get_dir(src,target_aft)
-			if(8)
-				fore_turrets.icon_state = initial(icon_state) + "-fore_turrets_west"
-				aft_turrets.icon_state = initial(icon_state) + "-aft_turrets_west"
-				fore_turrets.dir = get_dir(src,target_fore)
-				aft_turrets.dir = get_dir(src,target_aft)
-*/ //borked
 
 /obj/structure/overmap/proc/fire(atom/target,mob/user)
 	to_chat(pilot, "Target confirmed, all gun batteries locking on to [target]")
 	target_ship = target
 
 /obj/structure/overmap/proc/attempt_fire()
-	if(recharge <= 0 && charge >= phaser_fire_cost)
-		recharge = recharge_max //-1 per tick
-		var/source = get_turf(src)
-		var/obj/structure/overmap/S = target_ship
-		var/list/L = list()
-		var/area/thearea = S.linked_ship
-		for(var/turf/T in get_area_turfs(thearea.type))
-			L+=T
-		var/location = pick(L)
-		var/turf/theturf = get_turf(location)
-		S.take_damage(damage,theturf)
-		in_use1 = 0
-		var/chosen_sound = pick(soundlist)
-		SEND_SOUND(pilot, sound(chosen_sound))
-		SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
-		charge -= phaser_fire_cost
-		current_beam = new(source,target_ship,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
-		spawn(0)
-			current_beam.Start()
-		return 1
-	else
-		return 0
+	if(SC.weapons.attempt_fire())
+		if(target_ship)
+			var/source = get_turf(src)
+			var/obj/structure/overmap/S = target_ship
+			var/list/L = list()
+			var/area/thearea = S.linked_ship
+			for(var/turf/T in get_area_turfs(thearea.type))
+				L+=T
+			var/location = pick(L)
+			var/turf/theturf = get_turf(location)
+			S.take_damage(SC.weapons.damage,theturf)
+			in_use1 = 0
+			var/chosen_sound = pick(soundlist)
+			SEND_SOUND(pilot, sound(chosen_sound))
+			SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
+			SC.weapons.charge -= SC.weapons.fire_cost
+			current_beam = new(source,target_ship,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+			spawn(0)
+				current_beam.Start()
+			return
 
 /obj/structure/overmap/proc/attempt_turret_fire()
 	if(charge > 0 && has_turrets && target_ship && turret_recharge <= 0) //Not ready to fire the big guns, but smaller phaser batteries can still fire
@@ -480,8 +445,6 @@ var/global/list/global_ship_list = list()
 		return 1
 
 /obj/structure/overmap/process()
-	if(recharge > 0)
-		recharge --
 	if(turret_recharge >0)
 		turret_recharge --
 	attempt_fire()
@@ -500,10 +463,9 @@ var/global/list/global_ship_list = list()
 		var/obj/effect/adv_shield/theshield = pick(generator.shields) //sample a random shield for health and stats.
 		shield_health = theshield.health
 		max_shield_health = theshield.maxhealth
-	//	if(!generator || !generator.shields.len)
 		if(has_shields())
 			shields_active = 1
-			icon_state = initial(icon_state) + "-shield"
+			icon_state = "[initial(icon_state)]-shield"
 		else
 			shields_active = 0
 			icon_state = initial(icon_state)
@@ -512,11 +474,6 @@ var/global/list/global_ship_list = list()
 	if(pilot)
 		if(pilot.loc != src)
 			exit() //pilot has been tele'd out, remove them!
-
-	if(counter >= 10)//every 10 ticks it'll charge
-		if(charge < max_charge)
-			charge += phaser_charge_rate
-			counter = 0
 		//	if(charge > max_charge)
 			//	charge = max_charge
 	//	else

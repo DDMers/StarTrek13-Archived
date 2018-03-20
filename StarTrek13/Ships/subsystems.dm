@@ -65,6 +65,9 @@
 	var/list/linked_objects()
 	var/integrity_sensitive = TRUE
 	var/datum/shipsystem_controller/controller
+	var/power_supplied = 0 //How much power is available right now? until we connect these to the powernet, it'll just be done by snowflake EPS conduits.
+	var/temperature = 0 //How hot has it got? if this heat goes above 100, expect performance decreases
+	var/name = "subsystem"
 
 /datum/shipsystem/New()
 	. = ..()
@@ -74,13 +77,20 @@
 	START_PROCESSING(SSobj, src)
 	failed = 0
 
+/datum/shipsystem/proc/lose_heat(amount)
+	if(temperature) //  < 0
+		temperature -= amount
+
 /datum/shipsystem/process()//Here's where the magic happens.
-	if(integrity <= 30) //30% means you're pretty shat up, take it down for repairs.
+	var/health = calculate_percentages()
+	if(temperature)
+		integrity -= temperature
+	if(health <= 30) //30% health means you're pretty beat up, take it down for repairs.
 		failed = 1
 		fail()
 		//So stop processing
 	if(overclock > 0) //Drain power.
-		power_draw += 0*overclock //again, need power stats to fiddle with.
+		power_draw += overclock //again, need power stats to fiddle with.
 
 /datum/shipsystem/proc/fail()
 	STOP_PROCESSING(SSobj, src)
@@ -88,28 +98,71 @@
 		T.fail()
 
 /datum/shipsystem/proc/take_damage(amount)
-	to_chat(world, "shipsystem just took damage! TEST")
 	integrity -= amount
-	var/thenumber = calculate_percentages()
-	to_chat(world, "is now at [thenumber]% integrity TEST")
 
 /datum/shipsystem/proc/calculate_percentages()
 	var/thenumber = round(100* integrity / max_integrity) //aka, percentage for ease of reading
 	return thenumber
 
 /datum/shipsystem/proc/repair_damage(amount)
-	to_chat(world,  "has just been repaired by [amount] damage! TEST")
-	var/thenumber = calculate_percentages()
-	to_chat(world, "is now at [thenumber]% integrity TEST")
+	integrity += amount
+	if(integrity >= max_integrity)
+		integrity = max_integrity
+
 
 /datum/shipsystem/weapons
 	power_draw = 0//just so it's not an empty type TBH. We can tweak this later when we get power in.
+	name = "weapons"
+	var/damage = 1
+	var/fire_cost = 1
+	var/max_charge = 1
+	var/chargeRate = 1
+	var/delay = 0
+	var/max_delay = 2 //2 ticks to fire again, this is ontop of phaser charge times
+	var/charge = 0
+
+//	theship.damage = 0	//R/HMMM
+//	theship.phaser_fire_cost = 0
+///	theship.max_charge = 0
+//	theship.phaser_charge_rate = 0
+
+/datum/shipsystem/weapons/proc/update_weapons()
+	damage = initial(damage)
+	fire_cost = initial(fire_cost)
+	max_charge = initial(max_charge)
+	chargeRate = initial(chargeRate)
+	var/counter = 0
+	var/temp = 0
+	for(var/obj/machinery/power/ship/phaser/P in controller.theship.weapons.weapons)
+		chargeRate += P.charge_rate
+		damage += P.damage
+		fire_cost += P.fire_cost
+		counter ++
+		temp = P.charge
+	max_charge += counter*temp //To avoid it dropping to 0 on update, so then the charge spikes to maximum due to process()
+
+/datum/shipsystem/weapons/process()
+	. = ..()
+	if(delay > 0)
+		delay --
+	if(charge < max_charge)
+		charge = max_charge
+
+/datum/shipsystem/weapons/proc/attempt_fire()
+	if(delay <= 0 && charge >= fire_cost)
+		delay = max_delay //-1 per tick
+		return 1
+	else
+		return 0
+
 
 /datum/shipsystem/sensors
 	power_draw = 0//just so it's not an empty type TBH.
+	name = "sensors"
 
 /datum/shipsystem/engines
 	power_draw = 0//just so it's not an empty type TBH.
+	name = "engines"
 
 /datum/shipsystem/shields
 	integrity = 40 // start off
@@ -131,3 +184,48 @@
 
 //round(100 * value / max_value PERCENTAGE CALCULATIONS, quick maths.
 //U3VwZXIgaXMgYmFk
+
+/obj/structure/subsystem_component
+	name = "EPS Conduit"
+	desc = "this supplies power to a subsystem."
+	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
+	icon_state = "conduit"
+	anchored = 1
+	density = 0
+	can_be_unanchored = 0
+
+
+/obj/structure/fluff/helm/desk
+	name = "desk computer"
+	desc = "A generic deskbuilt computer"
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "desk"
+	anchored = TRUE
+	density = 1 //SKREE
+	opacity = 0
+	layer = 4.5
+
+/obj/structure/fluff/helm/desk/functional
+	name = "shield station"
+	var/obj/structure/overmap/ship/our_ship
+	var/datum/shipsystem/shields/subsystem
+	var/mob/living/carbon/human/crewman
+
+
+/obj/structure/fluff/helm/desk/functional/New()
+	. = ..()
+	for(var/datum/shipsystem/shields/S in our_ship.SC.systems)
+		subsystem = S
+
+/obj/structure/fluff/helm/desk/functional/attack_hand(mob/living/user)
+	to_chat(user, "You are now manning [src], with your expertise you'll provide a boost to the [subsystem] subsystem. You need to remain still whilst doing this.")
+	crewman = user
+	START_PROCESSING(SSobj, src)
+
+/obj/structure/fluff/helm/desk/functional/process() //A good mini boost to a subsystem which will help keep your ship alive just a liiil longer.
+	subsystem.integrity += 5
+	subsystem.heat -= 5
+	if(!crewman in view(src,1))
+		to_chat(crewman, "You are too far away from [src], and have stopped managing the [subsystem] subsystem.")
+		crewman = null
+		STOP_PROCESSING(SSobj, src)
