@@ -24,6 +24,7 @@
 #include "_maps\map_files\StarTrek13\overmap\small_derelict_asteroid.dmm"
 #include "_maps\map_files\StarTrek13\ship\capital_class1.dmm"
 #include "_maps\map_files\StarTrek13\ship\frigate1.dmm"
+#include "_maps\map_files\StarTrek13\ship\nanotrasen_cruiser_temp.dmm"
 #include "_maps\map_files\StarTrek13\ship\nt_capital_class.dmm"
 #include "_maps\map_files\StarTrek13\ship\NTfrigate.dmm"
 #include "_maps\map_files\StarTrek13\ship\small_nanotrasen_scout.dmm"
