@@ -6,6 +6,7 @@
 	icon_keyboard = null
 	icon_screen = null
 	layer = 4.5
+	var/area/target_area
 	var/list/retrievable = list()
 	var/list/linked = list()
 	var/list/tricorders = list()
@@ -93,6 +94,7 @@
 
 				for(var/turf/T in O.linked_ship)
 					L += T
+				target_area = O.linked_ship
 				if(!eyeobj)
 					CreateEye()
 				give_eye_control(user, L)
@@ -261,6 +263,12 @@ Might find a use for this later
 
 /datum/action/innate/moveup/Activate()
 	console.eyeobj.z++
+	var/area/thearea = get_area(console.eyeobj)
+	if(thearea == console.target_area)
+		return
+	else //If it's not in the same area. Return the eye back to whence it came
+		console.eyeobj.z--
+
 
 /datum/action/innate/movedown
 	name = "Move Down"
@@ -270,6 +278,11 @@ Might find a use for this later
 
 /datum/action/innate/movedown/Activate()
 	console.eyeobj.z--
+	var/area/thearea = get_area(console.eyeobj)
+	if(thearea == console.target_area)
+		return
+	else //If it's not in the same area. Return the eye back to whence it came
+		console.eyeobj.z++
 
 /datum/action/innate/beamup
 	name = "Beam Up"
