@@ -46,6 +46,7 @@
 			forceMove(carrier_ship.loc)
 		else
 			to_chat(user, "Error. You shouldn't be seeing this")
+		return ..()
 
 /obj/structure/overmap/ship/fighter/exit()
 	if(!starting)

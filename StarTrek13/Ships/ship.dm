@@ -82,6 +82,14 @@
 		S.health += regen
 
 /obj/machinery/space_battle/shield_generator/process()
+	if(shield_system.failed)
+		for(var/obj/effect/adv_shield/A in shields)
+			A.deactivate()
+	else
+		for(var/obj/effect/adv_shield/A in shields)
+			A.activate()
+			A.health = shield_system.integrity
+/*
 	if(!shield_system)
 		return
 	if(shield_system.failed)
@@ -111,6 +119,7 @@
 		ship.shields_active = TRUE
 		if(SH.health < SH.maxhealth)
 			for(var/obj/effect/adv_shield/A in shields)
+				regen += ship.SC.shields.regen_bonus
 				A.health += regen
 		//	health += regen
 		else
@@ -131,6 +140,8 @@
 			if(current_fan.fancurrent > 3)
 				if(current_fan.fanhealth < -50) // maintain your fans!
 					explosion(get_turf(src), 0, 4, 4, flame_range = 14)
+
+*/
 //	calculate()
 
 /obj/effect/adv_shield/proc/percentage(damage)
@@ -204,24 +215,16 @@
 			S.deactivate()
 			S.active = 0
 			ship.shields_active = 0
-		shield_system.integrity -= health_addition
-		health_addition = max_health_addition
+		ship.SC.shields.active = FALSE
 		return
 	if(!on)
-		var/sample
-		if(!shields.len) //no shields, for some reason....
-			sample = ship.shield_health
-		for(var/obj/effect/adv_shield/S in shields)
-			sample = S.health
-		if(sample > 1000)
+		if(ship.SC.shields.integrity >= 2000)
 			to_chat(user, "shields activated")
 			on = 1
 			for(var/obj/effect/adv_shield/S in shields)
 				S.activate()
 				S.active = 1
-				ship.shields_active = 1
-			shield_system.integrity += min(shield_system.integrity + health_addition, shield_system.max_integrity)
-			health_addition = 0
+			ship.shields_active = 1
 			return
 		else
 			on = 0

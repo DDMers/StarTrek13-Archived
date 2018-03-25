@@ -340,6 +340,10 @@ var/global/list/global_ship_list = list()
 			fighters += F
 	for(var/obj/structure/fluff/helm/desk/functional/F in linked_ship)
 		F.our_ship = src
+		F.get_ship()
+	for(var/obj/structure/subsystem_monitor/M in linked_ship)
+		M.our_ship = src
+		M.get_ship()
 	get_damageable_components()
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
@@ -350,25 +354,24 @@ var/global/list/global_ship_list = list()
 			fighters += F
 
 /obj/structure/overmap/take_damage(amount,turf/target)
+	if(health <= 0)
+		destroy(1)
+	if(!health)
+		destroy(1)
 	if(take_damage_traditionally) //Set this var to 0 to do your own weird shitcode
 		if(has_shields())
 			var/heat_multi = 1
-			if(isovermapship(src))
-				var/obj/structure/overmap/ship/S = src
-				heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
-				S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
-			if(isovermapstation(src))
-				var/obj/structure/overmap/away/station/station = src
-				heat_multi = station.station_shields.heat >= 50 ? 2 : 1
-				station.station_shields.heat += round(amount/station.station_shields.heat_resistance)
-			generator.take_damage(amount*heat_multi)
+			var/obj/structure/overmap/ship/S = src
+			heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
+			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
+		//	generator.take_damage(amount*heat_multi)
+			SC.shields.integrity -= amount*heat_multi
 			var/datum/effect_system/spark_spread/s = new
 			s.set_up(2, 1, src)
 			s.start() //make a better overlay effect or something, this is for testing
 			return
 		else//no shields are up! take the hit
 			apply_damage(amount)
-
 			health -= amount
 			return
 	else
@@ -444,6 +447,12 @@ var/global/list/global_ship_list = list()
 		A.pixel_y = target_ship.pixel_y
 		return 1
 
+/*
+		var/obj/effect/adv_shield/theshield = pick(generator.shields) //sample a random shield for health and stats.
+		shield_health = theshield.health
+		max_shield_health = theshield.maxhealth
+*/
+
 /obj/structure/overmap/process()
 	if(turret_recharge >0)
 		turret_recharge --
@@ -460,16 +469,15 @@ var/global/list/global_ship_list = list()
 	get_interactibles()
 	//transporter.destinations = list() //so when we leave the area, it stops being transportable.
 	if(take_damage_traditionally)
-		var/obj/effect/adv_shield/theshield = pick(generator.shields) //sample a random shield for health and stats.
-		shield_health = theshield.health
-		max_shield_health = theshield.maxhealth
 		if(has_shields())
-			shields_active = 1
+			shields_active = TRUE
 			icon_state = "[initial(icon_state)]-shield"
 		else
-			shields_active = 0
+			shields_active = FALSE
 			icon_state = initial(icon_state)
 	if(health <= 0)
+		destroy(1)
+	if(!health)
 		destroy(1)
 	if(pilot)
 		if(pilot.loc != src)
@@ -635,16 +643,10 @@ var/global/list/global_ship_list = list()
 			qdel(src)
 
 /obj/structure/overmap/proc/has_shields()
-	if(shield_health > 2000 && shields_active)
+	if(SC.shields.integrity > 2000 && shields_active)
 		return 1
 	else//no
 		return 0
-
-/obj/structure/overmap/ship/has_shields()
-	if(SC.shields.heat >= 100)
-		return 0
-	else
-		return ..()
 
 /obj/structure/overmap/bullet_act(var/obj/item/projectile/P)
 	. = ..()
