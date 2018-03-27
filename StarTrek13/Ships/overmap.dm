@@ -34,6 +34,22 @@ var/global/list/global_ship_list = list()
 	name = "Amann" //Test
 	jumpgate_position = 3
 
+/area/overmap/system/z3
+	name = "Reb'ase" //Test
+	jumpgate_position = 4
+
+/area/overmap/system/z4
+	name = "Consil" //Test
+	jumpgate_position = 5
+
+/area/overmap/system/z5
+	name = "Ursa minor" //Test
+	jumpgate_position = 6
+
+/area/overmap/system/z6
+	name = "Ursa major" //Test
+	jumpgate_position = 7
+
 #define TORPEDO_MODE 1//1309
 #define PHASER_MODE 2
 
@@ -176,9 +192,7 @@ var/global/list/global_ship_list = list()
 	spawn_random = TRUE
 	can_move = FALSE
 	spawn_name = "station_spawn"
-
-/obj/structure/overmap/away/station/New()
-	. = ..()
+	sensor_range = 10
 
 /obj/structure/overmap/ship //dummy for testing woo
 	name = "USS thingy"
@@ -223,7 +237,7 @@ var/global/list/global_ship_list = list()
 	spawn_name = "nt_capital"
 
 
-/obj/structure/overmap/ship/New()
+/obj/structure/overmap/New()
 	SC = new(src)
 	SC.generate_shipsystems()
 	SC.theship = src
