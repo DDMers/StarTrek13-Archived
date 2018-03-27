@@ -139,7 +139,7 @@ var/global/list/global_ship_list = list()
 	. = ..()
 	overmap_objects += src
 	soundloop = new(list(src), TRUE)
-	START_PROCESSING(SSfastprocess,src)
+	START_PROCESSING(SSobj,src)
 	linkto()
 	linked_ship = get_area(src)
 	var/list/thelist = list()
@@ -173,13 +173,12 @@ var/global/list/global_ship_list = list()
 	name = "space station 13"
 	icon = 'StarTrek13/icons/trek/large_overmap.dmi'
 	icon_state = "station"
-	spawn_random = FALSE
+	spawn_random = TRUE
 	can_move = FALSE
 	spawn_name = "station_spawn"
-	var/datum/shipsystem/shields/station_shields = null
 
 /obj/structure/overmap/away/station/New()
-	station_shields = new()
+	. = ..()
 
 /obj/structure/overmap/ship //dummy for testing woo
 	name = "USS thingy"
@@ -324,14 +323,9 @@ var/global/list/global_ship_list = list()
 	for(var/obj/machinery/space_battle/shield_generator/G in linked_ship)
 		generator = G
 		G.ship = src
-		if(isovermapship(src))
-			var/obj/structure/overmap/ship/S = src
-			S.SC.shields.linked_generators += G
-			G.shield_system = S.SC.shields
-		if(isovermapstation(src))
-			var/obj/structure/overmap/away/station/station = src
-			station.station_shields.linked_generators += G
-			G.shield_system = station.station_shields
+		var/obj/structure/overmap/ship/S = src
+		S.SC.shields.linked_generators += G
+		G.shield_system = S.SC.shields
 	for(var/obj/machinery/computer/camera_advanced/transporter_control/T in linked_ship)
 		transporters += T
 	for(var/obj/structure/overmap/ship/fighter/F in linked_ship)
@@ -511,6 +505,9 @@ var/global/list/global_ship_list = list()
 	pilot = null
 
 /obj/structure/overmap/proc/navigate()
+//	if(isprocessing)
+//		STOP_PROCESSING(SSobj, src)
+	//	START_PROCESSING(SSfastprocess,src)
 	update_turrets()
 	if(world.time < next_vehicle_move)
 		return 0
@@ -523,6 +520,8 @@ var/global/list/global_ship_list = list()
 	if(src in orange(4, nav_target))
 		navigating = 0
 		to_chat(pilot, "finished tracking [nav_target]. Autopilot disengaged")
+	//	STOP_PROCESSING(SSfastprocess,src)
+	//	START_PROCESSING(SSobj, src)
 
 /obj/structure/overmap/ship/proc/input_warp_target(mob/user)
 	if(warp_capable)
@@ -613,7 +612,7 @@ var/global/list/global_ship_list = list()
 	for(var/obj/structure/overmap/L in orange(30, src))
 		var/obj/structure/overmap/O = L
 		SEND_SOUND(O.pilot, thesound)
-	STOP_PROCESSING(SSfastprocess,src)
+	STOP_PROCESSING(SSobj,src)
 	exit()
 	if(agressor)
 		agressor.target_ship = null
@@ -710,3 +709,4 @@ var/global/list/global_ship_list = list()
 
 #undef TORPEDO_MODE
 #undef PHASER_MODE
+

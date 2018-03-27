@@ -2388,6 +2388,7 @@
 #include "StarTrek13\Ships\overmap.dm"
 #include "StarTrek13\Ships\overmap_fighter.dm"
 #include "StarTrek13\Ships\overmap_take_damage.dm"
+#include "StarTrek13\Ships\say.dm"
 #include "StarTrek13\Ships\ship.dm"
 #include "StarTrek13\Ships\spessbattles.dm"
 #include "StarTrek13\Ships\subsystems.dm"

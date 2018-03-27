@@ -76,9 +76,10 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/flavourtext = "you shouldnt be here" //Sent to all new members upon recruitment.
 	var/player_requirement = 0 //Is this population locked?
 	var/pref_colour = "green" //Color that the background goes if this faction is selected in preferences
+	var/obj/effect/spawns = list()
 
 /datum/faction/independant	//a holder datum for sorting players
-	name = "the coalition of independant pilots"
+	name = "independant"
 	description = "An independant faction, freelancers, traders, or even pirates, these people choose their own path and forge their own journey."
 	flavourtext = "You are your own person, and no power hungry faction will tell you otherwise. You are in a group of likeminded people, to call your organization a true faction would be inapropriate. Create your own path" //Sent to all new members upon recruitment.
 	pref_colour = "green"
@@ -89,6 +90,12 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	name = "starfleet"
 	description = "The military arm of the federation, its officers are disciplined and intelligent but there is plenty of room for ensigns and other inexperienced officers"
 	flavourtext = "Starfleet is a stable career path, with luck you can work your way up the ranks all while protecting the values of the federation"
+	pref_colour = "red"
+
+/datum/faction/nanotrasen
+	name = "nanotrasen"
+	description = "Nanotrasen, or more specifically, their main corporate arm. Their goal is to make money and maintain the colonies, no matter who opposes them."
+	flavourtext = "Nanotrasen is an oligarchy, but with merit you should be able to climb the ranks...up to a point."
 	pref_colour = "blue"
 
 /datum/faction/proc/num_players()
@@ -98,12 +105,27 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 
 /datum/faction/New()
 	var/players = num_players()
+	get_spawns()
 	if(player_requirement > players)
 		qdel(src)
 		log_game("[name] faction could not be created, as there were not enough players")
 	else
 		. = ..()
 
+/datum/faction/proc/get_spawns() //override this for each
+	for(var/obj/effect/landmark/faction_spawn/F in GLOB.landmarks_list)
+		spawns += F
+
+/datum/faction/starfleet/get_spawns()
+	for(var/obj/effect/landmark/faction_spawn/F in GLOB.landmarks_list)
+		spawns += F
+
+/datum/faction/nanotrasen/get_spawns()
+	for(var/obj/effect/landmark/faction_spawn/nanotrasen/F in GLOB.landmarks_list)
+		spawns += F
+/datum/faction/independant/get_spawns()
+	for(var/obj/effect/landmark/faction_spawn/independant/F in GLOB.landmarks_list)
+		spawns += F
 /datum/faction/proc/broadcast(var/ping)	//broadcast4reps
 	if(!ping)
 		return 0 //No message was input..somehow
@@ -116,6 +138,45 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	members += D
 	to_chat(D, "<FONT color='blue'><B>You have been recruited into [name]!</B></font>")
 	to_chat(D, "<FONT color='[pref_colour]'><B>[flavourtext]</B></font>")
+//	if(name == "starfleet")
+//	new /obj/item/clothing/neck/tie/faction_tag(D.loc)
+//	else
+	//	new /obj/item/clothing/neck/tie/faction_tag/nanotrasen(D.loc)
+//	var/image/theimage = image('icons/mob/hud.dmi')
+//	theimage.icon_state = "[name]"
+//	D.overlays += theimage
+	//spawn(0)
+//	for(var/mob/living/M in members)
+	//	set_antag_hud(M.mind,name)
+
+var/list/global/faction_spawns = list()
+
+/obj/effect/landmark/faction_spawn
+	name = "starfleet"
+
+/obj/effect/landmark/faction_spawn/nanotrasen
+	name = "nanotrasen"
+
+/obj/effect/landmark/faction_spawn/independant
+	name = "independant"
+
+/obj/item/clothing/neck/tie/faction_tag //I hate myself for doing this, but I don't have the time to mess around with antag huds...yet...
+	name = "federation dogtag"
+	desc = "Wear this to not get shot by your friends!."
+	icon = 'icons/obj/clothing/neck.dmi'
+	icon_state = "federationdogtag"
+	item_state = ""	//no inhands
+	item_color = "federationdogtag"
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/clothing/neck/tie/faction_tag/nanotrasen //I hate myself for doing this, but I don't have the time to mess around with antag huds...yet...
+	name = "Nanotrasen dogtag"
+	desc = "Wear this to not get shot by your friends!."
+	icon = 'icons/obj/clothing/neck.dmi'
+	icon_state = "nanotrasendogtag"
+	item_state = ""	//no inhands
+	item_color = "nanotrasendogtag"
+	w_class = WEIGHT_CLASS_SMALL
 
 /datum/faction/proc/removeMember(mob/living/D)
 	if(D in members)
@@ -150,3 +211,5 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	explanation_text = "All those other factions are opressing their members, liberate them by making sure your faction is the only one left"
 
 //datum/objective/faction/
+
+
