@@ -77,6 +77,8 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/player_requirement = 0 //Is this population locked?
 	var/pref_colour = "green" //Color that the background goes if this faction is selected in preferences
 	var/obj/effect/spawns = list()
+	var/datum/objective/objectives = list()
+	var/credits = 0 //:( i'm just a poor boy from a poor family
 
 /datum/faction/independant	//a holder datum for sorting players
 	name = "independant"
@@ -127,8 +129,8 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	for(var/obj/effect/landmark/faction_spawn/independant/F in GLOB.landmarks_list)
 		spawns += F
 /datum/faction/proc/broadcast(var/ping)	//broadcast4reps
-	if(!ping)
-		return 0 //No message was input..somehow
+//	if(!ping)
+//		return 0 //No message was input..somehow
 	for(var/mob/living/M in members)
 		to_chat(M, ping)
 
@@ -184,6 +186,90 @@ var/list/global/faction_spawns = list()
 			members -= D
 			to_chat(D, "<FONT color='red'><B>You have been removed from [name]!</B></font>")
 
+/datum/faction/proc/addCredits(amount)
+	credits += amount
+	broadcast("Our faction has just earned [amount] credits!")
+
+/datum/objective/faction
+	completed = 0
+	explanation_text = "lead your faction to greatness"
+	var/datum/faction/faction
+
+/datum/objective/faction/escort
+	explanation_text = ""
+	var/mob/living/vip //The person who you're meant to protect.
+	var/datum/faction/vipfaction //The faction that the VIP is in
+	var/mob/living/lover //The agent's lover.
+	var/datum/faction/target_faction
+
+
+//Factions have a ranking
+/*
+This ranking is based on (hierarchically):
+number of claimed systems
+total value of all their ships
+money accrued
+objectives completed
+raw material wealth
+
+So they can do mini objectives for fast cash, or mine, collect bounties off NPCs, trade etc. For alpha we're just gonna have it be that the richest faction wins.
+
+*/
+
+/datum/objective/faction/escort/New()
+	claim_the_waifu()
+	. = ..()
+
+/datum/objective/faction/escort/proc/claim_the_waifu() //Kmc's patented waifu finding technology.
+	for(var/mob/living/M in faction.members) //Faction will be assigned on creation of this objective by SSfaction
+		if(M.client && !M in SSfaction.vips)
+			vip = M
+			SSfaction.vips += M
+			break
+	var/datum/faction/F = list()
+	F = SSfaction.factions
+	if(faction in F)
+		F -= vipfaction //Can't kidnap someone from the same faction as the defector.
+	var/datum/faction/thetargetfaction = pick(F)
+	for(var/mob/living/M in thetargetfaction.members)
+		if(M.client && !M in SSfaction.vips && !M in SSfaction.lovers)
+			lover = M
+			SSfaction.lovers += M
+			break
+	explanation_text = "[vip] has recently defected from another faction, but before they give up their secrets, they have insisted that their lover, [lover] (who is loyal to their faction) is kidnapped from [thetargetfaction]. They must be caught ALIVE!."
+	inform_the_people()
+	target_faction = thetargetfaction
+
+/datum/objective/faction/escort/proc/inform_the_people()
+	to_chat(vip, "<span class='danger'>You have just defected from [target_faction]!, but before you went you learned many dark secrets that they're hiding...</span>")
+	to_chat(vip, "<span class='danger'>Your lover, [lover] is still with [target_faction]!, you are not to reveal your information to [vipfaction] UNTIL they bring [lover] back to you safely!.</span>")
+	var/thing = pick("the head of [target_faction]'s mother is gay","[target_faction] has a money laundering program","[target_faction] eats dogs")
+	to_chat(vip, "<span class='danger'>In your time working for [target_faction], you discovered that: [thing] amongst other things</span>")
+	to_chat(vip, "<span class='danger'>Once [lover] comes within a few meters of you, you'll feel magically compelled to SPILL THE BEANS, netting your new faction-mates a nice credit bonus.</span>")
+	to_chat(vip, "<span class='danger'>Unfortunately, it seems that [lover] is siphoning money from your bank account! the longer they're away from you, the more money [target] will make! so be SURE to catch her!.</span>")
+
+	//BEGIN WAIFU EXPLANATION!
+
+	to_chat(vip, "<span class='danger'>Your crazy ex-lover, [vip] has decided to abandon their duties and sell off our secrets!</span>")
+	to_chat(vip, "<span class='danger'>Your faction members will try to keep him away from you, the longer they do, the more money [target_faction] will earn!</span>")
+	to_chat(vip, "<span class='danger'>If you see [vip], don't get too close! or they'll consider you theirs again (what a creep), completing the sale of secrets and humiliating [target].</span>")
+	to_chat(vip, "<span class='danger'>[vip] has defected to [faction], you should keep away from their ships. You're free to play normally, but do not allow yourself to be captured.</span>")
+
+/datum/objective/faction/escort/check_completion()
+	if(lover in orange(vip, 2)) //If the lover's within about 2 meters of the VIP
+		var/thing = pick("the head of [target]'s mother is gay","[target] has a money laundering program","[target] eats dogs", "REPLICATED FOOD IS MADE OF PEOPLE!!!!!!")
+		vip.say(thing)
+		vip.say("We'll always have Paris, [lover]")
+		faction.broadcast("VIP mission successful, we learned that [thing]")
+		faction.addCredits(50000) //MOOLAH BABY
+		return 1
+	else
+		return 0
+
+//datum/objective/faction/
+
+
+
 //Framework, finish this after factions are working
 
 /datum/alliance  //A faction can ally itself with a group, so starfleet is allied to the federation, klingons allied to the federation etc.
@@ -202,14 +288,3 @@ var/list/global/faction_spawns = list()
 	if(D in member_factions)
 		member_factions -= D
 		D.broadcast("Your faction has been removed from [name]!")
-
-/datum/objective/faction
-	completed = 0
-	explanation_text = "lead your faction to greatness"
-
-/datum/objective/faction/dominate
-	explanation_text = "All those other factions are opressing their members, liberate them by making sure your faction is the only one left"
-
-//datum/objective/faction/
-
-

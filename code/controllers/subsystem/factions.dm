@@ -8,6 +8,8 @@ SUBSYSTEM_DEF(faction)
 	var/datum/faction/factions = list() //All factions that are currently in the game
 	var/jumpgates_forbidden = TRUE //Lock jumpgates to prevent instarushes.
 	var/timing_jumpgates = FALSE //Jumpgate countdown begun?
+	var/mob/living/vips = list() //People involved in vip objectives
+	var/mob/living/lovers = list() //people involved in VIP objectives as the VIPs lover
 
 
 /datum/controller/subsystem/faction/Initialize(timeofday)
@@ -18,6 +20,7 @@ SUBSYSTEM_DEF(faction)
 		var/datum/faction/instance = new thefaction
 		factions += instance
 		message_admins("DEBUG: [instance] was created")
+		make_objectives()
 	. = ..()
 
 /datum/controller/subsystem/faction/fire()
@@ -29,6 +32,11 @@ SUBSYSTEM_DEF(faction)
 		return
 	else
 		WARNING("There are no factions in the game!")
+
+/datum/controller/subsystem/faction/proc/make_objectives()
+	for(var/datum/faction/F in factions)
+		F.objectives += new /datum/objective/faction/escort
+
 
 /datum/controller/subsystem/faction/proc/addToFaction(mob/living/M)
 	var/datum/faction/thefaction = M.client.prefs.player_faction
