@@ -57,28 +57,31 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 			hyperspace_marker = L
 
 /obj/structure/jumpgate/proc/activate(mob/user)
-	if(!being_used)
-		being_used = TRUE
-		var/list/thelist = list()
-		for(var/obj/structure/jumpgate/J in jumpgates)
-			if(position - J.position == 1 || -1)		//If i'm at jumpgate 4, going to 5, it's 4-5. -1. If I'm at jumpgate 2 going BACK to  1, it's 1. If I'm at jumpgate 3 trying to go back to 1, it's not 1 or -1
-				thelist += J
-			else
-				thelist -= J
-		var/A
-		A = input("Select jumpgate target:", "Jumpgate control", A) as null|anything in thelist
-		if(!A)
-			being_used = FALSE
-			return
-		if(!destination_locked)
-			var/obj/structure/jumpgate/J = A
-			target_gate = J
-			destination_locked = TRUE
-			to_chat(user, "Beginning activation sequence.")
-			icon_state = "jumpgate_active" //now play a spoolup sequence and add fluff here. TODO!
-			density = TRUE
+	if(!SSfaction.jumpgates_forbidden)
+		if(!being_used)
+			being_used = TRUE
+			var/list/thelist = list()
+			for(var/obj/structure/jumpgate/J in jumpgates)
+				if(position - J.position == 1 || -1)		//If i'm at jumpgate 4, going to 5, it's 4-5. -1. If I'm at jumpgate 2 going BACK to  1, it's 1. If I'm at jumpgate 3 trying to go back to 1, it's not 1 or -1
+					thelist += J
+				else
+					thelist -= J
+			var/A
+			A = input("Select jumpgate target:", "Jumpgate control", A) as null|anything in thelist
+			if(!A)
+				being_used = FALSE
+				return
+			if(!destination_locked)
+				var/obj/structure/jumpgate/J = A
+				target_gate = J
+				destination_locked = TRUE
+				to_chat(user, "Beginning activation sequence.")
+				icon_state = "jumpgate_active" //now play a spoolup sequence and add fluff here. TODO!
+				density = TRUE
+		else
+			to_chat(user, "ERROR: Jumpgate is already being programmed.")
 	else
-		to_chat(user, "ERROR: Jumpgate is already being programmed.")
+		to_chat(user, "Jumpgate is charging up!")
 
 /obj/structure/jumpgate/CollidedWith(atom/movable/mover) //This isn't running for some reason?
 	find_hyperspace()
