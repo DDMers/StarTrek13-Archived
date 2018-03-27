@@ -42,10 +42,12 @@
 "P" = (/obj/effect/turf_decal/stripes/line,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
 "Q" = (/obj/effect/turf_decal/stripes/line,/obj/structure/closet/crate,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
 "R" = (/obj/effect/turf_decal/stripes/line,/obj/structure/fluff/helm/desk/functional/weapons/nt{tag = "icon-computer (NORTH)"; icon_state = "computer"; dir = 1},/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
-"S" = (/obj/effect/turf_decal/stripes/line,/obj/structure/closet/crate,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"T" = (/obj/structure/closet/crate,/obj/effect/turf_decal/stripes/line,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"U" = (/obj/structure/closet/crate,/obj/effect/turf_decal/stripes/line,/obj/machinery/light,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"V" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/nanotrasen/freighter)
+"S" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
+"T" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
+"U" = (/obj/effect/turf_decal/stripes/line,/obj/structure/closet/crate,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
+"V" = (/obj/structure/closet/crate,/obj/effect/turf_decal/stripes/line,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
+"W" = (/obj/structure/closet/crate,/obj/effect/turf_decal/stripes/line,/obj/machinery/light,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
+"X" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/nanotrasen/freighter)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaa
@@ -63,9 +65,9 @@ cmbibrrbrrKrrrLMyyzc
 cAbibnNOPrrNQQORPbbc
 cabbbbbbkllkbbbbbbac
 caaabjjjiiiijjjbaaac
-cabbbiiiiiiiiiibbbac
-cabdbSSTTUUTTSSbdbac
+cabbbiiiiSTiiiibbbac
+cabdbUUVVWWVVUUbdbac
 cabbbbbbbbbbbbbbbbac
-aaaaaaaaaaaaaaaaaVaa
+aaaaaaaaaaaaaaaaaXaa
 aaaaaaaaaaaaaaaaaaaa
 "}
