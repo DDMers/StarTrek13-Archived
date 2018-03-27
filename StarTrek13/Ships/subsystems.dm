@@ -291,6 +291,8 @@
 
 /obj/structure/fluff/helm/desk/functional/attack_hand(mob/living/user)
 	to_chat(user, "You are now manning [src], with your expertise you'll provide a boost to the [subsystem] subsystem. You need to remain still whilst doing this.")
+	if(crewman)
+		crewman = null
 	crewman = user
 	START_PROCESSING(SSobj, src)
 
@@ -302,8 +304,8 @@
 		return
 	else
 		to_chat(crewman, "You are too far away from [src], and have stopped managing the [subsystem] subsystem.")
-		subsystem.heat_resistance = initial(subsystem.heat_resistance)
 		crewman = null
+		subsystem.heat_resistance = initial(subsystem.heat_resistance)
 		STOP_PROCESSING(SSobj, src)
 
 

@@ -578,8 +578,10 @@ var/global/list/global_ship_list = list()
 	if(can_move)
 		var/A
 		var/list/theships = list()
+		var/area/a = get_area(src)
 		for(var/obj/structure/overmap/O in overmap_objects)
-			if(O.z == z)
+			var/area/thearea = get_area(O)
+			if(O.z == z && a == thearea)
 				theships += O
 		for(var/obj/structure/jumpgate/J in jumpgates)
 			if(J.z == z)
