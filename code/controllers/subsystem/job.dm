@@ -369,10 +369,19 @@ SUBSYSTEM_DEF(job)
 	var/datum/job/job = GetJob(rank)
 
 	H.job = rank
-
-	//If we joined at roundstart we should be positioned at our workstation
-	if(!joined_late)
-		var/obj/S = null
+					//For us, latejoins are a last resort, as they could end up in the middle of the wrong faction base.
+	var/obj/S = null
+	if(!M.client.prefs.player_faction)
+		M.client.prefs.player_faction = pick(SSfaction.factions)
+	var/datum/faction/thefaction = M.client.prefs.player_faction
+	S = pick(thefaction.spawns)
+	if(S)
+		SendToAtom(H, S, buckle = FALSE)
+	if(!S)
+		log_world("Couldn't find a round start spawn point for [rank]")
+		SendToLateJoin(H)
+	/*
+//	if(!joined_late)//If we joined at roundstart we should be positioned at our workstation
 		for(var/obj/effect/landmark/start/sloc in GLOB.start_landmarks_list)
 			if(sloc.name != rank)
 				S = sloc //so we can revert to spawning them on top of eachother if something goes wrong
@@ -388,6 +397,7 @@ SUBSYSTEM_DEF(job)
 		if(!S) //if there isn't a spawnpoint send them to latejoin, if there's no latejoin go yell at your mapper
 			log_world("Couldn't find a round start spawn point for [rank]")
 			SendToLateJoin(H)
+		*/
 
 
 	if(H.mind)
@@ -401,7 +411,6 @@ SUBSYSTEM_DEF(job)
 				N.new_character = H
 			else
 				M = H
-	SSfaction.addToFaction(M)
 	to_chat(M, "<b>You are the [rank].</b>")
 	to_chat(M, "<b>As the [rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
 	to_chat(M, "<b>To speak on your departments radio, use the :h button. To see others, look closely at your headset.</b>")
@@ -412,7 +421,7 @@ SUBSYSTEM_DEF(job)
 
 	if(job && H)
 		job.after_spawn(H, M)
-
+	SSfaction.addToFaction(M)
 	return H
 
 

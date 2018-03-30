@@ -34,6 +34,22 @@ var/global/list/global_ship_list = list()
 	name = "Amann" //Test
 	jumpgate_position = 3
 
+/area/overmap/system/z3
+	name = "Reb'ase" //Test
+	jumpgate_position = 4
+
+/area/overmap/system/z4
+	name = "Consil" //Test
+	jumpgate_position = 5
+
+/area/overmap/system/z5
+	name = "Ursa minor" //Test
+	jumpgate_position = 6
+
+/area/overmap/system/z6
+	name = "Ursa major" //Test
+	jumpgate_position = 7
+
 #define TORPEDO_MODE 1//1309
 #define PHASER_MODE 2
 
@@ -103,6 +119,12 @@ var/global/list/global_ship_list = list()
 	var/obj/structure/overmap/agressor = null //Who is attacking us? this is done to reset their targeting systems when they destroy us!
 	var/warp_capable = FALSE //Does this ship have a warp drive?
 	////IMPORTANT VAR!!!////
+	var/datum/action/innate/exit/exit_action = new
+	var/datum/action/innate/warp/warp_action = new
+	var/datum/action/innate/stopfiring/stopfiring_action = new
+	var/datum/action/innate/redalert/redalert_action = new
+	var/datum/action/innate/autopilot/autopilot_action = new
+	var/obj/structure/ship_component/components = list()
 
 
 /obj/item/ammo_casing/energy/ship_turret
@@ -136,7 +158,7 @@ var/global/list/global_ship_list = list()
 	. = ..()
 	overmap_objects += src
 	soundloop = new(list(src), TRUE)
-	START_PROCESSING(SSfastprocess,src)
+	START_PROCESSING(SSobj,src)
 	linkto()
 	linked_ship = get_area(src)
 	var/list/thelist = list()
@@ -150,13 +172,6 @@ var/global/list/global_ship_list = list()
 	var/turf/theloc = get_turf(A)
 	if(spawn_random)
 		forceMove(theloc)
-	if(has_turrets)
-		fore_turrets = new /obj/ship_turrets(src.loc)
-		aft_turrets = new /obj/ship_turrets/aft_turrets(src.loc)
-		fore_turrets.icon_state = initial(icon_state) + "-fore_turrets"	//Remember! fore = front, if you want your turrets to visibly turn and shoot ships you need to make them their own layer.
-		aft_turrets.icon_state = initial(icon_state) + "-aft_turrets"
-		update_turrets()
-		return
 /*
 		fore_turrets = new /obj/ship_turrets
 		aft_turrets = new /obj/ship_turrets/aft_turrets
@@ -199,15 +214,12 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/overmap/away/station
 	name = "space station 13"
-	icon = 'StarTrek13/icons/trek/huge_overmap.dmi'
+	icon = 'StarTrek13/icons/trek/large_overmap.dmi'
 	icon_state = "station"
-	spawn_random = FALSE
+	spawn_random = TRUE
 	can_move = FALSE
 	spawn_name = "station_spawn"
-	var/datum/shipsystem/shields/station_shields = null
-
-/obj/structure/overmap/away/station/New()
-	station_shields = new()
+	sensor_range = 10
 
 /obj/structure/overmap/ship //dummy for testing woo
 	name = "USS thingy"
@@ -225,7 +237,7 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/overmap/ship/federation_capitalclass
 	name = "USS Cadaver"
-	icon = 'StarTrek13/icons/trek/capitalships.dmi'
+	icon = 'StarTrek13/icons/trek/large_ships/cadaver.dmi'
 	icon_state = "cadaver"
 	pixel_x = -100
 	pixel_y = -100
@@ -233,7 +245,27 @@ var/global/list/global_ship_list = list()
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 
-/obj/structure/overmap/ship/New()
+/obj/structure/overmap/ship/cruiser
+	name = "USS Excelsior"
+	icon = 'StarTrek13/icons/trek/large_ships/excelsior.dmi'
+	icon_state = "excelsior"
+	pixel_x = -100
+	pixel_y = -100
+//	var/datum/shipsystem_controller/SC
+	warp_capable = TRUE
+
+/obj/structure/overmap/ship/cruiser/nanotrasen
+	name = "NSV Hyperion"
+	icon = 'StarTrek13/icons/trek/large_ships/hyperion.dmi'
+	icon_state = "hyperion"
+	pixel_x = -100
+	pixel_y = -100
+//	var/datum/shipsystem_controller/SC
+	warp_capable = TRUE
+	spawn_name = "nt_capital"
+
+
+/obj/structure/overmap/New()
 	SC = new(src)
 	SC.generate_shipsystems()
 	SC.theship = src
@@ -243,7 +275,7 @@ var/global/list/global_ship_list = list()
 /obj/structure/overmap/ship/nanotrasen_capitalclass
 	name = "NSV annulment"
 	desc = "Contract anulled....forever"
-	icon = 'StarTrek13/icons/trek/capitalships.dmi'
+	icon = 'StarTrek13/icons/trek/large_ships/annulment.dmi'
 	icon_state = "annulment"
 	spawn_name = "nt_capital"
 	has_turrets = 1
@@ -333,72 +365,49 @@ var/global/list/global_ship_list = list()
 	for(var/obj/machinery/space_battle/shield_generator/G in linked_ship)
 		generator = G
 		G.ship = src
-		if(isovermapship(src))
-			var/obj/structure/overmap/ship/S = src
-			S.SC.shields.linked_generators += G
-			G.shield_system = S.SC.shields
-		if(isovermapstation(src))
-			var/obj/structure/overmap/away/station/station = src
-			station.station_shields.linked_generators += G
-			G.shield_system = station.station_shields
+		var/obj/structure/overmap/ship/S = src
+		S.SC.shields.linked_generators += G
+		G.shield_system = S.SC.shields
 	for(var/obj/machinery/computer/camera_advanced/transporter_control/T in linked_ship)
 		transporters += T
 	for(var/obj/structure/overmap/ship/fighter/F in linked_ship)
 		F.carrier_ship = src
 		if(!F in fighters)
 			fighters += F
+	for(var/obj/structure/fluff/helm/desk/functional/F in linked_ship)
+		F.our_ship = src
+		F.get_ship()
+	for(var/obj/structure/subsystem_monitor/M in linked_ship)
+		M.our_ship = src
+		M.get_ship()
+	get_damageable_components()
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
-	damage = 0	//R/HMMM
-	phaser_fire_cost = 0
-	max_charge = 0
-	phaser_charge_rate = 0
-	var/counter = 0
-	var/temp = 0
-	for(var/obj/machinery/power/ship/phaser/P in weapons.weapons)
-		phaser_charge_rate += P.charge_rate
-		damage += P.damage
-		phaser_fire_cost += P.fire_cost
-		counter ++
-		temp = P.charge
-	max_charge += counter*temp //To avoid it dropping to 0 on update, so then the charge spikes to maximum due to process()
+	SC.weapons.update_weapons()
 	for(var/obj/structure/overmap/ship/fighter/F in linked_ship) //Update any fighters inside of us
 		F.carrier_ship = src
 		if(!F in fighters)
 			fighters += F
 
 /obj/structure/overmap/take_damage(amount,turf/target)
+	if(health <= 0)
+		destroy(1)
+	if(!health)
+		destroy(1)
 	if(take_damage_traditionally) //Set this var to 0 to do your own weird shitcode
 		if(has_shields())
 			var/heat_multi = 1
-			if(isovermapship(src))
-				var/obj/structure/overmap/ship/S = src
-				heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
-				S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
-			if(isovermapstation(src))
-				var/obj/structure/overmap/away/station/station = src
-				heat_multi = station.station_shields.heat >= 50 ? 2 : 1
-				station.station_shields.heat += round(amount/station.station_shields.heat_resistance)
-			generator.take_damage(amount*heat_multi)
+			var/obj/structure/overmap/ship/S = src
+			heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
+			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
+		//	generator.take_damage(amount*heat_multi)
+			SC.shields.integrity -= amount*heat_multi
 			var/datum/effect_system/spark_spread/s = new
 			s.set_up(2, 1, src)
 			s.start() //make a better overlay effect or something, this is for testing
 			return
 		else//no shields are up! take the hit
-			icon_state = initial(icon_state)
-			var/turf/theturf = pick(get_area_turfs(target_ship))
-			if(prob(40))
-				explosion(theturf,2,5,11)
-			for(var/mob/L in linked_ship.contents)
-				shake_camera(L, 1, 10)
-				var/sound/thesound = pick(ship_damage_sounds)
-				SEND_SOUND(L, thesound)
-
-			var/datum/effect_system/spark_spread/s = new
-			s.set_up(2, 1, src)
-			s.start() //make a better overlay effect or something, this is for testing
-			//health -= amount
-
+			apply_damage(amount)
 			health -= amount
 			return
 	else
@@ -421,84 +430,43 @@ var/global/list/global_ship_list = list()
 	if(pilot == user)
 		set_nav_target(user)
 
-/obj/structure/overmap/ShiftClick(mob/user)//Hi my name is KMC and I don't know how to make UIs :^)
-	if(pilot == user) //don't change the firing mode of enemy ships etc.
+//obj/structure/overmap/ShiftClick(mob/user)//Hi my name is KMC and I don't know how to make UIs :^)
+
+/obj/structure/overmap/proc/stop_firing()
+	if(pilot)
 		to_chat(pilot, "RESET WEAPON TARGETING SYSTEMS, fire on a new target to begin tracking.")
 		target_ship = null
 		target_fore = null
 		target_aft = null
-		if(isovermapship(src))
-			var/obj/structure/overmap/ship/theship = src
-			theship.input_warp_target(user)
 
 /obj/structure/overmap/proc/update_turrets()
 	return
-/*
-	if(has_turrets)
-		fore_turrets.forceMove(src.loc)
-		aft_turrets.forceMove(src.loc)
-		fore_turrets.layer = 4.5
-		aft_turrets.layer = 4.5
-		fore_turrets.icon = src.icon
-		aft_turrets.icon = src.icon
-		fore_turrets.icon_state = initial(icon_state) + "-fore_turrets"	//Remember! fore = front, if you want your turrets to visibly turn and shoot ships you need to make them their own layer.
-		aft_turrets.icon_state = initial(icon_state) + "-aft_turrets"
-		fore_turrets.dir = get_dir(src,target_fore)
-		aft_turrets.dir = get_dir(src,target_aft)
-		fore_turrets.pixel_x = src.pixel_x
-		aft_turrets.pixel_x = src.pixel_x
-		fore_turrets.pixel_y = src.pixel_y
-		aft_turrets.pixel_y = src.pixel_y
-		switch(dir)
-			if(2)
-				fore_turrets.icon_state = initial(icon_state) + "-fore_turrets_south"
-				aft_turrets.icon_state = initial(icon_state) + "-aft_turrets_south"
-				fore_turrets.dir = get_dir(src,target_fore)
-				aft_turrets.dir = get_dir(src,target_aft)
-			if(1)
-				fore_turrets.icon_state = initial(icon_state) + "-fore_turrets_north"
-				aft_turrets.icon_state = initial(icon_state) + "-aft_turrets_north"
-				fore_turrets.dir = get_dir(src,target_fore)
-				aft_turrets.dir = get_dir(src,target_aft)
-			if(4)
-				fore_turrets.icon_state = initial(icon_state) + "-fore_turrets_east"
-				aft_turrets.icon_state = initial(icon_state) + "-aft_turrets_east"
-				fore_turrets.dir = get_dir(src,target_fore)
-				aft_turrets.dir = get_dir(src,target_aft)
-			if(8)
-				fore_turrets.icon_state = initial(icon_state) + "-fore_turrets_west"
-				aft_turrets.icon_state = initial(icon_state) + "-aft_turrets_west"
-				fore_turrets.dir = get_dir(src,target_fore)
-				aft_turrets.dir = get_dir(src,target_aft)
-*/ //borked
 
 /obj/structure/overmap/proc/fire(atom/target,mob/user)
 	to_chat(pilot, "Target confirmed, all gun batteries locking on to [target]")
 	target_ship = target
 
 /obj/structure/overmap/proc/attempt_fire()
-	if(recharge <= 0 && charge >= phaser_fire_cost)
-		recharge = recharge_max //-1 per tick
-		var/source = get_turf(src)
-		var/obj/structure/overmap/S = target_ship
-		var/list/L = list()
-		var/area/thearea = S.linked_ship
-		for(var/turf/T in get_area_turfs(thearea.type))
-			L+=T
-		var/location = pick(L)
-		var/turf/theturf = get_turf(location)
-		S.take_damage(damage,theturf)
-		in_use1 = 0
-		var/chosen_sound = pick(soundlist)
-		SEND_SOUND(pilot, sound(chosen_sound))
-		SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
-		charge -= phaser_fire_cost
-		current_beam = new(source,target_ship,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
-		spawn(0)
-			current_beam.Start()
-		return 1
-	else
-		return 0
+	if(SC.weapons.attempt_fire())
+		if(target_ship)
+			var/source = get_turf(src)
+			var/obj/structure/overmap/S = target_ship
+			var/list/L = list()
+			var/area/thearea = S.linked_ship
+			for(var/turf/T in get_area_turfs(thearea.type))
+				L+=T
+			var/location = pick(L)
+			var/turf/theturf = get_turf(location)
+			S.take_damage(SC.weapons.damage,theturf)
+			in_use1 = 0
+			var/chosen_sound = pick(soundlist)
+			SEND_SOUND(pilot, sound(chosen_sound))
+			SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
+			SC.weapons.charge -= SC.weapons.fire_cost
+			current_beam = new(source,target_ship,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+			spawn(0)
+				current_beam.Start()
+			return
 
 /obj/structure/overmap/proc/attempt_turret_fire()
 	if(charge > 0 && has_turrets && target_ship && turret_recharge <= 0) //Not ready to fire the big guns, but smaller phaser batteries can still fire
@@ -515,9 +483,13 @@ var/global/list/global_ship_list = list()
 		A.pixel_y = target_ship.pixel_y
 		return 1
 
+/*
+		var/obj/effect/adv_shield/theshield = pick(generator.shields) //sample a random shield for health and stats.
+		shield_health = theshield.health
+		max_shield_health = theshield.maxhealth
+*/
+
 /obj/structure/overmap/process()
-	if(recharge > 0)
-		recharge --
 	if(turret_recharge >0)
 		turret_recharge --
 	attempt_fire()
@@ -533,26 +505,19 @@ var/global/list/global_ship_list = list()
 	get_interactibles()
 	//transporter.destinations = list() //so when we leave the area, it stops being transportable.
 	if(take_damage_traditionally)
-		var/obj/effect/adv_shield/theshield = pick(generator.shields) //sample a random shield for health and stats.
-		shield_health = theshield.health
-		max_shield_health = theshield.maxhealth
-	//	if(!generator || !generator.shields.len)
 		if(has_shields())
-			shields_active = 1
-			icon_state = initial(icon_state) + "-shield"
+			shields_active = TRUE
+			icon_state = "[initial(icon_state)]-shield"
 		else
-			shields_active = 0
+			shields_active = FALSE
 			icon_state = initial(icon_state)
 	if(health <= 0)
+		destroy(1)
+	if(!health)
 		destroy(1)
 	if(pilot)
 		if(pilot.loc != src)
 			exit() //pilot has been tele'd out, remove them!
-
-	if(counter >= 10)//every 10 ticks it'll charge
-		if(charge < max_charge)
-			charge += phaser_charge_rate
-			counter = 0
 		//	if(charge > max_charge)
 			//	charge = max_charge
 	//	else
@@ -567,12 +532,14 @@ var/global/list/global_ship_list = list()
 	initial_loc = user.loc
 	user.loc = src
 	pilot = user
+	GrantActions()
 //	pilot.status_flags |= GODMODE
 
 /obj/structure/overmap/AltClick()
 	exit()
 
 /obj/structure/overmap/proc/exit(mob/user)
+	RemoveActions()
 	to_chat(pilot,"you have stopped controlling [src]")
 	pilot.forceMove(initial_loc)
 	initial_loc = null
@@ -580,6 +547,9 @@ var/global/list/global_ship_list = list()
 	pilot = null
 
 /obj/structure/overmap/proc/navigate()
+//	if(isprocessing)
+//		STOP_PROCESSING(SSobj, src)
+	//	START_PROCESSING(SSfastprocess,src)
 	update_turrets()
 	if(world.time < next_vehicle_move)
 		return 0
@@ -592,6 +562,8 @@ var/global/list/global_ship_list = list()
 	if(src in orange(4, nav_target))
 		navigating = 0
 		to_chat(pilot, "finished tracking [nav_target]. Autopilot disengaged")
+	//	STOP_PROCESSING(SSfastprocess,src)
+	//	START_PROCESSING(SSobj, src)
 
 /obj/structure/overmap/ship/proc/input_warp_target(mob/user)
 	if(warp_capable)
@@ -634,8 +606,10 @@ var/global/list/global_ship_list = list()
 	if(can_move)
 		var/A
 		var/list/theships = list()
+		var/area/a = get_area(src)
 		for(var/obj/structure/overmap/O in overmap_objects)
-			if(O.z == z)
+			var/area/thearea = get_area(O)
+			if(O.z == z && a == thearea)
 				theships += O
 		for(var/obj/structure/jumpgate/J in jumpgates)
 			if(J.z == z)
@@ -678,10 +652,31 @@ var/global/list/global_ship_list = list()
 		return 0
 
 /obj/structure/overmap/proc/destroy(severity)
-	STOP_PROCESSING(SSfastprocess,src)
+	var/thesound = pick(ship_damage_ambience) //blowing up noises
+	for(var/obj/structure/overmap/L in orange(30, src))
+		var/obj/structure/overmap/O = L
+		SEND_SOUND(O.pilot, thesound)
+	STOP_PROCESSING(SSobj,src)
 	exit()
 	if(agressor)
 		agressor.target_ship = null
+	SpinAnimation(1000, 1)
+	var/image/explosion = image('StarTrek13/icons/trek/overmap_effects.dmi')
+	explosion.icon_state = "shipexplode"
+	explosion.layer = 4.5
+	overlays += explosion
+	sleep(10)
+	overlays -= explosion
+	qdel(explosion)
+	sleep(40)
+	var/image/explosion1 = image('StarTrek13/icons/trek/overmap_effects.dmi')
+	explosion1.icon_state = "shipexplode2"
+	explosion1.layer = 4.5
+	overlays += explosion1
+	sleep(10)
+	overlays -= explosion1
+	qdel(explosion1)
+	sleep(30)
 	switch(severity)
 		if(1)
 			//Here we will blow up the ship map as well, 0 is if you dont want to lag the server.
@@ -691,16 +686,10 @@ var/global/list/global_ship_list = list()
 			qdel(src)
 
 /obj/structure/overmap/proc/has_shields()
-	if(shield_health > 2000 && shields_active)
+	if(SC.shields.integrity > 2000 && shields_active)
 		return 1
 	else//no
 		return 0
-
-/obj/structure/overmap/ship/has_shields()
-	if(SC.shields.heat >= 100)
-		return 0
-	else
-		return ..()
 
 /obj/structure/overmap/bullet_act(var/obj/item/projectile/P)
 	. = ..()
@@ -792,4 +781,7 @@ var/global/list/global_ship_list = list()
 #undef TORPEDO_MODE
 #undef PHASER_MODE
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master

@@ -27,6 +27,17 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(!language)
 		language = get_default_language()
 	send_speech(message, 7, src, , spans, message_language=language)
+	//STARTREK13, currently just an idea
+//	if(findtext(message, "[name]")) //Ayrism to captain
+	//	if(findtext(message, "to"))
+	//		var/list/names = list()
+		//	var/area/thearea = get_area(src)
+		//	for(var/mob/living/M in thearea.contents)
+		//		names += M
+		//		if(findtext(message, M.name))
+		//			var/atom/movable/hailed = M
+		//			to_chat(world, hailed)
+
 
 /atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	return

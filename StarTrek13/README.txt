@@ -32,5 +32,6 @@ hud.dm ~Cdey
 hud/human.dm ~Cdey
 screen_objects.dm ~Cdey
 screen_midnight.dmi ~Cdey
+say.dm ~Kmc
 
 Thanks ~Kmc
