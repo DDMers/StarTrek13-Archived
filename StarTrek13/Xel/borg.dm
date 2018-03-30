@@ -9,14 +9,14 @@
 	name = "borg invasion"
 	config_tag = "borg"
 	antag_flag = ROLE_BORG
-	required_players = 1 //For tests, this will be 4.
-	required_enemies = 1// For testing purposes, this will be changed to 2.
+	required_players = 4 //For tests, this will be 4.
+	required_enemies = 2// For testing purposes, this will be changed to 2.
 	recommended_enemies = 5
 	restricted_jobs = list("Cyborg", "AI")
 	var/borgs_to_make = 1
 	var/borgs_to_win = 0
 	var/escaped_borg = 0
-	var/players_per_borg = 1 // Probably should be 3.
+	var/players_per_borg = 2 // Probably should be 3.
 	var/const/drones_possible = 5
 	var/finished = 0
 	var/borgwin = 0
@@ -83,8 +83,6 @@
 /datum/game_mode/borg/pre_setup() //changing this to the aliens code to spawn a load in maint
 	hivemind = new /datum/borg_hivemind(src)
 	to_chat(world, "borg hivemind established")
-//	for(var/obj/structure/overmap/ship/borg/B)
-//		to_chat(world, "<b> <big> <font color=red> SHIP SPAWN LOCATED.  BORG SHIP SPAWNED AT [B.loc] ([B.x], [B.y], [B.z]).</font> </big> </b>")
 //	var/n_players = num_players()
 	var/n_drones = 1 //min(round(n_players / 10, 1), drones_possible)
 //	var/n_drones = 5
@@ -94,7 +92,7 @@
 			hivemind.active_flagships += S
 	if(antag_candidates.len < n_drones) //In the case of having less candidates than the selected number of borgs
 		n_drones = antag_candidates.len
-	var/list/datum/mind/borg_drone
+	var/list/datum/mind/borg_drone = list()
 	if(antag_candidates.len > 0)
 		for(var/i = 0, i < n_drones, i++)
 			borg_drone += pick(antag_candidates)///pick_candidate(amount = n_drones)
@@ -110,7 +108,7 @@
 		return 0
 
 /datum/objective/assimilate
-	explanation_text = "Assimilate all flagships and the federation starbase.<br> The following flagships are currently active: <br>"
+	explanation_text = "Assimilate all flagships and the federation starbase.<br> The following flagships are currently active: <br>"//borked up
 
 /datum/objective/assimilate/check_completion() // Objective: Assimilate all flagships, and the federation starbase
 	for(var/datum/game_mode/borg/G in world)
@@ -131,7 +129,6 @@
 			to_chat(world, "<b> Found a borg spawn! </b>")
 			continue
 	for(var/datum/mind/borg_mind in hivemind.borgs)
-		to_chat(world,"<b> DEBUG! borgmind is [borg_mind] at [borg_mind.current.loc] </b>")
 		greet_borg(borg_mind)
 		equip_borg(borg_mind.current)
 		SSticker.mode.forge_borg_objectives(borg_mind)

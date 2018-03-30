@@ -781,7 +781,4 @@ var/global/list/global_ship_list = list()
 #undef TORPEDO_MODE
 #undef PHASER_MODE
 
-<<<<<<< HEAD
 
-=======
->>>>>>> master

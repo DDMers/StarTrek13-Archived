@@ -17,35 +17,6 @@
 "q" = (/obj/effect/turf_decal/stripes/line{dir = 1},/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
 "r" = (/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/nanotrasen/freighter)
 "s" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/structure/closet/crate,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
-<<<<<<< HEAD
-"t" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/machinery/computer,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
-"u" = (/obj/machinery/space_battle/shield_generator,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
-"v" = (/obj/structure/catwalk,/obj/structure/chair,/turf/open/floor/plating,/area/ship/nanotrasen/freighter)
-"w" = (/obj/structure/catwalk,/obj/structure/chair{dir = 1},/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"x" = (/obj/structure/catwalk,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"y" = (/obj/structure/window/trek,/obj/structure/catwalk,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"z" = (/obj/structure/shuttle/engine/huge{icon_state = "huge_engine"; dir = 8},/turf/open/space/basic,/area/ship/nanotrasen/freighter)
-"A" = (/obj/structure/catwalk,/obj/structure/bed/pod,/obj/item/bedsheet,/turf/open/floor/plating,/area/ship/nanotrasen/freighter)
-"B" = (/obj/machinery/door/airlock/command,/turf/open/floor/plating,/area/ship/nanotrasen/freighter)
-"C" = (/obj/structure/catwalk,/obj/structure/table/glass,/turf/open/floor/plating,/area/ship/nanotrasen/freighter)
-"D" = (/obj/structure/catwalk,/obj/item/device/modular_computer/tablet/preset/advanced,/obj/structure/table/glass,/turf/open/floor/plating,/area/ship/nanotrasen/freighter)
-"E" = (/obj/structure/catwalk,/obj/machinery/door/airlock/command,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"F" = (/obj/structure/catwalk,/obj/structure/chair{dir = 4},/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"G" = (/obj/structure/fluff/helm/desk/tactical/nanotrasen{icon_state = "computer"; dir = 8},/obj/structure/catwalk,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"H" = (/obj/structure/catwalk,/obj/structure/table/glass,/obj/structure/overmap/ship/nanotrasen/freighter,/turf/open/floor/plating,/area/ship/nanotrasen/freighter)
-"I" = (/obj/structure/catwalk,/obj/machinery/computer{icon_state = "computer"; dir = 8},/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"J" = (/obj/structure/catwalk,/obj/structure/chair{dir = 1},/turf/open/floor/plating,/area/ship/nanotrasen/freighter)
-"K" = (/obj/structure/catwalk,/obj/structure/chair,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"L" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/light,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
-"M" = (/obj/effect/turf_decal/stripes/line,/turf/closed/wall/ship/steel,/area/ship/nanotrasen/freighter)
-"N" = (/obj/effect/turf_decal/stripes/line,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
-"O" = (/obj/effect/turf_decal/stripes/line,/obj/structure/closet/crate,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
-"P" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/computer{icon_state = "computer"; dir = 1},/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
-"Q" = (/obj/effect/turf_decal/stripes/line,/obj/structure/closet/crate,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"R" = (/obj/structure/closet/crate,/obj/effect/turf_decal/stripes/line,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"S" = (/obj/structure/closet/crate,/obj/effect/turf_decal/stripes/line,/obj/machinery/light,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"T" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/nanotrasen/freighter)
-=======
 "t" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/structure/fluff/helm/desk/functional/nt,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
 "u" = (/obj/machinery/space_battle/shield_generator,/turf/open/floor/engine,/area/ship/nanotrasen/freighter)
 "v" = (/obj/structure/catwalk,/obj/structure/chair,/turf/open/floor/plating,/area/ship/nanotrasen/freighter)
@@ -77,7 +48,6 @@
 "V" = (/obj/structure/closet/crate,/obj/effect/turf_decal/stripes/line,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
 "W" = (/obj/structure/closet/crate,/obj/effect/turf_decal/stripes/line,/obj/machinery/light,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
 "X" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/nanotrasen/freighter)
->>>>>>> master
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaa
@@ -88,17 +58,6 @@ cabbbiiiiiiiiiibbbac
 caaabjjjiiiijjjbaaac
 cabbbbbbkllkbbbbbbac
 cmbibnopqrrossptubbc
-<<<<<<< HEAD
-cmbibrrbrrvrrrbwxxyc
-czbibArBrCDCrrExFGyc
-cmbibArBrCHDrrExFIyc
-cmbibrrbrrJrrrbKxxyc
-czbibnLMNrrLOOMPNbbc
-cabbbbbbkllkbbbbbbac
-caaabjjjiiiijjjbaaac
-cabbbiiiiiiiiiibbbac
-cabdbQQRRSSRRQQbdbac
-=======
 cmbibrrbrrvrrrwxyyzc
 cAbibBrCrDEDrrFyGHzc
 cmbibBrCrDIErrFyGJzc
@@ -108,7 +67,6 @@ cabbbbbbkllkbbbbbbac
 caaabjjjiiiijjjbaaac
 cabbbiiiiSTiiiibbbac
 cabdbUUVVWWVVUUbdbac
->>>>>>> master
 cabbbbbbbbbbbbbbbbac
 aaaaaaaaaaaaaaaaaXaa
 aaaaaaaaaaaaaaaaaaaa

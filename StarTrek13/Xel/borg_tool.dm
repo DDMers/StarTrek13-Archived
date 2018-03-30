@@ -223,7 +223,7 @@
 						sleep(60) //so we dont get overlapping sounds
 						for(var/mob/living/silicon/B in world)
 							B << sound('StarTrek13/sound/borg/overmind/silicon_resist.ogg') //intimidating message telling them to not resist
-			else if(istype(I, /turf/open) && !istype(I, /turf/open/floor/borg))
+			else if(istype(I, /turf/open))
 				var/turf/open/A = I
 				norun = 0
 				if(buildmode)
@@ -244,6 +244,8 @@
 						norun = 0
 					norun = 0
 				else
+					if(istype(I, /turf/open/floor/borg))
+						return
 					to_chat(user, "<span class='danger'>We begin to assimilate [I].</span>")
 					if(do_after(user, convert_time, target = A))
 						A.ChangeTurf(/turf/open/floor/borg)

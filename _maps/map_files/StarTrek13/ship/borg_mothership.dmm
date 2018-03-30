@@ -13,101 +13,100 @@
 "am" = (/obj/machinery/computer/camera_advanced/borg/throne,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/borg/borgship)
 "an" = (/obj/machinery/door/airlock/borg,/obj/structure/catwalk,/turf/open/floor/borg/trek/dark,/area/ship/borg/borgship)
 "ao" = (/obj/structure/catwalk,/obj/structure/fluff/helm/desk/tactical/borg,/turf/open/floor/plating,/area/ship/borg/borgship)
-"ap" = (/obj/structure/catwalk,/obj/structure/fluff/helm/desk/tactical{dir = 4},/turf/open/floor/plating,/area/ship/borg/borgship)
-"aq" = (/obj/machinery/trek/transporter,/turf/open/floor/plating,/area/ship/borg/borgship)
-"ar" = (/obj/structure/catwalk,/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/plating,/area/ship/borg/borgship)
-"as" = (/obj/structure/catwalk,/obj/item/device/tricorder,/turf/open/floor/plating,/area/ship/borg/borgship)
-"at" = (/obj/structure/catwalk,/obj/machinery/door/airlock/borg,/turf/open/floor/plating,/area/ship/borg/borgship)
-"au" = (/obj/machinery/door/airlock/borg,/turf/open/floor/plating,/area/ship/borg/borgship)
-"av" = (/obj/structure/chair/borg/conversion,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/borg/borgship)
-"aw" = (/obj/structure/catwalk,/obj/structure/chair/borg/conversion,/turf/open/floor/plating,/area/ship/borg/borgship)
-"ax" = (/obj/machinery/borg/ftl,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/borg/borgship)
-"ay" = (/turf/open/space/basic,/area/ship/borg/borgship)
-"az" = (/obj/structure/overmap/ship/borg,/turf/open/space/basic,/area/ship/borg/borgship)
-"aA" = (/turf/open/space,/area/space)
-"aB" = (/obj/effect/landmark/shield,/turf/open/space,/area/ship)
-"aC" = (/turf/open/space,/area/ship)
-"aD" = (/turf/closed/wall/ship,/area/ship)
-"aE" = (/turf/open/floor/borg/trek/light,/area/ship)
-"aF" = (/obj/structure/table/glass,/turf/open/floor/borg/trek/blue,/area/ship)
-"aG" = (/turf/open/floor/borg/trek/blue,/area/ship)
-"aH" = (/obj/structure/closet/secure_closet/personal,/turf/open/floor/borg/trek/blue,/area/ship)
-"aI" = (/obj/structure/chair/comfy/beige{icon_state = "comfychair"; dir = 4},/turf/open/floor/borg/trek/blue,/area/ship)
-"aJ" = (/obj/structure/chair/comfy/beige{dir = 8},/turf/open/floor/borg/trek/blue,/area/ship)
-"aK" = (/obj/structure/shuttle/engine/large{dir = 8},/turf/open/space,/area/ship)
-"aL" = (/turf/open/floor/borg/trek/beige,/area/ship)
-"aM" = (/obj/item/bedsheet/blue,/obj/structure/bed,/turf/open/floor/borg/trek/beige,/area/ship)
-"aN" = (/obj/structure/chair/comfy/beige{icon_state = "comfychair"; dir = 4},/turf/open/floor/borg/trek/beige,/area/ship)
-"aO" = (/obj/structure/table/glass,/turf/open/floor/borg/trek/beige,/area/ship)
-"aP" = (/turf/open/space/basic,/area/ship)
-"aQ" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek/beige,/area/ship)
-"aR" = (/obj/structure/shuttle/engine/large{dir = 8},/turf/open/space/basic,/area/ship)
-"aS" = (/obj/structure/window/trek,/turf/open/floor/grass,/area/ship)
-"aT" = (/turf/open/floor/grass,/area/ship)
-"aU" = (/obj/machinery/hydroponics/constructable,/turf/open/floor/grass,/area/ship)
-"aV" = (/obj/machinery/vending/hydroseeds,/turf/open/floor/borg/trek/beige,/area/ship)
-"aW" = (/obj/structure/reagent_dispensers/watertank/high,/turf/open/floor/borg/trek/beige,/area/ship)
-"aX" = (/obj/machinery/seed_extractor,/turf/open/floor/borg/trek/beige,/area/ship)
-"aY" = (/obj/structure/window/trek,/turf/open/floor/borg/trek/light,/area/ship)
-"aZ" = (/obj/structure/flora/tree/jungle/small,/turf/open/floor/grass,/area/ship)
-"ba" = (/obj/machinery/hydroponics/soil,/obj/item/storage/bag/plants,/turf/open/floor/grass,/area/ship)
-"bb" = (/turf/open/floor/plating/beach/water,/area/ship)
-"bc" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/grass,/area/ship)
-"bd" = (/obj/machinery/hydroponics/soil,/obj/item/storage/bag/plants/portaseeder,/turf/open/floor/grass,/area/ship)
-"be" = (/obj/machinery/vending/hydronutrients,/turf/open/floor/borg/trek/beige,/area/ship)
-"bf" = (/obj/machinery/biogenerator,/turf/open/floor/borg/trek/beige,/area/ship)
-"bg" = (/obj/machinery/chem_dispenser/mutagen,/turf/open/floor/borg/trek/beige,/area/ship)
-"bh" = (/obj/structure/chair/comfy/beige,/turf/open/floor/borg/trek/blue,/area/ship)
-"bi" = (/obj/structure/bed,/obj/item/bedsheet/blue,/turf/open/floor/borg/trek/beige,/area/ship)
-"bj" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/beige,/area/ship)
-"bk" = (/obj/effect/landmark/shield,/turf/open/space/basic,/area/ship)
-"bl" = (/obj/structure/closet/secure_closet/personal,/turf/open/floor/borg/trek/light,/area/ship)
-"bm" = (/obj/machinery/computer/security/telescreen/entertainment,/turf/closed/wall/ship,/area/ship)
-"bn" = (/obj/structure/window/trek{dir = 4},/obj/structure/curtain{layer = 4.5},/turf/open/floor/borg/trek/light,/area/ship)
-"bo" = (/obj/machinery/door/airlock/trek,/turf/open/floor/borg/trek/light,/area/ship)
-"bp" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek/light,/area/ship)
-"bq" = (/obj/structure/chair/stool,/turf/open/floor/borg/trek/light,/area/ship)
-"br" = (/obj/structure/table/glass,/obj/item/device/flashlight/lamp,/turf/open/floor/borg/trek/light,/area/ship)
-"bs" = (/obj/structure/table/glass,/obj/item/paper_bin,/obj/item/pen,/turf/open/floor/borg/trek/light,/area/ship)
-"bt" = (/obj/structure/chair/stool,/turf/open/floor/borg/trek/beige,/area/ship)
-"bu" = (/obj/structure/reagent_dispensers/water_cooler,/turf/open/floor/borg/trek/beige,/area/ship)
-"bv" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/ship,/area/ship)
-"bw" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/ship/light/m,/area/ship)
-"bx" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek/blue,/area/ship)
-"by" = (/turf/closed/wall/ship/light/m,/area/ship)
-"bz" = (/obj/structure/fluff/ship/sticker,/turf/closed/wall/ship/light/m,/area/ship)
-"bA" = (/turf/open/floor/borg/trek/red,/area/ship)
-"bB" = (/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "stellar cartography"},/turf/open/floor/borg/trek/red,/area/ship)
-"bC" = (/obj/structure/chair/office/dark{dir = 1},/turf/open/floor/borg/trek/red,/area/ship)
-"bD" = (/obj/structure/ladder/unbreakable{height = 1; id = "cadaver-battlebridge"; name = "turbolift"},/turf/open/floor/borg/trek/red,/area/ship)
-"bE" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/light,/area/ship)
-"bF" = (/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 4; name = "stellar cartography"},/turf/open/floor/borg/trek/light,/area/ship)
-"bG" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/blue,/area/ship)
-"bH" = (/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 4; name = "engineering desk"},/turf/open/floor/borg/trek/blue,/area/ship)
-"bI" = (/obj/structure/ladder/unbreakable{height = 1; id = "cadaver-battlebridge2"; name = "turbolift"},/turf/open/floor/borg/trek/red,/area/ship)
-"bJ" = (/obj/structure/chair/office/dark,/turf/open/floor/borg/trek/red,/area/ship)
-"bK" = (/obj/machinery/computer/security/telescreen/entertainment,/turf/closed/wall/ship/light/m,/area/ship)
-"bL" = (/obj/structure/table/reinforced,/obj/machinery/microwave{desc = "Cooks and boils stuff, somehow."; pixel_x = -3; pixel_y = 5},/turf/open/floor/borg/trek/light,/area/ship)
-"bM" = (/obj/structure/table/reinforced,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/beaker,/obj/item/kitchen/rollingpin,/obj/item/kitchen/knife,/obj/item/reagent_containers/food/condiment/flour,/obj/item/reagent_containers/food/condiment/flour,/obj/item/reagent_containers/food/condiment/rice,/obj/item/reagent_containers/food/condiment/milk,/obj/item/reagent_containers/food/condiment/milk,/obj/item/storage/fancy/egg_box,/turf/open/floor/borg/trek/light,/area/ship)
-"bN" = (/obj/structure/table/reinforced,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/beaker,/obj/item/kitchen/knife,/obj/item/reagent_containers/food/condiment/flour,/obj/item/reagent_containers/food/condiment/flour,/obj/item/storage/fancy/egg_box,/turf/open/floor/borg/trek/light,/area/ship)
-"bO" = (/obj/structure/chair/stool/bar,/turf/open/floor/borg/trek/beige,/area/ship)
-"bP" = (/obj/structure/table/reinforced,/turf/open/floor/borg/trek/beige,/area/ship)
-"bQ" = (/obj/structure/sink{dir = 8; pixel_x = -12},/turf/open/floor/borg/trek/light,/area/ship)
-"bR" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/light,/area/ship)
-"bS" = (/obj/machinery/deepfryer,/turf/open/floor/borg/trek/light,/area/ship)
-"bT" = (/obj/machinery/vending/boozeomat,/turf/open/floor/borg/trek/beige,/area/ship)
-"bU" = (/obj/machinery/chem_dispenser/drinks/beer,/obj/structure/table/reinforced,/turf/open/floor/borg/trek/beige,/area/ship)
-"bV" = (/obj/structure/chair/stool/bar,/turf/open/floor/borg/trek/light,/area/ship)
-"bW" = (/obj/structure/table/glass,/turf/open/floor/borg/trek/light,/area/ship)
-"bX" = (/obj/structure/table,/obj/item/storage/box/ingredients/wildcard,/obj/item/storage/box/ingredients/wildcard,/obj/item/reagent_containers/food/condiment/saltshaker{pixel_x = 4; pixel_y = 4},/obj/item/reagent_containers/food/condiment/peppermill,/obj/item/reagent_containers/food/snacks/spaghetti,/turf/open/floor/borg/trek/light,/area/ship)
-"bY" = (/obj/machinery/door/window/eastright,/turf/open/floor/borg/trek/beige,/area/ship)
-"bZ" = (/obj/structure/table,/obj/item/reagent_containers/food/snacks/pie/cream,/obj/item/reagent_containers/food/snacks/spaghetti,/obj/item/reagent_containers/food/snacks/spaghetti,/obj/item/reagent_containers/food/snacks/spaghetti,/turf/open/floor/borg/trek/light,/area/ship)
-"ca" = (/obj/structure/table,/obj/item/reagent_containers/food/snacks/grown/tomato,/obj/item/reagent_containers/food/condiment/enzyme{pixel_y = 6},/turf/open/floor/borg/trek/light,/area/ship)
-"cb" = (/obj/structure/table,/obj/item/reagent_containers/glass/beaker/large,/obj/item/reagent_containers/food/condiment/enzyme{pixel_y = 6},/turf/open/floor/borg/trek/light,/area/ship)
-"cc" = (/obj/structure/closet/crate/bin,/turf/open/floor/borg/trek/beige,/area/ship)
-"cd" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/blue,/area/ship)
-"ce" = (/obj/effect/landmark/shield{icon_state = "shieldwall"; dir = 5},/turf/open/space/basic,/area/ship)
-"cf" = (/obj/effect/landmark/shield{icon_state = "shieldwall"; dir = 4},/turf/open/space/basic,/area/ship)
+"ap" = (/obj/machinery/trek/transporter,/turf/open/floor/plating,/area/ship/borg/borgship)
+"aq" = (/obj/structure/catwalk,/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/plating,/area/ship/borg/borgship)
+"ar" = (/obj/structure/catwalk,/obj/item/device/tricorder,/turf/open/floor/plating,/area/ship/borg/borgship)
+"as" = (/obj/structure/catwalk,/obj/machinery/door/airlock/borg,/turf/open/floor/plating,/area/ship/borg/borgship)
+"at" = (/obj/machinery/door/airlock/borg,/turf/open/floor/plating,/area/ship/borg/borgship)
+"au" = (/obj/structure/chair/borg/conversion,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/borg/borgship)
+"av" = (/obj/structure/catwalk,/obj/structure/chair/borg/conversion,/turf/open/floor/plating,/area/ship/borg/borgship)
+"aw" = (/obj/machinery/borg/ftl,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/borg/borgship)
+"ax" = (/turf/open/space/basic,/area/ship/borg/borgship)
+"ay" = (/obj/structure/overmap/ship/borg,/turf/open/space/basic,/area/ship/borg/borgship)
+"az" = (/turf/open/space,/area/space)
+"aA" = (/obj/effect/landmark/shield,/turf/open/space,/area/ship)
+"aB" = (/turf/open/space,/area/ship)
+"aC" = (/turf/closed/wall/ship,/area/ship)
+"aD" = (/turf/open/floor/borg/trek/light,/area/ship)
+"aE" = (/obj/structure/table/glass,/turf/open/floor/borg/trek/blue,/area/ship)
+"aF" = (/turf/open/floor/borg/trek/blue,/area/ship)
+"aG" = (/obj/structure/closet/secure_closet/personal,/turf/open/floor/borg/trek/blue,/area/ship)
+"aH" = (/obj/structure/chair/comfy/beige{icon_state = "comfychair"; dir = 4},/turf/open/floor/borg/trek/blue,/area/ship)
+"aI" = (/obj/structure/chair/comfy/beige{dir = 8},/turf/open/floor/borg/trek/blue,/area/ship)
+"aJ" = (/obj/structure/shuttle/engine/large{dir = 8},/turf/open/space,/area/ship)
+"aK" = (/turf/open/floor/borg/trek/beige,/area/ship)
+"aL" = (/obj/item/bedsheet/blue,/obj/structure/bed,/turf/open/floor/borg/trek/beige,/area/ship)
+"aM" = (/obj/structure/chair/comfy/beige{icon_state = "comfychair"; dir = 4},/turf/open/floor/borg/trek/beige,/area/ship)
+"aN" = (/obj/structure/table/glass,/turf/open/floor/borg/trek/beige,/area/ship)
+"aO" = (/turf/open/space/basic,/area/ship)
+"aP" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek/beige,/area/ship)
+"aQ" = (/obj/structure/shuttle/engine/large{dir = 8},/turf/open/space/basic,/area/ship)
+"aR" = (/obj/structure/window/trek,/turf/open/floor/grass,/area/ship)
+"aS" = (/turf/open/floor/grass,/area/ship)
+"aT" = (/obj/machinery/hydroponics/constructable,/turf/open/floor/grass,/area/ship)
+"aU" = (/obj/machinery/vending/hydroseeds,/turf/open/floor/borg/trek/beige,/area/ship)
+"aV" = (/obj/structure/reagent_dispensers/watertank/high,/turf/open/floor/borg/trek/beige,/area/ship)
+"aW" = (/obj/machinery/seed_extractor,/turf/open/floor/borg/trek/beige,/area/ship)
+"aX" = (/obj/structure/window/trek,/turf/open/floor/borg/trek/light,/area/ship)
+"aY" = (/obj/structure/flora/tree/jungle/small,/turf/open/floor/grass,/area/ship)
+"aZ" = (/obj/machinery/hydroponics/soil,/obj/item/storage/bag/plants,/turf/open/floor/grass,/area/ship)
+"ba" = (/turf/open/floor/plating/beach/water,/area/ship)
+"bb" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/grass,/area/ship)
+"bc" = (/obj/machinery/hydroponics/soil,/obj/item/storage/bag/plants/portaseeder,/turf/open/floor/grass,/area/ship)
+"bd" = (/obj/machinery/vending/hydronutrients,/turf/open/floor/borg/trek/beige,/area/ship)
+"be" = (/obj/machinery/biogenerator,/turf/open/floor/borg/trek/beige,/area/ship)
+"bf" = (/obj/machinery/chem_dispenser/mutagen,/turf/open/floor/borg/trek/beige,/area/ship)
+"bg" = (/obj/structure/chair/comfy/beige,/turf/open/floor/borg/trek/blue,/area/ship)
+"bh" = (/obj/structure/bed,/obj/item/bedsheet/blue,/turf/open/floor/borg/trek/beige,/area/ship)
+"bi" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/beige,/area/ship)
+"bj" = (/obj/effect/landmark/shield,/turf/open/space/basic,/area/ship)
+"bk" = (/obj/structure/closet/secure_closet/personal,/turf/open/floor/borg/trek/light,/area/ship)
+"bl" = (/obj/machinery/computer/security/telescreen/entertainment,/turf/closed/wall/ship,/area/ship)
+"bm" = (/obj/structure/window/trek{dir = 4},/obj/structure/curtain{layer = 4.5},/turf/open/floor/borg/trek/light,/area/ship)
+"bn" = (/obj/machinery/door/airlock/trek,/turf/open/floor/borg/trek/light,/area/ship)
+"bo" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek/light,/area/ship)
+"bp" = (/obj/structure/chair/stool,/turf/open/floor/borg/trek/light,/area/ship)
+"bq" = (/obj/structure/table/glass,/obj/item/device/flashlight/lamp,/turf/open/floor/borg/trek/light,/area/ship)
+"br" = (/obj/structure/table/glass,/obj/item/paper_bin,/obj/item/pen,/turf/open/floor/borg/trek/light,/area/ship)
+"bs" = (/obj/structure/chair/stool,/turf/open/floor/borg/trek/beige,/area/ship)
+"bt" = (/obj/structure/reagent_dispensers/water_cooler,/turf/open/floor/borg/trek/beige,/area/ship)
+"bu" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/ship,/area/ship)
+"bv" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/ship/light/m,/area/ship)
+"bw" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek/blue,/area/ship)
+"bx" = (/turf/closed/wall/ship/light/m,/area/ship)
+"by" = (/obj/structure/fluff/ship/sticker,/turf/closed/wall/ship/light/m,/area/ship)
+"bz" = (/turf/open/floor/borg/trek/red,/area/ship)
+"bA" = (/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "stellar cartography"},/turf/open/floor/borg/trek/red,/area/ship)
+"bB" = (/obj/structure/chair/office/dark{dir = 1},/turf/open/floor/borg/trek/red,/area/ship)
+"bC" = (/obj/structure/ladder/unbreakable{height = 1; id = "cadaver-battlebridge"; name = "turbolift"},/turf/open/floor/borg/trek/red,/area/ship)
+"bD" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/light,/area/ship)
+"bE" = (/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 4; name = "stellar cartography"},/turf/open/floor/borg/trek/light,/area/ship)
+"bF" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/blue,/area/ship)
+"bG" = (/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 4; name = "engineering desk"},/turf/open/floor/borg/trek/blue,/area/ship)
+"bH" = (/obj/structure/ladder/unbreakable{height = 1; id = "cadaver-battlebridge2"; name = "turbolift"},/turf/open/floor/borg/trek/red,/area/ship)
+"bI" = (/obj/structure/chair/office/dark,/turf/open/floor/borg/trek/red,/area/ship)
+"bJ" = (/obj/machinery/computer/security/telescreen/entertainment,/turf/closed/wall/ship/light/m,/area/ship)
+"bK" = (/obj/structure/table/reinforced,/obj/machinery/microwave{desc = "Cooks and boils stuff, somehow."; pixel_x = -3; pixel_y = 5},/turf/open/floor/borg/trek/light,/area/ship)
+"bL" = (/obj/structure/table/reinforced,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/beaker,/obj/item/kitchen/rollingpin,/obj/item/kitchen/knife,/obj/item/reagent_containers/food/condiment/flour,/obj/item/reagent_containers/food/condiment/flour,/obj/item/reagent_containers/food/condiment/rice,/obj/item/reagent_containers/food/condiment/milk,/obj/item/reagent_containers/food/condiment/milk,/obj/item/storage/fancy/egg_box,/turf/open/floor/borg/trek/light,/area/ship)
+"bM" = (/obj/structure/table/reinforced,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/beaker,/obj/item/kitchen/knife,/obj/item/reagent_containers/food/condiment/flour,/obj/item/reagent_containers/food/condiment/flour,/obj/item/storage/fancy/egg_box,/turf/open/floor/borg/trek/light,/area/ship)
+"bN" = (/obj/structure/chair/stool/bar,/turf/open/floor/borg/trek/beige,/area/ship)
+"bO" = (/obj/structure/table/reinforced,/turf/open/floor/borg/trek/beige,/area/ship)
+"bP" = (/obj/structure/sink{dir = 8; pixel_x = -12},/turf/open/floor/borg/trek/light,/area/ship)
+"bQ" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/light,/area/ship)
+"bR" = (/obj/machinery/deepfryer,/turf/open/floor/borg/trek/light,/area/ship)
+"bS" = (/obj/machinery/vending/boozeomat,/turf/open/floor/borg/trek/beige,/area/ship)
+"bT" = (/obj/machinery/chem_dispenser/drinks/beer,/obj/structure/table/reinforced,/turf/open/floor/borg/trek/beige,/area/ship)
+"bU" = (/obj/structure/chair/stool/bar,/turf/open/floor/borg/trek/light,/area/ship)
+"bV" = (/obj/structure/table/glass,/turf/open/floor/borg/trek/light,/area/ship)
+"bW" = (/obj/structure/table,/obj/item/storage/box/ingredients/wildcard,/obj/item/storage/box/ingredients/wildcard,/obj/item/reagent_containers/food/condiment/saltshaker{pixel_x = 4; pixel_y = 4},/obj/item/reagent_containers/food/condiment/peppermill,/obj/item/reagent_containers/food/snacks/spaghetti,/turf/open/floor/borg/trek/light,/area/ship)
+"bX" = (/obj/machinery/door/window/eastright,/turf/open/floor/borg/trek/beige,/area/ship)
+"bY" = (/obj/structure/table,/obj/item/reagent_containers/food/snacks/pie/cream,/obj/item/reagent_containers/food/snacks/spaghetti,/obj/item/reagent_containers/food/snacks/spaghetti,/obj/item/reagent_containers/food/snacks/spaghetti,/turf/open/floor/borg/trek/light,/area/ship)
+"bZ" = (/obj/structure/table,/obj/item/reagent_containers/food/snacks/grown/tomato,/obj/item/reagent_containers/food/condiment/enzyme{pixel_y = 6},/turf/open/floor/borg/trek/light,/area/ship)
+"ca" = (/obj/structure/table,/obj/item/reagent_containers/glass/beaker/large,/obj/item/reagent_containers/food/condiment/enzyme{pixel_y = 6},/turf/open/floor/borg/trek/light,/area/ship)
+"cb" = (/obj/structure/closet/crate/bin,/turf/open/floor/borg/trek/beige,/area/ship)
+"cc" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/blue,/area/ship)
+"cd" = (/obj/effect/landmark/shield{icon_state = "shieldwall"; dir = 5},/turf/open/space/basic,/area/ship)
+"ce" = (/obj/effect/landmark/shield{icon_state = "shieldwall"; dir = 4},/turf/open/space/basic,/area/ship)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -143,23 +142,23 @@ aaaaaaaaaaabababababacacacacacababababafafafanacacacacacacacacacacabababababaaal
 aaaaaaaaaaaaabababacacacacacacacabababababababacacacacacacacacacacababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaabababacacacacacacacacacakacacacacakacacacacacacacacacacabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaabababacacacacacacacacacababababababacacacacacacacacacacababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaabababacacacaoacacapababaqaqaqacabacacacacacacacacacacabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaababababababababababababaqaraqasatacacacacacacacacacacabaiabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaabababababababababababababaqaqaqacababacacacacacacacacababacacaeababababaaaaabababaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaabababacacacaoacacacababapapapacabacacacacacacacacacacabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaababababababababababababapaqaparasacacacacacacacacacacabaiabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaabababababababababababababapapapacababacacacacacacacacababacacaeababababaaaaabababaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaabababababaaaaababababababababababababababakakabababababacacababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaababababaaaaaaaaabaaabababababababababababacacababababaeacacaeabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaabaaababaaaaaaaaaaaaaaababacacacacacacakacacacabababababacacababababababababaaabaaababaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaabaaababaaaaaaaaaaaaabababacacacacacacakacacacababababababauababababacacacabababababaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaabaaababaaaaaaaaaaaaabababacacacacacacakacacacababababababatababababacacacabababababaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaababacacacacababababacacacacacacacacacababacacacacacacababababaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaababaaaaaaaaabaaababavacacacacawabababacacacacacacacacacacakacacacacaxacababababababaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaababaaaaaaababababababawavawavababaaababababababababababababacacacacacacababababababaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaababaaaaaaaaabaaababauacacacacavabababacacacacacacacacacacakacacacacawacababababababaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaababaaaaaaababababababavauavauababaaababababababababababababacacacacacacababababababaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaababaaaaaaaaaaabababaaababababababaaaaabaaabababababaaabababababacacacababababababaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaababaaaaaaaaaaaaabaaaaabaaababaaaaaaaaaaaaaaabaaaaaaaaaaaaabababababababababababaaaaaaaaaaaaaaaaaaaaaaaa
-aaayayayaaaaaaaaaaabaaaaaaaaaaaaabaaaaaaaaabaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaabababababababababababaaaaaaaaaaaaaaaaaaaaaa
-aaaaazayaaaaaaaaaaabaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaayayayaaaaaaaaaaabaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aAaAaAaAaAaAaAaAaAaAaaaaaaaaaaaaaAaaaaaaaaaaaaaaaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaaaaaaaaaaaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaaaaaaaaaaaaaaaaaaaa
+aaaxaxaxaaaaaaaaaaabaaaaaaaaaaaaabaaaaaaaaabaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaabababababababababababaaaaaaaaaaaaaaaaaaaaaa
+aaaaayaxaaaaaaaaaaabaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaxaxaxaaaaaaaaaaabaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+azazazazazazazazazazaaaaaaaaaaaaazaaaaaaaaaaaaaaazazazazazazazazazazazazazazazazazazazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+azazazazazazazazazazazazazazazazazazazaaaaaaaaaaazazazazazazazazazazazazazazazazazazazazazazazazazazaaaaaaaaaaaaaaaaaaaa
 "}
 
 (1,1,2) = {"
@@ -194,9 +193,9 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaAaAaAaaaaaaaaaaaaaaaaaaaAaAaAaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaAaAaAaaaaaaaaaaaaaaaaaaaAaAaAaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazazazazaaaaaaaaaaaaaaaaaaazazazaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazazazazaaaaaaaaaaaaaaaaaaazazazaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazazazazazazazazazazazazazazazazaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -216,37 +215,37 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
 
 (1,1,3) = {"
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaDaEaEaDaFaGaGaHaDaGaGaGaGaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaDaEaEaDaDaDaDaDaDaDaDaDaDaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaDaEaEaDaGaGaGaFaDaIaFaFaJaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaKaCaDaEaEaDaGaLaLaMaDaNaOaOaJaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaPaPaPaDaEaEaDaFaLaLaLaQaLaLaLaGaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaPaRaPaDaEaEaDaFaFaGaHaDaGaGaGaGaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaPaPaPaDaDaDaDaDaDaDaDaDaDaDaDaDaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaPaPaPaCaCaCaSaTaUaUaUaUaDaVaWaXaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaPaPaPaCaCaCaSaTaTaTaTaUaYaLaLaLaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaCaCaCaSaZaTaTaTbaaYaLaLaLaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaCaCaCaSbbbbbbaTaTaDaLaLaLaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaCaCaCaSbbbbbbaTaTbcaLaLaLaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaCaCaCaSbbbbbbaTaTaDaLaLaLaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaCaCaCaSaTaTaTaTbdaYaLaLaLaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaCaCaCaSaZaTaTaTaUaYaLaLaLaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaCaCaCaSaTaUaUaUaUaDbebfbgaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaDaDaDaDaDaDaDaDaDaDaDaDaDaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaKaCaDaEaEaDbhaGaGaFaDaIaFaFaJaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaDaEaEaDaGaLaLbiaDaLaOaOaJaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaKaCaDaEaEaDaGaLaLaLaQaLaLaLaGaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaDaEaEaDaHaGaGaGaDaGaGaGaGaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaDaEaEaDaDaDaDaDaDaDaDaDaDaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaDaEaEaDbhaGaGaFaDaIaFaFaJaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaDaEaEaDaGaLaLbiaDaLaOaOaJaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaDaEaEaDaGaLaLaLaQaLaLaLaGaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaCaDaDaDaHaGaGaGaDaGaGaGaGaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaCaCaCaCaCaCaDbjbjbjbjaDbjbjbjbjaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBaaaaaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaCaDaDaCaEaFaFaGaCaFaFaFaFaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaCaDaDaCaCaCaCaCaCaCaCaCaCaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaCaDaDaCaFaFaFaEaCaHaEaEaIaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaJaBaCaDaDaCaFaKaKaLaCaMaNaNaIaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaOaOaOaCaDaDaCaEaKaKaKaPaKaKaKaFaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaOaQaOaCaDaDaCaEaEaFaGaCaFaFaFaFaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaOaOaOaCaCaCaCaCaCaCaCaCaCaCaCaCaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaOaOaOaBaBaBaRaSaTaTaTaTaCaUaVaWaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaOaOaOaBaBaBaRaSaSaSaSaTaXaKaKaKaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaBaBaBaRaYaSaSaSaZaXaKaKaKaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaBaBaBaRbababaaSaSaCaKaKaKaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaBaBaBaRbababaaSaSbbaKaKaKaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaBaBaBaRbababaaSaSaCaKaKaKaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaBaBaBaRaSaSaSaSbcaXaKaKaKaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaBaBaBaRaYaSaSaSaTaXaKaKaKaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaBaBaBaRaSaTaTaTaTaCbdbebfaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaCaCaCaCaCaCaCaCaCaCaCaCaCaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaJaBaCaDaDaCbgaFaFaEaCaHaEaEaIaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaCaDaDaCaFaKaKbhaCaKaNaNaIaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaJaBaCaDaDaCaFaKaKaKaPaKaKaKaFaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaCaDaDaCaGaFaFaFaCaFaFaFaFaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaCaDaDaCaCaCaCaCaCaCaCaCaCaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaCaDaDaCbgaFaFaEaCaHaEaEaIaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaCaDaDaCaFaKaKbhaCaKaNaNaIaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaCaDaDaCaFaKaKaKaPaKaKaKaFaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaBaCaCaCaGaFaFaFaCaFaFaFaFaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaBaBaBaBaBaBaCbibibibiaCbibibibiaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaazazazazazazazazazazazazazazazazaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaazazazazazazazazazazazazazazazazaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazazazazazazazazazazazazazazazazaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazazazazazazazazazazazazazazazazaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -269,39 +268,39 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
 
 (1,1,4) = {"
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDblaEblaDaDbmbmaDaDbjaLaLbjaDaDaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDbnbobnaDaEaEaEaEaDaLaLaLaLaDbiaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDaEaEaEbpaEbqbqaEaQaLaLaLaLaQaLaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDaEaEaEaDaEbrbsaEbmaObtbtbubmbiaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDbvbobvbvbwbwbwbwbvbwbwbwbwbvbwaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDaEaEaEaYaEaEaEaEaEaEaEaEaEaEaEaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaGbxaGaGaGaGaGaGaGaGaGaGaGaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaEaYaEaEaEaEaEaEaEaEaEaEaEaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaEaDbybybybybybybybybzbybyaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDaEaGaEaDbAbAbAbBaDbAbCbCbAbAbAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaEaDbDaEaEaEbpaEaEaEaEaEbAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaEaDbAaEaEaEaDaGaEaEaEaEbAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaEaDbAaEbEbFaDbGbHaEaEaEbAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDaEaGaEaDbAaEbEbFaDbGbHaEaEaEbAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaEaDbAaEbEbFaDbGbHaEaEaEbAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaEaDbAaEaEaEaDaGaEaEaEaEbAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaEaDbIaEaEaEbpaEaEaEaEaEbAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDaEaGaEaDbAbAbAbBaDbAbJbJbAbAbAaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaEaDbybybybybybybybybzbybyaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaEaYaEaEaEaEaEaEaEaEaEaEaEaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaYaEaGaGbxaGaGaGaGaGaGaGaGaGaGaGaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDaEaEaEaYaEaEaEaEaEaEaEaEaEaEaEaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDbvbobvaDbwbwbwbwaDbwbwbwbwbwbKaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDaEaEaEaDbLbLbMbNaDaLaLbObObOaLaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaaaDaEaEaEaDaEaEaEaEbPaLbOaOaOaObOaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaaaDaEaEaEaDbQaEaEaEbPaLaLaLaLaLaLaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDbRbobRaDbSaEaEaEaDbObObObObObOaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDaEaEaEaDbSaEaEaEaDbPbPbPbTbPbUaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDbVbWaEbmbXaEaEaEaQaLaLaLaLaLbYaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDbVbWaEbmbZaEcacbaDccaLaLaLaLbPaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaDaDaDaDaDcdcdcdcdaDaDcdcdcdaDaDaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabkaaaAaAaAaaaaaaaaaaaaaaaaaaaAaAaAaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacecfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCbkaDbkaCaCblblaCaCbiaKaKbiaCaCaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCbmbnbmaCaDaDaDaDaCaKaKaKaKaCbhaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCaDaDaDboaDbpbpaDaPaKaKaKaKaPaKaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCaDaDaDaCaDbqbraDblaNbsbsbtblbhaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCbubnbububvbvbvbvbubvbvbvbvbubvaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCaDaDaDaXaDaDaDaDaDaDaDaDaDaDaDaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaFbwaFaFaFaFaFaFaFaFaFaFaFaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaDaXaDaDaDaDaDaDaDaDaDaDaDaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaDaCbxbxbxbxbxbxbxbxbybxbxaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCaDaFaDaCbzbzbzbAaCbzbBbBbzbzbzaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaDaCbCaDaDaDboaDaDaDaDaDbzaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaDaCbzaDaDaDaCaFaDaDaDaDbzaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaDaCbzaDbDbEaCbFbGaDaDaDbzaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCaDaFaDaCbzaDbDbEaCbFbGaDaDaDbzaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaDaCbzaDbDbEaCbFbGaDaDaDbzaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaDaCbzaDaDaDaCaFaDaDaDaDbzaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaDaCbHaDaDaDboaDaDaDaDaDbzaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCaDaFaDaCbzbzbzbAaCbzbIbIbzbzbzaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaDaCbxbxbxbxbxbxbxbxbybxbxaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaDaXaDaDaDaDaDaDaDaDaDaDaDaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaXaDaFaFbwaFaFaFaFaFaFaFaFaFaFaFaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCaDaDaDaXaDaDaDaDaDaDaDaDaDaDaDaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCbubnbuaCbvbvbvbvaCbvbvbvbvbvbJaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCaDaDaDaCbKbKbLbMaCaKaKbNbNbNaKaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaaaaCaDaDaDaCaDaDaDaDbOaKbNaNaNaNbNaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaaaaCaDaDaDaCbPaDaDaDbOaKaKaKaKaKaKaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCbQbnbQaCbRaDaDaDaCbNbNbNbNbNbNaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCaDaDaDaCbRaDaDaDaCbObObObSbObTaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCbUbVaDblbWaDaDaDaPaKaKaKaKaKbXaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCbUbVaDblbYaDbZcaaCcbaKaKaKaKbOaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazaCaCaCaCaCccccccccaCaCccccccaCaCaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabjaaazazazaaaaaaaaaaaaaaaaaaazazazaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdcecececececececececececececececececeaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
