@@ -1,6 +1,6 @@
 /obj/item/borg_tool
 	name = "borg tool"
-	desc = "a huge arm based prosthesis, click it to change mode. Alt click it in build mode for different buildable objects and control click it in buildmode to select what structure you wish to build. Current points availible for construction: [SSticker.mode.hivemind.cons_points]"
+	desc = "a huge arm based prosthesis, click it to change mode. Alt click it in build mode for different buildable objects and control click it in buildmode to select what structure you wish to build."
 	icon = 'StarTrek13/icons/borg/borg_gear.dmi'
 	item_state = "borgtool"
 	icon_state = "borgtool"
@@ -18,7 +18,8 @@
 	var/saved_time = 0
 	var/inprogress = 0
 	var/build_mode = 1
-	var/cost = 40 //How many upgrade points it takes to build this
+	var/stored_parts = list()
+	var/cost = null //What do we need to construct this?
 	var/norun = 0 //stops infinite chair spam
 	var/obj/item/borg_checker/checker
 	var/dismantling_machine = 0
@@ -222,7 +223,7 @@
 						sleep(60) //so we dont get overlapping sounds
 						for(var/mob/living/silicon/B in world)
 							B << sound('StarTrek13/sound/borg/overmind/silicon_resist.ogg') //intimidating message telling them to not resist
-			else if(istype(I, /turf/open))
+			else if(istype(I, /turf/open) && !istype(I, /turf/open/floor/borg))
 				var/turf/open/A = I
 				norun = 0
 				if(buildmode)
@@ -234,9 +235,9 @@
 						return
 	//all tiles turn invalid if you click another tile before youre done with the first
 					norun = 1 //stop spamming
-					if(!SSticker.mode.hivemind.use_cons_points(cost))
-						to_chat(user, "<span class='userdanger'>This structure requires [cost] materials.</span>")
-						return
+//					if(!SSticker.mode.hivemind.use_cons_points(cost))
+//						to_chat(user, "<span class='userdanger'>This structure requires [cost] materials.</span>")/////////////////////////////////////////////
+//						return
 					to_chat(user, "<span class='danger'>We are building a structure ontop of [I].</span>")
 					if(do_after(user, convert_time, target = A))
 						new building(get_turf(A))
@@ -254,9 +255,9 @@
 						to_chat(user, "<span class='danger'>We are making an opening in [I].</span>")
 						var/turf/closed/wall/A = I
 						if(do_after(user, 100, target = A))
-							if(!SSticker.mode.hivemind.use_cons_points(60))
-								to_chat(user, "<span class='userdanger'>We require 60 materials to create an opening here.</span>")
-								return
+//							if(!SSticker.mode.hivemind.use_cons_points(60))
+//								to_chat(user, "<span class='userdanger'>We require 60 materials to create an opening here.</span>")/////////////////////////
+//								return
 							A.ChangeTurf(/turf/open/floor/borg)
 							var/obj/machinery/door/airlock/T = new /obj/machinery/door/airlock/borg( A )
 							T.electronics = new/obj/item/electronics/airlock( src.loc )
@@ -343,9 +344,9 @@
 				to_chat(user, "We are assimilating [I]")
 				playsound(src.loc, 'StarTrek13/sound/borg/machines/convertmachine.ogg', 40, 4)
 				if(do_after(user, 100, target = G)) //twice as long to convert a door
-					if(SSticker.mode.hivemind.use_cons_points(50))
-						to_chat(user, "<span class='userdanger'>We require 50 materials to assimilate this door.</span>")
-						return
+//					if(SSticker.mode.hivemind.use_cons_points(50))
+//						to_chat(user, "<span class='userdanger'>We require 50 materials to assimilate this door.</span>")//////////////////////////////////
+//						return
 					new /obj/machinery/door/airlock/borg(G.loc)
 					qdel(G)
 

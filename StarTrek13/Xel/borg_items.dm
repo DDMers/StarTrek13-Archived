@@ -373,10 +373,10 @@
 /obj/item/clothing/shoes/magboots/borg
 	name = "borg shoes"
 	desc = "Grotesque looking feet, they are magnetized."
-	icon = 'StarTrek13/icons/borg/borg_gear.dmi'
+	icon = 'StarTrek13/icons/trek/shoes.dmi'
 	icon_state = "borg0"
 	magboot_state = "borg1"
-	item_state = null
+	item_state = "borg"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	flags_1 = NODROP_1
 
