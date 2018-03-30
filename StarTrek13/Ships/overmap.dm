@@ -113,6 +113,7 @@ var/global/list/global_ship_list = list()
 	var/turret_firing_cost = 100 //How much does it cost to fire your turrets?
 	var/obj/structure/overmap/ship/fighter/fighters = list()
 	var/assimilated = FALSE
+	var/assimilated_icon = FALSE
 	var/flagship = FALSE // Borg's objective? Will probably end up with more uses later, but currently this is just the borg's target.
 	var/take_damage_traditionally = TRUE //Are we a real ship? that will have a shield generator and such? exceptions include fighters.
 	var/datum/looping_sound/trek/engine_hum/soundloop
@@ -770,7 +771,8 @@ var/global/list/global_ship_list = list()
 		return FALSE
 	if(istype(src, /obj/structure/overmap/ship) || istype(src, /obj/structure/overmap/away/station/starbase))
 		src.assimilated = TRUE
-		src.icon_state = "[src.icon_state]_assimilated"
+		if(src.assimilated_icon)
+			src.icon_state = "[src.icon_state]_assimilated"
 		src.update_icon()
 		if(istype(src, /obj/structure/overmap/away/station/starbase))
 			SSticker.mode.hivemind.starbase_assimilated = TRUE
