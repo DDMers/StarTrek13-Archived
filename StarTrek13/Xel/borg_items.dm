@@ -22,12 +22,6 @@
 	name = "assimilator module"
 	basic_modules = list(/obj/item/restraints/handcuffs/cable/zipties/cyborg,/obj/item/melee/baton/loaded,/obj/item/gun/energy/e_gun/advtaser/cyborg,/obj/item/clothing/mask/gas/borg/cyborg,/obj/item/borg_tool/cyborg,/obj/item/device/radio/headset/borg/alt/cyborg)
 
-//obj/item/weapon/robot_module/xel/on_pick(mob/living/silicon/robot/R)
-//	..()
-//	R << "<span class='userdanger'>Serve the collective.</span>"
-//	R.status_flags -= CANPUSH
-//	R.icon_state = "xel"
-
 /obj/item/weapon/robot_module/xel/New()
 	..()
 
@@ -259,7 +253,7 @@
 	var/message = stripped_input(user,"Communicate with the collective.","Send Message")
 //	var/mob/living/carbon/human/B = user
 	if(!message)
-		to_chat(user, "span class='warning'> You must provide a message! </span>")
+		to_chat(user, "<span class='warning'> You must provide a message! </span>")
 		return
 	var/ping = "<font color='green' size='2'><B><i>Xel collective</i> [usr.real_name]: [message]</B></font></span>"
 	for(var/mob/living/I in world)

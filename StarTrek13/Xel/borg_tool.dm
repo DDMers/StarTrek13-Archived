@@ -235,9 +235,6 @@
 						return
 	//all tiles turn invalid if you click another tile before youre done with the first
 					norun = 1 //stop spamming
-//					if(!SSticker.mode.hivemind.use_cons_points(cost))
-//						to_chat(user, "<span class='userdanger'>This structure requires [cost] materials.</span>")/////////////////////////////////////////////
-//						return
 					to_chat(user, "<span class='danger'>We are building a structure ontop of [I].</span>")
 					if(do_after(user, convert_time, target = A))
 						new building(get_turf(A))
@@ -257,9 +254,6 @@
 						to_chat(user, "<span class='danger'>We are making an opening in [I].</span>")
 						var/turf/closed/wall/A = I
 						if(do_after(user, 100, target = A))
-//							if(!SSticker.mode.hivemind.use_cons_points(60))
-//								to_chat(user, "<span class='userdanger'>We require 60 materials to create an opening here.</span>")/////////////////////////
-//								return
 							A.ChangeTurf(/turf/open/floor/borg)
 							var/obj/machinery/door/airlock/T = new /obj/machinery/door/airlock/borg( A )
 							T.electronics = new/obj/item/electronics/airlock( src.loc )
@@ -329,34 +323,17 @@
 						new /obj/item/stock_parts/borg/capacitor(G.loc)
 						qdel(G)
 					dismantling_machine = 0
-		//	else if(istype(I, /obj/machinery/r_n_d))
-		//		if(!dismantling_machine)
-			//		dismantling_machine = 1
-			//		playsound(src.loc, 'StarTrek13/sound/borg/machines/convertmachine.ogg', 40, 4)
-				//	var/obj/machinery/r_n_d/G = I
-				//	if(do_after(user, convert_time, target = G))
-				//		new /obj/item/stock_parts/borg(G.loc)
-				//		new /obj/item/stock_parts/borg/bin(G.loc)
-					//	new /obj/item/stock_parts/borg/capacitor(G.loc)
-				//		new /obj/item/stock_parts/borg/capacitor(G.loc)
-					//	qdel(G)
-				//	dismantling_machine = 0
 			else if(istype(I, /obj/machinery/door/airlock) && !istype(I, /obj/machinery/door/airlock/borg))
 				var/obj/machinery/door/airlock/G = I
 				to_chat(user, "We are assimilating [I]")
 				playsound(src.loc, 'StarTrek13/sound/borg/machines/convertmachine.ogg', 40, 4)
 				if(do_after(user, 100, target = G)) //twice as long to convert a door
-//					if(SSticker.mode.hivemind.use_cons_points(50))
-//						to_chat(user, "<span class='userdanger'>We require 50 materials to assimilate this door.</span>")//////////////////////////////////
-//						return
 					new /obj/machinery/door/airlock/borg(G.loc)
 					qdel(G)
 
 		if(mode == 2) //attack mode
 			if(istype(I, /obj/machinery/door/airlock) && !removing_airlock)
 				tear_airlock(I, user)
-		else
-		//	user << "<span class='danger'>[src] bleeps softly: ERROR.</span>"
 	if(mode == 3) //ranged mode
 		var/mob/living/carbon/human/A = user
 		A.dna.species.species_traits -= NOGUNS //sue me
@@ -374,22 +351,6 @@
 
 /obj/item/borg_tool/proc/tear_airlock(obj/machinery/door/airlock/A, mob/user)
 	return
-/*	removing_airlock = TRUE
-	to_chat(user, "<span class='notice'>You start tearing apart the airlock...</span>")
-	playsound(src.loc, 'StarTrek13/sound/borg/machines/borgforcedoor.ogg', 100, 4)
-	A.audible_message("<span class='italics'>You hear a loud metallic grinding sound.</span>")
-	if(do_after(user, delay=80, needhand=FALSE, target=A, progress=TRUE))
-		A.audible_message("<span class='danger'>[A] is ripped apart by [user]!</span>")
-			//add in a sound here
-		var/obj/structure/door_assembly/door
-		door = new A.doortype(get_turf(A))
-		door.density = 0
-		door.anchored = 1
-		door.name = "decimated [door]"
-		door.desc = "This airlock was ripped open by an immense force.. I don't think it stopped them..."
-		qdel(A)
-	removing_airlock = FALSE
-*/
 
 /obj/item/borg_checker
 	name = "area checker"
@@ -404,53 +365,3 @@
 /obj/item/borg_checker/New()
 	. = ..()
 	START_PROCESSING(SSobj, src)
-/* Saving this to check if a ship is prepared for conversion
-/obj/item/borg_checker/proc/check_area(mob/user)
-	borg_turfs_in_target = 0
-	turfs_in_a = 0
-	user << "we're checking eligibiliy!"
-	var/area/A = get_area(src)
-	locname = initial(A.name)
-	if(istype(A, SSticker.mode.hivemind.borg_target_area))
-		src.visible_message("A is the target area")
-		for(var/turf/T in get_area_turfs(A))
-			if(istype(T, /turf) && !istype(T, /turf/open/space))
-			//	user << "turfs in a: [turfs_in_a]" //turfs remaining
-				turfs_in_a ++
-			if(istype(T, /turf/open/floor/borg))
-				borg_turfs_in_target ++
-				turfs_in_a --
-			if(istype(T, /turf/closed/wall/borg))
-				borg_turfs_in_target ++
-				turfs_in_a --
-		var/turfs_in_a_math = turfs_in_a - borg_turfs_in_target
-		if(turfs_in_a_math > 0)
-			user << "You must assimilate [locname] more turfs to render this area suitable for a cube."
-		else
-			user << "We have completely assimilated [locname]"
-		SSticker.mode.check_win()
-		if(!announced)
-			if(borg_turfs_in_target > turfs_in_a) //60% or more of the turfs are assimilated
-				announced = 1
-				var/message = "[locname] has been assimilated. Build ship components to complete area takeover."
-				var/ping = "<font color='green' size='2'><B><i>Xel collective</i> HIVEMIND SUBSYSTEM: [message]</B></font></span>"
-			//	user << "[ping]"
-				SSticker.mode.hivemind.borg_completion_assimilation = 1
-				for(var/mob/living/I in world)
-					if(I.mind in SSticker.mode.hivemind.borgs)
-						I << ping
-						return
-	else
-		user << "it's not the right area, the right area is [SSticker.mode.hivemind.borg_target_area], we are currently in [A]"
-
-/obj/item/borg_checker/process() //this is just for checking the generated numbers from before, as it lags a bit.
-	if(borg_turfs_in_target < turfs_in_a)
-		SSticker.mode.hivemind.borg_completion_assimilation = 0
-		if(announced) //announced as in the area has BECOME unsuitable FROM being announced. Else it's just not suitable (ie on the first time someone checks the room)
-			var/message = "<font color='green' size='2'><B><i>Xel collective</i> HIVEMIND SUBSYSTEM: [locname] is no longer suitable, re-claim it by assimilating turfs.</B></font></span>"
-			announced = 0
-			for(var/mob/living/I in SSticker.mode.hivemind.borgs)
-				I << message
-				return
-			SSticker.mode.hivemind.borg_completion_assimilation = 0
-*/

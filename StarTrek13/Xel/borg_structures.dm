@@ -70,7 +70,7 @@
 /obj/structure/chair/borg/conversion/user_buckle_mob(mob/living/M, mob/user)
 	. = ..()
 	if(check_elegibility(M) && loc == M.loc)
-		to_chat(M, "<span class='warning'>You feel an immense wave of dread wash over you as [user] begins to strap you into [src]</span>")
+		to_chat(M, "<span class='warning'>You feel an immense wave of dread wash over you as [user] starts to strap you into [src]</span>")
 		to_chat(user, "<span class='warning'>We begin to prepare [M] for assimilation into the collective.</span>")
 		var/mob/living/carbon/human/H = M
 		if(do_after(user, 100, target = H))
@@ -78,7 +78,7 @@
 			restrained = 1
 			icon_state = "borg_off"
 			M.do_jitter_animation(50)
-			src.visible_message("<span class='warning'>[M] looks terrified as they lay on the [src]!</span>")
+			src.visible_message("<span class='warning'>[M] looks terrified as they lay on [src]!</span>")
 			sleep(60)
 			to_chat(M, "<span class='warning'>You feel several sharp stings as the [src] cuts into you!</span>")
 			sleep(10)
@@ -104,7 +104,7 @@
 			overlays -= armoverlay
 			overlays -= armoroverlay
 			icon_state = "borg_off"
-			to_chat(M, "<span class='warning'>We feel like one as the straps binding us to the [src] release. Our new designation is [M.name].</span>")
+			to_chat(M, "<span class='warning'>We feel like one as the straps binding us to [src] release. Our new designation is [M.name].</span>")
 			restrained = 0
 	else //error meme
 		src.visible_message("<span class='warning'>[M] is not ready to be augmented.</span>")
@@ -212,92 +212,6 @@
 	bound_width = 96
 	layer = 4.5
 
-/obj/item/borg
-	name = "DEBUG"
-	desc = "Huh.. You've never seen anything like this before."
-	icon = 'StarTrek13/icons/borg/borg_items.dmi'
-	var/cons_time
-
-/obj/item/borg/manip
-	name = "manipulator"
-	icon_state = "manipulator"
-	cons_time = 2
-
-/obj/item/borg/amp
-	name = "amplifier"
-	icon_state = "amplifier"
-	cons_time = 2
-
-/obj/machinery/borg/factory //BROKEN.
-	name = "borg assembly line"
-	desc = "A borg assembly line. It fabricates parts at immense speeds."
-	icon_state = "factory"
-	bound_width = 96
-	layer = 5.5
-	var/running
-	var/part_time = 20 //DEBUG. currently set for two seconds PER.//per part.
-	var/required_points = 0 // How many assimilation points to construct this item?
-	var/constructables = list(/obj/item/borg/manip, /obj/item/borg/amp) //What can this factory build"?
-	//var/construct_amount = 4 //How many per cycle?
-	var/constructing = null
-	var/saved_time
-
-/obj/machinery/borg/factory/Destroy()
-	//STOP_PROCESSING(SSobj, src)
-	construction(TRUE)
-	..()
-
-/obj/machinery/borg/factory/update_icon()
-	if(running)
-		icon_state = "factory_on"
-	else
-		icon_state = "factory"
-
-/obj/machinery/borg/factory/attack_hand(mob/living/carbon/human/user)
-	if(!isborg(user))
-		return
-	var/query
-	query = input(user, "Select an item for production.","Select Production",query) as anything in constructables|"cancel production" // Yes, I know this lists the item paths, not names. It's temporary.
-	if(!query)
-		return
-	if(SSticker.mode.hivemind.cons_points < required_points)
-		to_chat(user, "<span class='warning'>We do not have enough construction materials to fabricate this part.</span>")
-		return
-	if(query == "cancel production")
-		construction(TRUE)
-		update_icon()
-		return
-	to_chat(user, "<span class='info'>The [src] is now producing [query].</span>")
-	constructing = query
-	//part_time = query.cons_time * 10
-	saved_time = world.time + part_time
-	construction()
-	update_icon()
-
-/obj/machinery/borg/factory/proc/construction(var/stop)
-	to_chat(world, "PROCESSING A BORG FACTORY")
-	if(stop)
-		running = FALSE
-		to_chat(world, "PROCESSING A BORG FACTORY STOPPED")
-		//update_icon()
-		return
-	running = TRUE
-	//update_icon()
-	while(world.time < saved_time)
-		sleep(1)
-		to_chat(world, "PROCESSING A BORG FACTORY WHILE")
-	saved_time = world.time + part_time
-	if(!SSticker.mode.hivemind.use_cons_points(required_points))
-		//STOP_PROCESSING(SSobj, src)
-		to_chat(world, "A BORG FACTORY IS MISSING MATERIALS")
-		running = FALSE
-		SSticker.mode.hivemind.message_collective("The [src] at [get_area(src)] has automatically cancelled production. Construction reserves depleted.")
-		update_icon()
-		return
-	new constructing(src.loc)
-	to_chat(world, "BORG FACTORY MADE AN ITEM")
-	construction()
-
 /obj/machinery/borg/converter
 	name = "conversion device"
 	desc = "The final stage of the assimilation process of the borg. May god have mercy on your crew."
@@ -315,10 +229,7 @@
 		icon_state = "converter"
 
 /obj/machinery/borg/converter/attack_hand(mob/living/carbon/human/user) // TODO: MULTISTRUCTURE REQUIREMENT
-	if(running)
-		to_chat(user, "<span class='userdanger'> The device is already running!</span>")
-	if(!isborg(user))
-		to_chat(user, "<span class='warning'>You don't know how to use this.. Yet.</span>")
+	if(running || !isborg(user))
 		return
 	var/area = get_area(src)
 	var/obj/structure/fluff/helm/desk/tactical/T
@@ -362,73 +273,6 @@
 	return TRUE
 
 
-
-/*
-
-/obj/machinery/borg/throne
-	name = "queen's throne"
-	desc = "A massive structure fit for a queen"
-	icon_state = "throne"
-	anchored = 1
-//	pixel_x = -32
-	bound_width = 96
-	layer = 4.5
-	var/obj/machinery/computer/camera_advanced/borg/computer = null
-	can_buckle = 1
-	buckle_lying = 0
-	max_buckled_mobs = 1
-	parts = list(
-							/obj/item/stock_parts/borg/bin = 2,
-							/obj/item/stock_parts/borg/capacitor = 3,
-							/obj/item/stock_parts/borg = 5)
-
-/obj/machinery/borg/throne/user_unbuckle_mob(mob/living/buckled_mob/M)
-	. = ..()
-	for(var/m in buckled_mobs)
-		var/mob/living/carbon/human/borgqueen/P = m
-		unbuckle_mob(m)
-		icon_state = "throne"
-		P.alpha = 255
-
-/obj/machinery/borg/throne/user_buckle_mob(mob/living/carbon/human/borgqueen/M, mob/user)
-	. = ..()
-	if(!istype(M, /mob/living/carbon/human/borgqueen))
-		return
-	if(!isborg(M))
-		return
-	var/mob/living/carbon/human/borgqueen/P = M
-	P.alpha = 0 //:^)
-	icon_state = "queenboltin"
-	sleep(20)
-	icon_state = "thronequeen"
-	buckle_mob(P)
-//	P.computer.attack_hand(user)
-
-
-
-/obj/machinery/borg/throne/New()
-	. = ..()
-	var/area/A = get_area(src)
-	if(SSticker.mode.borg_machines_room_has_throne == 0)
-		if(istype(A, SSticker.mode.borg_target_area))
-			computer = new(src) //obj/machinery/computer/camera_advanced/borg(src)
-			SSticker.mode.borg_machines_room_has_throne = 1
-		//	src.say(SSticker.mode.borg_machines_in_area)
-		else
-			src.say("not in the right area")
-	else
-		src.say("there is already one of those here")
-		qdel(src)
-
-/obj/machinery/borg/throne/Destroy()
-	. = ..()
-	if(!alreadyonehere)
-		SSticker.mode.borg_machines_room_has_throne = 0 //when you delete it, if there is already one, means that you cant make infinite ones.
-
-//camera stuff, testing!
-
-*/
-
 /obj/machinery/computer/camera_advanced/borg/throne //:^)
 	name = "queen's throne"
 	desc = "A massive structure fit for a queen"
@@ -444,34 +288,7 @@
 	buckle_lying = 0
 	var/alreadyonehere = 0
 	max_buckled_mobs = 1
-	/*
-	parts = list(
-							/obj/item/stock_parts/borg/bin = 2,
-							/obj/item/stock_parts/borg/capacitor = 3,
-							/obj/item/stock_parts/borg = 5) */
 
-/*
-/obj/machinery/computer/camera_advanced/borg/throne/attack_hand(mob/living/carbon/human/borgqueen/M, mob/user)
-	. = ..()
-	if(!istype(M, /mob/living/carbon/human/borgqueen))
-		return
-	if(!isborg(M))
-		return
-	var/mob/living/carbon/human/borgqueen/P = M
-	P.alpha = 0 //:^)
-	icon_state = "queenboltin"
-	sleep(20)
-	icon_state = "thronequeen"
-	buckle_mob(P)
-//	P.computer.attack_hand(user)
-*/ //shitcode, fix
-/*
-/obj/machinery/computer/camera_advanced/borg/throne/New()
-	. = ..()
-	if(var/obj/machinery/computer/camera_advances/borg/throne/T in world)
-		audible_message(src, "<span class='warning'><b>ERROR; A THRONE CURRENTLY EXISTS AT [T.get_area]</b></span>")
-		qdel(src)
-*/
 /obj/item/stock_parts/borg
 	name = "gravimetric interspatial manifold field manipulator"
 	desc = "oh, it's a gravimetric field interspatial manifold used to regenerate transphasic presequenced waves, DUH!"
@@ -500,15 +317,7 @@
 							/obj/item/stock_parts/borg/bin = 2,
 							/obj/item/stock_parts/borg/capacitor = 2,
 							/obj/item/stock_parts/borg/dilithium = 1)
-/*
-/obj/item/circuitboard/machine/borg/navicomp
-	name = "assimilated circuit-board (navigational computer)"
-	build_path = /obj/structure/fluff/helm/desk/tactical/borg
-	req_components = list(
-							/obj/item/stock_parts/borg/bin = 2,
-							/obj/item/stock_parts/borg/capacitor = 1,
-							/obj/item/stock_parts/borg = 3)
-*/
+
 /obj/item/circuitboard/machine/borg/throne
 	name = "assimilated circuit-board (queen throne)"
 	build_path = /obj/machinery/computer/camera_advanced/borg/throne

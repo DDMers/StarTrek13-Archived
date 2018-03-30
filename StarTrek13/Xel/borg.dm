@@ -132,7 +132,6 @@
 		greet_borg(borg_mind)
 		equip_borg(borg_mind.current)
 		SSticker.mode.forge_borg_objectives(borg_mind)
-	//	borg_mind.current.loc = borg_spawn// add me later[spawnpos]
 		borg_mind.current.loc = hivemind.borgspawn2
 //		var/obj/item/organ/body_egg/borgNanites/G = new(borg_mind.current)
 	..()
@@ -143,14 +142,6 @@
 				You must destroy ALL borg. Borg; assimilate the sector!</B>")
 
 //species 4678 (or unathi)</span> and <span class='warning'>Species 4468 (or phytosians) 5618 (or humans)
-
-/*
-/datum/game_mode/borg/check_finished()
-	if(finished)
-		return 1
-	else
-		return 0
-*/
 
 /datum/game_mode/proc/auto_declare_completion_borg()
 	var/list/living_mob_list = list()

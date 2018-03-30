@@ -758,22 +758,20 @@ var/global/list/global_ship_list = list()
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	spawn_name = "BORG"
 	marker = "borg cube"
-	faction = "borg collective"
 	pixel_x = -32
-	damage = 600 // We're here to take the sheilds down, not obliterate their ship!
 	health = 10000 //To compensate for a lack of shields, becuz muh LORE! Might be able to factor in regenerative capabilities eventually
 	view_range = 12//muh advanced sensors
 
 //TEMPORARY PLACEMENT OF ASSIMILATION PROCS
 
 /obj/structure/overmap/proc/assimilate()  // R.I.P you ~Cdey
-	if(src.assimilated)
+	if(assimilated)
 		return FALSE
 	if(istype(src, /obj/structure/overmap/ship) || istype(src, /obj/structure/overmap/away/station/starbase))
-		src.assimilated = TRUE
-		if(src.assimilated_icon)
-			src.icon_state = "[src.icon_state]_assimilated"
-		src.update_icon()
+		assimilated = TRUE
+		if(assimilated_icon)
+			icon_state = "[icon_state]_assimilated"
+		update_icon()
 		if(istype(src, /obj/structure/overmap/away/station/starbase))
 			SSticker.mode.hivemind.starbase_assimilated = TRUE
 		return TRUE
