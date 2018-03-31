@@ -511,7 +511,7 @@
 			if(10)
 				phrase_text = "Submit yourself to the collective."
 				phrase_sound = "submitfem"
-		user.audible_message("[user]'s Voice synthesiser: <font color='green' size='4'><b>[phrase_text]</b></font>")
+		src.audible_message("[user]'s Voice synthesiser: <font color='green' size='4'><b>[phrase_text]</b></font>")
 		playsound(src.loc, "StarTrek13/sound/borg/[phrase_sound].ogg", 100, 0, 4)
 	else
 		to_chat(user, "<span class='danger'>[src] is not recharged yet.</span>")
