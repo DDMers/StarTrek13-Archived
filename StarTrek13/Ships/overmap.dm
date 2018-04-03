@@ -112,6 +112,9 @@ var/global/list/global_ship_list = list()
 	var/datum/shipsystem_controller/SC
 	var/turret_firing_cost = 100 //How much does it cost to fire your turrets?
 	var/obj/structure/overmap/ship/fighter/fighters = list()
+	var/assimilated = FALSE
+	var/assimilated_icon = FALSE
+	var/flagship = FALSE // Borg's objective? Will probably end up with more uses later, but currently this is just the borg's target.
 	var/take_damage_traditionally = TRUE //Are we a real ship? that will have a shield generator and such? exceptions include fighters.
 	var/datum/looping_sound/trek/engine_hum/soundloop
 	var/obj/structure/overmap/agressor = null //Who is attacking us? this is done to reset their targeting systems when they destroy us!
@@ -123,6 +126,7 @@ var/global/list/global_ship_list = list()
 	var/datum/action/innate/redalert/redalert_action = new
 	var/datum/action/innate/autopilot/autopilot_action = new
 	var/obj/structure/ship_component/components = list()
+
 
 /obj/item/ammo_casing/energy/ship_turret
 	projectile_type = /obj/item/projectile/beam/laser/ship_turret_laser
@@ -185,6 +189,30 @@ var/global/list/global_ship_list = list()
 /obj/structure/overmap/proc/toggle_shields(mob/user)
 	generator.toggle(user)
 
+/obj/structure/overmap/proc/announce(var/text, var/title, sound = 'sound/ai/attention.ogg')
+
+	if(!text)
+		return //No empty announcements
+	if(!title)
+		title = "Automated Ship Announcement"
+	var/announce = "<br><h2 class='alert'>[html_encode(title)]</h2>"
+	announce += "<br><span class='alert'>[html_encode(text)]</span><br>"
+	announce += "<br>"
+
+	var/list/mobs_heard = list()
+	for(var/mob/living/L in linked_ship)
+		to_chat(L, "[announce]")
+		mobs_heard += L
+	for(var/mob/M in GLOB.dead_mob_list)
+		to_chat(M, "[announce]")
+		mobs_heard += M
+	var/s = sound(sound)
+	for(var/mob/P in mobs_heard)
+		mobs_heard -= P
+		if(P.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
+			SEND_SOUND(P, s)
+
+
 /obj/structure/overmap/away/station
 	name = "space station 13"
 	icon = 'StarTrek13/icons/trek/large_overmap.dmi'
@@ -214,6 +242,7 @@ var/global/list/global_ship_list = list()
 	icon_state = "cadaver"
 	pixel_x = -100
 	pixel_y = -100
+	flagship = TRUE
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 
@@ -723,6 +752,33 @@ var/global/list/global_ship_list = list()
 	weapons.fire_torpedo(theturf, pilot)
 	SEND_SOUND(pilot, sound('StarTrek13/sound/borg/machines/torpedo1.ogg'))
 
+/obj/structure/overmap/ship/borg // TODO: TRACTOR BEAM, ??REGENERATIVE HULL??, ION CANNONS | A.K.A Borg balancing tool. They'll have everything needed to take a 1v1, but multiple ships will prove a difficult task to take on.
+	name = "borg cube"
+	icon_state = "borg_cube"
+	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
+	spawn_name = "BORG"
+	marker = "borg cube"
+	pixel_x = -32
+	health = 10000 //To compensate for a lack of shields, becuz muh LORE! Might be able to factor in regenerative capabilities eventually
+	view_range = 12//muh advanced sensors
+
+//TEMPORARY PLACEMENT OF ASSIMILATION PROCS
+
+/obj/structure/overmap/proc/assimilate()  // R.I.P you ~Cdey
+	if(assimilated)
+		return FALSE
+	if(istype(src, /obj/structure/overmap/ship) || istype(src, /obj/structure/overmap/away/station/starbase))
+		assimilated = TRUE
+		if(assimilated_icon)
+			icon_state = "[icon_state]_assimilated"
+		update_icon()
+		if(istype(src, /obj/structure/overmap/away/station/starbase))
+			SSticker.mode.hivemind.starbase_assimilated = TRUE
+		return TRUE
+	else
+		return FALSE
+
 #undef TORPEDO_MODE
 #undef PHASER_MODE
+
 

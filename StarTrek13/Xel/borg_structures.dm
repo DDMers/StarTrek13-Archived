@@ -29,7 +29,8 @@
 	name = "borgified chair"
 	desc = "Assimilated chair"
 	icon_state = "borg1"
-	anchored = 1
+	icon = 'StarTrek13/icons/borg/chairs.dmi'
+	anchored = TRUE
 
 /obj/structure/chair/borg/attackby(obj/I,mob/user,proximity, params)
 	. = ..()
@@ -77,11 +78,11 @@
 			restrained = 1
 			icon_state = "borg_off"
 			M.do_jitter_animation(50)
-			src.visible_message("<span class='warning'>[M] looks terrified as they lay on [src]</span>")
+			src.visible_message("<span class='warning'>[M] looks terrified as they lay on [src]!</span>")
 			sleep(60)
 			to_chat(M, "<span class='warning'>You feel several sharp stings as the [src] cuts into you!</span>")
 			sleep(10)
-			to_chat(M, "<span class='warning'>OH GOD THE AGONY!</span>")
+			to_chat(M, "<span class='warning'>OH GOD, THE AGONY!</span>")
 			playsound(loc, 'StarTrek13/sound/borg/machines/convert_table.ogg', 50, 1, -1)
 			src.visible_message("<span class='warning'>[M] screams in agony as the [src] forces grotesque metal parts onto their grey flesh!</span>")
 			playsound(loc, 'sound/effects/megascream.ogg', 50, 1, -1) //https://youtu.be/5QvgLlFyeok?t=1m48s
@@ -97,12 +98,13 @@
 			sleep(40)
 			playsound(loc, 'StarTrek13/sound/borg/machines/convert_table2.ogg', 50, 1, -1)
 			sleep(20)
-			var/datum/mind/borg_mind = M.mind
-			borg_mind.make_xel()
+			if(M.client)
+				var/datum/mind/borg_mind = M.mind
+				borg_mind.make_xel()
 			overlays -= armoverlay
 			overlays -= armoroverlay
 			icon_state = "borg_off"
-			to_chat(M, "<span class='warning'>We feel different as the straps binding us to the [src] release, our designation is [M.name].</span>")
+			to_chat(M, "<span class='warning'>We feel like one as the straps binding us to [src] release. Our new designation is [M.name].</span>")
 			restrained = 0
 	else //error meme
 		src.visible_message("<span class='warning'>[M] is not ready to be augmented.</span>")
@@ -199,120 +201,77 @@
 							/obj/item/stock_parts/borg/bin = 2,
 							/obj/item/stock_parts/borg/capacitor = 1,
 							/obj/item/stock_parts/borg = 3)
-/obj/machinery/borg/ftl/New()
-	. = ..()
-	var/area/A = get_area(src)
-	if(SSticker.mode.hivemind.borg_machines_room_has_ftl == 0)
-		if(istype(A, SSticker.mode.hivemind.borg_target_area))
-			SSticker.mode.hivemind.borg_machines_room_has_ftl = 1
-		//	src.say(SSticker.mode.borg_machines_in_area)
-		else
-			src.say("not in the right area")
-	else
-		alreadyonehere = 1
-		src.say("there is already one of those here")
-		qdel(src)
 
-/obj/machinery/borg/ftl/Destroy()
-	. = ..()
-	if(!alreadyonehere)
-		SSticker.mode.hivemind.borg_machines_room_has_ftl = 0 //when you delete it, if there is already one, means that you cant make infinite ones.
 
-/obj/machinery/borg/helm
+/obj/structure/fluff/helm/desk/tactical/borg
 	name = "xel cube helm control"
-	desc = "Symbols flash on its holographic display as it constantly flickers and hums, used to fly ships it would seem."
+	desc = "Symbols flash on its holographic display as it constantly flickers and hums."
+	icon = 'StarTrek13/icons/borg/borg.dmi'
 	icon_state = "navicomp"
-	anchored = 1
-//	pixel_x = -32
+	pixel_x = -32
 	bound_width = 96
 	layer = 4.5
-	parts = list(
-							/obj/item/stock_parts/borg/bin = 2,
-							/obj/item/stock_parts/borg/capacitor = 1,
-							/obj/item/stock_parts/borg = 3)
 
-/obj/machinery/borg/helm/New()
-	. = ..()
-	var/area/A = get_area(src)
-	if(SSticker.mode.hivemind.borg_machines_room_has_nav == 0)
-		if(istype(A, SSticker.mode.hivemind.borg_target_area))
-			SSticker.mode.hivemind.borg_machines_room_has_nav = 1
-		//	src.say(SSticker.mode.borg_machines_in_area)
-		else
-			src.say("not in the right area")
-	else
-		src.say("there is already one of those here")
-		qdel(src)
-
-/obj/machinery/borg/helm/Destroy()
-	. = ..()
-	if(!alreadyonehere)
-		SSticker.mode.hivemind.borg_machines_room_has_nav = 0 //when you delete it, if there is already one, means that you cant make infinite ones.
-/*
-
-/obj/machinery/borg/throne
-	name = "queen's throne"
-	desc = "A massive structure fit for a queen"
-	icon_state = "throne"
-	anchored = 1
-//	pixel_x = -32
+/obj/machinery/borg/converter
+	name = "conversion device"
+	desc = "The final stage of the assimilation process of the borg. May god have mercy on your crew."
+	icon_state = "converter"
 	bound_width = 96
-	layer = 4.5
-	var/obj/machinery/computer/camera_advanced/borg/computer = null
-	can_buckle = 1
-	buckle_lying = 0
-	max_buckled_mobs = 1
-	parts = list(
-							/obj/item/stock_parts/borg/bin = 2,
-							/obj/item/stock_parts/borg/capacitor = 3,
-							/obj/item/stock_parts/borg = 5)
+	layer = 5.5
+	var/running
+	var/inserted_parts = list()
+	var/required_parts = list()
 
-/obj/machinery/borg/throne/user_unbuckle_mob(mob/living/buckled_mob/M)
-	. = ..()
-	for(var/m in buckled_mobs)
-		var/mob/living/carbon/human/borgqueen/P = m
-		unbuckle_mob(m)
-		icon_state = "throne"
-		P.alpha = 255
-
-/obj/machinery/borg/throne/user_buckle_mob(mob/living/carbon/human/borgqueen/M, mob/user)
-	. = ..()
-	if(!istype(M, /mob/living/carbon/human/borgqueen))
-		return
-	if(!isborg(M))
-		return
-	var/mob/living/carbon/human/borgqueen/P = M
-	P.alpha = 0 //:^)
-	icon_state = "queenboltin"
-	sleep(20)
-	icon_state = "thronequeen"
-	buckle_mob(P)
-//	P.computer.attack_hand(user)
-
-
-
-/obj/machinery/borg/throne/New()
-	. = ..()
-	var/area/A = get_area(src)
-	if(SSticker.mode.borg_machines_room_has_throne == 0)
-		if(istype(A, SSticker.mode.borg_target_area))
-			computer = new(src) //obj/machinery/computer/camera_advanced/borg(src)
-			SSticker.mode.borg_machines_room_has_throne = 1
-		//	src.say(SSticker.mode.borg_machines_in_area)
-		else
-			src.say("not in the right area")
+/obj/machinery/borg/converter/update_icon()
+	if(running)
+		icon_state = "converter_active"
 	else
-		src.say("there is already one of those here")
-		qdel(src)
+		icon_state = "converter"
 
-/obj/machinery/borg/throne/Destroy()
-	. = ..()
-	if(!alreadyonehere)
-		SSticker.mode.borg_machines_room_has_throne = 0 //when you delete it, if there is already one, means that you cant make infinite ones.
+/obj/machinery/borg/converter/attack_hand(mob/living/carbon/human/user) // TODO: MULTISTRUCTURE REQUIREMENT
+	if(running || !isborg(user))
+		return
+	var/area = get_area(src)
+	var/obj/structure/fluff/helm/desk/tactical/T
+	if(T in area)
+		if(T.theship.assimilated)
+			to_chat(user, "<span class='warning'>This ship has already been assimilated!</span>")
+			return
+		to_chat(user, "<span class='notice'>We begin to initiate assimilation protocols for the [T.theship.name].</span>")
+		if(!do_after(user, 150, target = src))
+			return
+		SSticker.mode.hivemind.message_collective("We have begun assimilation protocols onboard the [T.theship.name].")
+		var/surviving_humans
+		for(var/mob/living/carbon/human/H in area)
+			if(isliving(H) && !isborg(H))
+				++surviving_humans
+		var/timer = 600 * surviving_humans + 600 // A minute for every living human in the ship, with the default minute..
+		running = TRUE
+		update_icon()
+		T.theship.announce("ATTENTION; Onboard ship systems malfunction, BORG hostile takeover detected.", "Automated Ship Security Warning")
+		if(!process_timer(timer))
+			SSticker.mode.hivemind.message_collective("We have failed to assimilate the [T.theship.name].")
+			running = FALSE
+			update_icon()
+			return
+		running = FALSE
+		update_icon()
+		if(T.theship.assimilate())
+			SSticker.mode.hivemind.message_collective("We have successfully assimilated the [T.theship.name].")
+			T.theship.announce("ERROR; BORG Hostile takeover comp13138-", "Automated Ship Security Warning")
+			return
+		else
+			SSticker.mode.hivemind.message_collective("We have failed to assimilate the [T.theship.name].")
 
-//camera stuff, testing!
+/obj/machinery/borg/proc/process_timer(var/delay)//Shameless copy of do_after, this is for attempting to assimilate the ship.
+	if(!src)
+		return FALSE
+	var/endtime = world.time + delay
+	while(world.time < endtime)
+		sleep(1)
+		//input failure requirements here.
+	return TRUE
 
-*/
 
 /obj/machinery/computer/camera_advanced/borg/throne //:^)
 	name = "queen's throne"
@@ -329,46 +288,6 @@
 	buckle_lying = 0
 	var/alreadyonehere = 0
 	max_buckled_mobs = 1
-	/*
-	parts = list(
-							/obj/item/stock_parts/borg/bin = 2,
-							/obj/item/stock_parts/borg/capacitor = 3,
-							/obj/item/stock_parts/borg = 5) */
-
-/*
-/obj/machinery/computer/camera_advanced/borg/throne/attack_hand(mob/living/carbon/human/borgqueen/M, mob/user)
-	. = ..()
-	if(!istype(M, /mob/living/carbon/human/borgqueen))
-		return
-	if(!isborg(M))
-		return
-	var/mob/living/carbon/human/borgqueen/P = M
-	P.alpha = 0 //:^)
-	icon_state = "queenboltin"
-	sleep(20)
-	icon_state = "thronequeen"
-	buckle_mob(P)
-//	P.computer.attack_hand(user)
-*/ //shitcode, fix
-
-/obj/machinery/computer/camera_advanced/borg/throne/New()
-	. = ..()
-	var/area/A = get_area(src)
-	if(SSticker.mode.hivemind.borg_machines_room_has_throne == 0)
-		if(istype(A, SSticker.mode.hivemind.borg_target_area))
-			SSticker.mode.hivemind.borg_machines_room_has_throne = 1
-		//	src.say(SSticker.mode.borg_machines_in_area)
-		else
-			src.say("not in the right area")
-	else
-		src.say("there is already one of those here")
-		qdel(src)
-
-/obj/machinery/computer/camera_advanced/borg/throne/Destroy()
-	. = ..()
-	if(!alreadyonehere)
-		SSticker.mode.hivemind.borg_machines_room_has_throne = 0 //when you delete it, if there is already one, means that you cant make infinite ones.
-
 
 /obj/item/stock_parts/borg
 	name = "gravimetric interspatial manifold field manipulator"
@@ -398,14 +317,6 @@
 							/obj/item/stock_parts/borg/bin = 2,
 							/obj/item/stock_parts/borg/capacitor = 2,
 							/obj/item/stock_parts/borg/dilithium = 1)
-
-/obj/item/circuitboard/machine/borg/navicomp
-	name = "assimilated circuit-board (navigational computer)"
-	build_path = /obj/machinery/borg/helm
-	req_components = list(
-							/obj/item/stock_parts/borg/bin = 2,
-							/obj/item/stock_parts/borg/capacitor = 1,
-							/obj/item/stock_parts/borg = 3)
 
 /obj/item/circuitboard/machine/borg/throne
 	name = "assimilated circuit-board (queen throne)"
