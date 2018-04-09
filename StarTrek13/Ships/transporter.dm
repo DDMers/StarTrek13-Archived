@@ -143,7 +143,6 @@
 		return
 	switch(action)
 		if("copypasta")
-			var/newvar = params["tricorders"]
 			. = TRUE
 	update_icon() // Not applicable to all objects.
 
