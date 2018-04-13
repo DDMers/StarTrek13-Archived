@@ -2386,6 +2386,7 @@
 #include "StarTrek13\Ships\job_types.dm"
 #include "StarTrek13\Ships\jumpgate.dm"
 #include "StarTrek13\Ships\overmap.dm"
+#include "StarTrek13\Ships\overmap_combat.dm"
 #include "StarTrek13\Ships\overmap_fighter.dm"
 #include "StarTrek13\Ships\overmap_take_damage.dm"
 #include "StarTrek13\Ships\say.dm"
