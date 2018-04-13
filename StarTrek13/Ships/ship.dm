@@ -599,13 +599,13 @@
 	density = 0
 	pixel_x = -64
 	var/charge = 1000 //current power levels
-	var/charge_rate = 300
+	var/charge_rate = 200
 	var/state = 1
 	var/locked = 0
 	var/obj/item/gun/shipweapon/phaser
 	var/obj/structure/cable/attached		// the attached cable
 	var/max_power = 1000		// max power it can hold
-	var/fire_cost = 700
+	var/fire_cost = 200
 	var/percentage = 0 //percent charged
 	var/list/shipareas = list()
 	var/target = null

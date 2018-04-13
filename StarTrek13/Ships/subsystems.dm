@@ -128,6 +128,7 @@
 	var/delay = 0
 	var/max_delay = 2 //2 ticks to fire again, this is ontop of phaser charge times
 	var/charge = 0
+	var/maths_damage = 0 //After math is applied, how much damage? in relation to how much charge they have etc.
 
 //	theship.damage = 0	//R/HMMM
 //	theship.phaser_fire_cost = 0
@@ -147,17 +148,19 @@
 		fire_cost += P.fire_cost
 		counter ++
 		temp = P.charge
+	maths_damage = damage
+	maths_damage -= round(max_charge - charge)/2 //Damage drops off heavily if you don't let them charge
+	damage = maths_damage
 	max_charge += counter*temp //To avoid it dropping to 0 on update, so then the charge spikes to maximum due to process()
 
 /datum/shipsystem/weapons/process()
 	. = ..()
+	charge += chargeRate
 	if(integrity > max_integrity)
 		integrity = max_integrity
 	if(heat < 0)
 		heat = 0
-	if(delay > 0)
-		delay --
-	if(charge < max_charge)
+	if(charge > max_charge)
 		charge = max_charge
 	if(heat)
 		integrity -= heat
@@ -169,8 +172,12 @@
 		power_draw += overclock //again, need power stats to fiddle with.
 
 /datum/shipsystem/weapons/proc/attempt_fire()
-	if(delay <= 0 && charge >= fire_cost)
-		delay = max_delay //-1 per tick
+	if(charge >= fire_cost)
+		maths_damage = damage
+		maths_damage -= round(max_charge - charge)/1.7 //Damage drops off heavily if you don't let them charge
+		damage = maths_damage
+		charge -= fire_cost
+		heat += fire_cost / 0.7
 		return 1
 	else
 		return 0
