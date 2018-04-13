@@ -16,7 +16,7 @@
 /turf/open/floor/borg/trek
 	name = "deck plates"
 	desc = "A big lump of metal to keep you from falling through the ship."
-	icon = 'StarTrek13/icons/trek/trek_floor_1.dmi'
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "trek"
 	smooth = FALSE
 	//canSmoothWith = list(/turf/open/floor/borg/trek,/turf/open/floor/borg/trek/light,/turf/open/floor/borg/trek/blue,/turf/open/floor/borg/trek/red,/turf/open/floor/borg/trek/dark,/turf/open/floor/borg/trek/beige)
@@ -32,10 +32,10 @@
 /turf/open/floor/borg/trek/blue
 	name = "blue carpet"
 	desc = "A carpeted floor that matches the surroundings."
-	icon = 'StarTrek13/icons/trek/trek_floor_blue.dmi'
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "trek4"
-	smooth = TRUE //change this when I make a smooth proper version
-	canSmoothWith = list(/turf/open/floor/borg/trek/blue)
+	smooth = FALSE //change this when I make a smooth proper version
+//	canSmoothWith = list(/turf/open/floor/borg/trek/blue)
 
 /turf/open/floor/borg/trek/red
 	name = "red carpet"
