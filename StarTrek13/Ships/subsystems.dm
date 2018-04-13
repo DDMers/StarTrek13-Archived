@@ -156,6 +156,7 @@
 /datum/shipsystem/weapons/process()
 	. = ..()
 	charge += chargeRate
+	heat -= 10
 	if(integrity > max_integrity)
 		integrity = max_integrity
 	if(heat < 0)
@@ -174,10 +175,10 @@
 /datum/shipsystem/weapons/proc/attempt_fire()
 	if(charge >= fire_cost)
 		maths_damage = damage
-		maths_damage -= round(max_charge - charge)/1.7 //Damage drops off heavily if you don't let them charge
+		maths_damage -= round(max_charge - charge)/1.5 //Damage drops off heavily if you don't let them charge
 		damage = maths_damage
 		charge -= fire_cost
-		heat += fire_cost / 0.7
+		heat += fire_cost/0.4
 		return 1
 	else
 		return 0
