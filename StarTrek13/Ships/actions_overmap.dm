@@ -18,15 +18,13 @@
 	var/selected = 1
 
 /datum/action/innate/weaponswitch/Trigger()
-	switch(selected)
+	ship.AltClick(ship.pilot)
+	switch(ship.fire_mode)
 		if(1)
-			selected = 2
-			ship.fire_mode = 2
-			button_icon_state = "photon"
-		if(2)
-			selected = 1
-			ship.fire_mode = 1
 			button_icon_state = "phaser"
+		if(2)
+			button_icon_state = "photon"
+
 
 
 /datum/action/innate/warp

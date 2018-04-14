@@ -127,6 +127,8 @@
 	progbar = new(user, delay, target)
 	var/endtime = world.time + delay
 	var/starttime = world.time
+	progbar.bar.pixel_x = current.pixel_x //Bar is the physical object that the progbar datum creates
+	progbar.bar.pixel_y = current.pixel_y
 	mainloop:
 		while (world.time < endtime)
 			stoplag(1)
@@ -167,7 +169,7 @@
 		if(FIRE_PHASER)
 			if(SC.weapons.attempt_fire())
 				if(target_ship && locked == target_ship) //Is the locked target the one we're clicking?
-					target_subsystem = pick(S.SC.subsystems) //Change me! Allow players to target subsystems.
+					target_subsystem = pick(S.SC.systems) //Change me! Allow players to target subsystems.
 					if(S.speed > S.max_speed)
 						S.speed = S.max_speed
 					if(prob(target_ship.speed))
@@ -186,6 +188,7 @@
 					var/turf/theturf = get_turf(location)
 					S.take_damage(SC.weapons.maths_damage,theturf)
 					if(S.has_shields())
+						playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 						if(target_subsystem)
 							target_subsystem.integrity -= (SC.weapons.maths_damage)/3 //Shields absorbs most of the damage
 					else
@@ -198,12 +201,22 @@
 					SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
 					SC.weapons.charge -= SC.weapons.fire_cost
 					current_beam = new(source,target_ship,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+				//	current_beam.beam.pixel_x = target_ship.pixel_x
+				//	current_beam.beam.pixel_y = target_ship.pixel_y
 					to_chat(pilot, "You successfully hit [S]")
+					if(!has_shields())
+						var/obj/effect/explosion/explosion = new(get_turf(target_ship))
+						var/matrix/ntransform = matrix(transform)
+						ntransform.Scale(0.5)
+						explosion.layer = 4.5
+						explosion.pixel_x = target_ship.pixel_x + rand(50,100)
+						explosion.pixel_y = target_ship.pixel_y + rand(50,100)
+						animate(explosion, transform = ntransform, time = 0.5,easing = EASE_IN|EASE_OUT)
 					spawn(0)
 						current_beam.Start()
 					return
 		if(FIRE_PHOTON)
-			if(photons > 1)
+			if(photons > 0)
 				if(target_ship && locked == target_ship)
 					photons --
 					var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)

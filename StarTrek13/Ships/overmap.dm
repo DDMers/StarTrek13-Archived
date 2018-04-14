@@ -457,10 +457,10 @@ var/global/list/global_ship_list = list()
 	if(take_damage_traditionally)
 		if(has_shields())
 			shields_active = TRUE
-			icon_state = "[initial(icon_state)]-shield"
+		//	icon_state = "[initial(icon_state)]-shield" //We're changing this to use an overlay
 		else
 			shields_active = FALSE
-			icon_state = initial(icon_state)
+		//	icon_state = initial(icon_state) //This change will also allow admins to bus in custom ships
 	if(health <= 0)
 		destroy(1)
 	if(!health)
@@ -506,6 +506,7 @@ var/global/list/global_ship_list = list()
 	pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
 	pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
 	RemoveActions()
+	stop_firing() //to stop the firing indicators staying with the pilot
 	to_chat(pilot,"you have stopped controlling [src]")
 	pilot.forceMove(initial_loc)
 	initial_loc = null
