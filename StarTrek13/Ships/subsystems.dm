@@ -192,6 +192,27 @@
 	power_draw = 0//just so it's not an empty type TBH.
 	name = "engines"
 
+/datum/shipsystem/engines/process()
+	. = ..()
+	if(integrity > max_integrity)
+		integrity = max_integrity
+	if(heat < 0)
+		heat = 0
+	if(heat)
+		integrity -= heat
+	if(integrity <= 4000) //This equates to the engine being visibly shot off
+		controller.theship.vehicle_move_delay = initial(controller.theship.vehicle_move_delay)*1.4
+		return
+		if(integrity <= 0)
+			failed = 1
+			controller.theship.vehicle_move_delay = initial(controller.theship.vehicle_move_delay)*5 //Good luck moving with those engines
+			fail()
+	if(overclock > 0) //Drain power.
+		power_draw += overclock //again, need power stats to fiddle with.
+
+/datum/shipsystem/integrity
+	name = "hull strength"
+
 /datum/shipsystem/shields
 	name = "shields"
 	max_integrity = 20000 //in this case, integrity is shield health. If your shields are smashed to bits, it's assumed that all the control circuits are pretty fried anyways.
