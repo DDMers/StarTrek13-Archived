@@ -18,7 +18,7 @@
 	var/obj/structure/overmap/overmap_ship
 
 
-/obj/structure/overmap/proc/fire(atom/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
+/obj/structure/overmap/proc/fire(obj/structure/overmap/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
 	if(target == target_ship) //We've already got a target /
 		if(!locking)
 			if(locked)
@@ -167,6 +167,7 @@
 		if(FIRE_PHASER)
 			if(SC.weapons.attempt_fire())
 				if(target_ship && locked == target_ship) //Is the locked target the one we're clicking?
+					target_subsystem = pick(S.SC.subsystems) //Change me! Allow players to target subsystems.
 					if(S.speed > S.max_speed)
 						S.speed = S.max_speed
 					if(prob(target_ship.speed))
@@ -184,6 +185,13 @@
 					var/location = pick(L)
 					var/turf/theturf = get_turf(location)
 					S.take_damage(SC.weapons.maths_damage,theturf)
+					if(S.has_shields())
+						if(target_subsystem)
+							target_subsystem.integrity -= (SC.weapons.maths_damage)/3 //Shields absorbs most of the damage
+					else
+						if(target_subsystem)
+							target_subsystem.integrity -= (SC.weapons.maths_damage)/1.5 //No shields, fry that system
+							target_subsystem.heat += SC.weapons.maths_damage/10 //Heat for good measure :)
 					in_use1 = 0
 					var/chosen_sound = pick(soundlist)
 					SEND_SOUND(pilot, sound(chosen_sound))

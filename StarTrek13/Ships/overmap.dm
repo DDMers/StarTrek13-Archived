@@ -167,24 +167,6 @@ var/global/list/global_ship_list = list()
 	fire_cost = 100
 	fire_amount = 2 //fire twice per shot
 
-/obj/structure/overmap/New()
-	. = ..()
-	overmap_objects += src
-	soundloop = new(list(src), TRUE)
-	START_PROCESSING(SSobj,src)
-	linkto()
-	linked_ship = get_area(src)
-	var/list/thelist = list()
-	for(var/obj/effect/landmark/A in GLOB.landmarks_list)
-		if(A.name == spawn_name)
-			thelist += A
-			continue
-//	for(var/obj/effect/landmark/transport_zone/T in world)
-	//	transport_zone = get_area(T)
-	var/obj/effect/landmark/A = pick(thelist)
-	var/turf/theloc = get_turf(A)
-	if(spawn_random)
-		forceMove(theloc)
 /*
 		fore_turrets = new /obj/ship_turrets
 		aft_turrets = new /obj/ship_turrets/aft_turrets
@@ -345,7 +327,10 @@ var/global/list/global_ship_list = list()
 	//	events.fireEvent("onMove",get_turf(src))
 
 /obj/structure/overmap/ship/Process_Spacemove(movement_dir = 0)
-	return 1 //add engines later
+	if(SC.engines.integrity > 4000)
+		return 1
+	else
+		return 0
 
 //obj/structure/overmap/ship/GrantActions(mob/living/user, human_occupant = 0)
 //	internals_action.Grant(user, src)
@@ -462,6 +447,7 @@ var/global/list/global_ship_list = list()
 	update_weapons()
 	update_turrets()
 	check_charge()
+	check_overlays()
 	counter ++
 	if(navigating)
 		update_turrets()
@@ -481,9 +467,9 @@ var/global/list/global_ship_list = list()
 		destroy(1)
 	if(pilot)
 		if(pilot.loc != src)
-			exit() //pilot has been tele'd out, remove them!
 			pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
 			pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
+			exit() //pilot has been tele'd out, remove them!
 			for(var/obj/screen/alert/charge/C in pilot.alerts)
 				C.theship = src
 		//	if(charge > max_charge)
@@ -517,6 +503,8 @@ var/global/list/global_ship_list = list()
 				to_chat(pilot, "You'll now fire phasers")
 
 /obj/structure/overmap/proc/exit(mob/user)
+	pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
+	pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
 	RemoveActions()
 	to_chat(pilot,"you have stopped controlling [src]")
 	pilot.forceMove(initial_loc)
@@ -704,28 +692,6 @@ var/global/list/global_ship_list = list()
 	icon_state = "cadaver"
 //obj/structure/fluff/ship/helm do me later
 
-/obj/structure/overmap/proc/click_action(atom/target,mob/user)
-//add in TORPEDO MODE and PHASER MODE TO A MODE SELECT UI THING
-	if(src != target)
-		target_ship = target
-		target_ship.agressor = src
-		if(user.incapacitated())
-			return
-	//	if(!get_charge())
-	//		return
-		if(istype(target, /obj/structure/overmap))
-			var/obj/structure/overmap/thetarget = target
-			target = thetarget
-			if(target == src)
-				return
-			switch(mode)
-				if(TORPEDO_MODE)
-					fire_torpedo(thetarget,user)
-				else
-					fire(thetarget,user)
-		else
-			to_chat(user, "Unable to lock phasers, this weapon mode only targets large objects")
-			return
 
 /obj/structure/overmap/proc/fire_torpedo(obj/structure/overmap/OM)
 	var/list/thelist = list(OM.transporters,OM.weapons,OM.generator,OM.initial_loc)
