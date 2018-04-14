@@ -87,6 +87,8 @@
 		integrity = max_integrity
 	if(heat < 0)
 		heat = 0
+	if(integrity < 0)
+		integrity = 0
 	if(!failed)
 		if(heat)
 			integrity -= heat
@@ -102,6 +104,7 @@
 
 /datum/shipsystem/proc/fail()
 	failed = TRUE
+	to_chat(controller.theship.pilot, "<span class='userdanger'>CRITICAL SYSTEM FAILURE: The [name] subsystem has failed.</span>")
 	for(var/obj/structure/shipsystem_console/T in linked_objects)
 		T.fail()
 
@@ -129,6 +132,9 @@
 	var/max_delay = 2 //2 ticks to fire again, this is ontop of phaser charge times
 	var/charge = 0
 	var/maths_damage = 0 //After math is applied, how much damage? in relation to how much charge they have etc.
+	var/nextfire = 0
+	var/fire_delay = 2 //2 seconds to fully recharge the  phasers, to prevent spam
+	var/times_fired = 0 //times fired without letting them fully charge
 
 //	theship.damage = 0	//R/HMMM
 //	theship.phaser_fire_cost = 0
@@ -172,15 +178,32 @@
 	if(overclock > 0) //Drain power.
 		power_draw += overclock //again, need power stats to fiddle with.
 
-/datum/shipsystem/weapons/proc/attempt_fire()
-	if(charge >= fire_cost)
-		maths_damage = damage
-		maths_damage -= round(max_charge - charge)/1.5 //Damage drops off heavily if you don't let them charge
-		damage = maths_damage
-		charge -= fire_cost
-		heat += fire_cost/0.4
-		return 1
+/datum/shipsystem/weapons/proc/attempt_fire(var/firemode)
+	if(!failed)
+		if(controller.theship.fire_mode == 1)
+			if(charge >= fire_cost)
+				if(world.time < nextfire) //Spam blocker! spam your phasers and expect shit damage.
+					var/quickmafs = world.time - nextfire
+					times_fired ++
+					maths_damage = damage
+					maths_damage -= round(max_charge - charge)/1.5 //Damage drops off heavily if you don't let them charge
+					charge -= fire_cost
+					heat += fire_cost/2.5 //And a bit more heat for being spammy
+					maths_damage -= quickmafs * 1000 //Phasers take 2 seconds to become fully effective again, if you spam them that's fine but the damage will get fucking MERC'D //Eg, 2 seconds * 200 -> -400 damage
+					damage = maths_damage
+					return 1
+				else
+					nextfire = world.time + fire_delay
+					maths_damage = damage
+					maths_damage -= round(max_charge - charge)/1.5 //Damage drops off heavily if you don't let them charge
+					damage = maths_damage
+					charge -= fire_cost
+					heat += fire_cost/3
+					return 1
+		else
+			return 1 //We already check photon numbers in the actual ship procs, this is to check if we can fire.
 	else
+		to_chat(controller.theship.pilot, "Weapon system has failed!")
 		return 0
 
 
@@ -400,6 +423,10 @@
 	health -= severity*10
 
 /obj/structure/ship_component/process()
+	var/area/A = get_area(src)
+	if(A.requires_power) //BE SURE TO CHANGE THIS WHEN WE ADD SHIP POWER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		src.say("No available power remains. Shutting down.")
+		active = FALSE
 	if(active)
 		health -= 2 //Make sure to keep it in good repair
 		check_health()
@@ -445,6 +472,10 @@
 		return 0
 
 /obj/structure/ship_component/attack_hand(mob/living/H)
+	var/area/A = get_area(src)
+	if(A.requires_power)//BE SURE TO CHANGE THIS WHEN WE ADD SHIP POWER!!!!!!!!!!!!!!!!!!!!!!
+		src.say("The ship is unpowered!")
+		active = FALSE
 	if(can_be_reactivated)
 		if(!active)
 			to_chat(H, "You activate [src]!")
@@ -476,7 +507,11 @@
 	else
 		to_chat(user, "It is not active")
 
-/obj/structure/ship_component/capbooster/process()//apply_subsystem_bonus() //Each component will have a benefit to subsystems when activated, coolant manifolds will regenerate some subsystem health as long as they are alive and active.
+/obj/structure/ship_component/capbooster/process()//apply_subsystem_bonus() //Each component will have a benefit to subsystems when activated, coolant manifolds will regenerate some subsystem health as long as they are alive and active.#
+	var/area/A = get_area(src)
+	if(A.requires_power)//BE SURE TO CHANGE THIS WHEN WE ADD SHIP POWER!!!!!!!!!!!!!!!!!!!!!!
+		src.say("No available power remains. Shutting down.")
+		active = FALSE
 	if(active)
 		chosen.heat += 10
 		chosen.boosters += src
