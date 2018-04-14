@@ -124,6 +124,7 @@ var/global/list/global_ship_list = list()
 	var/datum/action/innate/redalert/redalert_action = new
 	var/datum/action/innate/autopilot/autopilot_action = new
 	var/datum/action/innate/weaponswitch/weaponswitch = new
+	var/datum/action/innate/subsystemtarget/systemtargeter = new
 	var/obj/structure/ship_component/components = list()
 	var/speed = 0
 	var/max_speed = 40 //40% chance to dodge a hit is pretty good
@@ -436,7 +437,7 @@ var/global/list/global_ship_list = list()
 */
 
 /obj/structure/overmap/process()
-	speed -= 2
+	speed -= 3
 	if(speed > max_speed)
 		speed = max_speed
 	if(turret_recharge >0)
@@ -476,6 +477,12 @@ var/global/list/global_ship_list = list()
 			//	charge = max_charge
 	//	else
 	//		charge = max_charge
+	if(health <= 2000) //Power it off
+		linked_ship.requires_power = TRUE
+		linked_ship.has_gravity = 0
+	else
+		linked_ship.requires_power = FALSE
+		linked_ship.has_gravity = 1
 
 /obj/structure/overmap/proc/enter(mob/user)
 	if(pilot)
@@ -581,7 +588,10 @@ var/global/list/global_ship_list = list()
 				theships += O
 		for(var/obj/structure/jumpgate/J in jumpgates)
 			if(J.z == z)
-				theships += J
+				var/area/aA = get_area(src)
+				var/area/b = get_area(J)
+				if(aA == b) //Same area, so you can use that one to jump. Prevents you navigating through the invisible walls
+					theships += J
 		if(!theships.len)
 			return
 		A = input("What ship shall we track?", "Ship navigation", A) as null|anything in theships//overmap_objects
@@ -628,6 +638,7 @@ var/global/list/global_ship_list = list()
 	exit()
 	if(agressor)
 		agressor.stop_firing()
+		agressor.target_subsystem = null
 	SpinAnimation(1000, 1)
 	var/image/explosion = image('StarTrek13/icons/trek/overmap_effects.dmi')
 	explosion.icon_state = "shipexplode"

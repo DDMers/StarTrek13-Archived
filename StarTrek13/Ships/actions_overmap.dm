@@ -26,6 +26,14 @@
 			button_icon_state = "photon"
 
 
+/datum/action/innate/subsystemtarget
+	name = "Target a subsystem"
+	icon_icon = 'StarTrek13/icons/actions/overmap_ui.dmi'
+	button_icon_state = "subsystemtarget"
+	var/obj/structure/overmap/ship
+
+/datum/action/innate/subsystemtarget/Trigger()
+	ship.target_subsystem()
 
 /datum/action/innate/warp
 	name = "Engage warp drive"
@@ -80,6 +88,11 @@
 		weaponswitch.Grant(pilot)
 		weaponswitch.ship = src
 
+	if(systemtargeter)
+		systemtargeter.target = pilot
+		systemtargeter.Grant(pilot)
+		systemtargeter.ship = src
+
 	if(warp_action)
 		warp_action.target = pilot
 		warp_action.Grant(pilot)
@@ -124,3 +137,6 @@
 	if(weaponswitch)
 		weaponswitch.target = null
 		weaponswitch.Remove(pilot)
+	if(systemtargeter)
+		systemtargeter.target = null
+		systemtargeter.Remove(pilot)

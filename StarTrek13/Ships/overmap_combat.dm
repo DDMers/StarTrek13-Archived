@@ -17,6 +17,21 @@
 /mob
 	var/obj/structure/overmap/overmap_ship
 
+/obj/structure/overmap/proc/target_subsystem(pilot)
+	if(target_ship)
+		var/list/ourlist = target_ship.SC.systems
+		for(var/datum/shipsystem/S in ourlist)
+			if(S.failed)
+				ourlist -= S
+		var/A
+		to_chat(pilot, "List of subsystems and functions:")
+		to_chat(pilot, "The engines subsystem allows a ship to move | The sensors subsystem is not added yet | The hull subsystem (when targeted) will deal heavy physical damage to the target at the expense of not hitting a critical system | The weapons system will fail when damaged, preventing the enemy from firing | The shields subsystem allows a ship to project a shield")
+		A = input("Select subsystem to target", "Scan of [target_ship] (failed systems are not shown)", A) as anything in ourlist
+		var/datum/shipsystem/V = ourlist[A]
+		target_subsystem = V
+		to_chat(pilot, "Weapons targeting the [V] subsystem")
+	else
+		to_chat(pilot, "Target a ship first!")
 
 /obj/structure/overmap/proc/fire(obj/structure/overmap/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
 	if(target == target_ship) //We've already got a target /
@@ -34,11 +49,12 @@
 				else
 					to_chat(pilot, "You're already targeting [target]")
 	else //We're selecting a new target
-		stop_firing()
-		target_ship = target
-		to_chat(pilot, "Attempting signal lock on [target]")
-		try_lockon(target,100)
-		return
+		if(istype(target, /obj/structure/overmap)) //Click floors = target lost? :thinking:
+			stop_firing()
+			target_ship = target
+			to_chat(pilot, "Attempting signal lock on [target]")
+			try_lockon(target,100)
+			return
 
 
 /obj/structure/overmap/proc/lose_lock()
@@ -169,7 +185,8 @@
 		if(FIRE_PHASER)
 			if(SC.weapons.attempt_fire())
 				if(target_ship && locked == target_ship) //Is the locked target the one we're clicking?
-					target_subsystem = pick(S.SC.systems) //Change me! Allow players to target subsystems.
+				//	if(!target_subsystem)
+					//	target_subsystem = pick(S.SC.systems) //Redundant, but here just in case it
 					if(S.speed > S.max_speed)
 						S.speed = S.max_speed
 					if(prob(target_ship.speed))
@@ -186,15 +203,18 @@
 						L+=T
 					var/location = pick(L)
 					var/turf/theturf = get_turf(location)
-					S.take_damage(SC.weapons.maths_damage,theturf)
 					if(S.has_shields())
 						playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 						if(target_subsystem)
 							target_subsystem.integrity -= (SC.weapons.maths_damage)/3 //Shields absorbs most of the damage
+							S.take_damage(SC.weapons.maths_damage,theturf) //So do the damage to the shields
 					else
 						if(target_subsystem)
 							target_subsystem.integrity -= (SC.weapons.maths_damage)/1.5 //No shields, fry that system
 							target_subsystem.heat += SC.weapons.maths_damage/10 //Heat for good measure :)
+							var/quickmaths = SC.weapons.maths_damage/3 //Thirds the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
+							S.take_damage(quickmaths,theturf)
+				//	S.take_damage(SC.weapons.maths_damage,theturf)
 					in_use1 = 0
 					var/chosen_sound = pick(soundlist)
 					SEND_SOUND(pilot, sound(chosen_sound))
