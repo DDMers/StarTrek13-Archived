@@ -17,17 +17,16 @@
 /mob
 	var/obj/structure/overmap/overmap_ship
 
-/obj/structure/overmap/proc/target_subsystem(pilot)
+/obj/structure/overmap/proc/target_subsystem(mob/user)
 	if(target_ship)
 		var/list/ourlist = target_ship.SC.systems
 		for(var/datum/shipsystem/S in ourlist)
 			if(S.failed)
 				ourlist -= S
-		var/A
 		to_chat(pilot, "List of subsystems and functions:")
 		to_chat(pilot, "The engines subsystem allows a ship to move | The sensors subsystem is not added yet | The hull subsystem (when targeted) will deal heavy physical damage to the target at the expense of not hitting a critical system | The weapons system will fail when damaged, preventing the enemy from firing | The shields subsystem allows a ship to project a shield")
-		A = input("Select subsystem to target", "Scan of [target_ship] (failed systems are not shown)", A) as anything in ourlist
-		var/datum/shipsystem/V = ourlist[A]
+		var/datum/shipsystem/V = input("Select subsystem to target", "Scan of [target_ship] (failed systems are not shown)", null) in ourlist
+	//	var/datum/shipsystem/V = ourlist[A]
 		target_subsystem = V
 		to_chat(pilot, "Weapons targeting the [V] subsystem")
 	else

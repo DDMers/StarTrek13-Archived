@@ -45,7 +45,7 @@
 "aS" = (/obj/structure/sign/viewscreen{icon_state = "trekscreen"},/turf/open/floor/borg/trek/light,/area/ship/target)
 "aT" = (/obj/structure/sign/viewscreen/lcars_redalert,/turf/closed/wall/ship,/area/ship/target)
 "aU" = (/obj/structure/photon_torpedo,/turf/open/floor/engine,/area/ship/target)
-"aV" = (/obj/structure/fluff/ship/panel,/turf/closed/wall/ship,/area/ship/target)
+"aV" = (/obj/structure/subsystem_panel,/turf/closed/wall/ship,/area/ship/target)
 "aW" = (/obj/structure/sign/viewscreen{icon_state = "trekscreen"},/obj/structure/window/reinforced{layer = 4.1},/turf/open/floor/borg/trek,/area/ship/target)
 "aX" = (/obj/structure/window/reinforced{layer = 4.1},/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek,/area/ship/target)
 "aY" = (/obj/structure/window/reinforced{layer = 4.1},/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/turf/open/floor/borg/trek,/area/ship/target)
@@ -57,84 +57,85 @@
 "be" = (/obj/structure/fluff/helm/desk/functional{tag = "icon-desk (WEST)"; icon_state = "desk"; dir = 8},/turf/open/floor/borg/trek/light,/area/ship/target)
 "bf" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (WEST)"; icon_state = "lcars"; dir = 8},/turf/closed/wall/ship,/area/ship/target)
 "bg" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek/light,/area/ship/target)
-"bh" = (/turf/open/floor/borg/trek/dark,/area/ship/target)
-"bi" = (/obj/structure/sign/viewscreen/lcars{dir = 8},/turf/closed/wall/ship,/area/ship/target)
-"bj" = (/obj/structure/chair/office/dark{dir = 1},/obj/machinery/light,/turf/open/floor/borg/trek/light,/area/ship/target)
-"bk" = (/obj/structure/rack,/turf/open/floor/borg/trek/light,/area/ship/target)
-"bl" = (/obj/structure/fluff/helm/desk/tactical{dir = 8},/turf/open/floor/borg/trek/red,/area/ship/target)
-"bm" = (/obj/machinery/computer/shipcomms{dir = 4; icon_state = "computer"; ship_name = "USS Entax"},/turf/open/floor/borg/trek/red,/area/ship/target)
-"bn" = (/obj/machinery/shieldgen/wallmounted,/turf/closed/wall/ship,/area/ship/target)
-"bo" = (/obj/structure/torpedo_launcher,/turf/open/floor/engine,/area/ship/target)
-"bp" = (/obj/machinery/light{dir = 8},/turf/open/floor/borg/trek/blue,/area/ship/target)
-"bq" = (/obj/structure/ladder/unbreakable{height = 1; id = "frigate"},/turf/open/floor/borg/trek/blue,/area/ship/target)
-"br" = (/obj/machinery/light{dir = 8},/turf/open/floor/borg/trek/dark,/area/ship/target)
-"bs" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/dark,/area/ship/target)
-"bt" = (/obj/structure/fluff/warpcore,/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 4; name = "engineering desk"},/turf/open/floor/borg/trek/dark,/area/ship/target)
-"bu" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/ship,/area/ship/target)
-"bv" = (/obj/structure/sign/viewscreen{dir = 8; icon_state = "trekscreenstars"},/turf/closed/wall/ship,/area/ship/target)
-"bw" = (/obj/structure/fluff/helm{dir = 8},/turf/open/floor/borg/trek/light,/area/ship/target)
-"bx" = (/obj/structure/fluff/helm/desk/functional/weapons{tag = "icon-desk (WEST)"; icon_state = "desk"; dir = 8},/turf/open/floor/borg/trek/light,/area/ship/target)
-"by" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (WEST)"; icon_state = "lcars2"; dir = 8},/turf/closed/wall/ship,/area/ship/target)
-"bz" = (/obj/structure/chair/office/dark,/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/borg/trek/light,/area/ship/target)
-"bA" = (/obj/structure/rack,/obj/item/ship_in_a_bottle,/turf/open/floor/borg/trek/light,/area/ship/target)
-"bB" = (/obj/structure/fluff/ship/panel/frame,/turf/closed/wall/ship,/area/ship/target)
-"bC" = (/obj/structure/window/reinforced{dir = 1},/turf/open/floor/borg/trek,/area/ship/target)
-"bD" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek,/area/ship/target)
-"bE" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/turf/open/floor/borg/trek,/area/ship/target)
-"bF" = (/obj/structure/table,/turf/open/floor/borg/trek/light,/area/ship/target)
-"bG" = (/obj/structure/overmap/ship/target,/turf/open/space,/area/ship/target)
-"bH" = (/obj/structure/grille,/obj/structure/window/shuttle,/turf/open/floor/borg/trek/light,/area/ship/target)
-"bI" = (/obj/structure/sign/viewscreen{dir = 1; icon_state = "trekscreen"},/turf/closed/wall/mineral/titanium,/area/ship/target)
-"bJ" = (/obj/structure/sign/viewscreen{dir = 1; icon_state = "trekscreen"},/turf/open/floor/borg/trek/light,/area/ship/target)
-"bK" = (/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/borg/trek/blue,/area/ship/target)
-"bL" = (/obj/structure/closet,/obj/item/clothing/shoes/jackboots,/turf/open/floor/borg/trek/light,/area/ship/target)
-"bM" = (/obj/machinery/power/ship/phaser,/turf/closed/wall/mineral/titanium,/area/ship/target)
-"bN" = (/turf/open/space/basic,/area/ship/target)
-"bO" = (/turf/open/water,/area/space)
-"bP" = (/obj/effect/landmark/shield,/turf/open/space/basic,/area/ship/target)
-"bQ" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/beige,/area/ship/target)
-"bR" = (/obj/structure/table,/obj/item/twohanded/required/kirbyplants{icon_state = "plant-15"; pixel_x = -6; pixel_y = 12},/turf/open/floor/borg/trek,/area/ship/target)
-"bS" = (/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/borg/trek,/area/ship/target)
-"bT" = (/turf/open/floor/borg/trek/beige,/area/ship/target)
-"bU" = (/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/borg/trek/beige,/area/ship/target)
-"bV" = (/obj/structure/table,/turf/open/floor/borg/trek,/area/ship/target)
-"bW" = (/obj/structure/closet/secure_closet/personal,/turf/open/floor/borg/trek,/area/ship/target)
-"bX" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/borg/trek/beige,/area/ship/target)
-"bY" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/borg/trek/beige,/area/ship/target)
-"bZ" = (/obj/item/twohanded/required/kirbyplants{icon_state = "plant-21"},/turf/open/floor/borg/trek,/area/ship/target)
-"ca" = (/obj/structure/bed/pod,/turf/open/floor/borg/trek,/area/ship/target)
-"cb" = (/obj/machinery/light,/turf/open/floor/borg/trek/beige,/area/ship/target)
-"cc" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek,/area/ship/target)
-"cd" = (/obj/machinery/door/airlock/trek{name = "bridge airlock"; req_access_txt = "19"},/turf/open/floor/borg/trek,/area/ship/target)
-"ce" = (/obj/structure/urinal,/turf/closed/wall/ship,/area/ship/target)
-"cf" = (/obj/machinery/vending/wallmed,/turf/closed/wall/ship/light/m,/area/ship/target)
-"cg" = (/obj/machinery/vending/coffee,/turf/open/floor/borg/trek/light,/area/ship/target)
-"ch" = (/obj/structure/chair/comfy/black,/turf/open/floor/borg/trek/light,/area/ship/target)
-"ci" = (/obj/machinery/chem_dispenser,/turf/open/floor/borg/trek,/area/ship/target)
-"cj" = (/obj/structure/table/optable,/turf/open/floor/borg/trek,/area/ship/target)
-"ck" = (/obj/structure/table,/obj/item/weapon/surgicaldrill,/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek,/area/ship/target)
-"cl" = (/obj/structure/bed/pod,/turf/open/floor/borg/trek/beige,/area/ship/target)
-"cm" = (/obj/structure/window/trek,/turf/open/floor/borg/trek/light,/area/ship/target)
-"cn" = (/obj/structure/table/glass,/turf/open/floor/borg/trek,/area/ship/target)
-"co" = (/obj/machinery/shower{icon_state = "shower"; dir = 4},/turf/open/floor/borg/trek/blue,/area/ship/target)
-"cp" = (/obj/machinery/vending/snack/random,/turf/open/floor/borg/trek/beige,/area/ship/target)
-"cq" = (/obj/structure/chair/comfy/black{dir = 4},/turf/open/floor/borg/trek,/area/ship/target)
-"cr" = (/obj/structure/chair/comfy/black{dir = 8},/turf/open/floor/borg/trek,/area/ship/target)
-"cs" = (/obj/structure/ladder/unbreakable{height = 2; id = "frigate"},/turf/open/floor/borg/trek/blue,/area/ship/target)
-"ct" = (/obj/machinery/chem_master,/turf/open/floor/borg/trek,/area/ship/target)
-"cu" = (/obj/machinery/iv_drip,/turf/open/floor/borg/trek,/area/ship/target)
-"cv" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek,/area/ship/target)
-"cw" = (/obj/machinery/vending/snack/random,/turf/open/floor/borg/trek/light,/area/ship/target)
-"cx" = (/obj/structure/chair/comfy/black{dir = 1},/turf/open/floor/borg/trek/light,/area/ship/target)
-"cy" = (/obj/machinery/light,/turf/open/floor/borg/trek,/area/ship/target)
-"cz" = (/obj/machinery/chem_heater,/turf/open/floor/borg/trek,/area/ship/target)
-"cA" = (/obj/structure/table,/obj/item/clothing/suit/toggle/labcoat/cmo,/obj/item/clothing/under/trek/medsci/next,/obj/item/clothing/under/trek/medsci/next,/turf/open/floor/borg/trek,/area/ship/target)
-"cB" = (/obj/structure/table,/obj/machinery/light,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/beaker,/turf/open/floor/borg/trek,/area/ship/target)
-"cC" = (/obj/machinery/seed_extractor,/turf/open/floor/borg/trek/beige,/area/ship/target)
-"cD" = (/obj/structure/reagent_dispensers/watertank/high,/turf/open/floor/borg/trek/beige,/area/ship/target)
-"cE" = (/obj/machinery/vending/hydroseeds,/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/borg/trek/beige,/area/ship/target)
-"cF" = (/obj/machinery/hydroponics/constructable,/turf/open/floor/borg/trek/beige,/area/ship/target)
-"cG" = (/obj/machinery/vending/hydronutrients,/turf/open/floor/borg/trek/beige,/area/ship/target)
+"bh" = (/obj/structure/subsystem_panel/weapons{dir = 4},/turf/closed/wall/ship,/area/ship/target)
+"bi" = (/turf/open/floor/borg/trek/dark,/area/ship/target)
+"bj" = (/obj/structure/sign/viewscreen/lcars{dir = 8},/turf/closed/wall/ship,/area/ship/target)
+"bk" = (/obj/structure/chair/office/dark{dir = 1},/obj/machinery/light,/turf/open/floor/borg/trek/light,/area/ship/target)
+"bl" = (/obj/structure/rack,/turf/open/floor/borg/trek/light,/area/ship/target)
+"bm" = (/obj/structure/fluff/helm/desk/tactical{dir = 8},/turf/open/floor/borg/trek/red,/area/ship/target)
+"bn" = (/obj/machinery/computer/shipcomms{dir = 4; icon_state = "computer"; ship_name = "USS Entax"},/turf/open/floor/borg/trek/red,/area/ship/target)
+"bo" = (/obj/machinery/shieldgen/wallmounted,/turf/closed/wall/ship,/area/ship/target)
+"bp" = (/obj/structure/torpedo_launcher,/turf/open/floor/engine,/area/ship/target)
+"bq" = (/obj/machinery/light{dir = 8},/turf/open/floor/borg/trek/blue,/area/ship/target)
+"br" = (/obj/structure/ladder/unbreakable{height = 1; id = "frigate"},/turf/open/floor/borg/trek/blue,/area/ship/target)
+"bs" = (/obj/machinery/light{dir = 8},/turf/open/floor/borg/trek/dark,/area/ship/target)
+"bt" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/dark,/area/ship/target)
+"bu" = (/obj/structure/fluff/warpcore,/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 4; name = "engineering desk"},/turf/open/floor/borg/trek/dark,/area/ship/target)
+"bv" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/ship,/area/ship/target)
+"bw" = (/obj/structure/sign/viewscreen{dir = 8; icon_state = "trekscreenstars"},/turf/closed/wall/ship,/area/ship/target)
+"bx" = (/obj/structure/fluff/helm{dir = 8},/turf/open/floor/borg/trek/light,/area/ship/target)
+"by" = (/obj/structure/fluff/helm/desk/functional/weapons{tag = "icon-desk (WEST)"; icon_state = "desk"; dir = 8},/turf/open/floor/borg/trek/light,/area/ship/target)
+"bz" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (WEST)"; icon_state = "lcars2"; dir = 8},/turf/closed/wall/ship,/area/ship/target)
+"bA" = (/obj/structure/chair/office/dark,/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/borg/trek/light,/area/ship/target)
+"bB" = (/obj/structure/rack,/obj/item/ship_in_a_bottle,/turf/open/floor/borg/trek/light,/area/ship/target)
+"bC" = (/obj/structure/subsystem_panel/engines,/turf/closed/wall/ship,/area/ship/target)
+"bD" = (/obj/structure/window/reinforced{dir = 1},/turf/open/floor/borg/trek,/area/ship/target)
+"bE" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek,/area/ship/target)
+"bF" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/turf/open/floor/borg/trek,/area/ship/target)
+"bG" = (/obj/structure/table,/turf/open/floor/borg/trek/light,/area/ship/target)
+"bH" = (/obj/structure/overmap/ship/target,/turf/open/space,/area/ship/target)
+"bI" = (/obj/structure/grille,/obj/structure/window/shuttle,/turf/open/floor/borg/trek/light,/area/ship/target)
+"bJ" = (/obj/structure/sign/viewscreen{dir = 1; icon_state = "trekscreen"},/turf/closed/wall/mineral/titanium,/area/ship/target)
+"bK" = (/obj/structure/sign/viewscreen{dir = 1; icon_state = "trekscreen"},/turf/open/floor/borg/trek/light,/area/ship/target)
+"bL" = (/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/borg/trek/blue,/area/ship/target)
+"bM" = (/obj/structure/closet,/obj/item/clothing/shoes/jackboots,/turf/open/floor/borg/trek/light,/area/ship/target)
+"bN" = (/obj/machinery/power/ship/phaser,/turf/closed/wall/mineral/titanium,/area/ship/target)
+"bO" = (/turf/open/space/basic,/area/ship/target)
+"bP" = (/turf/open/water,/area/space)
+"bQ" = (/obj/effect/landmark/shield,/turf/open/space/basic,/area/ship/target)
+"bR" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/beige,/area/ship/target)
+"bS" = (/obj/structure/table,/obj/item/twohanded/required/kirbyplants{icon_state = "plant-15"; pixel_x = -6; pixel_y = 12},/turf/open/floor/borg/trek,/area/ship/target)
+"bT" = (/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/borg/trek,/area/ship/target)
+"bU" = (/turf/open/floor/borg/trek/beige,/area/ship/target)
+"bV" = (/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/borg/trek/beige,/area/ship/target)
+"bW" = (/obj/structure/table,/turf/open/floor/borg/trek,/area/ship/target)
+"bX" = (/obj/structure/closet/secure_closet/personal,/turf/open/floor/borg/trek,/area/ship/target)
+"bY" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/borg/trek/beige,/area/ship/target)
+"bZ" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/borg/trek/beige,/area/ship/target)
+"ca" = (/obj/item/twohanded/required/kirbyplants{icon_state = "plant-21"},/turf/open/floor/borg/trek,/area/ship/target)
+"cb" = (/obj/structure/bed/pod,/turf/open/floor/borg/trek,/area/ship/target)
+"cc" = (/obj/machinery/light,/turf/open/floor/borg/trek/beige,/area/ship/target)
+"cd" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek,/area/ship/target)
+"ce" = (/obj/machinery/door/airlock/trek{name = "bridge airlock"; req_access_txt = "19"},/turf/open/floor/borg/trek,/area/ship/target)
+"cf" = (/obj/structure/urinal,/turf/closed/wall/ship,/area/ship/target)
+"cg" = (/obj/machinery/vending/wallmed,/turf/closed/wall/ship/light/m,/area/ship/target)
+"ch" = (/obj/machinery/vending/coffee,/turf/open/floor/borg/trek/light,/area/ship/target)
+"ci" = (/obj/structure/chair/comfy/black,/turf/open/floor/borg/trek/light,/area/ship/target)
+"cj" = (/obj/machinery/chem_dispenser,/turf/open/floor/borg/trek,/area/ship/target)
+"ck" = (/obj/structure/table/optable,/turf/open/floor/borg/trek,/area/ship/target)
+"cl" = (/obj/structure/table,/obj/item/weapon/surgicaldrill,/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek,/area/ship/target)
+"cm" = (/obj/structure/bed/pod,/turf/open/floor/borg/trek/beige,/area/ship/target)
+"cn" = (/obj/structure/window/trek,/turf/open/floor/borg/trek/light,/area/ship/target)
+"co" = (/obj/structure/table/glass,/turf/open/floor/borg/trek,/area/ship/target)
+"cp" = (/obj/machinery/shower{icon_state = "shower"; dir = 4},/turf/open/floor/borg/trek/blue,/area/ship/target)
+"cq" = (/obj/machinery/vending/snack/random,/turf/open/floor/borg/trek/beige,/area/ship/target)
+"cr" = (/obj/structure/chair/comfy/black{dir = 4},/turf/open/floor/borg/trek,/area/ship/target)
+"cs" = (/obj/structure/chair/comfy/black{dir = 8},/turf/open/floor/borg/trek,/area/ship/target)
+"ct" = (/obj/structure/ladder/unbreakable{height = 2; id = "frigate"},/turf/open/floor/borg/trek/blue,/area/ship/target)
+"cu" = (/obj/machinery/chem_master,/turf/open/floor/borg/trek,/area/ship/target)
+"cv" = (/obj/machinery/iv_drip,/turf/open/floor/borg/trek,/area/ship/target)
+"cw" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek,/area/ship/target)
+"cx" = (/obj/machinery/vending/snack/random,/turf/open/floor/borg/trek/light,/area/ship/target)
+"cy" = (/obj/structure/chair/comfy/black{dir = 1},/turf/open/floor/borg/trek/light,/area/ship/target)
+"cz" = (/obj/machinery/light,/turf/open/floor/borg/trek,/area/ship/target)
+"cA" = (/obj/machinery/chem_heater,/turf/open/floor/borg/trek,/area/ship/target)
+"cB" = (/obj/structure/table,/obj/item/clothing/suit/toggle/labcoat/cmo,/obj/item/clothing/under/trek/medsci/next,/obj/item/clothing/under/trek/medsci/next,/turf/open/floor/borg/trek,/area/ship/target)
+"cC" = (/obj/structure/table,/obj/machinery/light,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/beaker,/turf/open/floor/borg/trek,/area/ship/target)
+"cD" = (/obj/machinery/seed_extractor,/turf/open/floor/borg/trek/beige,/area/ship/target)
+"cE" = (/obj/structure/reagent_dispensers/watertank/high,/turf/open/floor/borg/trek/beige,/area/ship/target)
+"cF" = (/obj/machinery/vending/hydroseeds,/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/borg/trek/beige,/area/ship/target)
+"cG" = (/obj/machinery/hydroponics/constructable,/turf/open/floor/borg/trek/beige,/area/ship/target)
+"cH" = (/obj/machinery/vending/hydronutrients,/turf/open/floor/borg/trek/beige,/area/ship/target)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -151,17 +152,17 @@ abacacacacacacacacacaeayazaiauaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaAaiaBaCaiaiacab
 abadadadadadadaeaeaeaeaiaiaiauaxauauauaDauaxauauauauaxauauauauaEaFauaGauauaHacab
 abadadadaeaeaeaeaiaiaiaIaiaiaCaqaiaiaiaiaiaqaiaiaiaJaKaLaMaNaNaNaiaOaPaQauaHacab
 abadadadaeaeaeaeaiaRaSauauauasauaTaiaUajaAaxauaiauaiakaVakaWaXaYaiaOaPaQaZaHacab
-abadadaeaeaeaeaeaibabbaQbcbdbeaubfaiajajbgaxauaiaiaibhbhbhbhbhbhbiaubjaubkaiacab
-abadadaeaeaeaeaeaibaauaublbdbmaQbnboajajaibpaxbgbqbnbrbsbtbhbhbhbuaiaibnaiaiacab
-abadadaeaeaeaeaebvbabwaQbcbdbxaubyaiajajbgaxauaiaiaibhbhbhbhbhbhbiaubzaubAaiacab
-abadadadaeaeaeaeaiaRauauauauaDauaTaiaUajaAaxauaiauaiakbBakbCbDbEaibFbFauauaHacab
-abbGadadaeaeaeaeaiaiaiaiaiaBaCaqaiaiaiaiaiaqaiaiaiaJaKaLaMbHbHbHaiauauauauaHacab
-abadadadadadadaeaeaebIaiaiaiauaxauauauasauaxauauauauaxauaubJaubKaFauaDbLaZaHacab
+abadadaeaeaeaeaeaibabbaQbcbdbeaubfaiajajbgaxauaiaibhbibibibibibibjaubkaublaiacab
+abadadaeaeaeaeaeaibaauaubmbdbnaQbobpajajaibqaxbgbrbobsbtbubibibibvaiaiboaiaiacab
+abadadaeaeaeaeaebwbabxaQbcbdbyaubzaiajajbgaxauaiaiaibibibibibibibjaubAaubBaiacab
+abadadadaeaeaeaeaiaRauauauauaDauaTaiaUajaAaxauaiauaiakbCakbDbEbFaibGbGauauaHacab
+abbHadadaeaeaeaeaiaiaiaiaiaBaCaqaiaiaiaiaiaqaiaiaiaJaKaLaMbIbIbIaiauauauauaHacab
+abadadadadadadaeaeaebJaiaiaiauaxauauauasauaxauauauauaxauaubKaubLaFauaDbMaZaHacab
 abacacacacacacacacacaeayazaiauaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaAaiaBaCaiaiacab
 abacacacacacaaacacacadaeaeaiaiaDatauauaDauauauauauauaxauauauauaDaiaeaeaeaeaeacab
 abacacacacacacacacacadadaeaeaiaiaianaiaoaoaoaoaoaoapaqaoaoaoaoaoaiaearacacacacab
 abacacacacacacacacacadadadaeaeaeaeajaeaiaiakakakakakakakakakaiaiaealacacacacacab
-abacacacacacacacacacadadadadadadbMahaeaiaiaiaiaiaiaiaiaiaiaiaiaiaeaeaeacacacacab
+abacacacacacacacacacadadadadadadbNahaeaiaiaiaiaiaiaiaiaiaiaiaiaiaeaeaeacacacacab
 abacacacacacacacacacacacacacacacacacaeafafafagagagagagagagagagagagagafacacacacab
 abacacacacacacacacacacacacacacacacacadadadadadadadadadadadadadadadadadacacacacab
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacab
@@ -170,7 +171,7 @@ abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacab
 "}
 
 (1,1,2) = {"
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabN
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabO
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -182,13 +183,13 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaabObObObObObObObObObOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaabObObObObObObObObObOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaabObObObObObObObObObOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaabObObObObObObObObObOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaabObObObObObObObObObOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaabObObObObObObObObObOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaabObObObObObObObObObOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaabPbPbPbPbPbPbPbPbPbPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaabPbPbPbPbPbPbPbPbPbPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaabPbPbPbPbPbPbPbPbPbPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaabPbPbPbPbPbPbPbPbPbPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaabPbPbPbPbPbPbPbPbPbPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaabPbPbPbPbPbPbPbPbPbPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaabPbPbPbPbPbPbPbPbPbPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -203,34 +204,34 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
 
 (1,1,3) = {"
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaibQbQbQbQaibQbQbQaiaiaiaiaiaibQbQbQaiaiaiaiaiaiaibQbQbQaiaiaiaiaiaiaaaabP
-bPaaaaaibRakbSakaiauauauauauauasauauasauauauasauauauauasauauauaibTbTbUbTaiaaaabP
-bPaaaaaibVakakbWaiauaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaubgbTbXbYbTaiaaaabP
-bPaaaaaibZakakcaaiauaxauauauauauauaxauauauauauauauauauauauaxauaibTbTcbbTaiaaaabP
-bPaaaaaiaiccaKaiaiaCcdaicececeaiauaxaiaoaoaoaiaocfaoaoaiauaxauaibQbQbQbQaiaaaabP
-bPaaaaaicgauauchauauauaTakbSakaAauaxaiakbSakaiciakcjckaiauaxauaiclbTbUclaiaaaabP
-bPaaaacmauakcncncnakakbicoaxaxbgaxaxaiaxaxaxaiakakakakbgaxaxauaibTbTbTcpaiaaaabP
-bPaaaacmaucqcncncncrakbnaxaxaxaiauaxaFaxcsaxaictakakcuaiauaxaxcvclbTbTclaiaaaabP
-bPaaaacmauakcncncnakakbicoaxaxbgaxaxaiaxaxaxaiakakakakbgaxaxauaibTbTbTcpaiaaaabP
-bPaaaaaicwauaucxauauauaTakcyakaAauaxaiakcyakaiczakcAcBaiauaxauaiclbTcbclaiaaaabP
-bPaaaaaiaiccaKaiaBaCcdaiaiaiaiaiauaxaiaoaoaoaiaocfaoaoaiauaxauaibQbQbQbQaiaaaabP
-bPaaaaaibZakakcaaiauaxauauauauauauaxauauauauauauauauauauauaxauaicCcDcEcFaiaaaabP
-bPaaaaaibVakakbWaiauaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaubgbTbTbTbTaiaaaabP
-bPaaaaaibRakcyakaiauauauauauauaDauauaDauauauaDauauauauaDauauauaicGbTbTcFaiaaaabP
-abaaaaaibQbQbQbQaibQbQbQaiaiaiaiaiaibQbQbQaiaiaiaiaiaiaibQbQbQaiaiaiaiaiaiaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
-bPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabP
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaibRbRbRbRaibRbRbRaiaiaiaiaiaibRbRbRaiaiaiaiaiaiaibRbRbRaiaiaiaiaiaiaaaabQ
+bQaaaaaibSakbTakaiauauauauauauasauauasauauauasauauauauasauauauaibUbUbVbUaiaaaabQ
+bQaaaaaibWakakbXaiauaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaubgbUbYbZbUaiaaaabQ
+bQaaaaaicaakakcbaiauaxauauauauauauaxauauauauauauauauauauauaxauaibUbUccbUaiaaaabQ
+bQaaaaaiaicdaKaiaiaCceaicfcfcfaiauaxaiaoaoaoaiaocgaoaoaiauaxauaibRbRbRbRaiaaaabQ
+bQaaaaaichauauciauauauaTakbTakaAauaxaiakbTakaicjakckclaiauaxauaicmbUbVcmaiaaaabQ
+bQaaaacnauakcococoakakbjcpaxaxbgaxaxaiaxaxaxaiakakakakbgaxaxauaibUbUbUcqaiaaaabQ
+bQaaaacnaucrcocococsakboaxaxaxaiauaxaFaxctaxaicuakakcvaiauaxaxcwcmbUbUcmaiaaaabQ
+bQaaaacnauakcococoakakbjcpaxaxbgaxaxaiaxaxaxaiakakakakbgaxaxauaibUbUbUcqaiaaaabQ
+bQaaaaaicxauaucyauauauaTakczakaAauaxaiakczakaicAakcBcCaiauaxauaicmbUcccmaiaaaabQ
+bQaaaaaiaicdaKaiaBaCceaiaiaiaiaiauaxaiaoaoaoaiaocgaoaoaiauaxauaibRbRbRbRaiaaaabQ
+bQaaaaaicaakakcbaiauaxauauauauauauaxauauauauauauauauauauauaxauaicDcEcFcGaiaaaabQ
+bQaaaaaibWakakbXaiauaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaubgbUbUbUbUaiaaaabQ
+bQaaaaaibSakczakaiauauauauauauaDauauaDauauauaDauauauauaDauauauaicHbUbUcGaiaaaabQ
+abaaaaaibRbRbRbRaibRbRbRaiaiaiaiaiaibRbRbRaiaiaiaiaiaiaibRbRbRaiaiaiaiaiaiaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
+bQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabQ
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

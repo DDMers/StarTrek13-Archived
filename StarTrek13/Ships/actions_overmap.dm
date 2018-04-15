@@ -33,7 +33,7 @@
 	var/obj/structure/overmap/ship
 
 /datum/action/innate/subsystemtarget/Trigger()
-	ship.target_subsystem()
+	ship.target_subsystem(ship.pilot)
 
 /datum/action/innate/warp
 	name = "Engage warp drive"
