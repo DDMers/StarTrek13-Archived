@@ -28,7 +28,7 @@
 		linked.combadges -= src
 	var/area/A = get_area(src)
 	if(istype(A, /area/ship))
-		var/area/ship/S = A
+		var/area/ship/S = AO
 		if(src in S.combadges)
 			S.combadges -= src
 		linked = S
@@ -43,9 +43,12 @@
 	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
 	//	if(C in stored_user.contents) //Stops you hearing yourself
 	//		return
-		C.receive_message(message,user)
+		C.receive_message(message,C.stored_user)
 
 /obj/item/clothing/neck/combadge/proc/receive_message(var/message, mob/living/carbon/sender)
 	if(on)
 		to_chat(stored_user, "<span class='warning'><b>[sender]</b> <b>([sender.mind.assigned_role])</b>: [message]</span>")
 		playsound(loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 10, 1)
+	else
+		to_chat(stored_user, "Your [src] buzzes quietly")
+		return 0
