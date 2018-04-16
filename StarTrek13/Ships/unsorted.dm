@@ -28,7 +28,7 @@
 		linked.combadges -= src
 	var/area/A = get_area(src)
 	if(istype(A, /area/ship))
-		var/area/ship/S = AO
+		var/area/ship/S = A
 		if(src in S.combadges)
 			S.combadges -= src
 		linked = S
