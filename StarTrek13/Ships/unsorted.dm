@@ -24,6 +24,8 @@
 	link_to_area(user)
 
 /obj/item/clothing/neck/combadge/proc/link_to_area(mob/user)
+	if(linked)
+		linked.combadges -= src
 	var/area/A = get_area(src)
 	if(istype(A, /area/ship))
 		var/area/ship/S = A
