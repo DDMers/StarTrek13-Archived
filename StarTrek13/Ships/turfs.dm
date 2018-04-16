@@ -236,3 +236,10 @@
 	desc = "a hi-tech chair"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "chair"
+
+
+/obj/structure/chair/trek/bridge
+	name = "bridge chair"
+	desc = "an extra padded chair, with full leather upholstery."
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "bridgechair"
