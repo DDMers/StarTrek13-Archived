@@ -93,7 +93,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 					return
 				var/obj/item/clothing/neck/combadge/c = C
 				c.send_message(input, src)
-				return
+				return verb_say
 			//	return verb_say
 	else
 		return verb_say
