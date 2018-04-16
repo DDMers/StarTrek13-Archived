@@ -204,19 +204,24 @@
 
 /turf/open/warp_room_overlay
 	icon = 'StarTrek13/icons/trek/warp_room_overlay.PNG'
+	name = "floor"
 
 
 /turf/open/bridge_overlay
 	icon = 'StarTrek13/icons/trek/bridge_overlay.PNG'
+	name = "floor"
 
 /turf/open/cargobay_overlay
 	icon = 'StarTrek13/icons/trek/cargobay_overlay.PNG'
+	name = "floor"
 
 /turf/open/brig_overlay
 	icon = 'StarTrek13/icons/trek/brig_overlay.PNG'
+	name = "floor"
 
 /turf/open/storagebay_overlay
 	icon = 'StarTrek13/icons/trek/storagebay_overlay.PNG'
+	name = "floor"
 
 /obj/structure/trek_table
 	name = "table"
