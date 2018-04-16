@@ -79,13 +79,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 /atom/movable/proc/say_mod(input, message_mode)
 	var/ending = copytext(input, length(input))
-	if(copytext(input, length(input) - 1) == "!!")
-		return verb_yell
-	else if(ending == "?")
-		return verb_ask
-	else if(ending == "!")
-		return verb_exclaim
-	else if(ending == "`")
+	if(ending == "`")
 		if(istype(src, /mob/living/carbon))
 			var/mob/living/carbon/thecarbon = src
 			for(var/obj/item/clothing/neck/combadge/C in thecarbon.contents)
@@ -94,7 +88,12 @@ GLOBAL_LIST_INIT(freqtospan, list(
 				var/obj/item/clothing/neck/combadge/c = C
 				c.send_message(input, src)
 				return verb_say
-			//	return verb_say
+	if(copytext(input, length(input) - 1) == "!!")
+		return verb_yell
+	else if(ending == "?")
+		return verb_ask
+	else if(ending == "!")
+		return verb_exclaim
 	else
 		return verb_say
 

@@ -7,6 +7,8 @@
 	var/area/ship/linked
 	var/mob/living/stored_user
 	var/on = FALSE
+	var/next_talk = 0 //used for move delays
+	var/talk_delay = 0.1
 
 /obj/item/clothing/neck/combadge/CtrlClick(mob/user)
 	playsound(loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 50, 1)
@@ -37,18 +39,17 @@
 
 
 /obj/item/clothing/neck/combadge/proc/send_message(var/message, mob/living/carbon/user)
+	if(world.time < next_talk)
+		return 0
+	next_talk = world.time + talk_delay
 	if(!linked)
 		link_to_area(user)
-	stored_user = user
-	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
-	//	if(C in stored_user.contents) //Stops you hearing yourself
-	//		return
-		C.receive_message(message,C.stored_user)
-
-/obj/item/clothing/neck/combadge/proc/receive_message(var/message, mob/living/carbon/sender)
-	if(on)
-		to_chat(stored_user, "<span class='warning'><b>[sender]</b> <b>([sender.mind.assigned_role])</b>: [message]</span>")
-		playsound(loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 10, 1)
-	else
-		to_chat(stored_user, "Your [src] buzzes quietly")
-		return 0
+	if(src in user.contents)
+		stored_user = user
+		for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
+			if(C.on && C.stored_user)
+				playsound(C.loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 10, 1)
+				to_chat(C.stored_user, "<span class='warning'><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
+			else
+				to_chat(C.stored_user, "Your [src] buzzes softly")
+			return
