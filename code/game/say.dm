@@ -78,7 +78,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	return ""
 
 /atom/movable/proc/say_mod(input, message_mode)
-	var/ending = copytext(input, length(input))
+	var/ending = copytext(input, length(input)) //Uhh
 	if(ending == "`")
 		if(istype(src, /mob/living/carbon))
 			var/mob/living/carbon/thecarbon = src
