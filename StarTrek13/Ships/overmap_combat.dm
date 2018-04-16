@@ -1,9 +1,9 @@
 
-#define TINY 5
-#define SMALL 3
-#define MEDIUM 2
-#define LARGE 1
-#define HUGE 0.7
+#define TINY 2
+#define SMALL 1
+#define MEDIUM 0.7
+#define LARGE 0.5
+#define HUGE 0.3
 
 /obj/structure/overmap
 	var/size = LARGE

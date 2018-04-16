@@ -731,6 +731,7 @@
 	noteleport = 0
 	blob_allowed = 0 //Should go without saying, no blobs should take over centcom as a win condition.
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	var/obj/item/clothing/neck/combadge/combadges = list()
 
 /area/ship/bridge
 	name = "A starship bridge"

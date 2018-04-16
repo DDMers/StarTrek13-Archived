@@ -133,6 +133,12 @@
 	name = "captain's display"
 	desc = "An LCARS display showing all shipboard systems, status: NOMINAL"
 	var/datum/looping_sound/trek/bridge/soundloop
+	icon_state = "miniconsole"
+
+/obj/structure/fluff/helm/desk/captain2 //makes star trek noises!
+	name = "captain's display"
+	desc = "An LCARS display showing all shipboard systems, status: NOMINAL"
+	icon_state = "miniconsole"
 
 /obj/structure/fluff/helm/desk/noisy/New()
 	. = ..()

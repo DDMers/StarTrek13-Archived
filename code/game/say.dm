@@ -27,16 +27,6 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(!language)
 		language = get_default_language()
 	send_speech(message, 7, src, , spans, message_language=language)
-	//STARTREK13, currently just an idea
-//	if(findtext(message, "[name]")) //Ayrism to captain
-	//	if(findtext(message, "to"))
-	//		var/list/names = list()
-		//	var/area/thearea = get_area(src)
-		//	for(var/mob/living/M in thearea.contents)
-		//		names += M
-		//		if(findtext(message, M.name))
-		//			var/atom/movable/hailed = M
-		//			to_chat(world, hailed)
 
 
 /atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
@@ -95,6 +85,16 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		return verb_ask
 	else if(ending == "!")
 		return verb_exclaim
+	else if(ending == "`")
+		if(istype(src, /mob/living/carbon))
+			var/mob/living/carbon/thecarbon = src
+			for(var/obj/item/clothing/neck/combadge/C in thecarbon.contents)
+				if(!istype(C, /obj/item/clothing/neck/combadge))
+					return
+				var/obj/item/clothing/neck/combadge/c = C
+				c.send_message(input, src)
+				return
+			//	return verb_say
 	else
 		return verb_say
 

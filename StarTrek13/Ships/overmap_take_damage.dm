@@ -41,7 +41,7 @@
 */
 
 /obj/structure/overmap/proc/apply_damage(var/amount)
-	var/maths = 0
+	var/maths = 5
 	if(istype(agressor.target_subsystem, /datum/shipsystem/integrity)) //If they target the hull subsystem, they deal heavy physical damage
 		maths += 20 //Heavily increase physical damage
 	if(prob(20))

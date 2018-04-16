@@ -317,17 +317,20 @@
 	opacity = 0
 	layer = 4.5
 
+
 /obj/structure/fluff/helm/desk/functional
 	name = "shield station"
 	var/obj/structure/overmap/ship/our_ship
 	var/datum/shipsystem/shields/subsystem
 	var/mob/living/carbon/human/crewman
+	icon_state = "shields"
 
 /obj/structure/fluff/helm/desk/functional/nt
 	icon_state = "computer"
 
 /obj/structure/fluff/helm/desk/functional/weapons
 	name = "weapons station"
+	icon_state = "weapons"
 	/datum/shipsystem/weapons/subsystem
 
 /obj/structure/fluff/helm/desk/functional/weapons/nt
