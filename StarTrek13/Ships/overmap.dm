@@ -217,7 +217,7 @@ var/global/list/global_ship_list = list()
 	warp_capable = TRUE
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
-	name = "USS Sovreign"
+	name = "UMD Darkmatter"
 	icon = 'StarTrek13/icons/trek/large_ships/sovreign.dmi'
 	icon_state = "sovreign"
 //	pixel_x = -100
@@ -398,6 +398,7 @@ var/global/list/global_ship_list = list()
 		else//no shields are up! take the hit
 			apply_damage(amount)
 			health -= amount
+			SC.hull_integrity.integrity -= amount
 			return
 	else
 		shake_camera(pilot, 1, 10)
@@ -460,6 +461,7 @@ var/global/list/global_ship_list = list()
 	check_charge()
 	check_overlays()
 	counter ++
+	damage = SC.weapons.damage
 	if(navigating)
 		update_turrets()
 		navigate()

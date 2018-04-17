@@ -89,9 +89,6 @@
 
 /obj/machinery/computer/camera_advanced/transporter_control/attack_hand(mob/user)
 //	interact(user)
-	if(operator)
-		to_chat(user, "The console is already in use!")
-		return
 	var/A
 	var/B
 	if(operator)
@@ -141,6 +138,8 @@
                         //        Z.alpha = 255
 				break
 		if("cancel")
+			if(operator)
+				remove_eye_control(operator)
 			return
 
 // TGUI

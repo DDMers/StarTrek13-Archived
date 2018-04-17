@@ -201,18 +201,17 @@
 					for(var/turf/T in get_area_turfs(thearea.type))
 						L+=T
 					var/location = pick(L)
-					var/turf/theturf = get_turf(location)
 					if(S.has_shields())
 						playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 						if(target_subsystem)
 							target_subsystem.integrity -= (SC.weapons.maths_damage)/3 //Shields absorbs most of the damage
-							S.take_damage(SC.weapons.maths_damage,theturf) //So do the damage to the shields
+							S.take_damage(SC.weapons.maths_damage) //So do the damage to the shields
 					else
 						if(target_subsystem)
 							target_subsystem.integrity -= (SC.weapons.maths_damage)/1.5 //No shields, fry that system
 							target_subsystem.heat += SC.weapons.maths_damage/10 //Heat for good measure :)
 							var/quickmaths = SC.weapons.maths_damage/3 //Thirds the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
-							S.take_damage(quickmaths,theturf)
+							S.take_damage(quickmaths)
 				//	S.take_damage(SC.weapons.maths_damage,theturf)
 					in_use1 = 0
 					var/chosen_sound = pick(soundlist)
@@ -223,6 +222,7 @@
 				//	current_beam.beam.pixel_x = target_ship.pixel_x
 				//	current_beam.beam.pixel_y = target_ship.pixel_y
 					to_chat(pilot, "You successfully hit [S]")
+					target_ship.take_damage(damage)
 					if(!has_shields())
 						var/obj/effect/explosion/explosion = new(get_turf(target_ship))
 						var/matrix/ntransform = matrix(transform)
