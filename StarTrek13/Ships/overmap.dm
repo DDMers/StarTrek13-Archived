@@ -216,6 +216,16 @@ var/global/list/global_ship_list = list()
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 
+/obj/structure/overmap/ship/federation_capitalclass/sovreign
+	name = "USS Sovreign"
+	icon = 'StarTrek13/icons/trek/large_ships/sovreign.dmi'
+	icon_state = "sovreign"
+//	pixel_x = -100
+//	pixel_y = -100
+//	var/datum/shipsystem_controller/SC
+	warp_capable = TRUE
+
+
 /obj/structure/overmap/ship/cruiser
 	name = "USS Excelsior"
 	icon = 'StarTrek13/icons/trek/large_ships/excelsior.dmi'

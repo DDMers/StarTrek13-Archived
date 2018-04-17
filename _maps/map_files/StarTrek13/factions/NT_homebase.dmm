@@ -112,103 +112,90 @@
 "ch" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{dir = 4},/turf/open/floor/plasteel/green/side{dir = 4},/area/centcom)
 "ci" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/whitered/side{icon_state = "whitered"; dir = 8},/area/centcom)
 "cj" = (/turf/open/floor/plasteel/whitered/side{icon_state = "whitered"; dir = 4},/area/centcom)
-"ck" = (/turf/open/floor/plasteel/red/side{dir = 8},/area/centcom)
-"cl" = (/obj/structure/rack,/obj/item/gun/energy/e_gun/dragnet,/obj/item/gun/energy/e_gun/dragnet,/turf/open/floor/plasteel/vault{dir = 8},/area/centcom)
-"cm" = (/obj/structure/rack,/obj/item/clothing/suit/armor/bulletproof{pixel_x = -3; pixel_y = 3},/obj/item/clothing/suit/armor/bulletproof,/obj/item/clothing/suit/armor/bulletproof{pixel_x = 3; pixel_y = -3},/obj/item/clothing/head/helmet/alt{layer = 3.00001; pixel_x = -3; pixel_y = 3},/obj/item/clothing/head/helmet/alt{layer = 3.00001},/obj/item/clothing/head/helmet/alt{layer = 3.00001; pixel_x = 3; pixel_y = -3},/obj/machinery/camera/motion{c_tag = "Armory Motion Sensor"; dir = 2; name = "motion-sensitive security camera"},/turf/open/floor/plasteel/vault{dir = 8},/area/centcom)
-"cn" = (/obj/structure/rack,/obj/item/clothing/suit/armor/riot{pixel_x = -3; pixel_y = 3},/obj/item/clothing/suit/armor/riot,/obj/item/clothing/suit/armor/riot{pixel_x = 3; pixel_y = -3},/obj/machinery/light{dir = 1},/obj/item/clothing/head/helmet/riot{pixel_x = -3; pixel_y = 3},/obj/item/clothing/head/helmet/riot,/obj/item/clothing/head/helmet/riot{pixel_x = 3; pixel_y = -3},/obj/item/shield/riot{pixel_x = -3; pixel_y = 3},/obj/item/shield/riot,/obj/item/shield/riot{pixel_x = 3; pixel_y = -3},/turf/open/floor/plasteel/vault{dir = 8},/area/centcom)
-"co" = (/obj/structure/rack,/obj/item/gun/energy/ionrifle,/obj/item/gun/energy/temperature/security,/obj/item/clothing/suit/armor/laserproof,/turf/open/floor/plasteel/vault{dir = 8},/area/centcom)
-"cp" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/door/airlock/maintenance_hatch,/obj/machinery/atmospherics/pipe/simple/supply/visible,/turf/open/floor/plating,/area/centcom)
-"cq" = (/obj/structure/closet/crate,/turf/open/floor/plasteel,/area/centcom)
-"cr" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/turf/open/floor/plasteel/yellow/side{dir = 4},/area/centcom)
-"cs" = (/obj/machinery/mecha_part_fabricator,/obj/effect/turf_decal/stripes/line,/turf/open/floor/plasteel/whitepurple/side{icon_state = "whitepurple"; dir = 8},/area/centcom)
-"ct" = (/obj/structure/table,/obj/item/stack/sheet/metal/fifty,/obj/item/stack/sheet/metal/fifty,/obj/item/stack/sheet/glass{amount = 20; pixel_x = -3; pixel_y = 6},/obj/item/storage/belt/utility,/obj/effect/turf_decal/stripes/line,/turf/open/floor/plasteel/white,/area/centcom)
-"cu" = (/obj/structure/table,/obj/item/storage/toolbox/mechanical{pixel_x = -2; pixel_y = -1},/obj/item/clothing/head/welding{pixel_x = -3; pixel_y = 5},/obj/item/clothing/glasses/welding,/obj/item/device/multitool{pixel_x = 3},/turf/open/floor/plasteel/white,/area/centcom)
-"cv" = (/obj/machinery/computer/rdconsole/core,/turf/open/floor/plasteel/white,/area/centcom)
-"cw" = (/turf/open/floor/plasteel/whitepurple/side{icon_state = "whitepurple"; dir = 4},/area/centcom)
-"cx" = (/turf/open/floor/plasteel/whitered/side{icon_state = "whitered"; dir = 8},/area/centcom)
-"cy" = (/obj/effect/turf_decal/stripes/line{dir = 1},/turf/open/floor/plasteel,/area/centcom)
-"cz" = (/turf/open/floor/plasteel/whitepurple/side{icon_state = "whitepurple"; dir = 8},/area/centcom)
-"cA" = (/obj/structure/rack,/obj/item/gun/ballistic/shotgun/riot,/obj/effect/turf_decal/bot{dir = 2},/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/window/reinforced{dir = 8},/turf/open/floor/plasteel{dir = 2},/area/centcom)
-"cB" = (/obj/structure/rack,/obj/item/gun/energy/e_gun{pixel_x = -3; pixel_y = 3},/obj/item/gun/energy/e_gun,/obj/item/gun/energy/e_gun{pixel_x = 3; pixel_y = -3},/obj/effect/turf_decal/bot{dir = 2},/obj/structure/window/reinforced{dir = 1; layer = 2.9},/turf/open/floor/plasteel{dir = 2},/area/centcom)
-"cC" = (/obj/structure/rack,/obj/item/gun/energy/laser{pixel_x = -3; pixel_y = 3},/obj/item/gun/energy/laser,/obj/item/gun/energy/laser{pixel_x = 3; pixel_y = -3},/obj/effect/turf_decal/bot{dir = 2},/obj/structure/window/reinforced{dir = 1; layer = 2.9},/turf/open/floor/plasteel{dir = 2},/area/centcom)
-"cD" = (/obj/structure/rack,/obj/item/gun/energy/e_gun/advtaser{pixel_x = -3; pixel_y = 3},/obj/item/gun/energy/e_gun/advtaser,/obj/item/gun/energy/e_gun/advtaser{pixel_x = 3; pixel_y = -3},/obj/effect/turf_decal/bot{dir = 2},/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/window/reinforced{dir = 4},/turf/open/floor/plasteel{dir = 2},/area/centcom)
-"cE" = (/obj/structure/catwalk,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plating,/area/centcom)
-"cF" = (/obj/structure/catwalk,/obj/machinery/light{dir = 4},/turf/open/floor/plating,/area/centcom)
-"cG" = (/obj/structure/closet/crate,/turf/open/floor/plasteel/yellow/side{dir = 4},/area/centcom)
-"cH" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/red/side{dir = 8},/area/centcom)
-"cI" = (/obj/structure/closet/crate,/obj/machinery/light{dir = 4},/turf/open/floor/plasteel/yellow/side{dir = 4},/area/centcom)
-"cJ" = (/obj/machinery/light,/turf/open/floor/plasteel/white,/area/centcom)
-"cK" = (/obj/item/reagent_containers/glass/beaker/sulphuric,/obj/machinery/light,/turf/open/floor/plasteel/white,/area/centcom)
-"cL" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/vending/dinnerware,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cM" = (/obj/effect/decal/cleanable/dirt,/obj/structure/closet/secure_closet/freezer/fridge,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cN" = (/obj/effect/decal/cleanable/dirt,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cO" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{dir = 1},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cP" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/pipe/simple/supply/hidden,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cQ" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/airalarm{frequency = 1439; locked = 0; pixel_y = 23; req_access = "0"; req_one_access = "0"},/obj/effect/decal/cleanable/egg_smudge,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cR" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/processor,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cS" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/machinery/microwave{pixel_x = -3; pixel_y = 6},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cT" = (/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/window/reinforced{dir = 8},/obj/structure/rack,/turf/open/floor/plasteel,/area/centcom)
-"cU" = (/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/rack,/turf/open/floor/plasteel,/area/centcom)
-"cV" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/flour,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cW" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/item/kitchen/rollingpin,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cX" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/item/reagent_containers/food/condiment/enzyme{layer = 5},/obj/machinery/atmospherics/components/unary/vent_pump/on{dir = 1},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cY" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/machinery/reagentgrinder,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"cZ" = (/turf/open/floor/plasteel/red/side{dir = 10},/area/centcom)
-"da" = (/turf/open/floor/plasteel/red/side,/area/centcom)
-"db" = (/obj/effect/decal/cleanable/dirt,/obj/effect/landmark/faction_spawn/independant,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dc" = (/obj/structure/closet/crate,/turf/open/floor/plasteel/yellow/side,/area/centcom)
-"dd" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/turf/open/floor/plasteel/yellow/side{dir = 6},/area/centcom)
-"de" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/vomit/old,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"df" = (/obj/effect/decal/cleanable/dirt,/obj/structure/chair{dir = 4},/obj/machinery/light/small{brightness = 3; dir = 8},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dg" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/item/kitchen/fork,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dh" = (/obj/effect/decal/cleanable/dirt,/obj/structure/chair{dir = 8},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"di" = (/obj/effect/decal/cleanable/dirt,/obj/structure/chair{dir = 4},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dj" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/item/reagent_containers/food/condiment/peppermill{pixel_x = 5; pixel_y = -2},/obj/item/reagent_containers/food/condiment/saltshaker{pixel_x = -2; pixel_y = 2},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dk" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/item/trash/plate,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dl" = (/obj/effect/decal/cleanable/dirt,/obj/structure/chair{dir = 8},/obj/machinery/light/small{dir = 4},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dm" = (/turf/open/floor/plasteel/green/side{dir = 8},/area/centcom)
-"dn" = (/obj/machinery/vending/coffee,/turf/open/floor/plasteel,/area/centcom)
-"do" = (/obj/machinery/vending/sovietsoda,/turf/open/floor/plasteel,/area/centcom)
-"dp" = (/obj/machinery/vending/snack/random,/obj/machinery/light{dir = 4},/turf/open/floor/plasteel,/area/centcom)
-"dq" = (/obj/structure/catwalk,/obj/machinery/light{dir = 4; light_color = "#e8eaff"},/turf/open/floor/plating,/area/centcom)
-"dr" = (/obj/machinery/vending/snack/random,/turf/open/floor/plasteel,/area/centcom)
-"ds" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable{icon_state = "1-2"},/obj/machinery/door/airlock/maintenance_hatch,/turf/open/floor/plating,/area/centcom)
-"dt" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/open/floor/plasteel/floorgrime,/area/centcom)
-"du" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/open/floor/plating,/area/centcom)
-"dv" = (/obj/machinery/door/window/brigdoor/security/cell{id = "Cell 1"; name = "Cell 1"},/turf/open/floor/plasteel/red/side,/area/centcom)
-"dw" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/open/floor/plasteel,/area/centcom)
-"dx" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/cobweb,/turf/open/floor/plating,/area/centcom)
-"dy" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/plating,/area/centcom)
-"dz" = (/obj/effect/decal/cleanable/dirt,/obj/structure/mirror{name = "dusty mirror"; pixel_y = 28},/turf/open/floor/plasteel,/area/centcom)
-"dA" = (/obj/effect/decal/cleanable/dirt,/obj/structure/closet/crate,/turf/open/floor/plating,/area/centcom)
-"dB" = (/obj/effect/decal/cleanable/dirt,/turf/open/floor/plating,/area/centcom)
-"dC" = (/obj/structure/window/trek/steel{dir = 4},/obj/structure/curtain,/turf/open/floor/plasteel,/area/centcom)
-"dD" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on{dir = 1},/obj/item/device/radio/intercom{desc = "Talk through this. It looks like it has been modified to not broadcast."; dir = 2; name = "Prison Intercom (General)"; pixel_x = -25; pixel_y = -2; prison_radio = 1},/turf/open/floor/plasteel/floorgrime,/area/centcom)
-"dE" = (/turf/open/floor/plasteel/floorgrime,/area/centcom)
-"dF" = (/obj/machinery/light/small{dir = 4},/turf/open/floor/plasteel/floorgrime,/area/centcom)
-"dG" = (/obj/structure/table,/obj/item/crowbar,/obj/item/device/flashlight/glowstick,/obj/effect/decal/cleanable/dirt,/turf/open/floor/plasteel,/area/centcom)
-"dH" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/computer{desc = "A computer long since rendered non-functional due to lack of maintenance. Spitting out error messages."; name = "Broken Computer"},/turf/open/floor/plasteel,/area/centcom)
-"dI" = (/obj/machinery/shower{dir = 4},/turf/open/floor/plasteel,/area/centcom)
-"dJ" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on{dir = 1},/turf/open/floor/plasteel,/area/centcom)
-"dK" = (/obj/machinery/shower{dir = 8},/turf/open/floor/plasteel,/area/centcom)
-"dL" = (/obj/structure/bed,/obj/item/bedsheet,/obj/machinery/flasher{id = "Cell 1"; pixel_x = -28},/turf/open/floor/plasteel/floorgrime,/area/centcom)
-"dM" = (/obj/structure/closet/secure_closet/brig{id = "Cell 1"; name = "Cell 1 Locker"},/turf/open/floor/plasteel/floorgrime,/area/centcom)
-"dN" = (/obj/effect/decal/cleanable/dirt,/obj/item/solar_assembly,/obj/item/stack/sheet/glass{amount = 30},/turf/open/floor/plating,/area/centcom)
-"dO" = (/obj/structure/table,/obj/item/crowbar,/obj/item/device/flashlight/glowstick,/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{dir = 8},/turf/open/floor/plasteel,/area/centcom)
-"dP" = (/obj/structure/table,/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{dir = 4},/obj/item/paper/fluff/ruins/oldstation,/turf/open/floor/plasteel,/area/centcom)
-"dQ" = (/obj/effect/decal/cleanable/dirt,/obj/structure/closet/crate,/obj/item/reagent_containers/spray/weedspray,/obj/item/reagent_containers/spray/pestspray,/turf/open/floor/plating,/area/centcom)
-"dR" = (/obj/effect/decal/cleanable/dirt,/obj/item/solar_assembly,/obj/item/solar_assembly,/obj/item/solar_assembly,/obj/item/solar_assembly,/obj/item/solar_assembly,/obj/item/solar_assembly,/turf/open/floor/plating,/area/centcom)
-"dS" = (/obj/machinery/light,/turf/open/floor/plasteel,/area/centcom)
-"dT" = (/obj/effect/decal/cleanable/dirt,/turf/closed/wall/ship/steel,/area/centcom)
-"dU" = (/turf/open/floor/plasteel/yellow/side{dir = 8},/area/centcom)
-"dV" = (/turf/open/floor/plasteel/yellow/side{dir = 4},/area/centcom)
-"dW" = (/obj/structure/overmap/away/station,/turf/open/floor/plasteel,/area/centcom)
-"dX" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/yellow/side{dir = 8},/area/centcom)
-"dY" = (/obj/machinery/light{dir = 4; light_color = "#e8eaff"},/turf/open/floor/plasteel/yellow/side{dir = 4},/area/centcom)
-"dZ" = (/turf/open/floor/plasteel/yellow/side{dir = 10},/area/centcom)
-"ea" = (/turf/open/floor/plasteel/yellow/side,/area/centcom)
-"eb" = (/obj/machinery/light,/turf/open/floor/plasteel/yellow/side,/area/centcom)
-"ec" = (/turf/open/floor/plasteel/yellow/side{dir = 6},/area/centcom)
+"ck" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/door/airlock/maintenance_hatch,/obj/machinery/atmospherics/pipe/simple/supply/visible,/turf/open/floor/plating,/area/centcom)
+"cl" = (/obj/structure/closet/crate,/turf/open/floor/plasteel,/area/centcom)
+"cm" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/turf/open/floor/plasteel/yellow/side{dir = 4},/area/centcom)
+"cn" = (/obj/machinery/mecha_part_fabricator,/obj/effect/turf_decal/stripes/line,/turf/open/floor/plasteel/whitepurple/side{icon_state = "whitepurple"; dir = 8},/area/centcom)
+"co" = (/obj/structure/table,/obj/item/stack/sheet/metal/fifty,/obj/item/stack/sheet/metal/fifty,/obj/item/stack/sheet/glass{amount = 20; pixel_x = -3; pixel_y = 6},/obj/item/storage/belt/utility,/obj/effect/turf_decal/stripes/line,/turf/open/floor/plasteel/white,/area/centcom)
+"cp" = (/obj/structure/table,/obj/item/storage/toolbox/mechanical{pixel_x = -2; pixel_y = -1},/obj/item/clothing/head/welding{pixel_x = -3; pixel_y = 5},/obj/item/clothing/glasses/welding,/obj/item/device/multitool{pixel_x = 3},/turf/open/floor/plasteel/white,/area/centcom)
+"cq" = (/obj/machinery/computer/rdconsole/core,/turf/open/floor/plasteel/white,/area/centcom)
+"cr" = (/turf/open/floor/plasteel/whitepurple/side{icon_state = "whitepurple"; dir = 4},/area/centcom)
+"cs" = (/turf/open/floor/plasteel/whitered/side{icon_state = "whitered"; dir = 8},/area/centcom)
+"ct" = (/turf/open/floor/plasteel/whitepurple/side{icon_state = "whitepurple"; dir = 8},/area/centcom)
+"cu" = (/obj/structure/catwalk,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plating,/area/centcom)
+"cv" = (/obj/structure/catwalk,/obj/machinery/light{dir = 4},/turf/open/floor/plating,/area/centcom)
+"cw" = (/obj/structure/closet/crate,/turf/open/floor/plasteel/yellow/side{dir = 4},/area/centcom)
+"cx" = (/obj/structure/closet/crate,/obj/machinery/light{dir = 4},/turf/open/floor/plasteel/yellow/side{dir = 4},/area/centcom)
+"cy" = (/obj/machinery/light,/turf/open/floor/plasteel/white,/area/centcom)
+"cz" = (/obj/item/reagent_containers/glass/beaker/sulphuric,/obj/machinery/light,/turf/open/floor/plasteel/white,/area/centcom)
+"cA" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/vending/dinnerware,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cB" = (/obj/effect/decal/cleanable/dirt,/obj/structure/closet/secure_closet/freezer/fridge,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cC" = (/obj/effect/decal/cleanable/dirt,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cD" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{dir = 1},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cE" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/pipe/simple/supply/hidden,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cF" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/airalarm{frequency = 1439; locked = 0; pixel_y = 23; req_access = "0"; req_one_access = "0"},/obj/effect/decal/cleanable/egg_smudge,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cG" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/processor,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cH" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/machinery/microwave{pixel_x = -3; pixel_y = 6},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cI" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/flour,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cJ" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/item/kitchen/rollingpin,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cK" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/item/reagent_containers/food/condiment/enzyme{layer = 5},/obj/machinery/atmospherics/components/unary/vent_pump/on{dir = 1},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cL" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/machinery/reagentgrinder,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cM" = (/obj/effect/decal/cleanable/dirt,/obj/effect/landmark/faction_spawn/independant,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cN" = (/obj/structure/closet/crate,/turf/open/floor/plasteel/yellow/side,/area/centcom)
+"cO" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/turf/open/floor/plasteel/yellow/side{dir = 6},/area/centcom)
+"cP" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/vomit/old,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cQ" = (/turf/open/floor/plasteel/red/side{dir = 8},/area/centcom)
+"cR" = (/obj/effect/decal/cleanable/dirt,/obj/structure/chair{dir = 4},/obj/machinery/light/small{brightness = 3; dir = 8},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cS" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/item/kitchen/fork,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cT" = (/obj/effect/decal/cleanable/dirt,/obj/structure/chair{dir = 8},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cU" = (/obj/effect/decal/cleanable/dirt,/obj/structure/chair{dir = 4},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cV" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/item/reagent_containers/food/condiment/peppermill{pixel_x = 5; pixel_y = -2},/obj/item/reagent_containers/food/condiment/saltshaker{pixel_x = -2; pixel_y = 2},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cW" = (/obj/effect/decal/cleanable/dirt,/obj/structure/table,/obj/item/trash/plate,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cX" = (/obj/effect/decal/cleanable/dirt,/obj/structure/chair{dir = 8},/obj/machinery/light/small{dir = 4},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"cY" = (/turf/open/floor/plasteel/green/side{dir = 8},/area/centcom)
+"cZ" = (/obj/machinery/vending/coffee,/turf/open/floor/plasteel,/area/centcom)
+"da" = (/obj/machinery/vending/sovietsoda,/turf/open/floor/plasteel,/area/centcom)
+"db" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/red/side{dir = 8},/area/centcom)
+"dc" = (/obj/machinery/vending/snack/random,/obj/machinery/light{dir = 4},/turf/open/floor/plasteel,/area/centcom)
+"dd" = (/obj/structure/catwalk,/obj/machinery/light{dir = 4; light_color = "#e8eaff"},/turf/open/floor/plating,/area/centcom)
+"de" = (/obj/machinery/vending/snack/random,/turf/open/floor/plasteel,/area/centcom)
+"df" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable{icon_state = "1-2"},/obj/machinery/door/airlock/maintenance_hatch,/turf/open/floor/plating,/area/centcom)
+"dg" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/open/floor/plasteel/floorgrime,/area/centcom)
+"dh" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/open/floor/plating,/area/centcom)
+"di" = (/obj/machinery/door/window/brigdoor/security/cell{id = "Cell 1"; name = "Cell 1"},/turf/open/floor/plasteel/red/side,/area/centcom)
+"dj" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/open/floor/plasteel,/area/centcom)
+"dk" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/cobweb,/turf/open/floor/plating,/area/centcom)
+"dl" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/plating,/area/centcom)
+"dm" = (/obj/effect/decal/cleanable/dirt,/obj/structure/mirror{name = "dusty mirror"; pixel_y = 28},/turf/open/floor/plasteel,/area/centcom)
+"dn" = (/obj/effect/decal/cleanable/dirt,/obj/structure/closet/crate,/turf/open/floor/plating,/area/centcom)
+"do" = (/obj/effect/decal/cleanable/dirt,/turf/open/floor/plating,/area/centcom)
+"dp" = (/obj/structure/window/trek/steel{dir = 4},/obj/structure/curtain,/turf/open/floor/plasteel,/area/centcom)
+"dq" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on{dir = 1},/obj/item/device/radio/intercom{desc = "Talk through this. It looks like it has been modified to not broadcast."; dir = 2; name = "Prison Intercom (General)"; pixel_x = -25; pixel_y = -2; prison_radio = 1},/turf/open/floor/plasteel/floorgrime,/area/centcom)
+"dr" = (/turf/open/floor/plasteel/floorgrime,/area/centcom)
+"ds" = (/obj/machinery/light/small{dir = 4},/turf/open/floor/plasteel/floorgrime,/area/centcom)
+"dt" = (/obj/structure/table,/obj/item/crowbar,/obj/item/device/flashlight/glowstick,/obj/effect/decal/cleanable/dirt,/turf/open/floor/plasteel,/area/centcom)
+"du" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/computer{desc = "A computer long since rendered non-functional due to lack of maintenance. Spitting out error messages."; name = "Broken Computer"},/turf/open/floor/plasteel,/area/centcom)
+"dv" = (/obj/machinery/shower{dir = 4},/turf/open/floor/plasteel,/area/centcom)
+"dw" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on{dir = 1},/turf/open/floor/plasteel,/area/centcom)
+"dx" = (/obj/machinery/shower{dir = 8},/turf/open/floor/plasteel,/area/centcom)
+"dy" = (/obj/structure/bed,/obj/item/bedsheet,/obj/machinery/flasher{id = "Cell 1"; pixel_x = -28},/turf/open/floor/plasteel/floorgrime,/area/centcom)
+"dz" = (/obj/structure/closet/secure_closet/brig{id = "Cell 1"; name = "Cell 1 Locker"},/turf/open/floor/plasteel/floorgrime,/area/centcom)
+"dA" = (/obj/effect/decal/cleanable/dirt,/obj/item/solar_assembly,/obj/item/stack/sheet/glass{amount = 30},/turf/open/floor/plating,/area/centcom)
+"dB" = (/obj/structure/table,/obj/item/crowbar,/obj/item/device/flashlight/glowstick,/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{dir = 8},/turf/open/floor/plasteel,/area/centcom)
+"dC" = (/obj/structure/table,/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{dir = 4},/obj/item/paper/fluff/ruins/oldstation,/turf/open/floor/plasteel,/area/centcom)
+"dD" = (/obj/effect/decal/cleanable/dirt,/obj/structure/closet/crate,/obj/item/reagent_containers/spray/weedspray,/obj/item/reagent_containers/spray/pestspray,/turf/open/floor/plating,/area/centcom)
+"dE" = (/obj/effect/decal/cleanable/dirt,/obj/item/solar_assembly,/obj/item/solar_assembly,/obj/item/solar_assembly,/obj/item/solar_assembly,/obj/item/solar_assembly,/obj/item/solar_assembly,/turf/open/floor/plating,/area/centcom)
+"dF" = (/obj/machinery/light,/turf/open/floor/plasteel,/area/centcom)
+"dG" = (/obj/effect/decal/cleanable/dirt,/turf/closed/wall/ship/steel,/area/centcom)
+"dH" = (/turf/open/floor/plasteel/yellow/side{dir = 8},/area/centcom)
+"dI" = (/turf/open/floor/plasteel/yellow/side{dir = 4},/area/centcom)
+"dJ" = (/obj/structure/overmap/away/station,/turf/open/floor/plasteel,/area/centcom)
+"dK" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/yellow/side{dir = 8},/area/centcom)
+"dL" = (/obj/machinery/light{dir = 4; light_color = "#e8eaff"},/turf/open/floor/plasteel/yellow/side{dir = 4},/area/centcom)
+"dM" = (/turf/open/floor/plasteel/yellow/side{dir = 10},/area/centcom)
+"dN" = (/turf/open/floor/plasteel/yellow/side,/area/centcom)
+"dO" = (/obj/machinery/light,/turf/open/floor/plasteel/yellow/side,/area/centcom)
+"dP" = (/turf/open/floor/plasteel/yellow/side{dir = 6},/area/centcom)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -265,28 +252,28 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaEaEaEaEaEacafafafbRafafafafafafafagacafafafag
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaEaEaEaEaEacbgbgbgbgbgbgbgbgbgbgbgbgbUbgbgbgbgbgbgbgbCbDbTbTbTbVbWbXbTbTbTbDbEbgbgbgbgbgbgbgbUbgbgbgbgbgbgbgbgbgbgbgbgbgacaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaEaEaEaEaEacbYbYbYbRbYbYbYbYbYbYbYbYacafafafafafafbgbCbSbZbTbTcacbbTbTbTccbSbEbgafafafafafafacbYbYbYbYbYbYbYbYbYbRbYbYbYacaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaacacacacacacacbIbIbJbIbIacacacacacacacacacacacacacbgbCaccdbNbNcecfcgbNbNchacbEbgacacacacacacacacacacacacacaOaOaObDaOaOaOacaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaacafafafafaccibkbkbkbkbkcjacaEaEaEaEacckclcmcncoacbgbCacbKacacaccpacacacbKacbEbgaccqcqcqcqcracaEaEaEaEaEaccsctcubkcvbkcwacaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaacafafafafaccxbkbkbkbkbkcjacaEaEaEaEacckcycycycyacbgbCafafafafagbgagafafafafbEbgacafafafafcracaEaEaEaEaEacczbkbkbkbkbkcwacaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaacafafafafaccxbkbkbkbkbkcjacaEaEaEaEacckcAcBcCcDaccEbgbgbgbgbgbgbgbgbgbgbgbgbgcFacafafafafcGacaEaEaEaEaEacczbkbkbkbkbkcwacaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaacacacacacaccibkbkbkbkbkcjacaEaEaEaEaccHafafafafbDbgbCacacacacaccpacacacacacbEbgbDafafafafcIacaEaEaEaEaEacczbkcJbkcKbkcwacaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaEaEaEaEaEacacacacacacacacacaEaEaEaEacckafafafafacbgbCaccLcMcNcOcPcQcNcRcSacbEbgacafafafafcGacaEaEaEaEaEacacacacacacacacacaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacckcTcUcUcUacbgbCbScNcNcVcWcXcYcNcNcNbSbEbgacafafafafcracaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccZdadadadaacbgbCbDcNdbcNcNdbcVcNdbcNbDbEbgacdcdcdcdcddacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaOaOaOacacbgbCbScNcNdecNcNcNcNcNcNbSbEbgacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacckafafafafacbgbCacdfdgdhdidjdhdidkdlacbEbgacdmafafafdnacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacckafafafafbDbgbCacacaOaOaOaOaOaOaOacacbEbgbDdmafafafdoacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccHafafafafacbgafafafafafafafafafafafafafbgacdmafafafdpacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacckafafafafaccEbgbgbgbgbgbgbgbgbgbgbgbgbgdqacdmafafafdracaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacckafafafafacacdsacacacaPaPdtaPaPacacacduacacdmafafafafacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPdvaPacdwacdxdyacagbTbTbTbTbTbTdzagacdAdBacdwacdCafdCacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdDdEdFacbRbRdBdyacdGbTafafafafafbTdHacdBdBbRbRacdIdJdKacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdLdEdMacbRacdNdyacdObTafafacafafbTdPacdQdRacbRacdIdSdKacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPaPaPacacacacdTacacdwacacacacacdwacacdTacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdUafafafafafafafdVacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdUafafdWafafafafdVacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdXafafafafafafafdYacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdUafafafafafafafdVacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdZeaeaeaebeaeaeaecacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaacafafafafaccibkbkbkbkbkcjacaEaEaEaEacafafafafafacbgbCacbKacacacckacacacbKacbEbgacclclclclcmacaEaEaEaEaEaccncocpbkcqbkcracaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaacafafafafaccsbkbkbkbkbkcjacaEaEaEaEacafafafafafacbgbCafafafafagbgagafafafafbEbgacafafafafcmacaEaEaEaEaEacctbkbkbkbkbkcracaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaacafafafafaccsbkbkbkbkbkcjacaEaEaEaEacafafafafafaccubgbgbgbgbgbgbgbgbgbgbgbgbgcvacafafafafcwacaEaEaEaEaEacctbkbkbkbkbkcracaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaacacacacacaccibkbkbkbkbkcjacaEaEaEaEacafafafafafbDbgbCacacacacacckacacacacacbEbgbDafafafafcxacaEaEaEaEaEacctbkcybkczbkcracaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaEaEaEaEaEacacacacacacacacacaEaEaEaEacafafafafafacbgbCaccAcBcCcDcEcFcCcGcHacbEbgacafafafafcwacaEaEaEaEaEacacacacacacacacacaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacafafafafafacbgbCbScCcCcIcJcKcLcCcCcCbSbEbgacafafafafcmacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacafafafafafacbgbCbDcCcMcCcCcMcIcCcMcCbDbEbgaccNcNcNcNcOacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaOaOaOacacbgbCbScCcCcPcCcCcCcCcCcCbSbEbgacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccQafafafafacbgbCaccRcScTcUcVcTcUcWcXacbEbgaccYafafafcZacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccQafafafafbDbgbCacacaOaOaOaOaOaOaOacacbEbgbDcYafafafdaacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdbafafafafacbgafafafafafafafafafafafafafbgaccYafafafdcacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccQafafafafaccubgbgbgbgbgbgbgbgbgbgbgbgbgddaccYafafafdeacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccQafafafafacacdfacacacaPaPdgaPaPacacacdhacaccYafafafafacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPdiaPacdjacdkdlacagbTbTbTbTbTbTdmagacdndoacdjacdpafdpacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdqdrdsacbRbRdodlacdtbTafafafafafbTduacdodobRbRacdvdwdxacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdydrdzacbRacdAdlacdBbTafafacafafbTdCacdDdEacbRacdvdFdxacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPaPaPacacacacdGacacdjacacacacacdjacacdGacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdHafafafafafafafdIacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdHafafdJafafafafdIacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdKafafafafafafafdLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdHafafafafafafafdIacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacdMdNdNdNdOdNdNdNdPacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

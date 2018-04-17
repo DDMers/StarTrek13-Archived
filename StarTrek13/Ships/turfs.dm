@@ -5,7 +5,7 @@
 	icon = 'StarTrek13/icons/trek/trek_wall.dmi'
 	icon_state = "wall"
 	smooth = 1
-	canSmoothWith = list(/turf/closed/wall/ship,/obj/machinery/door/airlock/trek/tng,/turf/closed/indestructible/riveted,/turf/closed/wall/ship/tng,/obj/machinery/door/airlock/trek, /obj/structure/window,/obj/structure/grille,/obj/structure/window/trek,/turf/closed/wall/ship/steel,/obj/structure/window/trek/steel)
+	canSmoothWith = list(/turf/closed/wall/ship,/obj/machinery/door/airlock/trek/tng,/turf/closed/wall/ship/tng,/obj/machinery/door/airlock/trek, /obj/structure/window,/obj/structure/grille,/obj/structure/window/trek,/turf/closed/wall/ship/steel,/obj/structure/window/trek/steel)
 
 /turf/closed/wall/ship/tng
 	name = "Corridor"
@@ -35,6 +35,18 @@
 	icon = 'StarTrek13/icons/trek/trek_door.dmi'
 	icon_state = "closed"
 	overlays_file = 'StarTrek13/icons/trek/trek_door.dmi'
+	desc = "An advanced door designed in the future, now having relieved bipedal sentients the need to suffer the horror of raising their hands to go into another room."
+
+/obj/machinery/door/airlock/trek/tng/single
+	name = "airlock"
+	icon = 'StarTrek13/icons/trek/trek_door_single.dmi'
+	icon_state = "closed"
+
+/obj/machinery/door/airlock/trek/tng/double
+	name = "airlock"
+	icon = 'StarTrek13/icons/trek/trek_door_double.dmi'
+	icon_state = "closed"
+
 
 /obj/effect/turf_decal/trek
 	icon_state = "trek_edge"
@@ -206,6 +218,13 @@
 	icon = 'StarTrek13/icons/trek/warp_room_overlay.PNG'
 	name = "floor"
 
+/turf/open/generic_overlay
+	icon = 'StarTrek13/icons/trek/generic_overlay.PNG'
+	name = "floor"
+
+/turf/open/transporter_overlay
+	icon = 'StarTrek13/icons/trek/transporterroom_overlay.PNG'
+	name = "floor"
 
 /turf/open/bridge_overlay
 	icon = 'StarTrek13/icons/trek/bridge_overlay.PNG'
@@ -228,8 +247,8 @@
 	desc = "not to be confused with a functional table"
 	icon = 'StarTrek13/icons/trek/hugetable.dmi'
 	icon_state = "table"
-	bound_x = 160
-	bound_y = 96
+	bound_width = 96 // 3x2
+	bound_height = 64
 
 /obj/structure/chair/trek
 	name = "chair"
@@ -243,3 +262,74 @@
 	desc = "an extra padded chair, with full leather upholstery."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "bridgechair"
+
+/turf/open/floor/trek_special
+	icon_state = "brig1"
+	name = "wall"
+	desc = "No running through me please"
+	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
+	layer = 4.5
+	pixel_x = -3
+	pixel_y = -1
+
+/turf/open/floor/trek_special/cargobay
+	icon_state = "cargobay"
+	name = "wall"
+	desc = "No running through me please"
+	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
+	layer = 4.5
+	pixel_x = -3
+	pixel_y = 4
+
+/turf/open/floor/trek_special/dockingbay
+	icon_state = "dockingbay"
+	name = "wall"
+	desc = "No running through me please"
+	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
+	layer = 4.5
+	pixel_x = -8
+	pixel_y = 10
+
+/turf/open/floor/trek_special/bridge
+	icon_state = "bridge1"
+	name = "wall"
+	desc = "No running through me please"
+	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
+	layer = 4.5
+	pixel_x = 6
+	pixel_y = -6
+
+/turf/open/floor/trek_special/brig
+	icon_state = "brig"
+	name = "wall"
+	desc = "No running through me please"
+	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
+	layer = 4.5
+	pixel_x = 20
+	pixel_y = -13
+
+/turf/open/floor/trek_special/black
+	icon_state = "black"
+	name = "wall"
+	desc = "No running through me please"
+	icon = 'StarTrek13/icons/trek/trek_turfs.dmi'
+	layer = 4.5
+	pixel_x = 0
+	pixel_y = 0
+	opacity = 0
+
+/turf/open/floor/trek_special/storagebay
+	icon_state = "storagebay"
+	name = "wall"
+	desc = "No running through me please"
+	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
+	layer = 4.5
+
+/turf/open/floor/trek_special/engibay
+	icon_state = "engi1"
+	name = "wall"
+	desc = "No running through me please"
+	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
+	layer = 4.5
+	pixel_x = -4
+	pixel_y = -1

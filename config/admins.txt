@@ -145,3 +145,4 @@ HeadyBucket = Coder
 MASMC = Game-Admin
 Kyrac = Game-Admin
 deadlantern = Moderator
+Tristan63 = Moderator

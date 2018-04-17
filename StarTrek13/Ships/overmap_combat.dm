@@ -315,3 +315,163 @@
 	. = ..()
 
 #undef PROGRESSBAR_HEIGHT
+
+
+
+/obj/structure/photon_torpedo
+	name = "photon torpedo"
+	desc = "A casing for a powerful explosive, I wouldn't touch it if I were you..."
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "torpedo"
+	anchored = FALSE
+	density = 1 //SKREE
+	opacity = 0
+	layer = 4.5
+	var/armed = 0
+	var/damage = 400 //Quite damaging, but not really for battering shields
+	var/timer = 0
+	var/timing = FALSE
+	//var/obj/structure/torpedo_launcher/launcher
+
+/obj/structure/photon_torpedo/attack_hand(mob/user)
+	if(!timing)
+		timer = input("Delayed detonation", "Set a countdown timer in seconds (set it to 0 or less to cancel, minimum time is 10 seconds)") as num
+		if(timer)
+			armed = TRUE
+			timing = TRUE
+			timer *= 10
+			to_chat(user, "You set [src] to detonate in [timer] seconds")
+			desc += "Its trigger is set for a delayed detonation of [timer] seconds!"
+	else
+		to_chat(user, "It's already been primed, throw it out an airlock!")
+
+/obj/structure/photon_torpedo/bullet_act()
+	if(armed)
+		force_explode()
+
+/obj/structure/photon_torpedo/proc/force_explode()
+	var/area/thearea = get_area(src)
+	for(var/mob/M in thearea)
+		shake_camera(M, 20, 1)
+		SEND_SOUND(M, 'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg')
+		explosion(src.loc,2,5,20,8)
+
+/obj/structure/photon_torpedo/Bump(atom/movable/AM)
+	if(armed)
+		if(istype(AM, /obj/effect/adv_shield))
+			var/obj/effect/adv_shield/S = AM
+			S.take_damage(damage)
+			var/area/thearea = get_area(S)
+			qdel(src)
+			for(var/mob/M in thearea)
+				shake_camera(M, 20, 1)
+		else
+			explosion(src.loc,2,5,20,8)
+			var/area/thearea = get_area(AM)
+			for(var/mob/M in thearea)
+				shake_camera(M, 30, 2)
+	else
+		. = ..()
+
+//this code bumped into the shield and carried on bumping them until they died, may be cool as a bunker buster torpedo
+/*
+/obj/structure/photon_torpedo/Bump(atom/movable/AM)
+	if(armed)
+		if(istype(AM, /obj/effect/adv_shield))
+			var/obj/effect/adv_shield/S = AM
+			S.take_damage(damage)
+			var/area/thearea = get_area(S)
+			for(var/mob/M in thearea)
+				shake_camera(M, 20, 1)
+		else
+			explosion(src.loc,2,5,20,8)
+			var/area/thearea = get_area(AM)
+			for(var/mob/M in thearea)
+				shake_camera(M, 30, 3)
+	else
+		. = ..()
+*/
+
+obj/structure/torpedo_launcher
+	name = "torpedo launcher"
+	desc = "launch the clown at high velocity"
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "torpedolauncher"
+	var/list/loaded = list()
+	var/list/sounds = list('StarTrek13/sound/borg/machines/torpedo1.ogg','StarTrek13/sound/borg/machines/torpedo2.ogg')
+	var/obj/machinery/space_battle/shield_generator/shieldgen
+//	var/atom/target = null
+	density = 1
+	anchored = 1
+
+obj/structure/torpedo_launcher/CollidedWith(atom/movable/AM)
+	if(istype(AM, /obj/structure/photon_torpedo))
+		var/obj/structure/overmap/our_ship = shieldgen.ship
+		if(our_ship.photons < our_ship.max_photons)
+			loaded += AM
+			AM.loc = src
+			src.say("[AM] has been loaded into the tube")
+			icon_state = "torpedolauncher-fire"
+			our_ship.photons ++
+			qdel(AM)
+		else
+			src.say("[our_ship] is at full capacity already.")
+			return ..()
+
+obj/structure/torpedo_launcher/New()
+	find_generator()
+
+obj/structure/torpedo_launcher/attack_hand(mob/user)
+	icon_state = "torpedolauncher"
+	to_chat(user, "you start unloading [src]")
+	if(do_after(user, 50, target = src))
+		icon_state = "torpedolauncher-fire"
+		for(var/atom/movable/I in loaded)
+			var/turf/theturf = get_turf(user)
+			I.forceMove(theturf)
+			loaded -= I
+			if(istype(I, /obj/structure/photon_torpedo))
+				var/obj/structure/photon_torpedo/T = I
+				T.armed = 0
+				T.icon_state = "torpedo"
+
+
+obj/structure/torpedo_launcher/proc/find_generator()
+	var/area/thearea = get_area(src)
+	for(var/obj/machinery/space_battle/shield_generator/S in thearea)
+		shieldgen = S
+
+obj/structure/torpedo_launcher/proc/fire(atom/movable/target, mob/user, overriden_start_loc)
+	icon_state = "torpedolauncher"
+	var/sound = pick(sounds)
+	find_generator()
+	playsound(src.loc, sound, 300,1)
+	if(!overriden_start_loc)
+		for(var/atom/movable/A in loaded)
+			var/obj/effect/adv_shield/S = pick(shieldgen.shields) //new shield each time, prevent spam
+			A.forceMove(get_turf(S))
+		//	if(istype(A,/mob/living/))
+	//			var/mob/living/M = A
+		//		M.Weaken(5)
+			if(istype(A, /obj/structure/photon_torpedo))
+				var/obj/structure/photon_torpedo/T = A
+				T.armed = 1
+				T.icon_state = "torpedo_armed"
+			var/atom/throw_at = get_turf(target)
+		//	A.forceMove(throw_at)
+			A.throw_at(throw_at, 1000, 1)
+			loaded = list()
+			to_chat(user, "Success")
+		if(!loaded.len)
+			src.say("Nothing is loaded")
+	else
+		find_generator()
+		if(loaded.len)
+			for(var/atom/movable/A in loaded)
+				var/atom/movable/our_ship = shieldgen.ship
+				A.forceMove(our_ship.loc)
+				var/atom/movable/targetship = shieldgen.ship.target_ship
+				A.throw_at(targetship, 1000, 1)
+			return 1
+		else
+			to_chat(shieldgen.ship.pilot, "Unable to launch torpedoes! nothing is loaded!")
