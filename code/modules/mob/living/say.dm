@@ -102,6 +102,17 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			client.dsay(message)
 		return
 
+	if(message_mode == "combadge")
+		if(iscarbon(src))
+			var/mob/living/carbon/thecarbon = src
+			for(var/obj/item/clothing/neck/combadge/C in thecarbon.contents)
+				if(!istype(C, /obj/item/clothing/neck/combadge))
+					return
+				var/obj/item/clothing/neck/combadge/c = C
+				message = treat_message(message)
+				return c.send_message(message, src)
+		return
+
 	if(stat == DEAD)
 		say_dead(original_message)
 		return
@@ -134,7 +145,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	// Detection of language needs to be before inherent channels, because
 	// AIs use inherent channels for the holopad. Most inherent channels
 	// ignore the language argument however.
-  
+
 	var/datum/saymode/SM = SSradio.saymodes[talk_key]
 	if(SM && !SM.handle_message(src, message, language))
 		return
@@ -308,6 +319,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	else if(length(message) > 2 && (key in GLOB.department_radio_prefixes))
 		var/key_symbol = lowertext(copytext(message, 2, 3))
 		return GLOB.department_radio_keys[key_symbol]
+	else if(key == "!")
+		return "combadge"
 
 /mob/living/proc/get_key(message)
 	var/key = copytext(message, 1, 2)

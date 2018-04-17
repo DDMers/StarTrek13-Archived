@@ -31,10 +31,9 @@
 	var/area/A = get_area(src)
 	if(istype(A, /area/ship))
 		var/area/ship/S = A
-		if(src in S.combadges)
-			S.combadges -= src
 		linked = S
-		S.combadges += src
+		if(src in S.combadges)
+			S.combadges += src
 		to_chat(user, "You've linked [src] to the [linked] comms subsystem")
 
 
@@ -43,7 +42,7 @@
 		return 0
 	next_talk = world.time + talk_delay
 	if(!linked)
-		link_to_area(user)
+		to_chat(user, "Alt click [src] first to initialize it")
 	if(src in user.contents)
 		stored_user = user
 		for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
