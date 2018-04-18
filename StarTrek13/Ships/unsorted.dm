@@ -42,7 +42,7 @@
 		return 0
 	next_talk = world.time + talk_delay
 	if(!linked)
-		to_chat(user, "Alt click [src] first to initialize it")
+		link_to_area(user)
 	stored_user = user
 //	to_chat(stored_user, "<span class='warning'><b>[linked] ship comms: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
