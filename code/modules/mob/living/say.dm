@@ -319,8 +319,6 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	else if(length(message) > 2 && (key in GLOB.department_radio_prefixes))
 		var/key_symbol = lowertext(copytext(message, 2, 3))
 		return GLOB.department_radio_keys[key_symbol]
-	else if(key == "!")
-		return "combadge"
 
 /mob/living/proc/get_key(message)
 	var/key = copytext(message, 1, 2)
