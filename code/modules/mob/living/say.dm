@@ -122,10 +122,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(message_mode == "combadge")
 		for(var/obj/item/clothing/neck/combadge/c in contents)
 			var/obj/item/clothing/neck/combadge/thecombadge = c
-			message = copytext(sanitize(message), 1, MAX_MESSAGE_LEN)
+			message = treat_message(message)
 			thecombadge.send_message(message, src)
-			return
-		return
 
 	if(stat == DEAD)
 		say_dead(original_message)

@@ -25,6 +25,7 @@
 /obj/item/clothing/neck/combadge/AltClick(mob/user)
 	link_to_area(user)
 
+
 /obj/item/clothing/neck/combadge/proc/link_to_area(mob/user)
 	if(linked)
 		linked.combadges -= src
@@ -47,7 +48,16 @@
 	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
 		if(C.on)
 			playsound(C.loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 10, 1)
-			to_chat(C.stored_user, "<span class='warning'><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
+			to_chat(C.stored_user, "<span class='warning'><b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 		else
 			to_chat(C.stored_user, "Your [src] buzzes softly")
 		return
+
+/obj/item/clothing/neck/combadge/proc/pm_user(var/message, mob/living/user)
+	if(world.time < next_talk)
+		return 0
+	next_talk = world.time + talk_delay
+	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
+		if(C.stored_user)
+			if(findtext(message, "[C.stored_user.first_name()] "))
+				to_chat(world, "HAHAHAHA")
