@@ -45,7 +45,7 @@
 		to_chat(user, "Alt click [src] first to initialize it")
 	stored_user = user
 	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
-		if(C.on && C.stored_user)
+		if(C.on)
 			playsound(C.loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 10, 1)
 			to_chat(C.stored_user, "<span class='warning'><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 		else
