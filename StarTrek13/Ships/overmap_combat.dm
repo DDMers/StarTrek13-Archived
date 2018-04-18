@@ -200,7 +200,6 @@
 					var/area/thearea = S.linked_ship
 					for(var/turf/T in get_area_turfs(thearea.type))
 						L+=T
-					var/location = pick(L)
 					if(S.has_shields())
 						playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 						if(target_subsystem)
