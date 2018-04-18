@@ -333,3 +333,59 @@
 	layer = 4.5
 	pixel_x = -4
 	pixel_y = -1
+
+/obj/machinery/door/window/brigdoor/trek
+	name = "force field"
+	icon_state = "leftsecure"
+	base_state = "leftsecure"
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	id = null
+	max_integrity = 10000
+	reinf = 1
+	explosion_block = 1
+	req_access_txt = "63"
+
+
+/obj/machinery/door/window/brigdoor/trek/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
+	switch(damage_type)
+		if(BRUTE)
+			playsound(loc, 'StarTrek13/sound/borg/machines/shieldhit.ogg', 90, 1)
+		if(BURN)
+			playsound(src.loc, 'StarTrek13/sound/borg/machines/shieldhit.ogg', 100, 1)
+
+/obj/machinery/door/window/brigdoor/trek/attackby(obj/item/I, mob/living/user, params)
+	return ..()
+
+/obj/machinery/door/window/brigdoor/trek/open(forced=0)
+	if (src.operating == 1) //doors can still open when emag-disabled
+		return 0
+	if(!src.operating) //in case of emag
+		operating = TRUE
+	do_animate("opening")
+	playsound(src.loc, 'StarTrek13/sound/borg/machines/shieldhit.ogg', 100, 1)
+	src.icon_state ="[src.base_state]open"
+	sleep(10)
+
+	density = FALSE
+//	src.sd_set_opacity(0)	//TODO: why is this here? Opaque windoors? ~Carn
+	air_update_turf(1)
+	update_freelook_sight()
+
+	if(operating == 1) //emag again
+		operating = FALSE
+	return 1
+
+/obj/machinery/door/window/brigdoor/trek/close(forced=0)
+	if (src.operating)
+		return 0
+	operating = TRUE
+	do_animate("closing")
+	playsound(src.loc, 'StarTrek13/sound/borg/machines/shieldhit.ogg', 100, 1)
+	src.icon_state = src.base_state
+	density = TRUE
+	air_update_turf(1)
+	update_freelook_sight()
+	sleep(10)
+
+	operating = FALSE
+	return 1

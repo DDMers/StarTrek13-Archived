@@ -340,8 +340,9 @@
 			armed = TRUE
 			timing = TRUE
 			timer *= 10
-			to_chat(user, "You set [src] to detonate in [timer] seconds")
+			to_chat(user, "You set [src] to detonate in [timer/10] seconds")
 			desc += "Its trigger is set for a delayed detonation of [timer] seconds!"
+			addtimer(CALLBACK(src, .proc/force_explode), timer)
 	else
 		to_chat(user, "It's already been primed, throw it out an airlock!")
 

@@ -344,9 +344,7 @@ Might find a use for this later
 
 /obj/machinery/trek/transporter/proc/send(turf/open/teleport_target)
 	flick("alien-pad", src)
-	for(var/atom/movable/target in orange(1,src)) //test
-		if(target == transporter_controller.operator)
-			return
+	for(var/atom/movable/target in loc) //test
 		if(target != src)
 			new /obj/effect/temp_visual/dir_setting/ninja(get_turf(target), target.dir)
 			target.forceMove(teleport_target)

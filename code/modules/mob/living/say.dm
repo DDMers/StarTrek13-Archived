@@ -28,6 +28,9 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	"o" = "AI Private", // AI Upload channel
 	"x" = "cords",		// vocal cords, used by Voice of God
 
+	//Combadges
+	"k" = "combadge",
+
 
 	//kinda localization -- rastaf0
 	//same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
@@ -117,14 +120,11 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		return
 
 	if(message_mode == "combadge")
-		if(iscarbon(src))
-			var/mob/living/carbon/thecarbon = src
-			for(var/obj/item/clothing/neck/combadge/C in thecarbon.contents)
-				if(!istype(C, /obj/item/clothing/neck/combadge))
-					return
-				var/obj/item/clothing/neck/combadge/c = C
-				message = treat_message(message)
-				return c.send_message(message, src)
+		for(var/obj/item/clothing/neck/combadge/c in contents)
+			var/obj/item/clothing/neck/combadge/thecombadge = c
+			message = copytext(sanitize(message), 1, MAX_MESSAGE_LEN)
+			thecombadge.send_message(message, src)
+			return
 		return
 
 	if(stat == DEAD)

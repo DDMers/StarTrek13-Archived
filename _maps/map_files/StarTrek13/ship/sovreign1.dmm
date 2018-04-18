@@ -22,158 +22,178 @@
 "av" = (/turf/open/floor/trek_special/black{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/area/ship/sovreign)
 "aw" = (/turf/open/floor/trek_special/bridge{pixel_x = 6; pixel_y = -6},/area/ship/sovreign)
 "ax" = (/turf/open/space/basic,/area/ship/sovreign)
-"ay" = (/obj/machinery/door/airlock/trek/tng/single,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"az" = (/obj/structure/fluff/ship/panel/type1,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
-"aA" = (/turf/closed/indestructible/riveted{alpha = 0},/area/space)
-"aB" = (/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"aC" = (/obj/structure/chair/trek/bridge{tag = "icon-bridgechair (NORTH)"; icon_state = "bridgechair"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aD" = (/obj/structure/fluff/helm/desk/tactical{tag = "icon-desk (NORTH)"; icon_state = "desk"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aE" = (/turf/open/floor/trek_special/black{pixel_x = 0},/area/ship/sovreign)
-"aF" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (WEST)"; icon_state = "ast_warn"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aG" = (/obj/effect/landmark/observer_start,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aH" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (EAST)"; icon_state = "ast_warn"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aI" = (/turf/open/floor/trek_special/black{dir = 1; icon_state = "black"; pixel_x = 0; tag = "icon-black (NORTH)"},/area/ship/sovreign)
-"aJ" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (NORTH)"; icon_state = "lift"; dir = 1},/area/ship/sovreign)
-"aK" = (/obj/structure/ladder/unbreakable{height = 3; id = "sovreign1"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"aL" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (EAST)"; icon_state = "lift"; dir = 4},/area/ship/sovreign)
-"aM" = (/obj/structure/fluff/helm/desk/noisy,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aN" = (/obj/structure/fluff/helm/desk{tag = "icon-miniconsole (NORTH)"; icon_state = "miniconsole"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aO" = (/obj/structure/ladder/unbreakable{height = 3; id = "sovreign2"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"aP" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHEAST)"; icon_state = "lift"; dir = 6},/area/ship/sovreign)
-"aQ" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHWEST)"; icon_state = "lift"; dir = 10},/area/ship/sovreign)
-"aR" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (WEST)"; icon_state = "lift"; dir = 8},/area/ship/sovreign)
-"aS" = (/obj/structure/fluff/helm/desk/functional,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aT" = (/obj/structure/fluff/helm/desk/functional/weapons,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aU" = (/obj/effect/turf_decal/stripes/asteroid/line,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aV" = (/turf/open/bridge_overlay,/area/ship/sovreign)
-"aW" = (/turf/closed/wall/ship/tng,/area/ship/sovreign)
-"aX" = (/obj/machinery/door/airlock/trek/tng{name = "bridge"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aY" = (/obj/machinery/door/airlock/trek/tng,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"aZ" = (/turf/closed/wall/ship,/area/ship/sovreign)
-"ba" = (/obj/machinery/door/airlock/trek,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bb" = (/obj/structure/fluff/ship/panel/red,/turf/closed/wall/ship,/area/ship/sovreign)
-"bc" = (/obj/structure/fluff/ship/panel/drawer/single,/turf/closed/wall/ship,/area/ship/sovreign)
-"bd" = (/obj/structure/sign/viewscreen{icon_state = "trekscreen"},/obj/effect/turf_decal/trek,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"be" = (/obj/structure/chair/trek{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bf" = (/obj/structure/chair/trek{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bg" = (/obj/structure/trek_table,/obj/structure/chair/trek{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bh" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bi" = (/obj/structure/lattice/catwalk,/turf/open/space/basic,/area/ship/sovreign)
-"bj" = (/obj/structure/lattice,/turf/open/floor/plating,/area/ship/sovreign)
-"bk" = (/turf/open/floor/plating,/area/ship/sovreign)
-"bl" = (/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/obj/structure/lattice,/turf/open/floor/plating,/area/ship/sovreign)
-"bm" = (/obj/machinery/door/airlock/external,/turf/open/floor/plating,/area/ship/sovreign)
-"bn" = (/obj/machinery/suit_storage_unit/ert/medical,/turf/open/floor/plating,/area/ship/sovreign)
-"bo" = (/obj/structure/tank_dispenser,/turf/open/floor/plating,/area/ship/sovreign)
-"bp" = (/obj/structure/catwalk,/obj/structure/torpedo_launcher,/turf/open/floor/plating,/area/ship/sovreign)
-"bq" = (/obj/structure/catwalk/cargo,/turf/open/floor/plating,/area/ship/sovreign)
-"br" = (/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/sovreign)
-"bs" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/obj/structure/rack,/obj/item/gun/energy/laser/retro,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bt" = (/obj/effect/turf_decal/trek,/obj/structure/rack,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bu" = (/obj/effect/turf_decal/trek,/obj/structure/rack,/obj/item/gun/energy/laser/retro,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bv" = (/obj/effect/turf_decal/trek,/obj/structure/rack,/obj/item/gun/energy/laser/retro,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bw" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/obj/structure/rack,/obj/item/gun/energy/laser/retro,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bx" = (/obj/machinery/sleeper/survival_pod,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"by" = (/obj/structure/table/reinforced,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bz" = (/obj/structure/fluff/helm/desk,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bA" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/structure/closet/secure_closet,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bB" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/structure/closet/secure_closet,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bC" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/structure/bed/roller,/obj/item/bedsheet/medical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bD" = (/obj/structure/table/optable,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bE" = (/obj/structure/table/reinforced,/obj/item/scalpel,/obj/item/retractor,/obj/item/hemostat,/obj/item/surgicaldrill,/obj/item/cautery,/obj/item/surgical_drapes,/obj/item/storage/backpack/duffelbag/med/surgery,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bF" = (/obj/structure/barricade/security{alpha = 0; opacity = 1},/turf/open/generic_overlay,/area/ship/sovreign)
-"bG" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/obj/structure/closet/secure_closet,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bH" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHEAST)"; icon_state = "trek_edge"; dir = 6},/obj/structure/closet/secure_closet,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bI" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/obj/structure/bed/roller,/obj/item/bedsheet/medical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bJ" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHEAST)"; icon_state = "trek_edge"; dir = 6},/obj/structure/chair/trek{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bK" = (/obj/item/storage/firstaid,/obj/structure/table/reinforced,/obj/item/storage/firstaid/toxin,/obj/item/storage/firstaid/o2,/obj/item/storage/firstaid/fire,/obj/item/storage/firstaid/fire,/obj/item/storage/firstaid/brute,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bL" = (/obj/structure/table/reinforced,/obj/item/clothing/suit/apron/surgical,/obj/item/clothing/suit/apron/surgical,/obj/item/storage/box/masks,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bM" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bN" = (/obj/structure/ladder/unbreakable{height = 2; id = "sovreign1"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"bO" = (/obj/structure/ladder/unbreakable{height = 2; id = "sovreign2"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"bP" = (/turf/closed/indestructible/riveted{alpha = 0; opacity = 1},/area/ship/sovreign)
-"bQ" = (/obj/structure/table,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"bR" = (/obj/item/device/tricorder,/obj/structure/table,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"bS" = (/obj/machinery/trek/transporter{layer = 2},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"bT" = (/obj/machinery/computer/camera_advanced/transporter_control/huge,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"bU" = (/obj/effect/turf_decal/stripes/asteroid/line,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"bV" = (/turf/open/transporter_overlay,/area/ship/sovreign)
-"bW" = (/turf/open/floor/trek_special{pixel_x = -3; pixel_y = -1},/area/ship/sovreign)
-"bX" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bY" = (/turf/open/floor/trek_special/brig{pixel_x = 20; pixel_y = -13},/area/ship/sovreign)
-"bZ" = (/obj/structure/barricade/security{alpha = 0; opacity = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"ca" = (/turf/open/brig_overlay,/area/ship/sovreign)
-"cb" = (/obj/structure/fluff/ship/panel/blank,/turf/closed/wall/ship,/area/ship/sovreign)
-"cc" = (/obj/structure/fluff/ship/panel/drawer,/turf/closed/wall/ship,/area/ship/sovreign)
-"cd" = (/obj/structure/reagent_dispensers/water_cooler,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"ce" = (/obj/structure/reagent_dispensers/water_cooler,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cf" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (EAST)"; icon_state = "ast_warn"; dir = 4},/turf/open/floor/plating,/area/ship/sovreign)
-"cg" = (/obj/structure/catwalk/cargo,/obj/structure/photon_torpedo,/obj/structure/rack,/obj/structure/photon_torpedo,/turf/open/floor/plating,/area/ship/sovreign)
-"ch" = (/obj/structure/catwalk/cargo,/obj/structure/rack,/obj/structure/photon_torpedo,/obj/structure/photon_torpedo,/turf/open/floor/plating,/area/ship/sovreign)
-"ci" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (WEST)"; icon_state = "ast_warn"; dir = 8},/turf/open/floor/plating,/area/ship/sovreign)
-"cj" = (/obj/structure/closet/secure_closet/engineering_personal,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/electrical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"ck" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cl" = (/obj/structure/chair/office/dark{dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cm" = (/obj/structure/closet/secure_closet/engineering_personal,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/item/storage/toolbox/electrical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cn" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/turf/open/floor/plating,/area/ship/sovreign)
-"co" = (/obj/structure/closet/secure_closet/engineering_electrical,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/electrical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cp" = (/obj/structure/closet/secure_closet/engineering_chief,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cq" = (/turf/closed/wall/ship/tng,/area/space)
-"cr" = (/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/obj/effect/turf_decal/trek,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cs" = (/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"ct" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/ship,/area/ship/sovreign)
-"cu" = (/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/obj/effect/turf_decal/trek,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cv" = (/obj/structure/chair/office/dark{dir = 1},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cw" = (/obj/structure/chair/office/dark{dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cx" = (/obj/structure/chair/office/dark{dir = 1},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cy" = (/obj/effect/turf_decal/stripes/asteroid/line,/turf/open/floor/plating,/area/ship/sovreign)
-"cz" = (/obj/structure/ship_component/capbooster{tag = "icon-capbooster (EAST)"; icon_state = "capbooster"; dir = 4},/turf/closed/wall/ship,/area/ship/sovreign)
-"cA" = (/obj/structure/ship_component/capbooster{tag = "icon-capbooster (WEST)"; icon_state = "capbooster"; dir = 8},/turf/closed/wall/ship,/area/ship/sovreign)
-"cB" = (/obj/machinery/door/airlock/trek/tng{name = "engineering"},/turf/open/floor/plating,/area/ship/sovreign)
-"cC" = (/obj/machinery/door/airlock/trek/tng{name = "engineering"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cD" = (/obj/effect/turf_decal/trek,/obj/structure/overmap/ship/federation_capitalclass/sovreign,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"cE" = (/obj/structure/ladder/unbreakable{height = 1; id = "sovreign1"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cF" = (/obj/structure/ladder/unbreakable{height = 1; id = "sovreign2"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cG" = (/obj/machinery/door/airlock/trek/tng{name = "engineering"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cH" = (/obj/machinery/door/airlock/trek/tng{name = "engineering"},/turf/closed/wall/ship/tng,/area/ship/sovreign)
-"cI" = (/obj/machinery/door/airlock/trek/tng{name = "bridge"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cJ" = (/turf/open/floor/borg/trek/lit,/turf/open/floor/trek_special/storagebay{pixel_x = -3; pixel_y = 4},/area/ship/sovreign)
-"cK" = (/obj/machinery/door/airlock/trek/tng/single,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cL" = (/turf/open/floor/trek_special/engibay,/area/ship/sovreign)
-"cM" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cN" = (/obj/structure/ship_component/capbooster{pixel_x = -2; pixel_y = 1},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/sovreign)
-"cO" = (/obj/machinery/door/airlock/trek/tng/double,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cP" = (/obj/structure/subsystem_panel,/turf/closed/indestructible/riveted{alpha = 0},/area/ship/sovreign)
-"cQ" = (/obj/structure/ship_component{pixel_x = -6},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
-"cR" = (/obj/structure/ship_component{pixel_x = 6},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/sovreign)
-"cS" = (/obj/structure/subsystem_panel/engines,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
-"cT" = (/obj/structure/subsystem_panel/weapons,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
-"cU" = (/obj/structure/closet/crate,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cV" = (/obj/structure/fluff/warpcore/massive{density = 0},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cW" = (/turf/open/floor/borg/trek,/area/ship/sovreign)
-"cX" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cY" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"cZ" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (WEST)"; icon_state = "ast_warn"; dir = 8},/turf/open/floor/borg/trek,/area/ship/sovreign)
-"da" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (EAST)"; icon_state = "ast_warn"; dir = 4},/turf/open/floor/borg/trek,/area/ship/sovreign)
-"db" = (/turf/open/floor/borg/trek{color = "#A9A9A9"},/area/ship/sovreign)
-"dc" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d{tag = "icon-5 (NORTHWEST)"; icon_state = "5"; dir = 9},/area/ship/sovreign)
-"dd" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d{tag = "icon-5 (SOUTHEAST)"; icon_state = "5"; dir = 6},/area/ship/sovreign)
-"de" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d{tag = "icon-5 (SOUTHWEST)"; icon_state = "5"; dir = 10},/area/ship/sovreign)
-"df" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d{tag = "icon-5 (NORTHEAST)"; icon_state = "5"; dir = 5},/area/ship/sovreign)
-"dg" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d,/area/ship/sovreign)
-"dh" = (/turf/closed/trek_raised/engineering/d{tag = "icon-5 (EAST)"; icon_state = "5"; dir = 4},/area/ship/sovreign)
-"di" = (/turf/closed/trek_raised/engineering/d{tag = "icon-5 (WEST)"; icon_state = "5"; dir = 8},/area/ship/sovreign)
-"dj" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d{tag = "icon-5 (NORTH)"; icon_state = "5"; dir = 1},/area/ship/sovreign)
-"dk" = (/turf/open/storagebay_overlay,/area/ship/sovreign)
-"dl" = (/turf/closed/trek_raised/engineering/c{tag = "icon-4 (EAST)"; icon_state = "4"; dir = 4},/area/ship/sovreign)
-"dm" = (/turf/closed/trek_raised/engineering/c,/area/ship/sovreign)
-"dn" = (/turf/closed/trek_raised/engineering/c{tag = "icon-4 (NORTH)"; icon_state = "4"; dir = 1},/area/ship/sovreign)
-"do" = (/turf/closed/trek_raised/engineering/c{tag = "icon-4 (WEST)"; icon_state = "4"; dir = 8},/area/ship/sovreign)
-"dp" = (/obj/structure/barricade/security{alpha = 0},/turf/open/warp_room_overlay,/area/ship/sovreign)
-"dq" = (/obj/machinery/door/airlock/glass_large,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
-"dr" = (/turf/open/floor/trek_special/dockingbay{pixel_x = -8; pixel_y = 10},/area/ship/sovreign)
-"ds" = (/turf/open/floor/trek_cargo,/area/ship/sovreign)
-"dt" = (/turf/open/cargobay_overlay,/area/ship/sovreign)
+"ay" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHEAST)"; icon_state = "lcars2"; dir = 5},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"az" = (/obj/machinery/door/airlock/trek/tng/single,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aA" = (/obj/structure/fluff/ship/panel/type1,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"aB" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (SOUTHWEST)"; icon_state = "lcars"; dir = 10},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"aC" = (/turf/closed/indestructible/riveted{alpha = 0},/area/space)
+"aD" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (NORTHEAST)"; icon_state = "lcars"; dir = 5},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aE" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHWEST)"; icon_state = "lcars2"; dir = 9},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aF" = (/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"aG" = (/obj/structure/chair/trek/bridge{tag = "icon-bridgechair (NORTH)"; icon_state = "bridgechair"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aH" = (/obj/structure/fluff/helm/desk/tactical{tag = "icon-desk (NORTH)"; icon_state = "desk"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aI" = (/turf/open/floor/trek_special/black{pixel_x = 0},/area/ship/sovreign)
+"aJ" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (WEST)"; icon_state = "ast_warn"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aK" = (/obj/effect/landmark/observer_start,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aL" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (EAST)"; icon_state = "ast_warn"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aM" = (/turf/open/floor/trek_special/black{dir = 1; icon_state = "black"; pixel_x = 0; tag = "icon-black (NORTH)"},/area/ship/sovreign)
+"aN" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (NORTH)"; icon_state = "lift"; dir = 1},/area/ship/sovreign)
+"aO" = (/obj/structure/ladder/unbreakable{height = 3; id = "sovreign1"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"aP" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (EAST)"; icon_state = "lift"; dir = 4},/area/ship/sovreign)
+"aQ" = (/obj/structure/fluff/helm/desk/noisy,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aR" = (/obj/structure/fluff/helm/desk{tag = "icon-miniconsole (NORTH)"; icon_state = "miniconsole"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aS" = (/obj/structure/ladder/unbreakable{height = 3; id = "sovreign2"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"aT" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHEAST)"; icon_state = "lift"; dir = 6},/area/ship/sovreign)
+"aU" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHWEST)"; icon_state = "lift"; dir = 10},/area/ship/sovreign)
+"aV" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (WEST)"; icon_state = "lift"; dir = 8},/area/ship/sovreign)
+"aW" = (/obj/structure/fluff/helm/desk/functional,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aX" = (/obj/structure/fluff/helm/desk/functional/weapons,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aY" = (/obj/effect/turf_decal/stripes/asteroid/line,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"aZ" = (/turf/open/bridge_overlay,/area/ship/sovreign)
+"ba" = (/turf/closed/wall/ship/tng,/area/ship/sovreign)
+"bb" = (/obj/machinery/door/airlock/trek/tng{name = "bridge"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bc" = (/obj/machinery/door/airlock/trek/tng,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bd" = (/turf/closed/wall/ship,/area/ship/sovreign)
+"be" = (/obj/machinery/door/airlock/trek,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bf" = (/obj/structure/fluff/ship/panel/red,/turf/closed/wall/ship,/area/ship/sovreign)
+"bg" = (/obj/structure/fluff/ship/panel/drawer/single,/turf/closed/wall/ship,/area/ship/sovreign)
+"bh" = (/obj/structure/sign/viewscreen{icon_state = "trekscreen"},/obj/effect/turf_decal/trek,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bi" = (/obj/structure/chair/trek{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bj" = (/obj/structure/chair/trek{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bk" = (/obj/structure/trek_table,/obj/structure/chair/trek{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bl" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bm" = (/obj/structure/lattice/catwalk,/turf/open/space/basic,/area/ship/sovreign)
+"bn" = (/obj/structure/lattice,/turf/open/floor/plating,/area/ship/sovreign)
+"bo" = (/turf/open/floor/plating,/area/ship/sovreign)
+"bp" = (/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/obj/structure/lattice,/turf/open/floor/plating,/area/ship/sovreign)
+"bq" = (/obj/machinery/door/airlock/external,/turf/open/floor/plating,/area/ship/sovreign)
+"br" = (/obj/machinery/suit_storage_unit/ert/medical,/turf/open/floor/plating,/area/ship/sovreign)
+"bs" = (/obj/structure/tank_dispenser,/turf/open/floor/plating,/area/ship/sovreign)
+"bt" = (/obj/structure/catwalk,/obj/structure/torpedo_launcher,/turf/open/floor/plating,/area/ship/sovreign)
+"bu" = (/obj/structure/catwalk/cargo,/turf/open/floor/plating,/area/ship/sovreign)
+"bv" = (/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/sovreign)
+"bw" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/obj/structure/rack,/obj/item/gun/energy/laser/retro,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bx" = (/obj/effect/turf_decal/trek,/obj/structure/rack,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"by" = (/obj/effect/turf_decal/trek,/obj/structure/rack,/obj/item/gun/energy/laser/retro,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bz" = (/obj/effect/turf_decal/trek,/obj/structure/rack,/obj/item/gun/energy/laser/retro,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bA" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/obj/structure/rack,/obj/item/gun/energy/laser/retro,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bB" = (/obj/machinery/sleeper/survival_pod,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bC" = (/obj/structure/table/reinforced,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bD" = (/obj/structure/fluff/helm/desk,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bE" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/structure/closet/secure_closet,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bF" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/structure/closet/secure_closet,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bG" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/structure/bed/roller,/obj/item/bedsheet/medical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bH" = (/obj/structure/table/optable,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bI" = (/obj/structure/table/reinforced,/obj/item/scalpel,/obj/item/retractor,/obj/item/hemostat,/obj/item/surgicaldrill,/obj/item/cautery,/obj/item/surgical_drapes,/obj/item/storage/backpack/duffelbag/med/surgery,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bJ" = (/obj/structure/barricade/security{alpha = 0; opacity = 1},/turf/open/generic_overlay,/area/ship/sovreign)
+"bK" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/obj/structure/closet/secure_closet,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bL" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHEAST)"; icon_state = "trek_edge"; dir = 6},/obj/structure/closet/secure_closet,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bM" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/obj/structure/bed/roller,/obj/item/bedsheet/medical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bN" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHEAST)"; icon_state = "trek_edge"; dir = 6},/obj/structure/chair/trek{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bO" = (/obj/item/storage/firstaid,/obj/structure/table/reinforced,/obj/item/storage/firstaid/toxin,/obj/item/storage/firstaid/o2,/obj/item/storage/firstaid/fire,/obj/item/storage/firstaid/fire,/obj/item/storage/firstaid/brute,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bP" = (/obj/structure/table/reinforced,/obj/item/clothing/suit/apron/surgical,/obj/item/clothing/suit/apron/surgical,/obj/item/storage/box/masks,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bQ" = (/obj/machinery/door/airlock/trek{dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bR" = (/obj/structure/ladder/unbreakable{height = 2; id = "sovreign1"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"bS" = (/obj/structure/ladder/unbreakable{height = 2; id = "sovreign2"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"bT" = (/turf/closed/indestructible/riveted{alpha = 0; opacity = 1},/area/ship/sovreign)
+"bU" = (/obj/structure/table,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"bV" = (/obj/item/device/tricorder,/obj/structure/table,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"bW" = (/obj/machinery/trek/transporter{layer = 2},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"bX" = (/obj/machinery/computer/camera_advanced/transporter_control/huge,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"bY" = (/obj/effect/turf_decal/stripes/asteroid/line,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"bZ" = (/turf/open/transporter_overlay,/area/ship/sovreign)
+"ca" = (/turf/open/floor/trek_special{pixel_x = -3; pixel_y = -1},/area/ship/sovreign)
+"cb" = (/obj/machinery/door_timer{id = "sov1"; name = "holding cell control"},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"cc" = (/obj/machinery/door_timer{id = "sov2"; name = "holding cell control"},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"cd" = (/obj/machinery/door_timer{id = "sov3"; name = "holding cell control"},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"ce" = (/obj/machinery/door_timer{id = "sov4"; name = "holding cell control"},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"cf" = (/obj/machinery/door_timer{id = "sov5"; name = "holding cell control"},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"cg" = (/obj/machinery/door_timer{id = "sov6"; name = "holding cell control"},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"ch" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"ci" = (/turf/open/floor/trek_special/brig{pixel_x = 20; pixel_y = -13},/area/ship/sovreign)
+"cj" = (/obj/machinery/door/window/brigdoor/trek{id = "sov1"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"ck" = (/obj/machinery/door/window/brigdoor/trek{id = "sov2"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cl" = (/obj/machinery/door/window/brigdoor/trek{id = "sov3"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cm" = (/obj/machinery/door/window/brigdoor/trek{id = "sov4"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cn" = (/obj/machinery/door/window/brigdoor/trek{id = "sov5"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"co" = (/obj/machinery/door/window/brigdoor/trek{id = "sov6"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cp" = (/obj/structure/barricade/security{alpha = 0; opacity = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cq" = (/turf/open/brig_overlay,/area/ship/sovreign)
+"cr" = (/obj/structure/fluff/ship/panel/blank,/turf/closed/wall/ship,/area/ship/sovreign)
+"cs" = (/obj/structure/fluff/ship/panel/drawer,/turf/closed/wall/ship,/area/ship/sovreign)
+"ct" = (/obj/structure/reagent_dispensers/water_cooler,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cu" = (/obj/structure/reagent_dispensers/water_cooler,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cv" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (EAST)"; icon_state = "ast_warn"; dir = 4},/turf/open/floor/plating,/area/ship/sovreign)
+"cw" = (/obj/structure/catwalk/cargo,/obj/structure/photon_torpedo,/obj/structure/rack,/obj/structure/photon_torpedo,/turf/open/floor/plating,/area/ship/sovreign)
+"cx" = (/obj/structure/catwalk/cargo,/obj/structure/rack,/obj/structure/photon_torpedo,/obj/structure/photon_torpedo,/turf/open/floor/plating,/area/ship/sovreign)
+"cy" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (WEST)"; icon_state = "ast_warn"; dir = 8},/turf/open/floor/plating,/area/ship/sovreign)
+"cz" = (/obj/structure/closet/secure_closet/engineering_personal,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/electrical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cA" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cB" = (/obj/structure/chair/office/dark{dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cC" = (/obj/structure/closet/secure_closet/engineering_personal,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/item/storage/toolbox/electrical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cD" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/turf/open/floor/plating,/area/ship/sovreign)
+"cE" = (/obj/structure/closet/secure_closet/engineering_electrical,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/electrical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cF" = (/obj/structure/closet/secure_closet/engineering_chief,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cG" = (/turf/closed/wall/ship/tng,/area/space)
+"cH" = (/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/obj/effect/turf_decal/trek,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cI" = (/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cJ" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/ship,/area/ship/sovreign)
+"cK" = (/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/obj/effect/turf_decal/trek,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cL" = (/obj/structure/chair/office/dark{dir = 1},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cM" = (/obj/structure/chair/office/dark{dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cN" = (/obj/structure/chair/office/dark{dir = 1},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cO" = (/obj/effect/turf_decal/stripes/asteroid/line,/turf/open/floor/plating,/area/ship/sovreign)
+"cP" = (/obj/structure/ship_component/capbooster{tag = "icon-capbooster (EAST)"; icon_state = "capbooster"; dir = 4},/turf/closed/wall/ship,/area/ship/sovreign)
+"cQ" = (/obj/structure/ship_component/capbooster{tag = "icon-capbooster (WEST)"; icon_state = "capbooster"; dir = 8},/turf/closed/wall/ship,/area/ship/sovreign)
+"cR" = (/obj/machinery/door/airlock/trek/tng{name = "engineering"},/turf/open/floor/plating,/area/ship/sovreign)
+"cS" = (/obj/machinery/door/airlock/trek/tng{name = "engineering"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cT" = (/obj/effect/turf_decal/trek,/obj/structure/overmap/ship/federation_capitalclass/sovreign,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"cU" = (/obj/structure/ladder/unbreakable{height = 1; id = "sovreign1"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"cV" = (/obj/structure/ladder/unbreakable{height = 1; id = "sovreign2"; name = "turboladder"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"cW" = (/obj/machinery/door/airlock/trek/tng{name = "engineering"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"cX" = (/obj/machinery/door/airlock/trek/tng{name = "engineering"},/turf/closed/wall/ship/tng,/area/ship/sovreign)
+"cY" = (/obj/machinery/door/airlock/trek/tng{name = "bridge"},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"cZ" = (/turf/open/floor/borg/trek/lit,/turf/open/floor/trek_special/storagebay{pixel_x = -3; pixel_y = 4},/area/ship/sovreign)
+"da" = (/obj/machinery/door/airlock/trek/tng/single,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"db" = (/turf/open/floor/trek_special/engibay,/area/ship/sovreign)
+"dc" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"dd" = (/obj/structure/ship_component/capbooster{pixel_x = -2; pixel_y = 1},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/sovreign)
+"de" = (/obj/machinery/door/airlock/trek/tng/double,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"df" = (/obj/structure/subsystem_panel,/turf/closed/indestructible/riveted{alpha = 0},/area/ship/sovreign)
+"dg" = (/obj/structure/ship_component{pixel_x = -6},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"dh" = (/obj/structure/ship_component{pixel_x = 6},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/sovreign)
+"di" = (/obj/structure/subsystem_panel/engines,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"dj" = (/obj/structure/subsystem_panel/weapons,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"dk" = (/obj/structure/closet/crate,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"dl" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (NORTHEAST)"; icon_state = "lcars"; dir = 5},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"dm" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHWEST)"; icon_state = "lcars2"; dir = 9},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/sovreign)
+"dn" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (SOUTHEAST)"; icon_state = "lcars"; dir = 6},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"do" = (/obj/structure/fluff/warpcore/massive{density = 0},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"dp" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHWEST)"; icon_state = "lcars2"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"dq" = (/turf/open/floor/borg/trek,/area/ship/sovreign)
+"dr" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"ds" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"dt" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (WEST)"; icon_state = "ast_warn"; dir = 8},/turf/open/floor/borg/trek,/area/ship/sovreign)
+"du" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (EAST)"; icon_state = "ast_warn"; dir = 4},/turf/open/floor/borg/trek,/area/ship/sovreign)
+"dv" = (/turf/open/floor/borg/trek{color = "#A9A9A9"},/area/ship/sovreign)
+"dw" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d{tag = "icon-5 (NORTHWEST)"; icon_state = "5"; dir = 9},/area/ship/sovreign)
+"dx" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d{tag = "icon-5 (SOUTHEAST)"; icon_state = "5"; dir = 6},/area/ship/sovreign)
+"dy" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d{tag = "icon-5 (SOUTHWEST)"; icon_state = "5"; dir = 10},/area/ship/sovreign)
+"dz" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d{tag = "icon-5 (NORTHEAST)"; icon_state = "5"; dir = 5},/area/ship/sovreign)
+"dA" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d,/area/ship/sovreign)
+"dB" = (/turf/closed/trek_raised/engineering/d{tag = "icon-5 (EAST)"; icon_state = "5"; dir = 4},/area/ship/sovreign)
+"dC" = (/turf/closed/trek_raised/engineering/d{tag = "icon-5 (WEST)"; icon_state = "5"; dir = 8},/area/ship/sovreign)
+"dD" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/engineering/d{tag = "icon-5 (NORTH)"; icon_state = "5"; dir = 1},/area/ship/sovreign)
+"dE" = (/turf/open/storagebay_overlay,/area/ship/sovreign)
+"dF" = (/turf/closed/trek_raised/engineering/c{tag = "icon-4 (EAST)"; icon_state = "4"; dir = 4},/area/ship/sovreign)
+"dG" = (/turf/closed/trek_raised/engineering/c,/area/ship/sovreign)
+"dH" = (/turf/closed/trek_raised/engineering/c{tag = "icon-4 (NORTH)"; icon_state = "4"; dir = 1},/area/ship/sovreign)
+"dI" = (/turf/closed/trek_raised/engineering/c{tag = "icon-4 (WEST)"; icon_state = "4"; dir = 8},/area/ship/sovreign)
+"dJ" = (/obj/structure/barricade/security{alpha = 0},/turf/open/warp_room_overlay,/area/ship/sovreign)
+"dK" = (/obj/machinery/door/airlock/glass_large,/turf/open/floor/borg/trek/lit,/area/ship/sovreign)
+"dL" = (/turf/open/floor/trek_special/dockingbay{pixel_x = -8; pixel_y = 10},/area/ship/sovreign)
+"dM" = (/turf/open/floor/trek_cargo,/area/ship/sovreign)
+"dN" = (/turf/open/cargobay_overlay,/area/ship/sovreign)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -212,26 +232,26 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacabahaiaiapaiakab
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaqarasasatasauabacaqarasatasasauabacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacabababavabababababababavababababacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacabacawacacacacacacacawacabaxacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacabacacayazaiaiaiaiaiazayacacabacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaAaAabacacabacaiaiaiaiaiaiaiaiaiaiaiacabacacabaAaAaAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAababababababaiaiaiaiaiaiaiaiaiaiaiaiaiababababababaAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAabaBaBaBababaiaiaiaiaiaCaDaCaiaiaiaiaiababaBaBaBabaAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAabaBaBaBaBaEaFaiaiaiaiaiaGaiaiaiaiaiaHaIaBaBaBaBabaAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAabaJaKaLababaiaiaiaiaMaCaCaCaNaiaiaiaiababaJaOaLabaAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAabaPaQaRababaiaiaiaSaiaiaiaiaiaTaiaiaiababaPaQaRabaAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAabababababacabaiaUaiaiaiaiaiaiaiaUaiabababababababaAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaAaAaAaAaAaVababavabababababababavabababaAaAaAaAaAaAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWaWaWaWaWaWaWaWaXaWaWaWaWaWaWaWaXaWaWaWaWaWaWaWaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWagaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWahaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiakaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWarasasasasasasasasasasasasasasasasasasasasasauaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWaWaYaWaWaZaZaZbabbbcaZaZaZbcbbbaaZaZaZaWaWaYaWaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZagaeaeafaZagaeaeaeaebdaeaeaeaeaeaeafaZagaeaeafaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZahaiaiakaZahaiaiaiajajajajajaiaiaiakaZahaiaiakaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZahaiaiakaZahaiaibeaiaiaiaiaibfaiaiakaZahaiaiakaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZahaiaiakaZahaiaiaibgapapapapaiaiaiakaZahaiaiakaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZarasasauaZarasasasasasasasasasasasauaZarasasauaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaZaZaZaZaZbhbhbhaZaZbhbhbhaZaZbhbhbhaZaZaZaZaZaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacabacayazaAaiaiaiaiaiaAazaBacabacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaCaCabacacabacaDaiaiaiaiaiaiaiaiaiaEacabacacabaCaCaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCababababababaiaiaiaiaiaiaiaiaiaiaiaiaiababababababaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCabaFaFaFababaiaiaiaiaiaGaHaGaiaiaiaiaiababaFaFaFabaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCabaFaFaFaFaIaJaiaiaiaiaiaKaiaiaiaiaiaLaMaFaFaFaFabaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCabaNaOaPababaiaiaiaiaQaGaGaGaRaiaiaiaiababaNaSaPabaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCabaTaUaVababaiaiaiaWaiaiaiaiaiaXaiaiaiababaTaUaVabaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCabababababacabaiaYaiaiaiaiaiaiaiaYaiabababababababaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaCaCaCaCaCaZababavabababababababavabababaCaCaCaCaCaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababbbabababababababbbabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaagaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaahaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiakbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaarasasasasasasasasasasasasasasasasasasasasasaubaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababcbababdbdbdbebfbgbdbdbdbgbfbebdbdbdbababcbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdagaeaeafbdagaeaeaeaebhaeaeaeaeaeaeafbdagaeaeafbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdahaiaiakbdahaiaiaiajajajajajaiaiaiakbdahaiaiakbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdahaiaiakbdahaiaibiaiaiaiaiaibjaiaiakbdahaiaiakbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdahaiaiakbdahaiaiaibkapapapapaiaiaiakbdahaiaiakbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdarasasaubdarasasasasasasasasasasasaubdarasasaubdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbdbdbdbdbdblblblbdbdblblblbdbdblblblbdbdbdbdbdbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -244,7 +264,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaA
+aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaC
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -254,45 +274,45 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxaxaxaxaxaxaxax
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxaxbibibibibibibibibibibibibiaxaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxaxbibjbkbjbkbjbkbjbkbjbkbjbiaxaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabibibibibibibibibjbkbjbkbjbkbjbkbjbkbjbibibibibibibibiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabibjbjbjbjbjbjbjbjbkblbkblbkblbkblbkblbjbjbjbjbjbjbjbiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabibjbkbkbkbkbkbkbkbkbkaZaZbmaZaZbkbkbkbkbkbkbkbkbkbjbiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabibjbkbkbkbkbkbkbkbkbkaZbnbkboaZbkbkbkbkbkbkbkbkbkbjbiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaZaZaZaZaZaZaZaZaZaZaZaZaZbmaZaZaZaZaZaZaZaZaZaZaZaZaZaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaZaBaBaBabacacacacacacabbpbqbrbqbpabacacacacacacabaiaiajaZaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaBaBaBaBabbsbtbubvbtbwabbrbqbrbqbrabbxaeaeaeaeafabaibybzaZaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaBaBaBaBabahaiaiaiaiakabbrbqbrbqbrabahaiaiaiaiaHavaiaiaiaiaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaZaBaBaBaBabbAaiaiaiaibBabbrbqbrbqbrabbCaiaiaiaianabaZbhbhbhaZaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaBaBaBaBaBabbAaiaiaiaibBabbrbqbrbqbrabahaiaiaiaiaHavaiaibDaibEaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaBaBaBaBaBbFbGasasasasbHabbrbqbrbqbrbFbIasasasasbJabbKaiaiaibLaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaWaWaWaWaWaWaWaWaWaYaWaWaWaWaWaYaWaWaWaWaWaYaWaWaWaWaWaWaWaWaWaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZabababababaWagaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafaWabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZabaBaBaBabaWahaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiakaWabaBaBaBabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZabaBaBaBaBbMahaiaiasasasasasasasasasasasasasasaiaiakbMaBaBaBaBabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZabaJbNaLabaWahaiakaWaWaWaWaWaWaWaWaWaWaWaWaWaWahaiakaWabaJbOaLabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZabaPaQaRabaWahaiakaWbPacacacacacacacacacbPbPaWahaiakaWabaPaQaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZabababababaWahaiakaWbPaBaBaBaBaBaBaBbQbRaBbPaWahaiakaWabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaWaWaWaWaWaWahaiakaWbPbSbSaBaBaBaBaBaBaBaBbPaWahaiakaWaWaWaWaWaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZagaeaeaeafaWahaiakaWbPbSbSaBaBaBaBaBbTaBaBbPaWahaiakaWagaeaeafaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZahaiaiaiakaWahaiakaWbPbPaBaBaBbUaBaBaBaBbPbPaWahaiakaWahaiaiakaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZarasasasauaWarasauaWbVbPbPbPbPavbPbPbPbPbPbPaWarasauaWarasasauaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWaWaWaWaWaWaWaWaYaWaWaWaWaWaWaWaYaWaWaWaWaWaWaWaWaYaWaWaWaWaWaWaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWagaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWahaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiakaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWarasasasasasasasasasasasasasasasasasasasasasasasasasasasasasauaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWaWaWbPabababababababbWababababbPbPabababababababbWabababacaWaWaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZbPacacacacacacacayacacacabaxbPacacacacacacacayacacacacaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZbPaiaiaiaiaiaiaibXaiaiaiabaxbPaiaiaiaiaiaiaibXaiaiaiacaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZbPaiaiaiaiaiaiaiaiaiaiaiabaxbPaiaiaiaiaiaiaiaiaiaiaiacaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZbPacaiacabacaiacabacaiacabaxbPacaiacabacaiacabacaiacacaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZbPbYaiacabbYaiacabbYaiacabaxbPbYaiacabbYaiacabbYaiacacaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZbPbZaiaiabbZaiaiabbZaiaiabaxbPbZaiaiabbZaiaiabbZaiaiacaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZbPaiaiaiabaiaiaiabaiaiaiabaxbPaiaiaiabaiaiaiabaiaiaiacaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZbPaiaiaiabaiaiaiabaiaiaiabaxbPaiaiaiabaiaiaiabaiaiaiacaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZcabPbPbPbPbPbPbPbPbPbPbPbPaxcaabababababababababababacaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxaxbmbmbmbmbmbmbmbmbmbmbmbmbmaxaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxaxbmbnbobnbobnbobnbobnbobnbmaxaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabmbmbmbmbmbmbmbmbnbobnbobnbobnbobnbobnbmbmbmbmbmbmbmbmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabmbnbnbnbnbnbnbnbnbobpbobpbobpbobpbobpbnbnbnbnbnbnbnbmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabmbnbobobobobobobobobobdbdbqbdbdbobobobobobobobobobnbmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabmbnbobobobobobobobobobdbrbobsbdbobobobobobobobobobnbmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbdbdbdbdbdbdbdbdbdbdbdbdbdbqbdbdbdbdbdbdbdbdbdbdbdbdbdbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbdaFaFaFabacacacacacacabbtbubvbubtabacacacacacacabaiaiajbdbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdaFaFaFaFabbwbxbybzbxbAabbvbubvbubvabbBaeaeaeaeafabaibCbDbdbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdaFaFaFaFabahaiaiaiaiakabbvbubvbubvabahaiaiaiaiaLavaiaiaiaibdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbdaFaFaFaFabbEaiaiaiaibFabbvbubvbubvabbGaiaiaiaianabbdblblblbdbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdaFaFaFaFaFabbEaiaiaiaibFabbvbubvbubvabahaiaiaiaiaLavaiaibHaibIbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdaFaFaFaFaFbJbKasasasasbLabbvbubvbubvbJbMasasasasbNabbOaiaiaibPbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbabababababababababcbabababababcbabababababcbabababababababababdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdabababababbaagaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafbaabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdabaFaFaFabbaahaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiakbaabaFaFaFabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdabaFaFaFaFbQahaiaiasasasasasasasasasasasasasasaiaiakbQaFaFaFaFabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdabaNbRaPabbaahaiakbabababababababababababababaahaiakbaabaNbSaPabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdabaTaUaVabbaahaiakbabTacacacacacacacacacbTbTbaahaiakbaabaTaUaVabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdabababababbaahaiakbabTaFaFaFaFaFaFaFbUbVaFbTbaahaiakbaabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbabababababaahaiakbabTbWbWaFaFaFaFaFaFaFaFbTbaahaiakbabababababdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdagaeaeaeafbaahaiakbabTbWbWaFaFaFaFaFbXaFaFbTbaahaiakbaagaeaeafbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdahaiaiaiakbaahaiakbabTbTaFaFaFbYaFaFaFaFbTbTbaahaiakbaahaiaiakbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdarasasasaubaarasaubabZbTbTbTbTavbTbTbTbTbTbTbaarasaubaarasasaubdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababcbabababababababcbababababababababcbababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaagaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaahaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiakbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaarasasasasasasasasasasasasasasasasasasasasasasasasasasasasasaubaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababTabababababababcaababababbTbTabababababababcaabababacbababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbTacaccbacccacacazacaccdabaxbTacacceaccfacacazacaccgacbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbTaiaiaiaiaiaiaichaiaiaiabaxbTaiaiaiaiaiaiaichaiaiaiacbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbTaiaiaiaiaiaiaiaiaiaiaiabaxbTaiaiaiaiaiaiaiaiaiaiaiacbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbTacaiacabacaiacabacaiacabaxbTacaiacabacaiacabacaiacacbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbTcicjacabcickacabciclacabaxbTcicmacabcicnacabcicoacacbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbTcpaiaiabcpaiaiabcpaiaiabaxbTcpaiaiabcpaiaiabcpaiaiacbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbTaiaiaiabaiaiaiabaiaiaiabaxbTaiaiaiabaiaiaiabaiaiaiacbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbTaiaiaiabaiaiaiabaiaiaiabaxbTaiaiaiabaiaiaiabaiaiaiacbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdcqbTbTbTbTbTbTbTbTbTbTbTbTaxcqabababababababababababacbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -301,7 +321,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaA
+aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaC
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -314,66 +334,66 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaWaWaWaWaWaWaWaWaWaZaZaZaZaZaZaZaZaZaZaZaZaZaZcbccbbbcaZaZaZbcbbccaZaZaZaZaZaZaZaZaZaZaZaZaZaZaWaWaWaWaWaWaWaWaWaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaWbqbrbrbrbrbrbraWaZbkbkbkbkbkbkbkbkbkbkbkaZcdaeaeaeaeaeaeaeaeaeaeceaZbkcfcgbqbqchbqbqchcibkaZaWbrbrbrbrbrbrbqaWaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaWbqbrbrbrbrbrbraWaZbkbkbkbkbkbkbkbkbkbkbkaZcjaiaiaickaoaoclaiaiaicmaZbkbkbqcnbkcnbkcnbqbkbkaZaWbrbrbrbrbrbrbqaWaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaWbqbrbrbrbrbrbraWaZbkbkbkbkbkbkbkbkbkbkbkaZcoaiaiaickaoaoclaiaiaicpaZbkbkbqbkbkbkbkbkbqbkbkaZaWbrbrbrbrbrbrbqaWaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaWaWaWaWaWbrbraWaWaZbkbkbkbkbkbkbkbkbkbkbkaZahaiaiaiaiaiaiaiaiaiaiakaZbkbkbqbkbkbkbkbkbqbkbkaZaWaWbrbraWcqcqcqcqaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWbrbraWaBaZbkbkbkbkbkbkbkbkbkbkbkaZcraZcsctaiaiaiaiaZcuaZcsaZbkcfbqbkbkbkbkbkbqcibkaZaiaWbrbraWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWbrbraWaBaZbkbkbkbkbkbkbkbkbkbkbkaZcvaicwaZaiaiaiaiaZcwaicxaZbkbkbqbqbqbqbqbqbqbkbkaZaiaWbrbraWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaAaAaAaAaAaAaxaxaWbrbraWaBaZbkbkbkcycycybkbkbkbkbkczarasasasasasasasasasasaucAbkbkbkbkbkbkcycycybkbkaZaiaWbrbraWaxabaAaAaAaAaAaAaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaAabababacacaWaWaWaWcBaWaWaWaWaWaWaWcCaWaWaWaWaWaWaWaWcCaWaWaWaWaWaWaWaWcCaWaWaWaWaWaWaWaWaWcCaWaWaWaWaWaWcBaWaWaWaWacacabababaAaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaAabaBaBaBabaWagaeaeaeaeaeaeaecDaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafaWabaBaBaBabaAaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaAabaBaBaBaBaiahaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiakaiaBaBaBaBabaAaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaAabaJcEaLabaWahaiaiaiaiaiaiaiaiaiaiaiasasasasasasasasasasasasasasasasasasasasasasasasasasaiaiaiaiaiaiaiaiaiaiaiakaWabaJcFaLabaAaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaAabaPaQaRabaWarasasasasasasasasasasasaWaWaWaWaWaWcGaWaWaWaWaWaWaWaWaWaWaWaWcHaWaWaWaWaWaWasasasasasasasasasasasauaWabaPaQaRabaAaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaAabababababaWaWcIaWaWaWaWaWaWaWaWaWcGaWabababababavabbPbPbPbPbPbPbPbPbPababababaxaxaxabaWaWcGaWaWaWaWaWaWaWaWcGaWaWabababababaAaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaAaAaAaAaAaAaWaBaBaBaBaBaBaBaBaBaBaBaBaBabaxabababavabbPacacacacacacacacbPabababababaxabaBaBaBaBaBaBaBaBaBaBaBaBaBaWaAaAaAaAaAaAaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaccJacacacacacacacacacacacabaxacacabaBabacacacacacacacacacabacacacacabababacaccJacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaccKacacacacacacacacacacacababacacabcLabacacaBaBaBaBaBaBacabacacacacacababacaccKacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBcMaBaBaBaBaBaBaBaBaBaBacabacacaccNcOcPcQaBaBaBaBaBaBaBaBcRcSaccTacacacabacaBcMaBaBaBaBaBaBaBaBaBaBacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaBaBaBaBcUcUcUaBacabacacaBaBcMaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBacacabacaBaBaBaBaBaBaBaBaBaBaBaBacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaBaBaBaBcUcUcUaBacabacaBaBaBaBaBaBcVaBacacacacaBaBaBaBaBaBaBaBacabacaBaBaBaBaBaBaBaBaBaBaBaBacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaBaBaBaBaBaBaBaBacabaccWaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBcWacabacaBaBaBaBaBaBaBaBaBaBaBaBacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaBaBaBaBaBcXcYaBavavavcZaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBdaavavavaBaBaBaBaBaBaBaBaBaBaBaBacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaBaBaBaBaBaBaBaBacabaccWaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBcWacabacaBaBaBaBaBaBaBaBaBaBaBaBacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaBaBaBaBcUcUcUaBacababcWaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBcWababacaBaBaBaBaBaBaBaBaBaBaBaBacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaBaBaBaBcUcUcUaBacabdbabcWbUbUaBaBaBaBdcdddedfaBaBaBaBbUbUcWabababacaBaBaBaBaBaBaBaBaBaBaBaBacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaBaBaBaBaBaBaBaBacababababavavabaBaBaBdgdhdidjaBaBaBabavavababababacaBaBaBaBaBaBaBaBaBaBaBaBacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaadkacacacacacacacacacacacacacababababavavababaBaBdldmdndoaBaBababavavababababdkacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxabdpababavavababababababababababababavavababababaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWaWaWaWaWaWaWaWaWaWdqaBaWaWaWaWaWaWaWaWaWaWaWaWdqaBaWaWaWaWaWaWaWaWaWaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaWaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababaBaBaBababababababababababababababaBaBaBababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababdraBaBababababababababababababababdraBaBababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababdsdsdsababababababababababababababdsdsdsababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBdsdsaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBdsdsaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBdsdsaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBdsdsaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBdsdsaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBdsdsaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBdsdsaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBdsdsaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdtababababababababababababababababababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaababababababababababdbdbdbdbdbdbdbdbdbdbdbdbdbdcrcsbfbgbdbdbdbgbfcsbdbdbdbdbdbdbdbdbdbdbdbdbdbdbababababababababaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaababubvbvbvbvbvbvbabdbobobobobobobobobobobobdctaeaeaeaeaeaeaeaeaeaecubdbocvcwbubucxbubucxcybobdbabvbvbvbvbvbvbubaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaababubvbvbvbvbvbvbabdbobobobobobobobobobobobdczaiaiaicAaoaocBaiaiaicCbdbobobucDbocDbocDbubobobdbabvbvbvbvbvbvbubaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaababubvbvbvbvbvbvbabdbobobobobobobobobobobobdcEaiaiaicAaoaocBaiaiaicFbdbobobubobobobobobubobobdbabvbvbvbvbvbvbubaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaababababababvbvbababdbobobobobobobobobobobobdahaiaiaiaiaiaiaiaiaiaiakbdbobobubobobobobobubobobdbababvbvbacGcGcGcGaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababvbvbaaFbdbobobobobobobobobobobobdcHbdcIcJaiaiaiaibdcKbdcIbdbocvbubobobobobobucybobdaibabvbvbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababvbvbaaFbdbobobobobobobobobobobobdcLaicMbdaiaiaiaibdcMaicNbdbobobubububububububobobdaibabvbvbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaCaCaCaCaCaCaxaxbabvbvbaaFbdbobobocOcOcObobobobobocParasasasasasasasasasasaucQbobobobobobocOcOcObobobdaibabvbvbaaxabaCaCaCaCaCaCaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaCabababacacbabababacRbababababababacSbabababababababacSbabababababababacSbababababababababacSbabababababacRbabababaacacabababaCaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaCabaFaFaFabbaagaeaeaeaeaeaeaecTaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafbaabaFaFaFabaCaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaCabaFaFaFaFaiahaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiakaiaFaFaFaFabaCaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaCabaNcUaPabbaahaiaiaiaiaiaiaiaiaiaiaiasasasasasasasasasasasasasasasasasasasasasasasasasasaiaiaiaiaiaiaiaiaiaiaiakbaabaNcVaPabaCaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaCabaTaUaVabbaarasasasasasasasasasasasbabababababacWbabababababababababababacXbabababababaasasasasasasasasasasasaubaabaTaUaVabaCaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaCabababababbabacYbababababababababacWbaabababababavabbTbTbTbTbTbTbTbTbTababababaxaxaxabbabacWbabababababababacWbabaabababababaCaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaCaCaCaCaCaCbaaFaFaFaFaFaFaFaFaFaFaFaFaFabaxabababavabbTacacacacacacacacbTabababababaxabaFaFaFaFaFaFaFaFaFaFaFaFaFbaaCaCaCaCaCaCaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaccZacacacacacacacacacacacabaxacacabaFabacacacacacacacacacabacacacacabababacaccZacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacdaacacacacacacacacacacacababacacabdbabacacaFaFaFaFaFaFacabacacacacacababacacdaacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaFdcaFaFaFaFaFaFaFaFaFaFacabacacacdddedfdgaFaFaFaFaFaFaFaFdhdiacdjacacacabacaFdcaFaFaFaFaFaFaFaFaFaFacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaFaFaFaFaFaFaFaFdkdkdkaFacabacdlaFaFdcaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdmacabacaFaFaFaFaFaFaFaFaFaFaFaFacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaFaFaFaFaFaFaFaFdkdkdkaFacabacdnaFaFaFaFaFdoaFacacacacaFaFaFaFaFaFaFdpacabacaFaFaFaFaFaFaFaFaFaFaFaFacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaFaFaFaFaFaFaFaFaFaFaFaFacabacdqaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdqacabacaFaFaFaFaFaFaFaFaFaFaFaFacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaFaFaFaFaFaFaFaFaFdrdsaFavavavdtaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFduavavavaFaFaFaFaFaFaFaFaFaFaFaFacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaFaFaFaFaFaFaFaFaFaFaFaFacabacdqaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdqacabacaFaFaFaFaFaFaFaFaFaFaFaFacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaFaFaFaFaFaFaFaFdkdkdkaFacababdqaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdqababacaFaFaFaFaFaFaFaFaFaFaFaFacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaFaFaFaFaFaFaFaFdkdkdkaFacabdvabdqbYbYaFaFaFaFdwdxdydzaFaFaFaFbYbYdqabababacaFaFaFaFaFaFaFaFaFaFaFaFacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaFaFaFaFaFaFaFaFaFaFaFaFacababababavavabaFaFaFdAdBdCdDaFaFaFabavavababababacaFaFaFaFaFaFaFaFaFaFaFaFacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaadEacacacacacacacacacacacacacababababavavababaFaFdFdGdHdIaFaFababavavababababdEacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxaxaxaxaxaxabdJababavavababababababababababababavavababababaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababababadKaFbabababababababababababadKaFbabababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababaFaFaFababababababababababababababaFaFaFababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababdLaFaFababababababababababababababdLaFaFababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababdMdMdMababababababababababababababdMdMdMababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdMdMaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdMdMaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdMdMaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdMdMaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdMdMaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdMdMaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdMdMaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFdMdMaFaFaFaFaFaFaFaFaFaFaFaFaFaFaFababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdNababababababababababababababababababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababababababababababababababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
