@@ -28,27 +28,26 @@
 /obj/item/clothing/neck/combadge/proc/link_to_area(mob/user)
 	if(linked)
 		linked.combadges -= src
+	linked = null
 	var/area/A = get_area(src)
 	if(istype(A, /area/ship))
 		var/area/ship/S = A
 		linked = S
-		if(src in S.combadges)
-			S.combadges += src
+		S.combadges += src
 		to_chat(user, "You've linked [src] to the [linked] comms subsystem")
 
 
-/obj/item/clothing/neck/combadge/proc/send_message(var/message, mob/living/carbon/user)
+/obj/item/clothing/neck/combadge/proc/send_message(var/message, mob/living/user)
 	if(world.time < next_talk)
 		return 0
 	next_talk = world.time + talk_delay
 	if(!linked)
 		to_chat(user, "Alt click [src] first to initialize it")
-	if(src in user.contents)
-		stored_user = user
-		for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
-			if(C.on && C.stored_user)
-				playsound(C.loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 10, 1)
-				to_chat(C.stored_user, "<span class='warning'><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
-			else
-				to_chat(C.stored_user, "Your [src] buzzes softly")
-			return
+	stored_user = user
+	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
+		if(C.on && C.stored_user)
+			playsound(C.loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 10, 1)
+			to_chat(C.stored_user, "<span class='warning'><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
+		else
+			to_chat(C.stored_user, "Your [src] buzzes softly")
+		return
