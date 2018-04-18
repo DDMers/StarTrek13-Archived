@@ -344,7 +344,7 @@
 	reinf = 1
 	explosion_block = 1
 	req_access_txt = "63"
-
+	layer = 4.5
 
 /obj/machinery/door/window/brigdoor/trek/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	switch(damage_type)
