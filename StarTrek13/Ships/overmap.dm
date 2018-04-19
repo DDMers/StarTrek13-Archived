@@ -369,6 +369,8 @@ var/global/list/global_ship_list = list()
 	for(var/obj/structure/subsystem_monitor/M in linked_ship)
 		M.our_ship = src
 		M.get_ship()
+	for(var/obj/structure/viewscreen/V in linked_ship)
+		V.our_ship = src
 	get_damageable_components()
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
