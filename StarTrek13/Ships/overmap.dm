@@ -318,6 +318,7 @@ var/global/list/global_ship_list = list()
 //So basically we're going to have ships that fly around in a box and shoot each other, i'll probably have the pilot mob possess the objects to fly them or something like that, otherwise I'll use cameras.
 
 /obj/structure/overmap/ship/relaymove(mob/user,direction)
+	update_observers()
 	if(can_move)
 		if(user.incapacitated())
 			return //add things here!
@@ -463,6 +464,7 @@ var/global/list/global_ship_list = list()
 	check_charge()
 	check_overlays()
 	counter ++
+	update_observers()
 	damage = SC.weapons.damage
 	if(navigating)
 		update_turrets()

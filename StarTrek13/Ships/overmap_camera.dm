@@ -6,23 +6,34 @@
 	name = "Stop observing"
 	icon_icon = 'icons/mob/actions/actions_silicon.dmi'
 	button_icon_state = "camera_off"
+	var/mob/camera/aiEye/remote/overmap_observer/remote_eye
+	var/mob/living/user
 
 /datum/action/innate/camera_off/overmap/Activate()
 	if(!target || !isliving(target))
 		return
-	var/mob/living/C = target
-	var/mob/camera/aiEye/remote/overmap_observer/remote_eye = C.remote_control
 	var/obj/structure/overmap/ship = remote_eye.origin
-	ship.remove_eye_control(target)
+	if(!target)
+		return
+	ship.observers -= remote_eye
+	qdel(remote_eye)
+	target = null
+	user.remote_control = null
+	if(user.client)
+		user.reset_perspective(null)
+	user = null
+	qdel(src)
 
 /obj/structure/overmap/proc/GrantEye(mob/user)
 	var/mob/camera/aiEye/remote/overmap_observer/eyeobj = new
 	eyeobj.origin = src
 	observers += eyeobj
-	eyeobj.off_action = new(eyeobj)
+	eyeobj.off_action = new
+	eyeobj.off_action.remote_eye = eyeobj
 	eyeobj.eye_user = user
 	eyeobj.name = "[name] observer"
 	eyeobj.off_action.target = user
+	eyeobj.off_action.user = user
 	eyeobj.off_action.Grant(user)
 	eyeobj.setLoc(eyeobj.loc)
 	eyeobj.forceMove(get_turf(src))
@@ -33,7 +44,12 @@
 /mob/camera/aiEye/remote/overmap_observer
 	name = "Inactive Camera Eye"
 	/obj/structure/overmap/origin
-	var/datum/action/innate/camera_off/off_action
+	var/datum/action/innate/camera_off/overmap/off_action
+
+/obj/structure/overmap/proc/update_observers() //So cameras follow it
+	for(var/mob/camera/aiEye/remote/overmap_observer/R in observers)
+		var/turf/theturf = get_turf(src)
+		R.forceMove(theturf)
 
 
 /mob/camera/aiEye/remote/overmap_observer/relaymove(mob/user,direct)
@@ -47,10 +63,7 @@
 	RemoveImages()
 
 /obj/structure/overmap/proc/remove_eye_control(mob/living/user)
-	if(!user)
-		return
-	if(user.client)
-		user.reset_perspective(null)
+
 
 /obj/structure/viewscreen
 	name = "LCARS display"
