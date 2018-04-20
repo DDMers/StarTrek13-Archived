@@ -10,9 +10,11 @@ SUBSYSTEM_DEF(faction)
 	var/timing_jumpgates = FALSE //Jumpgate countdown begun?
 	var/mob/living/vips = list() //People involved in vip objectives
 	var/mob/living/lovers = list() //people involved in VIP objectives as the VIPs lover
+	var/datum/borg_hivemind/borg_hivemind
 
 
 /datum/controller/subsystem/faction/Initialize(timeofday)
+	borg_hivemind = new
 	if(!factions)
 		WARNING("No factions have been created!")
 	for(var/F in subtypesof(/datum/faction))
