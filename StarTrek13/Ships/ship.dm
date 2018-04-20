@@ -585,10 +585,7 @@
 
 /obj/item/circuitboard/machine/phase_cannon
 	name = "phaser array circuit board"
-	build_path = /obj/machinery/borg/ftl
-	req_components = list(
-							/obj/item/stock_parts/borg/bin = 2,
-							/obj/item/stock_parts/borg/capacitor = 2)
+
 /obj/machinery/power/ship/phaser
 	name = "phaser array"
 	desc = "A powerful weapon designed to take down shields.\n<span class='notice'>Alt-click to rotate it clockwise.</span>"

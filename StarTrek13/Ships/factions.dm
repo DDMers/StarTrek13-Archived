@@ -140,6 +140,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	members += D
 	to_chat(D, "<FONT color='blue'><B>You have been recruited into [name]!</B></font>")
 	to_chat(D, "<FONT color='[pref_colour]'><B>[flavourtext]</B></font>")
+	onAddMember(D)
 //	if(name == "starfleet")
 //	new /obj/item/clothing/neck/tie/faction_tag(D.loc)
 //	else
@@ -150,6 +151,9 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	//spawn(0)
 //	for(var/mob/living/M in members)
 	//	set_antag_hud(M.mind,name)
+
+/datum/faction/proc/onAddMember(mob/living/D) //If you want things to happen to someone as they join a faction, put it here
+	return
 
 var/list/global/faction_spawns = list()
 
