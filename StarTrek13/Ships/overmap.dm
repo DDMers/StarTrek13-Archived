@@ -202,6 +202,18 @@ var/global/list/global_ship_list = list()
 	pixel_y = -32
 	damage = 800
 
+/obj/structure/overmap/ship/borg_cube // we are the borg
+	name = "Unimatrix 1-3"
+	icon_state = "borg_cube"
+	icon = 'StarTrek13/icons/trek/large_ships/borg_cube.dmi'
+	spawn_name = "borg_spawn"
+	damage = 800
+
+/obj/structure/overmap/ship/borg_cube/New()
+	. = ..()
+	SpinAnimation()
+
+
 /obj/structure/overmap/away/station/starbase
 	name = "starbase59"
 	spawn_name = "starbase_spawn"

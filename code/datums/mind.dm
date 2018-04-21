@@ -694,24 +694,12 @@
 
 //Borg drones! star trek 13
 /datum/mind/proc/remove_Borg()
-	if(src in SSfaction.borg_hivemind.borgs)
-		SSfaction.borg_hivemind.borgs -= src
-	special_role = null
 	var/mob/living/carbon/human/H = current
-	H.dna.species.species_traits -= NOCLONE
-	H.dna.species.species_traits -= CLUMSY
-	H.dna.species.species_traits -= NOHUNGER
-	H.dna.species.species_traits -= NOGUNS
-	H.dna.species.species_traits -= NOBREATH
-	H.unequip_everything()
+	H.remove_borg()
 
-/datum/mind/proc/make_Borg()
+/datum/mind/proc/make_borg()
 	var/mob/living/carbon/human/H = current
-	special_role = "Borg-Drone"
-	if(!(src in SSfaction.borg_hivemind.borgs))
-		SSfaction.borg_hivemind.borgs += H
-		H.equipOutfit(/datum/outfit/borg, visualsOnly = FALSE) //Outfit handles name etc.
-	//	meme //change me
+	H.make_borg()
 
 
 /datum/mind/proc/make_Cultist()

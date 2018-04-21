@@ -128,6 +128,11 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 /datum/faction/independant/get_spawns()
 	for(var/obj/effect/landmark/faction_spawn/independant/F in GLOB.landmarks_list)
 		spawns += F
+
+/datum/faction/borg/get_spawns()
+	for(var/obj/effect/landmark/faction_spawn/borg/F in GLOB.landmarks_list)
+		spawns += F
+
 /datum/faction/proc/broadcast(var/ping)	//broadcast4reps
 //	if(!ping)
 //		return 0 //No message was input..somehow
@@ -140,7 +145,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	members += D
 	to_chat(D, "<FONT color='blue'><B>You have been recruited into [name]!</B></font>")
 	to_chat(D, "<FONT color='[pref_colour]'><B>[flavourtext]</B></font>")
-	onAddMember(D)
+	onspawn(D)
 //	if(name == "starfleet")
 //	new /obj/item/clothing/neck/tie/faction_tag(D.loc)
 //	else
@@ -152,7 +157,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 //	for(var/mob/living/M in members)
 	//	set_antag_hud(M.mind,name)
 
-/datum/faction/proc/onAddMember(mob/living/D) //If you want things to happen to someone as they join a faction, put it here
+/datum/faction/proc/onspawn(mob/living/carbon/human/D) //If you want things to happen to someone as they join a faction, put it here
 	return
 
 var/list/global/faction_spawns = list()
@@ -165,6 +170,9 @@ var/list/global/faction_spawns = list()
 
 /obj/effect/landmark/faction_spawn/independant
 	name = "independant"
+
+/obj/effect/landmark/faction_spawn/borg
+	name = "the borg"
 
 /obj/item/clothing/neck/tie/faction_tag //I hate myself for doing this, but I don't have the time to mess around with antag huds...yet...
 	name = "federation dogtag"

@@ -2,7 +2,7 @@
 	name = "grey flesh"
 	desc = "Grotesque grey flesh with veins visibly poking through."
 	item_state = null
-	icon_state = "borg"
+	icon_state = "syndicate"
 	has_sensor = 0
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	flags_1 = NODROP_1
@@ -33,7 +33,6 @@
 
 /obj/item/clothing/suit/space/borg/New()
 	. = ..()
-	icon_state = pick("borg","borg2","borg3")
 
 
 /obj/item/clothing/suit/space/borg/hit_reaction(mob/living/carbon/human/owner, attack_text) //stolen from shielded hardsuit
@@ -112,9 +111,11 @@
 	flash_protect = -1
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	flags_1 = ABSTRACT_1 | NODROP_1
+	alpha = 0
+
 /obj/item/clothing/glasses/night/borg/New()
 	. = ..()
-	icon_state = pick("borg","borg2","borg3","borg4") // coloured eyes
+//con_state = pick("borg","borg2","borg3","borg4") // coloured eyes
 
 /obj/item/clothing/head/borg/queen
 	name = "queen's helmet"
@@ -129,7 +130,7 @@
 	suit = /obj/item/clothing/suit/space/borg
 	shoes = /obj/item/clothing/shoes/magboots/borg
 	head = /obj/item/clothing/head/borg
-	r_hand = /obj/item/borg_tool
+	l_hand = /obj/item/borg_tool
 	mask = /obj/item/clothing/mask/gas/borg
 
 /datum/outfit/borg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -161,14 +162,14 @@
 /obj/machinery/door/airlock/borg/friendly
 	friendly = TRUE
 
-/obj/machinery/door/airlock/borg/allowed(mob/M)
-	if(!density)
-		return 1
-	if(M in SSfaction.borg_hivemind.borgs)
-		return 1
-	else
-		to_chat(M, "The door does not respond to you...")
-		return 0
+//obj/machinery/door/airlock/borg/allowed(mob/M)
+//	if(!density)
+//		return 1
+//	if(M in SSfaction.borg_hivemind.borgs)
+//		return 1
+//	else
+//		to_chat(M, "The door does not respond to you...")
+//		return 0
 
 
 /datum/action/item_action/futile
@@ -196,46 +197,8 @@
 /obj/item/clothing/mask/gas/borg/proc/futile(mob/user)
 	if(world.time >= saved_time + cooldown2)
 		saved_time = world.time
-		var/phrase = 0	//selects which phrase to use
-		var/phrase_text = null
-		var/phrase_sound = null
-		if(usr.gender == "male" || "neuter")
-			phrase = rand(1,5)
-		if(usr.gender == "female")
-			phrase = rand(6,10)
-		switch(phrase)	//sets the properties of the chosen phrase
-			if(1)
-				phrase_text = "Resistance is futile."
-				phrase_sound = "futile"
-			if(2)
-				phrase_text = "We will add your biological, and technological distinctiveness to our own."
-				phrase_sound = "distinctiveness"
-			if(3)
-				phrase_text = "Your existence as you know it is over."
-				phrase_sound = "existence"
-			if(4)
-				phrase_text = "You will be assimilated."
-				phrase_sound = "assimilated"
-			if(5)
-				phrase_text = "Submit yourself to the collective"
-				phrase_sound = "submit"
-
-	//feminine vox now
-			if(6)
-				phrase_text = "Resistance is futile!"
-				phrase_sound = "futilefem"
-			if(7)
-				phrase_text = "We will add your biological, and technological distinctiveness to our own."
-				phrase_sound = "distinctivenessfem"
-			if(8)
-				phrase_text = "Your existence as you know it is over."
-				phrase_sound = "existencefem"
-			if(9)
-				phrase_text = "You will be assimilated"
-				phrase_sound = "assimilatedfem"
-			if(10)
-				phrase_text = "Submit yourself to the collective"
-				phrase_sound = "submitfem"
+		var/phrase_text = "Resistance is futile"
+		var/phrase_sound = 'StarTrek13/sound/borg/voice_lines/futile.ogg'
 		src.audible_message("[user]'s Voice synthesiser: <font color='green' size='4'><b>[phrase_text]</b></font>")
 		playsound(src.loc, "StarTrek13/StarTrek13/sound/borg/[phrase_sound].ogg", 100, 0, 4)
 	else
