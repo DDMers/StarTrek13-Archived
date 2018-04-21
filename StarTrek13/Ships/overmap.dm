@@ -208,10 +208,13 @@ var/global/list/global_ship_list = list()
 	icon = 'StarTrek13/icons/trek/large_ships/borg_cube.dmi'
 	spawn_name = "borg_spawn"
 	damage = 800
+	pixel_x = -100
+	pixel_y = -110
+	max_health = 100000
 
 /obj/structure/overmap/ship/borg_cube/New()
 	. = ..()
-	SpinAnimation()
+	SpinAnimation(10000,0)
 
 
 /obj/structure/overmap/away/station/starbase
@@ -227,6 +230,7 @@ var/global/list/global_ship_list = list()
 	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
+	max_health = 50000
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
 	name = "UMD Darkmatter"
@@ -236,6 +240,7 @@ var/global/list/global_ship_list = list()
 //	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
+	max_health = 50000
 
 
 /obj/structure/overmap/ship/cruiser
@@ -246,6 +251,7 @@ var/global/list/global_ship_list = list()
 	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
+	max_health = 50000
 
 /obj/structure/overmap/ship/cruiser/nanotrasen
 	name = "NSV Hyperion"
@@ -256,9 +262,11 @@ var/global/list/global_ship_list = list()
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 	spawn_name = "nt_capital"
+	max_health = 50000
 
 
 /obj/structure/overmap/New()
+	health = max_health
 	SC = new(src)
 	SC.generate_shipsystems()
 	SC.theship = src
@@ -303,7 +311,7 @@ var/global/list/global_ship_list = list()
 	pixel_x = -32
 	pixel_y = -32
 	health = 8000
-	max_health = 8000
+	max_health = 15000
 	vehicle_move_delay = 2
 	warp_capable = TRUE
 
