@@ -302,7 +302,7 @@
 	desc = "this supplies power to a subsystem."
 	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
 	icon_state = "conduit"
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	can_be_unanchored = 0
 
@@ -409,6 +409,7 @@
 	var/datum/shipsystem/shields/chosen
 	var/active = FALSE
 	var/benefit_amount = 300 //How much will you gain in health/lose in heat with this component active?
+	anchored = TRUE
 	var/can_be_reactivated = TRUE
 
 /obj/structure/ship_component/New()
@@ -500,6 +501,7 @@
 
 
 /obj/structure/ship_component/capbooster
+	anchored = TRUE
 	name = "capacitor booster"
 	icon_state = "capbooster"
 	desc = "This component will increase the effective strength of your shields when active, at the expense of an increased heat output."
@@ -527,6 +529,7 @@
 
 /obj/structure/subsystem_panel		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!
 	name = "ODN Relay (Shields)"
+	anchored = TRUE
 	desc = "A breaker box housing an ODN relay which bridges the ship's power-grid to the shields subsystem"
 	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
 	icon_state = "subsystem_panel"
@@ -651,6 +654,7 @@
 	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
 	icon_state = "subsystem_panel-cover"
 	var/obj/structure/overmap/ship
+	anchored = TRUE
 
 /obj/structure/subsystem_panel/proc/check_overlays()
 	cut_overlays()

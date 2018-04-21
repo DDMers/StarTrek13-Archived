@@ -380,6 +380,7 @@ SUBSYSTEM_DEF(job)
 	if(!S)
 		log_world("Couldn't find a round start spawn point for [rank]")
 		SendToLateJoin(H)
+	thefaction.onspawn(H)
 	/*
 //	if(!joined_late)//If we joined at roundstart we should be positioned at our workstation
 		for(var/obj/effect/landmark/start/sloc in GLOB.start_landmarks_list)

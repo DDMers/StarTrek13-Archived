@@ -8,10 +8,11 @@
 	START_PROCESSING(SSobj, src)
 	message_admins("Borg hivemind datum created")
 
-/datum/borg_hivemind/proc/message_collective(var/message)
-	var/ping = "<font color='green' size='2'><B><i>Borg Collective</i>[message]</B></font></span>"
+/datum/borg_hivemind/proc/message_collective(var/message, mob/sender)
+	var/ping = "<font color='green' size='2'><B><i>Borg Collective: </b> <b>[sender] </b></i>[message]</font></span>"
 	for(var/mob/living/carbon/human/H in borgs)
-		to_chat(H, ping)
+		for(var/obj/item/organ/borgNanites/B in H.internal_organs)
+			B.receive_message(ping)
 	for(var/mob/M in GLOB.dead_mob_list)
 		to_chat(M, ping)
 
@@ -25,5 +26,8 @@
 	pref_colour = "green"
 
 
-/datum/faction/borg/onAddMember(mob/living/D)
-	D.mind.make_Borg()
+/datum/faction/borg/onspawn(mob/living/carbon/human/D)
+	to_chat(D, "You are a borg drone")
+	D.unequip_everything()
+	D.make_borg()
+	D.equipOutfit(/datum/outfit/borg, visualsOnly = FALSE)

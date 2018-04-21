@@ -746,6 +746,10 @@
 	name = "USS Entax"
 	icon_state = "ship"
 
+/area/ship/borg
+	name = "Unimatrix 1-3"
+	icon_state = "ship"
+
 /area/ship/sovreign
 	name = "USS sovreign" //change me!
 	icon_state = "ship"
