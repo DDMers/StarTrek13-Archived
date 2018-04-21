@@ -16,63 +16,26 @@
 	cold_protection = FULL_BODY
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT
-	slowdown = 2
+	slowdown = 3
 	flags_1 = NODROP_1 | ABSTRACT_1 | THICKMATERIAL_1
 	heat_protection = null //burn the borg
 	max_heat_protection_temperature = null
-	armor = list(melee = 10, bullet = 10, laser = 10, energy = 0, bomb = 15, bio = 100, rad = 70) //they can't react to bombs that well, and emps will rape them
+	armor = list(melee = 40, bullet = 5, laser = 5, energy = 0, bomb = 15, bio = 100, rad = 70) //they can't react to bombs that well, and emps will rape them
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	var/current_charges = 3
-	var/max_charges = 3 //How many charges total the shielding has
-	var/recharge_delay = 200 //How long after we've been shot before we can start recharging. 20 seconds here
-	var/recharge_cooldown = 0 //Time since we've last been shot
-	var/recharge_rate = 1 //How quickly the shield recharges once it starts charging
-	var/shield_state = "borgshield"
-	var/shield_on = "borgshield"
 	allowed = list(/obj/item/device/flashlight)
 
 /obj/item/clothing/suit/space/borg/New()
 	. = ..()
 
-
-/obj/item/clothing/suit/space/borg/hit_reaction(mob/living/carbon/human/owner, attack_text) //stolen from shielded hardsuit
-	if(current_charges > 0)
-		var/datum/effect_system/spark_spread/s = new
-		s.set_up(2, 1, src)
-		s.start()
-		owner.visible_message("<span class='danger'>[owner]'s shields deflect [attack_text] in a shower of sparks!</span>")
+/obj/item/clothing/suit/space/borg/IsReflect() //Watch your lazers, they adapt quickly
+	if(prob(SSfaction.borg_hivemind.adaptation))
 		var/sound = pick('StarTrek13/sound/borg/machines/shieldadapt.ogg','StarTrek13/sound/borg/machines/borg_adapt.ogg','StarTrek13/sound/borg/machines/borg_adapt2.ogg','StarTrek13/sound/borg/machines/borg_adapt3.ogg','StarTrek13/sound/borg/machines/borg_adapt4.ogg')
-		playsound(loc, sound, 50, 1)
-		current_charges--
-		recharge_cooldown = world.time + recharge_delay
-		START_PROCESSING(SSobj, src)
-		if(current_charges <= 0)
-			owner.visible_message("[owner]'s shield overloads!")
-			shield_state = "broken"
-			owner.update_inv_wear_suit()
+		playsound(loc, sound, 100, 1)
 		return 1
-	return 0
-
-/obj/item/clothing/suit/space/borg/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	return ..()
-
-/obj/item/clothing/suit/space/borg/process()
-	if(world.time > recharge_cooldown && current_charges < max_charges)
-		current_charges = Clamp((current_charges + recharge_rate), 0, max_charges)
-		playsound(loc, 'sound/effects/stealthoff.ogg', 50, 1)
-		if(current_charges == max_charges)
-			STOP_PROCESSING(SSobj, src)
-		shield_state = "[shield_on]"
-		if(istype(loc, /mob/living/carbon/human))
-			var/mob/living/carbon/human/C = loc
-			C.update_inv_wear_suit()
-
-
-/obj/item/clothing/suit/space/borg/worn_overlays(isinhands)
-    . = list()
-    if(!isinhands)
-        . += image(icon = 'icons/effects/effects.dmi', icon_state = "[shield_state]")
+	else
+		if(SSfaction.borg_hivemind.adaptation < 100)
+			SSfaction.borg_hivemind.adaptation += 10 //More you shoot them, the stronger they become. They are still naturally weak to bullets
+		return 0
 
 /obj/item/clothing/shoes/magboots/borg
 	name = "borg shoes"
@@ -177,7 +140,7 @@
 
 /obj/item/clothing/mask/gas/borg
 	name = "borg mask"
-	desc = "A built in respirator that covers the face of a borg, it is dark purple."
+	desc = "A built in respirator that covers the face of a borg, it is dark purple. Alt click or CTRL click it to play a sound."
 	icon_state = "borg"
 	item_state = null
 	siemens_coefficient = 0
@@ -186,22 +149,22 @@
 	var/saved_time = 0
 	actions_types = list(/datum/action/item_action/futile)
 
+
+/obj/item/clothing/mask/gas/borg/AltClick(mob/user)
+	futile()
+
+/obj/item/clothing/mask/gas/borg/CtrlClick(mob/user)
+	futile()
+
 /obj/item/clothing/mask/gas/borg/ui_action_click(mob/user, actiontype)
 	if(actiontype == /datum/action/item_action/futile)
 		futile(user)
 
-/obj/item/clothing/mask/gas/borg/cyborg
-	flags_1 = null
-	name = "intimidator"
-
-/obj/item/clothing/mask/gas/borg/proc/futile(mob/user)
+/obj/item/clothing/mask/gas/borg/proc/futile()
 	if(world.time >= saved_time + cooldown2)
 		saved_time = world.time
+		var/sound = pick('StarTrek13/sound/borg/voice_lines/futile.ogg','StarTrek13/sound/borg/voice_lines/resistanceisfutile.ogg')
 		var/phrase_text = "Resistance is futile"
-		var/phrase_sound = 'StarTrek13/sound/borg/voice_lines/futile.ogg'
-		src.audible_message("[user]'s Voice synthesiser: <font color='green' size='4'><b>[phrase_text]</b></font>")
-		playsound(src.loc, "StarTrek13/StarTrek13/sound/borg/[phrase_sound].ogg", 100, 0, 4)
-	else
-		user << "<span class='danger'>[src] is not recharged yet.</span>"
-
+		src.audible_message("<font color='green' size='4'><b>[phrase_text]</b></font>")
+		playsound(src.loc,sound, 100, 0, 4)
 

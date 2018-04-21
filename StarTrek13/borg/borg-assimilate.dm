@@ -241,6 +241,13 @@
 
 /obj/item/organ/borgNanites/Insert()
 	. = ..()
+	for(var/obj/item/organ/borgNanites/B in owner)
+		if(B.message_action)
+			if(B != src)
+				var/datum/action/innate/message_collective/M = B.message_action
+				M.Remove(B.owner)
+				M.target = null
+				qdel(B.message_action)
 	START_PROCESSING(SSobj, src)
 	message_action.B = src
 	message_action.Grant(owner)
@@ -252,7 +259,7 @@
 	var/message = stripped_input(owner,"Communicate with the collective.","Send Message")
 	if(!message)
 		return
-	SSfaction.borg_hivemind.message_collective(message, owner)
+	SSfaction.borg_hivemind.message_collective(message, owner.real_name)
 
 /obj/item/organ/borgNanites/process()
 	if(charge >= max_charge)

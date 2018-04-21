@@ -1,6 +1,7 @@
 /datum/borg_hivemind
 	var/name = "Borg hivemind controller"
 	var/mob/living/carbon/human/borgs = list()
+	var/adaptation = 10 //the borg have adapted
 
 /datum/borg_hivemind/New()
 //	SSticker.mode.hivemind = src
