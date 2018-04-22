@@ -335,7 +335,7 @@
 /obj/structure/photon_torpedo/attack_hand(mob/user)
 	if(!timing)
 		timer = input("Delayed detonation", "Set a countdown timer in seconds (set it to 0 or less to cancel, minimum time is 10 seconds)") as num
-		if(timer)
+		if(timer > 0)
 			armed = TRUE
 			timing = TRUE
 			timer *= 10
