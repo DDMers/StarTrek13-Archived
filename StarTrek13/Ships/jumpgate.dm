@@ -78,7 +78,7 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 				to_chat(user, "Beginning activation sequence.")
 				icon_state = "jumpgate_active" //now play a spoolup sequence and add fluff here. TODO!
 				density = TRUE
-				addtimer(CALLBACK(src, .proc/deactivate, 50))
+				addtimer(CALLBACK(src, .proc/deactivate, 500))
 		else
 			to_chat(user, "ERROR: Jumpgate is already being programmed.")
 	else
