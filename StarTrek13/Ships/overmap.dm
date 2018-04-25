@@ -184,6 +184,29 @@ var/global/list/global_ship_list = list()
 /obj/structure/overmap/proc/toggle_shields(mob/user)
 	generator.toggle(user)
 
+/obj/structure/overmap/proc/announce(var/text, var/title, sound = 'sound/ai/attention.ogg')
+
+	if(!text)
+		return //No empty announcements
+	if(!title)
+		title = "Automated Ship Announcement"
+	var/announce = "<br><h2 class='alert'>[html_encode(title)]</h2>"
+	announce += "<br><span class='alert'>[html_encode(text)]</span><br>"
+	announce += "<br>"
+
+	var/list/mobs_heard = list()
+	for(var/mob/living/L in linked_ship)
+		to_chat(L, "[announce]")
+		mobs_heard += L
+	for(var/mob/M in GLOB.dead_mob_list)
+		to_chat(M, "[announce]")
+		mobs_heard += M
+	var/s = sound(sound)
+	for(var/mob/P in mobs_heard)
+		mobs_heard -= P
+		if(P.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
+			SEND_SOUND(P, s)
+
 /obj/structure/overmap/away/station
 	name = "space station 13"
 	icon = 'StarTrek13/icons/trek/large_overmap.dmi'
