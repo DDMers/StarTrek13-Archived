@@ -72,16 +72,12 @@
 			return
 		var/mode = input("Borg construction.", "Build what?")in list("conversion suite", "borg alcove","cancel")
 		var/obj/structure/chair/borg/suite
-		say("yes")
 		switch(mode)
 			if("conversion suite")
 				suite = /obj/structure/chair/borg/conversion
-				to_chat(world, "[suite]")
 			if("borg alcove")
 				suite = /obj/structure/chair/borg/charging
-				to_chat(world, "[suite]")
 			if("cancel")
-				say("no")
 				return
 		if(resource_amount >= resource_cost)
 			building = TRUE //stop spamming

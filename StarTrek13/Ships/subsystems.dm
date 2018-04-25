@@ -42,6 +42,7 @@
 	systems += engines
 	hull_integrity = new
 	hull_integrity.controller = src
+	systems += hull_integrity
 
 /datum/shipsystem_controller/proc/take_damage(amount) ///if the shipsystem controller takes damage, that means the enemy ship didn't pick a system to disable. So pick one at random, there is a chance that the hull will glance off the hit.
 	var/list/thesystems() = systems
@@ -71,6 +72,8 @@
  //How hot has it got? if this heat goes above 100, expect performance decreases
 	var/name = "subsystem"
 	var/heat = 0
+	var/icon = 'StarTrek13/icons/trek/subsystem_icons.dmi'
+	var/icon_state
 
 /datum/shipsystem/New()
 	. = ..()
@@ -136,6 +139,8 @@
 	var/nextfire = 0
 	var/fire_delay = 2 //2 seconds to fully recharge the  phasers, to prevent spam
 	var/times_fired = 0 //times fired without letting them fully charge
+	icon_state = "weapons"
+
 
 //	theship.damage = 0	//R/HMMM
 //	theship.phaser_fire_cost = 0
@@ -211,10 +216,12 @@
 /datum/shipsystem/sensors
 	power_draw = 0//just so it's not an empty type TBH.
 	name = "sensors"
+	icon_state = "sensors"
 
 /datum/shipsystem/engines
 	power_draw = 0//just so it's not an empty type TBH.
 	name = "engines"
+	icon_state = "engines"
 
 /datum/shipsystem/engines/process()
 	. = ..()
@@ -236,6 +243,7 @@
 
 /datum/shipsystem/integrity
 	name = "hull strength"
+	icon_state = "hull"
 
 /datum/shipsystem/shields
 	name = "shields"
@@ -247,6 +255,7 @@
 	var/regen_bonus = 10 //Bonus health gained per tick for having shield systems in-tact.
 	var/active = FALSE
 	var/obj/structure/ship_component/capbooster/boosters = list()
+	icon_state = "shields"
 
 /datum/shipsystem/shields/fail()
 	..()
