@@ -105,9 +105,8 @@
 		if(href_list["target"])
 			target_window(S, L,1) //Clicker references the user
 		if(href_list["system"])
-			to_chat(L, "<span class='notice'>Now targeting: [S]'s [SS] subsystem.</span>")
+			to_chat(L, "<span class='notice'>Now targeting: [SS] subsystem.</span>")
 			our_ship.target_subsystem = SS
-			to_chat(world, "[our_ship.target_subsystem]")
 	else
 		to_chat(user, "Move closer to [src]")
 
@@ -122,7 +121,8 @@
 		P.icon = D.icon
 		P.icon_state = "[D.icon_state]-full"
 		s += "<A href='?src=\ref[src];target=\ref[D];clicker=\ref[user]'>Target: [D]</A>"
-		s += "<A href='?src=\ref[src];target=\ref[D];clicker=\ref[user]'>Target subsystem: [our_ship.target_subsystem]</A><BR>"
+		s += "<A href='?src=\ref[src];target=\ref[D];clicker=\ref[user]'>Target subsystem: [our_ship.target_subsystem]</A>"
+		s += "<A href='?src=\ref[src];target=\ref[D];clicker=\ref[user]'>Target subsystem health: [our_ship.target_subsystem.integrity] / [our_ship.target_subsystem.max_integrity]</A><BR>"
 		s += "<span data-tooltip='Placeholder'>[icon2html(P.icon, user, P.icon_state, EAST)]</span><BR>"
 		qdel(P)
 		subsystem = our_ship.SC.weapons
@@ -157,6 +157,7 @@
 		if(user.canUseTopic(src))
 			addtimer(CALLBACK(src,.proc/target_window, D,user,0), 20)
 	else
+		target_window = FALSE //Thanks byond forums
 		user = null
 		return
 
