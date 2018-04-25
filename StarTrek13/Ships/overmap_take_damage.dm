@@ -41,16 +41,16 @@
 */
 
 /obj/structure/overmap/proc/apply_damage(var/amount)
+	for(var/mob/L in linked_ship.contents)
+		shake_camera(L, 1, 10)
+		var/sound/thesound = pick(ship_damage_sounds)
+		SEND_SOUND(L, thesound)
 	var/maths = 5
 	if(istype(agressor.target_subsystem, /datum/shipsystem/integrity)) //If they target the hull subsystem, they deal heavy physical damage
 		maths += 20 //Heavily increase physical damage
 	if(prob(20))
 		for(var/obj/structure/overmap/O in orange(30,src))
 			SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
-	for(var/mob/L in linked_ship.contents)
-		shake_camera(L, 1, 10)
-		var/sound/thesound = pick(ship_damage_sounds)
-		SEND_SOUND(L, thesound)
 	icon_state = initial(icon_state)
 	var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
 	var/turf/open/floor/theturf = get_turf(theturf1)

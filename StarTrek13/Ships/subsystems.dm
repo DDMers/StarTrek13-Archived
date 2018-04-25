@@ -59,8 +59,8 @@
 //Begin shipsystems!//
 
 /datum/shipsystem
-	var/integrity = 10000 //Will be a percentage, if this drops too low the shipsystem will fail, affecting the ship. EG sensors going down means goodbye sight for the pilot of the ship.
-	var/max_integrity = 10000 //maximum susbsytem health, so that I can do percentage calculations.
+	var/integrity = 30000 //Will be a percentage, if this drops too low the shipsystem will fail, affecting the ship. EG sensors going down means goodbye sight for the pilot of the ship.
+	var/max_integrity = 30000 //maximum susbsytem health, so that I can do percentage calculations.
 	var/power_draw = 0 //Not used yet
 	var/overclock = 0 //Overclock a shipsystem to get better performance, at a higher power draw. Numbers pending warp core and power code
 	var/efficiency = 40 //as a percent, we take our desired effect, such as weapons power, and divide it by this, so a 600 damage rated phaser would be 600*40%, so 40% of 600, in other words; 240 damage. You'll want to be overclocking tbh.
@@ -242,14 +242,17 @@
 		power_draw += overclock //again, need power stats to fiddle with.
 
 /datum/shipsystem/integrity
-	name = "hull strength"
+	name = "hull plates"
 	icon_state = "hull"
 
+/datum/shipsystem/integrity/process()
+	. = ..()
+	heat -= 10
+
 /datum/shipsystem/shields
-	name = "shields"
-	max_integrity = 20000 //in this case, integrity is shield health. If your shields are smashed to bits, it's assumed that all the control circuits are pretty fried anyways.
-	var/breakingpoint = 50 //at 50 heat, shields will take double damage
-	var/heat_resistance = 2 // how much we resist gaining heat
+	name = "shields" //in this case, integrity is shield health. If your shields are smashed to bits, it's assumed that all the control circuits are pretty fried anyways.
+	var/breakingpoint = 150 //at 150 heat, shields will take double damage
+	var/heat_resistance = 50 // how much we resist gaining heat
 	power_draw = 0//just so it's not an empty type TBH.
 	var/list/obj/machinery/space_battle/shield_generator/linked_generators = list()
 	var/regen_bonus = 10 //Bonus health gained per tick for having shield systems in-tact.
@@ -630,7 +633,7 @@
 				if(do_after(user, 250, target = src))
 					if(prob(60))
 						to_chat(user, "You successfully repair the [chosen] subsystem, thank God you didn't touch any of the live wires with your metallic wrench.")
-						chosen.integrity += 6000
+						chosen.integrity = chosen.max_integrity
 						chosen.failed = FALSE
 						START_PROCESSING(SSobj, chosen)
 						powered = TRUE
@@ -648,7 +651,7 @@
 					to_chat(user, "You begin a complicated bout of rewiring, ripping out bits of [src] and hastily replacing them with others, this is no substitute for a good stay in spacedock, but it'll have to do.... Luckily you cut the power beforehand")
 					if(do_after(user, 300, target = src))
 						to_chat(user, "You've finished jury-rigging [src], the [chosen] subsystem should now come back online. You may now close [src]'s cover.")
-						chosen.integrity += 6000
+						chosen.integrity = chosen.max_integrity
 						chosen.failed = FALSE
 						powered = TRUE
 						START_PROCESSING(SSobj, chosen)
