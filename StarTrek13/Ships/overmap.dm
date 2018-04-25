@@ -256,7 +256,7 @@ var/global/list/global_ship_list = list()
 	max_health = 50000
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
-	name = "UMD Darkmatter"
+	name = "USS Sovreign"
 	icon = 'StarTrek13/icons/trek/large_ships/sovreign.dmi'
 	icon_state = "sovreign"
 //	pixel_x = -100
