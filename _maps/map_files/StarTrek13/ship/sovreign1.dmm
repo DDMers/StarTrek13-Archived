@@ -51,7 +51,7 @@
 "aY" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHWEST)"; icon_state = "lift"; dir = 10},/area/ship/sovreign)
 "aZ" = (/turf/open/floor/borg/trek/lit,/turf/closed/trek_raised/lift{tag = "icon-lift (WEST)"; icon_state = "lift"; dir = 8},/area/ship/sovreign)
 "ba" = (/obj/structure/fluff/helm/desk/functional,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
-"bb" = (/obj/structure/fluff/helm/desk/functional/weapons,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
+"bb" = (/obj/structure/weapons_console,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
 "bc" = (/obj/effect/turf_decal/stripes/asteroid/line,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/sovreign)
 "bd" = (/turf/open/bridge_overlay,/area/ship/sovreign)
 "be" = (/turf/closed/wall/ship/tng,/area/ship/sovreign)

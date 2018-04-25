@@ -393,6 +393,8 @@ var/global/list/global_ship_list = list()
 	for(var/obj/structure/viewscreen/V in linked_ship)
 		V.our_ship = src
 	get_damageable_components()
+	for(var/obj/structure/weapons_console/WC in linked_ship)
+		WC.our_ship = src
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	SC.weapons.update_weapons()
@@ -519,6 +521,9 @@ var/global/list/global_ship_list = list()
 	else
 		linked_ship.requires_power = FALSE
 		linked_ship.has_gravity = 1
+	if(target_ship)
+		if(!target_subsystem)
+			target_subsystem = agressor.SC.hull_integrity //Default to frying their hull
 
 /obj/structure/overmap/proc/enter(mob/user)
 	if(pilot)
