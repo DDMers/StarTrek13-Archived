@@ -124,7 +124,6 @@ var/global/list/global_ship_list = list()
 	var/datum/action/innate/redalert/redalert_action = new
 	var/datum/action/innate/autopilot/autopilot_action = new
 	var/datum/action/innate/weaponswitch/weaponswitch = new
-	var/datum/action/innate/subsystemtarget/systemtargeter = new
 	var/obj/structure/ship_component/components = list()
 	var/speed = 0
 	var/max_speed = 40 //40% chance to dodge a hit is pretty good
@@ -253,7 +252,7 @@ var/global/list/global_ship_list = list()
 	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
-	max_health = 50000
+	max_health = 30000
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
 	name = "USS Sovreign"
@@ -263,7 +262,7 @@ var/global/list/global_ship_list = list()
 //	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
-	max_health = 50000
+	max_health = 30000
 
 
 /obj/structure/overmap/ship/cruiser
@@ -274,7 +273,7 @@ var/global/list/global_ship_list = list()
 	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
-	max_health = 50000
+	max_health = 30000
 
 /obj/structure/overmap/ship/cruiser/nanotrasen
 	name = "NSV Hyperion"
@@ -285,7 +284,7 @@ var/global/list/global_ship_list = list()
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 	spawn_name = "nt_capital"
-	max_health = 50000
+	max_health = 30000
 
 
 /obj/structure/overmap/New()
@@ -303,7 +302,7 @@ var/global/list/global_ship_list = list()
 	icon_state = "annulment"
 	spawn_name = "nt_capital"
 	has_turrets = 1
-	max_health = 20000
+	max_health = 30000
 	soundlist = list('StarTrek13/sound/trek/ship_gun.ogg','StarTrek13/sound/trek/ship_gun.ogg')//The sounds made when shooting
 
 /datum/looping_sound/trek/engine_hum
@@ -426,7 +425,7 @@ var/global/list/global_ship_list = list()
 		if(!F in fighters)
 			fighters += F
 
-/obj/structure/overmap/take_damage(amount,turf/target)
+/obj/structure/overmap/take_damage(amount,turf/target, var/obj/structure/overmap/source)
 	if(health <= 0)
 		destroy(1)
 	if(!health)
@@ -434,6 +433,7 @@ var/global/list/global_ship_list = list()
 	if(take_damage_traditionally) //Set this var to 0 to do your own weird shitcode
 		if(has_shields())
 			var/heat_multi = 1
+			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 			var/obj/structure/overmap/ship/S = src
 			heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
 			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
@@ -442,11 +442,31 @@ var/global/list/global_ship_list = list()
 			var/datum/effect_system/spark_spread/s = new
 			s.set_up(2, 1, src)
 			s.start() //make a better overlay effect or something, this is for testing
-			return
-		else//no shields are up! take the hit
+			if(target_subsystem)
+				target_subsystem.integrity -= (amount)/10 //Shields absorbs most of the damage
 			apply_damage(amount)
-			health -= amount
+			return//no shields are up! take the hit
+		if(SC.hull_integrity.failed)
+			if(source.target_subsystem)
+				source.target_subsystem.integrity -= (amount)/1.5 //No shields, fry that system
+				source.target_subsystem.heat += amount/10 //Heat for good measure :)
+				var/quickmaths = amount/3 //Thirds the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
+				health -= quickmaths
+				apply_damage(amount)
+				return
+			else
+				health -= amount
+				apply_damage(amount)
+				return
+		else
+			if(source.target_subsystem)
+				source.target_subsystem.integrity -= (amount)/2 //Hull plates protect
+				source.target_subsystem.heat += source.SC.weapons.damage/15 //Keeps the heat off
+				var/quickmaths = amount/5 //Fives the physical hull damage, because the hull plates take a bunch of that damage
+				health -= quickmaths
 			SC.hull_integrity.integrity -= amount
+
+			apply_damage(amount)
 			return
 	else
 		shake_camera(pilot, 1, 10)

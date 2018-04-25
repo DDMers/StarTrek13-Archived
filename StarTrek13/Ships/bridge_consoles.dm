@@ -13,6 +13,7 @@
 	var/target_window
 	density = 1
 	anchored = 1
+	var/obj/structure/overmap/target
 
 /obj/structure/weapons_console/New()
 	. = ..()
@@ -39,8 +40,15 @@
 		Ss += "<span data-tooltip='Placeholder'>[get_ship_icon(D, sate)]</span><BR>"
 	return Ss
 
+/*
 /obj/structure/weapons_console/attack_hand(mob/user)
+	var/thing = winget(user,"Subsystem-Targeting",null)
+	qdel(thing)
 	if(user in orange(1, src))
+		//if(stored)
+		//	var/thing = winget(user,"Subsystem-Targeting")
+		//	qdel(thing)
+		//	say("oof")
 		if(winget(user,"Subsystem-Targeting","is-visible") == "false")
 			target_window = FALSE //Thanks byond forums
 		if(winget(user,"Weapons control","is-visible") == "false") //Returnif window is not visible to prevent it spamming you
@@ -91,7 +99,7 @@
 	else
 		user = null
 		return
-
+*/
 
 
 /obj/structure/weapons_console/Topic(href, href_list) //For some reason, S is null
@@ -99,67 +107,66 @@
 	//var/client/user = locate(href_list["clicker"])
 	var/mob/living/carbon/human/user = locate(href_list["clicker"])
 	if(user in orange(1, src))
-		var/obj/structure/overmap/ship/S = locate(href_list["target"])
+	//	var/obj/structure/overmap/ship/S = locate(href_list["target"])
 		var/mob/living/carbon/human/L = locate(href_list["clicker"])
 		var/datum/shipsystem/SS = locate(href_list["system"])
-		if(href_list["target"])
-			target_window(S, L,1) //Clicker references the user
+	//	if(href_list["target"])
+		//	target_window(S, L,1) //Clicker references the user
 		if(href_list["system"])
 			to_chat(L, "<span class='notice'>Now targeting: [SS] subsystem.</span>")
 			our_ship.target_subsystem = SS
 	else
 		to_chat(user, "Move closer to [src]")
 
-
-/obj/structure/weapons_console/proc/target_window(obj/structure/overmap/D, mob/user, var/calledfrom)
+/*
+/obj/structure/weapons_console/attack_hand(mob/user)
 	if(user in orange(1, src))
+		if(!our_ship.target_ship)
+			to_chat(user, "Error! no target selected")
+			for(var/obj/structure/overmap/ship/s in world)
+				our_ship.target_ship = s
+				say("[s]")
+				return
+			return
 		target_window = TRUE
+		var/obj/structure/overmap/D = our_ship.target_ship
 		to_chat(D.pilot, "WARNING, scan detected, origin: [our_ship]!")
 		var/s = ""
 		s += "<B>CONTROL PANEL:</B><BR>"
 		var/obj/structure/overmap/P = new
-		P.icon = D.icon
-		P.icon_state = "[D.icon_state]-full"
+		P.icon = our_ship.target_ship.icon
+		P.icon_state = "[our_ship.target_ship.icon_state]-full"
 		s += "<A href='?src=\ref[src];target=\ref[D];clicker=\ref[user]'>Target: [D]</A>"
 		s += "<A href='?src=\ref[src];target=\ref[D];clicker=\ref[user]'>Target subsystem: [our_ship.target_subsystem]</A>"
 		s += "<A href='?src=\ref[src];target=\ref[D];clicker=\ref[user]'>Target subsystem health: [our_ship.target_subsystem.integrity] / [our_ship.target_subsystem.max_integrity]</A><BR>"
 		s += "<span data-tooltip='Placeholder'>[icon2html(P.icon, user, P.icon_state, EAST)]</span><BR>"
-		qdel(P)
-		subsystem = our_ship.SC.weapons
-		damage = subsystem.damage
-		heat = subsystem.heat
-		charge = subsystem.charge
 		s += "<B>STATISTICS</B><BR>"
 		s += "[our_ship] weapons subsystem:<BR>"
 		s += "Heat: [heat] |"
 		s += " Weapon power (Gigawatts): [damage] |"
 		s += " Weapon charge: [charge] / [subsystem.max_charge]<BR>"
+		qdel(P)
+		subsystem = our_ship.SC.weapons
+		damage = subsystem.damage
+		heat = subsystem.heat
+		charge = subsystem.charge
 		var/ss = ""
 		for(var/datum/shipsystem/S in D.SC.systems)
-	//	ss += "<span data-tooltip='Placeholder'>[icon2html(S.icon, user, S.icon_state, SOUTH)]</span><BR>"
 			ss += "<A href='?src=\ref[src];system=\ref[S];clicker=\ref[user]'>[icon2html(S.icon, user, S.icon_state, SOUTH)]</A>"
 		s += ss
 		var/datum/browser/popup = new(user, "Subsystem-Targeting", name, 470, 500)
 		popup.set_content(s)
 		popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
 		popup.open()
-		if(winget(user,"Subsystem-Targeting","is-visible") == "false")
-			if(!calledfrom) //Calledfrom is only done when newly selecting window from attackhand
-				target_window = FALSE //Thanks byond forums
-				popup.close()
-				qdel(popup)
-				return
-		if(!D in our_ship.interactables_near_ship) //Ship no longer available for targeting
-			target_window = FALSE
-			popup.close()
-			qdel(popup)
-			return
-		if(user.canUseTopic(src))
-			addtimer(CALLBACK(src,.proc/target_window, D,user,0), 20)
+		if(winget(user,"Subsystem-Targeting","is-visible") == "true")
+			if(user.canUseTopic(src))
+				addtimer(CALLBACK(src,/atom/proc/attack_hand, D,user,0), 20)
 	else
 		target_window = FALSE //Thanks byond forums
 		user = null
 		return
+
+*/
 
 //	if(!current_fan)
 //		to_chat(user, "There are no fans attached to the shield generator.")
@@ -172,3 +179,68 @@
 
 //	if(href_list["fanincrease"])
 //		current_fan.fancurrent = min(current_fan.fanmax, current_fan.fancurrent + 5)
+
+
+/obj/structure/weapons_console/attack_hand(mob/user)
+	if(winget(user,"Weapons control","is-visible") == "false")
+		target = null
+	if(user in orange(1, src))
+		for(var/obj/structure/overmap/ship/s in theicons)
+			qdel(s)
+		theicons = list()
+		var/s = ""
+		ships = list()
+		for(var/obj/structure/overmap/D in our_ship.interactables_near_ship)
+			ships += D
+		subsystem = our_ship.SC.weapons
+		damage = subsystem.damage
+		heat = subsystem.heat
+		charge = subsystem.charge
+		s += "<B>CONTROL PANEL</B><BR>"
+		s += "<A href='?src=\ref[src];toggle=1;clicker=\ref[user]'>Toggle Power</A><BR>"
+		s += "<B>STATISTICS</B><BR>"
+		s += "[our_ship] weapons subsystem:<BR>"
+		s += "Heat: [heat] |"
+		s += " Weapon power (Gigawatts): [damage] |"
+		s += " Weapon charge: [charge] / [subsystem.max_charge]<BR>"
+		var/ss = ""
+		if(!target)
+			var/obj/structure/overmap/V = input("What ship shall we analyze?", "Weapons console)", null) in our_ship.interactables_near_ship
+			target = V
+		var/obj/structure/overmap/P = new
+		P.icon = target.icon
+		P.icon_state = "[target.icon_state]-full"
+		s += "<B> Target: [target] | Target Subsystem: [our_ship.target_subsystem]</B><BR>"
+		var/thing = "Inactive"
+		if(our_ship.target_subsystem)
+			if(!our_ship.target_subsystem.failed)
+				thing = "Active"
+			s += "Target subsystem health: [our_ship.target_subsystem.integrity] / [our_ship.target_subsystem.max_integrity] | Status: [thing]<BR>"
+		s += "[icon2html(P.icon, user, P.icon_state, EAST)]<BR>"
+		qdel(P)
+		for(var/datum/shipsystem/S in target.SC.systems)
+			ss += "<A href='?src=\ref[src];system=\ref[S];clicker=\ref[user]'>[icon2html(S.icon, user, S.icon_state, SOUTH)]</A>" //Subsystem icon things done by FTL, modified slightly be me
+		s += ss
+		var/datum/browser/popup = new(user, "Weapons control", name, 550, 550)
+		popup.set_content(s)
+		popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
+		popup.open()
+		if(user.canUseTopic(src))
+			addtimer(CALLBACK(src,/atom/proc/attack_hand, user), 20)
+	else
+		user = null
+		return
+
+
+/*
+var/obj/structure/overmap/P = new
+			if(!D in our_ship.interactables_near_ship) //Ship no longer available for targeting
+				target_window = FALSE
+				return attack_hand(user) //refresh
+			P.icon = D.icon
+			P.icon_state = "[D.icon_state]-full"
+			ships -= P
+			theicons += P
+			ss += "<span data-tooltip='Placeholder'>[icon2html(P.icon, user, P.icon_state, EAST)]</span><BR>"
+			ss += "<A href='?src=\ref[src];target=\ref[D];clicker=\ref[user]'>[D]</A><BR>"
+*/ //hold this for me
