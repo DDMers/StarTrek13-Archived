@@ -80,7 +80,7 @@
 "bB" = (/obj/structure/fluff/helm/desk/noisy,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship)
 "bC" = (/obj/structure/fluff/helm/desk{tag = "icon-miniconsole (NORTH)"; icon_state = "miniconsole"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship)
 "bD" = (/obj/structure/fluff/helm/desk/functional,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship)
-"bE" = (/obj/structure/fluff/helm/desk/functional/weapons,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship)
+"bE" = (/obj/structure/weapons_console,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship)
 "bF" = (/turf/open/floor/trek_special/dockingbay{pixel_x = -8; pixel_y = 10},/area/ship)
 "bG" = (/turf/open/floor/trek_cargo,/area/ship)
 "bH" = (/obj/structure/ladder/unbreakable{height = 2; id = "cadaver2"; layer = 2.3; name = "turboladder"},/turf/open/floor/trek_cargo,/area/ship)
