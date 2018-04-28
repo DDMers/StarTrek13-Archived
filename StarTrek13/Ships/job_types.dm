@@ -41,6 +41,8 @@ Assistant
 		uniform = /obj/item/clothing/under/trek/grey
 	else
 		uniform = /obj/item/clothing/under/trek/grey
+/datum/outfit/job/crewman/post_equip(mob/living/carbon/human/H)
+	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
 
 //ADD SPAWNS FOR THE NEW JOBS!
 /*
