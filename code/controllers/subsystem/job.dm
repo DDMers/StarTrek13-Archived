@@ -382,11 +382,11 @@ SUBSYSTEM_DEF(job)
 		H = N.new_character
 	else
 		H = M
-
 	var/datum/job/job = GetJob(rank)
-
 	H.job = rank					//For us, latejoins are a last resort, as they could end up in the middle of the wrong faction base.
 	var/obj/effect/landmark/faction_spawn/S = null
+	if(!M.client.prefs.player_faction)
+		M.client.prefs.player_faction = pick(SSfaction.factions) //the runtimes boy oh!
 	var/datum/faction/thefaction = M.client.prefs.player_faction
 	S = pick(thefaction.spawns)
 	if(joined_late)
