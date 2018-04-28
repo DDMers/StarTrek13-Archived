@@ -283,7 +283,8 @@
 	failed = TRUE
 
 /datum/shipsystem/shields/process()
-	heat -= 20
+	if(heat > 0)
+		heat -= 20
 	max_integrity = initial(max_integrity)
 	for(var/obj/structure/subsystem_component/capbooster in controller.theship.linked_ship)
 		max_integrity += 5000
@@ -294,7 +295,8 @@
 	if(integrity > max_integrity)
 		integrity = max_integrity
 	if(!failed)
-		health -= heat
+		if(heat > 0) //fuck you bugs XDDDD
+			health -= heat
 		health += chargeRate*power_modifier
 
 	else
