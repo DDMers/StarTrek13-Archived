@@ -15,7 +15,7 @@
 	var/obj/structure/overmap/carrier_ship = null
 	take_damage_traditionally = FALSE
 	var/turf/origin_turf = null //For re-teleporting the ship back when it's done docking.
-	damage = 100
+	damage = 500
 	recharge_max = 1.2
 	var/exiting = FALSE
 	//Add a communcations box sometime ok cool really neat.
@@ -49,14 +49,8 @@
 		return ..()
 
 /obj/structure/overmap/ship/fighter/exit()
-	if(!starting)
-		if(carrier_ship)
-			to_chat(pilot, "Moving to re-dock with [carrier_ship]")
-			nav_target = carrier_ship
-			exiting = TRUE
-			starting = 0
-	else
-		. = ..()
+	to_chat(pilot, "Engaging bluespace re-docking engine.")
+	forceMove(origin_turf)
 
 /obj/structure/overmap/ship/fighter/relaymove()
 	if(!starting)
@@ -88,14 +82,6 @@
 	if(d & (d-1))//not a cardinal direction
 		setDir(d)
 		step(src,dir)
-	if(exiting && src in orange(2, nav_target))
-		exiting = FALSE
-		navigating = 0
-		to_chat(pilot, "Movement towards [nav_target] complete. Engaging auto-dock subsystem.")
-		forceMove(origin_turf)
-	if(src in orange(4, nav_target))
-		navigating = 0
-		to_chat(pilot, "Movement towards [nav_target] complete. Engaging auto-dock subsystem.")
 
 /obj/structure/overmap/ship/fighter/destroy()
 	to_chat(pilot, "The cabin of [src] explodes into a ball of flames!")

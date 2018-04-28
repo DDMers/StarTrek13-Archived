@@ -82,8 +82,11 @@
 			var/obj/structure/overmap/V = input("What ship shall we analyze?", "Weapons console)", null) in our_ship.interactables_near_ship
 			target = V
 		var/obj/structure/overmap/P = new
-		P.icon = target.icon
-		P.icon_state = "[target.icon_state]-full"
+		try:
+			P.icon = target.icon
+			P.icon_state = "[target.icon_state]-full"
+		catch:
+			qdel(P)
 		s += "<B> Target: [target] | Target Subsystem: [our_ship.target_subsystem]</B><BR>"
 		var/thing = "Inactive"
 		if(our_ship.target_subsystem)
@@ -91,7 +94,6 @@
 				thing = "Active"
 			s += "Target subsystem health: [our_ship.target_subsystem.integrity] / [our_ship.target_subsystem.max_integrity] | Status: [thing]<BR>"
 		s += "[icon2html(P.icon, user, P.icon_state, EAST)]<BR>"
-		P.alpha = 0
 		qdel(P)
 		for(var/datum/shipsystem/S in target.SC.systems)
 			ss += "<A href='?src=\ref[src];system=\ref[S];clicker=\ref[user]'>[icon2html(S.icon, user, S.icon_state, SOUTH)]</A>" //Subsystem icon things done by FTL, modified slightly be me
