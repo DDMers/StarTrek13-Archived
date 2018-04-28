@@ -218,7 +218,7 @@
 		ship.SC.shields.active = FALSE
 		return
 	if(!on)
-		if(ship.SC.shields.integrity >= 2000)
+		if(ship.SC.shields.health >= 5000)
 			to_chat(user, "shields activated")
 			on = 1
 			for(var/obj/effect/adv_shield/S in shields)
@@ -228,7 +228,7 @@
 			return
 		else
 			on = 0
-			to_chat(user, "error, shields regenerating after an attack")
+			to_chat(user, "error, shields have failed!")
 			return
 
 /obj/machinery/space_battle/shield_generator/New()
@@ -596,7 +596,7 @@
 	density = 0
 	pixel_x = -64
 	var/charge = 1000 //current power levels
-	var/charge_rate = 200
+	var/charge_rate = 100
 	var/state = 1
 	var/locked = 0
 	var/obj/item/gun/shipweapon/phaser
@@ -607,7 +607,7 @@
 	var/list/shipareas = list()
 	var/target = null
 	var/obj/machinery/space_battle/shield_generator/shieldgen
-	var/damage = 500
+	var/damage = 650
 
 /obj/machinery/power/ship/phaser/opposite
 	dir = 8

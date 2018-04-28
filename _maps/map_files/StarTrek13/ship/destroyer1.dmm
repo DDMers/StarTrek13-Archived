@@ -1,0 +1,151 @@
+"aa" = (/turf/open/space/basic,/area/space)
+"ab" = (/turf/closed/indestructible/riveted{alpha = 0},/area/ship/target)
+"ac" = (/obj/structure/viewscreen/mini{pixel_x = 0; pixel_y = 0},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/target)
+"ad" = (/obj/item/twohanded/required/kirbyplants,/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTHWEST)"; icon_state = "trek_edge2"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ae" = (/obj/effect/turf_decal/trek,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"af" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTHEAST)"; icon_state = "trek_edge2"; dir = 5},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ag" = (/obj/machinery/sleeper/survival_pod,/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTHWEST)"; icon_state = "trek_edge2"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ah" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/effect/turf_decal/trek,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ai" = (/obj/structure/table/optable,/obj/effect/turf_decal/trek,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aj" = (/obj/structure/table/reinforced,/obj/item/scalpel,/obj/item/retractor,/obj/item/hemostat,/obj/item/surgicaldrill,/obj/item/cautery,/obj/item/surgical_drapes,/obj/item/storage/backpack/duffelbag/med/surgery,/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTHEAST)"; icon_state = "trek_edge2"; dir = 5},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ak" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (WEST)"; icon_state = "trek_edge2"; dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"al" = (/turf/open/floor/borg/trek/lit,/area/ship/target)
+"am" = (/obj/structure/chair/trek,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"an" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (EAST)"; icon_state = "trek_edge2"; dir = 4},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ao" = (/obj/structure/table/reinforced,/obj/item/clothing/suit/apron/surgical,/obj/item/clothing/suit/apron/surgical,/obj/item/storage/box/masks,/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (EAST)"; icon_state = "trek_edge2"; dir = 4},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ap" = (/obj/structure/table/glass,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aq" = (/obj/structure/bed/roller,/obj/item/bedsheet/medical,/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (WEST)"; icon_state = "trek_edge2"; dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ar" = (/obj/structure/chair/trek{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (EAST)"; icon_state = "trek_edge2"; dir = 4},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"as" = (/obj/structure/chair/trek{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"at" = (/turf/open/generic_overlay,/area/ship/target)
+"au" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (SOUTHWEST)"; icon_state = "trek_edge2"; dir = 10},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"av" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTH)"; icon_state = "trek_edge2"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aw" = (/obj/effect/turf_decal/stripes/asteroid/line,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ax" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (SOUTHEAST)"; icon_state = "trek_edge2"; dir = 6},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ay" = (/obj/structure/bed/roller,/obj/item/bedsheet/medical,/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (SOUTHWEST)"; icon_state = "trek_edge2"; dir = 10},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"az" = (/obj/structure/chair/trek{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (SOUTHEAST)"; icon_state = "trek_edge2"; dir = 6},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aA" = (/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/target)
+"aB" = (/turf/open/floor/trek_special/black{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/area/ship/target)
+"aC" = (/turf/closed/wall/ship/voy,/area/ship/target)
+"aD" = (/obj/machinery/door/airlock/trek/tng/voy,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aE" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTHWEST)"; icon_state = "trek_edge2"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aF" = (/turf/open/floor/trek_special/bridge/alt{pixel_y = -7},/area/ship/target)
+"aG" = (/obj/structure/viewscreen{pixel_x = -5; pixel_y = -6},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/target)
+"aH" = (/turf/open/space/basic,/area/ship/target)
+"aI" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHEAST)"; icon_state = "lcars2"; dir = 5},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/target)
+"aJ" = (/obj/machinery/door/airlock/trek/tng/voy/single,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"aK" = (/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"aL" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (SOUTHWEST)"; icon_state = "lcars"; dir = 10},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/target)
+"aM" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (NORTHEAST)"; icon_state = "lcars"; dir = 5},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"aN" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHWEST)"; icon_state = "lcars2"; dir = 9},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"aO" = (/obj/structure/rack,/obj/structure/photon_torpedo,/obj/effect/turf_decal/stripes/asteroid/line,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"aP" = (/obj/structure/torpedo_launcher,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"aQ" = (/obj/structure/catwalk/cargo,/turf/open/floor/plating,/area/ship/target)
+"aR" = (/obj/structure/table,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aS" = (/obj/item/device/tricorder,/obj/structure/table,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aT" = (/obj/structure/chair/office/dark{dir = 1; name = "tactical swivel chair"},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aU" = (/obj/structure/fluff/helm/desk/tactical{tag = "icon-desk (NORTH)"; icon_state = "desk"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aV" = (/obj/structure/catwalk/cargo,/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/turf/open/floor/plating,/area/ship/target)
+"aW" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (WEST)"; icon_state = "ast_warn"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"aX" = (/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/turf/closed/wall/ship/voy,/area/ship/target)
+"aY" = (/obj/machinery/trek/transporter{layer = 2},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"aZ" = (/obj/machinery/door/airlock/trek/tng/voy{tag = "icon-closed (WEST)"; icon_state = "closed"; dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"ba" = (/turf/open/floor/trek_special/black{pixel_x = 0},/area/ship/target)
+"bb" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (WEST)"; icon_state = "trek_edge2"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bc" = (/obj/structure/fluff/helm/desk/noisy,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bd" = (/obj/structure/fluff/helm/desk{tag = "icon-miniconsole (NORTH)"; icon_state = "miniconsole"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"be" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (EAST)"; icon_state = "trek_edge2"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bf" = (/turf/open/floor/trek_special/black{dir = 1; icon_state = "black"; pixel_x = 0; tag = "icon-black (NORTH)"},/area/ship/target)
+"bg" = (/obj/machinery/computer/camera_advanced/transporter_control/huge,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bh" = (/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (WEST)"; icon_state = "trek_edge2"; dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bi" = (/obj/structure/fluff/helm/desk/functional,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bj" = (/obj/structure/chair/trek/bridge{tag = "icon-bridgechair (NORTH)"; icon_state = "bridgechair"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bk" = (/obj/structure/weapons_console,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bl" = (/obj/structure/fluff/helm/desk{desc = "Systems: NOMINAL"; dir = 1; name = "engineering desk"},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (EAST)"; icon_state = "trek_edge2"; dir = 4},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bm" = (/turf/closed/indestructible/riveted{alpha = 0; opacity = 1},/area/ship/target)
+"bn" = (/obj/structure/chair/office/dark{dir = 1; name = "tactical swivel chair"},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (SOUTHWEST)"; icon_state = "trek_edge2"; dir = 10},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bo" = (/obj/structure/chair/office/dark{dir = 1; name = "tactical swivel chair"},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (SOUTHEAST)"; icon_state = "trek_edge2"; dir = 6},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bp" = (/turf/open/transporter_overlay,/area/ship/target)
+"bq" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTH)"; icon_state = "trek_edge2"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"br" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bs" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bt" = (/turf/open/bridge_overlay/alt,/area/ship/target)
+"bu" = (/obj/effect/turf_decal/trek,/obj/structure/overmap/ship/target,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bv" = (/obj/structure/subsystem_panel/engines,/turf/open/space/basic,/area/ship/target)
+"bw" = (/obj/structure/ship_component,/turf/open/space/basic,/area/ship/target)
+"bx" = (/obj/structure/ship_component/capbooster,/turf/open/space/basic,/area/ship/target)
+"by" = (/obj/structure/subsystem_panel/weapons,/turf/open/space/basic,/area/ship/target)
+"bz" = (/obj/structure/catwalk/cargo,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bA" = (/obj/structure/fluff/warpcore/massive/smaller{pixel_x = -16},/obj/structure/catwalk/cargo,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bB" = (/turf/open/floor/trek_special/black,/area/ship/target)
+"bC" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (EAST)"; icon_state = "ast_warn"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bD" = (/obj/effect/turf_decal/stripes/asteroid/line,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bE" = (/turf/open/small_engineering_overlay,/area/ship/target)
+"bF" = (/obj/machinery/door/airlock/trek/tng/voy,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/target)
+"bG" = (/obj/structure/subsystem_panel,/turf/closed/wall/ship/voy,/area/ship/target)
+"bH" = (/obj/structure/ship_component/capbooster,/turf/closed/wall/ship/voy,/area/ship/target)
+"bI" = (/obj/structure/sign/viewscreen{icon_state = "trekscreen"},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTHWEST)"; icon_state = "trek_edge2"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bJ" = (/obj/structure/sign/viewscreen{icon_state = "trekscreen"},/obj/effect/turf_decal/trek,/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bK" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTHEAST)"; icon_state = "trek_edge2"; dir = 5},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bL" = (/obj/structure/closet/secure_closet/engineering_personal,/obj/item/storage/toolbox/mechanical,/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (WEST)"; icon_state = "trek_edge2"; dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bM" = (/obj/structure/chair/trek{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bN" = (/obj/structure/table/glass,/obj/item/storage/toolbox/mechanical,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bO" = (/obj/structure/table/glass,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bP" = (/obj/structure/chair/trek{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
+"bQ" = (/obj/structure/closet/secure_closet/engineering_personal,/obj/item/storage/toolbox/electrical,/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (EAST)"; icon_state = "trek_edge2"; dir = 4},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bR" = (/obj/structure/closet/secure_closet/engineering_personal,/obj/item/storage/toolbox/electrical,/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (SOUTHWEST)"; icon_state = "trek_edge2"; dir = 10},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bS" = (/obj/structure/closet/secure_closet/engineering_personal,/obj/item/storage/toolbox/mechanical,/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (SOUTHEAST)"; icon_state = "trek_edge2"; dir = 6},/turf/open/floor/borg/trek/lit,/area/ship/target)
+"bT" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/ship/voy,/area/ship/target)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaababababacabababababababacababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaababadaeaeaeaeafababagahahahaiajabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaababakalalamalanababakalalalalaoabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaababakalapapapanababaqalalalalarabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaababakalalasalanababakalalalalanabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabatauavavawavaxabatayavavawavazabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaAabababaBabababaAabababaBabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCaCaCaCaCaCaCaDaCaCaCaCaCaCaCaDaCaCaCaCaCaCaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCaEaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCakalavavavavavavavavavavavavavavavavavalanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCakanaCaCaCaCaDaCaCaCaCaCaCaCaDaCaCaCaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabababaBabababababababaBabababaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCakanaCaAabaAaFaAaAaGaAaAaAaAaFaAabaHaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabaAaIaJaAaKaKaKaKaKaAaJaLaAabaCakanaCaCaCaCaCaCaCaCaCaaaaaaaaaaaaaa
+ababababababababababababaCakanaCabaAaMaKaKaKaKaKaKaKaKaKaNaAabaCakanaCaKaOaKaPaKaOaKaCaaaaaaaaaaaaaa
+ababaAaAaAaAaAaAaAaAababaCakanaCabaKaKaEaeaeaeaeaeaeaeafaKaKabaCakanaCaKaQaQaQaQaQaKaCaaaaaaaaaaaaaa
+abalalalalalalalaRaSalabaCakanaCabaKaKakalalaTaUaTalalanaKaKabaCakanaCaKaValalalaQaWaXaaaaaaaaaaaaaa
+abaYaYalalalalalalalalalaZalalaZbabbaKakalbcalalalbdalanaKbebfaZalalaZaQaQalalalaQaQaCaaaaaaaaaaaaaa
+abaYaYalalalalalbgalalabaCakanaCabaKaKbhbialalbjalalbkblaKaKabaCakanaCaKaQalalalaQaWaCaaaaaaaaaaaaaa
+abbmalavavavavavavalababaCakanaCabaKaKbnavavavavavavavboaKaKabaCakanaCaKaQaQaQaQaQaKaCaaaaaaaaaaaaaa
+bpbmbmbmbmaBbmbmbmbmababaCakanaCaAabaKbqaKaKaKaKaKaKaKbqaKababaCakanaCaKbraKaKaKbsaKaXaaaaaaaaaaaaaa
+ababababababababababababaCakanaCbtababaBabababababababaBabababaCakanaCaCaCaCaCaCaCaCaCaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCakanaCaCaCaCaDaCaCaCaCaCaCaCaDaCaCaCaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCakalaeaebuaeaeaeaeaeaeaeaeaeaeaeaeaeaealanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCauavavavavavavavavavavavavavavavavavavavaxaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaCaCaCaCaDaCaCaCaCaCaCaCaCaCaCaCaCaCaDaCaCaCaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaEafaCabababababababababababaCaEafaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabbvbwaHbxaHbxaHbwbyabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabaKaKaKaKaKaKaKaKaKabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabaKbzbzbzbzbzbzbzaKabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabaKbAaKaKaKaKaKbzaKabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabaKbzaKaKaKaKaKbzaKabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabaKbzaKaKaKaKaKbzaKabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaZbBaWbzbzbzbzbzbzbzbCbfaZakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabaKaKbDaKaKaKbDaKaKabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCbEababaBabababaBabababaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabababaBabababaBabababaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCaCaCaCbFaCbGaCbFbHaCaCaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCbIaeaeaeaeaeaeaebJaebKaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCbLaKaKbMbNbObObPaKaKbQaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCakaKaKbMbObObObPaKaKanaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCauaxaCbRavavavavavavavavavbSaCauaxaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaCaCaCaCaCaCaCaCbTaCaCaCaCaCaCaCaCaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

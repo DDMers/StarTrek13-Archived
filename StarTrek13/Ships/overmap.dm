@@ -426,9 +426,12 @@ var/global/list/global_ship_list = list()
 			fighters += F
 
 /obj/structure/overmap/take_damage(amount,turf/target, var/obj/structure/overmap/source)
+	agressor = source
 	if(health <= 0)
+		agressor.target_subsystem = null
 		destroy(1)
 	if(!health)
+		agressor.target_subsystem = null
 		destroy(1)
 	if(take_damage_traditionally) //Set this var to 0 to do your own weird shitcode
 		if(has_shields())
@@ -438,7 +441,7 @@ var/global/list/global_ship_list = list()
 			heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
 			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
 		//	generator.take_damage(amount*heat_multi)
-			SC.shields.integrity -= amount*heat_multi
+			SC.shields.health -= amount*heat_multi
 			var/datum/effect_system/spark_spread/s = new
 			s.set_up(2, 1, src)
 			s.start() //make a better overlay effect or something, this is for testing
@@ -448,9 +451,15 @@ var/global/list/global_ship_list = list()
 			return//no shields are up! take the hit
 		if(SC.hull_integrity.failed)
 			if(source.target_subsystem)
+				if(source.target_subsystem.failed)
+					to_chat(source.pilot, "[src]'s [source.target_subsystem.failed] subsystem has failed.")
+					health -= amount
+					source.target_subsystem = null
+					apply_damage(amount)
+					return
 				source.target_subsystem.integrity -= (amount)/1.5 //No shields, fry that system
 				source.target_subsystem.heat += amount/10 //Heat for good measure :)
-				var/quickmaths = amount/3 //Thirds the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
+				var/quickmaths = amount/2 //Halves the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
 				health -= quickmaths
 				apply_damage(amount)
 				return
@@ -536,13 +545,6 @@ var/global/list/global_ship_list = list()
 		navigate()
 	get_interactibles()
 	//transporter.destinations = list() //so when we leave the area, it stops being transportable.
-	if(take_damage_traditionally)
-		if(has_shields())
-			shields_active = TRUE
-		//	icon_state = "[initial(icon_state)]-shield" //We're changing this to use an overlay
-		else
-			shields_active = FALSE
-		//	icon_state = initial(icon_state) //This change will also allow admins to bus in custom ships
 	if(health <= 0)
 		destroy(1)
 	if(!health)
@@ -714,6 +716,7 @@ var/global/list/global_ship_list = list()
 		return 0
 
 /obj/structure/overmap/proc/destroy(severity)
+	agressor.target_subsystem = null
 	var/thesound = pick(ship_damage_ambience) //blowing up noises
 	for(var/obj/structure/overmap/L in orange(30, src))
 		var/obj/structure/overmap/O = L
@@ -749,7 +752,7 @@ var/global/list/global_ship_list = list()
 			qdel(src)
 
 /obj/structure/overmap/proc/has_shields()
-	if(SC.shields.integrity > 2000 && shields_active)
+	if(SC.shields.health >= 5000 && shields_active)
 		return 1
 	else//no
 		return 0

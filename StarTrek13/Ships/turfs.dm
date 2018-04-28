@@ -5,12 +5,21 @@
 	icon = 'StarTrek13/icons/trek/trek_wall.dmi'
 	icon_state = "wall"
 	smooth = 1
-	canSmoothWith = list(/turf/closed/wall/ship,/obj/machinery/door/airlock/trek/tng,/turf/closed/wall/ship/tng,/obj/machinery/door/airlock/trek, /obj/structure/window,/obj/structure/grille,/obj/structure/window/trek,/turf/closed/wall/ship/steel,/obj/structure/window/trek/steel)
+	canSmoothWith = list(/turf/closed/wall/ship,/obj/machinery/door/airlock/trek/tng/voy/single,/obj/machinery/door/airlock/trek/tng,/obj/machinery/door/airlock/trek/tng/voy,/turf/closed/wall/ship/voy,/turf/closed/wall/ship/tng,/obj/machinery/door/airlock/trek, /obj/structure/window,/obj/structure/grille,/obj/structure/window/trek,/turf/closed/wall/ship/steel,/obj/structure/window/trek/steel)
 
 /turf/closed/wall/ship/tng
 	name = "Corridor"
 	icon = 'StarTrek13/icons/trek/trek_tng_wall.dmi'
 	icon_state = "wall"
+
+/turf/closed/wall/ship/voy //Voyager style walls
+	name = "Corridor"
+	icon = 'StarTrek13/icons/trek/trek_voy_wall.dmi'
+	icon_state = "wall"
+
+/turf/closed/wall/ship/voy/New()
+	. = ..()
+	set_light(5)
 
 /turf/closed/wall/ship/tng/New()
 	. = ..()
@@ -37,6 +46,22 @@
 	overlays_file = 'StarTrek13/icons/trek/trek_door.dmi'
 	desc = "An advanced door designed in the future, now having relieved bipedal sentients the need to suffer the horror of raising their hands to go into another room."
 
+/obj/machinery/door/airlock/trek/tng/voy/single
+	name = "airlock"
+	icon = 'StarTrek13/icons/trek/door_voy_single.dmi'
+	icon_state = "closed"
+	overlays_file = 'StarTrek13/icons/trek/door_voy_single.dmi'
+	desc = "An advanced door designed in the future, now having relieved bipedal sentients the need to suffer the horror of raising their hands to go into another room."
+
+
+/obj/machinery/door/airlock/trek/tng/voy
+	name = "airlock"
+	icon = 'StarTrek13/icons/trek/voy_door.dmi'
+	icon_state = "closed"
+	overlays_file = 'StarTrek13/icons/trek/voy_door.dmi'
+	desc = "An advanced door designed in the future, now having relieved bipedal sentients the need to suffer the horror of raising their hands to go into another room."
+
+
 /obj/machinery/door/airlock/trek/tng/single
 	name = "airlock"
 	icon = 'StarTrek13/icons/trek/trek_door_single.dmi'
@@ -51,6 +76,9 @@
 /obj/effect/turf_decal/trek
 	icon_state = "trek_edge"
 	icon = 'StarTrek13/icons/trek/trek_turfs.dmi'
+
+/obj/effect/turf_decal/trek
+	icon_state = "trek_edge2"
 
 /obj/effect/turf_decal/trek/cargo
 	icon_state = "trek_edge_cargo"
@@ -98,6 +126,10 @@
 	desc = "This massive machine will propel your starship to unheard of speeds."
 	icon = 'StarTrek13/icons/trek/warp_core_huge.dmi'
 	icon_state = "warpcore"
+
+/obj/structure/fluff/warpcore/massive/smaller
+	icon_state = "warpcore_smaller"
+	pixel_x = 16
 
 /turf/open/floor/borg/trek/lit
 	name = "lit carpet"
@@ -217,30 +249,57 @@
 /turf/open/warp_room_overlay
 	icon = 'StarTrek13/icons/trek/warp_room_overlay.PNG'
 	name = "floor"
+	density = 1
+	blocks_air = 1
 
 /turf/open/generic_overlay
 	icon = 'StarTrek13/icons/trek/generic_overlay.PNG'
 	name = "floor"
+	density = 1
+	blocks_air = 1
 
 /turf/open/transporter_overlay
 	icon = 'StarTrek13/icons/trek/transporterroom_overlay.PNG'
 	name = "floor"
+	density = 1
+	blocks_air = 1
 
 /turf/open/bridge_overlay
 	icon = 'StarTrek13/icons/trek/bridge_overlay.PNG'
 	name = "floor"
+	density = 1
+	blocks_air = 1
+
+/turf/open/bridge_overlay/alt
+	icon = 'StarTrek13/icons/trek/bridge_voy_overlay.PNG'
+	name = "floor"
+	density = 1
+	blocks_air = 1
 
 /turf/open/cargobay_overlay
 	icon = 'StarTrek13/icons/trek/cargobay_overlay.PNG'
 	name = "floor"
+	density = 1
+	blocks_air = 1
 
 /turf/open/brig_overlay
 	icon = 'StarTrek13/icons/trek/brig_overlay.PNG'
 	name = "floor"
+	density = 1
+	blocks_air = 1
 
 /turf/open/storagebay_overlay
 	icon = 'StarTrek13/icons/trek/storagebay_overlay.PNG'
 	name = "floor"
+	density = 1
+	blocks_air = 1
+
+
+/turf/open/small_engineering_overlay
+	icon = 'StarTrek13/icons/trek/warp_room_small_overlay.PNG'
+	name = "floor"
+	density = 1
+	blocks_air = 1
 
 /obj/structure/trek_table
 	name = "table"
@@ -292,6 +351,15 @@
 
 /turf/open/floor/trek_special/bridge
 	icon_state = "bridge1"
+	name = "wall"
+	desc = "No running through me please"
+	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
+	layer = 4.5
+	pixel_x = 6
+	pixel_y = -7
+
+/turf/open/floor/trek_special/bridge/alt
+	icon_state = "bridge2"
 	name = "wall"
 	desc = "No running through me please"
 	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
