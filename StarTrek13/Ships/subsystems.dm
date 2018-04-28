@@ -74,6 +74,7 @@
 	var/heat = 0
 	var/icon = 'StarTrek13/icons/trek/subsystem_icons.dmi'
 	var/icon_state
+	var/power_modifier = 1 //How much of the allocated power do we have?
 
 /datum/shipsystem/New()
 	. = ..()
@@ -164,11 +165,13 @@
 	maths_damage -= round(max_charge - charge)/2 //Damage drops off heavily if you don't let them charge
 	damage = maths_damage
 	max_charge += counter*temp //To avoid it dropping to 0 on update, so then the charge spikes to maximum due to process()
+	damage = damage+(200*power_modifier)
+	chargeRate = chargeRate*power_modifier
 
 /datum/shipsystem/weapons/process()
 	. = ..()
 	charge += chargeRate
-	heat -= 10
+	heat -= 30
 	if(integrity > max_integrity)
 		integrity = max_integrity
 	if(heat < 0)
@@ -177,7 +180,7 @@
 		charge = max_charge
 	if(heat)
 		integrity -= heat
-	if(integrity <= 5000) //Subsystems will autofail when they're this fucked
+	if(integrity <= 2000) //Subsystems will autofail when they're this fucked
 		failed = 1
 		fail()
 		//So stop processing
@@ -244,6 +247,8 @@
 /datum/shipsystem/integrity
 	name = "hull plates"
 	icon_state = "hull"
+	max_integrity = 20000
+	integrity = 20000
 
 /datum/shipsystem/integrity/process()
 	. = ..()
@@ -259,52 +264,41 @@
 	var/active = FALSE
 	var/obj/structure/ship_component/capbooster/boosters = list()
 	icon_state = "shields"
+	var/chargeRate = 500 // per tick
+	var/health = 20000
+	var/max_health = 20000 //This will become shield health, integrity is subsystem integrity
+	integrity = 20000
+	max_integrity = 20000
+	var/max_integrity_bonus = 0 //From capboosters
 
-/datum/shipsystem/shields/fail()
+/datum/shipsystem/shields/fail() //Failed as in subsystem has failed, can no longer generate shields
 	..()
 	for(var/obj/machinery/space_battle/shield_generator/S in linked_generators)
 		for(var/obj/effect/adv_shield/S2 in S.shields)
 			S2.deactivate()
 			S2.active = FALSE
-		controller.theship.shields_active = FALSE
+//	controller.theship.shields_active = FALSE
+	health = 0
+	STOP_PROCESSING(SSobj,src)
 	failed = TRUE
 
 /datum/shipsystem/shields/process()
-	var/our_bonus = 0 //How many capboosters are in the ship?
+	heat -= 20
 	max_integrity = initial(max_integrity)
-	for(var/obj/structure/ship_component/capbooster in boosters)
-		our_bonus += 5000
-	max_integrity = initial(max_integrity) + our_bonus
+	for(var/obj/structure/subsystem_component/capbooster in controller.theship.linked_ship)
+		max_integrity += 5000
+	if(integrity <= 5000)
+		fail()
+	if(health > max_health)
+		health = max_health
 	if(integrity > max_integrity)
 		integrity = max_integrity
-	if(heat < 0)
-		heat = 0
-	if(!failed && active)
-		controller.theship.shield_health = integrity
-		if(heat)
-			integrity -= heat
-		if(integrity <= 5000) //Subsystems will autofail when they're this fucked
-			failed = 1
-			fail()
-			active = FALSE
-		if(overclock > 0) //Drain power.
-			power_draw += overclock //again, need power stats to fiddle with.
-		if(heat >= 1000) //Don't let them get this hot. Please.
-			regen_bonus = -50
-		if(heat >= 100 && heat < 1000)
-			regen_bonus = 100
-		else
-			regen_bonus = 200
-		if(controller.theship.shields_active)
-			heat += 10 //Keeping your shields up makes them heat up.
-		else
-			heat -= 30 //Rapidly cool
-	else //failed IE. forcibly taken down
-		heat -= 50 //Cools down because not in use
-		if(integrity > 5000) //bring them back online, it's repaired.
-			failed = FALSE
-			active = TRUE
-	integrity += regen_bonus
+	if(!failed)
+		health -= heat
+		health += chargeRate*power_modifier
+
+	else
+		return
 
 //round(100 * value / max_value PERCENTAGE CALCULATIONS, quick maths.
 //U3VwZXIgaXMgYmFk
@@ -524,19 +518,6 @@
 		to_chat(user, "It is active")
 	else
 		to_chat(user, "It is not active")
-
-/obj/structure/ship_component/capbooster/process()//apply_subsystem_bonus() //Each component will have a benefit to subsystems when activated, coolant manifolds will regenerate some subsystem health as long as they are alive and active.#
-	var/area/A = get_area(src)
-	if(A.requires_power)//BE SURE TO CHANGE THIS WHEN WE ADD SHIP POWER!!!!!!!!!!!!!!!!!!!!!!
-		src.say("No available power remains. Shutting down.")
-		active = FALSE
-	if(active)
-		chosen.heat += 10
-		chosen.boosters += src
-		return 1
-	else
-		chosen.boosters -= src
-		return 0
 
 
 /obj/structure/subsystem_panel		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!

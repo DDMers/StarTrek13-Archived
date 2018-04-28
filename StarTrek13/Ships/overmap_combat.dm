@@ -121,8 +121,8 @@
 
 /obj/screen/alert/charge/hull/process()
 	theship = mob_viewer.overmap_ship
-	var/goal = theship.SC.shields.max_integrity
-	var/progress = theship.SC.shields.integrity
+	var/goal = theship.SC.shields.max_health
+	var/progress = theship.SC.shields.health
 	progress = Clamp(progress, 0, goal)
 	icon_state = "prog_bar_[round(((progress / goal) * 100), 5)]"
 	cut_overlays()
