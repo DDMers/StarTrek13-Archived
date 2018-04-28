@@ -71,10 +71,10 @@
 "bs" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
 "bt" = (/turf/open/bridge_overlay/alt,/area/ship/target)
 "bu" = (/obj/effect/turf_decal/trek,/obj/structure/overmap/ship/target,/turf/open/floor/borg/trek/lit,/area/ship/target)
-"bv" = (/obj/structure/subsystem_panel/engines,/turf/open/space/basic,/area/ship/target)
-"bw" = (/obj/structure/ship_component,/turf/open/space/basic,/area/ship/target)
-"bx" = (/obj/structure/ship_component/capbooster,/turf/open/space/basic,/area/ship/target)
-"by" = (/obj/structure/subsystem_panel/weapons,/turf/open/space/basic,/area/ship/target)
+"bv" = (/obj/structure/subsystem_panel/engines,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/target)
+"bw" = (/obj/structure/ship_component,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/target)
+"bx" = (/obj/structure/ship_component/capbooster,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/target)
+"by" = (/obj/structure/subsystem_panel/weapons,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/target)
 "bz" = (/obj/structure/catwalk/cargo,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
 "bA" = (/obj/structure/fluff/warpcore/massive/smaller{pixel_x = -16},/obj/structure/catwalk/cargo,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/target)
 "bB" = (/turf/open/floor/trek_special/black,/area/ship/target)
@@ -129,7 +129,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaCakalaeaebuaeaeaeaeaeaeaeaeaeaeaeaeaeaealanaCaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaCauavavavavavavavavavavavavavavavavavavavaxaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaCaCaCaCaDaCaCaCaCaCaCaCaCaCaCaCaCaCaDaCaCaCaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaEafaCabababababababababababaCaEafaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabbvbwaHbxaHbxaHbwbyabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabbvbwaAbxaAbxaAbwbyabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabaKaKaKaKaKaKaKaKaKabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabaKbzbzbzbzbzbzbzaKabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaCakanaCabaKbAaKaKaKaKaKbzaKabaCakanaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
