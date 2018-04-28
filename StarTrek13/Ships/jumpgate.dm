@@ -37,6 +37,8 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 /obj/structure/jumpgate/ShiftClick(mob/user)
 	if(!destination_locked && !being_used)
 		activate(user)
+	else
+		deactivate()
 
 /obj/structure/jumpgate/New()
 	. = ..()

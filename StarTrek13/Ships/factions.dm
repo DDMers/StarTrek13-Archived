@@ -115,23 +115,9 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 		. = ..()
 
 /datum/faction/proc/get_spawns() //override this for each
-	for(var/obj/effect/landmark/faction_spawn/F in GLOB.landmarks_list)
-		spawns += F
-
-/datum/faction/starfleet/get_spawns()
-	for(var/obj/effect/landmark/faction_spawn/F in GLOB.landmarks_list)
-		spawns += F
-
-/datum/faction/nanotrasen/get_spawns()
-	for(var/obj/effect/landmark/faction_spawn/nanotrasen/F in GLOB.landmarks_list)
-		spawns += F
-/datum/faction/independant/get_spawns()
-	for(var/obj/effect/landmark/faction_spawn/independant/F in GLOB.landmarks_list)
-		spawns += F
-
-/datum/faction/borg/get_spawns()
-	for(var/obj/effect/landmark/faction_spawn/borg/F in GLOB.landmarks_list)
-		spawns += F
+	for(var/obj/effect/landmark/faction_spawn/F in world)
+		if(F.name == name)
+			spawns += F
 
 /datum/faction/proc/broadcast(var/ping)	//broadcast4reps
 //	if(!ping)
@@ -146,16 +132,6 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	to_chat(D, "<FONT color='blue'><B>You have been recruited into [name]!</B></font>")
 	to_chat(D, "<FONT color='[pref_colour]'><B>[flavourtext]</B></font>")
 	onspawn(D)
-//	if(name == "starfleet")
-//	new /obj/item/clothing/neck/tie/faction_tag(D.loc)
-//	else
-	//	new /obj/item/clothing/neck/tie/faction_tag/nanotrasen(D.loc)
-//	var/image/theimage = image('icons/mob/hud.dmi')
-//	theimage.icon_state = "[name]"
-//	D.overlays += theimage
-	//spawn(0)
-//	for(var/mob/living/M in members)
-	//	set_antag_hud(M.mind,name)
 
 /datum/faction/proc/onspawn(mob/living/carbon/human/D) //If you want things to happen to someone as they join a faction, put it here
 	return

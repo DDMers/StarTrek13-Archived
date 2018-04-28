@@ -127,7 +127,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/datum/faction/factions = list()
 //	var/datum/list/factionDescriptions = list("Independent Description", "Starfleet Description", "Klingon Description")
 	var/faction = 1
-	var/datum/faction/player_faction = null
+	var/datum/faction/player_faction
 	var/num_factions = 0 //how many factions are there to be chosen from
 
 /datum/preferences/New(client/C)
