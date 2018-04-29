@@ -758,6 +758,10 @@
 	name = "NSV Muffin"
 	icon_state = "ship"
 
+/area/ship/fighter
+	name = "NSV Hagan"
+	icon_state = "ship"
+
 /area/ship/nanotrasen_cruiser
 	name = "NSV Hyperion"
 	icon_state = "ship"
@@ -821,6 +825,7 @@
 	var/list/torpedoes = list()
 	var/obj/structure/overmap/theship = null
 	var/required_skill = 25 //How much piloting skill is required to fly this ship?
+	anchored = 1
 
 /obj/structure/fluff/helm/desk/tactical/nanotrasen
 	name = "tactical"
@@ -828,6 +833,14 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
 
+/obj/structure/fluff/helm/desk/tactical/alt
+	icon_state = "tactical_nt_alt"
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	pixel_x = 15
+	pixel_y = 16
+	density = 0
+	layer = 4.6
+	anchored = 1
 
 /obj/structure/fluff/helm/desk/tactical/process()
 	var/area/thearea = get_area(src)

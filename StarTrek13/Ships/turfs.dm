@@ -264,6 +264,18 @@
 	density = 1
 	blocks_air = 1
 
+/turf/open/fighter_overlay
+	icon = 'StarTrek13/icons/trek/fighter_interior_overlay.PNG'
+	name = "floor"
+	density = 1
+	layer = 4.5
+	blocks_air = 1
+
+/obj/structure/helm/desk/tactical/nt/alt
+	icon_state = "tactical_nt_alt"
+	pixel_x = 14
+	pixel_y = 16
+
 /turf/open/bridge_overlay
 	icon = 'StarTrek13/icons/trek/bridge_overlay.PNG'
 	name = "floor"

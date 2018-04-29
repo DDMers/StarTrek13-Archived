@@ -46,7 +46,7 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	flags_1 = NODROP_1
 
-/obj/item/clothing/head/borg
+/obj/item/clothing/head/helmet/space/borg
 	name = "borg helmet"
 	desc = "This will keep our head safe."
 	icon_state = "borg"
@@ -58,7 +58,7 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	flags_1 = ABSTRACT_1 | NODROP_1 | STOPSPRESSUREDMAGE_1
 
-/obj/item/clothing/head/borg/New()
+/obj/item/clothing/head/helmet/space/borg/New()
 	for(var/obj/item/clothing/suit/space/borg/B in world)
 		armor = B.armor //inherit armour stats from the borg suits.
 
@@ -92,7 +92,7 @@
 	uniform =  /obj/item/clothing/under/borg
 	suit = /obj/item/clothing/suit/space/borg
 	shoes = /obj/item/clothing/shoes/magboots/borg
-	head = /obj/item/clothing/head/borg
+	head = /obj/item/clothing/head/helmet/space/borg
 	l_hand = /obj/item/borg_tool
 	mask = /obj/item/clothing/mask/gas/borg
 
