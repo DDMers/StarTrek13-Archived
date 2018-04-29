@@ -275,6 +275,15 @@ var/global/list/global_ship_list = list()
 	warp_capable = TRUE
 	max_health = 30000
 
+/obj/structure/overmap/ship/fighter_medium
+	name = "USS Hagan"
+	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
+	icon_state = "hagan"
+	warp_capable = TRUE
+	max_health = 10000
+	spawn_name = "nt_capital" //Change me
+	vehicle_move_delay = 2
+
 /obj/structure/overmap/ship/cruiser/nanotrasen
 	name = "NSV Hyperion"
 	icon = 'StarTrek13/icons/trek/large_ships/hyperion.dmi'

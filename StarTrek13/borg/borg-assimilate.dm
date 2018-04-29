@@ -150,6 +150,7 @@
 				to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
 				if(do_after(user, convert_time, target = A))
 					A.ChangeTurf(/turf/open/floor/borg)
+					resource_amount += 5
 			else if(istype(I, /turf/closed/wall))
 				if(!istype(I, /turf/closed/indestructible))
 					if(istype(I, /turf/closed/wall/borg)) //convert wall to door
@@ -167,6 +168,7 @@
 						var/turf/closed/wall/A = I
 						if(do_after(user, convert_time, target = A))
 							A.ChangeTurf(/turf/closed/wall/borg)
+							resource_amount += 5
 			else if(istype(I, /obj/machinery/door/airlock) && !istype(I, /obj/machinery/door/airlock/borg))
 				var/obj/machinery/door/airlock/G = I
 				to_chat(user,"We are assimilating [I]")
@@ -174,6 +176,7 @@
 				if(do_after(user, 100, target = G)) //twice as long to convert a door
 					new /obj/machinery/door/airlock/borg(G.loc)
 					qdel(G)
+					resource_amount += 5
 		if(mode == MODE_ATTACK) //ranged mode
 			if(istype(I, /obj/machinery/door/airlock) && !removing_airlock)
 				tear_airlock(I, user)

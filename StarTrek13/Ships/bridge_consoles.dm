@@ -15,6 +15,14 @@
 	anchored = 1
 	var/obj/structure/overmap/target
 
+/obj/structure/weapons_console/alt
+	icon_state = "weapons_alt"
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	pixel_x = -16
+	pixel_y = -16
+	density = 0
+	anchored = 1
+
 /obj/structure/weapons_console/New()
 	. = ..()
 	START_PROCESSING(SSobj,src)
