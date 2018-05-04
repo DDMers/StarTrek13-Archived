@@ -61,6 +61,8 @@
 			if(findtext(message, "[C.stored_user.first_name()] "))
 				to_chat(world, "HAHAHAHA")
 
+/*
+
 /obj/effect/proc_holder/spell/aoe_turf/rage //I'm bored
 	name = "Force Rage"
 	desc = "Unleash your fury, tear down the walls, crush those in your way"
@@ -109,3 +111,4 @@
 	shake_camera(M, 1, 20)
 	M.adjustBruteLoss(5)
 
+*/

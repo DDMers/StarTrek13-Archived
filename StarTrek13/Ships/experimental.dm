@@ -123,3 +123,6 @@ atom/movable
 				y = y - 1
 			pixel_x = real_pixel_x
 			pixel_y = real_pixel_y
+
+/obj/structure/overmap/ship/relaymove(mob/user,direction) //fuckoff I want to do my own shitcode :^)
+	return 0
