@@ -367,7 +367,7 @@ var/global/list/global_ship_list = list()
 	vehicle_move_delay = 2
 
 //So basically we're going to have ships that fly around in a box and shoot each other, i'll probably have the pilot mob possess the objects to fly them or something like that, otherwise I'll use cameras.
-
+/*
 /obj/structure/overmap/ship/relaymove(mob/user,direction)
 	update_observers()
 	if(can_move)
@@ -383,6 +383,7 @@ var/global/list/global_ship_list = list()
 		if(has_turrets)
 			update_turrets()
 	//use_power
+*/
 
 //obj/structure/overmap/ship/Move(atom/newloc, direct)
 //	. = ..()

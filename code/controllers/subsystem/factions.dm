@@ -60,3 +60,4 @@ SUBSYSTEM_DEF(faction)
 	priority_announce("For your attention: The jumpgate network has been unlocked, and you may now travel freely.", "Incoming Priority Message", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
 	jumpgates_forbidden = FALSE
 	flags |= SS_NO_FIRE //we no longer need to fire, and this may(?) prevent a bug
+	can_fire = FALSE
