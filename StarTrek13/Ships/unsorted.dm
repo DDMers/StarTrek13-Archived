@@ -60,3 +60,52 @@
 		if(C.stored_user)
 			if(findtext(message, "[C.stored_user.first_name()] "))
 				to_chat(world, "HAHAHAHA")
+
+/obj/effect/proc_holder/spell/aoe_turf/rage //I'm bored
+	name = "Force Rage"
+	desc = "Unleash your fury, tear down the walls, crush those in your way"
+	charge_max = 400
+	clothes_req = 0
+	invocation = "FEAR ME"
+	invocation_type = "shout"
+	range = 10
+	cooldown_min = 150
+	selection_type = "view"
+	sound = 'sound/magic/repulse.ogg'
+	var/maxthrow = 5
+	var/sparkle_path = /obj/effect/temp_visual/gravpush
+
+	action_icon_state = "repulse"
+
+/obj/effect/proc_holder/spell/aoe_turf/rage/cast(list/targets,mob/user = usr, var/stun_amt = 40)
+	var/list/thrownatoms = list()
+	var/atom/throwtarget
+	var/distfromcaster
+	playMagSound()
+	for(var/turf/T in targets) //Done this way so things don't get thrown all around hilariously.
+		for(var/atom/movable/AM in T)
+			thrownatoms += AM
+
+	for(var/am in thrownatoms)
+		var/atom/movable/AM = am
+		if(AM == user || AM.anchored)
+			continue
+		throwtarget = get_edge_target_turf(user, get_dir(user, get_step_away(AM, user)))
+		distfromcaster = get_dist(user, AM)
+		if(isliving(AM))
+			var/mob/living/M = AM
+			do_knockdown(M)
+
+
+/obj/effect/proc_holder/spell/aoe_turf/rage/proc/do_knockdown(mob/living/carbon/M)
+	to_chat(M, "mrmem forces you up into the air!")
+//	M.stun(50)
+	M.pixel_y += 10
+	sleep(50)
+	M.pixel_y += 10
+	to_chat(M, "<span class='userdanger'>You feel a crushing force bear down on you as eee slams you into the deck plates!</span>")
+	M.pixel_y = initial(M.pixel_y)
+	M.Knockdown(100)
+	shake_camera(M, 1, 20)
+	M.adjustBruteLoss(5)
+
