@@ -41,36 +41,37 @@
 */
 
 /obj/structure/overmap/proc/apply_damage(var/amount)
-	for(var/mob/L in linked_ship.contents)
-		shake_camera(L, 1, 10)
-		var/sound/thesound = pick(ship_damage_sounds)
-		SEND_SOUND(L, thesound)
-	var/maths = 5
-	if(istype(agressor.target_subsystem, /datum/shipsystem/integrity)) //If they target the hull subsystem, they deal heavy physical damage
-		maths += 20 //Heavily increase physical damage
-	if(prob(20))
-		for(var/obj/structure/overmap/O in orange(30,src))
-			SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
-	icon_state = initial(icon_state)
-	var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
-	var/turf/open/floor/theturf = get_turf(theturf1)
-	if(prob(60+maths))
-		var/obj/structure/ship_component/S = pick(linked_ship.contents)
-		S.take_damage(20)
-		new /obj/effect/hotspot/shipfire(theturf)  //begin the fluff! as ships are damaged, they start visibly getting destroyed
-		theturf.atmos_spawn_air("plasma=30;TEMP=1000")
-		for(var/turf/open/floor/T in orange(5,theturf))
-			new /obj/effect/hotspot/shipfire(T.loc)
-		if(prob(30+maths))
-			explosion(theturf,2,4,0)
-		return
-	else//40% chance
-		var/new_type = pick(subtypesof(/obj/structure/debris))
-		theturf.visible_message("<span class='danger'>Something falls down from the ceiling above you!</span>")
-		new new_type(get_turf(theturf))
-	if(amount >= 1000) //That's a lotta damage
-		if(prob(20+maths))
-			explosion(theturf,2,5,5) //Pretty bad hit right there
+	if(amount >= 1000)
+		for(var/mob/L in linked_ship.contents)
+			shake_camera(L, 1, 10)
+			var/sound/thesound = pick(ship_damage_sounds)
+			SEND_SOUND(L, thesound)
+		var/maths = 5
+		if(istype(agressor.target_subsystem, /datum/shipsystem/integrity)) //If they target the hull subsystem, they deal heavy physical damage
+			maths += 20 //Heavily increase physical damage
+		if(prob(20))
+			for(var/obj/structure/overmap/O in orange(30,src))
+				SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
+		icon_state = initial(icon_state)
+		var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
+		var/turf/open/floor/theturf = get_turf(theturf1)
+		if(prob(60+maths))
+			var/obj/structure/ship_component/S = pick(linked_ship.contents)
+			S.take_damage(20)
+			new /obj/effect/hotspot/shipfire(theturf)  //begin the fluff! as ships are damaged, they start visibly getting destroyed
+			theturf.atmos_spawn_air("plasma=30;TEMP=1000")
+			for(var/turf/open/floor/T in orange(5,theturf))
+				new /obj/effect/hotspot/shipfire(T.loc)
+			if(prob(30+maths))
+				explosion(theturf,2,4,0)
+			return
+		else//40% chance
+			var/new_type = pick(subtypesof(/obj/structure/debris))
+			theturf.visible_message("<span class='danger'>Something falls down from the ceiling above you!</span>")
+			new new_type(get_turf(theturf))
+		if(amount >= 1000) //That's a lotta damage
+			if(prob(20+maths))
+				explosion(theturf,2,5,5) //Pretty bad hit right there
 
 	//	for(var/turf/open/floor/T in orange(2,theturf))
 
