@@ -125,8 +125,6 @@ var/global/list/global_ship_list = list()
 	var/datum/action/innate/autopilot/autopilot_action = new
 	var/datum/action/innate/weaponswitch/weaponswitch = new
 	var/obj/structure/ship_component/components = list()
-	var/speed = 0
-	var/max_speed = 40 //40% chance to dodge a hit is pretty good
 
 /obj/item/ammo_casing/energy/ship_turret
 	projectile_type = /obj/item/projectile/beam/laser/ship_turret_laser
@@ -233,6 +231,7 @@ var/global/list/global_ship_list = list()
 	pixel_x = -100
 	pixel_y = -110
 	max_health = 100000
+	turnspeed = 0.3
 
 /obj/structure/overmap/ship/borg_cube/New()
 	. = ..()
@@ -263,6 +262,8 @@ var/global/list/global_ship_list = list()
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 	max_health = 30000
+	pixel_z = -128
+	pixel_w = -120
 
 
 /obj/structure/overmap/ship/cruiser
@@ -283,6 +284,7 @@ var/global/list/global_ship_list = list()
 	max_health = 10000
 	spawn_name = "nt_capital" //Change me
 	vehicle_move_delay = 2
+	turnspeed = 4
 
 /obj/structure/overmap/ship/cruiser/nanotrasen
 	name = "NSV Hyperion"
@@ -345,7 +347,7 @@ var/global/list/global_ship_list = list()
 	max_health = 15000
 	vehicle_move_delay = 2
 	warp_capable = TRUE
-
+	turnspeed = 3
 
 /obj/structure/overmap/ship/nanotrasen
 	name = "NSV Muffin"
@@ -357,6 +359,7 @@ var/global/list/global_ship_list = list()
 	health = 8000
 	max_health = 8000
 	vehicle_move_delay = 2
+	turnspeed = 3
 
 /obj/structure/overmap/ship/nanotrasen/freighter
 	name = "NSV Crates"
@@ -365,6 +368,7 @@ var/global/list/global_ship_list = list()
 	health = 5000
 	max_health = 5000
 	vehicle_move_delay = 2
+	turnspeed = 3
 
 //So basically we're going to have ships that fly around in a box and shoot each other, i'll probably have the pilot mob possess the objects to fly them or something like that, otherwise I'll use cameras.
 /*
@@ -535,9 +539,7 @@ var/global/list/global_ship_list = list()
 */
 
 /obj/structure/overmap/process()
-	speed -= 3
-	if(speed > max_speed)
-		speed = max_speed
+	ProcessMove()
 	if(turret_recharge >0)
 		turret_recharge --
 	linkto()

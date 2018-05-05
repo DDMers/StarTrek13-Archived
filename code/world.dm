@@ -9,7 +9,7 @@
 	cache_lifespan = 7
 	hub = "Exadv1.spacestation13"
 	name = "/tg/ Station 13"
-	fps = 20
+	fps = 60
 #ifdef GC_FAILURE_HARD_LOOKUP
 	loop_checks = FALSE
 #endif

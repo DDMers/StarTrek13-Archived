@@ -4,11 +4,15 @@
 
 /obj/structure/overmap
 	animate_movement = 0 //set it
-	pixel_z = -128
-	pixel_w = -120
+//	pixel_z = -128
+//	pixel_w = -120
 	appearance_flags = PIXEL_SCALE //to make sprite look smooth when rotating... sorta
 	var/angle = 0 //the angle
-	var/vel = 5 //the velocity
+	var/vel = 0 //the velocity
+	var/turnspeed = 0.5 //how fast does this bitch turn
+	var/speed = 2 //how fast is this bitch, 5 is pre slow, 2 is hella slow
+	var/max_speed = 5
+	var/acceleration = 0.5 //speed up
 	/*
 	The part below is no longer useless
 	*/
@@ -19,11 +23,25 @@
 
 	proc/ProcessMove()
 		EditAngle() //we need to edit the transform just incase
+		var/x_speed = vel * cos(angle)
+		var/y_speed = vel * sin(angle)
+		PixelMove(x_speed,y_speed)
+		pilot.client.pixelXYshit()
+
+/obj/effect/ship_overlay
+	var/angle = 0 //the angle
+	proc/EditAngle()
+		var/matrix/M = matrix() //create matrix
+		M.Turn(-angle) //reverse angle
+		src.transform = M //set matrix
+	proc/ProcessMove()
+		EditAngle() //we need to edit the transform just incase
 
 		var/x_speed = 5 * cos(angle)
 		var/y_speed = 5 * sin(angle)
 
 		PixelMove(x_speed,y_speed)
+
 
 /obj/structure/overmap/enter(mob/user)
 	if(user.client)
@@ -41,6 +59,9 @@
 		pilot.throw_alert("Hull integrity", /obj/screen/alert/charge/hull)
 		pilot.whatimControllingOMFG = src
 		pilot.client.pixelXYshit()
+		while(1)
+			stoplag(1)
+			ProcessMove()
 
 /obj/structure/overmap/exit(mob/user)
 	if(pilot.client)
@@ -59,8 +80,6 @@
 
 mob
 	var/obj/structure/overmap/whatimControllingOMFG = null
-	animate_movement = 2 //just to have the mob have smooth movement, I guess
-	var/nextmove = 0
 
 client
 	perspective = EYE_PERSPECTIVE //Use this perspective or else shit will break! (sometimes screen will turn black)
@@ -74,32 +93,6 @@ client
 			pixel_y = 0
 			eye = mob
 
-	North() //dont use what I did here, make a verb or some thing and add that to macros, or do a istype and check for the stuff being controlled
-		if(mob.whatimControllingOMFG)
-			mob.whatimControllingOMFG.vel = 5
-			mob.whatimControllingOMFG.ProcessMove()
-			pixelXYshit()
-		else
-			..()
-	South()
-		if(mob.whatimControllingOMFG)
-			mob.whatimControllingOMFG.vel = -5
-			mob.whatimControllingOMFG.ProcessMove()
-			pixelXYshit()
-		else
-			..()
-	East()
-		if(mob.whatimControllingOMFG)
-			mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - 5
-			mob.whatimControllingOMFG.EditAngle()
-		else
-			..()
-	West()
-		if(mob.whatimControllingOMFG)
-			mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + 5
-			mob.whatimControllingOMFG.EditAngle()
-		else
-			..()
 
 atom/movable
 	var
@@ -124,5 +117,42 @@ atom/movable
 			pixel_x = real_pixel_x
 			pixel_y = real_pixel_y
 
-/obj/structure/overmap/ship/relaymove(mob/user,direction) //fuckoff I want to do my own shitcode :^)
-	return 0
+/obj/structure/overmap/ship/relaymove(mob/mob,dir) //fuckoff I want to do my own shitcode :^)
+	check_overlays()
+	switch(dir)
+		if(NORTH)
+			if(mob.whatimControllingOMFG)
+				if(mob.whatimControllingOMFG.vel < max_speed) //burn to speed up
+					mob.whatimControllingOMFG.vel += acceleration
+				else
+					mob.whatimControllingOMFG.vel = max_speed
+				mob.whatimControllingOMFG.ProcessMove()
+				mob.client.pixelXYshit()
+			else
+				..()
+		if(SOUTH)
+			if(mob.whatimControllingOMFG)
+				if(mob.whatimControllingOMFG.vel > 0)
+					mob.whatimControllingOMFG.vel -= acceleration
+				else
+					mob.whatimControllingOMFG.vel = 0
+				mob.whatimControllingOMFG.ProcessMove()
+				mob.client.pixelXYshit()
+			else
+				..()
+		if(EAST)
+			if(mob.whatimControllingOMFG)
+				for(var/obj/effect/ship_overlay/S in overlays)
+					S.angle = mob.whatimControllingOMFG.angle - turnspeed
+					S.EditAngle()
+				mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - turnspeed
+				mob.whatimControllingOMFG.EditAngle()
+			else
+				..()
+		if(WEST)
+			if(mob.whatimControllingOMFG)
+				for(var/obj/effect/ship_overlay/S in overlays)
+					S.angle = mob.whatimControllingOMFG.angle - turnspeed
+					S.EditAngle()
+				mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + turnspeed
+				mob.whatimControllingOMFG.EditAngle()
