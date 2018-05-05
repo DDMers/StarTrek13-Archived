@@ -186,9 +186,7 @@
 				if(target_ship && locked == target_ship) //Is the locked target the one we're clicking?
 				//	if(!target_subsystem)
 					//	target_subsystem = pick(S.SC.systems) //Redundant, but here just in case it
-					if(S.speed > S.max_speed)
-						S.speed = S.max_speed
-					if(prob(target_ship.speed))
+					if(prob(10))
 						var/source = get_turf(src)
 						SEND_SOUND(pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
 						var/turf/T = pick(orange(2, S))
