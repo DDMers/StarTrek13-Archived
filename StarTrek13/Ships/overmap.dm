@@ -141,17 +141,15 @@ var/global/list/global_ship_list = list()
 	icon_state = "pulse0_bl"
 	damage = 3500//It has to actually dent ships tbh.
 
-
-
 /obj/item/projectile/beam/laser/ship_turret_laser
 	name = "turbolaser"
 	icon_state = "shiplaser"
 	damage = 20//It has to actually dent ships tbh.
 
-/obj/item/projectile/beam/laser/photon_torpedo
-	name = "turbolaser"
-	icon_state = "shiplaser"
-	damage = 1500//Monster damage because you only get a few
+///obj/item/projectile/beam/laser/photon_torpedo
+//	name = "turbolaser"
+//	icon_state = "shiplaser"
+//	damage = 1500//Monster damage because you only get a few
 
 /obj/ship_turrets
 	name = "Fore turrets"
@@ -212,6 +210,8 @@ var/global/list/global_ship_list = list()
 	can_move = FALSE
 	spawn_name = "station_spawn"
 	sensor_range = 10
+	max_speed = 0
+	speed = 0
 
 /obj/structure/overmap/ship //dummy for testing woo
 	name = "USS thingy"
@@ -232,10 +232,8 @@ var/global/list/global_ship_list = list()
 	pixel_y = -110
 	max_health = 100000
 	turnspeed = 0.3
-
-/obj/structure/overmap/ship/borg_cube/New()
-	. = ..()
-	SpinAnimation(10000,0)
+	pixel_z = -128
+	pixel_w = -120
 
 
 /obj/structure/overmap/away/station/starbase
@@ -252,6 +250,8 @@ var/global/list/global_ship_list = list()
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 	max_health = 30000
+	pixel_z = -128
+	pixel_w = -120
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
 	name = "USS Sovreign"
@@ -275,6 +275,8 @@ var/global/list/global_ship_list = list()
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 	max_health = 30000
+	pixel_z = -128
+	pixel_w = -120
 
 /obj/structure/overmap/ship/fighter_medium
 	name = "USS Hagan"
@@ -296,6 +298,8 @@ var/global/list/global_ship_list = list()
 	warp_capable = TRUE
 	spawn_name = "nt_capital"
 	max_health = 30000
+	pixel_z = -128
+	pixel_w = -120
 
 
 /obj/structure/overmap/New()
@@ -304,6 +308,7 @@ var/global/list/global_ship_list = list()
 	SC.generate_shipsystems()
 	SC.theship = src
 	global_ship_list += src
+	START_PROCESSING(SSobj,src)
 	..()
 
 /obj/structure/overmap/ship/nanotrasen_capitalclass
@@ -348,6 +353,9 @@ var/global/list/global_ship_list = list()
 	vehicle_move_delay = 2
 	warp_capable = TRUE
 	turnspeed = 3
+	pixel_collision_size_x = 48
+	pixel_collision_size_y = 48
+	max_speed = 5
 
 /obj/structure/overmap/ship/nanotrasen
 	name = "NSV Muffin"
@@ -360,6 +368,9 @@ var/global/list/global_ship_list = list()
 	max_health = 8000
 	vehicle_move_delay = 2
 	turnspeed = 3
+	pixel_collision_size_x = 48
+	pixel_collision_size_y = 48
+	max_speed = 5
 
 /obj/structure/overmap/ship/nanotrasen/freighter
 	name = "NSV Crates"
@@ -369,6 +380,9 @@ var/global/list/global_ship_list = list()
 	max_health = 5000
 	vehicle_move_delay = 2
 	turnspeed = 3
+	pixel_collision_size_x = 48
+	pixel_collision_size_y = 48
+	max_speed = 5
 
 //So basically we're going to have ships that fly around in a box and shoot each other, i'll probably have the pilot mob possess the objects to fly them or something like that, otherwise I'll use cameras.
 /*
@@ -439,14 +453,31 @@ var/global/list/global_ship_list = list()
 		if(!F in fighters)
 			fighters += F
 
-/obj/structure/overmap/take_damage(amount,turf/target, var/obj/structure/overmap/source)
-	agressor = source
-	if(health <= 0)
-		agressor.target_subsystem = null
-		destroy(1)
-	if(!health)
-		agressor.target_subsystem = null
-		destroy(1)
+/obj/structure/overmap/take_damage(amount, var/override)
+	var/obj/structure/overmap/source = agressor
+	if(override)
+		if(has_shields())
+			var/heat_multi = 1
+			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
+			var/obj/structure/overmap/ship/S = src
+			heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
+			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
+			//	generator.take_damage(amount*heat_multi)
+			SC.shields.health -= amount*heat_multi
+			var/datum/effect_system/spark_spread/s = new
+			s.set_up(2, 1, src)
+			s.start() //make a better overlay effect or something, this is for testing
+			if(source)
+				if(source.target_subsystem)
+					source.target_subsystem.integrity -= (amount)/5 //Shields absorbs most of the damage
+				apply_damage(amount)
+				return//no shields are up! take the hit
+		else
+			health -= amount
+			SC.hull_integrity.integrity -= amount
+			if(take_damage_traditionally)
+				apply_damage(amount)
+			return
 	if(take_damage_traditionally) //Set this var to 0 to do your own weird shitcode
 		if(has_shields())
 			var/heat_multi = 1
@@ -459,36 +490,38 @@ var/global/list/global_ship_list = list()
 			var/datum/effect_system/spark_spread/s = new
 			s.set_up(2, 1, src)
 			s.start() //make a better overlay effect or something, this is for testing
-			if(target_subsystem)
-				target_subsystem.integrity -= (amount)/10 //Shields absorbs most of the damage
-			apply_damage(amount)
-			return//no shields are up! take the hit
+			if(source)
+				if(source.target_subsystem)
+					source.target_subsystem.integrity -= (amount)/5 //Shields absorbs most of the damage
+				apply_damage(amount)
+				return//no shields are up! take the hit
 		if(SC.hull_integrity.failed)
-			if(source.target_subsystem)
-				if(source.target_subsystem.failed)
-					to_chat(source.pilot, "[src]'s [source.target_subsystem.failed] subsystem has failed.")
-					health -= amount
-					source.target_subsystem = null
+			if(source)
+				if(source.target_subsystem)
+					if(source.target_subsystem.failed)
+						to_chat(source.pilot, "[src]'s [source.target_subsystem.failed] subsystem has failed.")
+						health -= amount
+						source.target_subsystem = null
+						apply_damage(amount)
+						return
+					source.target_subsystem.integrity -= (amount)/1.5 //No shields, fry that system
+					source.target_subsystem.heat += amount/10 //Heat for good measure :)
+					var/quickmaths = amount/2 //Halves the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
+					health -= quickmaths
 					apply_damage(amount)
 					return
-				source.target_subsystem.integrity -= (amount)/1.5 //No shields, fry that system
-				source.target_subsystem.heat += amount/10 //Heat for good measure :)
-				var/quickmaths = amount/2 //Halves the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
-				health -= quickmaths
-				apply_damage(amount)
-				return
 			else
 				health -= amount
 				apply_damage(amount)
 				return
 		else
-			if(source.target_subsystem)
-				source.target_subsystem.integrity -= (amount)/2 //Hull plates protect
-				source.target_subsystem.heat += source.SC.weapons.damage/15 //Keeps the heat off
-				var/quickmaths = amount/5 //Fives the physical hull damage, because the hull plates take a bunch of that damage
-				health -= quickmaths
+			if(source)
+				if(source.target_subsystem)
+					source.target_subsystem.integrity -= (amount)/2 //Hull plates protect
+					source.target_subsystem.heat += source.SC.weapons.damage/15 //Keeps the heat off
+			var/quickmaths = amount/5 //Fives the physical hull damage, because the hull plates take a bunch of that damage
+			health -= quickmaths
 			SC.hull_integrity.integrity -= amount
-
 			apply_damage(amount)
 			return
 	else
@@ -539,12 +572,19 @@ var/global/list/global_ship_list = list()
 */
 
 /obj/structure/overmap/process()
+	if(health <= 0)
+		destroy(1)
+	if(!health)
+		destroy(1)
 	ProcessMove()
 	if(turret_recharge >0)
 		turret_recharge --
 	linkto()
 	attempt_turret_fire()
 	location()
+	if(agressor)
+		if(agressor.target_ship != src)
+			agressor = null
 	update_weapons()
 	update_turrets()
 	check_charge()
@@ -557,10 +597,6 @@ var/global/list/global_ship_list = list()
 		navigate()
 	get_interactibles()
 	//transporter.destinations = list() //so when we leave the area, it stops being transportable.
-	if(health <= 0)
-		destroy(1)
-	if(!health)
-		destroy(1)
 	if(pilot)
 		if(pilot.loc != src)
 			pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
@@ -568,10 +604,10 @@ var/global/list/global_ship_list = list()
 			exit() //pilot has been tele'd out, remove them!
 			for(var/obj/screen/alert/charge/C in pilot.alerts)
 				C.theship = src
-		//	if(charge > max_charge)
-			//	charge = max_charge
-	//	else
-	//		charge = max_charge
+	if(charge > max_charge)
+		charge = max_charge
+	else
+		charge = max_charge
 	if(health <= 2000) //Power it off
 		linked_ship.requires_power = TRUE
 		linked_ship.has_gravity = 0
@@ -582,20 +618,6 @@ var/global/list/global_ship_list = list()
 		if(!target_subsystem)
 			target_subsystem = agressor.SC.hull_integrity //Default to frying their hull
 
-/obj/structure/overmap/proc/enter(mob/user)
-	if(pilot)
-		to_chat(user, "you kick [pilot] off the ship controls!")
-	//	M.revive(full_heal = 1)
-		exit()
-		return 0
-	initial_loc = user.loc
-	user.loc = src
-	pilot = user
-	pilot.overmap_ship = src
-	GrantActions()
-	pilot.throw_alert("Weapon charge", /obj/screen/alert/charge)
-	pilot.throw_alert("Hull integrity", /obj/screen/alert/charge/hull)
-//	pilot.status_flags |= GODMODE
 
 /obj/structure/overmap/AltClick(mob/user)
 	if(user == pilot)
@@ -773,9 +795,12 @@ var/global/list/global_ship_list = list()
 	. = ..()
 	if(has_shields())
 		var/thedamage = P.damage / 2 //Shields will deflect most conventional weapons, including photons
-		take_damage(thedamage)
+		take_damage(thedamage,1)
 		return
-	take_damage(P.damage)
+	take_damage(P.damage,1)
+	return
+
+
 
 /obj/structure/overmap/Collide(atom/movable/mover) //Collide is when this ship rams stuff, collided with is when it's rammed
 	return ..()
