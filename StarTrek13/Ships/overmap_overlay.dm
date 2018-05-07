@@ -1,20 +1,3 @@
-/obj/structure/overmap/proc/click_action(atom/target,mob/user)
-	if(src != target)
-		target_ship = target
-		target_ship.agressor = src
-		if(user.incapacitated())
-			return
-		if(istype(target, /obj/structure/overmap))
-			var/obj/structure/overmap/thetarget = target
-			target = thetarget
-			if(target == src)
-				return
-			fire(thetarget,user)
-		else
-			to_chat(user, "Unable to lock phasers, this weapon mode only targets large objects")
-			return
-
-
 /obj/effect/ship_overlay
 	name = "engines"
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'

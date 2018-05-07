@@ -56,8 +56,6 @@
 		var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
 		var/turf/open/floor/theturf = get_turf(theturf1)
 		if(prob(60+maths))
-			var/obj/structure/ship_component/S = pick(linked_ship.contents)
-			S.take_damage(20)
 			new /obj/effect/hotspot/shipfire(theturf)  //begin the fluff! as ships are damaged, they start visibly getting destroyed
 			theturf.atmos_spawn_air("plasma=30;TEMP=1000")
 			for(var/turf/open/floor/T in orange(5,theturf))

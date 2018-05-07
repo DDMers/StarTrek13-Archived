@@ -1,6 +1,6 @@
 var/global/list/jumpgates = list()
-var/global/list/warp_beacons = list()
-#define DEFAULT_TIME 1400	//2 minute jump time.
+var/global/list/warp_beacons = list() //1400 is 2 mins. Only do that long for jumping halfway across the galaxy. Jeez
+#define DEFAULT_TIME 800	//1 minute jump time.
 #define MEDIUM_TIME 1800
 #define FAR_TIME 2600
 #define DEADSPACE_TIME 4000 //Looooooong way away

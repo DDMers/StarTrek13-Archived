@@ -239,8 +239,10 @@
 		return
 		if(integrity <= 0)
 			failed = 1
-			controller.theship.vehicle_move_delay = initial(controller.theship.vehicle_move_delay)*5 //Good luck moving with those engines
+			controller.theship.can_move = FALSE
 			fail()
+	else
+		controller.theship.can_move = TRUE
 	if(overclock > 0) //Drain power.
 		power_draw += overclock //again, need power stats to fiddle with.
 
@@ -543,7 +545,8 @@
 	var/area/a = get_area(src) //If you're making a new subsystem panel, copy this and change vvvvv
 	for(var/obj/structure/fluff/helm/desk/tactical/T in a)
 		var/obj/structure/overmap/S = T.theship
-		chosen = S.SC.shields //This line
+		if(T.theship)
+			chosen = S.SC.shields //This line
 
 
 /obj/structure/subsystem_panel/weapons		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!
@@ -556,7 +559,8 @@
 	var/area/a = get_area(src)
 	for(var/obj/structure/fluff/helm/desk/tactical/T in a)
 		var/obj/structure/overmap/S = T.theship
-		chosen = S.SC.weapons
+		if(T.theship)
+			chosen = S.SC.weapons
 
 /obj/structure/subsystem_panel/engines		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!
 	name = "ODN Relay (engines)"
@@ -568,7 +572,8 @@
 	var/area/a = get_area(src)
 	for(var/obj/structure/fluff/helm/desk/tactical/T in a)
 		var/obj/structure/overmap/S = T.theship
-		chosen = S.SC.engines
+		if(T.theship)
+			chosen = S.SC.engines
 
 /*
 	var/state = 1
@@ -657,20 +662,23 @@
 	anchored = TRUE
 
 /obj/structure/subsystem_panel/proc/check_overlays()
-	cut_overlays()
-	cover.icon = icon
-	var/goal = chosen.max_integrity
-	var/progress = chosen.integrity
-	progress = Clamp(progress, 0, goal)
-	icon_state = "subsystem_panel-[round(((progress / goal) * 100), 25)]" //Get more fucked as our subsystem is damaged
-	switch(open)
-		if(TRUE)
-			cover.icon_state = "subsystem_panel-cover-open"
-		if(FALSE)
-			cover.icon_state = "subsystem_panel-cover"
-//	cover.icon_state = "[icon_state]-cover-[round(((progress / goal) * 100), 50)]"
-	cover.layer = 4.5
-	add_overlay(cover)
+	if(chosen)
+		cut_overlays()
+		cover.icon = icon
+		var/goal = chosen.max_integrity
+		var/progress = chosen.integrity
+		progress = Clamp(progress, 0, goal)
+		icon_state = "subsystem_panel-[round(((progress / goal) * 100), 25)]" //Get more fucked as our subsystem is damaged
+		switch(open)
+			if(TRUE)
+				cover.icon_state = "subsystem_panel-cover-open"
+			if(FALSE)
+				cover.icon_state = "subsystem_panel-cover"
+	//	cover.icon_state = "[icon_state]-cover-[round(((progress / goal) * 100), 50)]"
+		cover.layer = 4.5
+		add_overlay(cover)
+	else
+		STOP_PROCESSING(SSobj,src)
 
 // var/thenumber1 = rand(20,40)
 // var/thenumber2 = rand(20,50)
