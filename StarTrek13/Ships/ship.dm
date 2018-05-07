@@ -82,13 +82,16 @@
 		S.health += regen
 
 /obj/machinery/space_battle/shield_generator/process()
-	if(shield_system.failed)
-		for(var/obj/effect/adv_shield/A in shields)
-			A.deactivate()
+	if(shield_system)
+		if(shield_system.failed)
+			for(var/obj/effect/adv_shield/A in shields)
+				A.deactivate()
+		else
+			for(var/obj/effect/adv_shield/A in shields)
+				A.activate()
+				A.health = shield_system.integrity
 	else
-		for(var/obj/effect/adv_shield/A in shields)
-			A.activate()
-			A.health = shield_system.integrity
+		STOP_PROCESSING(SSobj,src)
 /*
 	if(!shield_system)
 		return
@@ -881,15 +884,8 @@
 /obj/structure/fluff/helm/desk/tactical/attack_hand(mob/user)
 	get_weapons()
 	get_shieldgen()
-	var/area/current = get_area(src)
-	for(var/area/AR in world)
-		if(istype(AR, /area/ship)) //change me
-			if(!AR in shipareas)
-				shipareas += AR.name
-				shipareas[AR.name] = AR
-				if(AR == current)
-					shipareas -= AR.name
-					shipareas -= AR
+	if(!theship)
+		to_chat(user, "Your ship has been destroyed!")
 	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren")
 	switch(mode)
 		if("choose target")

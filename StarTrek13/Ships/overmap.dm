@@ -125,6 +125,8 @@ var/global/list/global_ship_list = list()
 	var/datum/action/innate/autopilot/autopilot_action = new
 	var/datum/action/innate/weaponswitch/weaponswitch = new
 	var/obj/structure/ship_component/components = list()
+	var/list/destinations = list()
+	var/obj/effect/landmark/warp_beacon/target_beacon
 
 /obj/item/ammo_casing/energy/ship_turret
 	projectile_type = /obj/item/projectile/beam/laser/ship_turret_laser
@@ -234,6 +236,7 @@ var/global/list/global_ship_list = list()
 	turnspeed = 0.3
 	pixel_z = -128
 	pixel_w = -120
+	max_speed = 1
 
 
 /obj/structure/overmap/away/station/starbase
@@ -309,6 +312,8 @@ var/global/list/global_ship_list = list()
 	SC.theship = src
 	global_ship_list += src
 	START_PROCESSING(SSobj,src)
+	for(var/obj/effect/landmark/warp_beacon/W in world)
+		destinations += W
 	..()
 
 /obj/structure/overmap/ship/nanotrasen_capitalclass
@@ -355,7 +360,7 @@ var/global/list/global_ship_list = list()
 	turnspeed = 3
 	pixel_collision_size_x = 48
 	pixel_collision_size_y = 48
-	max_speed = 5
+	max_speed = 3
 
 /obj/structure/overmap/ship/nanotrasen
 	name = "NSV Muffin"
@@ -370,7 +375,7 @@ var/global/list/global_ship_list = list()
 	turnspeed = 3
 	pixel_collision_size_x = 48
 	pixel_collision_size_y = 48
-	max_speed = 5
+	max_speed = 3
 
 /obj/structure/overmap/ship/nanotrasen/freighter
 	name = "NSV Crates"
@@ -382,7 +387,7 @@ var/global/list/global_ship_list = list()
 	turnspeed = 3
 	pixel_collision_size_x = 48
 	pixel_collision_size_y = 48
-	max_speed = 5
+	max_speed = 3
 
 //So basically we're going to have ships that fly around in a box and shoot each other, i'll probably have the pilot mob possess the objects to fly them or something like that, otherwise I'll use cameras.
 /*
@@ -614,9 +619,6 @@ var/global/list/global_ship_list = list()
 	else
 		linked_ship.requires_power = FALSE
 		linked_ship.has_gravity = 1
-	if(target_ship)
-		if(!target_subsystem)
-			target_subsystem = agressor.SC.hull_integrity //Default to frying their hull
 
 
 /obj/structure/overmap/AltClick(mob/user)
@@ -660,34 +662,44 @@ var/global/list/global_ship_list = list()
 	//	STOP_PROCESSING(SSfastprocess,src)
 	//	START_PROCESSING(SSobj, src)
 
-/obj/structure/overmap/ship/proc/input_warp_target(mob/user)
-	if(warp_capable)
-		var/list/destinations_possible = list()
-		for(var/obj/effect/landmark/warp_beacon/L in warp_beacons)
-			if(!L.warp_restricted)
-				destinations_possible += L
-		var/A
-		A = input("Select destination", "Warp drive calibration.", A) as obj in warp_beacons
-		if(!A)
-			return
-		var/obj/effect/landmark/warp_beacon/M = A
-		do_warp(M, M.distance) //distance being the warp transit time.
+/obj/structure/overmap/proc/InputWarpTarget(mob/user) //inputs here were super broken for some fucking reason, so like yogs, i'm gonna say fuck democracy :)
+	var/area/A = get_area(src)
+	var/list/fuck = list()
+	to_chat(user, "Engaging kangaroo drive. Who the fuck knows where you'll end up, do you think I can be bothered to crunch the numbers for you? get out a piece of paper and account for hyperspatial drift yourself loser.")
+	for(var/obj/effect/landmark/L in destinations)
+		var/area/S = get_area(L)
+		fuck += L
+		if(S == A)
+			fuck -= L
+	var/obj/effect/landmark/warp_beacon/SS = pick(fuck)
+	do_warp(SS, SS.distance) //distance being the warp transit time.
 
 
-/obj/structure/overmap/ship/proc/do_warp(destination, jump_time) //Don't want to lock this behind warp capable because jumpgates call this
+/obj/structure/overmap/proc/do_warp(destination, jump_time) //Don't want to lock this behind warp capable because jumpgates call this
+	var/area/hyperspace_area
+	for(var/obj/effect/landmark/L in GLOB.landmarks_list)
+		if(L.name == "hyperspace")
+			hyperspace_area = get_area(L)
+	var/turf/open/temp = list()
+	for(var/turf/open/T in get_area_turfs(hyperspace_area))
+		temp += T
+	var/turf/theturf = pick(temp)
+	forceMove(theturf)
 	can_move = 0 //Don't want them moving around warp space.
 	shake_camera(pilot, 1, 10)
 	SEND_SOUND(pilot, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
 	to_chat(pilot, "The ship has entered warp space")
-	setDir(4)
+	angle = 180
+	EditAngle()
+//	setDir(4)
 	for(var/mob/L in linked_ship.contents)
 		shake_camera(L, 1, 10)
 		SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
 		to_chat(pilot, "The deck plates shudder as the ship builds up immense speed.")
-		linked_ship.parallax_movedir = 4
+		linked_ship.parallax_movedir = NORTH
 	addtimer(CALLBACK(src, .proc/finish_warp, destination),jump_time)
 
-/obj/structure/overmap/ship/proc/finish_warp(atom/movable/destination)
+/obj/structure/overmap/proc/finish_warp(atom/movable/destination)
 	can_move = 1
 	shake_camera(pilot, 4, 2)
 	to_chat(pilot, "The ship has left warp space.")
@@ -750,7 +762,10 @@ var/global/list/global_ship_list = list()
 		return 0
 
 /obj/structure/overmap/proc/destroy(severity)
-	agressor.target_subsystem = null
+	if(agressor)
+		agressor.target_subsystem = null
+		agressor.target_ship = null
+		to_chat(agressor.pilot, "Target destroyed")
 	var/thesound = pick(ship_damage_ambience) //blowing up noises
 	for(var/obj/structure/overmap/L in orange(30, src))
 		var/obj/structure/overmap/O = L
@@ -777,6 +792,9 @@ var/global/list/global_ship_list = list()
 	overlays -= explosion1
 	qdel(explosion1)
 	sleep(30)
+	for(var/datum/shipsystem/S in SC.systems)
+		qdel(S)
+	qdel(SC)
 	switch(severity)
 		if(1)
 			//Here we will blow up the ship map as well, 0 is if you dont want to lag the server.

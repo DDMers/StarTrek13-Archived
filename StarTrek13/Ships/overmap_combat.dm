@@ -5,6 +5,9 @@
 #define LARGE 0.5
 #define HUGE 0.3
 
+/obj/structure/overmap/proc/click_action(mob/user)
+	fire(user)
+
 /obj/structure/overmap
 	var/size = LARGE
 	var/datum/progressbar/targeting/progbar
@@ -33,6 +36,8 @@
 		to_chat(pilot, "Target a ship first!")
 
 /obj/structure/overmap/proc/fire(obj/structure/overmap/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
+	if(target)
+		target.agressor = src
 	if(target == target_ship) //We've already got a target /
 		if(!locking)
 			if(locked)
@@ -180,6 +185,8 @@
 
 /obj/structure/overmap/proc/attempt_fire()
 	var/obj/structure/overmap/S = target_ship
+	if(target_ship)
+		target_ship.agressor = src
 	switch(fire_mode)
 		if(FIRE_PHASER)
 			if(SC.weapons.attempt_fire())

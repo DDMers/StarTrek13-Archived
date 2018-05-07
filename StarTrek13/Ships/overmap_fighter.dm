@@ -19,11 +19,11 @@
 	recharge_max = 1.2
 	var/exiting = FALSE
 	turnspeed = 5 //SWISH
-	max_speed = 7
+	max_speed = 5
 	var/next_fire
 	var/fire_delay = 3
-	pixel_collision_size_x = 48
-	pixel_collision_size_y = 48
+	pixel_collision_size_x = -32
+	pixel_collision_size_y = -32
 	//Add a communcations box sometime ok cool really neat.
 
 /obj/structure/overmap/ship/fighter/attack_hand(mob/user)

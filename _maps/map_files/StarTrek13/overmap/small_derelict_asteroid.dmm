@@ -1,114 +1,114 @@
-"a" = (/turf/open/space/basic,/area/space)
-"b" = (/turf/open/space/basic,/area/ship/overmap/nanotrasen/trading_outpost)
+"a" = (/turf/closed/indestructible/rock,/area/space)
+"b" = (/turf/open/floor/plating/ashplanet/rocky,/area/space)
 "c" = (/turf/open/floor/plating/dirt/dark,/area/space)
-"d" = (/turf/closed/indestructible/rock,/area/space)
-"e" = (/turf/closed/wall/ship/steel,/area/space)
-"f" = (/obj/machinery/door/airlock/external,/turf/open/floor/plating,/area/space)
-"g" = (/turf/open/floor/plating,/area/space)
-"h" = (/turf/open/floor/plating/ashplanet/rocky,/area/space)
-"i" = (/turf/open/floor/plasteel,/area/space)
-"j" = (/obj/machinery/door/airlock/external,/turf/open/floor/plasteel,/area/space)
-"k" = (/turf/open/floor/plasteel/green/side{dir = 4},/area/space)
-"l" = (/turf/open/floor/plasteel/green/side{dir = 8},/area/space)
-"m" = (/obj/machinery/door/airlock/borg,/turf/open/space/basic,/area/space)
-"n" = (/obj/machinery/vending/snack/random,/turf/open/space/basic,/area/ship/overmap/nanotrasen/trading_outpost)
-"o" = (/obj/structure/window/trek/steel,/turf/open/floor/plasteel,/area/space)
-"p" = (/obj/structure/window/trek/steel{dir = 4},/turf/open/floor/plasteel,/area/space)
-"q" = (/obj/structure/window/trek/steel,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
-"r" = (/turf/open/floor/plasteel/barber,/area/space)
-"s" = (/obj/machinery/vending/cola,/turf/open/space/basic,/area/ship/overmap/nanotrasen/trading_outpost)
-"u" = (/turf/open/floor/plasteel/floorgrime,/area/space)
-"v" = (/turf/open/floor/plasteel/green/side{dir = 4},/area/ship/overmap/nanotrasen/trading_outpost)
-"w" = (/turf/open/floor/plasteel/green/side{dir = 10},/area/space)
-"x" = (/turf/open/floor/plasteel/green/side,/area/space)
-"y" = (/turf/open/floor/plasteel/green/side{dir = 1},/area/space)
-"z" = (/obj/machinery/vending/cigarette,/turf/open/floor/plasteel/green/side{dir = 4},/area/ship/overmap/nanotrasen/trading_outpost)
-"A" = (/turf/open/floor/plasteel/green/side{dir = 9},/area/space)
-"B" = (/turf/closed/wall/borg,/area/space)
-"C" = (/turf/open/floor/borg/trek,/area/space)
+"d" = (/turf/closed/wall/ship/steel,/area/space)
+"e" = (/obj/machinery/door/airlock/external,/turf/open/floor/plating,/area/space)
+"f" = (/turf/open/floor/plating,/area/space)
+"g" = (/turf/open/floor/plasteel/green/side{dir = 4},/area/space)
+"h" = (/turf/open/space/basic,/area/space)
+"i" = (/turf/open/floor/plasteel/green/side{dir = 8},/area/space)
+"j" = (/turf/open/floor/plasteel,/area/space)
+"k" = (/obj/machinery/door/airlock/external,/turf/open/floor/plasteel,/area/space)
+"l" = (/turf/open/floor/plasteel/floorgrime,/area/space)
+"m" = (/obj/structure/window/trek/steel,/turf/open/floor/plasteel,/area/space)
+"n" = (/turf/closed/wall/borg,/area/space)
+"o" = (/obj/structure/window/trek/steel{dir = 4},/turf/open/floor/plasteel,/area/space)
+"p" = (/turf/open/floor/borg/trek,/area/space)
+"q" = (/turf/open/floor/plasteel/green/side{dir = 4},/area/ship/overmap/nanotrasen/trading_outpost)
+"r" = (/turf/open/space/basic,/area/ship/overmap/nanotrasen/trading_outpost)
+"s" = (/turf/open/floor/plasteel/green/side{dir = 10},/area/space)
+"t" = (/turf/open/floor/plasteel/green/side,/area/space)
+"u" = (/obj/machinery/door/airlock/borg,/turf/open/space/basic,/area/space)
+"v" = (/turf/open/floor/plasteel/green/side{dir = 9},/area/space)
+"w" = (/turf/open/floor/plasteel/green/side{dir = 1},/area/space)
+"x" = (/turf/open/floor/plasteel/barber,/area/space)
+"y" = (/obj/machinery/vending/cigarette,/turf/open/floor/plasteel/green/side{dir = 4},/area/ship/overmap/nanotrasen/trading_outpost)
+"z" = (/obj/machinery/vending/snack/random,/turf/open/space/basic,/area/ship/overmap/nanotrasen/trading_outpost)
+"A" = (/obj/machinery/vending/cola,/turf/open/space/basic,/area/ship/overmap/nanotrasen/trading_outpost)
+"B" = (/obj/structure/window/trek/steel,/turf/open/floor/plasteel,/area/ship/nanotrasen/freighter)
 
 (1,1,1) = {"
-dddddddddddddddddddddddddddddddddddddddd
-dhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcchhhhhhd
-dhhhhhhhhhhhhhhhhhhhhhhhhhhhchhcchhhhhhd
-dhhhchhhhhhhchhhhchhhhhhcchhchhhhccchhhd
-dhhhchhhhhhhhhhhhhhhhhhccchhhhhhhccchhhd
-dhchchchchhhhhhhhhhccchhhhhhhhhhhhhhhhhd
-dhhhchhhchhhhchcchhhhchhhhhhhhhhcchhchhd
-dhhhchhcccchhchhhhhhhhhhhhcchhhhhhhhchhd
-dhhchhhhhcchhchhhhhhhhhhhhhhhhhhhhhhhhhd
-dhhchhhhhcchcchhhcchhchhhhhccchhchhchhcd
-dhhhcccchcchcchhhhhhhhccchccchhhchhchhhd
-dhchhhhhhhhhhhhhhhhhhhhhhchhhhhhhccccchd
-dhhhhhhchhhhchhhhhhhhhhhhhhhhhcchccccchd
-dhhchhhchcchhhhhccchhhhcchhhhhcchccchchd
-dhhhhhhhhhhhhhccccchhhhcchhcchhccchchhcd
-dhhhccccchhhhhcchhhhhhhhchhccchhhhhhhhcd
-dchcccccchhhhccchchhhhhhhhhhhhhhcchhhchd
-dhheffecchhhhcchhhhhhhhchhcchhhhccchhchd
-dhceggeccchhhhhchhhhhccchccchhhhccchchhd
-dhheggecchhhhhccchhccccchchchhhhhhhhhhhd
-dhheggecchhhchhhhhhcchcchhhhhhchhhhhhhhd
-dhheggechhchhhchhhhcchhhhhhhchchhhhhhhhd
-dheeffeeeeeehhhhhhhhhchhhhhhccchchhhhhhd
-dhekaaleiiiehhhhhhhhhhhhhhhhccchccejjehd
-dhekaaliuuuehhhhhhhhhhhhhhhhhhhhcceiiehd
-dhekaaleiiueeeeehheeeeehhhhhchchhheiiehd
-dhekaalouiieiiieeeeiiiechhhhhchhhheiiehd
-dhekaaliuuieaaaaaaaaaaehhhhhchhhhBBjjBhd
-dhekaalouuueiaiiiiiiaieBBBBBBBBBBBiiiBhd
-dhekaalepipeeaeppppeaeeBiiuuiiiiBBCCCBhd
-dhevbbwxxxxexaxxxxxxaxeBiiuuiuiiBBCiCBhd
-dhevbbaaaaaeaaaaaaaaaaaaaaaaaaaaamiiiBhd
-dhekaaaaaaaeaaaaaaaaaaaaaaaaaaaaamCCiBhd
-dhekaaAyyyyeyayyyyyyyaeByyyaaayyBBCCCBhd
-dhekaalepipeeappeieppaeBppppapppBBCCCBhd
-dhevbblorrreiaiiiiiiiaBiiiiaaaiiiBCiiBhd
-dhevbblorrreiaaaaaaaaaBiiiiaaaiiiBCCiBhd
-dheznslqrrreiaaaaaaaaaBiiiiaaaiiiBiiiBhd
-dheeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeBBBBBhd
-dddddddddddddddddddddddddddddddddddddddd
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbbbbbbbbbbbbbbbbbbbbbbbbbbbbbccbbbbbba
+abbbbbbbbbbbbbbbbbbbbbbbbbbbcbbccbbbbbba
+abbbcbbbbbbbcbbbbcbbbbbbccbbcbbbbcccbbba
+abbbcbbbbbbbbbbbbbbbbbbcccbbbbbbbcccbbba
+abcbcbcbcbbbbbbbbbbcccbbbbbbbbbbbbbbbbba
+abbbcbbbcbbbbcbccbbbbcbbbbbbbbbbccbbcbba
+abbbcbbccccbbcbbbbbbbbbbbbccbbbbbbbbcbba
+abbcbbbbbccbbcbbbbbbbbbbbbbbbbbbbbbbbbba
+abbcbbbbbccbccbbbccbbcbbbbbcccbbcbbcbbca
+abbbccccbccbccbbbbbbbbcccbcccbbbcbbcbbba
+abcbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbcccccba
+abbbbbbcbbbbcbbbbbbbbbbbbbbbbbccbcccccba
+abbcbbbcbccbbbbbcccbbbbccbbbbbccbcccbcba
+abbbbbbbbbbbbbcccccbbbbccbbccbbcccbcbbca
+abbbcccccbbbbbccbbbbbbbbcbbcccbbbbbbbbca
+acbccccccbbbbcccbcbbbbbbbbbbbbbbccbbbcba
+abbdeedccbbbbccbbbbbbbbcbbccbbbbcccbbcba
+abcdffdcccbbbbbcbbbbbcccbcccbbbbcccbcbba
+abbdffdccbbbbbcccbbcccccbcbcbbbbbbbbbbba
+abbdffdccbbbcbbbbbbccbccbbbbbbcbbbbbbbba
+abbdffdcbbcbbbcbbbbccbbbbbbbcbcbbbbbbbba
+abddeeddddddbbbbbbbbbcbbbbbbcccbcbbbbbba
+abdghhidjjjdbbbbbbbbbbbbbbbbcccbccdkkdba
+abdghhijllldbbbbbbbbbbbbbbbbbbbbccdjjdba
+abdghhidjjldddddbbdddddbbbbbcbcbbbdjjdba
+abdghhimljjdjjjddddjjjdcbbbbbcbbbbdjjdba
+abdghhijlljdhhhhhhhhhhdbbbbbcbbbbnnkknba
+abdghhimllldjhjjjjjjhjdnnnnnnnnnnnjjjnba
+abdghhidojoddhdoooodhddnjjlljjjjnnpppnba
+abdqrrsttttdthtttttthtdnjjlljljjnnpjpnba
+abdqrrhhhhhdhhhhhhhhhhhhhhhhhhhhhujjjnba
+abdghhhhhhhdhhhhhhhhhhhhhhhhhhhhhuppjnba
+abdghhvwwwwdwhwwwwwwwhdnwwwhhhwwnnpppnba
+abdghhidojoddhoodjdoohdnoooohooonnpppnba
+abdqrrimxxxdjhjjjjjjjhnjjjjhhhjjjnpjjnba
+abdqrrimxxxdjhhhhhhhhhnjjjjhhhjjjnppjnba
+abdyzAiBxxxdjhhhhhhhhhnjjjjhhhjjjnjjjnba
+abdddddddddddddddddddddddddddddddnnnnnba
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
 
 (1,1,2) = {"
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 "}

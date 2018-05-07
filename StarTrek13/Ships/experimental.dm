@@ -28,7 +28,8 @@
 		var/x_speed = vel * cos(angle)
 		var/y_speed = vel * sin(angle)
 		PixelMove(x_speed,y_speed)
-		pilot.client.pixelXYshit()
+		if(pilot && pilot.client)
+			pilot.client.pixelXYshit()
 
 /obj/effect/ship_overlay
 	var/angle = 0 //the angle
@@ -111,6 +112,14 @@ atom/movable
 			for(var/turf/e in obounds(src, real_pixel_x + x_to_move + pixel_collision_size_x/4, real_pixel_y + y_to_move + pixel_collision_size_y/4, real_pixel_x + x_to_move + -pixel_collision_size_x/4, real_pixel_y + y_to_move + -pixel_collision_size_x/4) )//Basic block collision
 				if(e.density == 1) //We can change this so the ship takes damage later
 			//		HOLYSHITICRASHED = HOLYSHITICRASHED + 1
+					if(istype(src, /obj/structure/overmap))
+						var/obj/structure/overmap/O = src
+						O.vel = 0
+						O.angle -= 180
+						O.EditAngle()
+						to_chat(O.pilot, "Collision detected! Turn ship and try again")
+						O.vel = 2
+						O.ProcessMove()
 					return 0
 			real_pixel_x = real_pixel_x + x_to_move
 			real_pixel_y = real_pixel_y + y_to_move
@@ -131,67 +140,61 @@ atom/movable
 
 /obj/structure/overmap/ship/relaymove(mob/mob,dir) //fuckoff I want to do my own shitcode :^)
 	check_overlays()
-	for(var/turf/closed/T in orange(1,src))
-		vel = 0
-		for(var/turf/open/TT in orange(1,src))
-			forceMove(TT.loc)
-			return
-			break
-
-	switch(dir)
-		if(NORTH)
-			if(mob.whatimControllingOMFG)
-				if(mob.whatimControllingOMFG.vel < max_speed) //burn to speed up
-					mob.whatimControllingOMFG.vel += acceleration
+	if(can_move)
+		switch(dir)
+			if(NORTH)
+				if(mob.whatimControllingOMFG)
+					if(mob.whatimControllingOMFG.vel < max_speed) //burn to speed up
+						mob.whatimControllingOMFG.vel += acceleration
+					else
+						mob.whatimControllingOMFG.vel = max_speed
+					mob.whatimControllingOMFG.ProcessMove()
+					mob.client.pixelXYshit()
 				else
-					mob.whatimControllingOMFG.vel = max_speed
-				mob.whatimControllingOMFG.ProcessMove()
-				mob.client.pixelXYshit()
-			else
-				..()
-		if(SOUTH)
-			if(mob.whatimControllingOMFG)
-				if(mob.whatimControllingOMFG.vel > 0)
-					mob.whatimControllingOMFG.vel -= acceleration
+					..()
+			if(SOUTH)
+				if(mob.whatimControllingOMFG)
+					if(mob.whatimControllingOMFG.vel > 0)
+						mob.whatimControllingOMFG.vel -= acceleration
+					else
+						mob.whatimControllingOMFG.vel = 0
+					mob.whatimControllingOMFG.ProcessMove()
+					mob.client.pixelXYshit()
 				else
-					mob.whatimControllingOMFG.vel = 0
-				mob.whatimControllingOMFG.ProcessMove()
-				mob.client.pixelXYshit()
-			else
-				..()
-		if(EAST)
-			if(mob.whatimControllingOMFG)
-				for(var/obj/effect/ship_overlay/S in overlays)
-					S.angle = mob.whatimControllingOMFG.angle - turnspeed
-					S.EditAngle()
-				mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - turnspeed
-				mob.whatimControllingOMFG.EditAngle()
-			else
-				..()
-		if(NORTHEAST)
-			if(mob.whatimControllingOMFG)
-				for(var/obj/effect/ship_overlay/S in overlays)
-					S.angle = mob.whatimControllingOMFG.angle - turnspeed
-					S.EditAngle()
-				mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - turnspeed
-				mob.whatimControllingOMFG.ProcessMove()
-				mob.client.pixelXYshit()
-			else
-				..()
-		if(WEST)
-			if(mob.whatimControllingOMFG)
-				for(var/obj/effect/ship_overlay/S in overlays)
-					S.angle = mob.whatimControllingOMFG.angle - turnspeed
-					S.EditAngle()
-				mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + turnspeed
-				mob.whatimControllingOMFG.EditAngle()
-		if(NORTHWEST)
-			if(mob.whatimControllingOMFG)
-				for(var/obj/effect/ship_overlay/S in overlays)
-					S.angle = mob.whatimControllingOMFG.angle - turnspeed
-					S.EditAngle()
-				mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + turnspeed
-				mob.whatimControllingOMFG.ProcessMove()
-				mob.client.pixelXYshit()
-			else
-				..()
+					..()
+			if(EAST)
+				if(mob.whatimControllingOMFG)
+					for(var/obj/effect/ship_overlay/S in overlays)
+						S.angle = mob.whatimControllingOMFG.angle - turnspeed
+						S.EditAngle()
+					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - turnspeed
+					mob.whatimControllingOMFG.EditAngle()
+				else
+					..()
+			if(NORTHEAST)
+				if(mob.whatimControllingOMFG)
+					for(var/obj/effect/ship_overlay/S in overlays)
+						S.angle = mob.whatimControllingOMFG.angle - turnspeed
+						S.EditAngle()
+					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - turnspeed
+					mob.whatimControllingOMFG.ProcessMove()
+					mob.client.pixelXYshit()
+				else
+					..()
+			if(WEST)
+				if(mob.whatimControllingOMFG)
+					for(var/obj/effect/ship_overlay/S in overlays)
+						S.angle = mob.whatimControllingOMFG.angle - turnspeed
+						S.EditAngle()
+					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + turnspeed
+					mob.whatimControllingOMFG.EditAngle()
+			if(NORTHWEST)
+				if(mob.whatimControllingOMFG)
+					for(var/obj/effect/ship_overlay/S in overlays)
+						S.angle = mob.whatimControllingOMFG.angle - turnspeed
+						S.EditAngle()
+					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + turnspeed
+					mob.whatimControllingOMFG.ProcessMove()
+					mob.client.pixelXYshit()
+				else
+					..()
