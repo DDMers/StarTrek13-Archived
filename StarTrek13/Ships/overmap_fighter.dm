@@ -26,6 +26,12 @@
 	pixel_collision_size_y = -32
 	//Add a communcations box sometime ok cool really neat.
 
+/obj/structure/overmap/ship/fighter/viper
+	icon_state = "viper"
+	turnspeed = 8
+	max_speed = 7
+
+
 /obj/structure/overmap/ship/fighter/attack_hand(mob/user)
 	enter(user)
 
