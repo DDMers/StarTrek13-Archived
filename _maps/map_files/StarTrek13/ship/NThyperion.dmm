@@ -93,62 +93,63 @@
 "bO" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/darkgreen/side{tag = "icon-darkgreen (EAST)"; icon_state = "darkgreen"; dir = 4},/area/ship/nanotrasen_cruiser)
 "bP" = (/obj/structure/tank_dispenser/oxygen,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
 "bQ" = (/obj/structure/overmap/ship/fighter{tag = "icon-fighter (EAST)"; icon_state = "fighter"; dir = 4},/turf/open/space/basic,/area/ship/nanotrasen_cruiser)
-"bR" = (/obj/structure/catwalk,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
-"bS" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (EAST)"; icon_state = "lcars"; dir = 4},/turf/closed/wall/ship/steel,/area/ship/nanotrasen_cruiser)
-"bT" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/obj/effect/turf_decal/stripes/line{dir = 8},/obj/structure/fluff/helm/desk/functional/nt{tag = "icon-computer (EAST)"; icon_state = "computer"; dir = 4},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"bU" = (/turf/open/floor/plasteel/darkblue/side{tag = "icon-darkblue (WEST)"; icon_state = "darkblue"; dir = 8},/area/ship/nanotrasen_cruiser)
-"bV" = (/obj/structure/chair/office/dark{tag = "icon-officechair_dark (EAST)"; icon_state = "officechair_dark"; dir = 4},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"bW" = (/obj/machinery/computer{icon_state = "computer"; dir = 8},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"bX" = (/obj/machinery/door/airlock/external,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"bY" = (/turf/open/floor/plating,/turf/closed/trekshield,/area/ship/nanotrasen_cruiser)
-"bZ" = (/obj/structure/catwalk,/turf/open/space/basic,/area/ship/nanotrasen_cruiser)
-"ca" = (/obj/structure/catwalk,/obj/structure/overmap/ship/cruiser/nanotrasen,/turf/open/space/basic,/area/ship/nanotrasen_cruiser)
-"cb" = (/obj/structure/fluff/warpcore,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cc" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/ship/steel,/area/ship/nanotrasen_cruiser)
-"cd" = (/obj/structure/chair/office/dark{tag = "icon-officechair_dark (EAST)"; icon_state = "officechair_dark"; dir = 4},/turf/open/floor/plasteel/darkblue/side{tag = "icon-darkblue (WEST)"; icon_state = "darkblue"; dir = 8},/area/ship/nanotrasen_cruiser)
-"ce" = (/obj/structure/fluff/helm/desk/tactical/nanotrasen{icon_state = "computer"; dir = 8},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cf" = (/obj/structure/closet/crate/hydroponics,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cg" = (/obj/structure/closet/crate/hydroponics,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"ch" = (/obj/machinery/light,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"ci" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (EAST)"; icon_state = "lcars2"; dir = 4},/turf/closed/wall/ship/steel,/area/ship/nanotrasen_cruiser)
-"cj" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/obj/effect/turf_decal/stripes/line{dir = 8},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"ck" = (/obj/structure/sign/viewscreen{dir = 8; icon_state = "trekscreenstars"},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cl" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cm" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cn" = (/obj/machinery/seed_extractor,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"co" = (/obj/machinery/vending/hydronutrients,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cp" = (/turf/open/space/basic,/obj/effect/turf_decal/stripes/line{dir = 8},/obj/effect/turf_decal/stripes/line,/turf/closed/trekshield{tag = "icon-shield (NORTHEAST)"; icon_state = "shield"; dir = 5},/area/ship/nanotrasen_cruiser)
-"cq" = (/turf/open/space/basic,/obj/effect/turf_decal/stripes/line,/turf/closed/trekshield{icon_state = "shield"; dir = 8},/area/ship/nanotrasen_cruiser)
-"cr" = (/turf/open/space/basic,/obj/effect/turf_decal/stripes/line{dir = 4},/obj/effect/turf_decal/stripes/line,/turf/closed/trekshield{tag = "icon-shield (NORTHWEST)"; icon_state = "shield"; dir = 9},/area/ship/nanotrasen_cruiser)
-"cs" = (/obj/machinery/computer{tag = "icon-computer (EAST)"; icon_state = "computer"; dir = 4},/obj/effect/turf_decal/stripes/line{dir = 8},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"ct" = (/obj/structure/catwalk,/obj/machinery/light,/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
-"cu" = (/obj/structure/ship_component/capbooster{tag = "icon-capbooster (NORTH)"; icon_state = "capbooster"; dir = 1},/turf/closed/wall/ship/steel,/area/ship/nanotrasen_cruiser)
-"cv" = (/obj/structure/closet/secure_closet/freezer/meat,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cw" = (/obj/structure/bed,/obj/structure/bed{pixel_y = 15},/turf/open/floor/plasteel/darkgreen/side{dir = 1},/area/ship/nanotrasen_cruiser)
-"cx" = (/obj/structure/closet/secure_closet/personal,/turf/open/floor/plasteel/darkgreen/side{dir = 1},/area/ship/nanotrasen_cruiser)
-"cy" = (/obj/structure/closet/secure_closet/personal,/obj/machinery/light{dir = 1},/turf/open/floor/plasteel/darkgreen/side{dir = 1},/area/ship/nanotrasen_cruiser)
-"cz" = (/obj/machinery/portable_atmospherics/canister/oxygen,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cA" = (/obj/machinery/vending/tool,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cB" = (/obj/structure/closet/secure_closet/engineering_electrical,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cC" = (/obj/structure/catwalk,/obj/machinery/computer/arcade,/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
-"cD" = (/obj/structure/catwalk,/obj/machinery/computer/arcade,/obj/machinery/light,/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
-"cE" = (/turf/open/floor/plasteel/darkgreen/side{tag = "icon-darkgreen (SOUTHWEST)"; icon_state = "darkgreen"; dir = 10},/area/ship/nanotrasen_cruiser)
-"cF" = (/obj/machinery/light,/turf/open/floor/plasteel/darkgreen/side,/area/ship/nanotrasen_cruiser)
-"cG" = (/turf/open/floor/plasteel/darkgreen/side,/area/ship/nanotrasen_cruiser)
-"cH" = (/turf/open/floor/plasteel/darkgreen/side{tag = "icon-darkgreen (SOUTHEAST)"; icon_state = "darkgreen"; dir = 6},/area/ship/nanotrasen_cruiser)
-"cI" = (/obj/machinery/suit_storage_unit/engine,/obj/machinery/light,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cJ" = (/obj/structure/table,/obj/item/grenade/chem_grenade/smart_metal_foam,/obj/item/grenade/chem_grenade/metalfoam,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cK" = (/obj/structure/table,/obj/item/grenade/chem_grenade/metalfoam,/obj/item/storage/toolbox/electrical,/obj/machinery/light,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cL" = (/obj/structure/table,/obj/item/storage/toolbox/mechanical,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cM" = (/obj/structure/closet/secure_closet/engineering_personal,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
-"cN" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/machinery/light,/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
-"cO" = (/obj/effect/turf_decal/stripes/line{dir = 4},/obj/machinery/light,/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
-"cP" = (/obj/machinery/door/airlock/hatch,/turf/open/floor/plasteel/darkgreen/side,/area/ship/nanotrasen_cruiser)
-"cQ" = (/obj/structure/catwalk,/obj/machinery/light,/turf/open/floor/plating,/area/ship/nanotrasen_cruiser)
-"cR" = (/obj/machinery/light,/turf/open/floor/plating,/area/ship/nanotrasen_cruiser)
-"cS" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/light,/turf/open/floor/plating,/area/ship/nanotrasen_cruiser)
-"cT" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plating,/area/ship/nanotrasen_cruiser)
-"cU" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/nanotrasen_cruiser)
+"bR" = (/obj/structure/overmap/ship/fighter/viper,/turf/open/space/basic,/area/ship/nanotrasen_cruiser)
+"bS" = (/obj/structure/catwalk,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
+"bT" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (EAST)"; icon_state = "lcars"; dir = 4},/turf/closed/wall/ship/steel,/area/ship/nanotrasen_cruiser)
+"bU" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/obj/effect/turf_decal/stripes/line{dir = 8},/obj/structure/fluff/helm/desk/functional/nt{tag = "icon-computer (EAST)"; icon_state = "computer"; dir = 4},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"bV" = (/turf/open/floor/plasteel/darkblue/side{tag = "icon-darkblue (WEST)"; icon_state = "darkblue"; dir = 8},/area/ship/nanotrasen_cruiser)
+"bW" = (/obj/structure/chair/office/dark{tag = "icon-officechair_dark (EAST)"; icon_state = "officechair_dark"; dir = 4},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"bX" = (/obj/machinery/computer{icon_state = "computer"; dir = 8},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"bY" = (/obj/machinery/door/airlock/external,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"bZ" = (/turf/open/floor/plating,/turf/closed/trekshield,/area/ship/nanotrasen_cruiser)
+"ca" = (/obj/structure/catwalk,/turf/open/space/basic,/area/ship/nanotrasen_cruiser)
+"cb" = (/obj/structure/catwalk,/obj/structure/overmap/ship/cruiser/nanotrasen,/turf/open/space/basic,/area/ship/nanotrasen_cruiser)
+"cc" = (/obj/structure/fluff/warpcore,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cd" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/ship/steel,/area/ship/nanotrasen_cruiser)
+"ce" = (/obj/structure/chair/office/dark{tag = "icon-officechair_dark (EAST)"; icon_state = "officechair_dark"; dir = 4},/turf/open/floor/plasteel/darkblue/side{tag = "icon-darkblue (WEST)"; icon_state = "darkblue"; dir = 8},/area/ship/nanotrasen_cruiser)
+"cf" = (/obj/structure/fluff/helm/desk/tactical/nanotrasen{icon_state = "computer"; dir = 8},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cg" = (/obj/structure/closet/crate/hydroponics,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"ch" = (/obj/structure/closet/crate/hydroponics,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"ci" = (/obj/machinery/light,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cj" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (EAST)"; icon_state = "lcars2"; dir = 4},/turf/closed/wall/ship/steel,/area/ship/nanotrasen_cruiser)
+"ck" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/obj/effect/turf_decal/stripes/line{dir = 8},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cl" = (/obj/structure/sign/viewscreen{dir = 8; icon_state = "trekscreenstars"},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cm" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cn" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"co" = (/obj/machinery/seed_extractor,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cp" = (/obj/machinery/vending/hydronutrients,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cq" = (/turf/open/space/basic,/obj/effect/turf_decal/stripes/line{dir = 8},/obj/effect/turf_decal/stripes/line,/turf/closed/trekshield{tag = "icon-shield (NORTHEAST)"; icon_state = "shield"; dir = 5},/area/ship/nanotrasen_cruiser)
+"cr" = (/turf/open/space/basic,/obj/effect/turf_decal/stripes/line,/turf/closed/trekshield{icon_state = "shield"; dir = 8},/area/ship/nanotrasen_cruiser)
+"cs" = (/turf/open/space/basic,/obj/effect/turf_decal/stripes/line{dir = 4},/obj/effect/turf_decal/stripes/line,/turf/closed/trekshield{tag = "icon-shield (NORTHWEST)"; icon_state = "shield"; dir = 9},/area/ship/nanotrasen_cruiser)
+"ct" = (/obj/machinery/computer{tag = "icon-computer (EAST)"; icon_state = "computer"; dir = 4},/obj/effect/turf_decal/stripes/line{dir = 8},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cu" = (/obj/structure/catwalk,/obj/machinery/light,/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
+"cv" = (/obj/structure/ship_component/capbooster{tag = "icon-capbooster (NORTH)"; icon_state = "capbooster"; dir = 1},/turf/closed/wall/ship/steel,/area/ship/nanotrasen_cruiser)
+"cw" = (/obj/structure/closet/secure_closet/freezer/meat,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cx" = (/obj/structure/bed,/obj/structure/bed{pixel_y = 15},/turf/open/floor/plasteel/darkgreen/side{dir = 1},/area/ship/nanotrasen_cruiser)
+"cy" = (/obj/structure/closet/secure_closet/personal,/turf/open/floor/plasteel/darkgreen/side{dir = 1},/area/ship/nanotrasen_cruiser)
+"cz" = (/obj/structure/closet/secure_closet/personal,/obj/machinery/light{dir = 1},/turf/open/floor/plasteel/darkgreen/side{dir = 1},/area/ship/nanotrasen_cruiser)
+"cA" = (/obj/machinery/portable_atmospherics/canister/oxygen,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cB" = (/obj/machinery/vending/tool,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cC" = (/obj/structure/closet/secure_closet/engineering_electrical,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cD" = (/obj/structure/catwalk,/obj/machinery/computer/arcade,/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
+"cE" = (/obj/structure/catwalk,/obj/machinery/computer/arcade,/obj/machinery/light,/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
+"cF" = (/turf/open/floor/plasteel/darkgreen/side{tag = "icon-darkgreen (SOUTHWEST)"; icon_state = "darkgreen"; dir = 10},/area/ship/nanotrasen_cruiser)
+"cG" = (/obj/machinery/light,/turf/open/floor/plasteel/darkgreen/side,/area/ship/nanotrasen_cruiser)
+"cH" = (/turf/open/floor/plasteel/darkgreen/side,/area/ship/nanotrasen_cruiser)
+"cI" = (/turf/open/floor/plasteel/darkgreen/side{tag = "icon-darkgreen (SOUTHEAST)"; icon_state = "darkgreen"; dir = 6},/area/ship/nanotrasen_cruiser)
+"cJ" = (/obj/machinery/suit_storage_unit/engine,/obj/machinery/light,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cK" = (/obj/structure/table,/obj/item/grenade/chem_grenade/smart_metal_foam,/obj/item/grenade/chem_grenade/metalfoam,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cL" = (/obj/structure/table,/obj/item/grenade/chem_grenade/metalfoam,/obj/item/storage/toolbox/electrical,/obj/machinery/light,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cM" = (/obj/structure/table,/obj/item/storage/toolbox/mechanical,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cN" = (/obj/structure/closet/secure_closet/engineering_personal,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen_cruiser)
+"cO" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/machinery/light,/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
+"cP" = (/obj/effect/turf_decal/stripes/line{dir = 4},/obj/machinery/light,/turf/open/floor/engine,/area/ship/nanotrasen_cruiser)
+"cQ" = (/obj/machinery/door/airlock/hatch,/turf/open/floor/plasteel/darkgreen/side,/area/ship/nanotrasen_cruiser)
+"cR" = (/obj/structure/catwalk,/obj/machinery/light,/turf/open/floor/plating,/area/ship/nanotrasen_cruiser)
+"cS" = (/obj/machinery/light,/turf/open/floor/plating,/area/ship/nanotrasen_cruiser)
+"cT" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/light,/turf/open/floor/plating,/area/ship/nanotrasen_cruiser)
+"cU" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plating,/area/ship/nanotrasen_cruiser)
+"cV" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/nanotrasen_cruiser)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -165,21 +166,21 @@ anadababbeabababababaTababababaSaGaSabbfbfbfbfabaUaGaUabababababababbfasbfababab
 adadabagaoagabaSaGblaGblaGaGabaSaGaSabbmaGaGbmabaUaGaUabbnboabauauauaubpauauauauauauauauaubqauauauauauauauauaubqauauauauauauauauaubqauauauauauauauabbnblabauauaubqaubqauauauaTaGaGaGaGblaGblaGaGaGbrabaa
 adadabaOaoagabbsbtbuaGbubtbuabaSaGaSabbvaGaGbwabaUaGaUabbnaGabaubxbybybybybybybybybybybybybybybybybybybybybybybybybybybybybybybybybybybybybybybzauabbnaGasbAaubBbBbBbBbBaubCabbDbEaGaGaGaGaGaGaGaGbFabaa
 anadabagaoagabbsbtbuaGbubtbuabaSaGaSabbmaGaGbmabaUaGaUababaTabaubGadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadbHauababaTabaubIaGaGaGaGaGbJaubKaGaGaGaGaGaGaGaGbFaGaZabaa
-adadabagaoagabbsbtbuaGbubtbuabaSaGbLabbMaGaGbNabbOaGaUaebPaGamaubGadbQadadbQadadbQadadadadadadadadadadadadadadadadadadadadadadadbQadadbQadadbQbHauambPaGaebRbIaGaGaGaGaGbJaubSbTbEaGaGbUbVaGbVbWbUaGabaa
-adadabagaoagaTaSaGaGaGaGaGaGaTaGaGaGaTaGaGaGaGaTaGaGaGbXaGaGbXagbYbZbZbZbZbZbZbZbZbZbZbZbZbZbZbZbZbZbZbZcabZbZbZbZbZbZbZbZbZbZbZbZbZbZbZbZbZbZbYagbXaGaGbXaubIaGcbaGaGaGbJauccaGaGaGaGcdceaGbVbWbUaGabaa
-anadabagaoagabbsbtbuaGbubtbuabaSaGbLabcfaGaGcgabbOaGaUaechaGamaubGadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadbHauamchaGaebRbIaGaGaGaGaGbJaucicjbEaGaGbUbVaGbVbWbUckabaa
-adadabagaoagabbsbtbuaGbubtbuabaSaGaSabbmaGaGbmabaUaGaUababaTabaubGadbQadadbQadadbQadadadadadadadadadadadadadadadadadadadadadadadbQadadbQadadbQbHauababaTabaubIaGaGclcmaGbJaubKaGaGaGaGaGaGaGaGbFaGaZabaa
-adadabaOaoagabbsbtbuaGbubtbuabaSaGaSabcnaGaGcoabaUaGaUabbnaGabaucpcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcqcrauabbnaGasbAaubBbBbBbBbBaubCabcsbEaGaGaGaGaGaGaGaGbFabaa
-anadabagaoagabaSaGchaGchaGaGabaSaGaSabbmaGaGbmabaUaGaUabbnchabauauauauctauauauauauauauauauctauauauauauauauauauctauauauauauauauauauctauauauauauauauabbnchabauauauctauctauauauaTaGaGaGaGchaGchaGaGaGbrabaa
-adadababbeabababababaTababababaSaGaSabbfbfbfbfabaUaGaUabababababababbfasbfabababababababbfasbfabababababababbfasbfabababababababbfasbfababababababababababababababaTababababababababcuaeatababababababaa
-adadabagaoagabauaPaPaPaPaPauabaSaGaZabcvcvcvcvabbaaGaUabcwcxcycxcwabaHaIaHabcwcxcycxcwabaHaIaHabcwcxcycxcwabaHaIaHabcwcxcycxcwabaHaIaHabcwcxcycxcwabaIaHabczaGaGaGaGaGaGaGcAabadadadaLaXauaYaLadadadabaa
-anadabaOaoagabauaPaPaPaPaPaRabaSaGaGaTaGaGaGaGaTaGaGaUabaGaGaGaGaGaTaVaVaVaTaGaGaGaGaGaTaVaVaVaTaGaGaGaGaGaTaVaVaVaTaGaGaGaGaGaTaVaVaVaTaGaGaGaGaGaTaWaHabczaGaGaGaGaGaGaGcBabadadadaLaXauaYaLadadadabaa
-adadabagaoagabaucCcCcDcCcCauabcEcFcGabcGcFcFcGabcGcFcHabaFaGaGaGaFabaHaHaHabaFaGaGaGaFabaHaHaHabaFaGaGaGaFabaHaHaHabaFaGaGaGaFabaHaHaHabaFaGaGaGaFabaHaHabczaGcIcJcKcLcIaGcMabadadadaLcNaucOaLadadadabaa
-adadabagaoagababababababababababababababababababababababababcPabababababababababcPabababababababababcPabababababababababcPabababababababababcPababababasababababababababababababababababatababababababaa
+adadabagaoagabbsbtbuaGbubtbuabaSaGbLabbMaGaGbNabbOaGaUaebPaGamaubGadbQadadbQadadbQadadbRadadadadadadadadadadadadadadadadbRadadadbQadadbQadadbQbHauambPaGaebSbIaGaGaGaGaGbJaubTbUbEaGaGbVbWaGbWbXbVaGabaa
+adadabagaoagaTaSaGaGaGaGaGaGaTaGaGaGaTaGaGaGaGaTaGaGaGbYaGaGbYagbZcacacacacacacacacacacacacacacacacacacacbcacacacacacacacacacacacacacacacacacabZagbYaGaGbYaubIaGccaGaGaGbJaucdaGaGaGaGcecfaGbWbXbVaGabaa
+anadabagaoagabbsbtbuaGbubtbuabaSaGbLabcgaGaGchabbOaGaUaeciaGamaubGadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadbHauamciaGaebSbIaGaGaGaGaGbJaucjckbEaGaGbVbWaGbWbXbVclabaa
+adadabagaoagabbsbtbuaGbubtbuabaSaGaSabbmaGaGbmabaUaGaUababaTabaubGadbQadadbQadadbQadadbRadadadadadadadadadadadadadadadadbRadadadbQadadbQadadbQbHauababaTabaubIaGaGcmcnaGbJaubKaGaGaGaGaGaGaGaGbFaGaZabaa
+adadabaOaoagabbsbtbuaGbubtbuabaSaGaSabcoaGaGcpabaUaGaUabbnaGabaucqcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcrcsauabbnaGasbAaubBbBbBbBbBaubCabctbEaGaGaGaGaGaGaGaGbFabaa
+anadabagaoagabaSaGciaGciaGaGabaSaGaSabbmaGaGbmabaUaGaUabbnciabauauauaucuauauauauauauauauaucuauauauauauauauauaucuauauauauauauauauaucuauauauauauauauabbnciabauauaucuaucuauauauaTaGaGaGaGciaGciaGaGaGbrabaa
+adadababbeabababababaTababababaSaGaSabbfbfbfbfabaUaGaUabababababababbfasbfabababababababbfasbfabababababababbfasbfabababababababbfasbfababababababababababababababaTababababababababcvaeatababababababaa
+adadabagaoagabauaPaPaPaPaPauabaSaGaZabcwcwcwcwabbaaGaUabcxcyczcycxabaHaIaHabcxcyczcycxabaHaIaHabcxcyczcycxabaHaIaHabcxcyczcycxabaHaIaHabcxcyczcycxabaIaHabcAaGaGaGaGaGaGaGcBabadadadaLaXauaYaLadadadabaa
+anadabaOaoagabauaPaPaPaPaPaRabaSaGaGaTaGaGaGaGaTaGaGaUabaGaGaGaGaGaTaVaVaVaTaGaGaGaGaGaTaVaVaVaTaGaGaGaGaGaTaVaVaVaTaGaGaGaGaGaTaVaVaVaTaGaGaGaGaGaTaWaHabcAaGaGaGaGaGaGaGcCabadadadaLaXauaYaLadadadabaa
+adadabagaoagabaucDcDcEcDcDauabcFcGcHabcHcGcGcHabcHcGcIabaFaGaGaGaFabaHaHaHabaFaGaGaGaFabaHaHaHabaFaGaGaGaFabaHaHaHabaFaGaGaGaFabaHaHaHabaFaGaGaGaFabaHaHabcAaGcJcKcLcMcJaGcNabadadadaLcOaucPaLadadadabaa
+adadabagaoagababababababababababababababababababababababababcQabababababababababcQabababababababababcQabababababababababcQabababababababababcQababababasababababababababababababababababatababababababaa
 anadabagaoagagagagagagagagagagagagagagagagagagabaiajaiabagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagabaiaiabagagagagagagagagagabagagagagagaoagagagagagabaa
-adadabagaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoacaoaoaoacaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoacaoaoacaoaoaoaoaoaoaoaoaoaoaoaoaoaocQaocQaoaoaoaoabaa
-adadabagagagcRagagagagagagagcRagagagcRagagagagabaqcSaqabagagcRagagagagagagagagagcRagagagagagagagagagcRagagagagagagagagagcRagagagagagagagagagcRagagabaqaqabagagagagcRagagagagabababababamacamabababababaa
-anadabababababababababababababababababababababababaeabababababababababababababababababababababababababababababababababababababababababababababababababaeabababababababababababaaaaaaaaabcTabaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadadadadcUadadadadadcUaaaaaaaaabacabaaaaaaaaaaaa
+adadabagaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoacaoaoaoacaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoacaoaoacaoaoaoaoaoaoaoaoaoaoaoaoaoaocRaocRaoaoaoaoabaa
+adadabagagagcSagagagagagagagcSagagagcSagagagagabaqcTaqabagagcSagagagagagagagagagcSagagagagagagagagagcSagagagagagagagagagcSagagagagagagagagagcSagagabaqaqabagagagagcSagagagagabababababamacamabababababaa
+anadabababababababababababababababababababababababaeabababababababababababababababababababababababababababababababababababababababababababababababababaeabababababababababababaaaaaaaaabcUabaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadadadadcVadadadadadcVaaaaaaaaabacabaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
