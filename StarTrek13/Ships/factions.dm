@@ -100,6 +100,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	name = "nanotrasen"
 	description = "Nanotrasen, or more specifically, their main corporate arm. Their goal is to make money and maintain the colonies, no matter who opposes them."
 	flavourtext = "Nanotrasen is an oligarchy, but with merit you should be able to climb the ranks...up to a point."
+	pref_folour = "blue"
 
 /datum/faction/proc/num_players()
 	for(var/mob/P in GLOB.player_list)
