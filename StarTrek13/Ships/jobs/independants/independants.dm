@@ -77,7 +77,6 @@ Captain
 	ears = /obj/item/device/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform =  /obj/item/clothing/under/independant/captain
-	suit = /obj/item/clothing/suit/leatherjacket
 	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced)
 
