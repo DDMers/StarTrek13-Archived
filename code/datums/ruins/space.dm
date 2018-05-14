@@ -2,7 +2,7 @@
 
 /datum/map_template/ruin/space
 	prefix = "_maps/RandomRuins/SpaceRuins/"
-	cost = 1
+	cost = 1000 //>:(
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/space/zoo

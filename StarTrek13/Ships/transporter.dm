@@ -17,8 +17,21 @@
 	var/datum/action/innate/beamup/up_action = new
 	var/datum/action/innate/movedown/movedown_action = new
 	var/datum/action/innate/moveup/moveup_action = new
+	var/mob/living/carbon/operator
 	//var/datum/action/innate/togglelock/lock_action = new
 	//	var/turf/open/teleport_target = null
+
+/obj/machinery/computer/camera_advanced/transporter_control/huge
+	name = "transporter control station"
+	icon = 'StarTrek13/icons/trek/transporter.dmi'
+	icon_state = "console"
+	bound_height = 64
+
+/obj/machinery/trek/transporter/huge
+	name = "transporter pad"
+	icon = 'StarTrek13/icons/trek/transporter.dmi'
+	icon_state = "pad"
+
 
 /obj/machinery/computer/camera_advanced/transporter_control/proc/activate_pads()
 	if(eyeobj.eye_user)
@@ -49,6 +62,8 @@
 		available_turfs += T
 
 /obj/machinery/computer/camera_advanced/transporter_control/CreateEye()
+	if(eyeobj)
+		qdel(eyeobj)
 	eyeobj = new()
 	eyeobj.use_static = FALSE
 	eyeobj.origin = src
@@ -57,27 +72,30 @@
 	eyeobj.icon_state = "camera_target"
 
 /obj/machinery/computer/camera_advanced/transporter_control/give_eye_control(mob/living/carbon/user, list/L)
-	GrantActions(user)
-	current_user = user
-	eyeobj.eye_user = user
-	eyeobj.name = "Camera Eye ([user.name])"
-	user.remote_control = eyeobj
-	user.reset_perspective(eyeobj)
-	eyeobj.loc = pick(L)
-	user.sight = 60 //see through walls
-	//user.lighting_alpha = 0 //night vision (doesn't work for some reason)
+	if(user == operator)
+		GrantActions(user)
+		current_user = user
+		eyeobj.eye_user = user
+		eyeobj.name = "Camera Eye ([user.name])"
+		user.remote_control = eyeobj
+		user.reset_perspective(eyeobj)
+		eyeobj.loc = pick(L)
+		user.sight = 60 //see through walls
+		//user.lighting_alpha = 0 //night vision (doesn't work for some reason)
+	else
+		to_chat(user, "This is already in use!")
+
 
 
 /obj/machinery/computer/camera_advanced/transporter_control/attack_hand(mob/user)
 //	interact(user)
-	if(current_user)
-		to_chat(user, "The console is already in use!")
-		return
-
 	var/A
 	var/B
+	if(operator)
+		remove_eye_control(operator)
+	operator = user
 
-	B = input(user, "Mode:","Transporter Control",B) in list("Visual Scanner","Targetting Scanner","retrieve away team member", "cancel")
+	B = input(user, "Mode:","Transporter Control",B) in list("Visual Scanner","retrieve away team member", "cancel")
 	switch(B)
 		if("Visual Scanner")
 			if(linked.len)
@@ -100,9 +118,7 @@
 				give_eye_control(user, L)
 			else
 				to_chat(user, "<span class='notice'>There are no linked transporter pads</span>")
-		if("Targetting Scanner")
-			ui_interact(user)
-			to_chat(user, "<span class='danger'>!!! not yet implemented because bucket has deadlines and is totally not lazy !!!</span>")
+				return
 		if("retrieve away team member")
 			var/C = input(user, "Beam someone back", "Transporter Control") as anything in retrievable
 			if(!C in retrievable)
@@ -122,6 +138,8 @@
                         //        Z.alpha = 255
 				break
 		if("cancel")
+			if(operator)
+				remove_eye_control(operator)
 			return
 
 // TGUI
@@ -191,6 +209,8 @@
 
 /obj/machinery/computer/camera_advanced/transporter_control/GrantActions(mob/living/user)
 	//dont need jump cam action
+	if(user != operator)
+		to_chat(user, "This is already in use!")
 	if(off_action)
 		off_action.target = user
 		off_action.Grant(user)
@@ -324,7 +344,7 @@ Might find a use for this later
 
 /obj/machinery/trek/transporter/proc/send(turf/open/teleport_target)
 	flick("alien-pad", src)
-	for(var/atom/movable/target in loc)
+	for(var/atom/movable/target in loc) //test
 		if(target != src)
 			new /obj/effect/temp_visual/dir_setting/ninja(get_turf(target), target.dir)
 			target.forceMove(teleport_target)

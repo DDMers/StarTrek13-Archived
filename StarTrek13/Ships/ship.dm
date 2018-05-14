@@ -82,13 +82,16 @@
 		S.health += regen
 
 /obj/machinery/space_battle/shield_generator/process()
-	if(shield_system.failed)
-		for(var/obj/effect/adv_shield/A in shields)
-			A.deactivate()
+	if(shield_system)
+		if(shield_system.failed)
+			for(var/obj/effect/adv_shield/A in shields)
+				A.deactivate()
+		else
+			for(var/obj/effect/adv_shield/A in shields)
+				A.activate()
+				A.health = shield_system.integrity
 	else
-		for(var/obj/effect/adv_shield/A in shields)
-			A.activate()
-			A.health = shield_system.integrity
+		STOP_PROCESSING(SSobj,src)
 /*
 	if(!shield_system)
 		return
@@ -218,7 +221,7 @@
 		ship.SC.shields.active = FALSE
 		return
 	if(!on)
-		if(ship.SC.shields.integrity >= 2000)
+		if(ship.SC.shields.health >= 5000)
 			to_chat(user, "shields activated")
 			on = 1
 			for(var/obj/effect/adv_shield/S in shields)
@@ -228,7 +231,7 @@
 			return
 		else
 			on = 0
-			to_chat(user, "error, shields regenerating after an attack")
+			to_chat(user, "error, shields have failed!")
 			return
 
 /obj/machinery/space_battle/shield_generator/New()
@@ -585,10 +588,7 @@
 
 /obj/item/circuitboard/machine/phase_cannon
 	name = "phaser array circuit board"
-	build_path = /obj/machinery/borg/ftl
-	req_components = list(
-							/obj/item/stock_parts/borg/bin = 2,
-							/obj/item/stock_parts/borg/capacitor = 2)
+
 /obj/machinery/power/ship/phaser
 	name = "phaser array"
 	desc = "A powerful weapon designed to take down shields.\n<span class='notice'>Alt-click to rotate it clockwise.</span>"
@@ -599,18 +599,18 @@
 	density = 0
 	pixel_x = -64
 	var/charge = 1000 //current power levels
-	var/charge_rate = 300
+	var/charge_rate = 100
 	var/state = 1
 	var/locked = 0
 	var/obj/item/gun/shipweapon/phaser
 	var/obj/structure/cable/attached		// the attached cable
 	var/max_power = 1000		// max power it can hold
-	var/fire_cost = 700
+	var/fire_cost = 200
 	var/percentage = 0 //percent charged
 	var/list/shipareas = list()
 	var/target = null
 	var/obj/machinery/space_battle/shield_generator/shieldgen
-	var/damage = 500
+	var/damage = 650
 
 /obj/machinery/power/ship/phaser/opposite
 	dir = 8
@@ -731,6 +731,7 @@
 	noteleport = 0
 	blob_allowed = 0 //Should go without saying, no blobs should take over centcom as a win condition.
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	var/obj/item/clothing/neck/combadge/combadges = list()
 
 /area/ship/bridge
 	name = "A starship bridge"
@@ -748,9 +749,20 @@
 	name = "USS Entax"
 	icon_state = "ship"
 
+/area/ship/borg
+	name = "Unimatrix 1-3"
+	icon_state = "ship"
+
+/area/ship/sovreign
+	name = "USS sovreign" //change me!
+	icon_state = "ship"
 
 /area/ship/nanotrasen
 	name = "NSV Muffin"
+	icon_state = "ship"
+
+/area/ship/fighter
+	name = "NSV Hagan"
 	icon_state = "ship"
 
 /area/ship/nanotrasen_cruiser
@@ -816,6 +828,7 @@
 	var/list/torpedoes = list()
 	var/obj/structure/overmap/theship = null
 	var/required_skill = 25 //How much piloting skill is required to fly this ship?
+	anchored = 1
 
 /obj/structure/fluff/helm/desk/tactical/nanotrasen
 	name = "tactical"
@@ -823,6 +836,14 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
 
+/obj/structure/fluff/helm/desk/tactical/alt
+	icon_state = "tactical_nt_alt"
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	pixel_x = 15
+	pixel_y = 16
+	density = 0
+	layer = 4.6
+	anchored = 1
 
 /obj/structure/fluff/helm/desk/tactical/process()
 	var/area/thearea = get_area(src)
@@ -863,16 +884,9 @@
 /obj/structure/fluff/helm/desk/tactical/attack_hand(mob/user)
 	get_weapons()
 	get_shieldgen()
-	var/area/current = get_area(src)
-	for(var/area/AR in world)
-		if(istype(AR, /area/ship)) //change me
-			if(!AR in shipareas)
-				shipareas += AR.name
-				shipareas[AR.name] = AR
-				if(AR == current)
-					shipareas -= AR.name
-					shipareas -= AR
-	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren","fire torpedo")
+	if(!theship)
+		to_chat(user, "Your ship has been destroyed!")
+	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren")
 	switch(mode)
 		if("choose target")
 			theship.exit(user)
@@ -937,138 +951,6 @@
 	var/location = pick(L)
 	target = location
 
-/obj/structure/photon_torpedo
-	name = "photon torpedo"
-	desc = "A casing for a powerful explosive, I wouldn't touch it if I were you..."
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "torpedo"
-	anchored = FALSE
-	density = 1 //SKREE
-	opacity = 0
-	layer = 4.5
-	var/armed = 0
-	var/damage = 400 //Quite damaging, but not really for battering shields
-	//var/obj/structure/torpedo_launcher/launcher
-
-/obj/structure/photon_torpedo/proc/force_explode()
-	var/area/thearea = get_area(src)
-	for(var/mob/M in thearea)
-		shake_camera(M, 20, 1)
-		SEND_SOUND(M, 'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg')
-		explosion(src.loc,2,5,20,8)
-
-/obj/structure/photon_torpedo/Bump(atom/movable/AM)
-	if(armed)
-		if(istype(AM, /obj/effect/adv_shield))
-			var/obj/effect/adv_shield/S = AM
-			S.take_damage(damage)
-			var/area/thearea = get_area(S)
-			qdel(src)
-			for(var/mob/M in thearea)
-				shake_camera(M, 20, 1)
-		else
-			explosion(src.loc,2,5,20,8)
-			var/area/thearea = get_area(AM)
-			for(var/mob/M in thearea)
-				shake_camera(M, 30, 2)
-	else
-		. = ..()
-
-//this code bumped into the shield and carried on bumping them until they died, may be cool as a bunker buster torpedo
-/*
-/obj/structure/photon_torpedo/Bump(atom/movable/AM)
-	if(armed)
-		if(istype(AM, /obj/effect/adv_shield))
-			var/obj/effect/adv_shield/S = AM
-			S.take_damage(damage)
-			var/area/thearea = get_area(S)
-			for(var/mob/M in thearea)
-				shake_camera(M, 20, 1)
-		else
-			explosion(src.loc,2,5,20,8)
-			var/area/thearea = get_area(AM)
-			for(var/mob/M in thearea)
-				shake_camera(M, 30, 3)
-	else
-		. = ..()
-*/
-
-obj/structure/torpedo_launcher
-	name = "torpedo launcher"
-	desc = "launch the clown at high velocity"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "torpedolauncher"
-	var/list/loaded = list()
-	var/list/sounds = list('StarTrek13/sound/borg/machines/torpedo1.ogg','StarTrek13/sound/borg/machines/torpedo2.ogg')
-	var/obj/machinery/space_battle/shield_generator/shieldgen
-//	var/atom/target = null
-	density = 1
-	anchored = 1
-
-obj/structure/torpedo_launcher/CollidedWith(atom/movable/AM)
-	loaded += AM
-	AM.loc = src
-	src.say("[AM] has been loaded into the tube")
-	icon_state = "torpedolauncher-fire"
-
-obj/structure/torpedo_launcher/New()
-	find_generator()
-
-obj/structure/torpedo_launcher/attack_hand(mob/user)
-	icon_state = "torpedolauncher"
-	to_chat(user, "you start unloading [src]")
-	if(do_after(user, 50, target = src))
-		icon_state = "torpedolauncher-fire"
-		for(var/atom/movable/I in loaded)
-			var/turf/theturf = get_turf(user)
-			I.forceMove(theturf)
-			loaded -= I
-			if(istype(I, /obj/structure/photon_torpedo))
-				var/obj/structure/photon_torpedo/T = I
-				T.armed = 0
-				T.icon_state = "torpedo"
-
-
-obj/structure/torpedo_launcher/proc/find_generator()
-	var/area/thearea = get_area(src)
-	for(var/obj/machinery/space_battle/shield_generator/S in thearea)
-		shieldgen = S
-
-obj/structure/torpedo_launcher/proc/fire(atom/movable/target, mob/user, overriden_start_loc)
-	icon_state = "torpedolauncher"
-	var/sound = pick(sounds)
-	find_generator()
-	playsound(src.loc, sound, 300,1)
-	if(!overriden_start_loc)
-		for(var/atom/movable/A in loaded)
-			var/obj/effect/adv_shield/S = pick(shieldgen.shields) //new shield each time, prevent spam
-			A.forceMove(get_turf(S))
-		//	if(istype(A,/mob/living/))
-	//			var/mob/living/M = A
-		//		M.Weaken(5)
-			if(istype(A, /obj/structure/photon_torpedo))
-				var/obj/structure/photon_torpedo/T = A
-				T.armed = 1
-				T.icon_state = "torpedo_armed"
-			var/atom/throw_at = get_turf(target)
-		//	A.forceMove(throw_at)
-			A.throw_at(throw_at, 1000, 1)
-			loaded = list()
-			to_chat(user, "Success")
-		if(!loaded.len)
-			src.say("Nothing is loaded")
-	else
-		find_generator()
-		if(loaded.len)
-			for(var/atom/movable/A in loaded)
-				var/atom/movable/our_ship = shieldgen.ship
-				A.forceMove(our_ship.loc)
-				var/atom/movable/targetship = shieldgen.ship.target_ship
-				A.throw_at(targetship, 1000, 1)
-			return 1
-		else
-			to_chat(shieldgen.ship.pilot, "Unable to launch torpedoes! nothing is loaded!")
-
 
 /obj/machinery/shieldgen/wallmounted
 		name = "structural integrity field generator"
@@ -1095,6 +977,7 @@ obj/structure/torpedo_launcher/proc/fire(atom/movable/target, mob/user, override
 	anchored = 1
 	density = 0
 	can_be_unanchored = 0
+	pixel_y = -8
 
 /obj/structure/fluff/ship/panel		//TO DO DIRECTIONS, TRY FOR(VAR/THISTYPE/P in GETLINE to area you want to go to, then update icon states?
 	name = "wall panel"
@@ -1120,6 +1003,7 @@ obj/structure/torpedo_launcher/proc/fire(atom/movable/target, mob/user, override
 	desc = "what could they contain?"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "drawer_two"
+	pixel_y = -6
 
 /obj/structure/fluff/ship/panel/drawer/single
 	name = "drawer"
@@ -1132,6 +1016,7 @@ obj/structure/torpedo_launcher/proc/fire(atom/movable/target, mob/user, override
 	desc = "It reads: do not feed the clown"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "sticker_red"
+	pixel_y = 0
 
 /obj/structure/fluff/ship/panel/red
 	name = "red panel"
@@ -1161,120 +1046,6 @@ obj/structure/torpedo_launcher/proc/fire(atom/movable/target, mob/user, override
 	return 0
 /obj/structure/fluff/ship/ex_act(severity)
 	return 0
-
-
-/turf/closed/wall/ship
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/trek_wall.dmi'
-	icon_state = "wall"
-	smooth = 1
-	canSmoothWith = list(/turf/closed/wall/ship,/obj/machinery/door/airlock/trek, /obj/structure/window, /obj/structure/window/trek, /turf/closed/wall/ship/light,/turf/closed/wall/ship/light/m,/turf/closed/wall/ship/steel,/obj/structure/window/trek/steel)
-
-
-/turf/closed/wall/ship/steel
-	name = "steel hull"
-	desc = "a more dull and grey ship hull, how boring..."
-	icon = 'StarTrek13/icons/trek/NT_trek_wall.dmi'
-	icon_state = "wall"
-	smooth = 1
-
-/turf/closed/wall/ship/light
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "lightleft"
-
-/turf/closed/wall/ship/light/m
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "lightmiddle"
-
-/turf/closed/wall/ship/light/c2
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "lightright"
-
-/turf/closed/wall/ship/flat
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "middleflat"
-
-/turf/closed/wall/ship/flat/c1
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "leftflatcorner"
-
-/turf/closed/wall/ship/flat/m
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "middleflat"
-
-/turf/closed/wall/ship/flat/c2
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "rightflatcorner"
-
-/turf/closed/wall/ship/light/New()
-	. = ..()
-	set_light(1)
-
-/turf/closed/wall/ship/c1
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "leftcorner"
-
-/turf/closed/wall/ship/m
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "middlecorner"
-
-/turf/closed/wall/ship/c2
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "rightcorner"
-
-
-/turf/closed/wall/ship/horiz
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "horizsmooth"
-
-
-/turf/closed/wall/ship/light/horiz
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "lightleftup"
-
-/turf/closed/wall/ship/light/horiz2
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "lightmiddleup"
-
-/turf/closed/wall/ship/light/horiz3
-	name = "hull"
-	desc = "it makes you feel like you're on a starship"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "lightrightup"
-
-
-/obj/effect/mob_spawn/human/alive/trek
-	icon_state = "sleeper"
-	death = FALSE
-	roundstart = FALSE
-	outfit = /datum/outfit/job/ind/crewman
 
 
 

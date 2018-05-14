@@ -116,7 +116,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/datum/faction/factions = list()
 //	var/datum/list/factionDescriptions = list("Independent Description", "Starfleet Description", "Klingon Description")
 	var/faction = 1
-	var/datum/faction/player_faction = null
+	var/datum/faction/player_faction
 	var/num_factions = 0 //how many factions are there to be chosen from
 
 /datum/preferences/New(client/C)
@@ -527,7 +527,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		HTML += "<center>Faction: <a href='?_src_=prefs;factionchange=true' "
 		if(!player_faction)
-			player_faction = pick(factions) //the runtimes boy oh!
+			player_faction = pick(SSfaction.factions) //the runtimes boy oh!
 		HTML += "style='background-color: [player_faction.pref_colour]'" //For some reason this doesnt work.
 		HTML += "<center>[player_faction.name]</a></center><br>"
 		HTML += "<p>[player_faction.description]]</p>"

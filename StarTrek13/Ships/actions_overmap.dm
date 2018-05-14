@@ -7,6 +7,24 @@
 /datum/action/innate/exit/Activate()
 	ship.exit()
 
+#define FIRE_PHASER 1
+#define FIRE_PHOTON 2
+
+/datum/action/innate/weaponswitch
+	name = "Switch weapon"
+	icon_icon = 'StarTrek13/icons/actions/overmap_ui.dmi'
+	button_icon_state = "phaser"
+	var/obj/structure/overmap/ship
+	var/selected = 1
+
+/datum/action/innate/weaponswitch/Trigger()
+	ship.AltClick(ship.pilot)
+	switch(ship.fire_mode)
+		if(1)
+			button_icon_state = "phaser"
+		if(2)
+			button_icon_state = "photon"
+
 /datum/action/innate/warp
 	name = "Engage warp drive"
 	icon_icon = 'StarTrek13/icons/actions/overmap_ui.dmi'
@@ -15,6 +33,7 @@
 
 /datum/action/innate/warp/Activate()
 	//ship.exit()
+	ship.InputWarpTarget(ship.pilot)
 	return //Not finished with this yet...
 
 /datum/action/innate/stopfiring
@@ -55,6 +74,10 @@
 		exit_action.Grant(pilot)
 		exit_action.ship = src
 
+	if(weaponswitch)
+		weaponswitch.target = pilot
+		weaponswitch.Grant(pilot)
+		weaponswitch.ship = src
 
 	if(warp_action)
 		warp_action.target = pilot
@@ -97,3 +120,6 @@
 	if(autopilot_action)
 		autopilot_action.target = null
 		autopilot_action.Remove(pilot)
+	if(weaponswitch)
+		weaponswitch.target = null
+		weaponswitch.Remove(pilot)

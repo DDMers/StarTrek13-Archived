@@ -42,6 +42,8 @@ Assistant
 		uniform = /obj/item/clothing/under/trek/grey
 	else
 		uniform = /obj/item/clothing/under/trek/grey
+/datum/outfit/job/crewman/post_equip(mob/living/carbon/human/H)
+	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
 
 */
 
@@ -98,6 +100,7 @@ Captain
 
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/captain/post_equip(mob/living/carbon/human/H)
 	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
@@ -124,6 +127,7 @@ Captain
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 
+
 /datum/job/admiral/get_access()
 	return get_all_accesses()
 
@@ -144,7 +148,7 @@ Captain
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/jackboots
 //	head = /obj/item/clothing/head/caphat
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/station_charter=1,/obj/item/device/modular_computer/tablet/preset/advanced)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1,/obj/item/device/modular_computer/tablet/preset/advanced)
 
 	backpack = /obj/item/storage/backpack/captain
 	satchel = /obj/item/storage/backpack/satchel/cap
@@ -152,6 +156,7 @@ Captain
 
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
+	neck = /obj/item/clothing/neck/combadge
 
 
 /datum/outfit/job/admiral/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -163,6 +168,7 @@ Captain
 	L.total_positions = L.admirals //admirals require aides.
 	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
 /*
+
 Head of Personnel
 */
 /datum/job/firstofficer
@@ -201,6 +207,7 @@ Head of Personnel
 /datum/outfit/job/firstofficer
 	name = "First officer"
 	jobtype = /datum/job/firstofficer
+	neck = /obj/item/clothing/neck/combadge
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/device/pda/heads/hop
@@ -258,6 +265,7 @@ Clown
 	duffelbag = /obj/item/storage/backpack/duffelbag/clown //strangely has a duffel
 
 	box = /obj/item/storage/box/hug/survival
+	neck = /obj/item/clothing/neck/combadge
 
 
 /datum/outfit/job/clown/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -290,6 +298,7 @@ Mime
 	supervisors = "the captain"
 	selection_color = "#dddddd"
 
+
 	outfit = /datum/outfit/job/mime
 
 	access = list(ACCESS_THEATRE)
@@ -313,7 +322,7 @@ Mime
 	accessory = /obj/item/clothing/accessory/pocketprotector/cosmetology
 	backpack = /obj/item/storage/backpack/mime
 	satchel = /obj/item/storage/backpack/mime
-
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/mime/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
@@ -348,7 +357,7 @@ Curator
 /datum/outfit/job/curator
 	name = "Curator"
 	jobtype = /datum/job/curator
-
+	neck = /obj/item/clothing/neck/combadge
 	belt = /obj/item/device/pda/curator
 	uniform = /obj/item/clothing/under/trek/grey
 	l_hand = /obj/item/storage/bag/books
@@ -386,6 +395,7 @@ Lawyer
 	var/admirals = 0
 	outfit = /datum/outfit/job/aide
 
+
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_COURT, ACCESS_WEAPONS,
 			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
 			            ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_MORGUE,
@@ -402,7 +412,7 @@ Lawyer
 /datum/outfit/job/aide
 	name = "Aide"
 	jobtype = /datum/job/aide
-
+	neck = /obj/item/clothing/neck/combadge
 	belt = /obj/item/device/pda/lawyer
 	ears = /obj/item/device/radio/headset/heads/hop
 	uniform = /obj/item/clothing/under/trek/command/next
@@ -470,9 +480,11 @@ Shaft Miner
 	name = "Shaft Miner (Asteroid)"
 	uniform = /obj/item/clothing/under/rank/miner
 	shoes = /obj/item/clothing/shoes/workboots
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/miner/equipped
 	name = "Shaft Miner (Lavaland + Equipment)"
+	neck = /obj/item/clothing/neck/combadge
 	suit = /obj/item/clothing/suit/hooded/explorer
 	mask = /obj/item/clothing/mask/gas/explorer
 	glasses = /obj/item/clothing/glasses/meson
@@ -496,6 +508,7 @@ Shaft Miner
 		S.ToggleHood()
 
 /datum/outfit/job/miner/equipped/asteroid
+	neck = /obj/item/clothing/neck/combadge
 	name = "Shaft Miner (Asteroid + Equipment)"
 	uniform = /obj/item/clothing/under/rank/miner
 	shoes = /obj/item/clothing/shoes/workboots
@@ -535,6 +548,7 @@ Bartender
 	suit = /obj/item/clothing/suit/armor/vest
 	backpack_contents = list(/obj/item/storage/box/beanbag=1)
 	shoes = /obj/item/clothing/shoes/laceup
+	neck = /obj/item/clothing/neck/combadge
 
 /*
 Cook
@@ -565,6 +579,7 @@ Cook
 	uniform = /obj/item/clothing/under/trek/grey
 	suit = /obj/item/clothing/suit/toggle/chef
 	head = /obj/item/clothing/head/chefhat
+
 	backpack_contents = list(/obj/item/sharpener = 1)
 
 /datum/outfit/job/cook/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -612,6 +627,7 @@ Botanist
 	jobtype = /datum/job/hydro
 
 	belt = /obj/item/device/pda/botanist
+	neck = /obj/item/clothing/neck/combadge
 	ears = /obj/item/device/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/trek/medsci/next
 	suit = /obj/item/clothing/suit/apron
@@ -650,6 +666,7 @@ Janitor
 	ears = /obj/item/device/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/trek/grey
 	backpack_contents = list(/obj/item/device/modular_computer/tablet/preset/advanced=1,/obj/item/device/tricorder)
+	neck = /obj/item/clothing/neck/combadge
 
 
 //Due to how large this one is it gets its own file
@@ -748,6 +765,7 @@ Chaplain
 	accessory = /obj/item/clothing/accessory/pocketprotector/cosmetology
 	backpack = /obj/item/storage/backpack/cultpack
 	satchel = /obj/item/storage/backpack/cultpack
+	neck = /obj/item/clothing/neck/combadge
 
 /*
 Chief Engineer
@@ -799,6 +817,7 @@ Chief Engineer
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
 	pda_slot = slot_l_store
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/ce/rig
 	name = "Chief Engineer (Hardsuit)"
@@ -810,6 +829,7 @@ Chief Engineer
 	gloves = /obj/item/clothing/gloves/color/yellow
 	head = null
 	internals_slot = slot_s_store
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/ce/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -856,6 +876,7 @@ Station Engineer
 	box = /obj/item/storage/box/engineer
 	pda_slot = slot_l_store
 	backpack_contents = list(/obj/item/device/modular_computer/tablet/preset/advanced=1)
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/engineer/gloved
 	name = "Station Engineer (Gloves)"
@@ -914,6 +935,7 @@ Atmospheric Technician
 	box = /obj/item/storage/box/engineer
 	pda_slot = slot_l_store
 	backpack_contents = list(/obj/item/device/modular_computer/tablet/preset/advanced=1)
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/atmos/rig
 	name = "Atmospheric Technician (Hardsuit)"
@@ -973,6 +995,7 @@ Chief Medical Officer
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
+	neck = /obj/item/clothing/neck/combadge
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 /datum/outfit/job/cmo/pre_equip(mob/living/carbon/human/H)
@@ -1014,6 +1037,7 @@ Medical Doctor
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/doctor/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -1053,6 +1077,7 @@ Chemist
 	backpack = /obj/item/storage/backpack/chemistry
 	satchel = /obj/item/storage/backpack/satchel/chem
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/chemist/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -1092,6 +1117,7 @@ Geneticist
 	backpack = /obj/item/storage/backpack/genetics
 	satchel = /obj/item/storage/backpack/satchel/gen
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/geneticist/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -1133,6 +1159,7 @@ Virologist
 	backpack = /obj/item/storage/backpack/virology
 	satchel = /obj/item/storage/backpack/satchel/vir
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/virologist/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -1187,6 +1214,7 @@ Research Director
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
+	neck = /obj/item/clothing/neck/combadge
 
 /datum/outfit/job/rd/rig
 	name = "Research Director (Hardsuit)"
@@ -1231,6 +1259,7 @@ Scientist
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
+	neck = /obj/item/clothing/neck/combadge
 
 /*
 Roboticist
@@ -1265,6 +1294,7 @@ Roboticist
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
+	neck = /obj/item/clothing/neck/combadge
 
 	pda_slot = slot_l_store
 
@@ -1322,6 +1352,7 @@ Head of Security
 	suit_store = /obj/item/gun/energy/e_gun
 	r_pocket = /obj/item/device/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs
+	neck = /obj/item/clothing/neck/combadge
 	backpack_contents = list(/obj/item/melee/baton/loaded=1)
 
 	backpack = /obj/item/storage/backpack/security
@@ -1374,6 +1405,7 @@ Warden
 	l_pocket = /obj/item/restraints/handcuffs
 	suit_store = /obj/item/gun/energy/e_gun/advtaser
 	backpack_contents = list(/obj/item/melee/baton/loaded=1)
+	neck = /obj/item/clothing/neck/combadge
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
@@ -1417,6 +1449,7 @@ Detective
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/beret/sec
 	l_pocket = /obj/item/toy/crayon/white
+	neck = /obj/item/clothing/neck/combadge
 	r_pocket = /obj/item/lighter
 	backpack_contents = list(/obj/item/storage/box/evidence=1,\
 		/obj/item/device/detective_scanner=1,\
@@ -1564,7 +1597,7 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	box = /obj/item/storage/box/security
 
 	implants = list(/obj/item/implant/mindshield)
-
+	neck = /obj/item/clothing/neck/combadge
 
 /obj/item/device/radio/headset/headset_sec/alt/department/Initialize()
 	. = ..()
@@ -1627,6 +1660,7 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	satchel = /obj/item/storage/backpack/satchel/sec
 	duffelbag = /obj/item/storage/backpack/duffelbag/sec
 	box = /obj/item/storage/box/security
+	neck = /obj/item/clothing/neck/combadge
 
 	implants = list(/obj/item/implant/mindshield)
 

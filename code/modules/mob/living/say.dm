@@ -33,6 +33,9 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	"o" = "AI Private", // AI Upload channel
 	"x" = "cords",		// vocal cords, used by Voice of God
 
+	//Combadges
+	"k" = "combadge",
+
 
 	//kinda localization -- rastaf0
 	//same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
@@ -102,6 +105,12 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			client.dsay(message)
 		return
 
+	if(message_mode == "combadge")
+		for(var/obj/item/clothing/neck/combadge/c in contents)
+			var/obj/item/clothing/neck/combadge/thecombadge = c
+			message = treat_message(message)
+			thecombadge.send_message(message, src)
+
 	if(stat == DEAD)
 		say_dead(original_message)
 		return
@@ -134,7 +143,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	// Detection of language needs to be before inherent channels, because
 	// AIs use inherent channels for the holopad. Most inherent channels
 	// ignore the language argument however.
-  
+
 	var/datum/saymode/SM = SSradio.saymodes[talk_key]
 	if(SM && !SM.handle_message(src, message, language))
 		return

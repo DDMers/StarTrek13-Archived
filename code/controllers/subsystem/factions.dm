@@ -10,9 +10,11 @@ SUBSYSTEM_DEF(faction)
 	var/timing_jumpgates = FALSE //Jumpgate countdown begun?
 	var/mob/living/vips = list() //People involved in vip objectives
 	var/mob/living/lovers = list() //people involved in VIP objectives as the VIPs lover
+	var/datum/borg_hivemind/borg_hivemind
 
 
 /datum/controller/subsystem/faction/Initialize(timeofday)
+	borg_hivemind = new
 	if(!factions)
 		WARNING("No factions have been created!")
 	for(var/F in subtypesof(/datum/faction))
@@ -20,7 +22,6 @@ SUBSYSTEM_DEF(faction)
 		var/datum/faction/instance = new thefaction
 		factions += instance
 		message_admins("DEBUG: [instance] was created")
-		make_objectives()
 	. = ..()
 
 /datum/controller/subsystem/faction/fire()
@@ -32,11 +33,6 @@ SUBSYSTEM_DEF(faction)
 		return
 	else
 		WARNING("There are no factions in the game!")
-
-/datum/controller/subsystem/faction/proc/make_objectives()
-	for(var/datum/faction/F in factions)
-		F.objectives += new /datum/objective/faction/escort
-
 
 /datum/controller/subsystem/faction/proc/addToFaction(mob/living/M)
 	var/datum/faction/thefaction = M.client.prefs.player_faction
@@ -57,3 +53,5 @@ SUBSYSTEM_DEF(faction)
 /datum/controller/subsystem/faction/proc/allow_jumpgates()
 	priority_announce("For your attention: The jumpgate network has been unlocked, and you may now travel freely.", "Incoming Priority Message", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
 	jumpgates_forbidden = FALSE
+	flags |= SS_NO_FIRE //we no longer need to fire, and this may(?) prevent a bug
+	can_fire = FALSE

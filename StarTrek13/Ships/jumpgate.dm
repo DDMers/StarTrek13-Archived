@@ -1,6 +1,6 @@
 var/global/list/jumpgates = list()
-var/global/list/warp_beacons = list()
-#define DEFAULT_TIME 1400	//2 minute jump time.
+var/global/list/warp_beacons = list() //1400 is 2 mins. Only do that long for jumping halfway across the galaxy. Jeez
+#define DEFAULT_TIME 800	//1 minute jump time.
 #define MEDIUM_TIME 1800
 #define FAR_TIME 2600
 #define DEADSPACE_TIME 4000 //Looooooong way away
@@ -37,6 +37,8 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 /obj/structure/jumpgate/ShiftClick(mob/user)
 	if(!destination_locked && !being_used)
 		activate(user)
+	else
+		deactivate()
 
 /obj/structure/jumpgate/New()
 	. = ..()
@@ -82,6 +84,15 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 			to_chat(user, "ERROR: Jumpgate is already being programmed.")
 	else
 		to_chat(user, "Jumpgate is charging up!")
+
+
+/obj/structure/jumpgate/proc/deactivate()
+	target_gate = null
+	destination_locked = FALSE
+	density = FALSE
+	icon_state = initial(icon_state)
+	being_used = FALSE
+	return
 
 /obj/structure/jumpgate/CollidedWith(atom/movable/mover) //This isn't running for some reason?
 	find_hyperspace()
