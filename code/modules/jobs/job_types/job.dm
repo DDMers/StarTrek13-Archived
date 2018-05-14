@@ -19,6 +19,9 @@
 	//Players will be allowed to spawn in as jobs that are set to "Station"
 	var/faction = "None"
 
+	//What faction this job belongs to.
+	var/datum/faction/starting_faction = "independant"
+
 	//How many players can be this job
 	var/total_positions = 0
 

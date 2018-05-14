@@ -77,8 +77,10 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/player_requirement = 0 //Is this population locked?
 	var/pref_colour = "green" //Color that the background goes if this faction is selected in preferences
 	var/obj/effect/spawns = list()
+	var/faction_occupations = list()//List of occupations in this faction.
 	var/datum/objective/objectives = list()
 	var/credits = 0 //:( i'm just a poor boy from a poor family
+
 
 /datum/faction/independant	//a holder datum for sorting players
 	name = "independant"
@@ -98,7 +100,6 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	name = "nanotrasen"
 	description = "Nanotrasen, or more specifically, their main corporate arm. Their goal is to make money and maintain the colonies, no matter who opposes them."
 	flavourtext = "Nanotrasen is an oligarchy, but with merit you should be able to climb the ranks...up to a point."
-	pref_colour = "blue"
 
 /datum/faction/proc/num_players()
 	for(var/mob/P in GLOB.player_list)
@@ -106,6 +107,12 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 			. ++
 
 /datum/faction/New()
+
+	var/datum/job/job
+	for(job in SSjob.occupations)
+		if(job.starting_faction == name)
+			faction_occupations += job
+
 	var/players = num_players()
 	get_spawns()
 	if(player_requirement > players)

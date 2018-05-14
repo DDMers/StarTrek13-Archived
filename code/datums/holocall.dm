@@ -304,11 +304,11 @@
 	DELAY 20"}
 
 /datum/preset_holoimage/engineer
-	outfit_type = /datum/outfit/job/engineer/gloved/rig
+	outfit_type = /datum/outfit/job/ce
 
 /datum/preset_holoimage/gorilla
 	nonhuman_mobtype = /mob/living/simple_animal/hostile/gorilla
 
 /datum/preset_holoimage/clown
-	outfit_type = /datum/outfit/job/clown
+	outfit_type = /datum/outfit/job/nt/clown
 

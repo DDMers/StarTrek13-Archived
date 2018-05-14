@@ -1,29 +1,30 @@
+/datum/job/nt
+	starting_faction = "nanotrasen"
 /*
 Assistant
-
-/datum/job/crewman
-	title = "Crewman"
+*/
+/datum/job/nt/crewman
+	title = "Assistant"
 	flag = ASSISTANT
 	department_flag = CIVILIAN
 	faction = "Station"
-	starting_faction = "starfleet"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "all other crew members of higher rank."
 	selection_color = "#dddddd"
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
-	outfit = /datum/outfit/job/crewman
+	outfit = /datum/outfit/job/ind/crewman
 
 
-/datum/job/crewman/get_access()
+/datum/job/nt/crewman/get_access()
 	if(CONFIG_GET(flag/assistants_have_maint_access) || !CONFIG_GET(flag/jobs_have_minimal_access)) //Config has assistant maint access set
 		. = ..()
 		. |= list(ACCESS_MAINT_TUNNELS)
 	else
 		return ..()
 
-/datum/job/crewman/config_check()
+/datum/job/nt/crewman/config_check()
 	var/ac = CONFIG_GET(number/assistant_cap)
 	if(ac != 0)
 		total_positions = ac
@@ -32,64 +33,61 @@ Assistant
 	return 0
 
 
-/datum/outfit/job/crewman
-	name = "Crewman"
-	jobtype = /datum/job/crewman
+/datum/outfit/job/nt/crewman
+	name = "Assistant"
+	jobtype = /datum/job/nt/crewman
 
-/datum/outfit/job/crewman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/crewman/pre_equip(mob/living/carbon/human/H)
 	..()
 	if (CONFIG_GET(flag/grey_assistants))
-		uniform = /obj/item/clothing/under/trek/grey
+		uniform = /obj/item/clothing/under/color/grey
 	else
-		uniform = /obj/item/clothing/under/trek/grey
-
-*/
+		uniform = /obj/item/clothing/under/color/grey
 
 //ADD SPAWNS FOR THE NEW JOBS!
 /*
 Captain
-
-/datum/job/captain
-	title = "Captain"
+*/
+/datum/job/nt/captain
+	title = "Nanotrasen Captain"
 	flag = CAPTAIN
-	department_head = list("Federation Central Command")
+	department_head = list("Corporate Administration")
 	department_flag = ENGSEC
 	faction = "Station"
-	starting_faction = "starfleet"
 	total_positions = 3 //3 is a round number, change it with testing data.
 	spawn_positions = 3
-	supervisors = "Federation officials and Space law"
+	supervisors = "Corporate Administration and Space law"
 	selection_color = "#ccccff"
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 180
 	exp_type = EXP_TYPE_CREW		//There will be multiple captains in one round
 
-	outfit = /datum/outfit/job/captain
+	outfit = /datum/outfit/job/nt/captain
 
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 
-/datum/job/captain/get_access()
+/datum/job/nt/captain/get_access()
 	return get_all_accesses()
 
-/datum/job/captain/announce(mob/living/carbon/human/H)
+/datum/job/nt/captain/announce(mob/living/carbon/human/H)
 	..()
 //	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "Captain [H.real_name] on deck!"))
 
-/datum/outfit/job/captain
-	name = "Captain"
-	jobtype = /datum/job/captain
+/datum/outfit/job/nt/captain
+	name = "Nanotrasen Captain"
+	jobtype = /datum/job/nt/captain
 
 	id = /obj/item/card/id/gold
 	belt = /obj/item/device/pda/captain
-//	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/device/radio/headset/heads/captain/alt
-	gloves = /obj/item/clothing/gloves/color/black
-	uniform =  /obj/item/clothing/under/trek/command/next
-	suit = /obj/item/clothing/suit/armor/vest
+	gloves = /obj/item/clothing/gloves/color/captain
+	uniform =  /obj/item/clothing/under/captainparade
+	suit = /obj/item/clothing/suit/armor/vest/capcarapace/alt
 	shoes = /obj/item/clothing/shoes/jackboots
-//	head = /obj/item/clothing/head/caphat
+	head = /obj/item/clothing/head/caphat/parade
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/station_charter=1,/obj/item/device/modular_computer/tablet/preset/advanced)
 
 	backpack = /obj/item/storage/backpack/captain
@@ -99,51 +97,50 @@ Captain
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
 
-/datum/outfit/job/captain/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/captain/post_equip(mob/living/carbon/human/H)
 	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
 
-*/
-/datum/job/admiral
-	title = "Admiral"
+
+/datum/job/nt/admiral
+	title = "Centcom Fleet Admiral"
 	flag = ADMIRAL
-	department_head = list("the Federation")
+	department_head = list("the company")
 	department_flag = ENGSEC
 	faction = "Station"
-	starting_faction = "starfleet"
 	total_positions = 3 //3 is a round number, change it with testing data.
 	spawn_positions = 3
-	supervisors = "The Federation"
+	supervisors = "The company"
 	selection_color = "#B22222"
 	req_admin_notify = 1
 	minimal_player_age = 17
 	exp_requirements = 280
 	exp_type = EXP_TYPE_CREW		//There will be multiple captains in one round
 
-	outfit = /datum/outfit/job/admiral
+	outfit = /datum/outfit/job/nt/admiral
 
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 
-/datum/job/admiral/get_access()
+/datum/job/nt/admiral/get_access()
 	return get_all_accesses()
 
-/datum/job/admiral/announce(mob/living/carbon/human/H)
+/datum/job/nt/admiral/announce(mob/living/carbon/human/H)
 	..()
 //	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "Captain [H.real_name] on deck!"))
 
-/datum/outfit/job/admiral
-	name = "Admiral"
-	jobtype = /datum/job/admiral
+/datum/outfit/job/nt/admiral
+	name = "Centcom Fleet Admiral"
+	jobtype = /datum/job/nt/admiral
 
 	id = /obj/item/card/id/gold
 	belt = /obj/item/device/pda/captain
-//	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/device/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/black
-	uniform =  /obj/item/clothing/under/trek/command/next
+	uniform =  /obj/item/clothing/under/rank/centcom_officer
 	suit = /obj/item/clothing/suit/armor/vest
-	shoes = /obj/item/clothing/shoes/jackboots
-//	head = /obj/item/clothing/head/caphat
+	shoes = /obj/item/clothing/shoes/laceup
+	head = /obj/item/clothing/head/centhat
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/station_charter=1,/obj/item/device/modular_computer/tablet/preset/advanced)
 
 	backpack = /obj/item/storage/backpack/captain
@@ -154,19 +151,19 @@ Captain
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
 
 
-/datum/outfit/job/admiral/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/nt/admiral/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	if(visualsOnly)
 		return
-	var/datum/job/aide/L= SSjob.GetJobType(jobtype)
-	L.admirals++
-	L.total_positions = L.admirals //admirals require aides.
+//	var/datum/job/aide/L= SSjob.GetJobType(jobtype)
+//	L.admirals++
+//	L.total_positions = L.admirals //admirals require aides.
 	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
 /*
 Head of Personnel
 */
-/datum/job/firstofficer
-	title = "First Officer"
+/datum/job/nt/firstofficer
+	title = "Head of Personel"
 	flag = HOP
 	department_head = list("Captain")
 	department_flag = CIVILIAN
@@ -182,7 +179,7 @@ Head of Personnel
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_SUPPLY
 
-	outfit = /datum/outfit/job/firstofficer
+	outfit = /datum/outfit/job/nt/firstofficer
 
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_COURT, ACCESS_WEAPONS,
 			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
@@ -198,25 +195,25 @@ Head of Personnel
 			            ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM)
 
 
-/datum/outfit/job/firstofficer
-	name = "First officer"
-	jobtype = /datum/job/firstofficer
+/datum/outfit/job/nt/firstofficer
+	name = "Head of Personel"
+	jobtype = /datum/job/nt/firstofficer
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/device/pda/heads/hop
 	ears = /obj/item/device/radio/headset/heads/hop
-	uniform = /obj/item/clothing/under/trek/command/next
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/rank/head_of_personnel
+	shoes = /obj/item/clothing/shoes/laceup
 	backpack_contents = list(/obj/item/storage/box/ids=1,\
 		/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced = 1,/obj/item/device/tricorder)
 
-/datum/outfit/job/firstofficer/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/firstofficer/post_equip(mob/living/carbon/human/H)
 	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
 
 /*
 Clown
 */
-/datum/job/clown
+/datum/job/nt/clown
 	title = "Clown"
 	flag = CLOWN
 	department_head = list("Captain")
@@ -227,17 +224,17 @@ Clown
 	supervisors = "the captain"
 	selection_color = "#dddddd"
 
-	outfit = /datum/outfit/job/clown
+	outfit = /datum/outfit/job/nt/clown
 
 	access = list(ACCESS_THEATRE)
 	minimal_access = list(ACCESS_THEATRE)
 
-/datum/job/clown/after_spawn(mob/living/carbon/human/H, mob/M)
+/datum/job/nt/clown/after_spawn(mob/living/carbon/human/H, mob/M)
 	H.rename_self("clown", M.client)
 
-/datum/outfit/job/clown
+/datum/outfit/job/nt/clown
 	name = "Clown"
-	jobtype = /datum/job/clown
+	jobtype = /datum/job/nt/clown
 
 	belt = /obj/item/device/pda/clown
 	uniform = /obj/item/clothing/under/rank/clown
@@ -260,14 +257,14 @@ Clown
 	box = /obj/item/storage/box/hug/survival
 
 
-/datum/outfit/job/clown/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/nt/clown/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	if(visualsOnly)
 		return
 
 	H.fully_replace_character_name(H.real_name, pick(GLOB.clown_names))
 
-/datum/outfit/job/clown/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/nt/clown/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	if(visualsOnly)
 		return
@@ -278,7 +275,7 @@ Clown
 /*
 Mime
 */
-/datum/job/mime
+/datum/job/nt/mime
 	title = "Mime"
 	flag = MIME
 	department_head = list("Captain")
@@ -290,17 +287,17 @@ Mime
 	supervisors = "the captain"
 	selection_color = "#dddddd"
 
-	outfit = /datum/outfit/job/mime
+	outfit = /datum/outfit/job/nt/mime
 
 	access = list(ACCESS_THEATRE)
 	minimal_access = list(ACCESS_THEATRE)
 
-/datum/job/mime/after_spawn(mob/living/carbon/human/H, mob/M)
+/datum/job/nt/mime/after_spawn(mob/living/carbon/human/H, mob/M)
 	H.rename_self("mime", M.client)
 
 /datum/outfit/job/mime
 	name = "Mime"
-	jobtype = /datum/job/mime
+	jobtype = /datum/job/nt/mime
 
 	belt = /obj/item/device/pda/mime
 	uniform = /obj/item/clothing/under/rank/mime
@@ -315,7 +312,7 @@ Mime
 	satchel = /obj/item/storage/backpack/mime
 
 
-/datum/outfit/job/mime/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/nt/mime/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 
 	if(visualsOnly)
@@ -329,28 +326,28 @@ Mime
 /*
 Curator
 */
-/datum/job/curator
+/datum/job/nt/curator
 	title = "Curator"
 	flag = CURATOR
-	department_head = list("First Officer")
+	department_head = list("Head of Personel")
 	department_flag = CIVILIAN
 	faction = "Station" //change to federation later :tm:
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the first officer"
+	supervisors = "the HoP"
 	selection_color = "#dddddd"
 
-	outfit = /datum/outfit/job/curator
+	outfit = /datum/outfit/job/nt/curator
 
 	access = list(ACCESS_LIBRARY)
 	minimal_access = list(ACCESS_LIBRARY, ACCESS_CONSTRUCTION,ACCESS_MINING_STATION)
 
-/datum/outfit/job/curator
+/datum/outfit/job/nt/curator
 	name = "Curator"
-	jobtype = /datum/job/curator
+	jobtype = /datum/job/nt/curator
 
 	belt = /obj/item/device/pda/curator
-	uniform = /obj/item/clothing/under/trek/grey
+	uniform = /obj/item/clothing/under/rank/curator
 	l_hand = /obj/item/storage/bag/books
 	r_pocket = /obj/item/key/displaycase
 	l_pocket = /obj/item/device/laser_pointer
@@ -362,7 +359,7 @@ Curator
 	)
 
 
-/datum/outfit/job/curator/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/nt/curator/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 
 	if(visualsOnly)
@@ -373,7 +370,7 @@ Curator
 /*
 Lawyer
 */
-/datum/job/aide  //aides / attaches for the admirals ((basically admiral's bitch)
+/datum/job/nt/aide  //aides / attaches for the admirals ((basically admiral's bitch)
 	title = "Aide"
 	flag = LAWYER
 	department_head = list("Admirals")
@@ -384,7 +381,7 @@ Lawyer
 	supervisors = "your assigned admiral"
 	selection_color = "#dddddd"
 	var/admirals = 0
-	outfit = /datum/outfit/job/aide
+	outfit = /datum/outfit/job/nt/aide
 
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_COURT, ACCESS_WEAPONS,
 			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
@@ -399,15 +396,15 @@ Lawyer
 			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
 			            ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM)
 
-/datum/outfit/job/aide
+/datum/outfit/job/nt/aide
 	name = "Aide"
-	jobtype = /datum/job/aide
+	jobtype = /datum/job/nt/aide
 
 	belt = /obj/item/device/pda/lawyer
 	ears = /obj/item/device/radio/headset/heads/hop
-	uniform = /obj/item/clothing/under/trek/command/next
-//	suit = /obj/item/clothing/suit/toggle/lawyer
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/lawyer/black
+	suit = /obj/item/clothing/suit/toggle/lawyer
+	shoes = /obj/item/clothing/shoes/laceup
 	l_hand = /obj/item/storage/briefcase/lawyer
 	l_pocket = /obj/item/device/laser_pointer
 	r_pocket = /obj/item/clothing/accessory/lawyers_badge
@@ -416,7 +413,7 @@ Lawyer
 
 //change this to count admirals
 
-/datum/outfit/job/aide/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/nt/aide/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	if(visualsOnly)
 		return
@@ -427,31 +424,31 @@ Lawyer
 /*
 Shaft Miner
 */
-/datum/job/mining
+/datum/job/nt/mining
 	title = "Shaft Miner"
 	flag = MINER
-	department_head = list("First officer")
+	department_head = list("Head of Personel")
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the first officer"
+	supervisors = "the HoP"
 	selection_color = "#dcba97"
 
-	outfit = /datum/outfit/job/miner
+	outfit = /datum/outfit/job/nt/miner
 
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING, ACCESS_MINERAL_STOREROOM)
 
-/datum/outfit/job/miner
+/datum/outfit/job/nt/miner
 	name = "Shaft Miner (Lavaland)"
-	jobtype = /datum/job/mining
+	jobtype = /datum/job/nt/mining
 
 	belt = /obj/item/device/pda/shaftminer
 	ears = /obj/item/device/radio/headset/headset_cargo/mining
 	shoes = /obj/item/clothing/shoes/workboots/mining
 	gloves = /obj/item/clothing/gloves/color/black
-	uniform = /obj/item/clothing/under/trek/grey
+	uniform = /obj/item/clothing/under/rank/miner
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival
 	r_pocket = /obj/item/device/flashlight/seclite
 	backpack_contents = list(
@@ -466,12 +463,11 @@ Shaft Miner
 	duffelbag = /obj/item/storage/backpack/duffelbag
 	box = /obj/item/storage/box/survival_mining
 
-/datum/outfit/job/miner/asteroid
+/datum/outfit/job/nt/miner/asteroid
 	name = "Shaft Miner (Asteroid)"
-	uniform = /obj/item/clothing/under/rank/miner
 	shoes = /obj/item/clothing/shoes/workboots
 
-/datum/outfit/job/miner/equipped
+/datum/outfit/job/nt/miner/equipped
 	name = "Shaft Miner (Lavaland + Equipment)"
 	suit = /obj/item/clothing/suit/hooded/explorer
 	mask = /obj/item/clothing/mask/gas/explorer
@@ -487,7 +483,7 @@ Shaft Miner
 		/obj/item/device/tricorder=1,\
 		/obj/item/stack/marker_beacon/ten=1)
 
-/datum/outfit/job/miner/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/nt/miner/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	if(visualsOnly)
 		return
@@ -495,7 +491,7 @@ Shaft Miner
 		var/obj/item/clothing/suit/hooded/S = H.wear_suit
 		S.ToggleHood()
 
-/datum/outfit/job/miner/equipped/asteroid
+/datum/outfit/job/nt/miner/equipped/asteroid
 	name = "Shaft Miner (Asteroid + Equipment)"
 	uniform = /obj/item/clothing/under/rank/miner
 	shoes = /obj/item/clothing/shoes/workboots
@@ -507,26 +503,26 @@ Shaft Miner
 /*
 Bartender
 */
-/datum/job/bartender
-	title = "Bartender"
+/datum/job/nt/bartender
+	title = "Barkeeper"
 	flag = BARTENDER
-	department_head = list("First officer")
+	department_head = list("Head of Personel")
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the first officer"
+	supervisors = "the HoP"
 	selection_color = "#bbe291"
 
-	outfit = /datum/outfit/job/bartender
+	outfit = /datum/outfit/job/nt/bartender
 
 	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE, ACCESS_WEAPONS)
 	minimal_access = list(ACCESS_BAR)
 
 
-/datum/outfit/job/bartender
-	name = "Bartender"
-	jobtype = /datum/job/bartender
+/datum/outfit/job/nt/bartender
+	name = "Barkeeper"
+	jobtype = /datum/job/nt/bartender
 
 	glasses = /obj/item/clothing/glasses/sunglasses/reagent
 	belt = /obj/item/device/pda/bar
@@ -539,7 +535,7 @@ Bartender
 /*
 Cook
 */
-/datum/job/cook
+/datum/job/nt/cook
 	title = "Cook"
 	flag = COOK
 	department_head = list("Head of Personnel")
@@ -547,29 +543,29 @@ Cook
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the HoP"
 	selection_color = "#bbe291"
 	var/cooks = 0 //Counts cooks amount
 
-	outfit = /datum/outfit/job/cook
+	outfit = /datum/outfit/job/nt/cook
 
 	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE)
 	minimal_access = list(ACCESS_KITCHEN, ACCESS_MORGUE)
 
-/datum/outfit/job/cook
+/datum/outfit/job/nt/cook
 	name = "Cook"
 	jobtype = /datum/job/cook
 
 	belt = /obj/item/device/pda/cook
 	ears = /obj/item/device/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/trek/grey
+	uniform = /obj/item/clothing/under/rank/chef
 	suit = /obj/item/clothing/suit/toggle/chef
 	head = /obj/item/clothing/head/chefhat
 	backpack_contents = list(/obj/item/sharpener = 1)
 
-/datum/outfit/job/cook/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/nt/cook/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
-	var/datum/job/cook/J = SSjob.GetJobType(jobtype)
+	var/datum/job/nt/cook/J = SSjob.GetJobType(jobtype)
 	if(J) // Fix for runtime caused by invalid job being passed
 		if(J.cooks>0)//Cooks
 			suit = /obj/item/clothing/suit/apron/chef
@@ -577,7 +573,7 @@ Cook
 		if(!visualsOnly)
 			J.cooks++
 
-/datum/outfit/job/cook/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/nt/cook/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
     ..()
     var/list/possible_boxes = subtypesof(/obj/item/storage/box/ingredients)
     var/chosen_box = pick(possible_boxes)
@@ -587,7 +583,7 @@ Cook
 /*
 Botanist
 */
-/datum/job/hydro
+/datum/job/nt/hydro
 	title = "Botanist"
 	flag = BOTANIST
 	department_head = list("Head of Personnel")
@@ -595,10 +591,10 @@ Botanist
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
-	supervisors = "the head of personnel"
+	supervisors = "the HoP"
 	selection_color = "#bbe291"
 
-	outfit = /datum/outfit/job/botanist
+	outfit = /datum/outfit/job/nt/botanist
 
 	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE)
 	minimal_access = list(ACCESS_HYDROPONICS, ACCESS_MORGUE)
@@ -607,13 +603,13 @@ Botanist
 	// Given Morgue access because they have a viable means of cloning.
 
 
-/datum/outfit/job/botanist
+/datum/outfit/job/nt/botanist
 	name = "Botanist"
-	jobtype = /datum/job/hydro
+	jobtype = /datum/job/nt/hydro
 
 	belt = /obj/item/device/pda/botanist
 	ears = /obj/item/device/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/trek/medsci/next
+	uniform = /obj/item/clothing/under/rank/hydroponics
 	suit = /obj/item/clothing/suit/apron
 	gloves  =/obj/item/clothing/gloves/botanic_leather
 	suit_store = /obj/item/device/plant_analyzer
@@ -625,7 +621,7 @@ Botanist
 /*
 Janitor
 */
-/datum/job/janitor
+/datum/job/nt/janitor
 	title = "Janitor"
 	flag = JANITOR
 	department_head = list("Head of Personnel")
@@ -633,22 +629,22 @@ Janitor
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the HoP"
 	selection_color = "#bbe291"
 	var/global/janitors = 0
 
-	outfit = /datum/outfit/job/janitor
+	outfit = /datum/outfit/job/nt/janitor
 
 	access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS)
 
-/datum/outfit/job/janitor
+/datum/outfit/job/nt/janitor
 	name = "Janitor"
-	jobtype = /datum/job/janitor
+	jobtype = /datum/job/nt/janitor
 
 	belt = /obj/item/device/pda/janitor
 	ears = /obj/item/device/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/trek/grey
+	uniform = /obj/item/clothing/under/rank/janitor
 	backpack_contents = list(/obj/item/device/modular_computer/tablet/preset/advanced=1,/obj/item/device/tricorder)
 
 
@@ -656,7 +652,7 @@ Janitor
 /*
 Chaplain
 */
-/datum/job/chaplain
+/datum/job/nt/chaplain
 	title = "Chaplain"
 	flag = CHAPLAIN
 	department_head = list("Head of Personnel")
@@ -664,15 +660,15 @@ Chaplain
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the HoP"
 	selection_color = "#dddddd"
 
-	outfit = /datum/outfit/job/chaplain
+	outfit = /datum/outfit/job/nt/chaplain
 
 	access = list(ACCESS_MORGUE, ACCESS_CHAPEL_OFFICE, ACCESS_CREMATORIUM, ACCESS_THEATRE)
 	minimal_access = list(ACCESS_MORGUE, ACCESS_CHAPEL_OFFICE, ACCESS_CREMATORIUM, ACCESS_THEATRE)
 
-/datum/job/chaplain/after_spawn(mob/living/H, mob/M)
+/datum/job/nt/chaplain/after_spawn(mob/living/H, mob/M)
 	if(H.mind)
 		H.mind.isholy = TRUE
 
@@ -738,12 +734,12 @@ Chaplain
 	SSblackbox.record_feedback("text", "religion_deity", 1, "[new_deity]", 1)
 
 
-/datum/outfit/job/chaplain
+/datum/outfit/job/nt/chaplain
 	name = "Chaplain"
-	jobtype = /datum/job/chaplain
+	jobtype = /datum/job/nt/chaplain
 
 	belt = /obj/item/device/pda/chaplain
-	uniform = /obj/item/clothing/under/trek/grey
+	uniform = /obj/item/clothing/under/color/black
 	backpack_contents = list(/obj/item/device/camera/spooky = 1)
 	accessory = /obj/item/clothing/accessory/pocketprotector/cosmetology
 	backpack = /obj/item/storage/backpack/cultpack
@@ -752,7 +748,7 @@ Chaplain
 /*
 Chief Engineer
 */
-/datum/job/chief_engineer
+/datum/job/nt/chief_engineer
 	title = "Chief Engineer"
 	flag = CHIEF
 	department_head = list("Captain")
@@ -769,7 +765,7 @@ Chief Engineer
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_ENGINEERING
 
-	outfit = /datum/outfit/job/ce
+	outfit = /datum/outfit/job/nt/ce
 
 	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
 			            ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS, ACCESS_EMERGENCY_STORAGE, ACCESS_EVA,
@@ -780,16 +776,16 @@ Chief Engineer
 			            ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_MINISAT,
 			            ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM)
 
-/datum/outfit/job/ce
+/datum/outfit/job/nt/ce
 	name = "Chief Engineer"
-	jobtype = /datum/job/chief_engineer
+	jobtype = /datum/job/nt/chief_engineer
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility/chief/full
 	l_pocket = /obj/item/device/pda/heads/ce
 	ears = /obj/item/device/radio/headset/heads/ce
-	uniform = /obj/item/clothing/under/trek/engsec/next
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/rank/chief_engineer
+	shoes = /obj/item/clothing/shoes/workboots
 	gloves = /obj/item/clothing/gloves/color/black/ce
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced=1,/obj/item/device/tricorder)
@@ -800,7 +796,7 @@ Chief Engineer
 	box = /obj/item/storage/box/engineer
 	pda_slot = slot_l_store
 
-/datum/outfit/job/ce/rig
+/datum/outfit/job/nt/ce/rig
 	name = "Chief Engineer (Hardsuit)"
 
 	mask = /obj/item/clothing/mask/breath
@@ -811,15 +807,15 @@ Chief Engineer
 	head = null
 	internals_slot = slot_s_store
 
-/datum/outfit/job/ce/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/ce/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.add_skills(..(), ..(), ..(), rand(60, 90), 25)
 
 /*
 Station Engineer
 */
-/datum/job/engineer
-	title = "Station Engineer"
+/datum/job/nt/engineer
+	title = "Ship Engineer"
 	flag = ENGINEER
 	department_head = list("Chief Engineer")
 	department_flag = ENGSEC
@@ -831,22 +827,22 @@ Station Engineer
 	exp_requirements = 60
 	exp_type = EXP_TYPE_CREW
 
-	outfit = /datum/outfit/job/engineer
+	outfit = /datum/outfit/job/nt/engineer
 
 	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
 									ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_TCOMSAT)
 	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
 									ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_TCOMSAT)
 
-/datum/outfit/job/engineer
-	name = "Station Engineer"
-	jobtype = /datum/job/engineer
+/datum/outfit/job/nt/engineer
+	name = "Ship Engineer"
+	jobtype = /datum/job/nt/engineer
 
 	belt = /obj/item/storage/belt/utility/full/engi
 	l_pocket = /obj/item/device/pda/engineering
 	ears = /obj/item/device/radio/headset/headset_eng
-	uniform = /obj/item/clothing/under/trek/engsec/next
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/rank/engineer
+	shoes = /obj/item/clothing/shoes/workboots
 	r_pocket = /obj/item/device/tricorder
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 
@@ -857,12 +853,12 @@ Station Engineer
 	pda_slot = slot_l_store
 	backpack_contents = list(/obj/item/device/modular_computer/tablet/preset/advanced=1)
 
-/datum/outfit/job/engineer/gloved
-	name = "Station Engineer (Gloves)"
+/datum/outfit/job/nt/engineer/gloved
+	name = "Ship Engineer (Gloves)"
 	gloves = /obj/item/clothing/gloves/color/yellow
 
-/datum/outfit/job/engineer/gloved/rig
-	name = "Station Engineer (Hardsuit)"
+/datum/outfit/job/nt/engineer/gloved/rig
+	name = "Ship Engineer (Hardsuit)"
 
 	mask = /obj/item/clothing/mask/breath
 	suit = /obj/item/clothing/suit/space/hardsuit/engine
@@ -870,7 +866,7 @@ Station Engineer
 	head = null
 	internals_slot = slot_s_store
 
-/datum/outfit/job/engineer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/engineer/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.add_skills(engineering = rand(45, 70))
 
@@ -878,7 +874,7 @@ Station Engineer
 /*
 Atmospheric Technician
 */
-/datum/job/atmos
+/datum/job/nt/atmos
 	title = "Atmospheric Technician"
 	flag = ATMOSTECH
 	department_head = list("Chief Engineer")
@@ -891,20 +887,22 @@ Atmospheric Technician
 	exp_requirements = 60
 	exp_type = EXP_TYPE_CREW
 
-	outfit = /datum/outfit/job/atmos
+	outfit = /datum/outfit/job/nt/atmos
 
 	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
 									ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS)
 	minimal_access = list(ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS, ACCESS_EMERGENCY_STORAGE, ACCESS_CONSTRUCTION)
 
-/datum/outfit/job/atmos
+/datum/outfit/job/nt/atmos
 	name = "Atmospheric Technician"
 	jobtype = /datum/job/atmos
 
+	shoes = /obj/item/clothing/shoes/workboots
 	belt = /obj/item/storage/belt/utility/atmostech
 	l_pocket = /obj/item/device/pda/atmos
 	ears = /obj/item/device/radio/headset/headset_eng
-	uniform = /obj/item/clothing/under/trek/engsec/next
+	uniform = /obj/item/clothing/under/rank/atmospheric_technician
+	suit = /obj/item/clothing/suit/hazardvest
 	r_pocket = /obj/item/device/tricorder
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 
@@ -915,7 +913,7 @@ Atmospheric Technician
 	pda_slot = slot_l_store
 	backpack_contents = list(/obj/item/device/modular_computer/tablet/preset/advanced=1)
 
-/datum/outfit/job/atmos/rig
+/datum/outfit/job/nt/atmos/rig
 	name = "Atmospheric Technician (Hardsuit)"
 
 	mask = /obj/item/clothing/mask/gas
@@ -923,14 +921,14 @@ Atmospheric Technician
 	suit_store = /obj/item/tank/internals/oxygen
 	internals_slot = slot_s_store
 
-/datum/outfit/job/atmos/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/atmos/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.add_skills(engineering = rand(45, 70))
 
 /*
 Chief Medical Officer
 */
-/datum/job/cmo
+/datum/job/nt/cmo
 	title = "Chief Medical Officer"
 	flag = CMO_JF
 	department_head = list("Captain")
@@ -947,7 +945,7 @@ Chief Medical Officer
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_MEDICAL
 
-	outfit = /datum/outfit/job/cmo
+	outfit = /datum/outfit/job/nt/cmo
 
 	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_CLONING, ACCESS_HEADS, ACCESS_MINERAL_STOREROOM,
 			ACCESS_CHEMISTRY, ACCESS_VIROLOGY, ACCESS_CMO, ACCESS_SURGERY, ACCESS_RC_ANNOUNCE,
@@ -956,16 +954,16 @@ Chief Medical Officer
 			ACCESS_CHEMISTRY, ACCESS_VIROLOGY, ACCESS_CMO, ACCESS_SURGERY, ACCESS_RC_ANNOUNCE,
 			ACCESS_KEYCARD_AUTH, ACCESS_SEC_DOORS, ACCESS_MAINT_TUNNELS)
 
-/datum/outfit/job/cmo
+/datum/outfit/job/nt/cmo
 	name = "Chief Medical Officer"
-	jobtype = /datum/job/cmo
+	jobtype = /datum/job/nt/cmo
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/device/pda/heads/cmo
 	l_pocket = /obj/item/pinpointer/crew
 	ears = /obj/item/device/radio/headset/heads/cmo
-	uniform = /obj/item/clothing/under/trek/medsci/next
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/rank/chief_medical_officer
+	shoes = /obj/item/clothing/shoes/laceup
 	suit = /obj/item/clothing/suit/toggle/labcoat/cmo
 	l_hand = /obj/item/storage/firstaid/regular
 	suit_store = /obj/item/device/flashlight/pen
@@ -975,7 +973,7 @@ Chief Medical Officer
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
-/datum/outfit/job/cmo/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/cmo/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.add_skills(rand(10, 25), rand(10, 25), rand(60, 80), rand(10, 25), rand(25, 45))
 //NOTICE: ALL SCIENCE RElATED JOBS/RESEARCH WILL WORK ON STARBASES, ONLY MEDICAL DOCTORS ETC. WILL WORK ON THE SHIPS.
@@ -984,7 +982,7 @@ Chief Medical Officer
 /*
 Medical Doctor
 */
-/datum/job/doctor
+/datum/job/nt/doctor
 	title = "Medical Doctor"
 	flag = DOCTOR
 	department_head = list("Chief Medical Officer")
@@ -995,19 +993,19 @@ Medical Doctor
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
 
-	outfit = /datum/outfit/job/doctor
+	outfit = /datum/outfit/job/nt/doctor
 
 	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_CHEMISTRY, ACCESS_GENETICS, ACCESS_CLONING, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_CLONING)
 
-/datum/outfit/job/doctor
+/datum/outfit/job/nt/doctor
 	name = "Medical Doctor"
-	jobtype = /datum/job/doctor
+	jobtype = /datum/job/nt/doctor
 
 	belt = /obj/item/device/pda/medical
 	ears = /obj/item/device/radio/headset/headset_med
-	uniform = /obj/item/clothing/under/trek/medsci/next
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/rank/medical
+	shoes = /obj/item/clothing/shoes/sneakers/white
 	l_hand = /obj/item/storage/firstaid/regular
 	suit_store = /obj/item/device/flashlight/pen
 
@@ -1015,19 +1013,19 @@ Medical Doctor
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
-/datum/outfit/job/doctor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/doctor/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(10, 25))
 
 /*
-Chemist
+Chemist ?To be merged with medical doctor?
 */
-/datum/job/chemist
+/datum/job/nt/chemist
 	title = "Chemist"
 	flag = CHEMIST
 	department_head = list("Chief Medical Officer")
 	department_flag = MEDSCI
-	faction = "Station"
+//	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
@@ -1035,38 +1033,41 @@ Chemist
 	exp_type = EXP_TYPE_CREW
 	exp_requirements = 60
 
-	outfit = /datum/outfit/job/chemist
+	outfit = /datum/outfit/job/nt/chemist
 
 	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_CHEMISTRY, ACCESS_GENETICS, ACCESS_CLONING, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_CHEMISTRY, ACCESS_MINERAL_STOREROOM)
 
-/datum/outfit/job/chemist
+/datum/outfit/job/nt/chemist
 	name = "Chemist"
-	jobtype = /datum/job/chemist
+	jobtype = /datum/job/nt/chemist
 
 	glasses = /obj/item/clothing/glasses/science
 	belt = /obj/item/device/pda/chemist
 	ears = /obj/item/device/radio/headset/headset_med
-	uniform = /obj/item/clothing/under/trek/medsci/next
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/rank/chemist
+	suit = /obj/item/clothing/suit/toggle/labcoat/chemist
+	shoes = /obj/item/clothing/shoes/sneakers/white
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
+
 	backpack = /obj/item/storage/backpack/chemistry
 	satchel = /obj/item/storage/backpack/satchel/chem
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
-/datum/outfit/job/chemist/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/chemist/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(25, 45), rand(10, 25))
 
-/*
+./*
 Geneticist
 */
-/datum/job/geneticist
+//?Being given to research staff?
+/datum/job/nt/geneticist
 	title = "Geneticist"
 	flag = GENETICIST
 	department_head = list("Chief Medical Officer", "Research Director")
 	department_flag = MEDSCI
-	faction = "Station"
+//	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer and research director"
@@ -1074,38 +1075,40 @@ Geneticist
 	exp_type = EXP_TYPE_CREW
 	exp_requirements = 60
 
-	outfit = /datum/outfit/job/geneticist
+	outfit = /datum/outfit/job/nt/geneticist
 
 	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_CHEMISTRY, ACCESS_GENETICS, ACCESS_CLONING, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_ROBOTICS, ACCESS_MINERAL_STOREROOM, ACCESS_TECH_STORAGE)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_CLONING, ACCESS_RESEARCH)
 
-/datum/outfit/job/geneticist
+/datum/outfit/job/nt/geneticist
 	name = "Geneticist"
-	jobtype = /datum/job/geneticist
+	jobtype = /datum/job/nt/geneticist
 
 	belt = /obj/item/device/pda/geneticist
 	ears = /obj/item/device/radio/headset/headset_medsci
-	uniform = /obj/item/clothing/under/trek/medsci/next
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/rank/geneticist
+	suit = /obj/item/clothing/suit/toggle/labcoat/genetics
+	shoes = /obj/item/clothing/shoes/sneakers/white
 	suit_store =  /obj/item/device/flashlight/pen
 
 	backpack = /obj/item/storage/backpack/genetics
 	satchel = /obj/item/storage/backpack/satchel/gen
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
-/datum/outfit/job/geneticist/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/geneticist/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(25, 45), rand(10, 25))
 
 /*
 Virologist
 */
-/datum/job/virologist
+//?Being given to research staff?
+/datum/job/nt/virologist
 	title = "Virologist"
 	flag = VIROLOGIST
 	department_head = list("Chief Medical Officer")
 	department_flag = MEDSCI
-	faction = "Station"
+//	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the chief medical officer"
@@ -1113,20 +1116,20 @@ Virologist
 	exp_type = EXP_TYPE_CREW
 	exp_requirements = 60
 
-	outfit = /datum/outfit/job/virologist
+	outfit = /datum/outfit/job/nt/virologist
 
 	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_CHEMISTRY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_CLONING, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_VIROLOGY, ACCESS_MINERAL_STOREROOM)
 
-/datum/outfit/job/virologist
+/datum/outfit/job/nt/virologist
 	name = "Virologist"
-	jobtype = /datum/job/virologist
+	jobtype = /datum/job/nt/virologist
 
 	belt = /obj/item/device/pda/viro
 	ears = /obj/item/device/radio/headset/headset_med
-	uniform = /obj/item/clothing/under/trek/medsci/next
+	uniform = /obj/item/clothing/under/rank/virologist
 	mask = /obj/item/clothing/mask/surgical
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/sneakers/white
 	suit =  /obj/item/clothing/suit/toggle/labcoat/virologist
 	suit_store =  /obj/item/device/flashlight/pen
 
@@ -1134,14 +1137,14 @@ Virologist
 	satchel = /obj/item/storage/backpack/satchel/vir
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
-/datum/outfit/job/virologist/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/virologist/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(10, 25))
 
 /*
 Research Director
 */
-/datum/job/rd
+/datum/job/nt/rd
 	title = "Research Director"
 	flag = RD_JF
 	department_head = list("Captain")
@@ -1158,7 +1161,7 @@ Research Director
 	exp_requirements = 180
 	exp_type = EXP_TYPE_CREW
 
-	outfit = /datum/outfit/job/rd
+	outfit = /datum/outfit/job/nt/rd
 
 	access = list(ACCESS_RD, ACCESS_HEADS, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE,
 			            ACCESS_TOX_STORAGE, ACCESS_TELEPORTER, ACCESS_SEC_DOORS,
@@ -1171,15 +1174,15 @@ Research Director
 			            ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM,
 			            ACCESS_TECH_STORAGE, ACCESS_MINISAT, ACCESS_MAINT_TUNNELS, ACCESS_NETWORK)
 
-/datum/outfit/job/rd
+/datum/outfit/job/nt/rd
 	name = "Research Director"
-	jobtype = /datum/job/rd
+	jobtype = /datum/job/nt/rd
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/device/pda/heads/rd
 	ears = /obj/item/device/radio/headset/heads/rd
-	uniform = /obj/item/clothing/under/trek/medsci/next
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/rank/research_director
+	shoes = /obj/item/clothing/shoes/laceup
 	l_hand = /obj/item/clipboard
 	l_pocket = /obj/item/device/laser_pointer
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
@@ -1188,7 +1191,7 @@ Research Director
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
 
-/datum/outfit/job/rd/rig
+/datum/outfit/job/nt/rd/rig
 	name = "Research Director (Hardsuit)"
 
 	l_hand = null
@@ -1200,7 +1203,7 @@ Research Director
 /*
 Scientist
 */
-/datum/job/scientist
+/datum/job/nt/scientist
 	title = "Scientist"
 	flag = SCIENTIST
 	department_head = list("Research Director")
@@ -1213,19 +1216,19 @@ Scientist
 	exp_requirements = 60
 	exp_type = EXP_TYPE_CREW
 
-	outfit = /datum/outfit/job/scientist
+	outfit = /datum/outfit/job/nt/scientist
 
 	access = list(ACCESS_ROBOTICS, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_MINERAL_STOREROOM, ACCESS_TECH_STORAGE, ACCESS_GENETICS)
 	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_MINERAL_STOREROOM)
 
-/datum/outfit/job/scientist
+/datum/outfit/job/nt/scientist
 	name = "Scientist"
-	jobtype = /datum/job/scientist
+	jobtype = /datum/job/nt/scientist
 
 	belt = /obj/item/device/pda/toxins
 	ears = /obj/item/device/radio/headset/headset_sci
-	uniform = /obj/item/clothing/under/trek/medsci/next
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/rank/scientist
+	shoes = /obj/item/clothing/shoes/sneakers/white
 	suit = /obj/item/clothing/suit/toggle/labcoat/science
 
 	backpack = /obj/item/storage/backpack/science
@@ -1235,7 +1238,7 @@ Scientist
 /*
 Roboticist
 */
-/datum/job/roboticist
+/datum/job/nt/roboticist
 	title = "Roboticist"
 	flag = ROBOTICIST
 	department_head = list("Research Director")
@@ -1248,19 +1251,19 @@ Roboticist
 	exp_requirements = 60
 	exp_type = EXP_TYPE_CREW
 
-	outfit = /datum/outfit/job/roboticist
+	outfit = /datum/outfit/job/nt/roboticist
 
 	access = list(ACCESS_ROBOTICS, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_TECH_STORAGE, ACCESS_MORGUE, ACCESS_RESEARCH, ACCESS_MINERAL_STOREROOM, ACCESS_XENOBIOLOGY, ACCESS_GENETICS)
 	minimal_access = list(ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MORGUE, ACCESS_RESEARCH, ACCESS_MINERAL_STOREROOM)
 
-/datum/outfit/job/roboticist
+/datum/outfit/job/nt/roboticist
 	name = "Roboticist"
-	jobtype = /datum/job/roboticist
+	jobtype = /datum/job/nt/roboticist
 
 	belt = /obj/item/storage/belt/utility/full
 	l_pocket = /obj/item/device/pda/roboticist
 	ears = /obj/item/device/radio/headset/headset_sci
-	uniform = /obj/item/clothing/under/trek/medsci/next
+	uniform = /obj/item/clothing/under/rank/roboticist
 	suit = /obj/item/clothing/suit/toggle/labcoat
 
 	backpack = /obj/item/storage/backpack/science
@@ -1270,7 +1273,7 @@ Roboticist
 
 
 //Warden and regular officers add this result to their get_access()
-/datum/job/proc/check_config_for_sec_maint()
+/datum/job/nt/proc/check_config_for_sec_maint()
 	if(CONFIG_GET(flag/security_has_maint_access))
 		return list(ACCESS_MAINT_TUNNELS)
 	return list()
@@ -1278,7 +1281,7 @@ Roboticist
 /*
 Head of Security
 */
-/datum/job/hos
+/datum/job/nt/hos
 	title = "Head of Security"
 	flag = HOS
 	department_head = list("Captain")
@@ -1295,7 +1298,7 @@ Head of Security
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_SECURITY
 
-	outfit = /datum/outfit/job/hos
+	outfit = /datum/outfit/job/nt/hos
 
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_COURT, ACCESS_WEAPONS,
 			            ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_ALL_PERSONAL_LOCKERS,
@@ -1306,14 +1309,14 @@ Head of Security
 			            ACCESS_RESEARCH, ACCESS_ENGINE, ACCESS_MINING, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING,
 			            ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MAINT_TUNNELS)
 
-/datum/outfit/job/hos
+/datum/outfit/job/nt/hos
 	name = "Head of Security"
-	jobtype = /datum/job/hos
+	jobtype = /datum/job/nt/hos
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/device/pda/heads/hos
 	ears = /obj/item/device/radio/headset/heads/hos/alt
-	uniform = /obj/item/clothing/under/trek/engsec/next
+	uniform = /obj/item/clothing/under/rank/head_of_security
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/hos/trenchcoat
 	gloves = /obj/item/clothing/gloves/color/black/hos
@@ -1334,7 +1337,7 @@ Head of Security
 /*
 Warden
 */
-/datum/job/warden
+/datum/job/nt/warden
 	title = "Warden"
 	flag = WARDEN
 	department_head = list("Head of Security")
@@ -1348,23 +1351,23 @@ Warden
 	exp_requirements = 300
 	exp_type = EXP_TYPE_CREW
 
-	outfit = /datum/outfit/job/warden
+	outfit = /datum/outfit/job/nt/warden
 
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_FORENSICS_LOCKERS)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_COURT, ACCESS_WEAPONS) //SEE /DATUM/JOB/WARDEN/GET_ACCESS()
 
-/datum/job/warden/get_access()
+/datum/job/nt/warden/get_access()
 	var/list/L = list()
 	L = ..() | check_config_for_sec_maint()
 	return L
 
-/datum/outfit/job/warden
+/datum/outfit/job/nt/warden
 	name = "Warden"
-	jobtype = /datum/job/warden
+	jobtype = /datum/job/nt/warden
 
 	belt = /obj/item/device/pda/warden
 	ears = /obj/item/device/radio/headset/headset_sec/alt
-	uniform = /obj/item/clothing/under/trek/engsec/next
+	uniform = /obj/item/clothing/under/rank/warden
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/vest/warden/alt
 	gloves = /obj/item/clothing/gloves/color/black
@@ -1386,7 +1389,7 @@ Warden
 /*
 Detective
 */
-/datum/job/detective
+/datum/job/nt/detective
 	title = "Detective"
 	flag = DETECTIVE
 	department_head = list("Head of Security")
@@ -1400,22 +1403,22 @@ Detective
 	exp_requirements = 300
 	exp_type = EXP_TYPE_CREW
 
-	outfit = /datum/outfit/job/detective
+	outfit = /datum/outfit/job/nt/detective
 
 	access = list(ACCESS_SEC_DOORS, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_COURT, ACCESS_BRIG, ACCESS_WEAPONS)
 	minimal_access = list(ACCESS_SEC_DOORS, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_COURT, ACCESS_BRIG, ACCESS_WEAPONS)
 
-/datum/outfit/job/detective
+/datum/outfit/job/nt/detective
 	name = "Detective"
-	jobtype = /datum/job/detective
+	jobtype = /datum/job/nt/detective
 
 	belt = /obj/item/device/pda/detective
 	ears = /obj/item/device/radio/headset/headset_sec/alt
-	uniform = /obj/item/clothing/under/trek/engsec/next
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/rank/det
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	suit = /obj/item/clothing/suit/det_suit
 	gloves = /obj/item/clothing/gloves/color/black
-	head = /obj/item/clothing/head/beret/sec
+	head = /obj/item/clothing/head/fedora/det_hat
 	l_pocket = /obj/item/toy/crayon/white
 	r_pocket = /obj/item/lighter
 	backpack_contents = list(/obj/item/storage/box/evidence=1,\
@@ -1426,7 +1429,7 @@ Detective
 
 	implants = list(/obj/item/implant/mindshield)
 
-/datum/outfit/job/detective/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/nt/detective/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	var/obj/item/clothing/mask/cigarette/cig = H.wear_mask
 	cig.light("")
@@ -1437,7 +1440,7 @@ Detective
 /*
 Security Officer
 */
-/datum/job/officer
+/datum/job/nt/officer
 	title = "Security Officer"
 	flag = OFFICER
 	department_head = list("Head of Security")
@@ -1451,20 +1454,20 @@ Security Officer
 	exp_requirements = 300
 	exp_type = EXP_TYPE_CREW
 
-	outfit = /datum/outfit/job/security
+	outfit = /datum/outfit/job/nt/security
 
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_FORENSICS_LOCKERS)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_WEAPONS) //BUT SEE /DATUM/JOB/WARDEN/GET_ACCESS()
 
 
-/datum/job/officer/get_access()
+/datum/job/nt/officer/get_access()
 	var/list/L = list()
 	L |= ..() | check_config_for_sec_maint()
 	return L
 
 GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, SEC_DEPT_SCIENCE, SEC_DEPT_SUPPLY))
 
-/datum/job/officer/after_spawn(mob/living/carbon/human/H, mob/M)
+/datum/job/nt/officer/after_spawn(mob/living/carbon/human/H, mob/M)
 	// Assign department security
 	var/department
 	if(M && M.client && M.client.prefs)
@@ -1542,9 +1545,9 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 
 
 
-/datum/outfit/job/security
+/datum/outfit/job/nt/security
 	name = "Security Officer"
-	jobtype = /datum/job/officer
+	jobtype = /datum/job/nt/officer
 
 	belt = /obj/item/device/pda/security
 	ears = /obj/item/device/radio/headset/headset_sec/alt
@@ -1590,38 +1593,40 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 
 //When adding new jobs, go to jobs.dm
 
-/datum/job/soldier
-	title = "Starfleet Infantry"
+/datum/job/nt/soldier
+	title = "Company Enforcer"
 	flag = SOLDIER
 	department_head = list("Admirals")
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 5 //Handled in /datum/controller/occupations/proc/setup_officer_positions()
 	spawn_positions = 5 //Handled in /datum/controller/occupations/proc/setup_officer_positions()
-	supervisors = "anyone of a higher rank than yourself."
+	supervisors = "company supervisors and fleet admirals."
 	selection_color = "#ffeeee"
 	minimal_player_age = 3
 	exp_requirements = 100
 	exp_type = EXP_TYPE_CREW
 
-	outfit = /datum/outfit/job/soldier
+	outfit = /datum/outfit/job/nt/soldier
 
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_FORENSICS_LOCKERS)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_WEAPONS) //BUT SEE /DATUM/JOB/WARDEN/GET_ACCESS()
 
-/datum/outfit/job/soldier
-	name = "Starfleet Infantry"
-	jobtype = /datum/job/soldier
+/datum/outfit/job/nt/soldier
+	name = "Company Enforcer"
+	jobtype = /datum/job/nt/soldier
 
 	belt = /obj/item/device/pda/security
 	ears = /obj/item/device/radio/headset/headset_sec/alt
-	uniform = /obj/item/clothing/under/trek/engsec/next
+	uniform = /obj/item/clothing/under/syndicate/camo
 	gloves = /obj/item/clothing/gloves/color/black
-	head = /obj/item/clothing/head/beret/sec
-	suit = /obj/item/clothing/suit/armor/vest/alt
+	head = /obj/item/clothing/head/helmet/swat/nanotrasen
+	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/jackboots
-	suit_store = /obj/item/gun/energy/laser/retro //change this shit
-	backpack_contents = list(/obj/item/melee/baton/loaded=1,/obj/item/gun/energy/laser/retro=1,/obj/item/kitchen/knife/combat=1)
+	suit_store = /obj/item/gun/ballistic/automatic/wt550
+	r_pocket = /obj/item/ammo_box/magazine/wt550m9
+	l_pocket = /obj/item/ammo_box/magazine/wt550m9
+	backpack_contents = list(/obj/item/,/obj/item/kitchen/knife/combat=1)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
@@ -1630,11 +1635,51 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 
 	implants = list(/obj/item/implant/mindshield)
 
-/datum/outfit/job/soldier/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/nt/soldier/post_equip(mob/living/carbon/human/H)
 	if(prob(5)) //5% chance to be a legendary soldier
 		H.add_skills(110, rand(60, 68), rand(24, 32), ..(), ..())
-		to_chat(H, "<big>You are a legendary soldier! You've had some experience, and are well versed in the arts of close-quarters combat.</big>")
+		to_chat(H, "<big>You are a specialized enforcer! You've had some experience, and are well versed in the arts of close-quarters combat.</big>")
+		name = "Specialized Company Enforcer"
 		return
 	else
 		H.add_skills(rand(60, 66), rand(60, 68), rand(24, 32), ..(), ..())
 
+
+/datum/job/pilot
+	title = "Ship Pilot"
+	flag = PILOT
+	department_head = list("Captain")
+	department_flag = ENGSEC
+	head_announce = list("captain")
+	faction = "Station"
+	total_positions = 3
+	spawn_positions = 3
+	supervisors = "the captain"
+	selection_color = "#ccccff"
+	req_admin_notify = 1
+	minimal_player_age = 14
+	exp_requirements = 300
+	exp_type = EXP_TYPE_CREW
+	exp_type_department = EXP_TYPE_CREW
+
+	outfit = /datum/outfit/job/pilot
+
+//	access = list()
+//	minimal_access = list()
+
+/datum/outfit/job/pilot
+	name = "Ship Pilot"
+	jobtype = /datum/job/pilot
+
+	id = /obj/item/card/id
+	belt = /obj/item/device/pda
+	ears = /obj/item/device/radio/headset
+	uniform = /obj/item/clothing/under/soviet
+	shoes = /obj/item/clothing/shoes/laceup
+
+	backpack = /obj/item/storage/backpack
+	satchel = /obj/item/storage/backpack/satchel
+	duffelbag = /obj/item/storage/backpack/duffelbag
+
+/datum/outfit/job/pilot/post_equip(mob/living/carbon/human/H)
+	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(55, 110))
