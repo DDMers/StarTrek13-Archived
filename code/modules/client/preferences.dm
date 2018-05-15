@@ -500,7 +500,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	popup.set_content(dat)
 	popup.open(0)
 
-
 /datum/preferences/proc/getFactions()
 	factions = SSfaction.factions
 
@@ -530,7 +529,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if(!player_faction)
 			player_faction = pick(SSfaction.factions) //the runtimes boy oh!
 		HTML += "style='background-color: [player_faction.pref_colour]'" //For some reason this doesnt work.
-		HTML += ">[player_faction.name]</a></center><br>"
+		HTML += "<center>[player_faction.name]</a></center><br>"
 		HTML += "<p>[player_faction.description]]</p>"
 
 //		HTML += "<p>[factionRosters[faction][1]]</p><br>"
@@ -543,7 +542,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
 		var/datum/job/lastJob
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in player_faction.faction_occupations)
+
 
 			index += 1
 			if((index >= limit) || (job.title in splitJobs))
@@ -783,6 +783,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		A = input("Choose a faction to start as", "Preferences", A) as null|anything in factions
 		if(!A)
 			return 0
+		ResetJobs()
 		var/datum/faction/thefaction = A
 		player_faction = thefaction
 		SetChoices(user)

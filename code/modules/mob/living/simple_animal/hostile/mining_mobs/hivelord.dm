@@ -312,7 +312,7 @@
 				l_pocket = /obj/item/kitchen/knife/combat/bone
 		if("Clown")
 			name = pick(GLOB.clown_names)
-			outfit = /datum/outfit/job/clown
+			outfit = /datum/outfit/job/nt/clown
 			belt = null
 			backpack_contents = list()
 			if(prob(70))

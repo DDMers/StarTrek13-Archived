@@ -2385,7 +2385,6 @@
 #include "StarTrek13\Ships\factions.dm"
 #include "StarTrek13\Ships\globals.dm"
 #include "StarTrek13\Ships\is_defines.dm"
-#include "StarTrek13\Ships\job_types.dm"
 #include "StarTrek13\Ships\jumpgate.dm"
 #include "StarTrek13\Ships\overmap.dm"
 #include "StarTrek13\Ships\overmap_camera.dm"
@@ -2399,5 +2398,9 @@
 #include "StarTrek13\Ships\transporter.dm"
 #include "StarTrek13\Ships\turfs.dm"
 #include "StarTrek13\Ships\unsorted.dm"
+#include "StarTrek13\Ships\jobs\job_items.dm"
+#include "StarTrek13\Ships\jobs\independants\independants.dm"
+#include "StarTrek13\Ships\jobs\nanotrasen\nanotrasen.dm"
+#include "StarTrek13\Ships\jobs\starfleet\starfleet.dm"
 #include "StarTrek13\Xel\trek_items.dm"
 // END_INCLUDE
