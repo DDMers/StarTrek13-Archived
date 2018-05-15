@@ -25,17 +25,28 @@
 	pixel_collision_size_x = -32
 	pixel_collision_size_y = -32
 	//Add a communcations box sometime ok cool really neat.
+	engine_sound = 'StarTrek13/sound/fighter/fighterengine.ogg'
+	engine_prob = 100
 
 /obj/structure/overmap/ship/fighter/viper
 	icon_state = "viper"
-	turnspeed = 8
-	max_speed = 7
+	name = "Viper"
+
+/obj/structure/overmap/ship/fighter/raider
+	icon_state = "raider"
+	name = "Cylon Raider"
+	engine_sound = 'StarTrek13/sound/fighter/raiderengine.ogg'
+	engine_prob = 20
 
 
 /obj/structure/overmap/ship/fighter/attack_hand(mob/user)
 	enter(user)
 
 /obj/structure/overmap/ship/fighter/enter(mob/user)
+	if(!carrier_ship)
+		to_chat(user, "Error! There's no carrier ship!")
+		exit()
+		return
 	origin_turf = loc
 	if(user.client)
 		if(carrier_ship)
@@ -62,7 +73,6 @@
 		exit()
 	to_chat(user, "Systems: ONLINE.")
 	to_chat(user, "Docking systems: Disengaged. Entering normal space.")
-
 
 /obj/structure/overmap/ship/fighter/exit()
 	to_chat(pilot, "Engaging bluespace re-docking engine.")
@@ -92,26 +102,23 @@
 		return 0
 */
 
-/obj/item/projectile/beam/laser/fighter_round
-	name = "photon torpedo"
-	icon_state = "pulse0_bl"
-	damage = 300//It has to actually dent ships tbh.
+
+/obj/item/projectile/bullet/fighter_round
+	name = ".50 Cal vulcan round"
+	icon_state = "bullet"
+	damage = 100//There are a LOT of these to fire
 
 
 /obj/structure/overmap/ship/fighter/fire(atom/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
 	attempt_fire(target)
 
 /obj/structure/overmap/ship/fighter/attempt_fire(atom/target)
-	if(world.time < next_fire)
-		return 0
-	next_fire = world.time + fire_delay
 	for(var/i = 1 to 3)
-		var/obj/item/projectile/beam/laser/fighter_round/A = new /obj/item/projectile/beam/laser/fighter_round(loc)
+		var/obj/item/projectile/bullet/fighter_round/A = new /obj/item/projectile/bullet/fighter_round(loc)
 		A.starting = loc
 		A.preparePixelProjectile(target,pilot)
 		A.fire()
-		playsound(src,'sound/weapons/blaster.ogg',40,1)
-		sleep(1)
+		playsound(src,'StarTrek13/sound/fighter/fighterfire.ogg',60,1)
 	//	A.pixel_x = target_ship.pixel_x
 	//	A.pixel_y = target_ship.pixel_y
 		A = null

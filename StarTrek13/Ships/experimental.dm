@@ -15,6 +15,8 @@
 	var/acceleration = 0.5 //speed up
 	pixel_collision_size_x = -128
 	pixel_collision_size_y = -120
+	var/engine_sound = null
+	var/engine_prob = 20 //20% chance to play engine sound
 	/*
 	The part below is no longer useless
 	*/
@@ -139,6 +141,9 @@ atom/movable
 			pixel_y = real_pixel_y
 
 /obj/structure/overmap/ship/relaymove(mob/mob,dir) //fuckoff I want to do my own shitcode :^)
+	if(engine_sound)
+		if(prob(engine_prob))
+			playsound(src,engine_sound,40,1)
 	check_overlays()
 	if(can_move)
 		switch(dir)
