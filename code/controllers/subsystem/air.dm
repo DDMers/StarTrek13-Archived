@@ -10,7 +10,7 @@ SUBSYSTEM_DEF(air)
 	name = "Atmospherics"
 	init_order = INIT_ORDER_AIR
 	priority = FIRE_PRIORITY_AIR
-	wait = 5
+	wait = 50 //Reduce cpu impact, we have a looooot of different Zs
 	flags = SS_BACKGROUND
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 

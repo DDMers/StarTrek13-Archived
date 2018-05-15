@@ -191,4 +191,3 @@
 
 /obj/effect/turf_decal/box/red/corners
 	icon_state = "box_corners_red"
-

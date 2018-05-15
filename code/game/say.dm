@@ -28,6 +28,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		language = get_default_language()
 	send_speech(message, 7, src, , spans, message_language=language)
 
+
 /atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	return
 
@@ -77,7 +78,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	return ""
 
 /atom/movable/proc/say_mod(input, message_mode)
-	var/ending = copytext(input, length(input))
+	var/ending = copytext(input, length(input)) //Uhh
 	if(copytext(input, length(input) - 1) == "!!")
 		return verb_yell
 	else if(ending == "?")

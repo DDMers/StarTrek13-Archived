@@ -198,6 +198,7 @@
 	C.previous_turf = posobj
 	C.last_parallax_shift = world.time
 
+
 	for(var/thing in C.parallax_layers)
 		var/obj/screen/parallax_layer/L = thing
 		if (L.view_sized != C.view)
@@ -245,6 +246,8 @@
 	screen_loc = "CENTER-7,CENTER-7"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
+///obj/screen/parallax_layer/overmap
+//	icon = 'icons/effects/parallax_overmap.dmi'
 
 /obj/screen/parallax_layer/Initialize(mapload, view)
 	. = ..()
@@ -255,7 +258,7 @@
 /obj/screen/parallax_layer/proc/update_o(view)
 	if (!view)
 		view = world.view
-	
+
 	var/list/viewscales = getviewsize(view)
 	var/countx = Ceiling((viewscales[1]/2)/(480/world.icon_size))+1
 	var/county = Ceiling((viewscales[2]/2)/(480/world.icon_size))+1

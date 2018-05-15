@@ -14,6 +14,7 @@
 #define CYBORG			(1<<10)
 #define ADMIRAL			(1<<11)
 #define SOLDIER			(1<<12)
+#define PILOT			(1<<13)
 
 
 #define MEDSCI			(1<<1)

@@ -14,11 +14,12 @@
 
 
 /turf/open/floor/borg/trek
-	name = "carpet"
-	desc = "A carpeted floor that matches the surroundings."
+	name = "deck plates"
+	desc = "A big lump of metal to keep you from falling through the ship."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "trek"
-	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
+	smooth = FALSE
+	//canSmoothWith = list(/turf/open/floor/borg/trek,/turf/open/floor/borg/trek/light,/turf/open/floor/borg/trek/blue,/turf/open/floor/borg/trek/red,/turf/open/floor/borg/trek/dark,/turf/open/floor/borg/trek/beige)
 
 
 /turf/open/floor/borg/trek/light
@@ -33,7 +34,8 @@
 	desc = "A carpeted floor that matches the surroundings."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "trek4"
-	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
+	smooth = FALSE //change this when I make a smooth proper version
+//	canSmoothWith = list(/turf/open/floor/borg/trek/blue)
 
 /turf/open/floor/borg/trek/red
 	name = "red carpet"
@@ -131,6 +133,12 @@
 	name = "captain's display"
 	desc = "An LCARS display showing all shipboard systems, status: NOMINAL"
 	var/datum/looping_sound/trek/bridge/soundloop
+	icon_state = "miniconsole"
+
+/obj/structure/fluff/helm/desk/captain2 //makes star trek noises!
+	name = "captain's display"
+	desc = "An LCARS display showing all shipboard systems, status: NOMINAL"
+	icon_state = "miniconsole"
 
 /obj/structure/fluff/helm/desk/noisy/New()
 	. = ..()

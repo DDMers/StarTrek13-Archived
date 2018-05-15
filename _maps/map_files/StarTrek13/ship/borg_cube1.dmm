@@ -1,0 +1,57 @@
+"a" = (/turf/closed/wall/borg,/area/ship/borg)
+"b" = (/turf/open/floor/borg,/area/ship/borg)
+"c" = (/obj/structure/chair/borg/conversion,/turf/open/floor/borg,/area/ship/borg)
+"d" = (/obj/structure/chair/borg/charging,/turf/open/floor/borg,/area/ship/borg)
+"e" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/borg,/area/ship/borg)
+"f" = (/obj/machinery/light{dir = 8},/turf/open/floor/borg,/area/ship/borg)
+"g" = (/obj/machinery/door/airlock/borg,/turf/open/floor/borg,/area/ship/borg)
+"h" = (/obj/effect/landmark/faction_spawn/borg,/turf/open/floor/borg,/area/ship/borg)
+"i" = (/obj/machinery/light{dir = 4; light_color = "#e8eaff"},/turf/open/floor/borg,/area/ship/borg)
+"j" = (/obj/machinery/light{dir = 4},/turf/open/floor/borg,/area/ship/borg)
+"k" = (/obj/structure/subsystem_monitor,/turf/closed/wall/borg,/area/ship/borg)
+"l" = (/obj/structure/subsystem_panel/engines,/turf/closed/wall/borg,/area/ship/borg)
+"m" = (/obj/structure/subsystem_panel,/turf/closed/wall/borg,/area/ship/borg)
+"n" = (/obj/structure/subsystem_panel/weapons,/turf/closed/wall/borg,/area/ship/borg)
+"o" = (/obj/structure/subsystem_monitor/weapons,/turf/closed/wall/borg,/area/ship/borg)
+"p" = (/obj/structure/ship_component/capbooster,/obj/item/wrench,/turf/open/floor/borg,/area/ship/borg)
+"q" = (/obj/structure/ship_component,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/borg,/area/ship/borg)
+"r" = (/obj/structure/fluff/helm/desk/tactical/nanotrasen,/turf/open/floor/borg,/area/ship/borg)
+"s" = (/obj/structure/ship_component,/turf/open/floor/borg,/area/ship/borg)
+"t" = (/obj/structure/photon_torpedo,/obj/structure/photon_torpedo,/turf/open/floor/borg,/area/ship/borg)
+"u" = (/obj/structure/overmap/ship/borg_cube,/turf/open/floor/borg,/area/ship/borg)
+"v" = (/obj/structure/torpedo_launcher,/turf/open/floor/borg,/area/ship/borg)
+"w" = (/obj/machinery/space_battle/shield_generator,/turf/open/floor/borg,/area/ship/borg)
+"x" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/borg,/area/ship/borg)
+"y" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/borg,/area/ship/borg)
+"z" = (/obj/structure/weapons_console,/turf/open/floor/borg,/area/ship/borg)
+"A" = (/obj/structure/chair/borg/charging,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/borg,/area/ship/borg)
+"B" = (/obj/structure/chair/borg/charging,/obj/machinery/light{dir = 4},/turf/open/floor/borg,/area/ship/borg)
+"C" = (/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/turf/open/floor/borg,/area/ship/borg)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaa
+abcbbbbcbadbbbdabcbbbbcba
+abbbbbbbbaebbbfabbbbbbbba
+abbbbbbbbadbbbdabbbbbbbba
+abbbbbbbbabbbbbabbbbbbbba
+aebbbbbbbgbbbbbgbbbbbbbba
+abbbbbbbbafhbhiabbbbbbbia
+abbbbbbbbabbbbbabbbbbbbba
+aebbbbbbbgbbbbbgbbbbbbbia
+abbbbbbbbabbbbbabbbbbbbba
+abcbbbbcbabhbhbabcbbbbcba
+aaaaaaaaaaebbbjaaaaaaaaaa
+aaklamnoaabbbbbaaaaaaaaaa
+apbbpbbpbabbbbbabbbbbbbba
+abbbbbbbbabbbbbabbbbbbbba
+aqbbrbbbsaebbbiabbbbbbbia
+abbbbbbbbabbbbbabbbbbbbba
+atbbbbbbbgubbbbgbbbbbbbba
+avbbwbbbbabbbbbabbbbxybba
+abbbbbbbbabbbbbabbbbbbbba
+azbbbbbbbgbbbbbgbbbbbbbba
+aebbbbbbbaAbbbBabbbbbbbia
+abbbbbbbbabbbbbabbbbbbbba
+abCbCbCbCadbbbdabbbbbbbba
+aaaaaaaaaaaaaaaaaaaaaaaaa
+"}

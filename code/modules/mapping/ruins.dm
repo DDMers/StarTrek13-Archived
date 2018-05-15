@@ -11,7 +11,7 @@
 			WARNING("Z level [zl] does not exist - Not generating ruins")
 			return
 
-	var/overall_sanity = 100
+	var/overall_sanity = 0 //Reset this back to 100 when I've discovered random crash issue
 	var/list/ruins = potentialRuins.Copy()
 
 	var/is_picking = FALSE

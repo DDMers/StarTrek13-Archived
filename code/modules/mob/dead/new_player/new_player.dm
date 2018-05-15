@@ -412,9 +412,12 @@
 
 	dat += "<div class='clearBoth'>Choose from the following open positions:</div><br>"
 	dat += "<div class='jobs'><div class='jobsColumn'>"
+
 	var/job_count = 0
 	for(var/datum/job/job in SSjob.occupations)
 		if(job && IsJobAvailable(job.title))
+			if(client.prefs.player_faction.name != job.starting_faction)
+				continue
 			job_count++;
 			if (job_count > round(available_job_count / 2))
 				dat += "</div><div class='jobsColumn'>"
