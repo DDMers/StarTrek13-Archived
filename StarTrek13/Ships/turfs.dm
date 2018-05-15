@@ -36,7 +36,7 @@
 	icon_state = "sleeper"
 	death = FALSE
 	roundstart = FALSE
-	outfit = /datum/outfit/job/crewman
+	outfit = /datum/outfit/job/fed/crewman
 
 
 /obj/machinery/door/airlock/trek/tng
