@@ -18,12 +18,3 @@ GLOBAL_LIST_EMPTY(powernets)
 GLOBAL_VAR_INIT(bsa_unlock, FALSE)	//BSA unlocked by head ID swipes
 
 GLOBAL_LIST_EMPTY(player_details)	// ckey -> /datum/player_details
-
-//Star Trek 13
-
-GLOBAL_LIST(factionRosters[][] = list(list("Independent Roster"),
-									  list("Starfleet Roster"),
-									  list("Klingon Roster")))
-//first bracket contains the actual rosters of the factions, second brackets contain the mobs
-//eg factionRosters[1][1] would get the first member of the first faction
-//   factionRosters[2][1] would get the first member of the second faction

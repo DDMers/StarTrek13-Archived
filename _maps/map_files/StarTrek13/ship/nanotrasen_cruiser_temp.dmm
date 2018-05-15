@@ -1,0 +1,21 @@
+"a" = (/turf/closed/wall,/area/ship/nanotrasen_cruiser)
+"b" = (/turf/open/floor/light,/area/ship/nanotrasen_cruiser)
+"c" = (/turf/open/floor/carpet,/area/ship/nanotrasen_cruiser)
+"d" = (/obj/effect/landmark/shield,/turf/open/floor/light,/area/ship/nanotrasen_cruiser)
+"e" = (/obj/machinery/power/ship/phaser,/turf/open/floor/carpet,/area/ship/nanotrasen_cruiser)
+"f" = (/obj/structure/fluff/helm/desk/tactical/nanotrasen{icon_state = "computer"; dir = 8},/turf/open/floor/carpet,/area/ship/nanotrasen_cruiser)
+"g" = (/obj/machinery/space_battle/shield_generator,/turf/open/floor/carpet,/area/ship/nanotrasen_cruiser)
+"h" = (/obj/structure/overmap/ship/cruiser/nanotrasen,/turf/open/floor/light,/area/ship/nanotrasen_cruiser)
+
+(1,1,1) = {"
+aaaaaaaaaa
+abbccccbda
+abbecccbda
+abbccccbda
+abbecccbda
+abbcfgcbda
+abbecccbda
+abbccccbda
+ahbecccbda
+aaaaaaaaaa
+"}

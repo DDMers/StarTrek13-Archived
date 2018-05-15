@@ -34,6 +34,3 @@ GLOBAL_PROTECT(MAX_EX_FLASH_RANGE)
 GLOBAL_VAR_INIT(MAX_EX_FLAME_RANGE, 14)
 GLOBAL_PROTECT(MAX_EX_FLAME_RANGE)
 GLOBAL_VAR_INIT(DYN_EX_SCALE, 0.5)
-
-//var/webhook_address = null	For when we set up the yogbot
-//var/webhook_key = null

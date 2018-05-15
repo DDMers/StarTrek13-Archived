@@ -693,30 +693,14 @@
 		add_antag_datum(/datum/antagonist/wizard)
 
 //Borg drones! star trek 13
-/datum/mind/proc/remove_xel()
-	if(src in SSticker.mode.hivemind.borgs)
-		SSticker.mode.hivemind.borgs -= src
-	special_role = null
+/datum/mind/proc/remove_Borg()
 	var/mob/living/carbon/human/H = current
-	H.dna.species.species_traits -= BORG_DRONE
-	H.dna.species.species_traits -= NOCLONE
-	H.dna.species.species_traits -= CLUMSY
-	H.dna.species.species_traits -= NOHUNGER
-	H.dna.species.species_traits -= NOGUNS
-	H.dna.species.species_traits -= NOBREATH
-	SSticker.mode.remove_borg(H)
+	H.remove_borg()
 
-/datum/mind/proc/make_xel()
-	special_role = "Xel"
-	SSticker.mode.greet_borg(src)
-	SSticker.mode.forge_borg_objectives(src)
-	SSticker.mode.equip_borg(current)
-	if(!(src in SSticker.mode.hivemind.borgs))
-		SSticker.mode.hivemind.borgs += src
+/datum/mind/proc/make_borg()
+	var/mob/living/carbon/human/H = current
+	H.make_borg()
 
-/datum/mind/proc/send_to_xel_ship()
-	current.loc = SSticker.mode.hivemind.borgspawn2
-	to_chat(current, "You appear out of thin air!")
 
 /datum/mind/proc/make_Cultist()
 	if(!has_antag_datum(/datum/antagonist/cult,TRUE))

@@ -276,7 +276,7 @@
 
 /obj/effect/mob_spawn/human/corpse/assistant
 	name = "Assistant"
-	outfit = /datum/outfit/job/crewman
+	outfit = /datum/outfit/job/ind/crewman
 
 /obj/effect/mob_spawn/human/corpse/assistant/beesease_infection
 	disease = /datum/disease/beesease
@@ -293,12 +293,12 @@
 
 /obj/effect/mob_spawn/human/cook
 	name = "Cook"
-	outfit = /datum/outfit/job/cook
+	outfit = /datum/outfit/job/nt/cook
 
 
 /obj/effect/mob_spawn/human/doctor
 	name = "Doctor"
-	outfit = /datum/outfit/job/doctor
+	outfit = /datum/outfit/job/nt/doctor
 
 
 /obj/effect/mob_spawn/human/doctor/alive
@@ -321,28 +321,28 @@
 
 /obj/effect/mob_spawn/human/engineer
 	name = "Engineer"
-	outfit = /datum/outfit/job/engineer/gloved
+	outfit = /datum/outfit/job/ce
 
 /obj/effect/mob_spawn/human/engineer/rig
-	outfit = /datum/outfit/job/engineer/gloved/rig
+	outfit = /datum/outfit/job/ind/ce/rig
 
 /obj/effect/mob_spawn/human/clown
 	name = "Clown"
-	outfit = /datum/outfit/job/clown
+	outfit = /datum/outfit/job/nt/clown
 
 /obj/effect/mob_spawn/human/scientist
 	name = "Scientist"
-	outfit = /datum/outfit/job/scientist
+	outfit = /datum/outfit/job/ind/rd
 
 /obj/effect/mob_spawn/human/miner
 	name = "Shaft Miner"
-	outfit = /datum/outfit/job/miner/asteroid
+	outfit = /datum/outfit/job/ind/miner/asteroid
 
 /obj/effect/mob_spawn/human/miner/rig
-	outfit = /datum/outfit/job/miner/equipped/asteroid
+	outfit = /datum/outfit/job/ind/miner/equipped/asteroid
 
 /obj/effect/mob_spawn/human/miner/explorer
-	outfit = /datum/outfit/job/miner/equipped
+	outfit = /datum/outfit/job/ind/miner/equipped
 
 
 /obj/effect/mob_spawn/human/plasmaman

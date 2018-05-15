@@ -140,8 +140,9 @@ Naksuasdf = Game Master
 MrDoomBringer = Game Master
 
 Kmc2000	= Host
-Cdey = Junior Coder
+Cdey = Moderator
 HeadyBucket = Coder
 MASMC = Game-Admin
 Kyrac = Game-Admin
 deadlantern = Moderator
+Tristan63 = Moderator

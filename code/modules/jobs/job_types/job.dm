@@ -19,6 +19,9 @@
 	//Players will be allowed to spawn in as jobs that are set to "Station"
 	var/faction = "None"
 
+	//What faction this job belongs to.
+	var/datum/faction/starting_faction = "independant"
+
 	//How many players can be this job
 	var/total_positions = 0
 
@@ -151,6 +154,7 @@
 	belt = /obj/item/pda
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/sneakers/black
+	neck = /obj/item/clothing/neck/combadge
 
 	var/backpack = /obj/item/storage/backpack
 	var/satchel  = /obj/item/storage/backpack/satchel

@@ -28,6 +28,9 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	"o" = "AI Private", // AI Upload channel
 	"x" = "cords",		// vocal cords, used by Voice of God
 
+	//Combadges
+	"k" = "combadge",
+
 
 	//kinda localization -- rastaf0
 	//same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
@@ -115,6 +118,12 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		if(client)
 			client.dsay(message)
 		return
+
+	if(message_mode == "combadge")
+		for(var/obj/item/clothing/neck/combadge/c in contents)
+			var/obj/item/clothing/neck/combadge/thecombadge = c
+			message = treat_message(message)
+			thecombadge.send_message(message, src)
 
 	if(stat == DEAD)
 		say_dead(original_message)
@@ -306,6 +315,21 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		return 0
 
 	return 1
+
+/mob/living/proc/check_emote(message)
+	if(copytext(message, 1, 2) == "*")
+		emote(copytext(message, 2))
+		return 1
+
+/mob/living/proc/get_message_mode(message)
+	var/key = copytext(message, 1, 2)
+	if(key == "#")
+		return MODE_WHISPER
+	else if(key == ";")
+		return MODE_HEADSET
+	else if(length(message) > 2 && (key in GLOB.department_radio_prefixes))
+		var/key_symbol = lowertext(copytext(message, 2, 3))
+		return GLOB.department_radio_keys[key_symbol]
 
 /mob/living/proc/get_key(message)
 	var/key = copytext(message, 1, 2)
