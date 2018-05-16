@@ -896,8 +896,8 @@
 			<div>\
 				<table>\
 					<tr>"
-	for(var/obj/effect/landmark/warp_beacon/wb in world)
-		if(wb.z != 0)
+	for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
+		if(wb.z)
 			html += "<td>|| <A href='?src=\ref[src];beaconName=[wb.name];beaconDistance=[wb.distance]' onclick=\"selectSystem()\">[wb.name]</A> </td>"
 
 	html+= 			"<td>||</td></tr>\
