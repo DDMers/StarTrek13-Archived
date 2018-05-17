@@ -2398,6 +2398,7 @@
 #include "StarTrek13\Ships\transporter.dm"
 #include "StarTrek13\Ships\turfs.dm"
 #include "StarTrek13\Ships\unsorted.dm"
+#include "StarTrek13\Ships\jobs\borg_jobs.dm"
 #include "StarTrek13\Ships\jobs\job_items.dm"
 #include "StarTrek13\Ships\jobs\independants\independants.dm"
 #include "StarTrek13\Ships\jobs\nanotrasen\nanotrasen.dm"
