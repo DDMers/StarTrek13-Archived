@@ -827,6 +827,8 @@
 	var/area/target_area = null
 	var/list/torpedoes = list()
 	var/obj/structure/overmap/theship = null
+	var/list/obj/effect/landmark/warp_beacon/beacons = list()
+	var/obj/effect/landmark/warp_beacon/targetBeacon = new
 	var/required_skill = 25 //How much piloting skill is required to fly this ship?
 	anchored = 1
 
@@ -886,7 +888,37 @@
 	get_shieldgen()
 	if(!theship)
 		to_chat(user, "Your ship has been destroyed!")
-	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren")
+	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap")
+
+	var/html = "\
+	<html>\
+		<body>\
+			<div>\
+				<table>\
+					<tr>"
+	for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
+		if(wb.z)
+			html += "<td>|| <A href='?src=\ref[src];beaconName=[wb.name];beaconDistance=[wb.distance]' onclick=\"selectSystem()\">[wb.name]</A> </td>"
+
+	html+= 			"<td>||</td></tr>\
+					\
+					<tr>\
+						<td>\
+							<A href='?src=\ref[src];warp=1' style=\"visibility:hidden\" id=\"btn\">Warp</A>\
+			 			</td>\
+					</tr>\
+				</table>\
+			</div>\
+			\
+			<script>\
+				function selectSystem() {\
+					document.getElementById(\"btn\").style.visibility = \"visible\";\
+				}\
+			</script>\
+		</body>\
+	</html>"
+	var/datum/browser/popup = new(user, "Starmap", name, 360, 350)
+
 	switch(mode)
 		if("choose target")
 			theship.exit(user)
@@ -910,7 +942,21 @@
 			redalert()
 		if("fire torpedo")
 			fire_torpedo(target,user)
+		if("starmap")
+			popup.set_content(html)
+			popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
+			popup.open()
+			if(user.canUseTopic(src))
+				addtimer(CALLBACK(src,/atom/proc/attack_hand, user), 20)
 
+/obj/structure/fluff/helm/desk/tactical/Topic(href, href_list)
+	..()
+	if(href_list["warp"])
+		theship.do_warp(targetBeacon.name, targetBeacon.distance)
+
+	if(href_list["beaconName"])
+		targetBeacon.name = href_list["beaconName"]
+		targetBeacon.distance = href_list["beaconDistance"]
 
 /obj/structure/fluff/helm/desk/tactical/proc/redalert()
 	redalertsound = pick(redalertsounds)
@@ -1046,7 +1092,6 @@
 	return 0
 /obj/structure/fluff/ship/ex_act(severity)
 	return 0
-
 
 
 // Based on catwalk.dm from https://github.com/Endless-Horizon/CEV-Eris
