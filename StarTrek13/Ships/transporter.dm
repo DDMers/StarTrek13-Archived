@@ -50,11 +50,14 @@
 		to_chat(usr, "<span class='notice'>Target has no linked transporter pads</span>")
 
 /obj/machinery/computer/camera_advanced/transporter_control/proc/transporters_retrieve()
-	var/i=retrievable.len
-	for(var/obj/machinery/trek/transporter/T in linked)
-		T.retrieve(retrievable[i])
-		retrievable -= retrievable[i]
-		i--
+	for(var/mob/living/thehewmon in orange(get_turf(eyeobj),1))
+		var/obj/machinery/trek/transporter/T = pick(linked)
+		T.retrieve(thehewmon)
+//	var/i=retrievable.len
+//	for(var/obj/machinery/trek/transporter/T in linked)
+	//	T.retrieve(retrievable[i])
+	//	retrievable -= retrievable[i]
+	//	i--
 
 /obj/machinery/computer/camera_advanced/transporter_control/proc/get_available_turfs(var/area/A)
 	available_turfs = list()
