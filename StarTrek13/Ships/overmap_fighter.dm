@@ -90,6 +90,7 @@
 	pilot.incorporeal_move = 1 //Refresh movement to fix an issue
 	pilot.incorporeal_move = 0
 	pilot = null
+	SC.weapons.charge = SC.weapons.max_charge
 //	pilot.status_flags -= GODMODE
 
 
@@ -114,8 +115,8 @@
 
 /obj/structure/overmap/ship/fighter/attempt_fire(atom/target)
 	if(SC.weapons.attempt_fire())
+		SC.weapons.charge -= 100
 		for(var/i = 1 to 3)
-			SC.weapons.charge -= 100
 			var/obj/item/projectile/bullet/fighter_round/A = new /obj/item/projectile/bullet/fighter_round(loc)
 			A.starting = loc
 			A.preparePixelProjectile(target,pilot)
