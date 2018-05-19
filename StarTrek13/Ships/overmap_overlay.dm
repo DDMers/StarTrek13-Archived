@@ -25,7 +25,7 @@
 	var/obj/effect/ship_overlay/hull/hulloverlay = new
 	var/obj/effect/ship_overlay/shield/shieldoverlay = new
 
-/obj/structure/overmap/New()
+/obj/structure/overmap/Initialize(timeofday)
 	. = ..()
 	overmap_objects += src
 	soundloop = new(list(src), TRUE)

@@ -21,14 +21,40 @@ var/global/list/global_ship_list = list()
 	flags_1 = NONE
 	requires_power = FALSE
 	var/jumpgate_position = 1 //Change me! whenever you add a new system, incriment this by 1!
+	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg')
+
+/area/overmap/Entered(A)
+	set waitfor = FALSE
+	if(!isliving(A))
+		return
+
+	var/mob/living/L = A
+	if(!L.ckey)
+		return
+
+	// Ambience goes down here -- make sure to list each area separately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
+	if(L.client && !L.client.ambience_playing && L.client.prefs.toggles & SOUND_SHIP_AMBIENCE)
+		L.client.ambience_playing = 1
+
+	if(!(L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))
+		return //General ambience check is below the ship ambience so one can play without the other
+
+	if(prob(100))
+		var/sound = pick(ambientsounds)
+
+		if(!L.client.played)
+			SEND_SOUND(L, sound(sound, repeat = 0, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
+			L.client.played = TRUE
+			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 800)
 
 /area/overmap/hyperspace
 	name = "hyperspace"
 	parallax_movedir = 8
 
 /area/overmap/system
-	name = "Volorr"
+	name = "Sol (NT)"
 	jumpgate_position = 2
+	music = 'StarTrek13/sound/ambience/bsgtheme2.ogg'
 
 /area/overmap/system/z2
 	name = "Amann" //Test
@@ -43,12 +69,33 @@ var/global/list/global_ship_list = list()
 	jumpgate_position = 5
 
 /area/overmap/system/z5
-	name = "Ursa minor" //Test
+	name = "Ursa minor (BORG)" //Test
 	jumpgate_position = 6
 
+
 /area/overmap/system/z6
-	name = "Ursa major" //Test
+	name = "Ursa major (FED)" //Test
 	jumpgate_position = 7
+	music = 'StarTrek13/sound/ambience/trektheme1.ogg'
+
+/obj/structure/space_object
+	icon = 'StarTrek13/icons/trek/space_objects.dmi'
+	name = "Sun"
+	desc = "Don't get too close to it...."
+	anchored = 1
+	can_be_unanchored = 0
+	icon_state = "sun"
+	layer = 2
+
+/obj/structure/space_object/supernova
+	name = "Supernova"
+	desc = "A star that has gone nova."
+	icon_state = "supernova"
+
+/obj/structure/space_object/nebula
+	name = "Nebula"
+	desc = "I wouldn't fly into that if I were you"
+	icon_state = "nebula"
 
 #define TORPEDO_MODE 1//1309
 #define PHASER_MODE 2
@@ -305,7 +352,7 @@ var/global/list/global_ship_list = list()
 	pixel_w = -120
 
 
-/obj/structure/overmap/New()
+/obj/structure/overmap/Initialize(timeofday)
 	health = max_health
 	SC = new(src)
 	SC.generate_shipsystems()
@@ -676,28 +723,43 @@ var/global/list/global_ship_list = list()
 
 
 /obj/structure/overmap/proc/do_warp(destination, jump_time) //Don't want to lock this behind warp capable because jumpgates call this
-	var/area/hyperspace_area
-	for(var/obj/effect/landmark/L in GLOB.landmarks_list)
-		if(L.name == "hyperspace")
-			hyperspace_area = get_area(L)
-	var/turf/open/temp = list()
-	for(var/turf/open/T in get_area_turfs(hyperspace_area))
-		temp += T
-	var/turf/theturf = pick(temp)
-	forceMove(theturf)
-	can_move = 0 //Don't want them moving around warp space.
-	shake_camera(pilot, 1, 10)
-	SEND_SOUND(pilot, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
-	to_chat(pilot, "The ship has entered warp space")
-	angle = 180
-	EditAngle()
-//	setDir(4)
-	for(var/mob/L in linked_ship.contents)
-		shake_camera(L, 1, 10)
-		SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
-		to_chat(pilot, "The deck plates shudder as the ship builds up immense speed.")
-		linked_ship.parallax_movedir = NORTH
-	addtimer(CALLBACK(src, .proc/finish_warp, destination),jump_time)
+	if(!SSfaction.jumpgates_forbidden)
+		if(SC.engines.try_warp())
+			var/area/hyperspace_area
+			for(var/obj/effect/landmark/L in GLOB.landmarks_list)
+				if(L.name == "hyperspace")
+					hyperspace_area = get_area(L)
+			var/turf/open/temp = list()
+			for(var/turf/open/T in get_area_turfs(hyperspace_area))
+				temp += T
+			var/turf/theturf = pick(temp)
+			forceMove(theturf)
+			can_move = 0 //Don't want them moving around warp space.
+			shake_camera(pilot, 1, 10)
+			SEND_SOUND(pilot, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
+			to_chat(pilot, "The ship has entered warp space")
+			angle = 180
+			EditAngle()
+		//	setDir(4)
+			for(var/mob/L in linked_ship.contents)
+				shake_camera(L, 1, 10)
+				SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
+				to_chat(pilot, "The deck plates shudder as the ship builds up immense speed.")
+				linked_ship.parallax_movedir = NORTH
+			addtimer(CALLBACK(src, .proc/finish_warp, destination),jump_time)
+		else
+			to_chat(pilot, "Warp engines are recharging, or have been damaged.")
+			return
+	else
+		to_chat(pilot,"Subspace distortions prevent warping at this time.")
+
+
+/obj/structure/overmap/proc/do_warp_thing(var/fuckyou, var/byond)
+	for(var/obj/effect/landmark/warp_beacon/fuckoff in world)
+		if(fuckoff.name == fuckyou)
+			var/obj/effect/landmark/warp_beacon/fuckoff2 = fuckoff
+			do_warp(fuckoff, fuckoff2.distance)
+			break;
 
 /obj/structure/overmap/proc/finish_warp(atom/movable/destination)
 	can_move = 1
@@ -707,7 +769,7 @@ var/global/list/global_ship_list = list()
 		shake_camera(L, 4, 2)
 		to_chat(pilot, "The ship slows.")
 		linked_ship.parallax_movedir = FALSE
-	forceMove(destination.loc)
+	forceMove(get_turf(destination))
 
 /obj/structure/overmap/proc/set_nav_target(mob/user)
 	if(can_move)
