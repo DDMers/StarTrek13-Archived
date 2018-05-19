@@ -25,10 +25,10 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 
 /obj/effect/landmark/warp_beacon //These are used for warp capable vessels
 	name = "Warp beacon"
-	var/distance = DEFAULT_TIME //Distance as in how remote this jump-beacon is.
+	var/distance = 800 //Distance as in how remote this jump-beacon is.
 	var/warp_restricted = FALSE //Add in warp inhibitors for faction home space.
 
-/obj/effect/landmark/warp_beacon/New()
+/obj/effect/landmark/warp_beacon/Initialize(timeofday)
 	. = ..()
 	var/area/thearea = get_area(src)
 	name = "[thearea.name]"
@@ -40,7 +40,7 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 	else
 		deactivate()
 
-/obj/structure/jumpgate/New()
+/obj/structure/jumpgate/Initialize(timeofday)
 	. = ..()
 	jumpgates += src
 	find_hyperspace()

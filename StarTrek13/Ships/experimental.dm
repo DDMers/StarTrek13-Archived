@@ -64,6 +64,8 @@
 		pilot.throw_alert("Hull integrity", /obj/screen/alert/charge/hull)
 		pilot.whatimControllingOMFG = src
 		pilot.client.pixelXYshit()
+		var/area/A = get_area(src)
+		A.Entered(user)
 		while(1)
 			stoplag()
 			ProcessMove()

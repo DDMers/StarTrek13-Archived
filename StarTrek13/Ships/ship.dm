@@ -234,7 +234,7 @@
 			to_chat(user, "error, shields have failed!")
 			return
 
-/obj/machinery/space_battle/shield_generator/New()
+/obj/machinery/space_battle/shield_generator/Initialize(timeofday)
 	..()
 	initialize()
 
@@ -327,7 +327,7 @@
 	else
 		return 1
 
-/obj/effect/adv_shield/New()
+/obj/effect/adv_shield/Initialize(timeofday)
 	. = ..()
 	var/area/thearea = get_area(src)
 	for(var/obj/machinery/power/ship/phaser/P in thearea)
@@ -450,7 +450,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	var/list/fire_sounds = list('StarTrek13/sound/borg/machines/phaser.ogg','StarTrek13/sound/borg/machines/phaser2.ogg','StarTrek13/sound/borg/machines/phaser3.ogg')
 
-/obj/item/gun/shipweapon/New()
+/obj/item/gun/shipweapon/Initialize(timeofday)
 	..()
 	START_PROCESSING(SSobj, src)
 
@@ -581,7 +581,7 @@
 	var/datum/effect_system/trail_follow/ion/ion_trail
 //	max_distance = "5000"
 
-/obj/effect/ebeam/phaser/New()
+/obj/effect/ebeam/phaser/Initialize(timeofday)
 	..()
 	ion_trail = new
 	ion_trail.set_up(src)
@@ -668,7 +668,7 @@
 						if(A.charging == 2) // If the cell was full
 							A.charging = 1 // It's no longer full
 
-/obj/machinery/power/ship/phaser/New()
+/obj/machinery/power/ship/phaser/Initialize(timeofday)
 	..()
 	var/obj/item/circuitboard/machine/B = new /obj/item/circuitboard/machine/phase_cannon(null)
 	B.apply_default_parts(src)
@@ -855,7 +855,7 @@
 		for(var/mob/M in thearea)
 			M << redalertsound
 
-/obj/structure/fluff/helm/desk/tactical/New()
+/obj/structure/fluff/helm/desk/tactical/Initialize(timeofday)
 	. = ..()
 	get_weapons()
 	get_shieldgen()
@@ -931,7 +931,7 @@
 	//		for(var/obj/structure/torpedo_launcher/T in torpedoes)
 	//			T.target = target
 		if("fly ship")
-			if(user.pilot_skill < required_skill)
+			if(user.pilot_skill < 1)
 				to_chat(user, "<span class='warning'> Agh! You're not skilled enough to pilot this vessel!<span>")
 				return
 			theship.enter(user)
@@ -952,7 +952,7 @@
 /obj/structure/fluff/helm/desk/tactical/Topic(href, href_list)
 	..()
 	if(href_list["warp"])
-		theship.do_warp(targetBeacon.name, targetBeacon.distance)
+		theship.do_warp_thing(targetBeacon.name, targetBeacon.distance)
 
 	if(href_list["beaconName"])
 		targetBeacon.name = href_list["beaconName"]
@@ -1106,7 +1106,7 @@
 	density = 0
 	anchored = 1.0
 
-/obj/structure/catwalk/New()
+/obj/structure/catwalk/Initialize(timeofday)
 	. = ..()
 	for(var/obj/structure/catwalk/C in get_turf(src))
 		if(C != src)

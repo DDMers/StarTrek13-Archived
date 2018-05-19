@@ -23,7 +23,7 @@
 	density = 0
 	anchored = 1
 
-/obj/structure/weapons_console/New()
+/obj/structure/weapons_console/Initialize(timeofday)
 	. = ..()
 	START_PROCESSING(SSobj,src)
 	subsystem = our_ship.SC.weapons
