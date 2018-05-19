@@ -631,21 +631,18 @@ var/global/list/global_ship_list = list()
 	ProcessMove()
 	if(turret_recharge >0)
 		turret_recharge --
-	linkto()
-	attempt_turret_fire()
+	if(prob(20))
+		linkto()
+		update_weapons()
 	location()
 	if(agressor)
 		if(agressor.target_ship != src)
 			agressor = null
-	update_weapons()
-	update_turrets()
-	check_charge()
 	check_overlays()
 	counter ++
 	update_observers()
 	damage = SC.weapons.damage
 	if(navigating)
-		update_turrets()
 		navigate()
 	get_interactibles()
 	//transporter.destinations = list() //so when we leave the area, it stops being transportable.
@@ -755,10 +752,9 @@ var/global/list/global_ship_list = list()
 
 
 /obj/structure/overmap/proc/do_warp_thing(var/fuckyou, var/byond)
-	for(var/obj/effect/landmark/warp_beacon/fuckoff in world)
+	for(var/obj/effect/landmark/warp_beacon/fuckoff in warp_beacons)
 		if(fuckoff.name == fuckyou)
-			var/obj/effect/landmark/warp_beacon/fuckoff2 = fuckoff
-			do_warp(fuckoff, fuckoff2.distance)
+			do_warp(fuckoff, fuckoff.distance)
 			break;
 
 /obj/structure/overmap/proc/finish_warp(atom/movable/destination)

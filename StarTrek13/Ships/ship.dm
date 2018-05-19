@@ -77,6 +77,8 @@
 			return
 	..()
 
+/*
+
 /obj/machinery/space_battle/shield_generator/proc/calculate()
 	for(var/obj/effect/adv_shield/S in shields)
 		S.health += regen
@@ -92,6 +94,8 @@
 				A.health = shield_system.integrity
 	else
 		STOP_PROCESSING(SSobj,src)
+
+*/
 /*
 	if(!shield_system)
 		return
@@ -147,6 +151,8 @@
 */
 //	calculate()
 
+
+/*
 /obj/effect/adv_shield/proc/percentage(damage)
 	var/counter
 	var/percent = health
@@ -159,6 +165,8 @@
 	generator.say("Shields are buckling, absorbed: [damage]: Shields at [percent]%")
 	playsound(src.loc, 'StarTrek13/sound/borg/machines/bleep2.ogg', 100,1)
 	return
+
+*/
 
 /obj/machinery/space_battle/shield_generator/attack_hand(mob/user)
 	if(shield_system.failed)
@@ -236,8 +244,8 @@
 
 /obj/machinery/space_battle/shield_generator/Initialize(timeofday)
 	..()
-	initialize()
 
+/*
 /obj/machinery/space_battle/shield_generator/proc/initialize()
 	var/area/thearea = get_area(src)
 //	var/i
@@ -253,7 +261,7 @@
 		shield.generator = src
 		shield.icon_state = "shieldwalloff"
 		shields += shield
-
+*/
 
 /obj/machinery/space_battle/shield_generator/take_damage(var/damage, damage_type = PHYSICAL)
 	src.say("Shield taking damage: [damage] : [damage_type == PHYSICAL ? "PHYSICAL" : "ENERGY"]")
@@ -359,7 +367,6 @@
 
 /obj/effect/adv_shield/ex_act(severity)
 	var/damage = 300*severity
-	percentage(damage)
 	var/datum/effect_system/spark_spread/s = new
 	s.set_up(2, 1, src)
 	s.start()
@@ -389,7 +396,6 @@
 		if(density)
 			for(var/obj/effect/adv_shield/S in generator.shields)
 				S.health -= amount //tank all shields
-			percentage(amount)
 			var/datum/effect_system/spark_spread/s = new
 			s.set_up(2, 1, src)
 			s.start()
@@ -479,7 +485,7 @@
 		current_beam.Start()
 
 	//feedback_add_details("gun_fired","[src.type]")
-
+/*
 /obj/item/gun/shipweapon/process()
 	var/source = loc
 	if(!mounted && !isliving(source))
@@ -573,6 +579,8 @@
 		C.adjustFireLoss(damage)
 		return
 
+*/
+
 /obj/item/gun/shipweapon/proc/on_beam_release(var/atom/target)
 	return
 
@@ -647,6 +655,7 @@
 	percentage = (charge / max_power) * 100
 	to_chat(user, "it is [percentage]% full")
 
+/*
 /obj/machinery/power/ship/phaser/process()
 	if(!attached)
 	//	state = 0
@@ -667,6 +676,8 @@
 						charge += 50
 						if(A.charging == 2) // If the cell was full
 							A.charging = 1 // It's no longer full
+
+*/
 
 /obj/machinery/power/ship/phaser/Initialize(timeofday)
 	..()
