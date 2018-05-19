@@ -121,9 +121,9 @@ atom/movable
 						O.vel = 0
 						O.angle -= 180
 						O.EditAngle()
-						to_chat(O.pilot, "Collision detected! Turn ship and try again")
-						O.vel = 2
-						O.ProcessMove()
+						O.vel = 0.5
+						if(O.vel > O.max_speed)
+							O.vel = 0
 					return 0
 			real_pixel_x = real_pixel_x + x_to_move
 			real_pixel_y = real_pixel_y + y_to_move

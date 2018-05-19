@@ -113,15 +113,17 @@
 	attempt_fire(target)
 
 /obj/structure/overmap/ship/fighter/attempt_fire(atom/target)
-	for(var/i = 1 to 3)
-		var/obj/item/projectile/bullet/fighter_round/A = new /obj/item/projectile/bullet/fighter_round(loc)
-		A.starting = loc
-		A.preparePixelProjectile(target,pilot)
-		A.fire()
-		playsound(src,'StarTrek13/sound/fighter/fighterfire.ogg',60,1)
-	//	A.pixel_x = target_ship.pixel_x
-	//	A.pixel_y = target_ship.pixel_y
-		A = null
+	if(SC.weapons.attempt_fire())
+		for(var/i = 1 to 3)
+			SC.weapons.charge -= 100
+			var/obj/item/projectile/bullet/fighter_round/A = new /obj/item/projectile/bullet/fighter_round(loc)
+			A.starting = loc
+			A.preparePixelProjectile(target,pilot)
+			A.fire()
+			playsound(src,'StarTrek13/sound/fighter/fighterfire.ogg',60,1)
+		//	A.pixel_x = target_ship.pixel_x
+		//	A.pixel_y = target_ship.pixel_y
+			A = null
 
 
 /obj/item/projectile/beam/laser/fightergun

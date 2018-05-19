@@ -253,10 +253,12 @@
 			failed = 1
 			controller.theship.max_speed = 0
 			fail()
+			controller.theship.can_move = FALSE
 	else
 		controller.theship.max_speed = initial(controller.theship.max_speed)
 	if(overclock > 0) //Drain power.
 		power_draw += overclock //again, need power stats to fiddle with.
+	controller.theship.can_move = TRUE
 
 /datum/shipsystem/integrity
 	name = "hull plates"
