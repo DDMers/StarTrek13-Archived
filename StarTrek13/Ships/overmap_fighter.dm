@@ -26,7 +26,7 @@
 	pixel_collision_size_y = -32
 	//Add a communcations box sometime ok cool really neat.
 	engine_sound = 'StarTrek13/sound/fighter/fighterengine.ogg'
-	engine_prob = 100
+	engine_prob = 5
 
 /obj/structure/overmap/ship/fighter/viper
 	icon_state = "viper"
@@ -36,13 +36,14 @@
 	icon_state = "raider"
 	name = "Cylon Raider"
 	engine_sound = 'StarTrek13/sound/fighter/raiderengine.ogg'
-	engine_prob = 20
+	engine_prob = 5
 
 
 /obj/structure/overmap/ship/fighter/attack_hand(mob/user)
 	enter(user)
 
 /obj/structure/overmap/ship/fighter/enter(mob/user)
+	SC.weapons.chargeRate = 200
 	if(!carrier_ship)
 		to_chat(user, "Error! There's no carrier ship!")
 		exit()
@@ -114,17 +115,18 @@
 	attempt_fire(target)
 
 /obj/structure/overmap/ship/fighter/attempt_fire(atom/target)
-	if(SC.weapons.attempt_fire())
-		SC.weapons.charge -= 100
-		for(var/i = 1 to 3)
-			var/obj/item/projectile/bullet/fighter_round/A = new /obj/item/projectile/bullet/fighter_round(loc)
-			A.starting = loc
-			A.preparePixelProjectile(target,pilot)
-			A.fire()
-			playsound(src,'StarTrek13/sound/fighter/fighterfire.ogg',60,1)
+	if(!SC.weapons.attempt_fire())
+		return
+	SC.weapons.charge -= 100
+	for(var/i = 1 to 3)
+		var/obj/item/projectile/bullet/fighter_round/A = new /obj/item/projectile/bullet/fighter_round(loc)
+		A.starting = loc
+		A.preparePixelProjectile(target,pilot)
+		A.fire()
+		playsound(src,'StarTrek13/sound/fighter/fighterfire.ogg',60,1)
 		//	A.pixel_x = target_ship.pixel_x
 		//	A.pixel_y = target_ship.pixel_y
-			A = null
+		A = null
 
 
 /obj/item/projectile/beam/laser/fightergun

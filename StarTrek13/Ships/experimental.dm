@@ -65,7 +65,8 @@
 		pilot.whatimControllingOMFG = src
 		pilot.client.pixelXYshit()
 		var/area/A = get_area(src)
-		A.Entered(user)
+		if(A)
+			A.Entered(user)
 		while(1)
 			stoplag()
 			ProcessMove()
@@ -180,7 +181,7 @@ atom/movable
 					for(var/obj/effect/ship_overlay/S in overlays)
 						S.angle = mob.whatimControllingOMFG.angle - turnspeed
 						S.EditAngle()
-					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - turnspeed
+					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - (turnspeed/2)
 					mob.whatimControllingOMFG.ProcessMove()
 					mob.client.pixelXYshit()
 				else
@@ -197,7 +198,7 @@ atom/movable
 					for(var/obj/effect/ship_overlay/S in overlays)
 						S.angle = mob.whatimControllingOMFG.angle - turnspeed
 						S.EditAngle()
-					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + turnspeed
+					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + (turnspeed/2)
 					mob.whatimControllingOMFG.ProcessMove()
 					mob.client.pixelXYshit()
 				else
