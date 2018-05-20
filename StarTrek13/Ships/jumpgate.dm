@@ -9,7 +9,7 @@ var/global/list/warp_beacons = list() //1400 is 2 mins. Only do that long for ju
 /*
 Jumpgates are vastly more limited than warp speed, as they can only lock on to another jumpgate. A warp capable vessel can lock in on any starsystem and jump. Whereas ones without warp drive must follow the chain of jumpgates.
 */
-
+/*
 /obj/structure/jumpgate
 	name = "Jumpgate (Nanotrasen space)"
 	icon = 'StarTrek13/icons/trek/jumpgate.dmi'
@@ -23,16 +23,6 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 	var/position = 1 //Position in the jumpgate network. Jumpgates can only lock on in incriments of 1.
 	var/transit_time = 10
 
-/obj/effect/landmark/warp_beacon //These are used for warp capable vessels
-	name = "Warp beacon"
-	var/distance = 800 //Distance as in how remote this jump-beacon is.
-	var/warp_restricted = FALSE //Add in warp inhibitors for faction home space.
-
-/obj/effect/landmark/warp_beacon/Initialize(timeofday)
-	. = ..()
-	var/area/thearea = get_area(src)
-	name = "[thearea.name]"
-	warp_beacons += src
 
 /obj/structure/jumpgate/ShiftClick(mob/user)
 	if(!destination_locked && !being_used)
@@ -105,6 +95,20 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 		if(isovermapship(mover))
 			var/obj/structure/overmap/ship/S = mover
 			S.do_warp(target_gate, 100)
+
+
+*/
+
+/obj/effect/landmark/warp_beacon //These are used for warp capable vessels
+	name = "Warp beacon"
+	var/distance = 800 //Distance as in how remote this jump-beacon is.
+	var/warp_restricted = FALSE //Add in warp inhibitors for faction home space.
+
+/obj/effect/landmark/warp_beacon/Initialize(timeofday)
+	. = ..()
+	var/area/thearea = get_area(src)
+	name = "[thearea.name]"
+	warp_beacons += src
 
 #undef DEFAULT_TIME
 #undef MEDIUM_TIME

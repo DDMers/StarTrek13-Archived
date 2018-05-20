@@ -21,7 +21,7 @@ var/global/list/global_ship_list = list()
 	flags_1 = NONE
 	requires_power = FALSE
 	var/jumpgate_position = 1 //Change me! whenever you add a new system, incriment this by 1!
-	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg')
+	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg','StarTrek13/sound/ambience/bsgtheme3.ogg')
 
 /area/overmap/Entered(A)
 	set waitfor = FALSE
@@ -776,12 +776,6 @@ var/global/list/global_ship_list = list()
 			var/area/thearea = get_area(O)
 			if(O.z == z && a == thearea)
 				theships += O
-		for(var/obj/structure/jumpgate/J in jumpgates)
-			if(J.z == z)
-				var/area/aA = get_area(src)
-				var/area/b = get_area(J)
-				if(aA == b) //Same area, so you can use that one to jump. Prevents you navigating through the invisible walls
-					theships += J
 		if(!theships.len)
 			return
 		A = input("What ship shall we track?", "Ship navigation", A) as null|anything in theships//overmap_objects
@@ -883,19 +877,18 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/overmap/CollidedWith(atom/movable/mover)
 	if(!isOVERMAP(mover))
-		if(!istype(mover, /obj/structure/jumpgate))
-			if(!shields_active)
-				var/turf/open/space/turfs = list()
-				for(var/turf/T in get_area_turfs(linked_ship))
-					if(istype(T, /turf/open/space))
-						turfs += T
-				var/turf/theturf = pick(turfs)
-				mover.forceMove(theturf) //Force them into a random turf
-				if(istype(mover, /obj/structure/photon_torpedo))
-					var/obj/structure/photon_torpedo/P = mover
-					if(P.armed)
-						sleep(10)
-						P.force_explode()
+		if(!shields_active)
+			var/turf/open/space/turfs = list()
+			for(var/turf/T in get_area_turfs(linked_ship))
+				if(istype(T, /turf/open/space))
+					turfs += T
+			var/turf/theturf = pick(turfs)
+			mover.forceMove(theturf) //Force them into a random turf
+			if(istype(mover, /obj/structure/photon_torpedo))
+				var/obj/structure/photon_torpedo/P = mover
+				if(P.armed)
+					sleep(10)
+					P.force_explode()
 	else
 		return ..()
 
