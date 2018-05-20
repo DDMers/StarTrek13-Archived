@@ -64,6 +64,9 @@
 		pilot.throw_alert("Hull integrity", /obj/screen/alert/charge/hull)
 		pilot.whatimControllingOMFG = src
 		pilot.client.pixelXYshit()
+		var/area/A = get_area(src)
+		if(A)
+			A.Entered(user)
 		while(1)
 			stoplag()
 			ProcessMove()
@@ -119,9 +122,6 @@ atom/movable
 						O.vel = 0
 						O.angle -= 180
 						O.EditAngle()
-						to_chat(O.pilot, "Collision detected! Turn ship and try again")
-						O.vel = 2
-						O.ProcessMove()
 					return 0
 			real_pixel_x = real_pixel_x + x_to_move
 			real_pixel_y = real_pixel_y + y_to_move
@@ -181,7 +181,7 @@ atom/movable
 					for(var/obj/effect/ship_overlay/S in overlays)
 						S.angle = mob.whatimControllingOMFG.angle - turnspeed
 						S.EditAngle()
-					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - turnspeed
+					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - (turnspeed/2)
 					mob.whatimControllingOMFG.ProcessMove()
 					mob.client.pixelXYshit()
 				else
@@ -198,7 +198,7 @@ atom/movable
 					for(var/obj/effect/ship_overlay/S in overlays)
 						S.angle = mob.whatimControllingOMFG.angle - turnspeed
 						S.EditAngle()
-					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + turnspeed
+					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + (turnspeed/2)
 					mob.whatimControllingOMFG.ProcessMove()
 					mob.client.pixelXYshit()
 				else

@@ -108,7 +108,6 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 			. ++
 
 /datum/faction/New()
-
 	var/datum/job/job
 	for(job in SSjob.occupations)
 		if(job.starting_faction == name)

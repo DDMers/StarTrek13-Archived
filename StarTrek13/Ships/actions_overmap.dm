@@ -33,7 +33,7 @@
 
 /datum/action/innate/warp/Activate()
 	//ship.exit()
-	ship.InputWarpTarget(ship.pilot)
+//	ship.InputWarpTarget(ship.pilot)
 	return //Not finished with this yet...
 
 /datum/action/innate/stopfiring
