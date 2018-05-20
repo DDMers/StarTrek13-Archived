@@ -14,7 +14,7 @@
 "n" = (/obj/structure/window/trek{dir = 4},/turf/open/floor/borg/trek/beige,/area/space)
 "o" = (/turf/open/floor/borg/trek/light,/area/space)
 "p" = (/turf/open/floor/borg/trek/blue,/area/space)
-"q" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/ship/light/m,/area/space)
+"q" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/trek_raised/engineering/m,/area/space)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
