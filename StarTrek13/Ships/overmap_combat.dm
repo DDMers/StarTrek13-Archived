@@ -98,10 +98,13 @@
 	var/obj/structure/overmap/theship
 	desc = "The amount of charge your weapon system has"
 
-/obj/screen/alert/charge/New()
+/obj/screen/alert/charge/Initialize(timeofday)
 	. = ..()
 	START_PROCESSING(SSobj, src)
-	theship = mob_viewer.overmap_ship
+	if(mob_viewer)
+		theship = mob_viewer.overmap_ship
+	else
+		qdel(src)
 
 /obj/screen/alert/charge/process()
 	theship = mob_viewer.overmap_ship
@@ -117,12 +120,15 @@
 	desc = "Hull integrity and shield strength"
 	var/image/damage
 
-/obj/screen/alert/charge/hull/New()
+/obj/screen/alert/charge/hull/Initialize(timeofday)
 	. = ..()
 	var/image/tdamage = image('StarTrek13/icons/trek/overmap_indicators3.dmi',icon_state = "damage_0")
 	damage = tdamage
 	add_overlay(damage)
-	theship = mob_viewer.overmap_ship
+	if(mob_viewer)
+		theship = mob_viewer.overmap_ship
+	else
+		qdel(src)
 
 /obj/screen/alert/charge/hull/process()
 	theship = mob_viewer.overmap_ship
@@ -413,7 +419,7 @@ obj/structure/torpedo_launcher/CollidedWith(atom/movable/AM)
 			src.say("[our_ship] is at full capacity already.")
 			return ..()
 
-obj/structure/torpedo_launcher/New()
+obj/structure/torpedo_launcher/Initialize(timeofday)
 	find_generator()
 
 obj/structure/torpedo_launcher/attack_hand(mob/user)

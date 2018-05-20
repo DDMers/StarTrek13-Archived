@@ -21,14 +21,40 @@ var/global/list/global_ship_list = list()
 	flags_1 = NONE
 	requires_power = FALSE
 	var/jumpgate_position = 1 //Change me! whenever you add a new system, incriment this by 1!
+	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg','StarTrek13/sound/ambience/bsgtheme3.ogg')
+
+/area/overmap/Entered(A)
+	set waitfor = FALSE
+	if(!isliving(A))
+		return
+
+	var/mob/living/L = A
+	if(!L.ckey)
+		return
+
+	// Ambience goes down here -- make sure to list each area separately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
+	if(L.client && !L.client.ambience_playing && L.client.prefs.toggles & SOUND_SHIP_AMBIENCE)
+		L.client.ambience_playing = 1
+
+	if(!(L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))
+		return //General ambience check is below the ship ambience so one can play without the other
+
+	if(prob(100))
+		var/sound = pick(ambientsounds)
+
+		if(!L.client.played)
+			SEND_SOUND(L, sound(sound, repeat = 0, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
+			L.client.played = TRUE
+			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 800)
 
 /area/overmap/hyperspace
 	name = "hyperspace"
 	parallax_movedir = 8
 
 /area/overmap/system
-	name = "Volorr"
+	name = "Sol (NT)"
 	jumpgate_position = 2
+	music = 'StarTrek13/sound/ambience/bsgtheme2.ogg'
 
 /area/overmap/system/z2
 	name = "Amann" //Test
@@ -43,12 +69,33 @@ var/global/list/global_ship_list = list()
 	jumpgate_position = 5
 
 /area/overmap/system/z5
-	name = "Ursa minor" //Test
+	name = "Ursa minor (BORG)" //Test
 	jumpgate_position = 6
 
+
 /area/overmap/system/z6
-	name = "Ursa major" //Test
+	name = "Ursa major (FED)" //Test
 	jumpgate_position = 7
+	music = 'StarTrek13/sound/ambience/trektheme1.ogg'
+
+/obj/structure/space_object
+	icon = 'StarTrek13/icons/trek/space_objects.dmi'
+	name = "Sun"
+	desc = "Don't get too close to it...."
+	anchored = 1
+	can_be_unanchored = 0
+	icon_state = "sun"
+	layer = 2
+
+/obj/structure/space_object/supernova
+	name = "Supernova"
+	desc = "A star that has gone nova."
+	icon_state = "supernova"
+
+/obj/structure/space_object/nebula
+	name = "Nebula"
+	desc = "I wouldn't fly into that if I were you"
+	icon_state = "nebula"
 
 #define TORPEDO_MODE 1//1309
 #define PHASER_MODE 2
@@ -305,13 +352,17 @@ var/global/list/global_ship_list = list()
 	pixel_w = -120
 
 
-/obj/structure/overmap/New()
+/obj/structure/overmap/Initialize(timeofday)
+	var/area/A = get_area(src)
+	linked_ship = A
 	health = max_health
 	SC = new(src)
 	SC.generate_shipsystems()
 	SC.theship = src
 	global_ship_list += src
 	START_PROCESSING(SSobj,src)
+	linkto()
+	update_weapons()
 	for(var/obj/effect/landmark/warp_beacon/W in world)
 		destinations += W
 	..()
@@ -549,7 +600,14 @@ var/global/list/global_ship_list = list()
 	if(pilot == user)
 		set_nav_target(user)
 
-//obj/structure/overmap/ShiftClick(mob/user)//Hi my name is KMC and I don't know how to make UIs :^)
+/obj/structure/overmap/ShiftClick(mob/user)
+	if(user != pilot) //No hailing yourself, please
+		var/obj/structure/overmap/ship/sender = user.loc
+		var/message = stripped_input(user,"Communications.","Send Hail")
+		if(!message)
+			return
+		hail(message, null , sender, src)
+		return
 
 /obj/structure/overmap/proc/update_turrets()
 	return
@@ -584,21 +642,18 @@ var/global/list/global_ship_list = list()
 	ProcessMove()
 	if(turret_recharge >0)
 		turret_recharge --
-	linkto()
-	attempt_turret_fire()
+	if(prob(20))
+		linkto()
+		update_weapons()
 	location()
 	if(agressor)
 		if(agressor.target_ship != src)
 			agressor = null
-	update_weapons()
-	update_turrets()
-	check_charge()
 	check_overlays()
 	counter ++
 	update_observers()
 	damage = SC.weapons.damage
 	if(navigating)
-		update_turrets()
 		navigate()
 	get_interactibles()
 	//transporter.destinations = list() //so when we leave the area, it stops being transportable.
@@ -676,28 +731,42 @@ var/global/list/global_ship_list = list()
 
 
 /obj/structure/overmap/proc/do_warp(destination, jump_time) //Don't want to lock this behind warp capable because jumpgates call this
-	var/area/hyperspace_area
-	for(var/obj/effect/landmark/L in GLOB.landmarks_list)
-		if(L.name == "hyperspace")
-			hyperspace_area = get_area(L)
-	var/turf/open/temp = list()
-	for(var/turf/open/T in get_area_turfs(hyperspace_area))
-		temp += T
-	var/turf/theturf = pick(temp)
-	forceMove(theturf)
-	can_move = 0 //Don't want them moving around warp space.
-	shake_camera(pilot, 1, 10)
-	SEND_SOUND(pilot, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
-	to_chat(pilot, "The ship has entered warp space")
-	angle = 180
-	EditAngle()
-//	setDir(4)
-	for(var/mob/L in linked_ship.contents)
-		shake_camera(L, 1, 10)
-		SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
-		to_chat(pilot, "The deck plates shudder as the ship builds up immense speed.")
-		linked_ship.parallax_movedir = NORTH
-	addtimer(CALLBACK(src, .proc/finish_warp, destination),jump_time)
+	if(!SSfaction.jumpgates_forbidden)
+		if(SC.engines.try_warp())
+			var/area/hyperspace_area
+			for(var/obj/effect/landmark/L in GLOB.landmarks_list)
+				if(L.name == "hyperspace")
+					hyperspace_area = get_area(L)
+			var/turf/open/temp = list()
+			for(var/turf/open/T in get_area_turfs(hyperspace_area))
+				temp += T
+			var/turf/theturf = pick(temp)
+			forceMove(theturf)
+			can_move = 0 //Don't want them moving around warp space.
+			shake_camera(pilot, 1, 10)
+			SEND_SOUND(pilot, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
+			to_chat(pilot, "The ship has entered warp space")
+			angle = 180
+			EditAngle()
+		//	setDir(4)
+			for(var/mob/L in linked_ship.contents)
+				shake_camera(L, 1, 10)
+				SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
+				to_chat(pilot, "The deck plates shudder as the ship builds up immense speed.")
+				linked_ship.parallax_movedir = NORTH
+			addtimer(CALLBACK(src, .proc/finish_warp, destination),jump_time)
+		else
+			to_chat(pilot, "Warp engines are recharging, or have been damaged.")
+			return
+	else
+		to_chat(pilot,"Subspace distortions prevent warping at this time.")
+
+
+/obj/structure/overmap/proc/do_warp_thing(var/fuckyou, var/byond)
+	for(var/obj/effect/landmark/warp_beacon/fuckoff in warp_beacons)
+		if(fuckoff.name == fuckyou)
+			do_warp(fuckoff, fuckoff.distance)
+			break;
 
 /obj/structure/overmap/proc/finish_warp(atom/movable/destination)
 	can_move = 1
@@ -707,7 +776,7 @@ var/global/list/global_ship_list = list()
 		shake_camera(L, 4, 2)
 		to_chat(pilot, "The ship slows.")
 		linked_ship.parallax_movedir = FALSE
-	forceMove(destination.loc)
+	forceMove(get_turf(destination))
 
 /obj/structure/overmap/proc/set_nav_target(mob/user)
 	if(can_move)
@@ -718,12 +787,6 @@ var/global/list/global_ship_list = list()
 			var/area/thearea = get_area(O)
 			if(O.z == z && a == thearea)
 				theships += O
-		for(var/obj/structure/jumpgate/J in jumpgates)
-			if(J.z == z)
-				var/area/aA = get_area(src)
-				var/area/b = get_area(J)
-				if(aA == b) //Same area, so you can use that one to jump. Prevents you navigating through the invisible walls
-					theships += J
 		if(!theships.len)
 			return
 		A = input("What ship shall we track?", "Ship navigation", A) as null|anything in theships//overmap_objects
@@ -825,19 +888,18 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/overmap/CollidedWith(atom/movable/mover)
 	if(!isOVERMAP(mover))
-		if(!istype(mover, /obj/structure/jumpgate))
-			if(!shields_active)
-				var/turf/open/space/turfs = list()
-				for(var/turf/T in get_area_turfs(linked_ship))
-					if(istype(T, /turf/open/space))
-						turfs += T
-				var/turf/theturf = pick(turfs)
-				mover.forceMove(theturf) //Force them into a random turf
-				if(istype(mover, /obj/structure/photon_torpedo))
-					var/obj/structure/photon_torpedo/P = mover
-					if(P.armed)
-						sleep(10)
-						P.force_explode()
+		if(!shields_active)
+			var/turf/open/space/turfs = list()
+			for(var/turf/T in get_area_turfs(linked_ship))
+				if(istype(T, /turf/open/space))
+					turfs += T
+			var/turf/theturf = pick(turfs)
+			mover.forceMove(theturf) //Force them into a random turf
+			if(istype(mover, /obj/structure/photon_torpedo))
+				var/obj/structure/photon_torpedo/P = mover
+				if(P.armed)
+					sleep(10)
+					P.force_explode()
 	else
 		return ..()
 

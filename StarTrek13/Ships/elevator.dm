@@ -27,7 +27,7 @@
 	icon_state = "closed"
 	var/obj/structure/elevator_controller/lift //the controller handles the doors
 
-/obj/machinery/door/airlock/lift/New()
+/obj/machinery/door/airlock/lift/Initialize(timeofday)
 	var/area/thearea = get_area(src)
 	for(var/obj/structure/elevator_controller/L in thearea)
 		lift = L
@@ -59,7 +59,7 @@
 	return ..()
 
 
-/obj/structure/elevator_controller/New()
+/obj/structure/elevator_controller/Initialize(timeofday)
 	. = ..()
 	var/area/thearea = get_area(src)
 	elevator_area = thearea

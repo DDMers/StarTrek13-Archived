@@ -225,9 +225,21 @@
 	power_draw = 0//just so it's not an empty type TBH.
 	name = "engines"
 	icon_state = "engines"
+	var/charge = 0
+	var/max_charge = 7000 //This should NickVr proof warping rather nicely :)
+	var/chargeRate = 100
+
+
+/datum/shipsystem/engines/proc/try_warp() //You can't warp if your engines are down
+	if(!failed)
+		if(charge >= 5000)
+			charge -= 5000
+			return 1
 
 /datum/shipsystem/engines/process()
 	. = ..()
+	if(charge < max_charge)
+		charge += chargeRate
 	if(integrity > max_integrity)
 		integrity = max_integrity
 	if(heat < 0)
@@ -235,16 +247,18 @@
 	if(heat)
 		integrity -= heat
 	if(integrity <= 4000) //This equates to the engine being visibly shot off
-		controller.theship.vehicle_move_delay = initial(controller.theship.vehicle_move_delay)*1.4
+		controller.theship.max_speed = initial(controller.theship.max_speed)*0.4
 		return
 		if(integrity <= 0)
 			failed = 1
-			controller.theship.can_move = FALSE
+			controller.theship.max_speed = 0
 			fail()
+			controller.theship.can_move = FALSE
 	else
-		controller.theship.can_move = TRUE
+		controller.theship.max_speed = initial(controller.theship.max_speed)
 	if(overclock > 0) //Drain power.
 		power_draw += overclock //again, need power stats to fiddle with.
+	controller.theship.can_move = TRUE
 
 /datum/shipsystem/integrity
 	name = "hull plates"

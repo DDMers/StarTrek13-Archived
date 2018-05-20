@@ -65,7 +65,7 @@
 
 /obj/item/clothing/glasses/night/borg
 	name = "occular prosthesis"
-	desc = "A freaky cyborg eye linked directly to the brain allowing for massively enhanced vision, they are extremely light sensitive."
+	desc = "A cyborg eye linked directly to our brain allowing for massively enhanced vision. They are extremely light sensitive."
 	icon_state = "borg"
 	item_state = null
 	vision_flags = SEE_MOBS
@@ -141,7 +141,7 @@
 
 /obj/item/clothing/mask/gas/borg
 	name = "borg mask"
-	desc = "A built in respirator that covers the face of a borg, it is dark purple. Alt click or CTRL click it to play a sound."
+	desc = "A built in respirator that covers our face, it is dark purple. Alt click or CTRL click it to play a sound."
 	icon_state = "borg"
 	item_state = null
 	siemens_coefficient = 0

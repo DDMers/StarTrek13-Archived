@@ -17,11 +17,11 @@
 	icon = 'StarTrek13/icons/trek/trek_voy_wall.dmi'
 	icon_state = "wall"
 
-/turf/closed/wall/ship/voy/New()
+/turf/closed/wall/ship/voy/Initialize(timeofday)
 	. = ..()
 	set_light(5)
 
-/turf/closed/wall/ship/tng/New()
+/turf/closed/wall/ship/tng/Initialize(timeofday)
 	. = ..()
 	set_light(5)
 
@@ -136,7 +136,7 @@
 	desc = "it's lit up"
 	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
 
-/turf/open/floor/borg/trek/lit/New()
+/turf/open/floor/borg/trek/lit/Initialize(timeofday)
 	. = ..()
 	set_light(10)
 

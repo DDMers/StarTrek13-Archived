@@ -77,6 +77,8 @@
 			return
 	..()
 
+/*
+
 /obj/machinery/space_battle/shield_generator/proc/calculate()
 	for(var/obj/effect/adv_shield/S in shields)
 		S.health += regen
@@ -92,6 +94,8 @@
 				A.health = shield_system.integrity
 	else
 		STOP_PROCESSING(SSobj,src)
+
+*/
 /*
 	if(!shield_system)
 		return
@@ -147,6 +151,8 @@
 */
 //	calculate()
 
+
+/*
 /obj/effect/adv_shield/proc/percentage(damage)
 	var/counter
 	var/percent = health
@@ -159,6 +165,8 @@
 	generator.say("Shields are buckling, absorbed: [damage]: Shields at [percent]%")
 	playsound(src.loc, 'StarTrek13/sound/borg/machines/bleep2.ogg', 100,1)
 	return
+
+*/
 
 /obj/machinery/space_battle/shield_generator/attack_hand(mob/user)
 	if(shield_system.failed)
@@ -234,10 +242,10 @@
 			to_chat(user, "error, shields have failed!")
 			return
 
-/obj/machinery/space_battle/shield_generator/New()
+/obj/machinery/space_battle/shield_generator/Initialize(timeofday)
 	..()
-	initialize()
 
+/*
 /obj/machinery/space_battle/shield_generator/proc/initialize()
 	var/area/thearea = get_area(src)
 //	var/i
@@ -253,7 +261,7 @@
 		shield.generator = src
 		shield.icon_state = "shieldwalloff"
 		shields += shield
-
+*/
 
 /obj/machinery/space_battle/shield_generator/take_damage(var/damage, damage_type = PHYSICAL)
 	src.say("Shield taking damage: [damage] : [damage_type == PHYSICAL ? "PHYSICAL" : "ENERGY"]")
@@ -327,7 +335,7 @@
 	else
 		return 1
 
-/obj/effect/adv_shield/New()
+/obj/effect/adv_shield/Initialize(timeofday)
 	. = ..()
 	var/area/thearea = get_area(src)
 	for(var/obj/machinery/power/ship/phaser/P in thearea)
@@ -359,7 +367,6 @@
 
 /obj/effect/adv_shield/ex_act(severity)
 	var/damage = 300*severity
-	percentage(damage)
 	var/datum/effect_system/spark_spread/s = new
 	s.set_up(2, 1, src)
 	s.start()
@@ -389,7 +396,6 @@
 		if(density)
 			for(var/obj/effect/adv_shield/S in generator.shields)
 				S.health -= amount //tank all shields
-			percentage(amount)
 			var/datum/effect_system/spark_spread/s = new
 			s.set_up(2, 1, src)
 			s.start()
@@ -450,7 +456,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	var/list/fire_sounds = list('StarTrek13/sound/borg/machines/phaser.ogg','StarTrek13/sound/borg/machines/phaser2.ogg','StarTrek13/sound/borg/machines/phaser3.ogg')
 
-/obj/item/gun/shipweapon/New()
+/obj/item/gun/shipweapon/Initialize(timeofday)
 	..()
 	START_PROCESSING(SSobj, src)
 
@@ -479,7 +485,7 @@
 		current_beam.Start()
 
 	//feedback_add_details("gun_fired","[src.type]")
-
+/*
 /obj/item/gun/shipweapon/process()
 	var/source = loc
 	if(!mounted && !isliving(source))
@@ -573,6 +579,8 @@
 		C.adjustFireLoss(damage)
 		return
 
+*/
+
 /obj/item/gun/shipweapon/proc/on_beam_release(var/atom/target)
 	return
 
@@ -581,7 +589,7 @@
 	var/datum/effect_system/trail_follow/ion/ion_trail
 //	max_distance = "5000"
 
-/obj/effect/ebeam/phaser/New()
+/obj/effect/ebeam/phaser/Initialize(timeofday)
 	..()
 	ion_trail = new
 	ion_trail.set_up(src)
@@ -647,6 +655,7 @@
 	percentage = (charge / max_power) * 100
 	to_chat(user, "it is [percentage]% full")
 
+/*
 /obj/machinery/power/ship/phaser/process()
 	if(!attached)
 	//	state = 0
@@ -668,7 +677,9 @@
 						if(A.charging == 2) // If the cell was full
 							A.charging = 1 // It's no longer full
 
-/obj/machinery/power/ship/phaser/New()
+*/
+
+/obj/machinery/power/ship/phaser/Initialize(timeofday)
 	..()
 	var/obj/item/circuitboard/machine/B = new /obj/item/circuitboard/machine/phase_cannon(null)
 	B.apply_default_parts(src)
@@ -855,7 +866,7 @@
 		for(var/mob/M in thearea)
 			M << redalertsound
 
-/obj/structure/fluff/helm/desk/tactical/New()
+/obj/structure/fluff/helm/desk/tactical/Initialize(timeofday)
 	. = ..()
 	get_weapons()
 	get_shieldgen()
@@ -931,7 +942,7 @@
 	//		for(var/obj/structure/torpedo_launcher/T in torpedoes)
 	//			T.target = target
 		if("fly ship")
-			if(user.pilot_skill < required_skill)
+			if(user.pilot_skill < 1)
 				to_chat(user, "<span class='warning'> Agh! You're not skilled enough to pilot this vessel!<span>")
 				return
 			theship.enter(user)
@@ -1106,7 +1117,7 @@
 	density = 0
 	anchored = 1.0
 
-/obj/structure/catwalk/New()
+/obj/structure/catwalk/Initialize(timeofday)
 	. = ..()
 	for(var/obj/structure/catwalk/C in get_turf(src))
 		if(C != src)
