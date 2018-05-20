@@ -353,12 +353,16 @@ var/global/list/global_ship_list = list()
 
 
 /obj/structure/overmap/Initialize(timeofday)
+	var/area/A = get_area(src)
+	linked_ship = A
 	health = max_health
 	SC = new(src)
 	SC.generate_shipsystems()
 	SC.theship = src
 	global_ship_list += src
 	START_PROCESSING(SSobj,src)
+	linkto()
+	update_weapons()
 	for(var/obj/effect/landmark/warp_beacon/W in world)
 		destinations += W
 	..()
@@ -596,7 +600,14 @@ var/global/list/global_ship_list = list()
 	if(pilot == user)
 		set_nav_target(user)
 
-//obj/structure/overmap/ShiftClick(mob/user)//Hi my name is KMC and I don't know how to make UIs :^)
+/obj/structure/overmap/ShiftClick(mob/user)
+	if(user != pilot) //No hailing yourself, please
+		var/obj/structure/overmap/ship/sender = user.loc
+		var/message = stripped_input(user,"Communications.","Send Hail")
+		if(!message)
+			return
+		hail(message, null , sender, src)
+		return
 
 /obj/structure/overmap/proc/update_turrets()
 	return
