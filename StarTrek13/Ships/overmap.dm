@@ -21,7 +21,7 @@ var/global/list/global_ship_list = list()
 	flags_1 = NONE
 	requires_power = FALSE
 	var/jumpgate_position = 1 //Change me! whenever you add a new system, incriment this by 1!
-	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg','StarTrek13/sound/ambience/bsgtheme3.ogg')
+	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg','StarTrek13/sound/ambience/bsgtheme3.ogg','StarTrek13/sound/ambience/interstellar.ogg')
 
 /area/overmap/Entered(A)
 	set waitfor = FALSE
@@ -635,6 +635,9 @@ var/global/list/global_ship_list = list()
 */
 
 /obj/structure/overmap/process()
+	if(pilot)
+		for(var/obj/screen/alert/charge/C in pilot.alerts)
+			C.theship = src
 	if(health <= 0)
 		destroy(1)
 	if(!health)
@@ -661,9 +664,9 @@ var/global/list/global_ship_list = list()
 		if(pilot.loc != src)
 			pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
 			pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
-			exit() //pilot has been tele'd out, remove them!
 			for(var/obj/screen/alert/charge/C in pilot.alerts)
 				C.theship = src
+			exit() //pilot has been tele'd out, remove them!
 	if(charge > max_charge)
 		charge = max_charge
 	else

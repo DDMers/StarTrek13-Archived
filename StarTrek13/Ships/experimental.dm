@@ -62,6 +62,8 @@
 		GrantActions()
 		pilot.throw_alert("Weapon charge", /obj/screen/alert/charge)
 		pilot.throw_alert("Hull integrity", /obj/screen/alert/charge/hull)
+		for(var/obj/screen/alert/charge/C in pilot.alerts)
+			C.theship = src
 		pilot.whatimControllingOMFG = src
 		pilot.client.pixelXYshit()
 		var/area/A = get_area(src)
@@ -119,9 +121,11 @@ atom/movable
 			//		HOLYSHITICRASHED = HOLYSHITICRASHED + 1
 					if(istype(src, /obj/structure/overmap))
 						var/obj/structure/overmap/O = src
-						O.vel = 0
 						O.angle -= 180
 						O.EditAngle()
+						O.vel = 1
+						sleep(10)
+						O.vel = 0
 					return 0
 			real_pixel_x = real_pixel_x + x_to_move
 			real_pixel_y = real_pixel_y + y_to_move

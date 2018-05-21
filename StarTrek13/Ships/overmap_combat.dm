@@ -103,8 +103,6 @@
 	START_PROCESSING(SSobj, src)
 	if(mob_viewer)
 		theship = mob_viewer.overmap_ship
-	else
-		qdel(src)
 
 /obj/screen/alert/charge/process()
 	theship = mob_viewer.overmap_ship
@@ -127,8 +125,6 @@
 	add_overlay(damage)
 	if(mob_viewer)
 		theship = mob_viewer.overmap_ship
-	else
-		qdel(src)
 
 /obj/screen/alert/charge/hull/process()
 	theship = mob_viewer.overmap_ship
