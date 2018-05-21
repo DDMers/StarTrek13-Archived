@@ -47,6 +47,14 @@
 
 		PixelMove(x_speed,y_speed)
 
+/obj/structure/overmap/proc/parallax_update()
+	if(pilot)
+		for(var/obj/screen/parallax_layer/P in pilot.client.parallax_layers)
+		//	var/turf/posobj = get_turf(src)
+			var/x_speed = 5 * cos(angle)
+			var/y_speed = 5 * sin(angle)
+			P.PixelMove(x_speed,y_speed)
+			pilot.hud_used.update_parallax()
 
 /obj/structure/overmap/proc/enter(mob/user)
 	if(user.client)
@@ -69,9 +77,10 @@
 		var/area/A = get_area(src)
 		if(A)
 			A.Entered(user)
-		while(1)
+		while(pilot)
 			stoplag()
 			ProcessMove()
+			parallax_update() //Need this to be on SUPERSPEED or it'll look awful
 
 /obj/structure/overmap/exit(mob/user)
 	if(pilot.client)
@@ -157,7 +166,6 @@ atom/movable
 						mob.whatimControllingOMFG.vel += acceleration
 					else
 						mob.whatimControllingOMFG.vel = max_speed
-					mob.whatimControllingOMFG.ProcessMove()
 					mob.client.pixelXYshit()
 				else
 					..()
@@ -182,11 +190,14 @@ atom/movable
 					..()
 			if(NORTHEAST)
 				if(mob.whatimControllingOMFG)
+					if(mob.whatimControllingOMFG.vel < max_speed) //burn to speed up
+						mob.whatimControllingOMFG.vel += acceleration
+					else
+						mob.whatimControllingOMFG.vel = max_speed
 					for(var/obj/effect/ship_overlay/S in overlays)
 						S.angle = mob.whatimControllingOMFG.angle - turnspeed
 						S.EditAngle()
-					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - (turnspeed/2)
-					mob.whatimControllingOMFG.ProcessMove()
+					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - turnspeed
 					mob.client.pixelXYshit()
 				else
 					..()
@@ -199,11 +210,14 @@ atom/movable
 					mob.whatimControllingOMFG.EditAngle()
 			if(NORTHWEST)
 				if(mob.whatimControllingOMFG)
+					if(mob.whatimControllingOMFG.vel < max_speed) //burn to speed up
+						mob.whatimControllingOMFG.vel += acceleration
+					else
+						mob.whatimControllingOMFG.vel = max_speed
 					for(var/obj/effect/ship_overlay/S in overlays)
 						S.angle = mob.whatimControllingOMFG.angle - turnspeed
 						S.EditAngle()
-					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + (turnspeed/2)
-					mob.whatimControllingOMFG.ProcessMove()
+					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + turnspeed
 					mob.client.pixelXYshit()
 				else
 					..()
