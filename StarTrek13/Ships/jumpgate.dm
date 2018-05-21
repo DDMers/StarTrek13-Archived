@@ -107,8 +107,9 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 /obj/effect/landmark/warp_beacon/Initialize(timeofday)
 	. = ..()
 	var/area/thearea = get_area(src)
-	name = "[thearea.name]"
-	warp_beacons += src
+	if(thearea)
+		name = "[thearea.name]"
+		warp_beacons += src
 
 #undef DEFAULT_TIME
 #undef MEDIUM_TIME

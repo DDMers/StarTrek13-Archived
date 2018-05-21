@@ -26,10 +26,12 @@
 /obj/structure/weapons_console/Initialize(timeofday)
 	. = ..()
 	START_PROCESSING(SSobj,src)
-	subsystem = our_ship.SC.weapons
+	if(our_ship)
+		subsystem = our_ship.SC.weapons
 	damage = subsystem.damage
 	heat = subsystem.heat
 	charge = subsystem.charge
+
 
 /obj/structure/weapons_console/proc/get_ship_icon(atom/item,mob/user)
 	return icon2html(item, user, EAST)
