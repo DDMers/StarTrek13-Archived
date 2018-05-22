@@ -21,7 +21,7 @@ var/global/list/global_ship_list = list()
 	flags_1 = NONE
 	requires_power = FALSE
 	var/jumpgate_position = 1 //Change me! whenever you add a new system, incriment this by 1!
-	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg','StarTrek13/sound/ambience/bsgtheme3.ogg')
+	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg','StarTrek13/sound/ambience/bsgtheme3.ogg','StarTrek13/sound/ambience/interstellar.ogg')
 
 /area/overmap/Entered(A)
 	set waitfor = FALSE
@@ -261,6 +261,8 @@ var/global/list/global_ship_list = list()
 	sensor_range = 10
 	max_speed = 0
 	speed = 0
+	warp_capable = FALSE
+	acceleration = 0
 
 /obj/structure/overmap/ship //dummy for testing woo
 	name = "USS thingy"
@@ -363,7 +365,7 @@ var/global/list/global_ship_list = list()
 	START_PROCESSING(SSobj,src)
 	linkto()
 	update_weapons()
-	for(var/obj/effect/landmark/warp_beacon/W in world)
+	for(var/obj/effect/landmark/warp_beacon/W in warp_beacons)
 		destinations += W
 	..()
 
@@ -635,16 +637,22 @@ var/global/list/global_ship_list = list()
 */
 
 /obj/structure/overmap/process()
+	parallax_update() //Need this to be on SUPERSPEED or it'll look awful
+	if(pilot)
+		for(var/obj/screen/alert/charge/C in pilot.alerts)
+			C.theship = src
+	if(SC.shields.failed)
+		shields_active = FALSE
 	if(health <= 0)
 		destroy(1)
 	if(!health)
 		destroy(1)
-	ProcessMove()
+//	ProcessMove()
 	if(turret_recharge >0)
 		turret_recharge --
-	if(prob(20))
+	if(prob(10))
 		linkto()
-		update_weapons()
+	//	update_weapons()
 	location()
 	if(agressor)
 		if(agressor.target_ship != src)
@@ -661,19 +669,14 @@ var/global/list/global_ship_list = list()
 		if(pilot.loc != src)
 			pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
 			pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
-			exit() //pilot has been tele'd out, remove them!
 			for(var/obj/screen/alert/charge/C in pilot.alerts)
 				C.theship = src
+			exit() //pilot has been tele'd out, remove them!
 	if(charge > max_charge)
 		charge = max_charge
 	else
 		charge = max_charge
-	if(health <= 2000) //Power it off
-		linked_ship.requires_power = TRUE
-		linked_ship.has_gravity = 0
-	else
-		linked_ship.requires_power = FALSE
-		linked_ship.has_gravity = 1
+
 
 
 /obj/structure/overmap/AltClick(mob/user)
@@ -867,7 +870,7 @@ var/global/list/global_ship_list = list()
 			qdel(src)
 
 /obj/structure/overmap/proc/has_shields()
-	if(SC.shields.health >= 5000 && shields_active)
+	if(SC.shields.health >= 5000 && shields_active && SC.shields.toggled)
 		return 1
 	else//no
 		return 0

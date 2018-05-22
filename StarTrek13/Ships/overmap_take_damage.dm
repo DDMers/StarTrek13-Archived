@@ -60,8 +60,9 @@
 			theturf.atmos_spawn_air("plasma=30;TEMP=1000")
 			for(var/turf/open/floor/T in orange(5,theturf))
 				new /obj/effect/hotspot/shipfire(T.loc)
-			if(prob(30+maths))
-				explosion(theturf,2,4,0)
+			if(!shields_active)
+				if(prob(15+maths))
+					explosion(theturf,2,4,0)
 			return
 		else//40% chance
 			var/new_type = pick(subtypesof(/obj/structure/debris))
