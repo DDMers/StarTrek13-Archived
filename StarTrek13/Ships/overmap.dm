@@ -261,6 +261,8 @@ var/global/list/global_ship_list = list()
 	sensor_range = 10
 	max_speed = 0
 	speed = 0
+	warp_capable = FALSE
+	acceleration = 0
 
 /obj/structure/overmap/ship //dummy for testing woo
 	name = "USS thingy"
