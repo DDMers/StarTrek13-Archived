@@ -29,6 +29,7 @@
 	engine_sound = 'StarTrek13/sound/fighter/fighterengine.ogg'
 	engine_prob = 5
 	var/damage_state = TRUE
+	warp_capable = FALSE
 
 /obj/structure/overmap/ship/fighter/viper
 	icon_state = "viper"
