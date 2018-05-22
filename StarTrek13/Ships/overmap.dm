@@ -676,12 +676,7 @@ var/global/list/global_ship_list = list()
 		charge = max_charge
 	else
 		charge = max_charge
-	if(health <= 2000) //Power it off
-		linked_ship.requires_power = TRUE
-		linked_ship.has_gravity = 0
-	if(health > 2000)
-		linked_ship.requires_power = FALSE
-		linked_ship.has_gravity = 1
+
 
 
 /obj/structure/overmap/AltClick(mob/user)
