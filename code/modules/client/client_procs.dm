@@ -548,6 +548,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			CRASH("Age check regex failed for [src.ckey]")
 
 /client/proc/check_randomizer(topic)
+	return FALSE//This is causing too many issues. COME AT ME KRILLBILL AND LEGOSCAPE!!!
 	. = FALSE
 	if (connection != "seeker")
 		return
