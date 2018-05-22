@@ -365,7 +365,7 @@ var/global/list/global_ship_list = list()
 	START_PROCESSING(SSobj,src)
 	linkto()
 	update_weapons()
-	for(var/obj/effect/landmark/warp_beacon/W in world)
+	for(var/obj/effect/landmark/warp_beacon/W in warp_beacons)
 		destinations += W
 	..()
 
@@ -637,6 +637,7 @@ var/global/list/global_ship_list = list()
 */
 
 /obj/structure/overmap/process()
+	parallax_update() //Need this to be on SUPERSPEED or it'll look awful
 	if(pilot)
 		for(var/obj/screen/alert/charge/C in pilot.alerts)
 			C.theship = src
@@ -646,12 +647,12 @@ var/global/list/global_ship_list = list()
 		destroy(1)
 	if(!health)
 		destroy(1)
-	ProcessMove()
+//	ProcessMove()
 	if(turret_recharge >0)
 		turret_recharge --
-	if(prob(20))
+	if(prob(10))
 		linkto()
-		update_weapons()
+	//	update_weapons()
 	location()
 	if(agressor)
 		if(agressor.target_ship != src)
@@ -678,7 +679,7 @@ var/global/list/global_ship_list = list()
 	if(health <= 2000) //Power it off
 		linked_ship.requires_power = TRUE
 		linked_ship.has_gravity = 0
-	else
+	if(health > 2000)
 		linked_ship.requires_power = FALSE
 		linked_ship.has_gravity = 1
 
@@ -874,7 +875,7 @@ var/global/list/global_ship_list = list()
 			qdel(src)
 
 /obj/structure/overmap/proc/has_shields()
-	if(SC.shields.health >= 5000 && shields_active)
+	if(SC.shields.health >= 5000 && shields_active && SC.shields.toggled = TRUE)
 		return 1
 	else//no
 		return 0

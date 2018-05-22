@@ -286,6 +286,7 @@
 	integrity = 20000
 	max_integrity = 20000
 	var/max_integrity_bonus = 0 //From capboosters
+	var/toggled = FALSE //Shieldgencode, Ship.dm
 
 /datum/shipsystem/shields/fail() //Failed as in subsystem has failed, can no longer generate shields
 	..()
