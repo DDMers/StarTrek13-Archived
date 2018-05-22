@@ -221,6 +221,7 @@
 		return
 	if(on)
 		to_chat(user, "shields dropped")
+		ship.SC.shields.toggled = FALSE
 		on = 0 //turn off
 		for(var/obj/effect/adv_shield/S in shields)
 			S.deactivate()
@@ -232,6 +233,7 @@
 		if(ship.SC.shields.health >= 5000)
 			to_chat(user, "shields activated")
 			on = 1
+			ship.SC.shields.toggled = TRUE
 			for(var/obj/effect/adv_shield/S in shields)
 				S.activate()
 				S.active = 1

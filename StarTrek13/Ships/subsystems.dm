@@ -286,6 +286,7 @@
 	integrity = 20000
 	max_integrity = 20000
 	var/max_integrity_bonus = 0 //From capboosters
+	var/toggled = FALSE //Shieldgencode, Ship.dm
 
 /datum/shipsystem/shields/fail() //Failed as in subsystem has failed, can no longer generate shields
 	..()
@@ -459,7 +460,6 @@
 /obj/structure/ship_component/process()
 	var/area/A = get_area(src)
 	if(A.requires_power) //BE SURE TO CHANGE THIS WHEN WE ADD SHIP POWER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		src.say("No available power remains. Shutting down.")
 		active = FALSE
 	if(active)
 		health -= 2 //Make sure to keep it in good repair

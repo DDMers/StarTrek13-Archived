@@ -156,6 +156,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	save_character()		//let's save this new random character so it doesn't keep generating new ones.
 	menuoptions = list()
 	getFactions()
+	ResetJobs() //Shitty faction code runtime
 	return
 
 #define APPEARANCE_CATEGORY_COLUMN "<td valign='top' width='14%'>"
@@ -625,7 +626,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	factions = SSfaction.factions
 
 /datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
-	ResetJobs() //stop spawning with the wrong gear please. Thank you gamers
+//	ResetJobs() //stop spawning with the wrong gear please. Thank you gamers
 	getFactions()
 	if(!SSjob)
 		return
