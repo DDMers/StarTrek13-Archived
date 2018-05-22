@@ -159,8 +159,21 @@
 
 /obj/structure/overmap/ship/fighter/destroy()
 	to_chat(pilot, "The cabin of [src] explodes into a ball of flames!")
-//	pilot.forceMove(loc)
-	exit()
+	pilot.forceMove(origin_turf)
+	pilot.client.pixelXYshit()
+	pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
+	pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
+	RemoveActions()
+	initial_loc = null
+	pilot.overmap_ship = null
+	pilot.whatimControllingOMFG = null
+	pilot.client.pixelXYshit()
+	pilot.incorporeal_move = 1 //Refresh movement to fix an issue
+	pilot.incorporeal_move = 0
+	pilot = null
+	for(var/datum/shipsystem/S in SC)
+		qdel(S)
+	qdel(SC)
 	qdel(src)
 	. = ..()
 
