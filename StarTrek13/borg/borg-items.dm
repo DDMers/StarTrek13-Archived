@@ -18,8 +18,6 @@
 	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT
 	slowdown = 3
 	flags_1 = NODROP_1 | ABSTRACT_1 | THICKMATERIAL_1 | STOPSPRESSUREDMAGE_1
-	heat_protection = null //burn the borg
-	max_heat_protection_temperature = null
 	armor = list(melee = 40, bullet = 5, laser = 5, energy = 0, bomb = 15, bio = 100, rad = 70) //they can't react to bombs that well, and emps will rape them
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	allowed = list(/obj/item/device/flashlight)
