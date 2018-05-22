@@ -875,7 +875,7 @@ var/global/list/global_ship_list = list()
 			qdel(src)
 
 /obj/structure/overmap/proc/has_shields()
-	if(SC.shields.health >= 5000 && shields_active && SC.shields.toggled = TRUE)
+	if(SC.shields.health >= 5000 && shields_active && SC.shields.toggled)
 		return 1
 	else//no
 		return 0
