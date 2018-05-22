@@ -641,7 +641,7 @@ var/global/list/global_ship_list = list()
 		for(var/obj/screen/alert/charge/C in pilot.alerts)
 			C.theship = src
 	if(SC.shields.failed)
-		has_shields = 0
+		shields_active = FALSE
 	if(health <= 0)
 		destroy(1)
 	if(!health)
