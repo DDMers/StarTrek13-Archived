@@ -80,7 +80,6 @@
 		while(pilot)
 			stoplag()
 			ProcessMove()
-			parallax_update() //Need this to be on SUPERSPEED or it'll look awful
 
 /obj/structure/overmap/exit(mob/user)
 	if(pilot.client)
