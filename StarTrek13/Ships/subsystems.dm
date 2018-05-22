@@ -459,7 +459,6 @@
 /obj/structure/ship_component/process()
 	var/area/A = get_area(src)
 	if(A.requires_power) //BE SURE TO CHANGE THIS WHEN WE ADD SHIP POWER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		src.say("No available power remains. Shutting down.")
 		active = FALSE
 	if(active)
 		health -= 2 //Make sure to keep it in good repair
