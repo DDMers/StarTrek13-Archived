@@ -416,6 +416,9 @@
 	var/job_count = 0
 	for(var/datum/job/job in SSjob.occupations)
 		if(job && IsJobAvailable(job.title))
+			if(!client.prefs.player_faction)
+				client.prefs.player_faction = pick(SSfaction.factions)
+				to_chat(client, "A bug just happened, your faction was randomized instead.")
 			if(client.prefs.player_faction.name != job.starting_faction)
 				continue
 			job_count++;
