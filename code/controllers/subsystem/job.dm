@@ -383,7 +383,10 @@ SUBSYSTEM_DEF(job)
 	else
 		H = M
 	var/datum/job/job = GetJob(rank)
-	H.job = rank					//For us, latejoins are a last resort, as they could end up in the middle of the wrong faction base.
+	if(job.starting_faction == N.client.prefs.player_faction)
+		H.job = rank					//For us, latejoins are a last resort, as they could end up in the middle of the wrong faction base.
+	else
+		AssignRole(N, "Assistant")
 	var/obj/effect/landmark/faction_spawn/S = null
 	if(!M.client.prefs.player_faction)
 		M.client.prefs.player_faction = pick(SSfaction.factions) //the runtimes boy oh!
