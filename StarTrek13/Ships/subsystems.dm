@@ -303,10 +303,6 @@
 /datum/shipsystem/shields/process()
 	health -= heat
 	integrity -= heat
-	if(heat > 0)
-		heat -= 20
-	else
-		heat = 0
 	max_integrity = initial(max_integrity)
 	if(integrity <= 5000)
 		fail()
