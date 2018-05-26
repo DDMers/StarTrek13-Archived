@@ -38,6 +38,10 @@
 
 
 /obj/item/clothing/neck/combadge/proc/send_message(var/message, mob/living/user)
+	if(!linked) //Yeah. People got confused
+		link_to_area(user)
+		if(!on)
+			CtrlClick(user)
 	if(world.time < next_talk)
 		return 0
 	next_talk = world.time + talk_delay
