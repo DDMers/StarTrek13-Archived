@@ -199,7 +199,7 @@
 /obj/machinery/space_battle/shield_generator/Topic(href, href_list)
 	..()
 	var/client/user = locate(href_list["clicker"])
-	if(href_list["toggle"] )
+	if(href_list["toggle"])
 		toggle(user)
 		return
 
@@ -767,7 +767,7 @@
 	icon_state = "ship"
 
 /area/ship/sovreign
-	name = "USS sovreign" //change me!
+	name = "USS Sovereign"
 	icon_state = "ship"
 
 /area/ship/nanotrasen
@@ -801,8 +801,6 @@
 /area/ship/overmap/nanotrasen/trading_outpost
 	name = "NSV Mercator trade station."
 	icon_state = "ship"
-
-
 
 /obj/ship_marker
 	invisibility = INVISIBILITY_ABSTRACT
@@ -841,7 +839,7 @@
 	var/list/torpedoes = list()
 	var/obj/structure/overmap/theship = null
 	var/list/obj/effect/landmark/warp_beacon/beacons = list()
-	var/obj/effect/landmark/warp_beacon/targetBeacon = new
+	var/obj/effect/landmark/warp_beacon/targetBeacon = null
 	var/required_skill = 25 //How much piloting skill is required to fly this ship?
 	anchored = 1
 
@@ -896,6 +894,14 @@
 	for(var/obj/structure/torpedo_launcher/T in thearea)
 		torpedoes += T
 
+/datum/asset/simple/starmap
+	assets = list(
+		"background.png"	= 'UI/starmap/helm_background_nogrid.png',
+		"system.png"		= 'UI/starmap/system.png',
+		"system_select.png" = 'UI/starmap/system_select.png',
+		"swiss911.ttf"		= 'UI/starmap/Swiss911UCmBT.ttf'
+	)
+
 /obj/structure/fluff/helm/desk/tactical/attack_hand(mob/user)
 	get_weapons()
 	get_shieldgen()
@@ -904,33 +910,125 @@
 	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap")
 
 	var/html = "\
+	<!DOCTYPE html>\
 	<html>\
+		<style>\
+			@font-face {\
+				font-family: 'swiss911 UCm BT';\
+				src: url('swiss.ttf') format('truetype');\
+				font-weight: normal;\
+				font-style: normal;\
+			}\
+			html {\
+				background-image: url('background.png');\
+				background-repeat: no-repeat;\
+				font-family: 'swiss911 UCm BT', 'Comic Sans MS';\
+				background-color: black;\
+				font-size: 18px;\
+			}\
+			#StarMap {\
+				height: auto;\
+				width: auto;\
+			}\
+			#StarMapGrid {\
+				border-collapse: collapse;\
+				position: absolute;\
+				left: 80px;\
+				top: 170px;\
+				width: 459px;\
+				height: 185px;\
+				table-layout: fixed;\
+				text-align: center;\
+			}\
+			#StarMapGrid tr td {\
+				background-color: black;\
+				border-collapse: collapse;\
+				color: white;\
+				border: 1px solid #9c6b29;\
+				height: 50px;\
+				width: 100px;\
+			}\
+			#StarMapGrid tr .system:hover{\
+				background-color: #3e2a10;\
+			}\
+			#StarMapGrid tr .system div{\
+				text-align: left;\
+				height: 40px;\
+				width: 100%;\
+				background-image: url('system.png');\
+				background-repeat: no-repeat;\
+			}\
+			#StarMapGrid tr .system div span{\
+				position: relative;\
+				top: 30%;\
+				left: 48%;\
+			}\
+			#btn {\
+				position: absolute;\
+				left: 4px;\
+				top: 262px;\
+				background-color: #ce6363;\
+				height: 119px;\
+				width: 53px;\
+			}\
+			#btn:hover {\
+				background-color: #cd7c76;\
+			}\
+			#btn span {\
+				position: absolute;\
+				bottom:0;\
+				right:0;\
+			}\
+		</style>\
 		<body>\
-			<div>\
-				<table>\
+			<div id=\"StarMap\">\
+				<table id=\"StarMapGrid\">\
 					<tr>"
+	var/r=0 //row
+	var/c=0 //column
+
+	//populate <table data> with star system info
 	for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
 		if(wb.z)
-			html += "<td>|| <A href='?src=\ref[src];beaconName=[wb.name];beaconDistance=[wb.distance]' onclick=\"selectSystem()\">[wb.name]</A> </td>"
+			html += "<td href='?src=[REF(src)];beacon=[REF(wb)]' onclick=\"selectSystem(id)\" id=\"system[r][c]\" class=\"system\"><div id=\"system[r][c]img\"><span>[wb.name]<br>[wb.factionOwner]</span></div> </td>"
+			c++
 
-	html+= 			"<td>||</td></tr>\
-					\
-					<tr>\
-						<td>\
-							<A href='?src=\ref[src];warp=1' style=\"visibility:hidden\" id=\"btn\">Warp</A>\
-			 			</td>\
-					</tr>\
+		if(c==4)
+			html += "</tr> <tr>"
+			r++
+			c=0
+
+	//add the rest of the rows+columns to keep the elements tidy
+	while(r!=4)
+		c++
+		html += "<td></td>"
+		if(c==4)
+			html += "</tr> <tr>"
+			r++
+			c=0
+	html += 		"</tr>\
 				</table>\
 			</div>\
 			\
+			<div href='?src=\ref[src];warp=1' id=\"btn\">\
+				<span>\
+					WARP\
+				</span>\
+			</div>\
+			\
 			<script>\
-				function selectSystem() {\
-					document.getElementById(\"btn\").style.visibility = \"visible\";\
+				var img;\
+				function selectSystem(id) {\
+					if(img)\
+					{\
+						img.style.backgroundImage = \"url('system.png')\";\
+					}\
+					img = document.getElementById(id+\"img\");\
+					img.style.backgroundImage = \"url('system_select.png')\";\
 				}\
 			</script>\
 		</body>\
 	</html>"
-	var/datum/browser/popup = new(user, "Starmap", name, 360, 350)
 
 	switch(mode)
 		if("choose target")
@@ -956,20 +1054,18 @@
 		if("fire torpedo")
 			fire_torpedo(target,user)
 		if("starmap")
-			popup.set_content(html)
-			popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
-			popup.open()
-			if(user.canUseTopic(src))
-				addtimer(CALLBACK(src,/atom/proc/attack_hand, user), 20)
+			var/datum/asset/assets = get_asset_datum(/datum/asset/simple/starmap)
+			assets.send(user)
+			user << browse(html, "window=StarMap;size=660x420")
 
 /obj/structure/fluff/helm/desk/tactical/Topic(href, href_list)
 	..()
-	if(href_list["warp"])
-		theship.do_warp_thing(targetBeacon.name, targetBeacon.distance)
 
-	if(href_list["beaconName"])
-		targetBeacon.name = href_list["beaconName"]
-		targetBeacon.distance = href_list["beaconDistance"]
+	if(href_list["warp"])
+		theship.do_warp(targetBeacon, targetBeacon.distance)
+
+	if(href_list["beacon"])
+		targetBeacon = locate(href_list["beacon"])
 
 /obj/structure/fluff/helm/desk/tactical/proc/redalert()
 	redalertsound = pick(redalertsounds)
