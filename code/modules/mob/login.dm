@@ -6,6 +6,7 @@
 	world.update_status()
 	client.screen = list()				//remove hud items just in case
 	client.images = list()
+	client.prefs.ResetJobs() //Annyoying, but this prevents a runtime with faction job code.
 
 	if(!hud_used)
 		create_mob_hud()

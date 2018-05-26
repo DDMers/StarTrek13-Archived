@@ -15,8 +15,8 @@
 	var/datum/action/innate/jump_area/area_action = new
 	var/datum/action/innate/beamdown/down_action = new
 	var/datum/action/innate/beamup/up_action = new
-	var/datum/action/innate/movedown/movedown_action = new
-	var/datum/action/innate/moveup/moveup_action = new
+//	var/datum/action/innate/movedown/movedown_action = new
+//	var/datum/action/innate/moveup/moveup_action = new
 	var/mob/living/carbon/operator
 	//var/datum/action/innate/togglelock/lock_action = new
 	//	var/turf/open/teleport_target = null
@@ -236,7 +236,7 @@
 		up_action.Grant(user)
 		up_action.console = src
 		actions += up_action
-
+/*
 	if(movedown_action)
 		movedown_action.target = user
 		movedown_action.Grant(user)
@@ -248,6 +248,7 @@
 		moveup_action.Grant(user)
 		moveup_action.console = src
 		actions += moveup_action
+*/
 /*
 	if(lock_action)
 		lock_action.target = user

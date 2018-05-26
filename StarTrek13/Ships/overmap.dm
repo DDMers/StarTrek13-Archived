@@ -637,6 +637,7 @@ var/global/list/global_ship_list = list()
 */
 
 /obj/structure/overmap/process()
+	health += 50 //Very slow regen, allows you to run and hide
 	parallax_update() //Need this to be on SUPERSPEED or it'll look awful
 	if(pilot)
 		for(var/obj/screen/alert/charge/C in pilot.alerts)
@@ -660,6 +661,7 @@ var/global/list/global_ship_list = list()
 	check_overlays()
 	counter ++
 	update_observers()
+	SC.weapons.update_weapons()
 	damage = SC.weapons.damage
 	if(navigating)
 		navigate()
@@ -890,6 +892,7 @@ var/global/list/global_ship_list = list()
 	return ..()
 
 /obj/structure/overmap/CollidedWith(atom/movable/mover)
+	return ..() //This is fucky with fighters PINGING PEOPLE OFF INTO SPACE!!!
 	if(!isOVERMAP(mover))
 		if(!shields_active)
 			var/turf/open/space/turfs = list()
