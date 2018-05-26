@@ -174,6 +174,7 @@ var/global/list/global_ship_list = list()
 	var/obj/structure/ship_component/components = list()
 	var/list/destinations = list()
 	var/obj/effect/landmark/warp_beacon/target_beacon
+	var/pilot_skill_req = 0
 
 /obj/item/ammo_casing/energy/ship_turret
 	projectile_type = /obj/item/projectile/beam/laser/ship_turret_laser
@@ -272,6 +273,7 @@ var/global/list/global_ship_list = list()
 	pixel_x = 0
 	pixel_y = -32
 	damage = 800
+	pilot_skill_req = 4
 
 /obj/structure/overmap/ship/borg_cube // we are the borg
 	name = "Unimatrix 1-3"

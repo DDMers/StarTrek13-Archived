@@ -115,7 +115,9 @@
 	H.dna.species.species_traits |= NOGUNS
 	H.dna.species.species_traits |= NOBREATH
 	H.update_body()
-	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
+	H.skills.add_skill("piloting", 10)
+	H.skills.add_skill("medicine", 10)
+	H.skills.add_skill("construction and maintenance", 10)
 
 /obj/machinery/door/airlock/borg
 	name = "assimilated airlock"

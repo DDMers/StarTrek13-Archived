@@ -21,7 +21,7 @@
 	var/merge_type = null // This path and its children should merge with this stack, defaults to src.type
 	var/full_w_class = WEIGHT_CLASS_NORMAL //The weight class the stack should have at amount > 2/3rds max_amount
 	var/novariants = TRUE //Determines whether the item should update it's sprites based on amount.
-	var/skill_requirement = 25 //The user's engineering skill has to be higher than this for them to be able to construct things with it.
+	var/skill_requirement = 4 //The user's engineering skill has to be higher than this for them to be able to construct things with it.
 	//NOTE: When adding grind_results, the amounts should be for an INDIVIDUAL ITEM - these amounts will be multiplied by the stack size in on_grind()
 
 /obj/item/stack/on_grind()
@@ -175,13 +175,19 @@
 			return
 		if(!building_checks(R, multiplier))
 			return
+		var/skillchecked
 		if (R.time)
 			usr.visible_message("<span class='notice'>[usr] starts building [R.title].</span>", "<span class='notice'>You start building [R.title]...</span>")
 			if (!do_after(usr, R.time, target = usr))
 				return
 			if(!building_checks(R, multiplier))
 				return
-			if(usr.skillcheck(usr.engineering_skill, skill_requirement, TRUE) != (1 || 2))
+			skillchecked = TRUE
+			if(usr.skills.skillcheck(usr, "construction and maintenance", skill_requirement) != (1 || 3))
+				return
+
+		if(!skillchecked)
+			if(usr.skills.skillcheck(usr, "construction and maintenance", skill_requirement) != (1 || 3))
 				return
 
 		var/obj/O
