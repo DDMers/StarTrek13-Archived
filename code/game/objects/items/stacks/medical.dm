@@ -15,6 +15,7 @@
 	var/heal_burn = 0
 	var/stop_bleeding = 0
 	var/self_delay = 50
+	var/req_skill = 1
 
 /obj/item/stack/medical/attack(mob/living/M, mob/user)
 
@@ -75,7 +76,7 @@
 			user.visible_message("<span class='notice'>[user] starts to apply [src] on [t_himself]...</span>", "<span class='notice'>You begin applying [src] on yourself...</span>")
 			if(!do_mob(user, M, self_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject,user,1)))
 				return
-			if(user.skillcheck(user.medical_skill, 25, TRUE) != (1 || 2))
+			if(user.skills.skillcheck(user, "medicine", req_skill) != (1 || 3))
 				return
 			user.visible_message("<span class='green'>[user] applies [src] on [t_himself].</span>", "<span class='green'>You apply [src] on yourself.</span>")
 
@@ -86,7 +87,7 @@
 		if(!affecting) //Missing limb?
 			to_chat(user, "<span class='warning'>[C] doesn't have \a [parse_zone(user.zone_selected)]!</span>")
 			return
-		if(user.skillcheck(user.medical_skill, 25, TRUE) != (1 || 2))
+		if(user.skills.skillcheck(user, "medicine", req_skill) != (1 || 3))
 			return
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
@@ -114,6 +115,7 @@
 	heal_brute = 40
 	self_delay = 20
 	grind_results = list("styptic_powder" = 1)
+	req_skill = 3
 
 /obj/item/stack/medical/bruise_pack/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is bludgeoning [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
@@ -128,6 +130,7 @@
 	stop_bleeding = 1800
 	self_delay = 20
 	max_amount = 12
+	req_skill = 0
 
 /obj/item/stack/medical/gauze/improvised
 	name = "improvised gauze"

@@ -79,4 +79,10 @@
 	icon_state = "viewscreen_mini"
 
 /obj/structure/viewscreen/examine(mob/user)
-	our_ship.GrantEye(user)
+	var/area/A = get_area(our_ship)
+	A.Entered(user)
+	if(isliving(user))
+		our_ship.GrantEye(user)
+	else
+		user.forceMove(our_ship.loc)
+		user.orbit(our_ship)

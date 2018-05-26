@@ -9,7 +9,7 @@
 ###############################################################################################
 
 Kmc2000	= Host
-Cdey = Moderator
+Cdey = Host
 HeadyBucket = Coder
 MASMC = Game-Admin
 Kyrac = Game-Admin
