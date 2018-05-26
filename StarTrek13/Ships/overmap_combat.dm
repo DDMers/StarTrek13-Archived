@@ -37,7 +37,8 @@
 
 /obj/structure/overmap/proc/fire(obj/structure/overmap/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
 	if(target)
-		target.agressor = src
+		if(isOVERMAP(target))
+			target.agressor = src
 	if(target == target_ship) //We've already got a target /
 		if(!locking)
 			if(locked)
@@ -101,7 +102,8 @@
 /obj/screen/alert/charge/Initialize(timeofday)
 	. = ..()
 	START_PROCESSING(SSobj, src)
-	theship = mob_viewer.overmap_ship
+	if(mob_viewer)
+		theship = mob_viewer.overmap_ship
 
 /obj/screen/alert/charge/process()
 	theship = mob_viewer.overmap_ship
@@ -122,7 +124,8 @@
 	var/image/tdamage = image('StarTrek13/icons/trek/overmap_indicators3.dmi',icon_state = "damage_0")
 	damage = tdamage
 	add_overlay(damage)
-	theship = mob_viewer.overmap_ship
+	if(mob_viewer)
+		theship = mob_viewer.overmap_ship
 
 /obj/screen/alert/charge/hull/process()
 	theship = mob_viewer.overmap_ship

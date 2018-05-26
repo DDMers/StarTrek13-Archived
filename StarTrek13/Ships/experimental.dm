@@ -47,6 +47,14 @@
 
 		PixelMove(x_speed,y_speed)
 
+/obj/structure/overmap/proc/parallax_update()
+	if(pilot)
+		for(var/obj/screen/parallax_layer/P in pilot.client.parallax_layers)
+		//	var/turf/posobj = get_turf(src)
+			var/x_speed = 5 * cos(angle)
+			var/y_speed = 5 * sin(angle)
+			P.PixelMove(x_speed,y_speed)
+			pilot.hud_used.update_parallax()
 
 /obj/structure/overmap/proc/enter(mob/user)
 	if(user.client)
@@ -62,11 +70,14 @@
 		GrantActions()
 		pilot.throw_alert("Weapon charge", /obj/screen/alert/charge)
 		pilot.throw_alert("Hull integrity", /obj/screen/alert/charge/hull)
+		for(var/obj/screen/alert/charge/C in pilot.alerts)
+			C.theship = src
 		pilot.whatimControllingOMFG = src
 		pilot.client.pixelXYshit()
 		var/area/A = get_area(src)
-		A.Entered(user)
-		while(1)
+		if(A)
+			A.Entered(user)
+		while(pilot)
 			stoplag()
 			ProcessMove()
 
@@ -118,9 +129,11 @@ atom/movable
 			//		HOLYSHITICRASHED = HOLYSHITICRASHED + 1
 					if(istype(src, /obj/structure/overmap))
 						var/obj/structure/overmap/O = src
-						O.vel = 0
 						O.angle -= 180
 						O.EditAngle()
+						O.vel = 1
+						sleep(10)
+						O.vel = 0
 					return 0
 			real_pixel_x = real_pixel_x + x_to_move
 			real_pixel_y = real_pixel_y + y_to_move
@@ -152,7 +165,6 @@ atom/movable
 						mob.whatimControllingOMFG.vel += acceleration
 					else
 						mob.whatimControllingOMFG.vel = max_speed
-					mob.whatimControllingOMFG.ProcessMove()
 					mob.client.pixelXYshit()
 				else
 					..()
@@ -177,11 +189,14 @@ atom/movable
 					..()
 			if(NORTHEAST)
 				if(mob.whatimControllingOMFG)
+					if(mob.whatimControllingOMFG.vel < max_speed) //burn to speed up
+						mob.whatimControllingOMFG.vel += acceleration
+					else
+						mob.whatimControllingOMFG.vel = max_speed
 					for(var/obj/effect/ship_overlay/S in overlays)
 						S.angle = mob.whatimControllingOMFG.angle - turnspeed
 						S.EditAngle()
 					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle - turnspeed
-					mob.whatimControllingOMFG.ProcessMove()
 					mob.client.pixelXYshit()
 				else
 					..()
@@ -194,11 +209,14 @@ atom/movable
 					mob.whatimControllingOMFG.EditAngle()
 			if(NORTHWEST)
 				if(mob.whatimControllingOMFG)
+					if(mob.whatimControllingOMFG.vel < max_speed) //burn to speed up
+						mob.whatimControllingOMFG.vel += acceleration
+					else
+						mob.whatimControllingOMFG.vel = max_speed
 					for(var/obj/effect/ship_overlay/S in overlays)
 						S.angle = mob.whatimControllingOMFG.angle - turnspeed
 						S.EditAngle()
 					mob.whatimControllingOMFG.angle = mob.whatimControllingOMFG.angle + turnspeed
-					mob.whatimControllingOMFG.ProcessMove()
 					mob.client.pixelXYshit()
 				else
 					..()

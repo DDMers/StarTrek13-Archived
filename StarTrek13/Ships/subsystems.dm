@@ -75,6 +75,7 @@
 	var/icon = 'StarTrek13/icons/trek/subsystem_icons.dmi'
 	var/icon_state
 	var/power_modifier = 1 //How much of the allocated power do we have?
+	var/heat_loss_bonus = 0
 
 /datum/shipsystem/New()
 	. = ..()
@@ -155,7 +156,7 @@
 	chargeRate = initial(chargeRate)
 	var/counter = 0
 	var/temp = 0
-	for(var/obj/machinery/power/ship/phaser/P in controller.theship.weapons.weapons)
+	for(var/obj/machinery/power/ship/phaser/P in controller.theship.linked_ship)
 		chargeRate += P.charge_rate
 		damage += P.damage
 		fire_cost += P.fire_cost
@@ -286,6 +287,7 @@
 	integrity = 20000
 	max_integrity = 20000
 	var/max_integrity_bonus = 0 //From capboosters
+	var/toggled = FALSE //Shieldgencode, Ship.dm
 
 /datum/shipsystem/shields/fail() //Failed as in subsystem has failed, can no longer generate shields
 	..()
@@ -299,22 +301,18 @@
 	failed = TRUE
 
 /datum/shipsystem/shields/process()
-	if(heat > 0)
-		heat -= 20
+	health -= heat
+	integrity -= heat
 	max_integrity = initial(max_integrity)
-	for(var/obj/structure/subsystem_component/capbooster in controller.theship.linked_ship)
-		max_integrity += 5000
 	if(integrity <= 5000)
 		fail()
 	if(health > max_health)
 		health = max_health
 	if(integrity > max_integrity)
 		integrity = max_integrity
-	if(!failed)
-		if(heat > 0) //fuck you bugs XDDDD
-			health -= heat
+	if(!failed && toggled)
 		health += chargeRate*power_modifier
-
+		heat -= heat_loss_bonus
 	else
 		return
 
@@ -459,7 +457,6 @@
 /obj/structure/ship_component/process()
 	var/area/A = get_area(src)
 	if(A.requires_power) //BE SURE TO CHANGE THIS WHEN WE ADD SHIP POWER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		src.say("No available power remains. Shutting down.")
 		active = FALSE
 	if(active)
 		health -= 2 //Make sure to keep it in good repair
@@ -500,7 +497,7 @@
 
 /obj/structure/ship_component/proc/apply_subsystem_bonus() //Each component will have a benefit to subsystems when activated, coolant manifolds will regenerate some subsystem health as long as they are alive and active.
 	if(active)
-		chosen.lose_heat(benefit_amount)
+		chosen.heat_loss_bonus = 20
 		return 1
 	else
 		return 0

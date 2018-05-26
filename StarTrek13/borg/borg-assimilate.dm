@@ -265,14 +265,15 @@
 		charge -= 1
 //	switch(charge)
 //		if(charge
-	if(!(src in owner.internal_organs))
-		to_chat(owner, "We feel our link to the collective weaken...")
-		to_chat(owner, "The voices in your head stop, you are no longer a borg, despite the hideous modifications they made to you.")
-		message_action.Remove(owner)
-		message_action.target = null
-		Remove(owner)
-		owner = null
-		return
+	if(owner)
+		if(!(src in owner.internal_organs))
+			to_chat(owner, "We feel our link to the collective weaken...")
+			to_chat(owner, "The voices in your head stop, you are no longer a borg, despite the hideous modifications they made to you.")
+			message_action.Remove(owner)
+			message_action.target = null
+			Remove(owner)
+			owner = null
+			return
 
 /obj/item/organ/borgNanites/proc/receive_message(var/ping)
 	to_chat(owner, ping) //Ping is created in message_collective in borg.dm

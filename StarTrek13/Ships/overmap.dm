@@ -21,7 +21,7 @@ var/global/list/global_ship_list = list()
 	flags_1 = NONE
 	requires_power = FALSE
 	var/jumpgate_position = 1 //Change me! whenever you add a new system, incriment this by 1!
-	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg')
+	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg','StarTrek13/sound/ambience/bsgtheme3.ogg','StarTrek13/sound/ambience/interstellar.ogg')
 
 /area/overmap/Entered(A)
 	set waitfor = FALSE
@@ -262,6 +262,8 @@ var/global/list/global_ship_list = list()
 	sensor_range = 10
 	max_speed = 0
 	speed = 0
+	warp_capable = FALSE
+	acceleration = 0
 
 /obj/structure/overmap/ship //dummy for testing woo
 	name = "USS thingy"
@@ -355,13 +357,17 @@ var/global/list/global_ship_list = list()
 
 
 /obj/structure/overmap/Initialize(timeofday)
+	var/area/A = get_area(src)
+	linked_ship = A
 	health = max_health
 	SC = new(src)
 	SC.generate_shipsystems()
 	SC.theship = src
 	global_ship_list += src
 	START_PROCESSING(SSobj,src)
-	for(var/obj/effect/landmark/warp_beacon/W in world)
+	linkto()
+	update_weapons()
+	for(var/obj/effect/landmark/warp_beacon/W in warp_beacons)
 		destinations += W
 	..()
 
@@ -598,7 +604,14 @@ var/global/list/global_ship_list = list()
 	if(pilot == user)
 		set_nav_target(user)
 
-//obj/structure/overmap/ShiftClick(mob/user)//Hi my name is KMC and I don't know how to make UIs :^)
+/obj/structure/overmap/ShiftClick(mob/user)
+	if(user != pilot) //No hailing yourself, please
+		var/obj/structure/overmap/ship/sender = user.loc
+		var/message = stripped_input(user,"Communications.","Send Hail")
+		if(!message)
+			return
+		hail(message, null , sender, src)
+		return
 
 /obj/structure/overmap/proc/update_turrets()
 	return
@@ -626,16 +639,23 @@ var/global/list/global_ship_list = list()
 */
 
 /obj/structure/overmap/process()
+	health += 50 //Very slow regen, allows you to run and hide
+	parallax_update() //Need this to be on SUPERSPEED or it'll look awful
+	if(pilot)
+		for(var/obj/screen/alert/charge/C in pilot.alerts)
+			C.theship = src
+	if(SC.shields.failed)
+		shields_active = FALSE
 	if(health <= 0)
 		destroy(1)
 	if(!health)
 		destroy(1)
-	ProcessMove()
+//	ProcessMove()
 	if(turret_recharge >0)
 		turret_recharge --
-	if(prob(20))
+	if(prob(10))
 		linkto()
-		update_weapons()
+	//	update_weapons()
 	location()
 	if(agressor)
 		if(agressor.target_ship != src)
@@ -643,6 +663,7 @@ var/global/list/global_ship_list = list()
 	check_overlays()
 	counter ++
 	update_observers()
+	SC.weapons.update_weapons()
 	damage = SC.weapons.damage
 	if(navigating)
 		navigate()
@@ -652,19 +673,14 @@ var/global/list/global_ship_list = list()
 		if(pilot.loc != src)
 			pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
 			pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
-			exit() //pilot has been tele'd out, remove them!
 			for(var/obj/screen/alert/charge/C in pilot.alerts)
 				C.theship = src
+			exit() //pilot has been tele'd out, remove them!
 	if(charge > max_charge)
 		charge = max_charge
 	else
 		charge = max_charge
-	if(health <= 2000) //Power it off
-		linked_ship.requires_power = TRUE
-		linked_ship.has_gravity = 0
-	else
-		linked_ship.requires_power = FALSE
-		linked_ship.has_gravity = 1
+
 
 
 /obj/structure/overmap/AltClick(mob/user)
@@ -778,12 +794,6 @@ var/global/list/global_ship_list = list()
 			var/area/thearea = get_area(O)
 			if(O.z == z && a == thearea)
 				theships += O
-		for(var/obj/structure/jumpgate/J in jumpgates)
-			if(J.z == z)
-				var/area/aA = get_area(src)
-				var/area/b = get_area(J)
-				if(aA == b) //Same area, so you can use that one to jump. Prevents you navigating through the invisible walls
-					theships += J
 		if(!theships.len)
 			return
 		A = input("What ship shall we track?", "Ship navigation", A) as null|anything in theships//overmap_objects
@@ -864,7 +874,7 @@ var/global/list/global_ship_list = list()
 			qdel(src)
 
 /obj/structure/overmap/proc/has_shields()
-	if(SC.shields.health >= 5000 && shields_active)
+	if(SC.shields.health >= 5000 && shields_active && SC.shields.toggled)
 		return 1
 	else//no
 		return 0
@@ -884,20 +894,20 @@ var/global/list/global_ship_list = list()
 	return ..()
 
 /obj/structure/overmap/CollidedWith(atom/movable/mover)
+	return ..() //This is fucky with fighters PINGING PEOPLE OFF INTO SPACE!!!
 	if(!isOVERMAP(mover))
-		if(!istype(mover, /obj/structure/jumpgate))
-			if(!shields_active)
-				var/turf/open/space/turfs = list()
-				for(var/turf/T in get_area_turfs(linked_ship))
-					if(istype(T, /turf/open/space))
-						turfs += T
-				var/turf/theturf = pick(turfs)
-				mover.forceMove(theturf) //Force them into a random turf
-				if(istype(mover, /obj/structure/photon_torpedo))
-					var/obj/structure/photon_torpedo/P = mover
-					if(P.armed)
-						sleep(10)
-						P.force_explode()
+		if(!shields_active)
+			var/turf/open/space/turfs = list()
+			for(var/turf/T in get_area_turfs(linked_ship))
+				if(istype(T, /turf/open/space))
+					turfs += T
+			var/turf/theturf = pick(turfs)
+			mover.forceMove(theturf) //Force them into a random turf
+			if(istype(mover, /obj/structure/photon_torpedo))
+				var/obj/structure/photon_torpedo/P = mover
+				if(P.armed)
+					sleep(10)
+					P.force_explode()
 	else
 		return ..()
 

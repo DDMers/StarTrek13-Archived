@@ -7,6 +7,7 @@
 	pixel_y = 0
 	var/fuel = 0
 	health = 1500 //They can take a few bursts, but not many, this is around 4 fighter weapon salvos
+	max_health = 1500
 	spawn_random = 0
 	can_move = 0
 	pixel_x = -15
@@ -26,23 +27,30 @@
 	pixel_collision_size_y = -32
 	//Add a communcations box sometime ok cool really neat.
 	engine_sound = 'StarTrek13/sound/fighter/fighterengine.ogg'
-	engine_prob = 100
+	engine_prob = 5
+	var/damage_state = TRUE
+	warp_capable = FALSE
 
 /obj/structure/overmap/ship/fighter/viper
 	icon_state = "viper"
 	name = "Viper"
+	damage_state = FALSE
 
 /obj/structure/overmap/ship/fighter/raider
 	icon_state = "raider"
 	name = "Cylon Raider"
 	engine_sound = 'StarTrek13/sound/fighter/raiderengine.ogg'
-	engine_prob = 20
+	engine_prob = 5
+	damage_state = FALSE
 
 
 /obj/structure/overmap/ship/fighter/attack_hand(mob/user)
 	enter(user)
 
 /obj/structure/overmap/ship/fighter/enter(mob/user)
+	SC.weapons.chargeRate = 200
+	SC.weapons.charge = 500
+	SC.weapons.max_charge = 5000
 	if(!carrier_ship)
 		to_chat(user, "Error! There's no carrier ship!")
 		exit()
@@ -65,9 +73,24 @@
 		pilot.throw_alert("Hull integrity", /obj/screen/alert/charge/hull)
 		pilot.whatimControllingOMFG = src
 		pilot.client.pixelXYshit()
-		while(1)
+		while(pilot)
 			stoplag()
 			ProcessMove()
+			parallax_update() //Need this to be on SUPERSPEED or it'll look awful
+			if(damage_state)
+				switch(health)
+					if(0 to 500)
+						icon_state = "fighter-d4"
+						max_speed = 1
+					if(500 to 700)
+						icon_state = "fighter-d3"
+						max_speed = 2
+					if(700 to 1000)
+						icon_state = "fighter-d2"
+					if(1000 to 1300)
+						icon_state = "fighter-d1"
+				if(health >= max_health)
+					icon_state = "fighter"
 	else
 		to_chat(user, "You need to be logged in to do this")
 		exit()
@@ -91,6 +114,7 @@
 	pilot.incorporeal_move = 0
 	pilot = null
 	SC.weapons.charge = SC.weapons.max_charge
+	vel = 0
 //	pilot.status_flags -= GODMODE
 
 
@@ -107,24 +131,25 @@
 /obj/item/projectile/bullet/fighter_round
 	name = ".50 Cal vulcan round"
 	icon_state = "bullet"
-	damage = 100//There are a LOT of these to fire
+	damage = 70//There are a LOT of these to fire
 
 
 /obj/structure/overmap/ship/fighter/fire(atom/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
 	attempt_fire(target)
 
 /obj/structure/overmap/ship/fighter/attempt_fire(atom/target)
-	if(SC.weapons.attempt_fire())
-		SC.weapons.charge -= 100
-		for(var/i = 1 to 3)
-			var/obj/item/projectile/bullet/fighter_round/A = new /obj/item/projectile/bullet/fighter_round(loc)
-			A.starting = loc
-			A.preparePixelProjectile(target,pilot)
-			A.fire()
-			playsound(src,'StarTrek13/sound/fighter/fighterfire.ogg',60,1)
+	if(!SC.weapons.attempt_fire())
+		return
+	SC.weapons.charge -= 250
+	for(var/i = 1 to 3)
+		var/obj/item/projectile/bullet/fighter_round/A = new /obj/item/projectile/bullet/fighter_round(loc)
+		A.starting = loc
+		A.preparePixelProjectile(target,pilot)
+		A.fire()
+		playsound(src,'StarTrek13/sound/fighter/fighterfire.ogg',60,1)
 		//	A.pixel_x = target_ship.pixel_x
 		//	A.pixel_y = target_ship.pixel_y
-			A = null
+		A = null
 
 
 /obj/item/projectile/beam/laser/fightergun
@@ -134,8 +159,21 @@
 
 /obj/structure/overmap/ship/fighter/destroy()
 	to_chat(pilot, "The cabin of [src] explodes into a ball of flames!")
-//	pilot.forceMove(loc)
-	exit()
+	pilot.forceMove(origin_turf)
+	pilot.client.pixelXYshit()
+	pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
+	pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
+	RemoveActions()
+	initial_loc = null
+	pilot.overmap_ship = null
+	pilot.whatimControllingOMFG = null
+	pilot.client.pixelXYshit()
+	pilot.incorporeal_move = 1 //Refresh movement to fix an issue
+	pilot.incorporeal_move = 0
+	pilot = null
+	for(var/datum/shipsystem/S in SC)
+		qdel(S)
+	qdel(SC)
 	qdel(src)
 	. = ..()
 

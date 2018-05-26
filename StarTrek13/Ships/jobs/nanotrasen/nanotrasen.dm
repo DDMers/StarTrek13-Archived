@@ -3,7 +3,7 @@
 /*
 Assistant
 */
-/datum/job/nt/crewman
+/datum/job/ind/crewman
 	title = "Assistant"
 	flag = ASSISTANT
 	department_flag = CIVILIAN
@@ -17,7 +17,7 @@ Assistant
 	outfit = /datum/outfit/job/ind/crewman
 
 
-/datum/job/nt/crewman/get_access()
+/datum/job/ind/crewman/get_access()
 	if(CONFIG_GET(flag/assistants_have_maint_access) || !CONFIG_GET(flag/jobs_have_minimal_access)) //Config has assistant maint access set
 		. = ..()
 		. |= list(ACCESS_MAINT_TUNNELS)
@@ -163,7 +163,7 @@ Captain
 Head of Personnel
 */
 /datum/job/nt/firstofficer
-	title = "Head of Personel"
+	title = "Head of Personnel"
 	flag = HOP
 	department_head = list("Captain")
 	department_flag = CIVILIAN
@@ -196,7 +196,7 @@ Head of Personnel
 
 
 /datum/outfit/job/nt/firstofficer
-	name = "Head of Personel"
+	name = "Head of Personnel (Nanotrasen)"
 	jobtype = /datum/job/nt/firstofficer
 
 	id = /obj/item/card/id/silver
