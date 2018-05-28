@@ -102,7 +102,7 @@ Captain
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
 
 /datum/outfit/job/captain/post_equip(mob/living/carbon/human/H)
-	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
+	H.skills.add_skill("piloting", 5)
 
 
 /datum/job/fed/admiral
@@ -163,7 +163,7 @@ Captain
 	var/datum/job/aide/L= SSjob.GetJobType(jobtype)
 	L.admirals++
 	L.total_positions = L.admirals //admirals require aides.
-	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))*/
+	H.add_skill(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))*/
 /*
 Head of Personnel
 */
@@ -213,7 +213,7 @@ Head of Personnel
 		/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced = 1,/obj/item/device/tricorder)
 
 /datum/outfit/job/firstofficer/post_equip(mob/living/carbon/human/H)
-	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
+	H.skills.add_skill("piloting", 3)
 
 
 /datum/outfit/job/fed/curator/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -562,7 +562,8 @@ Chief Engineer
 
 /datum/outfit/job/fed/ce/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(..(), ..(), ..(), rand(60, 90), 25)
+	H.skills.add_skill("piloting", 5)
+	H.skills.add_skill("construction and maintenance", 7)
 
 /*
 Station Engineer
@@ -609,7 +610,7 @@ Station Engineer
 
 /datum/outfit/job/fed/engineer/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(engineering = rand(45, 70))
+	H.skills.add_skill("construction and maintenance", 5)
 
 /*
 Chief Medical Officer
@@ -642,7 +643,7 @@ Chief Medical Officer
 			ACCESS_KEYCARD_AUTH, ACCESS_SEC_DOORS, ACCESS_MAINT_TUNNELS)
 
 /datum/outfit/job/fed/cmo
-	name = "Surgical Cheif"
+	name = "Surgical Chief"
 	jobtype = /datum/job/fed/cmo
 
 	id = /obj/item/card/id/silver
@@ -662,7 +663,8 @@ Chief Medical Officer
 
 /datum/outfit/job/fed/cmo/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(rand(10, 25), rand(10, 25), rand(60, 80), rand(10, 25), rand(25, 45))
+	H.skills.add_skill("medicine", 8)
+	H.skills.add_skill("piloting", 3)
 //NOTICE: ALL SCIENCE RElATED JOBS/RESEARCH WILL WORK ON STARBASES, ONLY MEDICAL DOCTORS ETC. WILL WORK ON THE SHIPS.
 
 
@@ -703,7 +705,7 @@ Medical Doctor
 
 /datum/outfit/job/fed/doctor/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(10, 25))
+	H.skills.add_skill("medicine", 6)
 
 /*
 Research Director
@@ -1157,11 +1159,11 @@ Security Officer
 
 /datum/outfit/job/soldier/post_equip(mob/living/carbon/human/H)
 	if(prob(5)) //5% chance to be a legendary soldier
-		H.add_skills(110, rand(60, 68), rand(24, 32), ..(), ..())
+//		H.add_skill(110, rand(60, 68), rand(24, 32), ..(), ..())
 		to_chat(H, "<big>You are a legendary soldier! You've had some experience, and are well versed in the arts of close-quarters combat.</big>")
 		return
 	else
-		H.add_skills(rand(60, 66), rand(60, 68), rand(24, 32), ..(), ..())
+//		H.add_skill(rand(60, 66), rand(60, 68), rand(24, 32), ..(), ..())
 
 /datum/job/fed/pilot
 	title = "Ship Helmsman"
@@ -1199,5 +1201,5 @@ Security Officer
 	satchel = /obj/item/storage/backpack/satchel
 	duffelbag = /obj/item/storage/backpack/duffelbag
 
-/datum/outfit/job/pilot/post_equip(mob/living/carbon/human/H)
-	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(55, 110))
+/datum/outfit/job/fed/pilot/post_equip(mob/living/carbon/human/H)
+	H.skills.add_skill("pilot", 7)

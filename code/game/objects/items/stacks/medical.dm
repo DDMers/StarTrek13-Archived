@@ -75,7 +75,7 @@
 			user.visible_message("<span class='notice'>[user] starts to apply [src] on [t_himself]...</span>", "<span class='notice'>You begin applying [src] on yourself...</span>")
 			if(!do_mob(user, M, self_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject,user,1)))
 				return
-			if(user.skillcheck(user.medical_skill, 25, TRUE) != (1 || 2))
+			if(user.skills.skillcheck(user, "medicine", skill_requirement) != (1 || 3))
 				return
 			user.visible_message("<span class='green'>[user] applies [src] on [t_himself].</span>", "<span class='green'>You apply [src] on yourself.</span>")
 
@@ -86,7 +86,7 @@
 		if(!affecting) //Missing limb?
 			to_chat(user, "<span class='warning'>[C] doesn't have \a [parse_zone(user.zone_selected)]!</span>")
 			return
-		if(user.skillcheck(user.medical_skill, 25, TRUE) != (1 || 2))
+		if(user.skills.skillcheck(user, "medicine", skill_requirement) != (1 || 3))
 			return
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
@@ -113,6 +113,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	heal_brute = 40
 	self_delay = 20
+	skill_requirement = 3
 	grind_results = list("styptic_powder" = 1)
 
 /obj/item/stack/medical/bruise_pack/suicide_act(mob/user)
@@ -128,12 +129,14 @@
 	stop_bleeding = 1800
 	self_delay = 20
 	max_amount = 12
+	skill_requirement = 0
 
 /obj/item/stack/medical/gauze/improvised
 	name = "improvised gauze"
 	singular_name = "improvised gauze"
 	desc = "A roll of cloth roughly cut from something that can stop bleeding, but does not heal wounds."
 	stop_bleeding = 900
+	skill_requirement = 2
 
 /obj/item/stack/medical/gauze/cyborg
 	materials = list()
@@ -150,4 +153,5 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	heal_burn = 40
 	self_delay = 20
+	skill_requirement = 2
 	grind_results = list("silver_sulfadiazine" = 1)
