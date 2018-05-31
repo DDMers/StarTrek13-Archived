@@ -174,6 +174,7 @@ var/global/list/global_ship_list = list()
 	var/obj/structure/ship_component/components = list()
 	var/list/destinations = list()
 	var/obj/effect/landmark/warp_beacon/target_beacon
+	var/pilot_skill_req = 5
 
 /obj/item/ammo_casing/energy/ship_turret
 	projectile_type = /obj/item/projectile/beam/laser/ship_turret_laser

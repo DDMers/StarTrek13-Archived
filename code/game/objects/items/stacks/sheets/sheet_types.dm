@@ -98,7 +98,6 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	resistance_flags = FIRE_PROOF
 	merge_type = /obj/item/stack/sheet/metal
 	grind_results = list("iron" = 20)
-	skill_requirement = 45
 	point_value = 2
 
 /obj/item/stack/sheet/metal/ratvar_act()
@@ -160,7 +159,7 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	resistance_flags = FIRE_PROOF
 	merge_type = /obj/item/stack/sheet/plasteel
 	grind_results = list("iron" = 20, "plasma" = 20)
-	skill_requirement = 60
+	skill_requirement = 6
 	point_value = 23
 
 /obj/item/stack/sheet/plasteel/Initialize(mapload, new_amount, merge = TRUE)
@@ -260,7 +259,7 @@ GLOBAL_LIST_INIT(cloth_recipes, list ( \
 	force = 0
 	throwforce = 0
 	merge_type = /obj/item/stack/sheet/cloth
-	skill_requirement = 25
+	skill_requirement = 0
 
 /obj/item/stack/sheet/cloth/Initialize(mapload, new_amount, merge = TRUE)
 	recipes = GLOB.cloth_recipes
@@ -528,7 +527,7 @@ GLOBAL_LIST_INIT(plastic_recipes, list(
 	materials = list(MAT_PLASTIC=MINERAL_MATERIAL_AMOUNT)
 	throwforce = 7
 	merge_type = /obj/item/stack/sheet/plastic
-	skill_requirement = 25
+	skill_requirement = 2
 
 /obj/item/stack/sheet/plastic/fifty
 	amount = 50

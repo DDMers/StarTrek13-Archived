@@ -87,7 +87,7 @@ Captain
 	implants = list(/obj/item/implant/mindshield)
 
 /datum/outfit/job/ind/captain/post_equip(mob/living/carbon/human/H)
-	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
+	H.skills.add_skill("piloting", 5)
 
 
 /*
@@ -139,7 +139,7 @@ Head of Personnel
 		/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced = 1,/obj/item/device/tricorder)
 
 /datum/outfit/job/ind/firstofficer/post_equip(mob/living/carbon/human/H)
-	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
+	H.skills.add_skill("piloting", 4)
 	..()
 
 /*
@@ -382,7 +382,7 @@ Chief Engineer
 
 /datum/outfit/job/ind/ce/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(..(), ..(), ..(), rand(60, 90), 25)
+	H.skills.add_skill("construction and maintenance", 8)
 
 /*
 Chief Medical Officer
@@ -434,7 +434,7 @@ Chief Medical Officer
 
 /datum/outfit/job/ind/cmo/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(rand(10, 25), rand(10, 25), rand(60, 80), rand(10, 25), rand(25, 45))
+	H.skills.add_skill("medicine", 7)
 //NOTICE: ALL SCIENCE RElATED JOBS/RESEARCH WILL WORK ON STARBASES, ONLY MEDICAL DOCTORS ETC. WILL WORK ON THE SHIPS.
 
 
@@ -598,12 +598,12 @@ Head of Security
 
 /datum/outfit/job/ind/soldier/post_equip(mob/living/carbon/human/H)
 	if(prob(10)) //10% chance to be a special security coordinator
-		H.add_skills(110, rand(60, 68), rand(24, 32), ..(), ..())
+//		H.skills.add_skill()
 		to_chat(H, "<big>You are a specialized enforcer! You've had some experience, and are well versed in the arts of close-quarters combat and ranged combat.</big>")
 		name = "Specialized Security Coordinator"
 		return
 	else
-		H.add_skills(rand(60, 66), rand(60, 68), rand(24, 32), ..(), ..())
+//		H.skills.add_skill()
 
 /datum/job/ind/pilot
 	title = "Helmsman"
@@ -642,4 +642,4 @@ Head of Security
 	duffelbag = /obj/item/storage/backpack/duffelbag
 
 /datum/outfit/job/ind/pilot/post_equip(mob/living/carbon/human/H)
-	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(55, 110))
+	H.skills.add_skill("piloting", 7)

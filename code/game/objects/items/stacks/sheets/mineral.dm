@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 	sheettype = "diamond"
 	materials = list(MAT_DIAMOND=MINERAL_MATERIAL_AMOUNT)
 	novariants = TRUE
-	skill_requirement = 80
+	skill_requirement = 10
 	grind_results = list("carbon" = 20)
 	point_value = 25
 
@@ -132,7 +132,7 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	materials = list(MAT_URANIUM=MINERAL_MATERIAL_AMOUNT)
 	novariants = TRUE
 	grind_results = list("uranium" = 20)
-	skill_requirement = 60
+	skill_requirement = 7
 	point_value = 20
 
 GLOBAL_LIST_INIT(uranium_recipes, list ( \
@@ -159,7 +159,7 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	max_integrity = 100
 	materials = list(MAT_PLASMA=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list("plasma" = 20)
-	skill_requirement = 60
+	skill_requirement = 7
 	point_value = 20
 
 /obj/item/stack/sheet/mineral/plasma/suicide_act(mob/living/carbon/user)
@@ -200,7 +200,7 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 	sheettype = "gold"
 	materials = list(MAT_GOLD=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list("gold" = 20)
-	skill_requirement = 60
+	skill_requirement = 6
 	point_value = 20
 
 GLOBAL_LIST_INIT(gold_recipes, list ( \
@@ -229,7 +229,7 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	sheettype = "silver"
 	materials = list(MAT_SILVER=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list("silver" = 20)
-	skill_requirement = 60
+	skill_requirement = 6
 	point_value = 20
 
 GLOBAL_LIST_INIT(silver_recipes, list ( \
@@ -258,7 +258,7 @@ GLOBAL_LIST_INIT(silver_recipes, list ( \
 	materials = list(MAT_BANANIUM=MINERAL_MATERIAL_AMOUNT)
 	novariants = TRUE
 	grind_results = list("banana" = 20)
-	skill_requirement = 25
+	skill_requirement = 2
 	point_value = 50
 
 GLOBAL_LIST_INIT(bananium_recipes, list ( \
@@ -285,7 +285,7 @@ GLOBAL_LIST_INIT(bananium_recipes, list ( \
 	throw_range = 3
 	sheettype = "titanium"
 	materials = list(MAT_TITANIUM=MINERAL_MATERIAL_AMOUNT)
-	skill_requirement = 60
+	skill_requirement = 7
 	point_value = 20
 
 GLOBAL_LIST_INIT(titanium_recipes, list ( \
@@ -316,7 +316,7 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
 	sheettype = "plastitanium"
 	materials = list(MAT_TITANIUM=MINERAL_MATERIAL_AMOUNT, MAT_PLASMA=MINERAL_MATERIAL_AMOUNT)
 	point_value = 45
-	skill_requirement = 60
+	skill_requirement = 7
 
 GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
 	new/datum/stack_recipe("plas-titanium tile", /obj/item/stack/tile/mineral/plastitanium, 1, 4, 20), \
@@ -360,7 +360,7 @@ GLOBAL_LIST_INIT(snow_recipes, list ( \
 	icon_state = "sheet-enruranium"
 	singular_name = "enriched uranium sheet"
 	materials = list(MAT_URANIUM=3000)
-	skill_requirement = 60
+	skill_requirement = 8
 
 /*
  * Adamantine
@@ -374,7 +374,7 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
 	icon_state = "sheet-adamantine"
 	item_state = "sheet-adamantine"
 	singular_name = "adamantine sheet"
-	skill_requirement = 60
+	skill_requirement = 7
 
 /obj/item/stack/sheet/mineral/adamantine/Initialize(mapload, new_amount, merge = TRUE)
 	recipes = GLOB.adamantine_recipes
@@ -389,7 +389,7 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
 	item_state = "sheet-mythril"
 	singular_name = "mythril sheet"
 	novariants = TRUE
-	skill_requirement = 25
+	skill_requirement = 0 //muh ashwalkers
 
 /*
  * Alien Alloy
@@ -401,7 +401,7 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
 	item_state = "sheet-abductor"
 	singular_name = "alien alloy sheet"
 	sheettype = "abductor"
-	skill_requirement = 80
+	skill_requirement = 9
 
 GLOBAL_LIST_INIT(abductor_recipes, list ( \
 	new/datum/stack_recipe("alien bed", /obj/structure/bed/abductor, 2, one_per_turf = 1, on_floor = 1), \
