@@ -20,7 +20,6 @@
 #include "_maps\map_files\StarTrek13\ship\borg_cube1.dmm"
 #include "_maps\map_files\StarTrek13\ship\destroyer1.dmm"
 #include "_maps\map_files\StarTrek13\ship\hagan1.dmm"
-#include "_maps\map_files\StarTrek13\ship\miner.dmm"
 #include "_maps\map_files\StarTrek13\ship\nt_capital_class.dmm"
 #include "_maps\map_files\StarTrek13\ship\NTfrigate.dmm"
 #include "_maps\map_files\StarTrek13\ship\NThyperion.dmm"
