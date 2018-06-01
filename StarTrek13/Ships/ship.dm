@@ -1070,8 +1070,9 @@
 	//		for(var/obj/structure/torpedo_launcher/T in torpedoes)
 	//			T.target = target
 		if("fly ship")
-			if(user.pilot_skill < 1)
-				to_chat(user, "<span class='warning'> Agh! You're not skilled enough to pilot this vessel!<span>")
+			var/datum/skill/piloting/S = user.skills.getskill("piloting")
+			if(!S.value >= theship.pilot_skill_req)//This should change per-ship
+				to_chat(user, "<span class='warning'>You're not skilled enough to pilot this vessel!<span>")
 				return
 			theship.enter(user)
 		//	fire_phasers(target, user)

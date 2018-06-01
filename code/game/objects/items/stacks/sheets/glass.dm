@@ -23,7 +23,7 @@ GLOBAL_LIST_INIT(glass_recipes, list ( \
 	resistance_flags = ACID_PROOF
 	merge_type = /obj/item/stack/sheet/glass
 	grind_results = list("silicon" = 1)
-	skill_requirement = 45
+	skill_requirement = 6
 
 /obj/item/stack/sheet/glass/cyborg
 	materials = list()
