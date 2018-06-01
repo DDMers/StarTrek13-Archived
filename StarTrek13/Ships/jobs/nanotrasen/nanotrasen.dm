@@ -98,7 +98,7 @@ Captain
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
 
 /datum/outfit/job/nt/captain/post_equip(mob/living/carbon/human/H)
-	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
+	H.skills.add_skill("piloting", 5)
 
 
 /datum/job/nt/admiral
@@ -158,7 +158,7 @@ Captain
 //	var/datum/job/aide/L= SSjob.GetJobType(jobtype)
 //	L.admirals++
 //	L.total_positions = L.admirals //admirals require aides.
-	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
+	H.skills.add_skill("piloting", 3)
 /*
 Head of Personnel
 */
@@ -208,7 +208,7 @@ Head of Personnel
 		/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced = 1,/obj/item/device/tricorder)
 
 /datum/outfit/job/nt/firstofficer/post_equip(mob/living/carbon/human/H)
-	H.add_skills(rand(40, 59), rand(60, 70), rand(0, 28), rand(0, 28), rand(50, 65))
+	H.skills.add_skill("piloting", 4)
 
 /*
 Clown
@@ -270,7 +270,9 @@ Clown
 		return
 
 	H.dna.add_mutation(CLOWNMUT)
-	H.add_skills(rand(66, 82), rand(0, 24), rand(0,24), rand(25, 79), rand(25, 59))
+	H.skills.add_skill("piloting", rand(4, 6))
+	H.skills.add_skill("medicine", rand(1, 5))
+	H.skills.add_skill("construction and maintenance", 6)
 
 /*
 Mime
@@ -809,7 +811,8 @@ Chief Engineer
 
 /datum/outfit/job/nt/ce/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(..(), ..(), ..(), rand(60, 90), 25)
+	H.skills.add_skill("piloting", 3)
+	H.skills.add_skill("construction and maintenance", 7)
 
 /*
 Station Engineer
@@ -868,7 +871,7 @@ Station Engineer
 
 /datum/outfit/job/nt/engineer/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(engineering = rand(45, 70))
+	H.skills.add_skill("construction and maintenance", 5)
 
 
 /*
@@ -923,7 +926,7 @@ Atmospheric Technician
 
 /datum/outfit/job/nt/atmos/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(engineering = rand(45, 70))
+	H.skills.add_skill("construction and maintenance", 4)
 
 /*
 Chief Medical Officer
@@ -975,7 +978,8 @@ Chief Medical Officer
 
 /datum/outfit/job/nt/cmo/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(rand(10, 25), rand(10, 25), rand(60, 80), rand(10, 25), rand(25, 45))
+	H.skills.add_skill("piloting", 3)
+	H.skills.add_skill("medicine", 7)
 //NOTICE: ALL SCIENCE RElATED JOBS/RESEARCH WILL WORK ON STARBASES, ONLY MEDICAL DOCTORS ETC. WILL WORK ON THE SHIPS.
 
 
@@ -1015,7 +1019,7 @@ Medical Doctor
 
 /datum/outfit/job/nt/doctor/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(10, 25))
+	H.skills.add_skill("medicine", 5)
 
 /*
 Chemist ?To be merged with medical doctor?
@@ -1056,7 +1060,7 @@ Chemist ?To be merged with medical doctor?
 
 /datum/outfit/job/nt/chemist/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(25, 45), rand(10, 25))
+	H.skills.add_skill("medicine", 3)
 
 ./*
 Geneticist
@@ -1097,7 +1101,7 @@ Geneticist
 
 /datum/outfit/job/nt/geneticist/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(25, 45), rand(10, 25))
+	H.skills.add_skill("medicine", 3)
 
 /*
 Virologist
@@ -1139,7 +1143,7 @@ Virologist
 
 /datum/outfit/job/nt/virologist/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(10, 25))
+	H.skills.add_skill("medicine", 4)
 
 /*
 Research Director
@@ -1637,12 +1641,12 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 
 /datum/outfit/job/nt/soldier/post_equip(mob/living/carbon/human/H)
 	if(prob(5)) //5% chance to be a legendary soldier
-		H.add_skills(110, rand(60, 68), rand(24, 32), ..(), ..())
+//		H.add_skill(110, rand(60, 68), rand(24, 32), ..(), ..())
 		to_chat(H, "<big>You are a specialized enforcer! You've had some experience, and are well versed in the arts of close-quarters combat.</big>")
 		name = "Specialized Company Enforcer"
 		return
 	else
-		H.add_skills(rand(60, 66), rand(60, 68), rand(24, 32), ..(), ..())
+//		H.add_skill(rand(60, 66), rand(60, 68), rand(24, 32), ..(), ..())
 
 
 /datum/job/pilot
@@ -1682,4 +1686,4 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	duffelbag = /obj/item/storage/backpack/duffelbag
 
 /datum/outfit/job/pilot/post_equip(mob/living/carbon/human/H)
-	H.add_skills(rand(10, 25), rand(10, 25), rand(45, 60), rand(10, 25), rand(55, 110))
+	H.skills.add_skill("piloting", 9)

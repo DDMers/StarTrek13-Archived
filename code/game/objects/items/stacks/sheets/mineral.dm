@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 	sheettype = "diamond"
 	materials = list(MAT_DIAMOND=MINERAL_MATERIAL_AMOUNT)
 	novariants = TRUE
-	skill_requirement = 80
+	skill_requirement = 10
 
 GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	new/datum/stack_recipe("diamond door", /obj/structure/mineral_door/transparent/diamond, 10, one_per_turf = 1, on_floor = 1), \
@@ -129,7 +129,7 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	materials = list(MAT_URANIUM=MINERAL_MATERIAL_AMOUNT)
 	novariants = TRUE
 	grind_results = list("uranium" = 20)
-	skill_requirement = 60
+	skill_requirement = 7
 
 GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	new/datum/stack_recipe("uranium door", /obj/structure/mineral_door/uranium, 10, one_per_turf = 1, on_floor = 1), \
@@ -154,7 +154,7 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	max_integrity = 100
 	materials = list(MAT_PLASMA=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list("plasma" = 20)
-	skill_requirement = 60
+	skill_requirement = 7
 
 GLOBAL_LIST_INIT(plasma_recipes, list ( \
 	new/datum/stack_recipe("plasma door", /obj/structure/mineral_door/transparent/plasma, 10, one_per_turf = 1, on_floor = 1), \
@@ -189,7 +189,7 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 	sheettype = "gold"
 	materials = list(MAT_GOLD=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list("gold" = 20)
-	skill_requirement = 60
+	skill_requirement = 6
 
 GLOBAL_LIST_INIT(gold_recipes, list ( \
 	new/datum/stack_recipe("golden door", /obj/structure/mineral_door/gold, 10, one_per_turf = 1, on_floor = 1), \
@@ -216,7 +216,7 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	sheettype = "silver"
 	materials = list(MAT_SILVER=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list("silver" = 20)
-	skill_requirement = 60
+	skill_requirement = 6
 
 GLOBAL_LIST_INIT(silver_recipes, list ( \
 	new/datum/stack_recipe("silver door", /obj/structure/mineral_door/silver, 10, one_per_turf = 1, on_floor = 1), \
@@ -243,7 +243,7 @@ GLOBAL_LIST_INIT(silver_recipes, list ( \
 	materials = list(MAT_BANANIUM=MINERAL_MATERIAL_AMOUNT)
 	novariants = TRUE
 	grind_results = list("banana" = 20)
-	skill_requirement = 25
+	skill_requirement = 2
 
 GLOBAL_LIST_INIT(clown_recipes, list ( \
 	new/datum/stack_recipe("bananium tile", /obj/item/stack/tile/mineral/bananium, 1, 4, 20), \
@@ -268,7 +268,7 @@ GLOBAL_LIST_INIT(clown_recipes, list ( \
 	throw_range = 3
 	sheettype = "titanium"
 	materials = list(MAT_TITANIUM=MINERAL_MATERIAL_AMOUNT)
-	skill_requirement = 60
+	skill_requirement = 7
 
 GLOBAL_LIST_INIT(titanium_recipes, list ( \
 	new/datum/stack_recipe("titanium tile", /obj/item/stack/tile/mineral/titanium, 1, 4, 20), \
@@ -296,7 +296,7 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
 	throw_range = 3
 	sheettype = "plastitanium"
 	materials = list(MAT_TITANIUM=2000, MAT_PLASMA=2000)
-	skill_requirement = 60
+	skill_requirement = 7
 
 GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
 	new/datum/stack_recipe("plas-titanium tile", /obj/item/stack/tile/mineral/plastitanium, 1, 4, 20), \
@@ -339,7 +339,7 @@ GLOBAL_LIST_INIT(snow_recipes, list ( \
 	icon_state = "sheet-enruranium"
 	singular_name = "enriched uranium sheet"
 	materials = list(MAT_URANIUM=3000)
-	skill_requirement = 60
+	skill_requirement = 8
 
 /*
  * Adamantine
@@ -352,7 +352,7 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
 	name = "adamantine"
 	icon_state = "sheet-adamantine"
 	singular_name = "adamantine sheet"
-	skill_requirement = 60
+	skill_requirement = 7
 
 /obj/item/stack/sheet/mineral/adamantine/Initialize(mapload, new_amount, merge = TRUE)
 	recipes = GLOB.adamantine_recipes
@@ -366,7 +366,7 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
 	icon_state = "sheet-mythril"
 	singular_name = "mythril sheet"
 	novariants = TRUE
-	skill_requirement = 25
+	skill_requirement = 0 //muh ashwalkers
 
 /*
  * Alien Alloy
@@ -377,7 +377,7 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
 	icon_state = "sheet-abductor"
 	singular_name = "alien alloy sheet"
 	sheettype = "abductor"
-	skill_requirement = 80
+	skill_requirement = 9
 
 GLOBAL_LIST_INIT(abductor_recipes, list ( \
 	new/datum/stack_recipe("alien bed", /obj/structure/bed/abductor, 2, one_per_turf = 1, on_floor = 1), \
