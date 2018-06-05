@@ -223,16 +223,6 @@ var/list/global/faction_spawns = list()
 
 ////objectives code\\\\
 //Shitcoded by yours truly
-/*
-/datum/faction/get_objectives()
-	for(var/path in subtypesof(/datum/objective))
-		objectives += path()
-
-/datum/facton/proc/add_objective(var/input)
-	var/path
-	if(input == path in objectives)
-		to_chat(world, "FOUND OBJECTIVE: [input].")
-*/
 
 /datum/factionobjective
 	var/iscurrent = FALSE
