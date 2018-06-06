@@ -638,7 +638,9 @@ var/global/list/global_ship_list = list()
 */
 
 /obj/structure/overmap/process()
-	health += 50 //Very slow regen, allows you to run and hide
+	if(health < max_health) //What the fuck drunk me vvvvv
+		if(prob(30))
+			health += 50 //VeryYlow slol rege mn spo u can hide
 	parallax_update() //Need this to be on SUPERSPEED or it'll look awful
 	if(pilot)
 		for(var/obj/screen/alert/charge/C in pilot.alerts)

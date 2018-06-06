@@ -103,6 +103,7 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 	name = "Warp beacon"
 	var/distance = 800 //Distance as in how remote this jump-beacon is.
 	var/warp_restricted = FALSE //Add in warp inhibitors for faction home space.
+	var/factionOwner = "null"
 
 /obj/effect/landmark/warp_beacon/Initialize(timeofday)
 	. = ..()
