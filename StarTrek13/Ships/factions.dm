@@ -78,21 +78,22 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/pref_colour = "green" //Color that the background goes if this faction is selected in preferences
 	var/obj/effect/spawns = list()
 	var/faction_occupations = list()//List of occupations in this faction.
-	var/datum/objective/objectives = list()
+	var/datum/objective/current_objective //only one at a time, please.. These constantly check for completion. ~Cdey
+	var/datum/objective/objectives = list()//IF there are multiple objectives. Also currently unused. ~Cdey
 	var/credits = 0 //:( i'm just a poor boy from a poor family
 
 
-/datum/faction/independant	//a holder datum for sorting players
+/datum/faction/independant
 	name = "independant"
 	description = "An independant faction, freelancers, traders, or even pirates, these people choose their own path and forge their own journey."
-	flavourtext = "You are your own person, and no power hungry faction will tell you otherwise. You are in a group of likeminded people, to call your organization a true faction would be inapropriate. Create your own path" //Sent to all new members upon recruitment.
+	flavourtext = "You are your own person, and no power hungry faction will tell you otherwise. You are in a group of likeminded people, to call your organization a true faction would be inapropriate. Create your own path." //Sent to all new members upon recruitment.
 	pref_colour = "green"
 
 //"<FONT color='blue'><B>As this station was initially staffed with a [CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] have been added to your ID card.</B></font>")
 
 /datum/faction/starfleet
 	name = "starfleet"
-	description = "The military arm of the federation, its officers are disciplined and intelligent but there is plenty of room for ensigns and other inexperienced officers"
+	description = "The military arm of the federation, its officers are disciplined and intelligent but there is plenty of room for ensigns and other inexperienced officers."
 	flavourtext = "Starfleet is a stable career path, with luck you can work your way up the ranks all while protecting the values of the federation"
 	pref_colour = "red"
 
@@ -101,6 +102,19 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	description = "Nanotrasen, or more specifically, their main corporate arm. Their goal is to make money and maintain the colonies, no matter who opposes them."
 	flavourtext = "Nanotrasen is an oligarchy, but with merit you should be able to climb the ranks...up to a point."
 	pref_colour = "blue"
+
+
+
+/datum/faction/proc/add_objective(var/datum/factionobjective/O)
+	if(O in subtypesof(/datum/factionobjective))
+		if(current_objective)
+			return FALSE
+		var/datum/factionobjective/instance = new O
+		current_objective = instance
+		instance.iscurrent = TRUE
+		instance.assigned_faction = src
+		instance.setup()
+		return TRUE
 
 /datum/faction/proc/num_players()
 	for(var/mob/P in GLOB.player_list)
@@ -205,3 +219,44 @@ var/list/global/faction_spawns = list()
 	if(D in member_factions)
 		member_factions -= D
 		D.broadcast("Your faction has been removed from [name]!")
+
+
+////objectives code\\\\
+//Shitcoded by yours truly
+
+/datum/factionobjective
+	var/iscurrent = FALSE
+	var/datum/faction/assigned_faction
+	var/description = "ERROR: THIS MESSAGE SHOULD NOT BE DISPLAYED." //The "informative" message of the objective
+
+/datum/factionobjective/proc/setup()
+	assigned_faction.broadcast("<font color='red'><B>An error has occured with faction objectives, or a coder forgot to change something.</B></font>")
+	return
+
+/datum/factionobjective/proc/check_completion() //SHOULD be called every so often, to check for completion.
+	return
+
+//EXAMPLE
+/datum/factionobjective/destroy1
+	var/obj/structure/overmap/ship/objective
+
+/datum/factionobjective/destroy1/setup() //shitty, but it's just an example for now. This means ALL ships, including your own faction's, will be able to be picked. Hopefully this will be fixed later.
+	if(!global_ship_list)
+		qdel(src)
+		return
+	var/list/pickables = global_ship_list
+	for(var/obj/structure/overmap/ship/fighter/F in pickables)
+		pickables -= F
+	objective = pick(pickables)
+	description = "<B>Locate the target vessel and destroy it. Your target: [objective.name]</B>"
+	assigned_faction.broadcast("Your faction has been assigned an objective; [description]")
+
+/datum/factionobjective/destroy1/check_completion(var/target)
+	if(!target == objective)
+		return FALSE
+
+	assigned_faction.broadcast("<font color='#1459c7'><B>The target vessel has been destroyed. Congradulations!</B></font>")
+	assigned_faction.addCredits(100)
+	qdel(src)
+	return TRUE
+//END EXAMPLE

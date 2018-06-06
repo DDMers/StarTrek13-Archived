@@ -159,6 +159,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug, world.AVerbsDebug())
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_display_overlay_log,
 	/datum/admins/proc/create_or_modify_area,
+	/client/proc/give_faction_objective,
 	)
 GLOBAL_PROTECT(admin_verbs_possess)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/release))
@@ -231,6 +232,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/toggle_combo_hud,
 	/client/proc/debug_huds
+	/client/proc/give_faction_objective,
 	))
 
 /client/proc/add_admin_verbs()
@@ -285,7 +287,8 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 		/*Debug verbs added by "show debug verbs"*/
 		GLOB.admin_verbs_debug_mapping,
 		/client/proc/disable_debug_verbs,
-		/client/proc/readmin
+		/client/proc/readmin,
+		/client/proc/give_faction_objective
 		)
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
@@ -700,3 +703,18 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 
 	log_admin("[key_name(usr)] has [AI_Interact ? "activated" : "deactivated"] Admin AI Interact")
 	message_admins("[key_name_admin(usr)] has [AI_Interact ? "activated" : "deactivated"] their AI interaction")
+
+
+/client/proc/give_faction_objective()//ST13 debugging, gives selected faction an objective
+	set name = "Give Faction Objective"
+	set category = "Debug"
+
+	var/datum/faction/I = input("Select a faction.", "Add Objective") as null|anything in SSfaction.factions
+	if(!I)
+		return
+	var/datum/factionobjective/A = input("Select an objective to assign to [I.name].", "Add Objective") in list(/datum/factionobjective/destroy1, "cancel")
+	if(!A || A == "cancel")
+		return
+	to_chat(src, "Faction \"[I.name]\" has been given objective [A].")
+	if(!I.add_objective(A))
+		to_chat(src, "<B><font color='red'>Failed to assign objective; Objective already present!</font></B>")
