@@ -116,3 +116,93 @@
 	M.adjustBruteLoss(5)
 
 */
+/obj/item/clothing/suit/space/nanosuit
+	name = "MT-X0F Nanosuit"
+	desc = "A suit fusing borg technology with a highly advanced hardsuit, it contains several attachment points which are designed to interface with a borg, which will allow direct control over the nanites in their bloodstream. Using this exerts enormous physical strain on the user"
+	icon_state = "skulls"
+	item_state = null
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	cold_protection = FULL_BODY
+	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
+	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT
+	slowdown = 2
+	flags_1 = THICKMATERIAL_1 | STOPSPRESSUREDMAGE_1
+	armor = list(melee = 40, bullet = 30, laser = 30, energy = 0, bomb = 30, bio = 100, rad = 100)
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	allowed = list(/obj/item/device/flashlight)
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
+	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	var/InUse = FALSE
+
+/obj/item/clothing/suit/space/nanosuit/ShiftClick(mob/user)
+	. = ..()
+	SpeedBoost()
+
+/obj/item/clothing/suit/space/nanosuit/AltClick(mob/user)
+	ArmourBoost()
+
+/obj/item/clothing/suit/space/nanosuit/Initialize(timeofday)
+	START_PROCESSING(SSobj,src)
+
+/obj/item/clothing/shoes/combat/nanosuit
+	name = "Nanofibre combat boots"
+
+/obj/item/clothing/shoes/combat/nanosuit/step_action()
+	. = ..()
+	playsound(src,'StarTrek13/sound/trek/heavywalk.ogg',40,1)
+
+/obj/item/clothing/suit/space/nanosuit/process()
+	var/mob/living/carbon/human/user = src.loc
+	if(ismob(user))
+		if(InUse)
+			user.adjustStaminaLoss(8)
+
+/obj/item/clothing/suit/space/nanosuit/proc/CheckValidity() //Can we use this power?
+	var/mob/living/carbon/human/user = src.loc
+	user.update_inv_wear_suit()
+	if(!/obj/item/clothing/shoes/combat/nanosuit in user.shoes)
+		to_chat(user, "ERROR: No combat boots detected with a suitable interface.")
+		return 0
+	if(InUse)
+		to_chat(user, "\[ <span style='color: #00ff00;'>ok</span> \] Nanoprobes returning to body.")
+		InUse = FALSE
+		armor = list(melee = 40, bullet = 30, laser = 30, energy = 0, bomb = 30, bio = 100, rad = 100)
+		slowdown = initial(slowdown)
+		icon_state = initial(icon_state)
+		return 1
+	else
+		if(!InUse)
+			to_chat(user, "\[ <span style='color: #00ff00;'>ok</span> \] Sending command to nanoprobes ..{}")
+			to_chat(user, "\[ <span style='color: #00ff00;'>ok</span> \] Success!")
+			return 1
+		else
+			to_chat(user, "\[ <span style='color: #00ff00;'>FAIL</span> \] ERROR: Nanoprobes already in distribution points.")
+			return 0
+
+
+/obj/item/clothing/suit/space/nanosuit/proc/SpeedBoost()
+	armor = list(melee = 80, bullet = 50, laser = 45, energy = 20, bomb = 50, bio = 100, rad = 100)
+	slowdown = 2
+	icon_state = "skulls"
+	if(CheckValidity())
+		if(InUse)
+			slowdown = initial(slowdown)
+			InUse = FALSE
+		else
+			slowdown = 0 //Successfully active
+			InUse = TRUE
+
+/obj/item/clothing/suit/space/nanosuit/proc/ArmourBoost()
+	if(CheckValidity())
+		if(InUse)
+			armor = list(melee = 40, bullet = 30, laser = 30, energy = 0, bomb = 30, bio = 100, rad = 100)
+			slowdown = initial(slowdown)
+			icon_state = initial(icon_state)
+			InUse = TRUE
+		else
+			armor = list(melee = 80, bullet = 50, laser = 45, energy = 20, bomb = 50, bio = 100, rad = 100)
+			slowdown = 5
+			icon_state = "skulls-armour"
+			InUse = FALSE
