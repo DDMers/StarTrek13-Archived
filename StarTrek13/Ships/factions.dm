@@ -83,7 +83,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/credits = 0 //:( i'm just a poor boy from a poor family
 
 
-/datum/faction/independant	//a holder datum for sorting players
+/datum/faction/independant
 	name = "independant"
 	description = "An independant faction, freelancers, traders, or even pirates, these people choose their own path and forge their own journey."
 	flavourtext = "You are your own person, and no power hungry faction will tell you otherwise. You are in a group of likeminded people, to call your organization a true faction would be inapropriate. Create your own path." //Sent to all new members upon recruitment.
@@ -106,15 +106,15 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 
 
 /datum/faction/proc/add_objective(var/datum/factionobjective/O)
-	for(var/path in subtypesof(/datum/factionobjective))
-		if(O == path)
-			if(current_objective)
-				return FALSE
-			var/datum/factionobjective/instance = new path()
-			current_objective = instance
-			instance.iscurrent = TRUE
-			instance.assigned_faction = src
-			instance.setup()
+	if(O in subtypesof(/datum/factionobjective))
+		if(current_objective)
+			return FALSE
+		var/datum/factionobjective/instance = new O
+		current_objective = instance
+		instance.iscurrent = TRUE
+		instance.assigned_faction = src
+		instance.setup()
+		return TRUE
 
 /datum/faction/proc/num_players()
 	for(var/mob/P in GLOB.player_list)
@@ -229,9 +229,6 @@ var/list/global/faction_spawns = list()
 	var/datum/faction/assigned_faction
 	var/description = "ERROR: THIS MESSAGE SHOULD NOT BE DISPLAYED." //The "informative" message of the objective
 
-/datum/factionobjective/New()
-	..()
-
 /datum/factionobjective/proc/setup()
 	assigned_faction.broadcast("<font color='red'><B>An error has occured with faction objectives, or a coder forgot to change something.</B></font>")
 	return
@@ -247,16 +244,19 @@ var/list/global/faction_spawns = list()
 	if(!global_ship_list)
 		qdel(src)
 		return
-	objective = pick(global_ship_list)
+	var/list/pickables = global_ship_list
+	for(var/obj/structure/overmap/ship/fighter/F in pickables)
+		pickables -= F
+	objective = pick(pickables)
 	description = "<B>Locate the target vessel and destroy it. Your target: [objective.name]</B>"
 	assigned_faction.broadcast("Your faction has been assigned an objective; [description]")
-	check_completion()
 
-/datum/factionobjective/destroy1/check_completion()
-	while(objective)
-		sleep(10)
+/datum/factionobjective/destroy1/check_completion(var/target)
+	if(!target == objective)
+		return FALSE
 
 	assigned_faction.broadcast("<font color='#1459c7'><B>The target vessel has been destroyed. Congradulations!</B></font>")
 	assigned_faction.addCredits(100)
 	qdel(src)
+	return TRUE
 //END EXAMPLE

@@ -829,7 +829,15 @@ var/global/list/global_ship_list = list()
 	else//nope
 		return 0
 
+/obj/structure/overmap/Destroy()
+	to_chat(world, "DELETED [src]!")
+	..()
+
 /obj/structure/overmap/proc/destroy(severity)
+	for(var/datum/faction/F in SSfaction.factions)
+		if(F.current_objective)
+			var/datum/factionobjective/destroy1/O = F.current_objective
+			O.check_completion(src)
 	if(agressor)
 		agressor.target_subsystem = null
 		agressor.target_ship = null
@@ -870,6 +878,7 @@ var/global/list/global_ship_list = list()
 			//make explosion in ship
 		if(0)
 			qdel(src)
+
 
 /obj/structure/overmap/proc/has_shields()
 	if(SC.shields.health >= 5000 && shields_active && SC.shields.toggled)
