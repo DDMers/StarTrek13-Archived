@@ -838,9 +838,9 @@
 	var/area/target_area = null
 	var/list/torpedoes = list()
 	var/obj/structure/overmap/theship = null
-	var/list/obj/effect/landmark/warp_beacon/beacons = list()
 	var/obj/effect/landmark/warp_beacon/targetBeacon = null
 	anchored = 1
+	var/starmapUI
 
 /obj/structure/fluff/helm/desk/tactical/nanotrasen
 	name = "tactical"
@@ -908,7 +908,7 @@
 		to_chat(user, "Your ship has been destroyed!")
 	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap")
 
-	var/html = "\
+	starmapUI = "\
 	<!DOCTYPE html>\
 	<html>\
 		<style>\
@@ -939,28 +939,28 @@
 				table-layout: fixed;\
 				text-align: center;\
 			}\
-			#StarMapGrid tr td {\
+			td {\
 				background-color: black;\
 				border-collapse: collapse;\
 				color: white;\
 				border: 1px solid #9c6b29;\
 				height: 50px;\
-				width: 100px;\
+				width: 140px;\
 			}\
-			#StarMapGrid tr .system:hover{\
+			a:hover td {\
 				background-color: #3e2a10;\
 			}\
-			#StarMapGrid tr .system div{\
+			a td div{\
 				text-align: left;\
 				height: 40px;\
 				width: 100%;\
 				background-image: url('system.png');\
 				background-repeat: no-repeat;\
 			}\
-			#StarMapGrid tr .system div span{\
+			a td div span{\
 				position: relative;\
-				top: 30%;\
-				left: 48%;\
+				top: 15px;\
+				left: 48px;\
 			}\
 			#btn {\
 				position: absolute;\
@@ -969,6 +969,8 @@
 				background-color: #ce6363;\
 				height: 119px;\
 				width: 53px;\
+				color: black;\
+				text-decoration: none;\
 			}\
 			#btn:hover {\
 				background-color: #cd7c76;\
@@ -978,6 +980,17 @@
 				bottom:0;\
 				right:0;\
 			}\
+			#error {\
+				position: absolute;\
+				left: 170px;\
+				top: 50%;\
+				height: 30px;\
+				width: 300px;\
+				color: black;\
+				background-color: red;\
+				text-align: center;\
+				padding-top: 10px;\
+			}\
 		</style>\
 		<body>\
 			<div id=\"StarMap\">\
@@ -985,36 +998,45 @@
 					<tr>"
 	var/r=0 //row
 	var/c=0 //column
+	if(!SSfaction.jumpgates_forbidden)
+		//populate <table data> with star system info
+		for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
+			if(wb.z)
+				starmapUI += "<a href='?src=[REF(src)];beacon=[REF(wb)]' onclick=\"selectSystem(id)\" id=\"system[r][c]\"><td id=\"system\"><div id=\"system[r][c]img\"><span>[wb.name]</span></div> </td></a>"
+				c++
 
-	//populate <table data> with star system info
-	for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
-		if(wb.z)
-			html += "<td href='?src=[REF(src)];beacon=[REF(wb)]' onclick=\"selectSystem(id)\" id=\"system[r][c]\" class=\"system\"><div id=\"system[r][c]img\"><span>[wb.name]<br>[wb.factionOwner]</span></div> </td>"
-			c++
+			if(c==4)
+				starmapUI += "</tr> <tr>"
+				r++
+				c=0
 
-		if(c==4)
-			html += "</tr> <tr>"
-			r++
-			c=0
-
-	//add the rest of the rows+columns to keep the elements tidy
+		//add the rest of the rows+columns to keep the elements tidy
 	while(r!=4)
 		c++
-		html += "<td></td>"
+		starmapUI += "<td></td>"
+
 		if(c==4)
-			html += "</tr> <tr>"
+			starmapUI += "</tr> <tr>"
 			r++
 			c=0
-	html += 		"</tr>\
+
+	starmapUI += 		"</tr>\
 				</table>\
-			</div>\
-			\
-			<div href='?src=\ref[src];warp=1' id=\"btn\">\
-				<span>\
-					WARP\
-				</span>\
-			</div>\
-			\
+			</div>"
+	if(!SSfaction.jumpgates_forbidden)
+		starmapUI +=	"<a href='?src=[REF(src)];warp=1' onclick=\"deselectSystem()\">\
+							"
+
+	starmapUI += "<div id=\"btn\">\
+					<span>\
+						WARP\
+					</span>\
+				</div>\
+			</a>"
+	if(SSfaction.jumpgates_forbidden)
+		starmapUI += "<div id=\"error\">ERROR: Subspace distortions prevent warping at this time</div>"
+
+	starmapUI += "\
 			<script>\
 				var img;\
 				function selectSystem(id) {\
@@ -1024,6 +1046,12 @@
 					}\
 					img = document.getElementById(id+\"img\");\
 					img.style.backgroundImage = \"url('system_select.png')\";\
+				}\
+				function deselectSystem() {\
+					if(img)\
+					{\
+						img.style.backgroundImage = \"url('system.png')\"\
+					}\
 				}\
 			</script>\
 		</body>\
@@ -1056,13 +1084,13 @@
 		if("starmap")
 			var/datum/asset/assets = get_asset_datum(/datum/asset/simple/starmap)
 			assets.send(user)
-			user << browse(html, "window=StarMap;size=660x420")
+			user << browse(starmapUI, "window=StarMap;size=660x420")
 
 /obj/structure/fluff/helm/desk/tactical/Topic(href, href_list)
 	..()
-
-	if(href_list["warp"])
+	if(href_list["warp"] && targetBeacon)
 		theship.do_warp(targetBeacon.name, targetBeacon.distance)
+		targetBeacon = null
 
 	if(href_list["beacon"])
 		targetBeacon = locate(href_list["beacon"])
