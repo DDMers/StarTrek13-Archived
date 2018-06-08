@@ -603,7 +603,6 @@
 	var/charge_rate = 100
 	var/state = 1
 	var/locked = 0
-	var/obj/item/gun/shipweapon/phaser
 	var/obj/structure/cable/attached		// the attached cable
 	var/max_power = 1000		// max power it can hold
 	var/fire_cost = 200
@@ -616,32 +615,6 @@
 /obj/machinery/power/ship/phaser/opposite
 	dir = 8
 	pixel_x = 64
-
-//obj/machinery/power/ship/phaser/attack_hand(mob/user)
-//	to_chat(user, "input now")
-//	input_target(user)
-
-/obj/machinery/power/ship/phaser/proc/input_target(mob/user) //unused now
-	var/A
-	A = input("Area to fire on", "Open Fire", A) as anything in shipareas
-	var/area/thearea = shipareas[A]
-	var/list/L = list()
-	for(var/turf/T in get_area_turfs(thearea.type))
-		L+=T
-	var/location = pick(L)
-	attempt_fire(location)
-
-//	explosion(loc,2,5,11)
-
-/*
-	var/obj/ship_marker/A = shipcores[B]
-	var/area/thearea = get_area(A)
-	var/list/L = list()
-	for(var/turf/T in get_area_turfs(thearea.type))
-		L+=T
-	var/loc = pick(L)
-*/
-
 
 /obj/machinery/power/ship/phaser/examine(mob/user)
 	. = ..()
@@ -677,9 +650,6 @@
 	var/obj/item/circuitboard/machine/B = new /obj/item/circuitboard/machine/phase_cannon(null)
 	B.apply_default_parts(src)
 	RefreshParts()
-	phaser = new /obj/item/gun/shipweapon(src)
-	phaser.mounted = 1
-	find_cores()
 	find_generator()
 
 /obj/machinery/power/ship/phaser/proc/find_generator()
@@ -711,17 +681,6 @@
 		else
 			return 0
 	else
-		return 0
-
-/obj/machinery/power/ship/phaser/proc/attempt_fire(atom/target) //TEST remove /atom if no work
-	find_generator()
-	if(can_fire())
-		phaser.LoseTarget()
-		charge -= fire_cost
-		phaser.current_target = target
-		phaser.process_fire(target = target,  source = src)
-	else
-		src.say("error")
 		return 0
 
 //DEFINE TARGET
@@ -790,21 +749,6 @@
 /area/ship/borg
 	name = "Unimatrix 1-3"
 	icon_state = "ship"
-
-/obj/ship_marker
-	invisibility = INVISIBILITY_ABSTRACT
-	icon = 'icons/obj/device.dmi'
-	//icon = 'icons/dirsquare.dmi'
-	icon_state = "pinonfar"
-	name = "ship core"
-	resistance_flags = ACID_PROOF
-	anchored = 1
-
-/obj/ship_marker/bridge
-	name = "bridge"
-
-/obj/ship_marker/crew
-	name = "crew quaters"
 
 /obj/structure/fluff/helm/desk/tactical
 	name = "tactical"
