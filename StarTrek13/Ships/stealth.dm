@@ -4,7 +4,7 @@
 	var/next_spot_time = 0
 	var/datum/faction/player_faction
 
-/mob/living/carbon/human/New()
+/mob/living/carbon/human/Move(Newloc, direct)
 	. = ..()
 	if(client)
 		player_faction = client.prefs.player_faction
