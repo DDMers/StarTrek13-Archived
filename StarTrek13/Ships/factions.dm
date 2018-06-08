@@ -146,10 +146,14 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	for(var/mob/living/M in members)
 		to_chat(M, ping)
 
-/datum/faction/proc/addMember(mob/living/D)
+/datum/faction/proc/addMember(mob/living/carbon/human/D)
 //	if(D in members)
 //	if(isliving(D))
 	members += D
+	if(D.client.prefs.player_faction)
+		D.client.prefs.player_faction = src
+		D.client.prefs.player_faction.members -= D
+	D.player_faction = src
 	to_chat(D, "<FONT color='blue'><B>You have been recruited into [name]!</B></font>")
 	to_chat(D, "<FONT color='[pref_colour]'><B>[flavourtext]</B></font>")
 	onspawn(D)
@@ -260,3 +264,23 @@ var/list/global/faction_spawns = list()
 	qdel(src)
 	return TRUE
 //END EXAMPLE
+
+/datum/factionobjective/stealth //Place a tracker on a target ship's warp core to study it, you can get spotted 3 times before it fails
+	var/spotted_amount = 0
+	var/max_spots = 3
+	var/obj/structure/fluff/warpcore/target
+
+/datum/factionobjective/stealth/setup()
+	if(!global_ship_list)
+		qdel(src)
+		return
+	var/list/pickables = global_ship_list
+	for(var/obj/structure/overmap/ship/fighter/F in pickables)
+		pickables -= F
+	for(var/obj/structure/fluff/warpcore/W in GLOB.sortedAreas)
+		if(!W)
+			return
+		var/area/A = get_area(W)
+		target = W
+		description = "Perform a full scan of [W] aboard the [A] to better understand warp core mechanics."
+		break

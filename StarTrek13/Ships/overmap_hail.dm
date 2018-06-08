@@ -9,18 +9,18 @@
 
 	announcement += "<br><span class='alert'>[html_encode(text)]</span><br>"
 	announcement += "<br>"
+	if(isOVERMAP(sender))
+		var/list/list = list()
+		list += sender.pilot
+		list += target.pilot
+		for(var/mob/M in sender.linked_ship)
+			list += M
+		for(var/mob/S in target.linked_ship)
+			list += S
 
-	var/list/list = list()
-	list += sender.pilot
-	list += target.pilot
-	for(var/mob/M in sender.linked_ship)
-		list += M
-	for(var/mob/S in target.linked_ship)
-		list += S
-
-	var/s = sound(sound)
-	for(var/mob/M in list)
-		if(!isnewplayer(M) && M.can_hear())
-			to_chat(M, announcement)
-			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
-				SEND_SOUND(M, s)
+		var/s = sound(sound)
+		for(var/mob/M in list)
+			if(!isnewplayer(M) && M.can_hear())
+				to_chat(M, announcement)
+				if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
+					SEND_SOUND(M, s)
