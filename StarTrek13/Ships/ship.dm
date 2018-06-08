@@ -339,16 +339,7 @@
 
 /obj/effect/adv_shield/Initialize(timeofday)
 	. = ..()
-	var/area/thearea = get_area(src)
-	for(var/obj/machinery/power/ship/phaser/P in thearea)
-		if(!P in thearea)
-			return
-		for(var/obj/item/gun/shipweapon/W in P.contents)
-			if(!istype(W))
-				return
-			friendly += W //link a phaser in, these phasers can through shields
-		for(var/obj/structure/photon_torpedo/A in thearea)
-			friendly += A
+
 //	START_PROCESSING(SSobj, src)
 
 /obj/effect/adv_shield/proc/activate()
@@ -746,39 +737,31 @@
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	var/obj/item/clothing/neck/combadge/combadges = list()
 
-/area/ship/bridge
-	name = "A starship bridge"
-	icon_state = "ship"
+//Starfleet
 
-/area/ship/engineering
-	name = "A starship engineering"
-	icon_state = "ship"
-
-/area/ship/overmap/starbase
+/area/ship/federation/starbase
 	name = "starbase 1"
 	icon_state = "ship"
 
-/area/ship/target
+/area/ship/federation/entax
 	name = "USS Entax"
 	icon_state = "ship"
 
-/area/ship/borg
-	name = "Unimatrix 1-3"
-	icon_state = "ship"
-
-/area/ship/sovreign
+/area/ship/federation/sovreign
 	name = "USS Sovereign"
 	icon_state = "ship"
+
+//Nanotrasen
 
 /area/ship/nanotrasen
 	name = "NSV Muffin"
 	icon_state = "ship"
 
-/area/ship/fighter
+/area/ship/nanotrasen/fighter
 	name = "NSV Hagan"
 	icon_state = "ship"
 
-/area/ship/nanotrasen_cruiser
+/area/ship/nanotrasen/cruiser
 	name = "NSV Hyperion"
 	icon_state = "ship"
 
@@ -790,8 +773,8 @@
 	name = "NSV Annulment"
 	icon_state = "ship"
 
-/area/ship/overmap/nanotrasen
-	name = "Nanotrasen station"
+/area/ship/nanotrasen/ss13
+	name = "Space Station 13"
 	icon_state = "ship"
 
 /area/ship/overmap/nanotrasen/research
@@ -800,6 +783,12 @@
 
 /area/ship/overmap/nanotrasen/trading_outpost
 	name = "NSV Mercator trade station."
+	icon_state = "ship"
+
+//Borg
+
+/area/ship/borg
+	name = "Unimatrix 1-3"
 	icon_state = "ship"
 
 /obj/ship_marker
@@ -870,10 +859,6 @@
 	get_weapons()
 	get_shieldgen()
 //	var/area/thearea = get_area(src)
-	for(var/area/AR in world)
-		if(istype(AR, /area/ship)) //change me
-			shipareas += AR.name
-			shipareas[AR.name] = AR
 
 /obj/structure/fluff/helm/desk/tactical/proc/get_shieldgen()
 	var/area/thearea = get_area(src)
@@ -1110,13 +1095,6 @@
 
 /obj/structure/fluff/helm/desk/tactical/proc/fire_phasers(atom/target, mob/user)
 	playsound(src.loc, 'StarTrek13/sound/borg/machines/bleep1.ogg', 100,1)
-	for(var/obj/machinery/power/ship/phaser/P in weapons)
-		P.target = target
-	if(target != null)
-		for(var/obj/machinery/power/ship/phaser/P in weapons)
-			P.attempt_fire(target)
-	else
-		to_chat(user, "ERROR, no target selected")
 
 /obj/structure/fluff/helm/desk/tactical/proc/fire_torpedo(turf/target,mob/user)
 	for(var/obj/structure/torpedo_launcher/T in torpedoes)
