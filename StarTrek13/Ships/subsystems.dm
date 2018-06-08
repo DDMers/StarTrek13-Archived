@@ -301,6 +301,12 @@
 	failed = TRUE
 
 /datum/shipsystem/shields/process()
+	if(integrity > max_integrity)
+		integrity = max_integrity
+	if(heat < 0)
+		heat = 0
+	if(integrity < 0)
+		integrity = 0
 	health -= heat
 	integrity -= heat
 	max_integrity = initial(max_integrity)

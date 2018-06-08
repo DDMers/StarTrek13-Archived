@@ -91,7 +91,8 @@
 		if(!target)
 			var/obj/structure/overmap/V = input("What ship shall we analyze?", "Weapons console)", null) in our_ship.interactables_near_ship
 			target = V
-		s += "<B> Target: [target] | Target Subsystem: [our_ship.target_subsystem]</B><BR>"
+		if(target)
+			s += "<B> Target: [target] | Target Subsystem: [our_ship.target_subsystem]</B><BR>"
 		var/thing = "Inactive"
 		if(our_ship.target_subsystem)
 			if(!our_ship.target_subsystem.failed)
@@ -99,9 +100,10 @@
 			s += "Target subsystem health: [our_ship.target_subsystem.integrity] / [our_ship.target_subsystem.max_integrity] | Status: [thing]<BR>"
 		if(target)
 			s += "[icon2html(target.icon, user, target.icon_state, EAST)]<BR>"
-		for(var/datum/shipsystem/S in target.SC.systems)
-			ss += "<A href='?src=\ref[src];system=\ref[S];clicker=\ref[user]'>[icon2html(S.icon, user, S.icon_state, SOUTH)]</A>" //Subsystem icon things done by FTL, modified slightly be me
-		s += ss
+		if(target)
+			for(var/datum/shipsystem/S in target.SC.systems)
+				ss += "<A href='?src=\ref[src];system=\ref[S];clicker=\ref[user]'>[icon2html(S.icon, user, S.icon_state, SOUTH)]</A>" //Subsystem icon things done by FTL, modified slightly be me
+			s += ss
 		var/datum/browser/popup = new(user, "Weapons control", name, 550, 550)
 		popup.set_content(s)
 		popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
