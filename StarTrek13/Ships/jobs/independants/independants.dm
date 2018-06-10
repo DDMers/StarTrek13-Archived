@@ -44,7 +44,7 @@ Captain
 */
 /datum/job/ind/captain
 	title = "Independant Captain"
-	flag = CAPTAIN
+	flag = CAPTAIN_INDEP
 	department_head = list("Nobody")
 	department_flag = ENGSEC
 	faction = "Station"
@@ -95,7 +95,7 @@ Head of Personnel
 */
 /datum/job/ind/firstofficer
 	title = "Independant First Officer"
-	flag = HOP
+	flag = FIRSTOFFICER_INDEP
 	department_head = list("Captain")
 	department_flag = CIVILIAN
 	head_announce = list("Supply", "Service")

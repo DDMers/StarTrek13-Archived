@@ -97,6 +97,13 @@ var/global/list/global_ship_list = list()
 	desc = "I wouldn't fly into that if I were you"
 	icon_state = "nebula"
 
+/obj/structure/overmap/lavaland
+	name = "VY Canis Minoris XXIV"
+	desc = "A lizard infested infernal shithole of a rock. Why the hell would anyone but /tg/ EVER want to set foot on it?"
+	icon_state = "lavaland"
+	icon = 'StarTrek13/icons/trek/space_objects.dmi'
+	spawn_name = "lavaland_spawn"
+
 #define TORPEDO_MODE 1//1309
 #define PHASER_MODE 2
 

@@ -14,7 +14,13 @@
 #define CYBORG			(1<<10)
 #define ADMIRAL			(1<<11)
 #define SOLDIER			(1<<12)
-#define PILOT			(1<<13)
+#define ADMIRAL_CENTCOM (1 << 13)
+#define FIRSTOFFICER (1 << 14)
+#define PILOT			(1<<15)
+#define CAPTAIN_NT (1<<16)
+#define CAPTAIN_INDEP (1<<17)
+#define FIRSTOFFICER_INDEP (1<<18)
+#define BORG_DRONE (1<<19)
 
 
 #define MEDSCI			(1<<1)

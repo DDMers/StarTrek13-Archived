@@ -169,7 +169,7 @@ Head of Personnel
 */
 /datum/job/fed/firstofficer
 	title = "First Officer"
-	flag = HOP
+	flag = FIRSTOFFICER
 	department_head = list("Captain")
 	department_flag = CIVILIAN
 	head_announce = list("Supply", "Service")
@@ -616,7 +616,7 @@ Station Engineer
 Chief Medical Officer
 */
 /datum/job/fed/cmo
-	title = "Surgical Cheif"
+	title = "Surgical Chief"
 	flag = CMO_JF
 	department_head = list("Captain")
 	department_flag = MEDSCI
