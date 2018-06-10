@@ -103,6 +103,10 @@ var/global/list/global_ship_list = list()
 	icon_state = "lavaland"
 	icon = 'StarTrek13/icons/trek/space_objects.dmi'
 	spawn_name = "lavaland_spawn"
+	layer = 2
+	can_move = FALSE
+	max_health = 1000000
+	health = 1000000
 
 #define TORPEDO_MODE 1//1309
 #define PHASER_MODE 2
