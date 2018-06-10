@@ -332,7 +332,7 @@
 
 /obj/structure/photon_torpedo/attack_hand(mob/user)
 	if(!timing)
-		timer = input("Delayed detonation", "Set a countdown timer in seconds (set it to 0 or less to cancel, minimum time is 10 seconds)") as num
+		timer = input("Countdown to explosion (THIS ARMS THE TORPEDO!!!)", "Set a countdown timer in seconds (set it to 0 or less to cancel, minimum time is 10 seconds)") as num
 		if(timer > 0)
 			armed = TRUE
 			timing = TRUE
@@ -340,6 +340,8 @@
 			to_chat(user, "You set [src] to detonate in [timer/10] seconds")
 			desc += "Its trigger is set for a delayed detonation of [timer] seconds!"
 			addtimer(CALLBACK(src, .proc/force_explode), timer)
+		else
+			return 0
 	else
 		to_chat(user, "It's already been primed, throw it out an airlock!")
 

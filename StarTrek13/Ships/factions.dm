@@ -259,7 +259,7 @@ var/list/global/faction_spawns = list()
 	if(!target == objective)
 		return FALSE
 
-	assigned_faction.broadcast("<font color='#1459c7'><B>The target vessel has been destroyed. Congradulations!</B></font>")
+	assigned_faction.broadcast("<font color='#1459c7'><B>The target vessel has been destroyed. Congratulations!</B></font>")
 	assigned_faction.addCredits(100)
 	qdel(src)
 	return TRUE
@@ -282,5 +282,5 @@ var/list/global/faction_spawns = list()
 			return
 		var/area/A = get_area(W)
 		target = W
-		description = "Perform a full scan of [W] aboard the [A] to better understand warp core mechanics."
+		description = "Perform a full scan of [W] aboard the [A] to better understand warp core mechanics. This is a stealth mission, if you are spotted more than [max_spots] times, you will fail the mission."
 		break

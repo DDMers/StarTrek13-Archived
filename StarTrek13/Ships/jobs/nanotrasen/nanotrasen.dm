@@ -50,7 +50,7 @@ Captain
 */
 /datum/job/nt/captain
 	title = "Nanotrasen Captain"
-	flag = CAPTAIN
+	flag = CAPTAIN_NT
 	department_head = list("Corporate Administration")
 	department_flag = ENGSEC
 	faction = "Station"
@@ -103,7 +103,7 @@ Captain
 
 /datum/job/nt/admiral
 	title = "Centcom Fleet Admiral"
-	flag = ADMIRAL
+	flag = ADMIRAL_CENTCOM
 	department_head = list("the company")
 	department_flag = ENGSEC
 	faction = "Station"

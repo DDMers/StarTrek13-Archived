@@ -3,7 +3,7 @@
 
 /datum/job/borg/drone
 	title = "Borg Drone"
-	flag = ASSISTANT
+	flag = BORG_DRONE
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = -1

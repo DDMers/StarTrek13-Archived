@@ -34,14 +34,12 @@
 /obj/structure/overmap/ship/fighter/viper
 	icon_state = "viper"
 	name = "Viper"
-	damage_state = FALSE
 
 /obj/structure/overmap/ship/fighter/raider
 	icon_state = "raider"
 	name = "Cylon Raider"
 	engine_sound = 'StarTrek13/sound/fighter/raiderengine.ogg'
 	engine_prob = 5
-	damage_state = FALSE
 
 
 /obj/structure/overmap/ship/fighter/attack_hand(mob/user)
