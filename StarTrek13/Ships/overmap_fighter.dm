@@ -78,17 +78,17 @@
 			if(damage_state)
 				switch(health)
 					if(0 to 500)
-						icon_state = "fighter-d4"
+						icon_state = "[initial(icon_state)]-d4"
 						max_speed = 1
 					if(500 to 700)
-						icon_state = "fighter-d3"
+						icon_state = "[initial(icon_state)]fighter-d3"
 						max_speed = 2
 					if(700 to 1000)
-						icon_state = "fighter-d2"
+						icon_state = "[initial(icon_state)]fighter-d2"
 					if(1000 to 1300)
-						icon_state = "fighter-d1"
+						icon_state = "[initial(icon_state)]fighter-d1"
 				if(health >= max_health)
-					icon_state = "fighter"
+					icon_state = "[initial(icon_state)]"
 	else
 		to_chat(user, "You need to be logged in to do this")
 		exit()
