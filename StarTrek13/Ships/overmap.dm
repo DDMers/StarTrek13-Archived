@@ -677,8 +677,9 @@ var/global/list/global_ship_list = list()
 	update_observers()
 	SC.weapons.update_weapons()
 	damage = SC.weapons.damage
-	if(navigating)
-		navigate()
+	if(can_move)
+		if(navigating)
+			navigate()
 	get_interactibles()
 	//transporter.destinations = list() //so when we leave the area, it stops being transportable.
 	if(pilot)
@@ -746,10 +747,16 @@ var/global/list/global_ship_list = list()
 		if(S == A)
 			fuck -= L
 	var/obj/effect/landmark/warp_beacon/SS = pick(fuck)
-	do_warp(SS, SS.distance) //distance being the warp transit time.
+	if(can_move)
+		if(!SC.engines.failed)
+			do_warp(SS, SS.distance) //distance being the warp transit time.
 
 
 /obj/structure/overmap/proc/do_warp(destination, jump_time) //Don't want to lock this behind warp capable because jumpgates call this
+	if(!can_move)
+		return
+	if(SC.engines.failed) //i hate you nichlas
+		return
 	if(!SSfaction.jumpgates_forbidden)
 		if(SC.engines.try_warp())
 			var/area/hyperspace_area
@@ -844,7 +851,6 @@ var/global/list/global_ship_list = list()
 		return 0
 
 /obj/structure/overmap/Destroy()
-	to_chat(world, "DELETED [src]!")
 	..()
 
 /obj/structure/overmap/proc/destroy(severity)
