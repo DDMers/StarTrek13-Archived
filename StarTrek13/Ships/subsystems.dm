@@ -633,7 +633,7 @@
 	check_overlays()
 
 /obj/structure/subsystem_panel/attackby(obj/item/I, mob/user)
-	if(chosen.health < chosen.max_health)
+	if(chosen.integrity < chosen.max_integrity)
 		if(open)
 			if(istype(I, /obj/item/wirecutters) && powered)
 				to_chat(user, "You are deactivating the [chosen] subsystem for repair, this will avoid shocks but the ship's [chosen] will be down until you're done.")
