@@ -678,6 +678,10 @@ var/global/list/global_ship_list = list()
 	SC.weapons.update_weapons()
 	damage = SC.weapons.damage
 	if(can_move)
+		if(!can_move)
+			return
+		if(SC.engines.failed) //i hate you nichlas
+			return
 		if(navigating)
 			navigate()
 	get_interactibles()
@@ -805,6 +809,10 @@ var/global/list/global_ship_list = list()
 	forceMove(get_turf(destination))
 
 /obj/structure/overmap/proc/set_nav_target(mob/user)
+	if(!can_move)
+		return
+	if(SC.engines.failed) //i hate you nichlas
+		return
 	if(can_move)
 		var/A
 		var/list/theships = list()
@@ -849,9 +857,6 @@ var/global/list/global_ship_list = list()
 		return 1
 	else//nope
 		return 0
-
-/obj/structure/overmap/Destroy()
-	..()
 
 /obj/structure/overmap/proc/destroy(severity)
 	for(var/datum/faction/F in SSfaction.factions)

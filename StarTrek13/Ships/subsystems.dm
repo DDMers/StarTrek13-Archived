@@ -232,6 +232,11 @@
 
 
 /datum/shipsystem/engines/proc/try_warp() //You can't warp if your engines are down
+	controller.theship.can_move = initial(controller.theship.can_move)
+	if(!controller.theship.can_move)
+		fail()
+		integrity = 0
+		return
 	if(!failed)
 		if(charge >= 5000)
 			charge -= 5000
