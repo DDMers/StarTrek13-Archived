@@ -95,6 +95,8 @@
 			s += "<B> Target: [target] | Target Subsystem: [our_ship.target_subsystem]</B><BR>"
 		var/thing = "Inactive"
 		if(our_ship.target_subsystem)
+			if(!istype(our_ship.target_subsystem, /datum/shipsystem))
+				our_ship.target_subsystem = null
 			if(!our_ship.target_subsystem.failed)
 				thing = "Active"
 			s += "Target subsystem health: [our_ship.target_subsystem.integrity] / [our_ship.target_subsystem.max_integrity] | Status: [thing]<BR>"
