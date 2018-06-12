@@ -36,6 +36,8 @@
 		to_chat(pilot, "Target a ship first!")
 
 /obj/structure/overmap/proc/fire(obj/structure/overmap/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
+	if(wrecked)
+		return 0
 	if(target)
 		if(isOVERMAP(target))
 			target.agressor = src
@@ -72,6 +74,8 @@
 
 
 /obj/structure/overmap/proc/try_lockon(atom/target,lockon_speed) //Lockon in MS
+	if(wrecked)
+		return
 	if(!locking)
 		locking = TRUE
 		lockon_speed = lockon_speed*target_ship.size
@@ -187,6 +191,8 @@
 		qdel(progbar)
 
 /obj/structure/overmap/proc/attempt_fire()
+	if(wrecked)
+		return
 	var/obj/structure/overmap/S = target_ship
 	if(target_ship)
 		target_ship.agressor = src

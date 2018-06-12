@@ -55,7 +55,9 @@
 		icon_state = initial(icon_state)
 		var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
 		var/turf/open/floor/theturf = get_turf(theturf1)
-		if(prob(60+maths))
+		if(prob(20+maths))
+			explosion(theturf,2,5,5) //Pretty bad hit right there
+		if(prob(70+maths))
 			new /obj/effect/hotspot/shipfire(theturf)  //begin the fluff! as ships are damaged, they start visibly getting destroyed
 			theturf.atmos_spawn_air("plasma=30;TEMP=1000")
 			for(var/turf/open/floor/T in orange(5,theturf))
@@ -68,9 +70,7 @@
 			var/new_type = pick(subtypesof(/obj/structure/debris))
 			theturf.visible_message("<span class='danger'>Something falls down from the ceiling above you!</span>")
 			new new_type(get_turf(theturf))
-		if(amount >= 1000) //That's a lotta damage
-			if(prob(20+maths))
-				explosion(theturf,2,5,5) //Pretty bad hit right there
+
 
 	//	for(var/turf/open/floor/T in orange(2,theturf))
 

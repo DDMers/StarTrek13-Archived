@@ -186,6 +186,16 @@ var/global/list/global_ship_list = list()
 	var/list/destinations = list()
 	var/obj/effect/landmark/warp_beacon/target_beacon
 	var/pilot_skill_req = 5
+	var/wrecked = FALSE
+
+/obj/structure/overmap/shipwreck //Ship REKT
+	name = "Wrecked ship"
+	desc = "This used to be a ship...I think?"
+	can_move = FALSE
+	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
+	spawn_name = null
+	icon_state = "wreck"
+	wrecked = TRUE
 
 /obj/item/ammo_casing/energy/ship_turret
 	projectile_type = /obj/item/projectile/beam/laser/ship_turret_laser
@@ -603,7 +613,6 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/overmap/proc/update_transporters()
 	var/list/L = range(5, src)
-
 	for(var/obj/machinery/computer/camera_advanced/transporter_control/TC in transporters)
 		TC.destinations = L
 		//var/list/thelist = list(OM.transporter,OM.weapons,OM.generator,OM.initial_loc)
@@ -649,6 +658,9 @@ var/global/list/global_ship_list = list()
 */
 
 /obj/structure/overmap/process()
+	if(wrecked)
+		if(prob(5)) //This damn wreck is falling apart
+			take_damage(1001)
 	if(health < max_health) //What the fuck drunk me vvvvv
 		if(prob(30))
 			health += 50 //VeryYlow slol rege mn spo u can hide
@@ -726,6 +738,8 @@ var/global/list/global_ship_list = list()
 //	if(isprocessing)
 //		STOP_PROCESSING(SSobj, src)
 	//	START_PROCESSING(SSfastprocess,src)
+	if(!initial(can_move))
+		return // :(
 	update_turrets()
 	if(world.time < next_vehicle_move)
 		return 0
@@ -903,6 +917,23 @@ var/global/list/global_ship_list = list()
 				for(var/i = 1 to 6) //Whoah mamma
 					var/turf/T = pick(get_area_turfs(linked_ship))
 					explosion(get_turf(T), 20, 10, 10, flame_range = 30)
+					var/area/A = linked_ship
+					A.invisibility = 0
+				//	A.set_opacity(TRUE)
+					A.alpha = 180
+					A.layer = ABOVE_OPEN_TURF_LAYER
+					A.icon = 'icons/effects/weather_effects.dmi'
+					A.icon_state = "darkness"
+					A.has_gravity = 0
+					//now make a shipwreck
+				var/obj/structure/overmap/shipwreck/wreck = new(src.loc)
+				wreck.linked_ship = src.linked_ship
+				wreck.linkto()
+				update_transporters()
+				wreck.max_health = 10000000
+				for(var/datum/shipsystem/F in SC.systems)
+					qdel(F)
+				qdel(SC)
 				qdel(src)
 				//make explosion in ship
 			if(0)
