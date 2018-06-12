@@ -900,9 +900,9 @@ var/global/list/global_ship_list = list()
 		switch(severity)
 			if(1)
 				//Here we will blow up the ship map as well, 0 is if you dont want to lag the server.
-				for(var/i = 1 to 6) //Whoah mamma
-					var/turf/T = pick(get_area_turfs(linked_ship))
-					explosion(get_turf(T), 10, 10, 10, flame_range = 30)
+			//	for(var/i = 1 to 6) //Whoah mamma
+				var/turf/T = pick(get_area_turfs(linked_ship))
+				explosion(get_turf(T), 10, 10, 10, flame_range = 30)
 				qdel(src)
 				//make explosion in ship
 			if(0)
