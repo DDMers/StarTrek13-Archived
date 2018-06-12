@@ -156,6 +156,10 @@
 	chargeRate = initial(chargeRate)
 	var/counter = 0
 	var/temp = 0
+	if(istype(controller.theship, /obj/structure/overmap/ship/fighter))
+		chargeRate = 100
+		fire_cost = 150
+		return TRUE
 	for(var/obj/machinery/power/ship/phaser/P in controller.theship.linked_ship)
 		chargeRate += P.charge_rate
 		damage += P.damage
@@ -171,6 +175,8 @@
 
 /datum/shipsystem/weapons/process()
 	. = ..()
+	if(charge < 0)
+		charge = 0
 	charge += chargeRate
 	heat -= 30
 	if(integrity > max_integrity)
@@ -191,7 +197,7 @@
 /datum/shipsystem/weapons/proc/attempt_fire(var/firemode)
 	if(!failed)
 		if(controller.theship.fire_mode == 1)
-			if(charge >= fire_cost)
+			if(charge >= fire_cost || charge > 0)
 				if(world.time < nextfire) //Spam blocker! spam your phasers and expect shit damage.
 					var/quickmafs = world.time - nextfire
 					times_fired ++
