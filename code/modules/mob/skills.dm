@@ -38,6 +38,9 @@
 		return
 	skill = S.value
 
+	if(requirement == 0)
+		return SUCCESS
+
 	if(prob(get_chance(skill, requirement)))
 		if(prob((skill - 4) * 10)) //trained+ are the only ones allowed for a crit success roll
 			return CRIT_SUCCESS
