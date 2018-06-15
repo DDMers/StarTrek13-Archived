@@ -170,34 +170,35 @@
 "dn" = (/obj/structure/table/reinforced,/obj/machinery/door/firedoor,/turf/open/floor/plasteel/cafeteria,/area/centcom)
 "do" = (/obj/machinery/light{dir = 1},/turf/open/floor/plasteel/cafeteria,/area/centcom)
 "dp" = (/obj/effect/decal/cleanable/dirt,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dq" = (/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dq" = (/obj/structure/replicator,/turf/open/floor/plasteel/cafeteria,/area/centcom)
 "dr" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/flour,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"ds" = (/obj/structure/closet/secure_closet/brig{id = "Cell 1"; name = "Cell 1 Locker"},/turf/open/floor/plasteel,/area/centcom)
-"dt" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/plasteel,/area/centcom)
-"du" = (/obj/machinery/computer/camera_advanced/transporter_control,/obj/machinery/light{dir = 4},/turf/open/floor/plasteel,/area/centcom)
-"dv" = (/obj/structure/table/reinforced,/obj/effect/decal/cleanable/flour,/obj/machinery/door/firedoor,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dw" = (/obj/machinery/door/window/brigdoor/security/cell{icon_state = "leftsecure"; dir = 4},/turf/open/floor/plasteel,/area/centcom)
-"dx" = (/obj/machinery/computer{name = "Broken Computer"; desc = "A computer long since rendered non-functional due to lack of maintenance. Spitting out error messages."; icon_state = "computer"; dir = 1},/turf/open/floor/plasteel,/area/centcom)
-"dy" = (/obj/machinery/vending/dinnerware,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dz" = (/obj/structure/closet/secure_closet/freezer/fridge,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dA" = (/obj/machinery/deepfryer,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dB" = (/obj/machinery/processor,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dC" = (/obj/structure/table,/obj/item/reagent_containers/food/condiment/enzyme{layer = 5},/obj/item/kitchen/rollingpin,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dD" = (/obj/structure/table,/obj/machinery/reagentgrinder,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dE" = (/obj/structure/table,/obj/machinery/microwave{pixel_x = -3; pixel_y = 6},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dF" = (/obj/structure/bed,/obj/item/bedsheet,/turf/open/floor/plasteel,/area/centcom)
-"dG" = (/obj/machinery/light/small,/turf/open/floor/plasteel,/area/centcom)
-"dH" = (/turf/open/floor/plasteel/red/side{dir = 10},/area/centcom)
-"dI" = (/turf/open/floor/plasteel/red/side,/area/centcom)
-"dJ" = (/obj/structure/table/reinforced,/obj/item/restraints/handcuffs,/turf/open/floor/plasteel/red/side,/area/centcom)
-"dK" = (/turf/open/floor/plasteel/red/side{dir = 6},/area/centcom)
-"dL" = (/obj/structure/chair{dir = 4},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dM" = (/obj/structure/table,/obj/item/reagent_containers/food/condiment/saltshaker{pixel_x = -2; pixel_y = 2},/obj/item/reagent_containers/food/condiment/peppermill{pixel_x = 5; pixel_y = -2},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dN" = (/obj/structure/chair{dir = 8},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dO" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dP" = (/obj/structure/overmap/away/station,/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dQ" = (/obj/machinery/light{dir = 4},/turf/open/floor/plasteel/cafeteria,/area/centcom)
-"dR" = (/obj/structure/table,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"ds" = (/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dt" = (/obj/structure/closet/secure_closet/brig{id = "Cell 1"; name = "Cell 1 Locker"},/turf/open/floor/plasteel,/area/centcom)
+"du" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/plasteel,/area/centcom)
+"dv" = (/obj/machinery/computer/camera_advanced/transporter_control,/obj/machinery/light{dir = 4},/turf/open/floor/plasteel,/area/centcom)
+"dw" = (/obj/structure/table/reinforced,/obj/effect/decal/cleanable/flour,/obj/machinery/door/firedoor,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dx" = (/obj/machinery/door/window/brigdoor/security/cell{icon_state = "leftsecure"; dir = 4},/turf/open/floor/plasteel,/area/centcom)
+"dy" = (/obj/machinery/computer{name = "Broken Computer"; desc = "A computer long since rendered non-functional due to lack of maintenance. Spitting out error messages."; icon_state = "computer"; dir = 1},/turf/open/floor/plasteel,/area/centcom)
+"dz" = (/obj/machinery/vending/dinnerware,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dA" = (/obj/structure/closet/secure_closet/freezer/fridge,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dB" = (/obj/machinery/deepfryer,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dC" = (/obj/machinery/processor,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dD" = (/obj/structure/table,/obj/item/reagent_containers/food/condiment/enzyme{layer = 5},/obj/item/kitchen/rollingpin,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dE" = (/obj/structure/table,/obj/machinery/reagentgrinder,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dF" = (/obj/structure/table,/obj/machinery/microwave{pixel_x = -3; pixel_y = 6},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dG" = (/obj/structure/bed,/obj/item/bedsheet,/turf/open/floor/plasteel,/area/centcom)
+"dH" = (/obj/machinery/light/small,/turf/open/floor/plasteel,/area/centcom)
+"dI" = (/turf/open/floor/plasteel/red/side{dir = 10},/area/centcom)
+"dJ" = (/turf/open/floor/plasteel/red/side,/area/centcom)
+"dK" = (/obj/structure/table/reinforced,/obj/item/restraints/handcuffs,/turf/open/floor/plasteel/red/side,/area/centcom)
+"dL" = (/turf/open/floor/plasteel/red/side{dir = 6},/area/centcom)
+"dM" = (/obj/structure/chair{dir = 4},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dN" = (/obj/structure/table,/obj/item/reagent_containers/food/condiment/saltshaker{pixel_x = -2; pixel_y = 2},/obj/item/reagent_containers/food/condiment/peppermill{pixel_x = 5; pixel_y = -2},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dO" = (/obj/structure/chair{dir = 8},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dP" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dQ" = (/obj/structure/overmap/away/station,/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dR" = (/obj/machinery/light{dir = 4},/turf/open/floor/plasteel/cafeteria,/area/centcom)
+"dS" = (/obj/structure/table,/turf/open/floor/plasteel/cafeteria,/area/centcom)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -267,15 +268,15 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcVascWas
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabasascWasasabbbdbdcdcdcdcdcdcdcdcdcdcdcddbbdeasasdfdgcbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabasasasasasabbZbbbbbbbbbbbbbbbbbbbbbbbbbbdhabcYasasascbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdiasasdjabababababdkdkababadadadabdlababababcaasasascbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdiasasasdmasasasabasasdndodpdqdrdpdqabdsasdmcaasdfdgcbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdiasasascXasdtduabasasdvdpdqdqdqdpdqabasasdwasascZdacbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdiasdxasdmasasasabasasdydzdAdBdCdDdEabdFdGdmdHdIdJdIdKabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdiasasasdmasasasabasasdndodpdqdrdpdsabdtasdmcaasdfdgcbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdiasasascXasdudvabasasdwdpdsdsdsdpdsabasasdxasascZdacbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdiasdyasdmasasasabasasdzdAdBdCdDdEdFabdGdHdmdIdJdKdJdLabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababababdkdkabadadadadadababaVaVabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdqdqdodqdqdqdqdqdqabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdqdqdqdqdqdqdqdqdqabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdqdLdMdNdqdLdMdNdqabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdOdqdPdqdqdqdqdqdQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdLdRdNdLdRdNdLdRdNabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdsdsdodsdsdsdsdsdsabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdsdsdsdsdsdsdsdsdsabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdsdMdNdOdsdMdNdOdsabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdPdsdQdsdsdsdsdsdRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdMdSdOdMdSdOdMdSdOabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabadadadadadadadadadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

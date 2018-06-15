@@ -303,7 +303,7 @@ var/global/list/global_ship_list = list()
 	damage = 800
 	pixel_x = -100
 	pixel_y = -110
-	max_health = 100000
+	max_health = 50000
 	turnspeed = 0.3
 	pixel_z = -128
 	pixel_w = -120
@@ -927,6 +927,7 @@ var/global/list/global_ship_list = list()
 					A.has_gravity = 0
 					//now make a shipwreck
 				var/obj/structure/overmap/shipwreck/wreck = new(src.loc)
+				wreck.name = "Shipwreck ([name])"
 				wreck.linked_ship = src.linked_ship
 				wreck.linkto()
 				update_transporters()

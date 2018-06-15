@@ -74,7 +74,7 @@
 		theicons = list()
 		var/s = ""
 		ships = list()
-		for(var/obj/structure/overmap/D in our_ship.interactables_near_ship)
+		for(var/obj/structure/overmap/D in get_area(our_ship)) //having to get close to ships was too irritating.
 			ships += D
 		subsystem = our_ship.SC.weapons
 		damage = subsystem.damage

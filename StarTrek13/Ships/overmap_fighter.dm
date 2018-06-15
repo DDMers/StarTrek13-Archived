@@ -81,12 +81,12 @@
 						icon_state = "[initial(icon_state)]-d4"
 						max_speed = 1
 					if(500 to 700)
-						icon_state = "[initial(icon_state)]fighter-d3"
+						icon_state = "[initial(icon_state)]-d3"
 						max_speed = 2
 					if(700 to 1000)
-						icon_state = "[initial(icon_state)]fighter-d2"
+						icon_state = "[initial(icon_state)]-d2"
 					if(1000 to 1300)
-						icon_state = "[initial(icon_state)]fighter-d1"
+						icon_state = "[initial(icon_state)]-d1"
 				if(health >= max_health)
 					icon_state = "[initial(icon_state)]"
 	else

@@ -35,14 +35,19 @@ SUBSYSTEM_DEF(faction)
 		WARNING("There are no factions in the game!")
 
 /datum/controller/subsystem/faction/proc/addToFaction(mob/living/carbon/human/M)
-	var/datum/faction/thefaction
-	if(M.player_faction)
-		thefaction = M.player_faction
-	if(M.client.prefs.player_faction)
+	if(ishuman(M))
+		var/datum/faction/thefaction
+		if(M.player_faction)
+			thefaction = M.player_faction
+		if(M.client.prefs.player_faction)
+			thefaction = M.client.prefs.player_faction
+		if(!thefaction)
+			thefaction = pick(factions)
+		thefaction.addMember(M)
+	else
+		var/datum/faction/thefaction
 		thefaction = M.client.prefs.player_faction
-	if(!thefaction)
-		thefaction = pick(factions)
-	thefaction.addMember(M)
+		thefaction.addMember(M)
 
 
 /datum/controller/subsystem/faction/proc/announce_jumpgates()
