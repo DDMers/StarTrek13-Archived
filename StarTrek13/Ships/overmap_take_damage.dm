@@ -55,8 +55,8 @@
 		icon_state = initial(icon_state)
 		var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
 		var/turf/open/floor/theturf = get_turf(theturf1)
-		if(prob(20+maths))
-			explosion(theturf,2,5,5) //Pretty bad hit right there
+		if(prob(10+maths))
+			explosion(theturf,0,5,5) //Pretty bad hit right there
 		if(prob(70+maths))
 			new /obj/effect/hotspot/shipfire(theturf)  //begin the fluff! as ships are damaged, they start visibly getting destroyed
 			theturf.atmos_spawn_air("plasma=30;TEMP=1000")

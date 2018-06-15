@@ -55,6 +55,8 @@
 			to_chat(C.stored_user, "<span class='warning'><b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 		else
 			to_chat(C.stored_user, "Your [src] buzzes softly")
+	for(var/mob/O in GLOB.dead_mob_list)
+		to_chat(O, "<span class='warning'><b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 
 /obj/item/clothing/neck/combadge/proc/pm_user(var/message, mob/living/user)
 	if(world.time < next_talk)
@@ -206,3 +208,44 @@
 			slowdown = 5
 			icon_state = "skulls-armour"
 			InUse = FALSE
+
+
+/obj/structure/replicator
+	name = "replicator"
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "replicator-off"
+	desc = "It invariably produces something that's almost (but not quite) entirely unlike tea"
+	var/power = 100
+	var/power_cost = 50 //Burgers are pricy yo
+	var/recharge_rate = 5
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/replicator/attack_hand(mob/user)
+	icon_state = "replicator-on"
+	if(ishuman(user))
+		var/mode = alert("What kind of food would you like?",,"Burger", "Pizza", "Tea, earl grey", "Sandwich")
+		var/temp = alert("How hot do you want it?",,"Cold", "Warm", "Hot")
+		if(!mode || !temp)
+			return 0
+		user.say("[mode], [temp]")
+		icon_state = "replicator-replicate"
+		switch(mode)
+			if("Burger")
+				var/obj/item/reagent_containers/food/snacks/burger/thefood = new(src.loc)
+				playsound(src.loc, 'StarTrek13/sound/trek/replicator.ogg', 100,1)
+				thefood.name = "[temp] [thefood.name]"
+			if("Pizza")
+				var/obj/item/reagent_containers/food/snacks/pizza/margherita/thefood = new(src.loc)
+				playsound(src.loc, 'StarTrek13/sound/trek/replicator.ogg', 100,1)
+				thefood.name = "[temp] [thefood.name]"
+			if("Tea, earl grey")
+				var/obj/item/reagent_containers/food/drinks/mug/tea/thefood = new(src.loc)
+				playsound(src.loc, 'StarTrek13/sound/trek/replicator.ogg', 100,1)
+				thefood.name = "[temp] [thefood.name]"
+			if("Sandwich")
+				var/obj/item/reagent_containers/food/snacks/sandwich/thefood = new(src.loc)
+				playsound(src.loc, 'StarTrek13/sound/trek/replicator.ogg', 100,1)
+				thefood.name = "[temp] [thefood.name]"
+	sleep(40)
+	icon_state = "replicator-off"
