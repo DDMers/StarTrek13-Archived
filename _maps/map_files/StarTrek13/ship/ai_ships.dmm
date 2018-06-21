@@ -1,4 +1,11 @@
 "a" = (/turf/open/space/basic,/area/space)
+"b" = (/turf/closed/wall/ship/voy,/area/ship/ai)
+"c" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/ai)
+"d" = (/turf/open/space/basic,/area/ship/ai)
+"e" = (/obj/machinery/power/ship/phaser,/obj/machinery/space_battle/shield_generator,/turf/open/space/basic,/area/ship/ai)
+"f" = (/obj/machinery/power/ship/phaser,/turf/closed/wall/ship/voy,/area/ship/ai)
+"g" = (/obj/structure/fluff/helm/desk/tactical{tag = "icon-desk (NORTH)"; icon_state = "desk"; dir = 1},/turf/open/space/basic,/area/ship/ai)
+"h" = (/obj/structure/overmap/ship/AI,/turf/closed/wall/ship/voy,/area/ship/ai)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -47,8 +54,8 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbhbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bcdbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+begfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bfbfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

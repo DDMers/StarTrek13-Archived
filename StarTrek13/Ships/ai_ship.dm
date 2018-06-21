@@ -16,6 +16,10 @@
 	max_speed = 1
 	acceleration = 0.1
 	damage = 5000
+	spawn_name = "ai_spawn"
+
+/area/ship/ai
+	name = "Uss AI ship"
 
 /obj/structure/overmap/missile
 	name = "missile"
@@ -39,7 +43,6 @@
 		stoplag()
 		vel = max_speed
 		ProcessMove()
-		SC.weapons.damage = 5000 - SC.weapons.heat
 
 /obj/structure/overmap/missile/process()
 	if(!stored_target)
