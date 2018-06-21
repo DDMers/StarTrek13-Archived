@@ -913,22 +913,24 @@ var/global/list/global_ship_list = list()
 			if(1)
 				//Here we will blow up the ship map as well, 0 is if you dont want to lag the server.
 				for(var/i = 1 to 6) //Whoah mamma
-					var/turf/T = pick(get_area_turfs(linked_ship))
-					explosion(get_turf(T), 20, 10, 10, flame_range = 30)
-					var/area/A = linked_ship
-					A.invisibility = 0
-				//	A.set_opacity(TRUE)
-					A.alpha = 180
-					A.layer = ABOVE_OPEN_TURF_LAYER
-					A.icon = 'icons/effects/weather_effects.dmi'
-					A.icon_state = "darkness"
-					A.has_gravity = 0
-					//now make a shipwreck
+					if(linked_ship)
+						var/turf/T = pick(get_area_turfs(linked_ship))
+						explosion(get_turf(T), 20, 10, 10, flame_range = 30)
+						var/area/A = linked_ship
+						A.invisibility = 0
+					//	A.set_opacity(TRUE)
+						A.alpha = 180
+						A.layer = ABOVE_OPEN_TURF_LAYER
+						A.icon = 'icons/effects/weather_effects.dmi'
+						A.icon_state = "darkness"
+						A.has_gravity = 0
+						//now make a shipwreck
 				var/obj/structure/overmap/shipwreck/wreck = new(src.loc)
 				wreck.name = "Shipwreck ([name])"
-				wreck.linked_ship = src.linked_ship
-				wreck.linkto()
-				update_transporters()
+				if(linked_ship)
+					wreck.linked_ship = linked_ship
+					wreck.linkto()
+					update_transporters()
 				wreck.max_health = 10000000
 				for(var/datum/shipsystem/F in SC.systems)
 					qdel(F)

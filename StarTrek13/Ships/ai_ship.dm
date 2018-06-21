@@ -13,8 +13,9 @@
 	pixel_z = -128
 	pixel_w = -120
 	var/obj/structure/overmap/stored_target
-	max_speed = 0.5
+	max_speed = 1
 	acceleration = 0.1
+	damage = 5000
 
 /obj/structure/overmap/missile
 	name = "missile"
@@ -38,6 +39,7 @@
 		stoplag()
 		vel = max_speed
 		ProcessMove()
+		SC.weapons.damage = 5000 - SC.weapons.heat
 
 /obj/structure/overmap/missile/process()
 	if(!stored_target)
@@ -107,12 +109,13 @@
 						current_beam = new(source,T,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 						//to_chat(pilot, "You missed [S]")
 						return 0 //Miss! they're too fast for YOU suckah
+					S.take_damage(SC.weapons.damage, null, src)
 					var/source = get_turf(src)
 					var/list/L = list()
-					var/area/thearea = S.linked_ship
-					for(var/turf/T in get_area_turfs(thearea.type))
-						L+=T
-					S.take_damage(SC.weapons.damage, null, src)
+					if(S.linked_ship)
+						var/area/thearea = S.linked_ship
+						for(var/turf/T in get_area_turfs(thearea.type))
+							L+=T
 				//	S.take_damage(SC.weapons.maths_damage,theturf)
 					in_use1 = 0
 					var/chosen_sound = pick(soundlist)

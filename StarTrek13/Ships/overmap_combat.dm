@@ -210,11 +210,12 @@
 						to_chat(pilot, "You missed [S]")
 						return 0 //Miss! they're too fast for YOU suckah
 					var/source = get_turf(src)
-					var/list/L = list()
-					var/area/thearea = S.linked_ship
-					for(var/turf/T in get_area_turfs(thearea.type))
-						L+=T
 					S.take_damage(SC.weapons.damage, null, src)
+					var/list/L = list()
+					if(S.linked_ship)
+						var/area/thearea = S.linked_ship
+						for(var/turf/T in get_area_turfs(thearea.type))
+							L+=T
 				//	S.take_damage(SC.weapons.maths_damage,theturf)
 					in_use1 = 0
 					var/chosen_sound = pick(soundlist)
