@@ -226,7 +226,7 @@
 				//	current_beam.beam.pixel_y = target_ship.pixel_y
 					to_chat(pilot, "You successfully hit [S]")
 					target_ship.take_damage(damage)
-					if(!has_shields())
+					if(!S.has_shields())
 						var/obj/effect/explosion/explosion = new(get_turf(target_ship))
 						var/matrix/ntransform = matrix(transform)
 						ntransform.Scale(0.5)
