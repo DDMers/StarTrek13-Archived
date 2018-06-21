@@ -267,15 +267,10 @@
 
 /obj/machinery/space_battle/shield_generator/take_damage(var/damage, damage_type = PHYSICAL)
 	src.say("Shield taking damage: [damage] : [damage_type == PHYSICAL ? "PHYSICAL" : "ENERGY"]")
-	var/obj/effect/adv_shield/S = pick(shields)
 	if(shield_system)
 		shield_system.integrity -= damage
 	if(current_fan)
 		current_fan.fanhealth -= damage*0.10
-	if(!S.density)
-		return 0
-	else
-		S.take_damage(damage)
 	return 1
 
 /*
