@@ -744,14 +744,7 @@ var/global/list/global_ship_list = list()
 	if(world.time < next_vehicle_move)
 		return 0
 	next_vehicle_move = world.time + vehicle_move_delay
-	step_to(src,nav_target)
-	var/d = get_dir(src, nav_target)		//thanks lummox
-	if(d & (d-1))//not a cardinal direction
-		setDir(d)
-		step(src,dir)
-	if(src in orange(4, nav_target))
-		navigating = 0
-		to_chat(pilot, "finished tracking [nav_target]. Autopilot disengaged")
+	TurnTo(nav_target)
 	//	STOP_PROCESSING(SSfastprocess,src)
 	//	START_PROCESSING(SSobj, src)
 
@@ -823,6 +816,11 @@ var/global/list/global_ship_list = list()
 	forceMove(get_turf(destination))
 
 /obj/structure/overmap/proc/set_nav_target(mob/user)
+	if(nav_target)
+		nav_target = null
+		to_chat(user, "Tracking cancelled.")
+		navigating = FALSE
+		return
 	if(!can_move)
 		return
 	if(SC.engines.failed) //i hate you nichlas
@@ -844,7 +842,7 @@ var/global/list/global_ship_list = list()
 		nav_target = O
 		//nav_target = overmap_objects[A]
 		set_dir_to_target()
-		to_chat(pilot, "autopilot engaged, it will be disabled if you try and move the ship again.")
+		to_chat(pilot, "now tracking: [nav_target], use this button again to cancel tracking")
 	else
 		to_chat(pilot, "ERROR: [src] does not have engines")
 

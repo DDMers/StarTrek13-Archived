@@ -80,6 +80,8 @@
 		while(pilot)
 			stoplag()
 			ProcessMove()
+		while(nav_target && pilot)
+			navigate()
 
 /obj/structure/overmap/exit(mob/user)
 	if(pilot.client)
@@ -129,6 +131,8 @@ atom/movable
 			//		HOLYSHITICRASHED = HOLYSHITICRASHED + 1
 					if(istype(src, /obj/structure/overmap))
 						var/obj/structure/overmap/O = src
+						if(O.navigating)
+							O.navigating = FALSE
 						O.angle -= 180
 						O.EditAngle()
 						O.vel = 1
