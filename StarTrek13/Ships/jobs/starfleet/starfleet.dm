@@ -1194,7 +1194,7 @@ Security Officer
 	id = /obj/item/card/id
 	belt = /obj/item/device/pda
 	ears = /obj/item/device/radio/headset
-	uniform = /obj/item/clothing/under/soviet
+	uniform = /obj/item/clothing/under/trek/engsec/next
 	shoes = /obj/item/clothing/shoes/laceup
 
 	backpack = /obj/item/storage/backpack
