@@ -792,6 +792,9 @@ var/global/list/global_ship_list = list()
 				to_chat(pilot, "The deck plates shudder as the ship builds up immense speed.")
 				linked_ship.parallax_movedir = NORTH
 			addtimer(CALLBACK(src, .proc/finish_warp, destination),jump_time)
+			for(var/obj/structure/overmap/ship/AI/A in world)
+				if(A.stored_target == src)
+					A.stored_target = null
 		else
 			to_chat(pilot, "Warp engines are recharging, or have been damaged.")
 			return
@@ -871,6 +874,9 @@ var/global/list/global_ship_list = list()
 		return 0
 
 /obj/structure/overmap/proc/destroy(severity)
+	for(var/obj/structure/overmap/ship/AI/A in world)
+		if(A.stored_target == src)
+			A.stored_target = null
 	for(var/datum/faction/F in SSfaction.factions)
 		if(F.current_objective)
 			var/datum/factionobjective/destroy1/O = F.current_objective

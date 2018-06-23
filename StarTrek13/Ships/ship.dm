@@ -616,6 +616,9 @@
 	percentage = (charge / max_power) * 100
 	to_chat(user, "it is [percentage]% full")
 
+/obj/machinery/power/ship/phaser/ex_act(severity)
+	return 0
+
 /*
 /obj/machinery/power/ship/phaser/process()
 	if(!attached)

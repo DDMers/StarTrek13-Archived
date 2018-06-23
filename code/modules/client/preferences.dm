@@ -121,6 +121,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 /datum/preferences/New(client/C)
 	parent = C
+	ResetJobs() //Shitty faction code runtime
+	getFactions()
 	custom_names["human"] = random_unique_name()
 	custom_names["ai"] = pick(GLOB.ai_names)
 	custom_names["cyborg"] = pick(GLOB.ai_names)
@@ -143,8 +145,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		save_preferences()
 	save_character()		//let's save this new random character so it doesn't keep generating new ones.
 	menuoptions = list()
-	getFactions()
-	ResetJobs() //Shitty faction code runtime
 	return
 
 /datum/preferences/proc/ShowChoices(mob/user)
