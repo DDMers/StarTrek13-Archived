@@ -773,6 +773,12 @@
 	var/required_skill = 25 //How much piloting skill is required to fly this ship?
 	anchored = 1
 	var/starmapUI
+	var/ambience = 'StarTrek13/sound/borg/machines/tng_bridge_2.ogg'
+	var/cooldown3 = 150 //15
+	var/saved_time2 = 0
+
+/obj/structure/fluff/helm/desk/tactical/ex_act(severity)
+	return 0
 
 /obj/structure/fluff/helm/desk/tactical/nanotrasen
 	name = "tactical"
@@ -790,18 +796,30 @@
 	anchored = 1
 
 /obj/structure/fluff/helm/desk/tactical/process()
-	var/area/thearea = get_area(src)
+	ambience()
 	get_weapons()
-	if(world.time >= saved_time + cooldown2)
-		saved_time = world.time
-		for(var/mob/M in thearea)
-			M << redalertsound
+	var/area/thearea = get_area(src)
+	if(redalertsound)
+		if(world.time >= saved_time + cooldown2)
+			saved_time = world.time
+			for(var/mob/M in thearea)
+				M << redalertsound
+
+/obj/structure/fluff/helm/desk/tactical/proc/ambience()
+	if(world.time >= saved_time2 + cooldown3)
+		saved_time2 = world.time
+		for(var/mob/M in orange(src,8))
+			M << ambience
 
 /obj/structure/fluff/helm/desk/tactical/Initialize(timeofday)
 	. = ..()
 	get_weapons()
 	get_shieldgen()
+	START_PROCESSING(SSobj,src)
 //	var/area/thearea = get_area(src)
+
+/obj/structure/fluff/helm/desk/tactical/Destroy()
+	. = ..()
 
 /obj/structure/fluff/helm/desk/tactical/proc/get_shieldgen()
 	var/area/thearea = get_area(src)
@@ -811,6 +829,87 @@
 		return 1
 	return 0
 
+/obj/structure/fluff/warpcore
+	name = "warp core"
+	desc = "It hums lowly, it runs on dilithium"
+	icon = 'StarTrek13/icons/borg/borg.dmi'
+	icon_state = "warp"
+	anchored = TRUE
+	density = 1
+	opacity = 0 //I AM LOUD REEE WATCH OUT
+	layer = 4.5
+	var/ambience = 'StarTrek13/sound/trek/engines/engine.ogg'
+	var/cooldown2 = 116 //11 second cooldown
+	var/saved_time = 0
+
+/obj/structure/fluff/warpcore/Initialize(timeofday)
+	START_PROCESSING(SSobj,src)
+
+
+/obj/structure/fluff/warpcore/process()
+	if(world.time >= saved_time + cooldown2)
+		saved_time = world.time
+		for(var/mob/M in get_area(src))
+			M << ambience
+
+/datum/looping_sound/trek/engine_hum
+	start_sound = null
+	start_length = 0
+	mid_sounds = list('StarTrek13/sound/trek/engines/engine.ogg'=1)
+	mid_length = 133
+	end_sound = null
+	volume = 70
+
+/datum/looping_sound/trek/bridge
+	start_sound = null
+	start_length = 0
+	mid_sounds = list('StarTrek13/sound/borg/machines/tng_bridge_2.ogg'=1)
+	mid_length = 163
+	end_sound = null
+	volume = 150
+
+/datum/looping_sound/trek/warp
+	start_sound = null
+	start_length = 0
+	mid_sounds = list('StarTrek13/sound/borg/machines/engihum.ogg'=1)
+	mid_length = 115
+	end_sound = null
+	volume = 115
+
+/obj/structure/fluff/warpcore/Initialize(timeofday)
+	. = ..()
+
+/obj/structure/fluff/helm
+	name = "helm control"
+	desc = "A console that sits over a chair, allowing one to fly a starship."
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "helm"
+	anchored = TRUE
+	density = 1
+	opacity = 0
+	layer = 4.5
+
+/obj/structure/sign/trek
+	name = "ship markings"
+	icon_state = "trek1"
+
+/obj/structure/sign/trek/ncc
+	name = "ship markings"
+	icon_state = "trek3"
+
+/obj/structure/sign/trek/ncc/a
+	name = "ship markings"
+	icon_state = "trek4"
+
+/obj/structure/fluff/warpcore/massive
+	name = "high powered warp core"
+	desc = "This massive machine will propel your starship to unheard of speeds."
+	icon = 'StarTrek13/icons/trek/warp_core_huge.dmi'
+	icon_state = "warpcore"
+
+/obj/structure/fluff/warpcore/massive/smaller
+	icon_state = "warpcore_smaller"
+	pixel_x = 16
 
 /obj/structure/fluff/helm/desk/tactical/proc/get_weapons()
 	weapons = list()

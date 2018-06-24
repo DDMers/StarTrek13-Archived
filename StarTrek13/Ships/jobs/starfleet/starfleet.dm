@@ -58,7 +58,7 @@ Captain
 	department_flag = ENGSEC
 	faction = "Station"
 
-	total_positions = 3 //3 is a round number, change it with testing data.
+	total_positions = 1 //3 is a round number, change it with testing data.
 	spawn_positions = 3
 	supervisors = "Federation officials and Space law"
 	selection_color = "#ccccff"
@@ -202,7 +202,7 @@ Head of Personnel
 
 /datum/outfit/job/fed/firstofficer
 	name = "First officer"
-	jobtype = /datum/job/ind/firstofficer
+	jobtype = /datum/job/fed/firstofficer
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/device/pda/heads/hop
@@ -223,60 +223,6 @@ Head of Personnel
 		return
 
 	H.grant_all_languages(omnitongue=TRUE)
-
-/*
-Lawyer
-*/
-/datum/job/fed/aide  //aides / attaches for the admirals ((basically admiral's bitch)
-	title = "Admiral Aide"
-	flag = LAWYER
-	department_head = list("Admirals")
-	department_flag = CIVILIAN
-	faction = "Station"
-
-	total_positions = 2
-	spawn_positions = 2
-	supervisors = "your assigned admiral"
-	selection_color = "#dddddd"
-	var/admirals = 0
-	outfit = /datum/outfit/job/fed/aide
-
-	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_COURT, ACCESS_WEAPONS,
-			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
-			            ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_MORGUE,
-			            ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MAILSORTING, ACCESS_QM, ACCESS_HYDROPONICS, ACCESS_LAWYER,
-			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
-			            ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM)
-	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_COURT, ACCESS_WEAPONS,
-			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
-			            ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_MORGUE,
-			            ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MAILSORTING, ACCESS_QM, ACCESS_HYDROPONICS, ACCESS_LAWYER,
-			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
-			            ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM)
-
-/datum/outfit/job/fed/aide
-	name = "Admiral Aide"
-	jobtype = /datum/job/fed/aide
-
-
-	belt = /obj/item/device/pda/lawyer
-	ears = /obj/item/device/radio/headset/heads/hop
-	uniform = /obj/item/clothing/under/trek/command/next
-	shoes = /obj/item/clothing/shoes/jackboots
-	l_hand = /obj/item/storage/briefcase/lawyer
-	l_pocket = /obj/item/device/laser_pointer
-	r_pocket = /obj/item/clothing/accessory/lawyers_badge
-	var/admirals = 0
-
-
-//change this to count admirals
-
-/datum/outfit/job/fed/aide/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	..()
-	if(visualsOnly)
-		return
-
-
 /*
 Shaft Miner
 */
@@ -356,158 +302,6 @@ Shaft Miner
 	suit = /obj/item/clothing/suit/space/hardsuit/mining
 	mask = /obj/item/clothing/mask/breath
 
-
-
-/*
-Bartender
-*/
-/datum/job/fed/bartender
-	title = "Bartender"
-	flag = BARTENDER
-	department_head = list("First officer")
-	department_flag = CIVILIAN
-	faction = "Station"
-
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the first officer"
-	selection_color = "#bbe291"
-
-	outfit = /datum/outfit/job/fed/bartender
-
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE, ACCESS_WEAPONS)
-	minimal_access = list(ACCESS_BAR)
-
-
-/datum/outfit/job/fed/bartender
-	name = "Bartender"
-	jobtype = /datum/job/fed/bartender
-
-	glasses = /obj/item/clothing/glasses/sunglasses/reagent
-	belt = /obj/item/device/pda/bar
-	ears = /obj/item/device/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/rank/bartender
-	suit = /obj/item/clothing/suit/armor/vest
-	backpack_contents = list(/obj/item/storage/box/beanbag=1)
-	shoes = /obj/item/clothing/shoes/laceup
-
-/*
-Cook
-*/
-/datum/job/fed/cook
-	title = "Chef"
-	flag = COOK
-	department_head = list("Head of Personnel")
-	department_flag = CIVILIAN
-	faction = "Station"
-
-	total_positions = 2
-	spawn_positions = 1
-	supervisors = "the head of personnel"
-	selection_color = "#bbe291"
-	var/cooks = 0 //Counts cooks amount
-
-	outfit = /datum/outfit/job/fed/cook
-
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE)
-	minimal_access = list(ACCESS_KITCHEN, ACCESS_MORGUE)
-
-/datum/outfit/job/fed/cook
-	name = "Chef"
-	jobtype = /datum/job/fed/cook
-
-	belt = /obj/item/device/pda/cook
-	ears = /obj/item/device/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/trek/grey
-	suit = /obj/item/clothing/suit/toggle/chef
-	head = /obj/item/clothing/head/chefhat
-	backpack_contents = list(/obj/item/sharpener = 1)
-
-/datum/outfit/job/fed/cook/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	..()
-	var/datum/job/fed/cook/J = SSjob.GetJobType(jobtype)
-	if(J) // Fix for runtime caused by invalid job being passed
-		if(J.cooks>0)//Cooks
-			suit = /obj/item/clothing/suit/apron/chef
-			head = /obj/item/clothing/head/soft/mime
-		if(!visualsOnly)
-			J.cooks++
-
-/datum/outfit/job/fed/cook/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-    ..()
-    var/list/possible_boxes = subtypesof(/obj/item/storage/box/ingredients)
-    var/chosen_box = pick(possible_boxes)
-    var/obj/item/storage/box/I = new chosen_box(src)
-    H.equip_to_slot_or_del(I,slot_in_backpack)
-
-/*
-Botanist
-*/
-/datum/job/fed/hydro
-	title = "Floral Scientist"
-	flag = BOTANIST
-	department_head = list("Head of Personnel")
-	department_flag = CIVILIAN
-	faction = "Station"
-
-	total_positions = 3
-	spawn_positions = 2
-	supervisors = "the head of personnel"
-	selection_color = "#bbe291"
-
-	outfit = /datum/outfit/job/fed/botanist
-
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE)
-	minimal_access = list(ACCESS_HYDROPONICS, ACCESS_MORGUE)
-	// Removed tox and chem access because STOP PISSING OFF THE CHEMIST GUYS
-	// Removed medical access because WHAT THE FUCK YOU AREN'T A DOCTOR YOU GROW WHEAT
-	// Given Morgue access because they have a viable means of cloning.
-
-
-/datum/outfit/job/fed/botanist
-	name = "Floral Scientist"
-	jobtype = /datum/job/fed/hydro
-
-	belt = /obj/item/device/pda/botanist
-	ears = /obj/item/device/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/trek/medsci/next
-	suit = /obj/item/clothing/suit/apron
-	gloves  =/obj/item/clothing/gloves/botanic_leather
-	suit_store = /obj/item/device/plant_analyzer
-
-	backpack = /obj/item/storage/backpack/botany
-	satchel = /obj/item/storage/backpack/satchel/hyd
-
-
-/*
-Janitor
-*/
-/datum/job/fed/janitor
-	title = "Custodian"
-	flag = JANITOR
-	department_head = list("Head of Personnel")
-	department_flag = CIVILIAN
-	faction = "Station"
-
-	total_positions = 2
-	spawn_positions = 1
-	supervisors = "the head of personnel"
-	selection_color = "#bbe291"
-	var/global/janitors = 0
-
-	outfit = /datum/outfit/job/fed/janitor
-
-	access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS)
-	minimal_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS)
-
-/datum/outfit/job/fed/janitor
-	name = "Custodian"
-	jobtype = /datum/job/fed/janitor
-
-	belt = /obj/item/device/pda/janitor
-	ears = /obj/item/device/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/trek/grey
-	backpack_contents = list(/obj/item/device/modular_computer/tablet/preset/advanced=1,/obj/item/device/tricorder)
 
 /*
 Chief Engineer
@@ -711,7 +505,7 @@ Medical Doctor
 Research Director
 */
 /datum/job/fed/rd
-	title = "Research Overseer"
+	title = "Science Officer"
 	flag = RD_JF
 	department_head = list("Captain")
 	department_flag = MEDSCI
@@ -762,7 +556,7 @@ Research Director
 Scientist
 */
 /datum/job/fed/scientist
-	title = "Researcher"
+	title = "Junior Science Officer"
 	flag = SCIENTIST
 	department_head = list("Research Director")
 	department_flag = MEDSCI
@@ -804,7 +598,7 @@ Scientist
 Head of Security
 */
 /datum/job/fed/hos
-	title = "Ship Security Coordinator"
+	title = "Chief of security"
 	flag = HOS
 	department_head = list("Captain")
 	department_flag = ENGSEC
@@ -858,114 +652,10 @@ Head of Security
 	implants = list(/obj/item/implant/mindshield)
 
 /*
-Warden
-*/
-/datum/job/fed/warden
-	title = "Brig Overseer"
-	flag = WARDEN
-	department_head = list("Head of Security")
-	department_flag = ENGSEC
-	faction = "Station"
-
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the head of security"
-	selection_color = "#ffeeee"
-	minimal_player_age = 7
-	exp_requirements = 300
-	exp_type = EXP_TYPE_CREW
-
-	outfit = /datum/outfit/job/fed/warden
-
-	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_FORENSICS_LOCKERS)
-	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_COURT, ACCESS_WEAPONS) //SEE /DATUM/JOB/WARDEN/GET_ACCESS()
-
-/datum/job/fed/warden/get_access()
-	var/list/L = list()
-	L = ..() | check_config_for_sec_maint()
-	return L
-
-/datum/outfit/job/fed/warden
-	name = "Brig Overseer"
-	jobtype = /datum/job/fed/warden
-
-	belt = /obj/item/device/pda/warden
-	ears = /obj/item/device/radio/headset/headset_sec/alt
-	uniform = /obj/item/clothing/under/trek/engsec/next
-	shoes = /obj/item/clothing/shoes/jackboots
-	suit = /obj/item/clothing/suit/armor/vest/warden/alt
-	gloves = /obj/item/clothing/gloves/color/black
-	head = /obj/item/clothing/head/beret/sec
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
-	r_pocket = /obj/item/device/assembly/flash/handheld
-	l_pocket = /obj/item/restraints/handcuffs
-	suit_store = /obj/item/gun/energy/e_gun/advtaser
-	backpack_contents = list(/obj/item/melee/baton/loaded=1)
-
-	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel/sec
-	duffelbag = /obj/item/storage/backpack/duffelbag/sec
-	box = /obj/item/storage/box/security
-
-	implants = list(/obj/item/implant/mindshield)
-
-
-/*
-Detective
-*/
-/datum/job/fed/detective
-	title = "Ship Inspector"
-	flag = DETECTIVE
-	department_head = list("admirals")
-	department_flag = ENGSEC
-	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "admirals"
-	selection_color = "#ffeeee"
-	minimal_player_age = 7
-	exp_requirements = 300
-	exp_type = EXP_TYPE_CREW
-
-	outfit = /datum/outfit/job/fed/detective
-
-	access = list(ACCESS_SEC_DOORS, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_COURT, ACCESS_BRIG, ACCESS_WEAPONS)
-	minimal_access = list(ACCESS_SEC_DOORS, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_COURT, ACCESS_BRIG, ACCESS_WEAPONS)
-
-/datum/outfit/job/fed/detective
-	name = "Ship Inspector"
-	jobtype = /datum/job/fed/detective
-
-	belt = /obj/item/device/pda/detective
-	ears = /obj/item/device/radio/headset/headset_sec/alt
-	uniform = /obj/item/clothing/under/trek/engsec/next
-	shoes = /obj/item/clothing/shoes/jackboots
-	suit = /obj/item/clothing/suit/det_suit
-	gloves = /obj/item/clothing/gloves/color/black
-	head = /obj/item/clothing/head/beret/sec
-	l_pocket = /obj/item/toy/crayon/white
-	r_pocket = /obj/item/lighter
-	backpack_contents = list(/obj/item/storage/box/evidence=1,\
-		/obj/item/device/detective_scanner=1,\
-		/obj/item/device/tricorder=1,\
-		/obj/item/melee/classic_baton=1)
-	mask = /obj/item/clothing/mask/cigarette
-
-	implants = list(/obj/item/implant/mindshield)
-
-/datum/outfit/job/fed/detective/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	..()
-	var/obj/item/clothing/mask/cigarette/cig = H.wear_mask
-	cig.light("")
-
-	if(visualsOnly)
-		return
-
-/*
 Security Officer
 */
 /datum/job/fed/officer
-	title = "Ship Security Officer"
+	title = "Security Officer"
 	flag = OFFICER
 	department_head = list("Ship Security Coordinator")
 	department_flag = ENGSEC

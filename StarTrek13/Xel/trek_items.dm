@@ -73,62 +73,6 @@
 	open_door_layer = 4.5 //so people go below it for added coolness
 	closed_door_layer = CLOSED_DOOR_LAYER
 
-/obj/structure/fluff/warpcore
-	name = "warp core"
-	desc = "It hums lowly, it runs on dilithium"
-	icon = 'StarTrek13/icons/borg/borg.dmi'
-	icon_state = "warp"
-	anchored = TRUE
-	density = 1
-	opacity = 0 //I AM LOUD REEE WATCH OUT
-	layer = 4.5
-	var/cooldown2 = 115 //11.5 second cooldown
-	var/saved_time = 0
-	var/datum/looping_sound/trek/warp/soundloop
-
-/obj/structure/sign/trek
-	name = "ship markings"
-	icon_state = "trek1"
-
-/obj/structure/sign/trek/ncc
-	name = "ship markings"
-	icon_state = "trek3"
-
-/obj/structure/sign/trek/ncc/a
-	name = "ship markings"
-	icon_state = "trek4"
-
-/obj/structure/fluff/warpcore/New()
-	. = ..()
-	soundloop = new(list(src), TRUE)
-
-/obj/structure/fluff/helm
-	name = "helm control"
-	desc = "A console that sits over a chair, allowing one to fly a starship."
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "helm"
-	anchored = TRUE
-	density = 1
-	opacity = 0
-	layer = 4.5
-
-//////////////////////////////////////
-/datum/looping_sound/trek/bridge
-	start_sound = null
-	start_length = 10
-	mid_sounds = list('StarTrek13/sound/borg/machines/tng_bridge_2.ogg'=1)
-	mid_length = 163
-	end_sound = null
-	volume = 150
-
-/datum/looping_sound/trek/warp
-	start_sound = null
-	start_length = 10
-	mid_sounds = list('StarTrek13/sound/borg/machines/engihum.ogg'=1)
-	mid_length = 115
-	end_sound = null
-	volume = 115
-
 /obj/structure/fluff/helm/desk/noisy //makes star trek noises!
 	name = "captain's display"
 	desc = "An LCARS display showing all shipboard systems, status: NOMINAL"

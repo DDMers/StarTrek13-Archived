@@ -121,16 +121,6 @@
 	icon = 'StarTrek13/icons/trek/trek_turfs.dmi'
 	icon_state = "cargofloor"
 
-/obj/structure/fluff/warpcore/massive
-	name = "high powered warp core"
-	desc = "This massive machine will propel your starship to unheard of speeds."
-	icon = 'StarTrek13/icons/trek/warp_core_huge.dmi'
-	icon_state = "warpcore"
-
-/obj/structure/fluff/warpcore/massive/smaller
-	icon_state = "warpcore_smaller"
-	pixel_x = 16
-
 /turf/open/floor/borg/trek/lit
 	name = "lit carpet"
 	desc = "it's lit up"

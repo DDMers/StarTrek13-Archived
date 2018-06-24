@@ -401,14 +401,6 @@ var/global/list/global_ship_list = list()
 	max_health = 30000
 	soundlist = list('StarTrek13/sound/trek/ship_gun.ogg','StarTrek13/sound/trek/ship_gun.ogg')//The sounds made when shooting
 
-/datum/looping_sound/trek/engine_hum
-	start_sound = null
-	start_length = 0
-	mid_sounds = list('StarTrek13/sound/trek/engines/engine.ogg'=1)
-	mid_length = 133
-	end_sound = null
-	volume = 70
-
 /obj/structure/overmap/away/station/nanotrasen/shop
 	name = "NSV Mercator trading outpost"
 	icon = 'StarTrek13/icons/trek/large_overmap.dmi'
