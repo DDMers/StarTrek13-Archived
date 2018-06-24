@@ -131,7 +131,8 @@
 			retrievable -= target
 			for(var/obj/machinery/trek/transporter/T in linked)
 				animate(target,'StarTrek13/icons/trek/star_trek.dmi',"transportout")
-				playsound(target.loc, 'StarTrek13/sound/borg/machines/transporter2.ogg', 40, 4)
+				if(target)
+					playsound(target.loc, 'StarTrek13/sound/borg/machines/transporter2.ogg', 40, 4)
 				playsound(src.loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
 				var/obj/machinery/trek/transporter/Z = pick(linked)
 				target.forceMove(Z.loc)

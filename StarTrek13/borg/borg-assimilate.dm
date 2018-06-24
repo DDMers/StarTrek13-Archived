@@ -287,10 +287,11 @@
 
 
 /obj/item/organ/borgNanites/proc/borgify()
-	to_chat(owner, "We are being made into a borg...")
 	sleep(20) //2second anti runtime delay
-	if(owner.mind)
-		owner.mind.make_borg()
+	if(owner)
+		to_chat(owner, "We are being made into a borg...")
+		if(owner.mind)
+			owner.mind.make_borg()
 
 /obj/structure/chair/borg/conversion
 	name = "assimilation bench"
