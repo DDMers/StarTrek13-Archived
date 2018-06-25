@@ -94,7 +94,7 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/space_object/nebula
 	name = "Nebula"
-	desc = "I wouldn't fly into that if I were you"
+	desc = "I wouldn't fly into that if I were you."
 	icon_state = "nebula"
 
 /obj/structure/overmap/lavaland
@@ -110,7 +110,7 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/space_object/simulated
 	name = "star"
-	desc = "Flying into this always end up with horrid consequences."
+	desc = "Flying into this always end up with horridly amazing fun!"
 	var/cooldown = 30 //once every three seconds, to prevent it from just spamming the shit out of it
 	var/time_elapse
 	pixel_x = -128
