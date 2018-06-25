@@ -94,7 +94,7 @@ var/global/list/global_ship_list = list()
 
 /obj/structure/space_object/nebula
 	name = "Nebula"
-	desc = "I wouldn't fly into that if I were you"
+	desc = "I wouldn't fly into that if I were you."
 	icon_state = "nebula"
 
 /obj/structure/overmap/lavaland
@@ -107,6 +107,28 @@ var/global/list/global_ship_list = list()
 	can_move = FALSE
 	max_health = 1000000
 	health = 1000000
+
+/obj/structure/space_object/simulated
+	name = "star"
+	desc = "Flying into this always end up with horridly amazing fun!"
+	var/cooldown = 30 //once every three seconds, to prevent it from just spamming the shit out of it
+	var/time_elapse
+	pixel_x = -128
+	pixel_y = -128
+
+/obj/structure/space_object/simulated/New()
+	..()
+	START_PROCESSING(SSobj, src)
+
+/obj/structure/space_object/simulated/process()
+	if(time_elapse > world.time)
+		return
+
+	for(var/obj/structure/overmap/S in orange(src, 6))
+		if(!S.shields_active)
+			var/turf/open/floor/picked_turf = pick(get_area_turfs(S.linked_ship))
+			picked_turf.atmos_spawn_air("plasma=60;TEMP=3000")
+			time_elapse = world.time + cooldown
 
 #define TORPEDO_MODE 1//1309
 #define PHASER_MODE 2
