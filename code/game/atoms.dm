@@ -4,7 +4,7 @@
 	var/level = 2
 	var/article  // If non-null, overrides a/an/some in all cases
 
-	var/flags_1 = NONE
+	var/flags = NONE
 	var/interaction_flags_atom = NONE
 	var/container_type = NONE
 	var/datum/reagents/reagents = null
@@ -61,9 +61,9 @@
 // /turf/open/space/Initialize
 
 /atom/proc/Initialize(mapload, ...)
-	if(flags_1 & INITIALIZED_1)
+	if(flags & INITIALIZED)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
-	flags_1 |= INITIALIZED_1
+	flags |= INITIALIZED
 
 	//atom color stuff
 	if(color)
@@ -506,7 +506,7 @@
 
 /atom/vv_edit_var(var_name, var_value)
 	if(!GLOB.Debug2)
-		flags_1 |= ADMIN_SPAWNED_1
+		flags |= ADMIN_SPAWNED
 	. = ..()
 	switch(var_name)
 		if("color")

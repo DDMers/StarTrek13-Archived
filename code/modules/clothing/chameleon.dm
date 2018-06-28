@@ -60,7 +60,7 @@
 		to_chat(owner, "<span class='warning'>You shouldn't be able to toggle a camogear helmetmask if you're not wearing it</span>")
 	if(new_headgear)
 		// Force drop the item in the headslot, even though
-		// it's NODROP_1
+		// it's NODROP
 		D.dropItemToGround(target, TRUE)
 		qdel(old_headgear)
 		// where is `SLOT_HEAD` defined? WHO KNOWS

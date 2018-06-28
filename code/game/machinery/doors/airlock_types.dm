@@ -472,7 +472,7 @@
 	return (iscultist(user) && !isAllPowerCut())
 
 /obj/machinery/door/airlock/cult/obj_break(damage_flag)
-	if(!(flags_1 & BROKEN) && !(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & BROKEN) && !(flags & NODECONSTRUCT))
 		stat |= BROKEN
 		if(!panel_open)
 			panel_open = TRUE
@@ -627,7 +627,7 @@
 
 /obj/machinery/door/airlock/clockwork/deconstruct(disassembled = TRUE)
 	playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		var/turf/T = get_turf(src)
 		if(disassembled)
 			new/obj/item/stack/tile/brass(T, 4)

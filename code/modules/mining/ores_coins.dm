@@ -314,7 +314,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	icon = 'icons/obj/economy.dmi'
 	name = "coin"
 	icon_state = "coin__heads"
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	force = 1
 	throwforce = 2
 	w_class = WEIGHT_CLASS_TINY

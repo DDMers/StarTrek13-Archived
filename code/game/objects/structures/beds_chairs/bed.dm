@@ -28,7 +28,7 @@
 		to_chat(user, "<span class='notice'>It's held together by a couple of <b>bolts</b>.</span>")
 
 /obj/structure/bed/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(buildstacktype)
 			new buildstacktype(loc,buildstackamount)
 	..()
@@ -37,7 +37,7 @@
 	return attack_hand(user)
 
 /obj/structure/bed/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/wrench) && !(flags_1&NODECONSTRUCT_1))
+	if(istype(W, /obj/item/wrench) && !(flags&NODECONSTRUCT))
 		W.play_tool_sound(src)
 		deconstruct(TRUE)
 	else

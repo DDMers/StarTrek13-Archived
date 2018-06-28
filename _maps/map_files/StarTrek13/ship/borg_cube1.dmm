@@ -21,7 +21,7 @@
 "u" = (/obj/structure/overmap/ship/borg_cube,/turf/open/floor/borg,/area/ship/borg)
 "v" = (/obj/structure/torpedo_launcher,/turf/open/floor/borg,/area/ship/borg)
 "w" = (/obj/machinery/space_battle/shield_generator,/turf/open/floor/borg,/area/ship/borg)
-"x" = (/obj/machinery/trek/transporter,/obj/item/device/tricorder,/turf/open/floor/borg,/area/ship/borg)
+"x" = (/obj/machinery/trek/transporter,/obj/item/tricorder,/turf/open/floor/borg,/area/ship/borg)
 "y" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/borg,/area/ship/borg)
 "z" = (/obj/structure/weapons_console,/turf/open/floor/borg,/area/ship/borg)
 "A" = (/obj/structure/chair/borg/charging,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/borg,/area/ship/borg)

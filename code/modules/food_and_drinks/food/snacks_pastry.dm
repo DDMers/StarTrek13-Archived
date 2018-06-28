@@ -371,7 +371,7 @@
 /obj/item/reagent_containers/food/snacks/pancakes
 	name = "pancake"
 	desc = "A fluffy pancake. The softer, superior relative of the waffle."
-	icon_state = "pancakes_1"
+	icon_state = "pancakes"
 	item_state = "pancakes"
 	bonus_reagents = list("vitamin" = 1)
 	list_reagents = list("nutriment" = 4, "vitamin" = 1)
@@ -382,7 +382,7 @@
 /obj/item/reagent_containers/food/snacks/pancakes/blueberry
 	name = "blueberry pancake"
 	desc = "A fluffy and delicious blueberry pancake."
-	icon_state = "bbpancakes_1"
+	icon_state = "bbpancakes"
 	item_state = "bbpancakes"
 	bonus_reagents = list("vitamin" = 2)
 	list_reagents = list("nutriment" = 6, "vitamin" = 3)
@@ -391,7 +391,7 @@
 /obj/item/reagent_containers/food/snacks/pancakes/chocolatechip
 	name = "chocolate chip pancake"
 	desc = "A fluffy and delicious chocolate chip pancake."
-	icon_state = "ccpancakes_1"
+	icon_state = "ccpancakes"
 	item_state = "ccpancakes"
 	bonus_reagents = list("vitamin" = 2)
 	list_reagents = list("nutriment" = 6, "vitamin" = 3)

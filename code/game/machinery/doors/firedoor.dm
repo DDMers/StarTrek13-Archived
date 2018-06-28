@@ -191,7 +191,7 @@
 	latetoggle()
 
 /obj/machinery/door/firedoor/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		var/obj/structure/firelock_frame/F = new assemblytype(get_turf(src))
 		if(disassembled)
 			F.constructionStep = CONSTRUCTION_PANEL_OPEN
@@ -215,7 +215,7 @@
 
 /obj/machinery/door/firedoor/border_only
 	icon = 'icons/obj/doors/edge_Doorfire.dmi'
-	flags_1 = ON_BORDER_1
+	flags = ON_BORDER
 	CanAtmosPass = ATMOS_PASS_PROC
 
 /obj/machinery/door/firedoor/border_only/closed

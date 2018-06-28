@@ -420,7 +420,7 @@
 		if(C.wear_mask)
 			in_mouth = ", barely missing [user.p_their()] nose"
 	. = "<span class='warning'>[user] swings [user.p_their()] [name][in_mouth]. [user.p_they(TRUE)] light[user.p_s()] [user.p_their()] [A.name] in the process.</span>"
-	playsound(loc, hitsound, get_clamped_volume(), 1, -1)
+	playsound(loc, hitsound, get_CLAMPed_volume(), 1, -1)
 	add_fingerprint(user)
 	// Light your candles while spinning around the room
 	INVOKE_ASYNC(src, .proc/jedi_spin, user)
@@ -556,7 +556,7 @@
 	icon_state = "chainsaw_off"
 	lefthand_file = 'icons/mob/inhands/weapons/chainsaw_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/chainsaw_righthand.dmi'
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	force = 13
 	var/force_on = 24
 	w_class = WEIGHT_CLASS_HUGE

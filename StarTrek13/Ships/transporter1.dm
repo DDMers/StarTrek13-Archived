@@ -135,8 +135,8 @@
 			return
 
 /obj/machinery/computer/camera_advanced/transporter_control/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/device/tricorder))
-		var/obj/item/device/tricorder/S = I
+	if(istype(I, /obj/item/tricorder))
+		var/obj/item/tricorder/S = I
 		if(istype(S.buffer, /obj/machinery/trek/transporter))
 			linked += S.buffer
 			S.buffer = null
@@ -180,8 +180,8 @@
 	Warp(target)
 
 /obj/machinery/trek/transporter/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/device/tricorder))
-		var/obj/item/device/tricorder/T = I
+	if(istype(I, /obj/item/tricorder))
+		var/obj/item/tricorder/T = I
 		T.buffer = src
 		to_chat(user, "<span class='notice'>Transporter data successfully stored in the tricorder buffer.</span>")
 

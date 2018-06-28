@@ -32,7 +32,7 @@
 
 /obj/effect/decal/cleanable/trail_holder //not a child of blood on purpose
 	name = "blood"
-	icon_state = "ltrails_1"
+	icon_state = "ltrails"
 	desc = "Your instincts say you shouldn't be following these."
 	random_icon_states = null
 	var/list/existing_dirs = list()

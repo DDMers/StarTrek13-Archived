@@ -133,7 +133,7 @@
 
 /datum/design/defibrillator_mount
 	name = "Defibrillator Wall Mount"
-	desc = "An all-in-one mounted frame for holding defibrillators, complete with ID-locked clamps and recharging cables."
+	desc = "An all-in-one mounted frame for holding defibrillators, complete with ID-locked CLAMPs and recharging cables."
 	id = "defibmount"
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 2000, MAT_GLASS = 1000)
@@ -200,7 +200,7 @@
 	materials = list(MAT_METAL = 2000, MAT_SILVER = 1500, MAT_PLASMA = 500, MAT_TITANIUM = 1500)
 	category = list("Medical Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
-	
+
 /datum/design/healthanalyzer_advanced
 	name = "advanced health analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject with high accuracy."
@@ -210,7 +210,7 @@
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 2500, MAT_SILVER = 2000, MAT_GOLD = 1500)
 	category = list("Medical Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
-	
+
 /////////////////////////////////////////
 //////////Cybernetic Implants////////////
 /////////////////////////////////////////

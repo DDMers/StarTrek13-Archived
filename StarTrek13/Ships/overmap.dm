@@ -18,7 +18,7 @@ var/global/list/global_ship_list = list()
 /area/overmap
 	name = "Teshan"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
-	flags_1 = NONE
+	flags = NONE
 	requires_power = FALSE
 	var/jumpgate_position = 1 //Change me! whenever you add a new system, incriment this by 1!
 	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg','StarTrek13/sound/ambience/bsgtheme3.ogg','StarTrek13/sound/ambience/interstellar.ogg')

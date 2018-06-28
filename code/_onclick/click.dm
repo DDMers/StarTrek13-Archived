@@ -39,16 +39,16 @@
 	Note that this proc can be overridden, and is in the case of screen objects.
 */
 /atom/Click(location,control,params)
-	if(flags_1 & INITIALIZED_1)
+	if(flags & INITIALIZED)
 		SEND_SIGNAL(src, COMSIG_CLICK, location, control, params)
 		usr.ClickOn(src, params)
 
 /atom/DblClick(location,control,params)
-	if(flags_1 & INITIALIZED_1)
+	if(flags & INITIALIZED)
 		usr.DblClickOn(src,params)
 
 /atom/MouseWheel(delta_x,delta_y,location,control,params)
-	if(flags_1 & INITIALIZED_1)
+	if(flags & INITIALIZED)
 		usr.MouseWheelOn(src, delta_x, delta_y, params)
 
 /*
@@ -156,7 +156,7 @@
 		else
 			RangedAttack(A,params)
 
-//Is the atom obscured by a PREVENT_CLICK_UNDER_1 object above it
+//Is the atom obscured by a PREVENT_CLICK_UNDER object above it
 /atom/proc/IsObscured()
 	if(!isturf(loc)) //This only makes sense for things directly on turfs for now
 		return FALSE
@@ -164,13 +164,13 @@
 	if(!T)
 		return FALSE
 	for(var/atom/movable/AM in T)
-		if(AM.flags_1 & PREVENT_CLICK_UNDER_1 && AM.density && AM.layer > layer)
+		if(AM.flags & PREVENT_CLICK_UNDER && AM.density && AM.layer > layer)
 			return TRUE
 	return FALSE
 
 /turf/IsObscured()
 	for(var/atom/movable/AM in src)
-		if(AM.flags_1 & PREVENT_CLICK_UNDER_1 && AM.density)
+		if(AM.flags & PREVENT_CLICK_UNDER && AM.density)
 			return TRUE
 	return FALSE
 

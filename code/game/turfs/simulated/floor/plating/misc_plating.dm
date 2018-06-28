@@ -90,7 +90,7 @@
 /turf/open/floor/plating/beach
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
-	flags_1 = NONE
+	flags = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
 

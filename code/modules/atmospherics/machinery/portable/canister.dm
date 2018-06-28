@@ -269,7 +269,7 @@
 
 
 /obj/machinery/portable_atmospherics/canister/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(!(stat & BROKEN))
 			canister_break()
 		if(disassembled)
@@ -294,7 +294,7 @@
 	return TRUE
 
 /obj/machinery/portable_atmospherics/canister/obj_break(damage_flag)
-	if((stat & BROKEN) || (flags_1 & NODECONSTRUCT_1))
+	if((stat & BROKEN) || (flags & NODECONSTRUCT))
 		return
 	canister_break()
 

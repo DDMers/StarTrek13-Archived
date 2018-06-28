@@ -283,7 +283,7 @@
 	level_min = 1
 	level_max = 1
 
-/datum/chemical_reaction/mix_virus/mix_virus_10
+/datum/chemical_reaction/mix_virus/mix_virus0
 
 	name = "Mix Virus 10"
 	id = "mixvirus10"
@@ -291,7 +291,7 @@
 	level_min = 6
 	level_max = 7
 
-/datum/chemical_reaction/mix_virus/mix_virus_11
+/datum/chemical_reaction/mix_virus/mix_virus1
 
 	name = "Mix Virus 11"
 	id = "mixvirus11"
@@ -299,7 +299,7 @@
 	level_min = 7
 	level_max = 7
 
-/datum/chemical_reaction/mix_virus/mix_virus_12
+/datum/chemical_reaction/mix_virus/mix_virus2
 
 	name = "Mix Virus 12"
 	id = "mixvirus12"

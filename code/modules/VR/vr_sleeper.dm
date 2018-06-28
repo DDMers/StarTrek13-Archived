@@ -50,7 +50,7 @@
 
 /obj/machinery/vr_sleeper/hugbox
 	desc = "A sleeper modified to alter the subconscious state of the user, allowing them to visit virtual worlds. Seems slightly more secure."
-	flags_1 = NODECONSTRUCT_1
+	flags = NODECONSTRUCT
 	only_current_user_can_interact = TRUE
 
 /obj/machinery/vr_sleeper/hugbox/emag_act(mob/user)
@@ -194,8 +194,8 @@
 	LAZYREMOVE(GLOB.vr_spawnpoints[vr_category], src)
 	return ..()
 
-/obj/effect/landmark/vr_spawn/team_1
-	vr_category = "team_1"
+/obj/effect/landmark/vr_spawn/team
+	vr_category = "team"
 
 /obj/effect/landmark/vr_spawn/team_2
 	vr_category = "team_2"

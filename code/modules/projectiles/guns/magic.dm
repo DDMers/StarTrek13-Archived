@@ -7,7 +7,7 @@
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
 	fire_sound = 'sound/weapons/emitter.ogg'
-	flags_1 =  CONDUCT_1
+	flags =  CONDUCT
 	w_class = WEIGHT_CLASS_HUGE
 	var/max_charges = 6
 	var/charges = 0

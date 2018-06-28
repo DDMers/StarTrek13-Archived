@@ -252,7 +252,7 @@
 	return TRUE
 
 /obj/item/projectile/proc/select_target(atom/A)				//Selects another target from a wall if we hit a wall.
-	if(!A || !A.density || (A.flags_1 & ON_BORDER_1) || ismob(A) || A == original)	//if we hit a dense non-border obj or dense turf then we also hit one of the mobs or machines/structures on that tile.
+	if(!A || !A.density || (A.flags & ON_BORDER) || ismob(A) || A == original)	//if we hit a dense non-border obj or dense turf then we also hit one of the mobs or machines/structures on that tile.
 		return
 	var/turf/T = get_turf(A)
 	if(original in T)
@@ -277,7 +277,7 @@
 	return FALSE
 
 /obj/item/projectile/proc/check_ricochet_flag(atom/A)
-	if(A.flags_1 & CHECK_RICOCHET_1)
+	if(A.flags & CHECK_RICOCHET)
 		return TRUE
 	return FALSE
 

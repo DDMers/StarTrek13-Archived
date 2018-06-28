@@ -357,7 +357,7 @@ Difficulty: Very Hard
 	use_power = NO_POWER_USE
 	anchored = FALSE
 	density = TRUE
-	flags_1 = HEAR_1
+	flags = HEAR
 	var/activation_method
 	var/list/possible_methods = list(ACTIVATE_TOUCH, ACTIVATE_SPEECH, ACTIVATE_HEAT, ACTIVATE_BULLET, ACTIVATE_ENERGY, ACTIVATE_BOMB, ACTIVATE_MOB_BUMP, ACTIVATE_WEAPON, ACTIVATE_MAGIC)
 
@@ -672,7 +672,7 @@ Difficulty: Very Hard
 		for(var/i in T)
 			if(isitem(i) && !is_type_in_typecache(i, banned_items_typecache))
 				var/obj/item/W = i
-				if(!(W.flags_1 & ADMIN_SPAWNED_1) && !(W.flags_1 & HOLOGRAM_1) && !(W.item_flags & ABSTRACT))
+				if(!(W.flags & ADMIN_SPAWNED) && !(W.flags & HOLOGRAM) && !(W.item_flags & ABSTRACT))
 					L += W
 		if(L.len)
 			var/obj/item/CHOSEN = pick(L)

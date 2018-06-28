@@ -33,7 +33,7 @@ Possible to do for anyone motivated enough:
 	icon_state = "holopad0"
 	layer = LOW_OBJ_LAYER
 	plane = FLOOR_PLANE
-	flags_1 = HEAR_1
+	flags = HEAR
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
 	active_power_usage = 100
@@ -63,7 +63,7 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/holopad/tutorial
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	flags_1 = NODECONSTRUCT_1
+	flags = NODECONSTRUCT
 	on_network = FALSE
 	var/proximity_range = 1
 

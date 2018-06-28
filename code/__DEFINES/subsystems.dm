@@ -38,7 +38,7 @@
 //type and all subtypes should always call Initialize in New()
 #define INITIALIZE_IMMEDIATE(X) ##X/New(loc, ...){\
     ..();\
-    if(!(flags_1 & INITIALIZED_1)) {\
+    if(!(flags & INITIALIZED)) {\
         args[1] = TRUE;\
         SSatoms.InitAtom(src, args);\
     }\
@@ -138,5 +138,5 @@
 		if(LAZYLEN(po)){\
 			A.overlays |= po;\
 		}\
-		A.flags_1 &= ~OVERLAY_QUEUED_1;\
+		A.flags &= ~OVERLAY_QUEUED;\
 	}

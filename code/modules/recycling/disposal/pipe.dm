@@ -161,7 +161,7 @@
 
 // called when pipe is cut with welder
 /obj/structure/disposalpipe/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(disassembled)
 			if(stored)
 				stored.forceMove(loc)

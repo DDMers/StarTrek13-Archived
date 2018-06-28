@@ -4,7 +4,7 @@
 	var/ready = 0
 	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
 
-	flags_1 = NONE
+	flags = NONE
 
 	invisibility = INVISIBILITY_ABSTRACT
 

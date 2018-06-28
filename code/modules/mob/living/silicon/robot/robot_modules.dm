@@ -6,7 +6,7 @@
 	item_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 
 	var/list/basic_modules = list() //a list of paths, converted to a list of instances on New()
 	var/list/emag_modules = list() //ditto

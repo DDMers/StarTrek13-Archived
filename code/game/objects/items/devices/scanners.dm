@@ -68,7 +68,7 @@ SLIME SCANNER
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	item_flags = NOBLUDGEON
 	slot_flags = ITEM_SLOT_BELT
 	throwforce = 3
@@ -374,7 +374,7 @@ SLIME SCANNER
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	item_flags = NOBLUDGEON
 	slot_flags = ITEM_SLOT_BELT
 	throwforce = 0
@@ -557,7 +557,7 @@ SLIME SCANNER
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7

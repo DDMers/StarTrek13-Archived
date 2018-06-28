@@ -160,7 +160,7 @@
 	. = list()
 	while(processing_list.len)
 		var/atom/A = processing_list[1]
-		if(A.flags_1 & HEAR_1)
+		if(A.flags & HEAR)
 			. += A
 		processing_list.Cut(1, 2)
 		processing_list += A.contents
@@ -229,7 +229,7 @@
 
 	while(processing_list.len) // recursive_hear_check inlined here
 		var/atom/A = processing_list[1]
-		if(A.flags_1 & HEAR_1)
+		if(A.flags & HEAR)
 			. += A
 		processing_list.Cut(1, 2)
 		processing_list += A.contents

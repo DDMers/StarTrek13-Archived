@@ -62,6 +62,6 @@
 	name = "fleshy restraints"
 	desc = "Used by mega arachnids to immobilize their prey."
 	item_flags = DROPDEL
-	flags_1 = NONE
+	flags = NONE
 	icon_state = "tentacle_end"
 	icon = 'icons/obj/projectiles.dmi'

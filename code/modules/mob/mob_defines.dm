@@ -3,7 +3,7 @@
 	density = TRUE
 	layer = MOB_LAYER
 	animate_movement = 2
-	flags_1 = HEAR_1
+	flags = HEAR
 	hud_possible = list(ANTAG_HUD)
 	pressure_resistance = 8
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER

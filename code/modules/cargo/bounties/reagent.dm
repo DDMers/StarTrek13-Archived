@@ -14,7 +14,7 @@
 		return FALSE
 	if(!O.reagents || !O.reagents.has_reagent(wanted_reagent.id))
 		return FALSE
-	if(O.flags_1 & HOLOGRAM_1)
+	if(O.flags & HOLOGRAM)
 		return FALSE
 	return shipped_volume < required_volume
 
@@ -112,7 +112,7 @@ datum/bounty/reagent/complex_drink/New()
 		/datum/reagent/consumable/bluecherryshake,\
 		/datum/reagent/consumable/doctor_delight,\
 		/datum/reagent/consumable/ethanol/silencer)
-		
+
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name

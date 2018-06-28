@@ -518,7 +518,7 @@
 /obj/item/projectile/bullet/reusable/lollipop
 	name = "lollipop"
 	desc = "Oh noes! A fast-moving lollipop!"
-	icon_state = "lollipop_1"
+	icon_state = "lollipop"
 	ammo_type = /obj/item/reagent_containers/food/snacks/lollipop/cyborg
 	var/color2 = rgb(0, 0, 0)
 	nodamage = TRUE

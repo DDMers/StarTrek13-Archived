@@ -5,7 +5,7 @@
 	icon_state = "pointer"
 	item_state = "pen"
 	var/pointer_icon_state
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	item_flags = NOBLUDGEON
 	slot_flags = ITEM_SLOT_BELT
 	materials = list(MAT_METAL=500, MAT_GLASS=500)

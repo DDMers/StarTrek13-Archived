@@ -20,7 +20,7 @@
 
 /obj/structure/displaycase/Initialize()
 	. = ..()
-	if(start_showpieces.len && !start_showpiece_type) 
+	if(start_showpieces.len && !start_showpiece_type)
 		var/list/showpiece_entry = pick(start_showpieces)
 		if (showpiece_entry && showpiece_entry["type"])
 			start_showpiece_type = showpiece_entry["type"]
@@ -61,7 +61,7 @@
 			playsound(src.loc, 'sound/items/welder.ogg', 100, 1)
 
 /obj/structure/displaycase/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		dump()
 		if(!disassembled)
 			new /obj/item/shard( src.loc )
@@ -69,7 +69,7 @@
 	qdel(src)
 
 /obj/structure/displaycase/obj_break(damage_flag)
-	if(!broken && !(flags_1 & NODECONSTRUCT_1))
+	if(!broken && !(flags & NODECONSTRUCT))
 		density = FALSE
 		broken = 1
 		new /obj/item/shard( src.loc )

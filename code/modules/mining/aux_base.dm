@@ -35,7 +35,7 @@ interface with the mining shuttle at the landing site if a mobile beacon is also
 	. = ..()
 	var/list/options = params2list(possible_destinations)
 	var/obj/docking_port/mobile/M = SSshuttle.getShuttle(shuttleId)
-	var/dat = "[is_station_level(z) ? "Docking clamps engaged. Standing by." : "Mining Shuttle Uplink: [M ? M.getStatusText() : "*OFFLINE*"]"]<br>"
+	var/dat = "[is_station_level(z) ? "Docking CLAMPs engaged. Standing by." : "Mining Shuttle Uplink: [M ? M.getStatusText() : "*OFFLINE*"]"]<br>"
 	if(M)
 		var/destination_found
 		for(var/obj/docking_port/stationary/S in SSshuttle.stationary)

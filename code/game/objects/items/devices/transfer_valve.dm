@@ -1,7 +1,7 @@
 /obj/item/transfer_valve
 	icon = 'icons/obj/assemblies.dmi'
 	name = "tank transfer valve"
-	icon_state = "valve_1"
+	icon_state = "valve"
 	item_state = "ttv"
 	lefthand_file = 'icons/mob/inhands/weapons/bombs_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/bombs_righthand.dmi'
@@ -143,7 +143,7 @@
 	underlays = null
 
 	if(!tank_one && !tank_two && !attached_device)
-		icon_state = "valve_1"
+		icon_state = "valve"
 		return
 	icon_state = "valve"
 

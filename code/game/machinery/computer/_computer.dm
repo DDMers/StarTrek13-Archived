@@ -68,7 +68,7 @@
 	return
 
 /obj/machinery/computer/screwdriver_act(mob/living/user, obj/item/I)
-	if(circuit && !(flags_1&NODECONSTRUCT_1))
+	if(circuit && !(flags&NODECONSTRUCT))
 		to_chat(user, "<span class='notice'>You start to disconnect the monitor...</span>")
 		if(I.use_tool(src, user, 20, volume=50))
 			deconstruct(TRUE, user)
@@ -86,7 +86,7 @@
 			playsound(src.loc, 'sound/items/welder.ogg', 100, 1)
 
 /obj/machinery/computer/obj_break(damage_flag)
-	if(circuit && !(flags_1 & NODECONSTRUCT_1)) //no circuit, no breaking
+	if(circuit && !(flags & NODECONSTRUCT)) //no circuit, no breaking
 		if(!(stat & BROKEN))
 			playsound(loc, 'sound/effects/glassbr3.ogg', 100, 1)
 			stat |= BROKEN
@@ -106,7 +106,7 @@
 
 /obj/machinery/computer/deconstruct(disassembled = TRUE, mob/user)
 	on_deconstruction()
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(circuit) //no circuit, no computer frame
 			var/obj/structure/frame/computer/A = new /obj/structure/frame/computer(src.loc)
 			A.dir = dir

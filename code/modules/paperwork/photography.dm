@@ -129,7 +129,7 @@
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	slot_flags = ITEM_SLOT_BELT
 	materials = list(MAT_METAL = 50, MAT_GLASS = 150)
 	var/pictures_max = 10
@@ -540,7 +540,7 @@
 	desc = "The perfect showcase for your favorite deathtrap memories."
 	icon = 'icons/obj/decals.dmi'
 	materials = list()
-	flags_1 = 0
+	flags = 0
 	icon_state = "frame-empty"
 	result_path = /obj/structure/sign/picture_frame
 	var/obj/item/photo/displayed
@@ -649,7 +649,7 @@
 		add_overlay(getFlatIcon(framed))
 
 /obj/structure/sign/picture_frame/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		var/obj/item/wallframe/picture/F = new /obj/item/wallframe/picture(loc)
 		if(framed)
 			F.displayed = framed

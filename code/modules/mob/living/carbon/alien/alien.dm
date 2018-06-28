@@ -69,7 +69,7 @@
 		throw_alert("alien_fire", /obj/screen/alert/alien_fire)
 		switch(bodytemperature)
 			if(360 to 400)
-				apply_damage(HEAT_DAMAGE_LEVEL_1, BURN)
+				apply_damage(HEAT_DAMAGE_LEVEL, BURN)
 			if(400 to 460)
 				apply_damage(HEAT_DAMAGE_LEVEL_2, BURN)
 			if(460 to INFINITY)
@@ -94,9 +94,9 @@
 
 /mob/living/carbon/alien/getTrail()
 	if(getBruteLoss() < 200)
-		return pick (list("xltrails_1", "xltrails2"))
+		return pick (list("xltrails", "xltrails2"))
 	else
-		return pick (list("xttrails_1", "xttrails2"))
+		return pick (list("xttrails", "xttrails2"))
 /*----------------------------------------
 Proc: AddInfectionImages()
 Des: Gives the client of the alien an image on each infected mob.

@@ -28,9 +28,9 @@
 	icon_state = SPACE_ICON_STATE
 	air = space_gas
 
-	if(flags_1 & INITIALIZED_1)
+	if(flags & INITIALIZED)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
-	flags_1 |= INITIALIZED_1
+	flags |= INITIALIZED
 
 	var/area/A = loc
 	if(!IS_DYNAMIC_LIGHTING(src) && IS_DYNAMIC_LIGHTING(A))

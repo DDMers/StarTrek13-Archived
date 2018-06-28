@@ -173,7 +173,7 @@
 				use_power(power_used)
 
 			var/atom/A = new dispense_type(loc)
-			A.flags_1 |= (flags_1 & ADMIN_SPAWNED_1)
+			A.flags |= (flags & ADMIN_SPAWNED)
 
 			if(create_sound)
 				playsound(src, create_sound, 50, 1)
@@ -242,7 +242,7 @@
 		return ..()
 
 /obj/machinery/droneDispenser/obj_break(damage_flag)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(!(stat & BROKEN))
 			if(break_message)
 				audible_message("<span class='warning'>[src] [break_message]</span>")
@@ -252,7 +252,7 @@
 			update_icon()
 
 /obj/machinery/droneDispenser/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		new /obj/item/stack/sheet/metal(loc, 5)
 	qdel(src)
 

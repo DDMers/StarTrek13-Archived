@@ -4,7 +4,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "firing_pin"
 	item_state = "pen"
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	w_class = WEIGHT_CLASS_TINY
 	attack_verb = list("poked")
 	var/fail_message = "<span class='warning'>INVALID USER.</span>"

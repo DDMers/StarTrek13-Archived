@@ -119,7 +119,7 @@
 	SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table)
 
 /obj/structure/table/attackby(obj/item/I, mob/user, params)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(istype(I, /obj/item/screwdriver) && deconstruction_ready)
 			to_chat(user, "<span class='notice'>You start disassembling [src]...</span>")
 			if(I.use_tool(src, user, 20, volume=50))
@@ -147,7 +147,7 @@
 			//Center the icon where the user clicked.
 			if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
 				return
-			//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
+			//CLAMP it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
 			I.pixel_x = CLAMP(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
 			I.pixel_y = CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
 			return 1
@@ -156,7 +156,7 @@
 
 
 /obj/structure/table/deconstruct(disassembled = TRUE, wrench_disassembly = 0)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		var/turf/T = get_turf(src)
 		new buildstack(T, buildstackamount)
 		if(!wrench_disassembly)
@@ -193,7 +193,7 @@
 
 /obj/structure/table/glass/Crossed(atom/movable/AM)
 	. = ..()
-	if(flags_1 & NODECONSTRUCT_1)
+	if(flags & NODECONSTRUCT)
 		return
 	if(!isliving(AM))
 		return
@@ -226,7 +226,7 @@
 	qdel(src)
 
 /obj/structure/table/glass/deconstruct(disassembled = TRUE, wrench_disassembly = 0)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(disassembled)
 			..()
 			return
@@ -479,7 +479,7 @@
 		step(O, get_dir(O, src))
 
 /obj/structure/rack/attackby(obj/item/W, mob/user, params)
-	if (istype(W, /obj/item/wrench) && !(flags_1&NODECONSTRUCT_1))
+	if (istype(W, /obj/item/wrench) && !(flags&NODECONSTRUCT))
 		W.play_tool_sound(src)
 		deconstruct(TRUE)
 		return
@@ -517,7 +517,7 @@
  */
 
 /obj/structure/rack/deconstruct(disassembled = TRUE)
-	if(!(flags_1&NODECONSTRUCT_1))
+	if(!(flags&NODECONSTRUCT))
 		density = FALSE
 		var/obj/item/rack_parts/newparts = new(loc)
 		transfer_fingerprints_to(newparts)
@@ -533,7 +533,7 @@
 	desc = "Parts of a rack."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "rack_parts"
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	materials = list(MAT_METAL=2000)
 	var/building = FALSE
 

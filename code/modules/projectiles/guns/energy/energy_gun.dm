@@ -141,6 +141,6 @@
 			if(0)
 				add_overlay("[icon_state]_fail_0")
 			if(1 to 150)
-				add_overlay("[icon_state]_fail_1")
+				add_overlay("[icon_state]_fail")
 			if(151 to INFINITY)
 				add_overlay("[icon_state]_fail_2")

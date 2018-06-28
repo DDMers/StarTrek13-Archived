@@ -654,7 +654,7 @@
 		T.ChangeTurf(chosen)
 	else
 		var/atom/A = new chosen(usr.loc)
-		A.flags_1 |= ADMIN_SPAWNED_1
+		A.flags |= ADMIN_SPAWNED
 
 	log_admin("[key_name(usr)] spawned [chosen] at [AREACOORD(usr)]")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

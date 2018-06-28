@@ -695,7 +695,7 @@
 		cover.icon = icon
 		var/goal = chosen.max_integrity
 		var/progress = chosen.integrity
-		progress = Clamp(progress, 0, goal)
+		progress = CLAMP(progress, 0, goal)
 		icon_state = "subsystem_panel-[round(((progress / goal) * 100), 25)]" //Get more fucked as our subsystem is damaged
 		switch(open)
 			if(TRUE)

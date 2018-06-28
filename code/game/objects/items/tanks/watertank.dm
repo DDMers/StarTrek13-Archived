@@ -250,7 +250,7 @@
 	switch(nozzle_mode)
 		if(EXTINGUISHER)
 			nozzle_mode = RESIN_LAUNCHER
-			tank.icon_state = "waterbackpackatmos_1"
+			tank.icon_state = "waterbackpackatmos"
 			to_chat(user, "Swapped to resin launcher")
 			return
 		if(RESIN_LAUNCHER)

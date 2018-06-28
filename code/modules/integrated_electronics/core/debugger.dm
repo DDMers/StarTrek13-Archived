@@ -4,7 +4,7 @@
 	settings to specific circuits, or for debugging purposes.  It can also pulse activation pins."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "debugger"
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
 	var/data_to_write = null

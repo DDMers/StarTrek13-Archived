@@ -24,17 +24,17 @@
 
 /datum/species/dullahan/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
-	H.flags_1 &= ~HEAR_1
+	H.flags &= ~HEAR
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	if(head)
 		head.drop_limb()
-		head.flags_1 = HEAR_1
+		head.flags = HEAR
 		head.throwforce = 25
 		myhead = new /obj/item/dullahan_relay (head, H)
 		H.put_in_hands(head)
 
 /datum/species/dullahan/on_species_loss(mob/living/carbon/human/H)
-	H.flags_1 |= ~HEAR_1
+	H.flags |= ~HEAR
 	H.reset_perspective(H)
 	if(myhead)
 		var/obj/item/dullahan_relay/DR = myhead
@@ -109,7 +109,7 @@
 
 /obj/item/dullahan_relay
 	var/mob/living/owner
-	flags_1 = HEAR_1
+	flags = HEAR
 
 /obj/item/dullahan_relay/Initialize(mapload,new_owner)
 	. = ..()

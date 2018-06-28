@@ -19,7 +19,7 @@
 
 	if(!length(C.parallax_layers_cached))
 		C.parallax_layers_cached = list()
-		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_1(null, C.view)
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_2(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/planet(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_3(null, C.view)
@@ -167,7 +167,7 @@
 /datum/hud/proc/update_parallax()
 	var/client/C = mymob.client
 	var/turf/posobj = get_turf(C.eye)
-	if(!posobj) 
+	if(!posobj)
 		return
 	var/area/areaobj = posobj.loc
 
@@ -284,7 +284,7 @@
 /obj/screen/parallax_layer/proc/update_status(mob/M)
 	return
 
-/obj/screen/parallax_layer/layer_1
+/obj/screen/parallax_layer/layer
 	icon_state = "layer1"
 	speed = 0.6
 	layer = 1

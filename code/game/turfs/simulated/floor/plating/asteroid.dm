@@ -273,7 +273,7 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=180"
 	slowdown = 2
 	environment_type = "snow"
-	flags_1 = NONE
+	flags = NONE
 	planetary_atmos = TRUE
 	archdrops = list(/obj/item/stack/sheet/mineral/snow = list(ARCH_PROB = 100, ARCH_MAXDROP = 5))
 	burnt_states = list("snow_dug")

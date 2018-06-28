@@ -148,7 +148,7 @@
 	pixel_y = -32
 
 /obj/item/gps/computer/wrench_act(mob/living/user, obj/item/I)
-	if(flags_1 & NODECONSTRUCT_1)
+	if(flags & NODECONSTRUCT)
 		return TRUE
 
 	user.visible_message("<span class='warning'>[user] disassembles [src].</span>",
@@ -182,7 +182,7 @@
 	light_color = "#DDFFD3"
 	max_n_of_items = 10
 	pixel_y = -4
-	flags_1 = NODECONSTRUCT_1
+	flags = NODECONSTRUCT
 	var/empty = FALSE
 
 /obj/machinery/smartfridge/survival_pod/Initialize(mapload)
@@ -220,13 +220,13 @@
 	CanAtmosPass = ATMOS_PASS_NO
 
 /obj/structure/fans/deconstruct()
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(buildstacktype)
 			new buildstacktype(loc,buildstackamount)
 	qdel(src)
 
 /obj/structure/fans/wrench_act(mob/living/user, obj/item/I)
-	if(flags_1 & NODECONSTRUCT_1)
+	if(flags & NODECONSTRUCT)
 		return TRUE
 
 	user.visible_message("<span class='warning'>[user] disassembles [src].</span>",

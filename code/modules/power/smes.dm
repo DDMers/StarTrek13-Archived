@@ -4,7 +4,7 @@
 #define SMESRATE 0.05			// rate of internal charge to external power
 
 //Cache defines
-#define SMES_CLEVEL_1		1
+#define SMES_CLEVEL		1
 #define SMES_CLEVEL_2		2
 #define SMES_CLEVEL_3		3
 #define SMES_CLEVEL_4		4
@@ -291,7 +291,7 @@
 
 	var/excess = powernet.netexcess		// this was how much wasn't used on the network last ptick, minus any removed by other SMESes
 
-	excess = min(output_used, excess)				// clamp it to how much was actually output by this SMES last ptick
+	excess = min(output_used, excess)				// CLAMP it to how much was actually output by this SMES last ptick
 
 	excess = min((capacity-charge)/SMESRATE, excess)	// for safety, also limit recharge by space capacity of SMES (shouldn't happen)
 
@@ -436,7 +436,7 @@
 
 #undef SMESRATE
 
-#undef SMES_CLEVEL_1
+#undef SMES_CLEVEL
 #undef SMES_CLEVEL_2
 #undef SMES_CLEVEL_3
 #undef SMES_CLEVEL_4

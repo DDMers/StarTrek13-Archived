@@ -23,7 +23,7 @@
 	layer = BELOW_MOB_LAYER//icon draw layer
 	infra_luminosity = 15 //byond implementation is bugged.
 	force = 5
-	flags_1 = HEAR_1
+	flags = HEAR
 	var/can_move = 0 //time of next allowed movement
 	var/mob/living/carbon/occupant = null
 	var/step_in = 10 //make a step in step_in/10 sec.

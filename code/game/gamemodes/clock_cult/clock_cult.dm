@@ -151,7 +151,7 @@ Credit where due:
 		return FALSE
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
 		restricted_jobs += protected_jobs
-	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
+	if(CONFIG_GET(flag/protect_overflow_from_antagonist))
 		restricted_jobs += "Assistant"
 	var/starter_servants = 4 //Guaranteed four servants
 	var/number_players = num_players()

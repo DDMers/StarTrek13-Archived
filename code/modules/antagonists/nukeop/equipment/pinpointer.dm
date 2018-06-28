@@ -66,7 +66,7 @@
 	name = "cyborg syndicate pinpointer"
 	desc = "An integrated tracking device, jury-rigged to search for living Syndicate operatives."
 	item_flags = NODROP
-	flags_1 = NONE
+	flags = NONE
 
 /obj/item/pinpointer/syndicate_cyborg/scan_for_target()
 	target = null

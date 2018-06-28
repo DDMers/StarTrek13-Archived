@@ -10,7 +10,7 @@
 //There is toggleable "stabilizers" that will make momentum go down FAST instead of its normal slow rate
 //The suit is heavy and will slow you down on the ground but is a bit faster then usual in air
 //The speed at which you drift is determined by your current momentum
-//Also, I should probably add in some kind of limiting mechanic but I really don't like having to refill this all the time, expecially as it will be NODROP_1.
+//Also, I should probably add in some kind of limiting mechanic but I really don't like having to refill this all the time, expecially as it will be NODROP.
 //Apparently due to code limitations you have to detect mob movement with.. shoes.
 //The object that handles the flying itself - FLIGHT PACK --------------------------------------------------------------------------------------
 /obj/item/flightpack
@@ -899,7 +899,7 @@
 		user.equip_to_slot_if_possible(pack,SLOT_BACK,0,0,1)
 		pack.item_flags |= NODROP
 		resync()
-		user.visible_message("<span class='notice'>A [pack.name] extends from [user]'s [name] and clamps to [user.p_their()] back!</span>")
+		user.visible_message("<span class='notice'>A [pack.name] extends from [user]'s [name] and CLAMPs to [user.p_their()] back!</span>")
 		user.update_inv_wear_suit()
 	playsound(src.loc, 'sound/mecha/mechmove03.ogg', 50, 1)
 	deployedpack = TRUE

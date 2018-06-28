@@ -130,7 +130,7 @@
 	update_icon()
 
 /obj/machinery/modular_computer/attackby(var/obj/item/W as obj, mob/user)
-	if(cpu && !(flags_1 & NODECONSTRUCT_1))
+	if(cpu && !(flags & NODECONSTRUCT))
 		return cpu.attackby(W, user)
 	return ..()
 

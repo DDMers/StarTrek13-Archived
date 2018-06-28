@@ -733,7 +733,7 @@
 	item_state = "spectral"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	sharpness = IS_SHARP
 	w_class = WEIGHT_CLASS_BULKY
 	force = 1

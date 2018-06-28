@@ -47,7 +47,7 @@
 	if(jb)
 		to_chat(src, "<span class='danger'>You have been banned from deadchat.</span>")
 		return
-	
+
 
 
 	if (src.client)

@@ -13,7 +13,7 @@ SUBSYSTEM_DEF(icon_smooth)
 	while(cached.len)
 		var/atom/A = cached[cached.len]
 		cached.len--
-		if (A.flags_1 & INITIALIZED_1)
+		if (A.flags & INITIALIZED)
 			smooth_icon(A)
 		else
 			deferred += A

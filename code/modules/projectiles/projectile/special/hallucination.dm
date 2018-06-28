@@ -206,7 +206,7 @@
 /obj/item/projectile/hallucination/change
 	name = "bolt of change"
 	damage_type = BURN
-	hal_icon_state = "ice_1"
+	hal_icon_state = "ice"
 	hal_fire_sound = 'sound/magic/staff_change.ogg'
 	hal_hitsound = null
 	hal_hitsound_wall = null

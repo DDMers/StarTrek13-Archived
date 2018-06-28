@@ -179,7 +179,7 @@
 		clonename = "clone ([rand(1,999)])"
 	H.real_name = clonename
 
-	icon_state = "pod_1"
+	icon_state = "pod"
 	//Get the clone body ready
 	maim_clone(H)
 	H.add_trait(TRAIT_STABLEHEART, "cloning")

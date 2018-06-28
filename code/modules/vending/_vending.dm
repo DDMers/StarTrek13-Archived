@@ -111,14 +111,14 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
 
 /obj/machinery/vending/deconstruct(disassembled = TRUE)
 	if(!refill_canister) //the non constructable vendors drop metal instead of a machine frame.
-		if(!(flags_1 & NODECONSTRUCT_1))
+		if(!(flags & NODECONSTRUCT))
 			new /obj/item/stack/sheet/metal(loc, 3)
 		qdel(src)
 	else
 		..()
 
 /obj/machinery/vending/obj_break(damage_flag)
-	if(!(stat & BROKEN) && !(flags_1 & NODECONSTRUCT_1))
+	if(!(stat & BROKEN) && !(flags & NODECONSTRUCT))
 		stat |= BROKEN
 		icon_state = "[initial(icon_state)]-broken"
 
@@ -282,7 +282,7 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
 /obj/machinery/vending/exchange_parts(mob/user, obj/item/storage/part_replacer/W)
 	if(!istype(W))
 		return FALSE
-	if((flags_1 & NODECONSTRUCT_1) && !W.works_from_distance)
+	if((flags & NODECONSTRUCT) && !W.works_from_distance)
 		return FALSE
 	if(!component_parts || !refill_canister)
 		return FALSE

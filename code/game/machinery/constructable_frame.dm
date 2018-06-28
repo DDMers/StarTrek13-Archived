@@ -14,7 +14,7 @@
 
 
 /obj/structure/frame/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		new /obj/item/stack/sheet/metal(loc, 5)
 		if(circuit)
 			circuit.forceMove(loc)
@@ -88,7 +88,7 @@
 				if(P.use_tool(src, user, 20, volume=50, amount=5))
 					to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
 					state = 2
-					icon_state = "box_1"
+					icon_state = "box"
 
 				return
 			if(istype(P, /obj/item/screwdriver) && !anchored)
@@ -162,7 +162,7 @@
 				desc = initial(desc)
 				req_components = null
 				components = null
-				icon_state = "box_1"
+				icon_state = "box"
 				return
 
 			if(istype(P, /obj/item/wrench) && !circuit.needs_anchored)
@@ -266,7 +266,7 @@
 		return ..()
 
 /obj/structure/frame/machine/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(state >= 2)
 			new /obj/item/stack/cable_coil(loc , 5)
 		for(var/X in components)

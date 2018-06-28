@@ -16,17 +16,17 @@
 
 	return TRUE
 
-//clamp bleeders
-/datum/surgery_step/clamp_bleeders
-	name = "clamp bleeders"
+//CLAMP bleeders
+/datum/surgery_step/CLAMP_bleeders
+	name = "CLAMP bleeders"
 	implements = list(/obj/item/hemostat = 100, TOOL_WIRECUTTER = 60, /obj/item/stack/packageWrap = 35, /obj/item/stack/cable_coil = 15)
 	time = 24
 
-/datum/surgery_step/clamp_bleeders/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	user.visible_message("[user] begins to clamp bleeders in [target]'s [parse_zone(target_zone)].",
-		"<span class='notice'>You begin to clamp bleeders in [target]'s [parse_zone(target_zone)]...</span>")
+/datum/surgery_step/CLAMP_bleeders/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	user.visible_message("[user] begins to CLAMP bleeders in [target]'s [parse_zone(target_zone)].",
+		"<span class='notice'>You begin to CLAMP bleeders in [target]'s [parse_zone(target_zone)]...</span>")
 
-/datum/surgery_step/clamp_bleeders/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+/datum/surgery_step/CLAMP_bleeders/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(locate(/datum/surgery_step/saw) in surgery.steps)
 		target.heal_bodypart_damage(20,0)
 	return ..()

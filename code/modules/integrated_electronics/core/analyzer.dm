@@ -3,7 +3,7 @@
 	desc = "This tool can scan an assembly and generate code necessary to recreate it in a circuit printer."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "analyzer"
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/integrated_electronics/analyzer/afterattack(var/atom/A, var/mob/living/user)

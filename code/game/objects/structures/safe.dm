@@ -14,8 +14,8 @@ FLOOR SAFES
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	var/open = FALSE		//is the safe open?
-	var/tumbler_1_pos	//the tumbler position- from 0 to 72
-	var/tumbler_1_open	//the tumbler position to open at- 0 to 72
+	var/tumbler_pos	//the tumbler position- from 0 to 72
+	var/tumbler_open	//the tumbler position to open at- 0 to 72
 	var/tumbler_2_pos
 	var/tumbler_2_open
 	var/dial = 0		//where is the dial pointing?
@@ -26,8 +26,8 @@ FLOOR SAFES
 
 /obj/structure/safe/New()
 	..()
-	tumbler_1_pos = rand(0, 71)
-	tumbler_1_open = rand(0, 71)
+	tumbler_pos = rand(0, 71)
+	tumbler_open = rand(0, 71)
 
 	tumbler_2_pos = rand(0, 71)
 	tumbler_2_open = rand(0, 71)
@@ -51,11 +51,11 @@ FLOOR SAFES
 	if(explosion_count > 2)
 		return 1
 	if(user && canhear)
-		if(tumbler_1_pos == tumbler_1_open)
+		if(tumbler_pos == tumbler_open)
 			to_chat(user, "<span class='italics'>You hear a [pick("tonk", "krunk", "plunk")] from [src].</span>")
 		if(tumbler_2_pos == tumbler_2_open)
 			to_chat(user, "<span class='italics'>You hear a [pick("tink", "krink", "plink")] from [src].</span>")
-	if(tumbler_1_pos == tumbler_1_open && tumbler_2_pos == tumbler_2_open)
+	if(tumbler_pos == tumbler_open && tumbler_2_pos == tumbler_2_open)
 		if(user)
 			visible_message("<i><b>[pick("Spring", "Sprang", "Sproing", "Clunk", "Krunk")]!</b></i>")
 		return TRUE
@@ -124,11 +124,11 @@ FLOOR SAFES
 
 	if(href_list["decrement"])
 		dial = decrement(dial)
-		if(dial == tumbler_1_pos + 1 || dial == tumbler_1_pos - 71)
-			tumbler_1_pos = decrement(tumbler_1_pos)
+		if(dial == tumbler_pos + 1 || dial == tumbler_pos - 71)
+			tumbler_pos = decrement(tumbler_pos)
 			if(canhear)
 				to_chat(user, "<span class='italics'>You hear a [pick("clack", "scrape", "clank")] from [src].</span>")
-			if(tumbler_1_pos == tumbler_2_pos + 37 || tumbler_1_pos == tumbler_2_pos - 35)
+			if(tumbler_pos == tumbler_2_pos + 37 || tumbler_pos == tumbler_2_pos - 35)
 				tumbler_2_pos = decrement(tumbler_2_pos)
 				if(canhear)
 					to_chat(user, "<span class='italics'>You hear a [pick("click", "chink", "clink")] from [src].</span>")
@@ -138,11 +138,11 @@ FLOOR SAFES
 
 	if(href_list["increment"])
 		dial = increment(dial)
-		if(dial == tumbler_1_pos - 1 || dial == tumbler_1_pos + 71)
-			tumbler_1_pos = increment(tumbler_1_pos)
+		if(dial == tumbler_pos - 1 || dial == tumbler_pos + 71)
+			tumbler_pos = increment(tumbler_pos)
 			if(canhear)
 				to_chat(user, "<span class='italics'>You hear a [pick("clack", "scrape", "clank")] from [src].</span>")
-			if(tumbler_1_pos == tumbler_2_pos - 37 || tumbler_1_pos == tumbler_2_pos + 35)
+			if(tumbler_pos == tumbler_2_pos - 37 || tumbler_pos == tumbler_2_pos + 35)
 				tumbler_2_pos = increment(tumbler_2_pos)
 				if(canhear)
 					to_chat(user, "<span class='italics'>You hear a [pick("click", "chink", "clink")] from [src].</span>")

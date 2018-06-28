@@ -5,7 +5,7 @@
 /obj/structure/showcase
 	name = "showcase"
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "showcase_1"
+	icon_state = "showcase"
 	desc = "A stand with the empty body of a cyborg bolted to it."
 	density = TRUE
 	anchored = TRUE
@@ -68,7 +68,7 @@
 
 /obj/structure/showcase/mecha/ripley
 	name = "construction mech exhibit"
-	desc = "A stand with an retired construction mech bolted to it. The clamps are rated at 9300PSI. It seems to be falling apart."
+	desc = "A stand with an retired construction mech bolted to it. The CLAMPs are rated at 9300PSI. It seems to be falling apart."
 	icon = 'icons/mecha/mecha.dmi'
 	icon_state = "firefighter"
 

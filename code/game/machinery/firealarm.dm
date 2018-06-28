@@ -263,13 +263,13 @@
 	..()
 
 /obj/machinery/firealarm/obj_break(damage_flag)
-	if(!(stat & BROKEN) && !(flags_1 & NODECONSTRUCT_1) && buildstage != 0) //can't break the electronics if there isn't any inside.
+	if(!(stat & BROKEN) && !(flags & NODECONSTRUCT) && buildstage != 0) //can't break the electronics if there isn't any inside.
 		LAZYREMOVE(myarea.firealarms, src)
 		stat |= BROKEN
 		update_icon()
 
 /obj/machinery/firealarm/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		new /obj/item/stack/sheet/metal(loc, 1)
 		if(!(stat & BROKEN))
 			var/obj/item/I = new /obj/item/electronics/firealarm(loc)

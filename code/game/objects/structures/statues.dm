@@ -18,7 +18,7 @@
 /obj/structure/statue/attackby(obj/item/W, mob/living/user, params)
 	add_fingerprint(user)
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(default_unfasten_wrench(user, W))
 			return
 		if(istype(W, /obj/item/weldingtool) || istype(W, /obj/item/gun/energy/plasmacutter))
@@ -44,7 +44,7 @@
 						 "<span class='notice'>You rub some dust off from the [name]'s surface.</span>")
 
 /obj/structure/statue/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(material_drop_type)
 			var/drop_amt = oreAmount
 			if(!disassembled)

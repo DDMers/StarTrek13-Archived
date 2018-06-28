@@ -904,7 +904,7 @@
 	circuit = null
 	density = FALSE
 	use_power = NO_POWER_USE
-	flags_1 = NODECONSTRUCT_1
+	flags = NODECONSTRUCT
 	unwrenchable = FALSE
 
 /obj/machinery/hydroponics/soil/update_icon_hoses()

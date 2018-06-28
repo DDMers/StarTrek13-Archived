@@ -22,7 +22,7 @@
 	using = new /obj/screen/inventory()
 	using.name = "hand"
 	using.icon = ui_style
-	using.icon_state = "swap_1_m"
+	using.icon_state = "swap_m"
 	using.screen_loc = ui_swaphand_position(owner,1)
 	using.layer = HUD_LAYER
 	using.plane = HUD_PLANE

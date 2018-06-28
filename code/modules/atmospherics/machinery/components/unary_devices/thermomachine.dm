@@ -157,7 +157,7 @@
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer
 	name = "freezer"
 	icon_state = "freezer"
-	icon_state_on = "freezer_1"
+	icon_state_on = "freezer"
 	icon_state_open = "freezer-o"
 	max_temperature = T20C
 	min_temperature = 170 //actual minimum temperature is defined by RefreshParts()
@@ -165,7 +165,7 @@
 
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on
 	on = TRUE
-	icon_state = "freezer_1"
+	icon_state = "freezer"
 
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/Initialize()
 	. = ..()
@@ -182,7 +182,7 @@
 /obj/machinery/atmospherics/components/unary/thermomachine/heater
 	name = "heater"
 	icon_state = "heater"
-	icon_state_on = "heater_1"
+	icon_state_on = "heater"
 	icon_state_open = "heater-o"
 	max_temperature = 140 //actual maximum temperature is defined by RefreshParts()
 	min_temperature = T20C
@@ -190,7 +190,7 @@
 
 /obj/machinery/atmospherics/components/unary/thermomachine/heater/on
 	on = TRUE
-	icon_state = "heater_1"
+	icon_state = "heater"
 
 /obj/machinery/atmospherics/components/unary/thermomachine/heater/RefreshParts()
 	..()

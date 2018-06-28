@@ -5,7 +5,7 @@
 	item_state = null	//so the human update icon uses the icon_state instead.
 	can_flashlight = 1
 	w_class = WEIGHT_CLASS_HUGE
-	flags_1 =  CONDUCT_1
+	flags =  CONDUCT
 	slot_flags = ITEM_SLOT_BACK
 	ammo_type = list(/obj/item/ammo_casing/energy/ion)
 	ammo_x_offset = 3
@@ -119,7 +119,7 @@
 	icon_state = "plasmacutter"
 	item_state = "plasmacutter"
 	ammo_type = list(/obj/item/ammo_casing/energy/plasma)
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	attack_verb = list("attacked", "slashed", "cut", "sliced")
 	force = 12
 	sharpness = IS_SHARP

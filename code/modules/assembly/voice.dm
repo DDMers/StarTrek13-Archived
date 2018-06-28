@@ -8,7 +8,7 @@
 	desc = "A small electronic device able to record a voice sample, and send a signal when that sample is repeated."
 	icon_state = "voice"
 	materials = list(MAT_METAL=500, MAT_GLASS=50)
-	flags_1 = HEAR_1
+	flags = HEAR
 	attachable = TRUE
 	verb_say = "beeps"
 	verb_ask = "beeps"

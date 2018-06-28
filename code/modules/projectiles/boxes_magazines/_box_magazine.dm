@@ -3,7 +3,7 @@
 	name = "ammo box (null_reference_exception)"
 	desc = "A box of ammo."
 	icon = 'icons/obj/ammo.dmi'
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	slot_flags = ITEM_SLOT_BELT
 	item_state = "syringe_kit"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'

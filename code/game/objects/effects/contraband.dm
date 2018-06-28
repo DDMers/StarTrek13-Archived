@@ -283,7 +283,7 @@
 	desc = "This poster depicts Lamarr. Probably made by a traitorous Research Director."
 	icon_state = "poster19"
 
-/obj/structure/sign/poster/contraband/borg_fancy_1
+/obj/structure/sign/poster/contraband/borg_fancy
 	name = "Borg Fancy"
 	desc = "Being fancy can be for any borg, just need a suit."
 	icon_state = "poster20"

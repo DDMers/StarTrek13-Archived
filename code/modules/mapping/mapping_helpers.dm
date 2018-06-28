@@ -143,7 +143,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 /obj/effect/mapping_helpers/no_lava/Initialize()
 	. = ..()
 	var/turf/T = get_turf(src)
-	T.flags_1 |= NO_LAVA_GEN_1
+	T.flags |= NO_LAVA_GEN
 
 //Contains the list of planetary z-levels defined by the planet_z helper.
 GLOBAL_LIST_EMPTY(z_is_planet)

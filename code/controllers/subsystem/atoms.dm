@@ -37,14 +37,14 @@ SUBSYSTEM_DEF(atoms)
 		count = atoms.len
 		for(var/I in atoms)
 			var/atom/A = I
-			if(!(A.flags_1 & INITIALIZED_1))
+			if(!(A.flags & INITIALIZED))
 				if(InitAtom(I, mapload_arg))
 					atoms -= I
 				CHECK_TICK
 	else
 		count = 0
 		for(var/atom/A in world)
-			if(!(A.flags_1 & INITIALIZED_1))
+			if(!(A.flags & INITIALIZED))
 				InitAtom(A, mapload_arg)
 				++count
 				CHECK_TICK
@@ -95,7 +95,7 @@ SUBSYSTEM_DEF(atoms)
 
 	if(!A)	//possible harddel
 		qdeleted = TRUE
-	else if(!(A.flags_1 & INITIALIZED_1))
+	else if(!(A.flags & INITIALIZED))
 		BadInitializeCalls[the_type] |= BAD_INIT_DIDNT_INIT
 
 	return qdeleted || QDELING(A)

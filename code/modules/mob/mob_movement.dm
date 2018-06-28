@@ -199,7 +199,7 @@
 						R.reveal(20)
 						R.stun(20)
 					return
-				if(stepTurf.flags_1 & NOJAUNT_1)
+				if(stepTurf.flags & NOJAUNT)
 					to_chat(L, "<span class='warning'>Some strange aura is blocking the way.</span>")
 					return
 				if (locate(/obj/effect/blessing, stepTurf))

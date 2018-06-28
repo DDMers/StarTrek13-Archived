@@ -10,7 +10,7 @@
 	can_be_unanchored = FALSE
 	canSmoothWith = null
 	buildstacktype = null
-	flags_1 = NODECONSTRUCT_1
+	flags = NODECONSTRUCT
 	bolts = FALSE
 	var/static/mutable_appearance/nest_overlay = mutable_appearance('icons/mob/alien.dmi', "nestoverlay", LYING_MOB_LAYER)
 

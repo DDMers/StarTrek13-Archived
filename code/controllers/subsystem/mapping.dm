@@ -461,7 +461,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 		T.empty(RESERVED_TURF_TYPE, RESERVED_TURF_TYPE, null, TRUE)
 		LAZYINITLIST(unused_turfs["[T.z]"])
 		unused_turfs["[T.z]"] |= T
-		T.flags_1 |= UNUSED_RESERVATION_TURF_1
+		T.flags |= UNUSED_RESERVATION_TURF
 		CHECK_TICK
 
 //DO NOT CALL THIS PROC DIRECTLY, CALL wipe_reservations().

@@ -88,7 +88,7 @@
 
 /datum/config_entry/flag/protect_roles_from_antagonist	//If security and such can be traitor/cult/other
 
-/datum/config_entry/flag/protect_assistant_from_antagonist	//If assistants can be traitor/cult/other
+/datum/config_entry/flag/protect_overflow_from_antagonist	//If assistants can be traitor/cult/other
 
 /datum/config_entry/flag/enforce_human_authority	//If non-human species are barred from joining as a head of staff
 

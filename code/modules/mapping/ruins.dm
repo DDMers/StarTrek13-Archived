@@ -9,7 +9,7 @@
 
 		for(var/turf/check in get_affected_turfs(central_turf,1))
 			var/area/new_area = get_area(check)
-			if(!(istype(new_area, allowed_areas)) || check.flags_1 & NO_RUINS_1)
+			if(!(istype(new_area, allowed_areas)) || check.flags & NO_RUINS)
 				valid = FALSE
 				break
 
@@ -24,12 +24,12 @@
 				qdel(monster)
 			for(var/obj/structure/flora/ash/plant in T)
 				qdel(plant)
-		
+
 		load(central_turf,centered = TRUE)
 		loaded++
 
 		for(var/turf/T in get_affected_turfs(central_turf, 1))
-			T.flags_1 |= NO_RUINS_1
+			T.flags |= NO_RUINS
 
 		new /obj/effect/landmark/ruin(central_turf, src)
 		return TRUE
@@ -65,7 +65,7 @@
 			continue
 		ruins_availible[R] = R.placement_weight
 
-	while(budget > 0 && (ruins_availible.len || forced_ruins.len))
+	while(budget > 0 && (ruins_availible.len || forced_ruins.len) && overall_sanity > 0)
 		var/datum/map_template/ruin/current_pick
 		var/forced = FALSE
 		if(forced_ruins.len) //We have something we need to load right now, so just pick it
@@ -95,7 +95,7 @@
 			//TODO : handle forced ruins with multiple variants
 			forced_ruins -= current_pick
 			forced = FALSE
-		
+
 		if(failed_to_place)
 			for(var/datum/map_template/ruin/R in ruins_availible)
 				if(R.id == current_pick.id)
@@ -132,5 +132,5 @@
 		for(var/datum/map_template/ruin/R in ruins_availible)
 			if(R.cost > budget)
 				ruins_availible -= R
-	
+
 	log_world("Ruin loader finished with [budget] left to spend.")

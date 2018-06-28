@@ -50,7 +50,7 @@
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
 		temp.restricted_jobs += temp.protected_jobs
 
-	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
+	if(CONFIG_GET(flag/protect_overflow_from_antagonist))
 		temp.restricted_jobs += "Assistant"
 
 	var/list/mob/living/carbon/human/candidates = list()
@@ -82,7 +82,7 @@
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
 		temp.restricted_jobs += temp.protected_jobs
 
-	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
+	if(CONFIG_GET(flag/protect_overflow_from_antagonist))
 		temp.restricted_jobs += "Assistant"
 
 	var/list/mob/living/carbon/human/candidates = list()
@@ -112,7 +112,7 @@
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
 		temp.restricted_jobs += temp.protected_jobs
 
-	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
+	if(CONFIG_GET(flag/protect_overflow_from_antagonist))
 		temp.restricted_jobs += "Assistant"
 
 	var/list/mob/living/carbon/human/candidates = list()
@@ -151,7 +151,7 @@
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
 		temp.restricted_jobs += temp.protected_jobs
 
-	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
+	if(CONFIG_GET(flag/protect_overflow_from_antagonist))
 		temp.restricted_jobs += "Assistant"
 
 	var/list/mob/living/carbon/human/candidates = list()
@@ -181,7 +181,7 @@
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
 		temp.restricted_jobs += temp.protected_jobs
 
-	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
+	if(CONFIG_GET(flag/protect_overflow_from_antagonist))
 		temp.restricted_jobs += "Assistant"
 
 	var/list/mob/living/carbon/human/candidates = list()

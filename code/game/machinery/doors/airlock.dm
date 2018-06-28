@@ -1295,7 +1295,7 @@
 
 
 /obj/machinery/door/airlock/obj_break(damage_flag)
-	if(!(flags_1 & BROKEN) && !(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & BROKEN) && !(flags & NODECONSTRUCT))
 		stat |= BROKEN
 		if(!panel_open)
 			panel_open = TRUE
@@ -1315,7 +1315,7 @@
 
 
 /obj/machinery/door/airlock/deconstruct(disassembled = TRUE, mob/user)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		var/obj/structure/door_assembly/A
 		if(assemblytype)
 			A = new assemblytype(src.loc)
@@ -1408,9 +1408,9 @@
 	data["opened"] = !density // opened
 
 	var/list/wire = list()
-	wire["main_1"] = !wires.is_cut(WIRE_POWER1)
+	wire["main"] = !wires.is_cut(WIRE_POWER1)
 	wire["main_2"] = !wires.is_cut(WIRE_POWER2)
-	wire["backup_1"] = !wires.is_cut(WIRE_BACKUP1)
+	wire["backup"] = !wires.is_cut(WIRE_BACKUP1)
 	wire["backup_2"] = !wires.is_cut(WIRE_BACKUP2)
 	wire["shock"] = !wires.is_cut(WIRE_SHOCK)
 	wire["id_scanner"] = !wires.is_cut(WIRE_IDSCAN)

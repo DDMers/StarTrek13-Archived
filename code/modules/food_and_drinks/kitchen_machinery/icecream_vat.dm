@@ -222,7 +222,7 @@
 	name = "[M.name] icecream"
 
 /obj/machinery/icecream_vat/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		new /obj/item/stack/sheet/metal(loc, 4)
 	qdel(src)
 

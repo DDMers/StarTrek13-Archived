@@ -5,7 +5,7 @@
 	icon_state = "dispenser"
 	amount = 10
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
-	flags_1 = NODECONSTRUCT_1
+	flags = NODECONSTRUCT
 	use_power = NO_POWER_USE
 	var/static/list/shortcuts = list(
 		"meth" = "methamphetamine",

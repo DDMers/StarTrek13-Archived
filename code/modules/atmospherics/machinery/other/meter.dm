@@ -121,7 +121,7 @@
 	return TRUE
 
 /obj/machinery/meter/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		new /obj/item/pipe_meter(loc)
 	qdel(src)
 

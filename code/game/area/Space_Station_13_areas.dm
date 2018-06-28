@@ -501,7 +501,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/library
  	name = "Library"
  	icon_state = "library"
- 	flags_1 = NONE
+ 	flags = NONE
 
 /area/library/lounge
  	name = "Library Lounge"
@@ -510,12 +510,12 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/library/abandoned
  	name = "Abandoned Library"
  	icon_state = "library"
- 	flags_1 = NONE
+ 	flags = NONE
 
 /area/chapel
 	icon_state = "chapel"
 	ambientsounds = HOLY
-	flags_1 = NONE
+	flags = NONE
 	clockwork_warp_allowed = FALSE
 	clockwork_warp_fail = "The consecration here prevents you from warping in."
 
@@ -561,7 +561,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/engine/atmos
  	name = "Atmospherics"
  	icon_state = "atmos"
- 	flags_1 = NONE
+ 	flags = NONE
 
 /area/engine/atmospherics_engine
 	name = "Atmospherics Engine"
@@ -601,7 +601,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	dynamic_lighting = DYNAMIC_LIGHTING_IFSTARLIGHT
 	valid_territory = FALSE
 	blob_allowed = FALSE
-	flags_1 = NONE
+	flags = NONE
 	ambientsounds = ENGINEERING
 
 /area/solar/fore
@@ -777,7 +777,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/medical/virology
 	name = "Virology"
 	icon_state = "virology"
-	flags_1 = NONE
+	flags = NONE
 
 /area/medical/morgue
 	name = "Morgue"
@@ -985,7 +985,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/janitor
 	name = "Custodial Closet"
 	icon_state = "janitor"
-	flags_1 = NONE
+	flags = NONE
 
 /area/hydroponics
 	name = "Hydroponics"

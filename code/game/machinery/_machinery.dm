@@ -287,20 +287,20 @@ Class Procs:
 	return
 
 /obj/machinery/proc/default_pry_open(obj/item/I)
-	. = !(state_open || panel_open || is_operational() || (flags_1 & NODECONSTRUCT_1)) && I.tool_behaviour == TOOL_CROWBAR
+	. = !(state_open || panel_open || is_operational() || (flags & NODECONSTRUCT)) && I.tool_behaviour == TOOL_CROWBAR
 	if(.)
 		I.play_tool_sound(src, 50)
 		visible_message("<span class='notice'>[usr] pries open \the [src].</span>", "<span class='notice'>You pry open \the [src].</span>")
 		open_machine()
 
 /obj/machinery/proc/default_deconstruction_crowbar(obj/item/I, ignore_panel = 0)
-	. = (panel_open || ignore_panel) && !(flags_1 & NODECONSTRUCT_1) && I.tool_behaviour == TOOL_CROWBAR
+	. = (panel_open || ignore_panel) && !(flags & NODECONSTRUCT) && I.tool_behaviour == TOOL_CROWBAR
 	if(.)
 		I.play_tool_sound(src, 50)
 		deconstruct(TRUE)
 
 /obj/machinery/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		on_deconstruction()
 		if(component_parts && component_parts.len)
 			spawn_frame(disassembled)
@@ -316,10 +316,10 @@ Class Procs:
 		M.obj_integrity = M.max_integrity * 0.5 //the frame is already half broken
 	transfer_fingerprints_to(M)
 	M.state = 2
-	M.icon_state = "box_1"
+	M.icon_state = "box"
 
 /obj/machinery/obj_break(damage_flag)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		stat |= BROKEN
 
 /obj/machinery/contents_explosion(severity, target)
@@ -333,7 +333,7 @@ Class Procs:
 		updateUsrDialog()
 
 /obj/machinery/proc/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/I)
-	if(!(flags_1 & NODECONSTRUCT_1) && I.tool_behaviour == TOOL_SCREWDRIVER)
+	if(!(flags & NODECONSTRUCT) && I.tool_behaviour == TOOL_SCREWDRIVER)
 		I.play_tool_sound(src, 50)
 		if(!panel_open)
 			panel_open = TRUE
@@ -361,7 +361,7 @@ Class Procs:
 	return SUCCESSFUL_UNFASTEN
 
 /obj/proc/default_unfasten_wrench(mob/user, obj/item/I, time = 20) //try to unwrench an object in a WONDERFUL DYNAMIC WAY
-	if(!(flags_1 & NODECONSTRUCT_1) && I.tool_behaviour == TOOL_WRENCH)
+	if(!(flags & NODECONSTRUCT) && I.tool_behaviour == TOOL_WRENCH)
 		var/can_be_unfasten = can_be_unfasten_wrench(user)
 		if(!can_be_unfasten || can_be_unfasten == FAILED_UNFASTEN)
 			return can_be_unfasten
@@ -388,7 +388,7 @@ Class Procs:
 /obj/machinery/proc/exchange_parts(mob/user, obj/item/storage/part_replacer/W)
 	if(!istype(W))
 		return FALSE
-	if((flags_1 & NODECONSTRUCT_1) && !W.works_from_distance)
+	if((flags & NODECONSTRUCT) && !W.works_from_distance)
 		return FALSE
 	var/shouldplaysound = 0
 	if(component_parts)

@@ -289,7 +289,7 @@
 
 /obj/effect/mob_spawn/human/corpse/cargo_tech
 	name = "Cargo Tech"
-	outfit = /datum/outfit/job/cargo_tech
+	outfit = /datum/outfit/job/fed/crewman
 
 /obj/effect/mob_spawn/human/cook
 	name = "Cook"
@@ -396,7 +396,7 @@
 	name = "lifeguard sleeper"
 	id_job = "Lifeguard"
 	uniform = /obj/item/clothing/under/shorts/red
-	
+
 /datum/outfit/beachbum
 	name = "Beach Bum"
 	glasses = /obj/item/clothing/glasses/sunglasses

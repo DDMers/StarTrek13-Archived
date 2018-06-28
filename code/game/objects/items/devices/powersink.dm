@@ -9,7 +9,7 @@
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 2
@@ -17,7 +17,7 @@
 	var/drain_rate = 1600000	// amount of power to drain per tick
 	var/power_drained = 0 		// has drained this much power
 	var/max_power = 1e10		// maximum power that can be drained before exploding
-	var/mode = 0		// 0 = off, 1=clamped (off), 2=operating
+	var/mode = 0		// 0 = off, 1=CLAMPed (off), 2=operating
 	var/admins_warned = FALSE // stop spam, only warn the admins once that we are about to boom
 
 	var/const/DISCONNECTED = 0

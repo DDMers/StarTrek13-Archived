@@ -53,7 +53,7 @@
 		if(other != src)
 			last_tendril = FALSE
 			break
-	if(last_tendril && !(flags_1 & ADMIN_SPAWNED_1))
+	if(last_tendril && !(flags & ADMIN_SPAWNED))
 		if(SSmedals.hub_enabled)
 			for(var/mob/living/L in view(7,src))
 				if(L.stat || !L.client)

@@ -17,7 +17,7 @@
 
 	var/blocks_air = FALSE
 
-	flags_1 = CAN_BE_DIRTY_1
+	flags = CAN_BE_DIRTY
 
 	var/list/image/blueprint_data //for the station blueprints, images of objects eg: pipes
 
@@ -38,9 +38,9 @@
 	. = ..()
 
 /turf/Initialize()
-	if(flags_1 & INITIALIZED_1)
+	if(flags & INITIALIZED)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
-	flags_1 |= INITIALIZED_1
+	flags |= INITIALIZED
 
 	// by default, vis_contents is inherited from the turf that was here before
 	vis_contents.Cut()
@@ -93,7 +93,7 @@
 	SSair.remove_from_active(src)
 	visibilityChanged()
 	QDEL_LIST(blueprint_data)
-	flags_1 &= ~INITIALIZED_1
+	flags &= ~INITIALIZED
 	requires_activation = FALSE
 	..()
 
@@ -160,7 +160,7 @@
 	//Next, check objects to block entry that are on the border
 	for(var/atom/movable/obstacle in src)
 		if(!obstacle.CanPass(mover, mover.loc, 1) && (forget != obstacle))
-			if(obstacle.flags_1 & ON_BORDER_1)
+			if(obstacle.flags & ON_BORDER)
 				mover.Collide(obstacle)
 				return FALSE
 			else
@@ -246,19 +246,19 @@
 
 /turf/proc/levelupdate()
 	for(var/obj/O in src)
-		if(O.level == 1 && (O.flags_1 & INITIALIZED_1))
+		if(O.level == 1 && (O.flags & INITIALIZED))
 			O.hide(src.intact)
 
 // override for space turfs, since they should never hide anything
 /turf/open/space/levelupdate()
 	for(var/obj/O in src)
-		if(O.level == 1 && (O.flags_1 & INITIALIZED_1))
+		if(O.level == 1 && (O.flags & INITIALIZED))
 			O.hide(0)
 
 // Removes all signs of lattice on the pos of the turf -Donkieyo
 /turf/proc/RemoveLattice()
 	var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-	if(L && (L.flags_1 & INITIALIZED_1))
+	if(L && (L.flags & INITIALIZED))
 		qdel(L)
 
 /turf/proc/phase_damage_creatures(damage,mob/U = null)//>Ninja Code. Hurts and knocks out creatures on this turf //NINJACODE

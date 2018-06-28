@@ -35,7 +35,7 @@
 	item_state = "cultblade"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	sharpness = IS_SHARP
 	w_class = WEIGHT_CLASS_BULKY
 	force = 30
@@ -65,7 +65,7 @@
 	name = "eldritch sword"
 	force = 19 //can't break normal airlocks
 	item_flags = NEEDS_PERMIT | NODROP | DROPDEL
-	flags_1 = NONE
+	flags = NONE
 
 /obj/item/melee/cultblade/pickup(mob/living/user)
 	..()

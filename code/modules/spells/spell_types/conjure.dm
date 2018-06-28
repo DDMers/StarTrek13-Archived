@@ -38,7 +38,7 @@
 			for(var/varName in newVars)
 				if(varName in newVars)
 					summoned_object.vv_edit_var(varName, newVars[varName])
-			summoned_object.flags_1 |= ADMIN_SPAWNED_1
+			summoned_object.flags |= ADMIN_SPAWNED
 			if(summon_lifespan)
 				QDEL_IN(summoned_object, summon_lifespan)
 

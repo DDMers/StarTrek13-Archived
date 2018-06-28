@@ -290,7 +290,7 @@
 	if(battery_module && battery_module.battery)
 		switch(battery_module.battery.percent())
 			if(80 to 200) // 100 should be maximal but just in case..
-				data["PC_batteryicon"] = "batt_100.gif"
+				data["PC_batteryicon"] = "batt00.gif"
 			if(60 to 80)
 				data["PC_batteryicon"] = "batt_80.gif"
 			if(40 to 60)

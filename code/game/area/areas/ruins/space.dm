@@ -75,7 +75,7 @@
 	name = "Hotel Guest Room"
 	icon_state = "Sleep"
 
-/area/ruin/space/has_grav/hotel/guestroom/room_1
+/area/ruin/space/has_grav/hotel/guestroom/room
 	name = "Hotel Guest Room 1"
 
 /area/ruin/space/has_grav/hotel/guestroom/room_2

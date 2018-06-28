@@ -30,7 +30,7 @@
 		return FALSE
 	return 0
 
-/obj/item/device/generator_fan
+/obj/item/generator_fan
 	name = "attachable fan"
 	desc = "Attach this to a shield generator to prevent heat overloads."
 	var/fanhealth = 100
@@ -67,10 +67,10 @@
 //	var/temperature = 0
 //	var/connected = 1
 
-	var/obj/item/device/generator_fan/current_fan = null // lowers heat
+	var/obj/item/generator_fan/current_fan = null // lowers heat
 
 /obj/machinery/space_battle/shield_generator/attackby(obj/item/weapon/W, mob/user, params)
-	if(istype(W, /obj/item/device/generator_fan))
+	if(istype(W, /obj/item/generator_fan))
 		if(!current_fan)
 			W.loc = src
 			current_fan = W
@@ -1131,7 +1131,7 @@
 	name = "panel"
 	desc = "it hums lightly..."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "panel_1"
+	icon_state = "panel"
 
 /obj/structure/fluff/ship/panel/type2
 	name = "panel"
@@ -1154,7 +1154,7 @@
 // Based on catwalk.dm from https://github.com/Endless-Horizon/CEV-Eris
 
 //Copied from YawnWiderstation https://github.com/Repede/YawnWiderStation
-/obj/structure/catwalk
+/obj/structure/lattice/catwalk
 	layer = TURF_LAYER + 0.5
 	icon = 'StarTrek13/icons/trek/catwalks.dmi'
 	icon_state = "catwalk"
@@ -1163,21 +1163,21 @@
 	density = 0
 	anchored = 1.0
 
-/obj/structure/catwalk/Initialize(timeofday)
+/obj/structure/lattice/catwalk/Initialize(timeofday)
 	. = ..()
-	for(var/obj/structure/catwalk/C in get_turf(src))
+	for(var/obj/structure/lattice/catwalk/C in get_turf(src))
 		if(C != src)
 			warning("Duplicate [type] in [loc] ([x], [y], [z])")
 			qdel(C)
 	update_icon()
 
-/obj/structure/catwalk/Destroy()
+/obj/structure/lattice/catwalk/Destroy()
 	var/turf/location = loc
 	. = ..()
-	for(var/obj/structure/catwalk/L in orange(location, 1))
+	for(var/obj/structure/lattice/catwalk/L in orange(location, 1))
 		L.update_icon()
 
-/obj/structure/catwalk/ex_act(severity)
+/obj/structure/lattice/catwalk/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -1185,11 +1185,11 @@
 			qdel(src)
 	return
 
-/obj/structure/catwalk/attackby(obj/item/C as obj, mob/user as mob)
+/obj/structure/lattice/catwalk/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = C
 		if(WT.isOn())
-			if(WT.remove_fuel(0, user))
+			if(WT.use_tool(src, user, 40, volume=100))
 				new /obj/item/stack/rods(src.loc)
 				new /obj/item/stack/rods(src.loc)
 				new /obj/structure/lattice(src.loc)
@@ -1199,7 +1199,7 @@
 		new /obj/item/stack/rods(src.loc)
 	return ..()
 
-/obj/structure/catwalk/Crossed()
+/obj/structure/lattice/catwalk/Crossed()
 	. = ..()
 	if(isliving(usr))
 		playsound(src, pick('StarTrek13/sound/trek/catwalk1.ogg', 'StarTrek13/sound/trek/catwalk2.ogg', 'StarTrek13/sound/trek/catwalk3.ogg', 'StarTrek13/sound/trek/catwalk4.ogg', 'StarTrek13/sound/trek/catwalk5.ogg'), 25, 1)

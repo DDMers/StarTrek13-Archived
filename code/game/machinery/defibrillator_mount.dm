@@ -10,9 +10,9 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 1
 	power_channel = EQUIP
-	req_one_access = list(ACCESS_MEDICAL, ACCESS_HEADS, ACCESS_SECURITY) //used to control clamps
+	req_one_access = list(ACCESS_MEDICAL, ACCESS_HEADS, ACCESS_SECURITY) //used to control CLAMPs
 	var/obj/item/defibrillator/defib //this mount's defibrillator
-	var/clamps_locked = FALSE //if true, and a defib is loaded, it can't be removed without unlocking the clamps
+	var/CLAMPs_locked = FALSE //if true, and a defib is loaded, it can't be removed without unlocking the CLAMPs
 
 /obj/machinery/defibrillator_mount/loaded/Initialize() //loaded subtype for mapping use
 	. = ..()
@@ -28,9 +28,9 @@
 	if(defib)
 		to_chat(user, "<span class='notice'>There is a defib unit hooked up. Alt-click to remove it.<span>")
 		if(GLOB.security_level >= SEC_LEVEL_RED)
-			to_chat(user, "<span class='notice'>Due to a security situation, its locking clamps can be toggled by swiping any ID.</span>")
+			to_chat(user, "<span class='notice'>Due to a security situation, its locking CLAMPs can be toggled by swiping any ID.</span>")
 		else
-			to_chat(user, "<span class='notice'>Its locking clamps can be [clamps_locked ? "dis" : ""]engaged by swiping an ID with access.</span>")
+			to_chat(user, "<span class='notice'>Its locking CLAMPs can be [CLAMPs_locked ? "dis" : ""]engaged by swiping an ID with access.</span>")
 
 /obj/machinery/defibrillator_mount/process()
 	if(defib && defib.cell && defib.cell.charge < defib.cell.maxcharge && is_operational())
@@ -47,8 +47,8 @@
 			var/ratio = defib.cell.charge / defib.cell.maxcharge
 			ratio = CEILING(ratio * 4, 1) * 25
 			add_overlay("charge[ratio]")
-		if(clamps_locked)
-			add_overlay("clamps")
+		if(CLAMPs_locked)
+			add_overlay("CLAMPs")
 
 /obj/machinery/defibrillator_mount/get_cell()
 	if(defib)
@@ -80,12 +80,12 @@
 		return
 	var/obj/item/card/id = I.GetID()
 	if(id)
-		if(check_access(id) || GLOB.security_level >= SEC_LEVEL_RED) //anyone can toggle the clamps in red alert!
+		if(check_access(id) || GLOB.security_level >= SEC_LEVEL_RED) //anyone can toggle the CLAMPs in red alert!
 			if(!defib)
-				to_chat(user, "<span class='warning'>You can't engage the clamps on a defibrillator that isn't there.</span>")
+				to_chat(user, "<span class='warning'>You can't engage the CLAMPs on a defibrillator that isn't there.</span>")
 				return
-			clamps_locked = !clamps_locked
-			to_chat(user, "<span class='notice'>Clamps [clamps_locked ? "" : "dis"]engaged.</span>")
+			CLAMPs_locked = !CLAMPs_locked
+			to_chat(user, "<span class='notice'>CLAMPs [CLAMPs_locked ? "" : "dis"]engaged.</span>")
 			update_icon()
 		else
 			to_chat(user, "<span class='warning'>Insufficient access.</span>")
@@ -94,20 +94,20 @@
 
 /obj/machinery/defibrillator_mount/multitool_act(mob/living/user, obj/item/multitool)
 	if(!defib)
-		to_chat(user, "<span class='warning'>There isn't any defibrillator to clamp in!</span>")
+		to_chat(user, "<span class='warning'>There isn't any defibrillator to CLAMP in!</span>")
 		return TRUE
-	if(!clamps_locked)
-		to_chat(user, "<span class='warning'>[src]'s clamps are disengaged!</span>")
+	if(!CLAMPs_locked)
+		to_chat(user, "<span class='warning'>[src]'s CLAMPs are disengaged!</span>")
 		return TRUE
 	user.visible_message("<span class='notice'>[user] presses [multitool] into [src]'s ID slot...</span>", \
-	"<span class='notice'>You begin overriding the clamps on [src]...</span>")
+	"<span class='notice'>You begin overriding the CLAMPs on [src]...</span>")
 	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
-	if(!do_after(user, 100, target = src) || !clamps_locked)
+	if(!do_after(user, 100, target = src) || !CLAMPs_locked)
 		return
-	user.visible_message("<span class='notice'>[user] pulses [multitool], and [src]'s clamps slide up.</span>", \
-	"<span class='notice'>You override the locking clamps on [src]!</span>")
+	user.visible_message("<span class='notice'>[user] pulses [multitool], and [src]'s CLAMPs slide up.</span>", \
+	"<span class='notice'>You override the locking CLAMPs on [src]!</span>")
 	playsound(src, 'sound/machines/locktoggle.ogg', 50, TRUE)
-	clamps_locked = FALSE
+	CLAMPs_locked = FALSE
 	update_icon()
 	return TRUE
 
@@ -117,8 +117,8 @@
 	if(!defib)
 		to_chat(user, "<span class='warning'>It'd be hard to remove a defib unit from a mount that has none.</span>")
 		return
-	if(clamps_locked)
-		to_chat(user, "<span class='warning'>You try to tug out [defib], but the mount's clamps are locked tight!</span>")
+	if(CLAMPs_locked)
+		to_chat(user, "<span class='warning'>You try to tug out [defib], but the mount's CLAMPs are locked tight!</span>")
 		return
 	if(!user.put_in_hands(defib))
 		to_chat(user, "<span class='warning'>You need a free hand!</span>")

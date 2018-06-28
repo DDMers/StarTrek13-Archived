@@ -1,4 +1,4 @@
-#define SIMPLIFY_DEGREES(degrees) (Modulus((degrees), 360))
+#define SIMPLIFY_DEGREES(degrees) (MODULUS((degrees), 360))
 #define TO_DEGREES(radians) ((radians) * 57.2957795)
 
 /obj/structure/overmap/ship/AI
@@ -141,7 +141,7 @@
 	if(target)
 		var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
 		EditAngle()
-		angle = 450 - SIMPLIFY_DEGREES(Atan2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
+		angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
 	else
 		vel = 0
 
@@ -149,9 +149,9 @@
 	if(target)
 		var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
 		EditAngle()
-		angle = 450 - SIMPLIFY_DEGREES(Atan2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
+		angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
 
 /obj/structure/overmap/proc/Orbit(atom/target)
 	var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
 	EditAngle()
-	angle = 360 - SIMPLIFY_DEGREES(Atan2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
+	angle = 360 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))

@@ -89,7 +89,7 @@
 	volume = 10
 	ignore_flags = 1 //so you can medipen through hardsuits
 	container_type = DRAWABLE
-	flags_1 = null
+	flags = null
 	list_reagents = list("epinephrine" = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/suicide_act(mob/living/carbon/user)

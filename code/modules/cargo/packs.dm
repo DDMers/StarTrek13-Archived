@@ -32,7 +32,7 @@
 	if (admin_spawned)
 		for(var/item in contains)
 			var/atom/A = new item(C)
-			A.flags_1 |= ADMIN_SPAWNED_1
+			A.flags |= ADMIN_SPAWNED
 	else
 		for(var/item in contains)
 			new item(C)
@@ -1739,7 +1739,7 @@
 					/obj/item/storage/pill_bottle/lsd,
 					/obj/item/storage/pill_bottle/aranesp,
 					/obj/item/storage/pill_bottle/stimulant,
-					/obj/item/toy/cards/deck/syndicate,				
+					/obj/item/toy/cards/deck/syndicate,
 					/obj/item/reagent_containers/food/drinks/bottle/absinthe,
 					/obj/item/clothing/under/syndicate/tacticool,
 					/obj/item/storage/fancy/cigarettes/cigpack_syndicate,

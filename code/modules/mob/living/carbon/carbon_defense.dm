@@ -211,7 +211,7 @@
 		O.emp_act(severity)
 
 /mob/living/carbon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1, safety = 0, override = 0, tesla_shock = 0, illusion = 0, stun = TRUE)
-	if(tesla_shock && (flags_1 & TESLA_IGNORE_1))
+	if(tesla_shock && (flags & TESLA_IGNORE))
 		return FALSE
 	if(has_trait(TRAIT_SHOCKIMMUNE))
 		return FALSE

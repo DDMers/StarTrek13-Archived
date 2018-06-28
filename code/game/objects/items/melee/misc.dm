@@ -16,7 +16,7 @@
 	item_state = "chain"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	slot_flags = ITEM_SLOT_BELT
 	force = 10
 	throwforce = 7
@@ -55,7 +55,7 @@
 	item_state = "sabre"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	obj_flags = UNIQUE_RENAME
 	force = 15
 	throwforce = 10
@@ -112,7 +112,7 @@
 		limbs_to_dismember = arms + legs
 		if(holding_bodypart)
 			limbs_to_dismember += holding_bodypart
-		
+
 		var/speedbase = abs((4 SECONDS) / limbs_to_dismember.len)
 		for(bodypart in limbs_to_dismember)
 			i++
@@ -227,7 +227,7 @@
 	on = !on
 	if(on)
 		to_chat(user, "<span class ='warning'>You extend the baton.</span>")
-		icon_state = "telebaton_1"
+		icon_state = "telebaton"
 		item_state = "nullrod"
 		w_class = WEIGHT_CLASS_BULKY //doesnt fit in backpack when its on for balance
 		force = 10 //stunbaton damage
@@ -425,7 +425,7 @@
 
 /obj/item/melee/roastingstick/proc/extend(user)
 	to_chat(user, "<span class ='warning'>You extend [src].</span>")
-	icon_state = "roastingstick_1"
+	icon_state = "roastingstick"
 	item_state = "nullrod"
 	w_class = WEIGHT_CLASS_BULKY
 

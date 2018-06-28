@@ -1,7 +1,7 @@
 /turf/open/floor/holofloor
 	icon_state = "floor"
 	thermal_conductivity = 0
-	flags_1 = NONE
+	flags = NONE
 
 /turf/open/floor/holofloor/attackby(obj/item/I, mob/living/user)
 	return // HOLOFLOOR DOES NOT GIVE A FUCK
@@ -82,7 +82,7 @@
 /turf/open/floor/holofloor/hyperspace
 	name = "\proper hyperspace"
 	icon = 'icons/turf/space.dmi'
-	icon_state = "speedspace_ns_1"
+	icon_state = "speedspace_ns"
 	bullet_bounce_sound = null
 
 /turf/open/floor/holofloor/hyperspace/Initialize()

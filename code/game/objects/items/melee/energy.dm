@@ -56,7 +56,7 @@
 		if(C.wear_mask)
 			in_mouth = ", barely missing [C.p_their()] nose"
 	. = "<span class='warning'>[user] swings [user.p_their()] [name][in_mouth]. [user.p_they(TRUE)] light[user.p_s()] [user.p_their()] [A.name] in the process.</span>"
-	playsound(loc, hitsound, get_clamped_volume(), 1, -1)
+	playsound(loc, hitsound, get_CLAMPed_volume(), 1, -1)
 	add_fingerprint(user)
 
 /obj/item/melee/transforming/energy/axe
@@ -74,7 +74,7 @@
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL
 	w_class_on = WEIGHT_CLASS_HUGE
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	armour_penetration = 100
 	attack_verb_off = list("attacked", "chopped", "cleaved", "torn", "cut")
 	attack_verb_on = list()
@@ -132,7 +132,7 @@
 	hitsound = 'sound/weapons/circsawhit.ogg'
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "esaw_0"
-	icon_state_on = "esaw_1"
+	icon_state_on = "esaw"
 	item_color = null //stops icon from breaking when turned on.
 	hitcost = 75 //Costs more than a standard cyborg esword
 	w_class = WEIGHT_CLASS_NORMAL

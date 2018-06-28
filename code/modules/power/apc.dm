@@ -104,7 +104,7 @@
 
 /obj/machinery/power/apc/unlocked
 	locked = FALSE
-	
+
 /obj/machinery/power/apc/syndicate //general syndicate access
 	req_access = list(ACCESS_SYNDICATE)
 
@@ -706,11 +706,11 @@
 
 
 /obj/machinery/power/apc/obj_break(damage_flag)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		set_broken()
 
 /obj/machinery/power/apc/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		if(!(stat & BROKEN))
 			set_broken()
 		if(opened != APC_COVER_REMOVED)
@@ -1115,7 +1115,7 @@
 
 	if(cell && !shorted)
 		// draw power from cell as before to power the area
-		var/cellused = min(cell.charge, GLOB.CELLRATE * lastused_total)	// clamp deduction to a max, amount left in cell
+		var/cellused = min(cell.charge, GLOB.CELLRATE * lastused_total)	// CLAMP deduction to a max, amount left in cell
 		cell.use(cellused)
 
 		if(excess > lastused_total)		// if power excess recharge the cell

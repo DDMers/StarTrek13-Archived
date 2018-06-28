@@ -50,7 +50,7 @@
 	desc = "Suit for a cyborg costume."
 	icon_state = "death"
 	item_state = "death"
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	fire_resist = T0C+5200
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 

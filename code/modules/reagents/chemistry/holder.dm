@@ -627,7 +627,7 @@
 	for(var/A in cached_reagents)
 		var/datum/reagent/R = A
 		if (R.id == reagent)
-			//clamp the removal amount to be between current reagent amount
+			//CLAMP the removal amount to be between current reagent amount
 			//and zero, to prevent removing more than the holder has stored
 			amount = CLAMP(amount, 0, R.volume)
 			R.volume -= amount

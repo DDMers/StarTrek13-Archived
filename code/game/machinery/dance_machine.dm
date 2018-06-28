@@ -27,7 +27,7 @@
 	req_access = null
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	flags_1 = NODECONSTRUCT_1
+	flags = NODECONSTRUCT
 
 /datum/track
 	var/song_name = "generic"
@@ -62,7 +62,7 @@
 	return ..()
 
 /obj/machinery/jukebox/attackby(obj/item/O, mob/user, params)
-	if(!active && !(flags_1 & NODECONSTRUCT_1))
+	if(!active && !(flags & NODECONSTRUCT))
 		if(istype(O, /obj/item/wrench))
 			if(!anchored && !isinspace())
 				to_chat(user,"<span class='notice'>You secure [src] to the floor.</span>")

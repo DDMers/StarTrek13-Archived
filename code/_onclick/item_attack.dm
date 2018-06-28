@@ -62,9 +62,9 @@
 		return
 
 	if(!force)
-		playsound(loc, 'sound/weapons/tap.ogg', get_clamped_volume(), 1, -1)
+		playsound(loc, 'sound/weapons/tap.ogg', get_CLAMPed_volume(), 1, -1)
 	else if(hitsound)
-		playsound(loc, hitsound, get_clamped_volume(), 1, -1)
+		playsound(loc, hitsound, get_CLAMPed_volume(), 1, -1)
 
 	M.lastattacker = user.real_name
 	M.lastattackerckey = user.ckey
@@ -110,7 +110,7 @@
 
 /mob/living/simple_animal/attacked_by(obj/item/I, mob/living/user)
 	if(I.force < force_threshold || I.damtype == STAMINA)
-		playsound(loc, 'sound/weapons/tap.ogg', I.get_clamped_volume(), 1, -1)
+		playsound(loc, 'sound/weapons/tap.ogg', I.get_CLAMPed_volume(), 1, -1)
 	else
 		return ..()
 
@@ -120,12 +120,12 @@
 	return
 
 
-/obj/item/proc/get_clamped_volume()
+/obj/item/proc/get_CLAMPed_volume()
 	if(w_class)
 		if(force)
-			return CLAMP((force + w_class) * 4, 30, 100)// Add the item's force to its weight class and multiply by 4, then clamp the value between 30 and 100
+			return CLAMP((force + w_class) * 4, 30, 100)// Add the item's force to its weight class and multiply by 4, then CLAMP the value between 30 and 100
 		else
-			return CLAMP(w_class * 6, 10, 100) // Multiply the item's weight class by 6, then clamp the value between 10 and 100
+			return CLAMP(w_class * 6, 10, 100) // Multiply the item's weight class by 6, then CLAMP the value between 10 and 100
 
 /mob/living/proc/send_item_attack_message(obj/item/I, mob/living/user, hit_area)
 	var/message_verb = "attacked"

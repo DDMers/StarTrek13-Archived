@@ -1,5 +1,5 @@
-#define DEFAULT_DOOMSDAY_TIMER 4500
-#define DOOMSDAY_ANNOUNCE_INTERVAL 600
+#define DEFAULT_doomsday_deviceTIMER 4500
+#define doomsday_deviceANNOUNCE_INTERVAL 600
 
 GLOBAL_LIST_INIT(blacklisted_malf_machines, typecacheof(list(
 		/obj/machinery/field/containment,
@@ -342,8 +342,8 @@ GLOBAL_LIST_INIT(blacklisted_malf_machines, typecacheof(list(
 	return ..()
 
 /obj/machinery/doomsday_device/proc/start()
-	detonation_timer = world.time + DEFAULT_DOOMSDAY_TIMER
-	next_announce = world.time + DOOMSDAY_ANNOUNCE_INTERVAL
+	detonation_timer = world.time + DEFAULT_doomsday_deviceTIMER
+	next_announce = world.time + doomsday_deviceANNOUNCE_INTERVAL
 	timing = TRUE
 	countdown.start()
 	START_PROCESSING(SSfastprocess, src)
@@ -369,7 +369,7 @@ GLOBAL_LIST_INIT(blacklisted_malf_machines, typecacheof(list(
 		detonate()
 	else if(world.time >= next_announce)
 		minor_announce("[sec_left] SECONDS UNTIL DOOMSDAY DEVICE ACTIVATION!", "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4", TRUE)
-		next_announce += DOOMSDAY_ANNOUNCE_INTERVAL
+		next_announce += doomsday_deviceANNOUNCE_INTERVAL
 
 /obj/machinery/doomsday_device/proc/detonate()
 	sound_to_playing_players('sound/machines/alarm.ogg')
@@ -857,5 +857,5 @@ GLOBAL_LIST_INIT(blacklisted_malf_machines, typecacheof(list(
 	if(AI.eyeobj)
 		AI.eyeobj.relay_speech = TRUE
 
-#undef DEFAULT_DOOMSDAY_TIMER
-#undef DOOMSDAY_ANNOUNCE_INTERVAL
+#undef DEFAULT_doomsday_deviceTIMER
+#undef doomsday_deviceANNOUNCE_INTERVAL

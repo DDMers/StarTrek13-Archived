@@ -95,7 +95,7 @@
 		return 1
 	switch(radiation_count)
 		if(-INFINITY to RAD_LEVEL_NORMAL)
-			icon_state = "geiger_on_1"
+			icon_state = "geiger_on"
 		if(RAD_LEVEL_NORMAL + 1 to RAD_LEVEL_MODERATE)
 			icon_state = "geiger_on_2"
 		if(RAD_LEVEL_MODERATE + 1 to RAD_LEVEL_HIGH)

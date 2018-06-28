@@ -28,7 +28,7 @@
 
 	using = new /obj/screen/swap_hand()
 	using.icon = ui_style
-	using.icon_state = "swap_1_m"	//extra wide!
+	using.icon_state = "swap_m"	//extra wide!
 	using.screen_loc = ui_swaphand_position(owner,1)
 	static_inventory += using
 

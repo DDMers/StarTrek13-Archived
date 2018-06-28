@@ -339,7 +339,7 @@
 	item_color = "combadge"
 	slot_flags = 15
 	w_class = 2
-	var/obj/item/device/radio/embedded
+	var/obj/item/radio/embedded
 	actions_types = list(/datum/action/item_action/combadge,/datum/action/item_action/combadge/turn_off)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	var/datum/action/item_action/combadge/broadcast_action = new
@@ -389,7 +389,7 @@
 
 /obj/item/clothing/combadge/New()
 	. = ..()
-	embedded = new/obj/item/device/radio(src)
+	embedded = new/obj/item/radio(src)
 
 //tricord//
 
@@ -407,26 +407,26 @@
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "tricorder_scn"
 	w_class = 1
-	var/obj/item/device/t_scanner/rayscan //attack
-	var/obj/item/device/t_scanner/adv_mining_scanner/miningscan //attackself
-	var/obj/item/device/analyzer/gasscan //attackself
-	var/obj/item/device/detective_scanner/detscan //attackself to print, afterattack to scan
+	var/obj/item/t_scanner/rayscan //attack
+	var/obj/item/t_scanner/adv_mining_scanner/miningscan //attackself
+	var/obj/item/analyzer/gasscan //attackself
+	var/obj/item/detective_scanner/detscan //attackself to print, afterattack to scan
 	var/medical = 0
 	var/obj/machinery/computer/camera_advanced/transporter_control/transporter_controller
 
 /obj/item/weapon/tricordscanner/New()
 	. = ..()
-	rayscan = new /obj/item/device/t_scanner(src)
-	miningscan =  new /obj/item/device/t_scanner/adv_mining_scanner(src) //attackself
-	gasscan = new /obj/item/device/analyzer(src) //attackself
-	detscan = new /obj/item/device/detective_scanner(src) //attackself to print, afterattack to scan
+	rayscan = new /obj/item/t_scanner(src)
+	miningscan =  new /obj/item/t_scanner/adv_mining_scanner(src) //attackself
+	gasscan = new /obj/item/analyzer(src) //attackself
+	detscan = new /obj/item/detective_scanner(src) //attackself to print, afterattack to scan
 
 /obj/item/weapon/tricordscanner/proc/tricorder_med()
 
 
 /obj/item/weapon/tricordscanner/afterattack(atom/I, mob/user)
 	medical = 0
-	if(istype(I, /obj/item/device/tricorder))
+	if(istype(I, /obj/item/tricorder))
 		return I.attackby(src, user)
 	if(tricorder_science_mode(I, user))
 		var/B
@@ -466,7 +466,7 @@
 
 /obj/item/weapon/tricordscanner/proc/tricorder_science_mode(atom/I, mob/living/carbon/human/user)
 //	var/obj/item/weapon/tricordscanner/F
-	for(var/obj/item/device/tricorder/T in user.contents)
+	for(var/obj/item/tricorder/T in user.contents)
 		if(!istype(T))
 			return 0
 		if(T.open == CLOSED)
@@ -484,7 +484,7 @@
 	return
 
 
-/obj/item/device/tricorder
+/obj/item/tricorder
 	name = "tricorder"
 	desc = "Utilized in the fields of repairwork, analyzing, and containing a variety of useful information. Set it to science mode to access scanning capabilities"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
@@ -499,7 +499,7 @@
 	var/obj/machinery/computer/camera_advanced/transporter_control/transporter_controller
 	var/obj/machinery/buffer
 
-/obj/item/device/tricorder/New()
+/obj/item/tricorder/New()
 	..()
 	open = CLOSED
 	update_icon()
@@ -509,7 +509,7 @@
 //		return new /obj/item/weapon/tricordscanner
 
 
-/obj/item/device/tricorder/update_icon()
+/obj/item/tricorder/update_icon()
 	switch(open)
 		if(CLOSED)
 			icon_state = "tricorder_closed"
@@ -519,10 +519,10 @@
 			return
 
 
-/obj/item/device/tricorder/AltClick()
+/obj/item/tricorder/AltClick()
 	toggle_open()
 
-/obj/item/device/tricorder/proc/toggle_open(mob/user) // Open/close it for muh ARPEEEEEEE
+/obj/item/tricorder/proc/toggle_open(mob/user) // Open/close it for muh ARPEEEEEEE
 	var/mob/living/carbon/human/M = user
 //	if(user != M) //ehhh redundant
 	//	return
@@ -535,7 +535,7 @@
 		update_icon()
 
 
-/obj/item/device/tricorder/attack_self(mob/user)
+/obj/item/tricorder/attack_self(mob/user)
 	if(open == CLOSED)
 		toggle_open()
 	switch(setting)
@@ -550,7 +550,7 @@
 		else
 			return
 
-/obj/item/device/tricorder/attack_hand(mob/user)
+/obj/item/tricorder/attack_hand(mob/user)
 	switch(open)
 		if(CLOSED)
 			..()
@@ -561,7 +561,7 @@
 			return
 	..()
 
-/obj/item/device/tricorder/proc/remove_scanner(mob/user) // remove scanner
+/obj/item/tricorder/proc/remove_scanner(mob/user) // remove scanner
 	tscanner.transporter_controller = transporter_controller
 	if(loc == user) //you already sorta defined that, but redundancy doesnt hurt
 		if(open == CLOSED)
@@ -579,7 +579,7 @@
 			update_icon()
 	..()
 
-/obj/item/device/tricorder/attackby(obj/item/C, mob/user, params)
+/obj/item/tricorder/attackby(obj/item/C, mob/user, params)
 	if(istype(C, /obj/item/weapon/tricordscanner))
 		if(C in user.contents)
 			tscanner = new /obj/item/weapon/tricordscanner(src)

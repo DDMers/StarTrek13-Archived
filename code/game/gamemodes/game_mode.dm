@@ -162,7 +162,7 @@
 
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
 		replacementmode.restricted_jobs += replacementmode.protected_jobs
-	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
+	if(CONFIG_GET(flag/protect_overflow_from_antagonist))
 		replacementmode.restricted_jobs += "Assistant"
 
 	message_admins("The roundtype will be converted. If you have other plans for the station or feel the station is too messed up to inhabit <A HREF='?_src_=holder;[HrefToken()];toggle_midround_antag=[REF(usr)]'>stop the creation of antags</A> or <A HREF='?_src_=holder;[HrefToken()];end_round=[REF(usr)]'>end the round now</A>.")

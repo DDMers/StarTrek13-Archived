@@ -294,7 +294,7 @@
 		. = . || (mover.pass_flags & PASSGRILLE)
 
 /obj/structure/girder/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		var/remains = pick(/obj/item/stack/rods, /obj/item/stack/sheet/metal)
 		new remains(loc)
 	qdel(src)
@@ -383,7 +383,7 @@
 	return
 
 /obj/structure/girder/cult/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		new /obj/item/stack/sheet/runed_metal(drop_location(), 1)
 	qdel(src)
 

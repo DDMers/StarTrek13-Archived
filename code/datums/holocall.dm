@@ -331,11 +331,12 @@
 	SAY OOGA
 	DELAY 20"}
 
+
 /datum/preset_holoimage/engineer
 	outfit_type = /datum/outfit/job/ce
 
 /datum/preset_holoimage/researcher
-	outfit_type = /datum/outfit/job/scientist
+	outfit_type = /datum/job/fed/scientist
 
 /datum/preset_holoimage/captain
 	outfit_type = /datum/outfit/job/captain

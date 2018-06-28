@@ -28,7 +28,7 @@
 	icon_state = "handcuff"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	slot_flags = ITEM_SLOT_BELT
 	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
@@ -230,7 +230,7 @@
 	icon_state = "handcuff"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	slowdown = 7
@@ -298,7 +298,7 @@
 	icon_state = "e_snare"
 	trap_damage = 0
 	item_flags = DROPDEL
-	flags_1 = NONE
+	flags = NONE
 
 /obj/item/restraints/legcuffs/beartrap/energy/New()
 	..()

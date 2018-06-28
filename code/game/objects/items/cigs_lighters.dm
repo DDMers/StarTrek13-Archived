@@ -159,7 +159,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/cigarette/proc/light(flavor_text = null)
 	if(lit)
 		return
-	if(!(flags_1 & INITIALIZED_1))
+	if(!(flags & INITIALIZED))
 		icon_state = icon_on
 		item_state = icon_on
 		return
@@ -325,7 +325,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	list_reagents = list("space_drugs" = 15, "lipolicide" = 35)
 
 /obj/item/clothing/mask/cigarette/rollie/mindbreaker
-	list_reagents = list("mindbreaker" = 35, "lipolicide" = 15)	
+	list_reagents = list("mindbreaker" = 35, "lipolicide" = 15)
 
 /obj/item/cigbutt/roach
 	name = "roach"
@@ -494,7 +494,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "zippo"
 	item_state = "zippo"
 	w_class = WEIGHT_CLASS_TINY
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	slot_flags = ITEM_SLOT_BELT
 	var/lit = 0
 	var/fancy = TRUE

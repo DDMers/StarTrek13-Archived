@@ -103,7 +103,7 @@
 
 /obj/item/projectile/magic/change
 	name = "bolt of change"
-	icon_state = "ice_1"
+	icon_state = "ice"
 	damage = 0
 	damage_type = BURN
 	nodamage = 1
@@ -255,7 +255,7 @@
 
 /obj/item/projectile/magic/animate
 	name = "bolt of animation"
-	icon_state = "red_1"
+	icon_state = "red"
 	damage = 0
 	damage_type = BURN
 	nodamage = 1

@@ -22,7 +22,7 @@
 /datum/bounty/virus/applies_to(obj/O)
 	if(shipped)
 		return FALSE
-	if(O.flags_1 & HOLOGRAM_1)
+	if(O.flags & HOLOGRAM)
 		return FALSE
 	if(!istype(O, /obj/item/reagent_containers || !O.reagents || !O.reagents.reagent_list))
 		return FALSE

@@ -107,7 +107,7 @@ SUBSYSTEM_DEF(throwing)
 			return
 
 		dist_travelled++
-		
+
 		if (dist_travelled > MAX_THROWING_DIST)
 			finalize()
 			return
@@ -144,6 +144,6 @@ SUBSYSTEM_DEF(throwing)
 		var/atom/movable/AM = thing
 		if (AM == thrownthing)
 			continue
-		if (AM.density && !(AM.pass_flags & LETPASSTHROW) && !(AM.flags_1 & ON_BORDER_1))
+		if (AM.density && !(AM.pass_flags & LETPASSTHROW) && !(AM.flags & ON_BORDER))
 			finalize(hit=TRUE, target=AM)
 			return TRUE

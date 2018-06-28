@@ -35,19 +35,19 @@
 	var/tox_damage_type = TOX
 
 	var/cold_message = "your face freezing and an icicle forming"
-	var/cold_level_1_threshold = 260
+	var/cold_level_threshold = 260
 	var/cold_level_2_threshold = 200
 	var/cold_level_3_threshold = 120
-	var/cold_level_1_damage = COLD_GAS_DAMAGE_LEVEL_1 //Keep in mind with gas damage levels, you can set these to be negative, if you want someone to heal, instead.
+	var/cold_level_damage = COLD_GAS_DAMAGE_LEVEL //Keep in mind with gas damage levels, you can set these to be negative, if you want someone to heal, instead.
 	var/cold_level_2_damage = COLD_GAS_DAMAGE_LEVEL_2
 	var/cold_level_3_damage = COLD_GAS_DAMAGE_LEVEL_3
 	var/cold_damage_type = BURN
 
 	var/hot_message = "your face burning and a searing heat"
-	var/heat_level_1_threshold = 360
+	var/heat_level_threshold = 360
 	var/heat_level_2_threshold = 400
 	var/heat_level_3_threshold = 1000
-	var/heat_level_1_damage = HEAT_GAS_DAMAGE_LEVEL_1
+	var/heat_level_damage = HEAT_GAS_DAMAGE_LEVEL
 	var/heat_level_2_damage = HEAT_GAS_DAMAGE_LEVEL_2
 	var/heat_level_3_damage = HEAT_GAS_DAMAGE_LEVEL_3
 	var/heat_damage_type = BURN
@@ -307,21 +307,21 @@
 			H.apply_damage_type(cold_level_3_damage*cold_modifier, cold_damage_type)
 		if(breath_temperature > cold_level_3_threshold && breath_temperature < cold_level_2_threshold)
 			H.apply_damage_type(cold_level_2_damage*cold_modifier, cold_damage_type)
-		if(breath_temperature > cold_level_2_threshold && breath_temperature < cold_level_1_threshold)
-			H.apply_damage_type(cold_level_1_damage*cold_modifier, cold_damage_type)
-		if(breath_temperature < cold_level_1_threshold)
+		if(breath_temperature > cold_level_2_threshold && breath_temperature < cold_level_threshold)
+			H.apply_damage_type(cold_level_damage*cold_modifier, cold_damage_type)
+		if(breath_temperature < cold_level_threshold)
 			if(prob(20))
 				to_chat(H, "<span class='warning'>You feel [cold_message] in your [name]!</span>")
 
 	if(!H.has_trait(TRAIT_RESISTHEAT)) // HEAT DAMAGE
 		var/heat_modifier = H.dna.species.heatmod
-		if(breath_temperature > heat_level_1_threshold && breath_temperature < heat_level_2_threshold)
-			H.apply_damage_type(heat_level_1_damage*heat_modifier, heat_damage_type)
+		if(breath_temperature > heat_level_threshold && breath_temperature < heat_level_2_threshold)
+			H.apply_damage_type(heat_level_damage*heat_modifier, heat_damage_type)
 		if(breath_temperature > heat_level_2_threshold && breath_temperature < heat_level_3_threshold)
 			H.apply_damage_type(heat_level_2_damage*heat_modifier, heat_damage_type)
 		if(breath_temperature > heat_level_3_threshold)
 			H.apply_damage_type(heat_level_3_damage*heat_modifier, heat_damage_type)
-		if(breath_temperature > heat_level_1_threshold)
+		if(breath_temperature > heat_level_threshold)
 			if(prob(20))
 				to_chat(H, "<span class='warning'>You feel [hot_message] in your [name]!</span>")
 
@@ -359,6 +359,6 @@
 	safe_toxins_max = 20
 	safe_co2_max = 20
 
-	cold_level_1_threshold = 200
+	cold_level_threshold = 200
 	cold_level_2_threshold = 140
 	cold_level_3_threshold = 100

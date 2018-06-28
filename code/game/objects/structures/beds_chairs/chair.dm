@@ -53,7 +53,7 @@
 
 /obj/structure/chair/deconstruct()
 	// If we have materials, and don't have the NOCONSTRUCT flag
-	if(buildstacktype && (!(flags_1 & NODECONSTRUCT_1)))
+	if(buildstacktype && (!(flags & NODECONSTRUCT)))
 		new buildstacktype(loc,buildstackamount)
 	..()
 
@@ -71,7 +71,7 @@
 	qdel(src)
 
 /obj/structure/chair/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/wrench) && !(flags_1&NODECONSTRUCT_1))
+	if(istype(W, /obj/item/wrench) && !(flags&NODECONSTRUCT))
 		W.play_tool_sound(src)
 		deconstruct()
 	else if(istype(W, /obj/item/assembly/shock_kit))
@@ -224,7 +224,7 @@
 /obj/structure/chair/MouseDrop(over_object, src_location, over_location)
 	. = ..()
 	if(over_object == usr && Adjacent(usr))
-		if(!item_chair || !usr.can_hold_items() || has_buckled_mobs() || src.flags_1 & NODECONSTRUCT_1)
+		if(!item_chair || !usr.can_hold_items() || has_buckled_mobs() || src.flags & NODECONSTRUCT)
 			return
 		if(!usr.canUseTopic(src, BE_CLOSE, ismonkey(usr)))
 			return
@@ -276,7 +276,7 @@
 		if(istype(A, /obj/structure/chair))
 			to_chat(user, "<span class='danger'>There is already a chair here.</span>")
 			return
-		if(A.density && !(A.flags_1 & ON_BORDER_1))
+		if(A.density && !(A.flags & ON_BORDER))
 			to_chat(user, "<span class='danger'>There is already something here.</span>")
 			return
 

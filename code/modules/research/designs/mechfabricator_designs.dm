@@ -476,11 +476,11 @@
 	category = list("Phazon")
 
 //Exosuit Equipment
-/datum/design/mech_hydraulic_clamp
-	name = "Exosuit Engineering Equipment (Hydraulic Clamp)"
-	id = "mech_hydraulic_clamp"
+/datum/design/mech_hydraulic_CLAMP
+	name = "Exosuit Engineering Equipment (Hydraulic CLAMP)"
+	id = "mech_hydraulic_CLAMP"
 	build_type = MECHFAB
-	build_path = /obj/item/mecha_parts/mecha_equipment/hydraulic_clamp
+	build_path = /obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP
 	materials = list(MAT_METAL=10000)
 	construction_time = 100
 	category = list("Exosuit Equipment")

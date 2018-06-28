@@ -32,10 +32,10 @@
 
 #define CLAMP(CLVALUE,CLMIN,CLMAX) ( max( (CLMIN), min((CLVALUE), (CLMAX)) ) )
 
-// Similar to clamp but the bottom rolls around to the top and vice versa. min is inclusive, max is exclusive
+// Similar to CLAMP but the bottom rolls around to the top and vice versa. min is inclusive, max is exclusive
 #define WRAP(val, min, max) ( min == max ? min : (val) - (round(((val) - (min))/((max) - (min))) * ((max) - (min))) )
 
-// Real modulus that handles decimals
+// Real MODULUS that handles decimals
 #define MODULUS(x, y) ( (x) - (y) * round((x) / (y)) )
 
 // Tangent

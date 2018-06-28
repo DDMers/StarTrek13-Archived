@@ -15,7 +15,7 @@
 	power_equip = FALSE
 	power_light = FALSE
 	outdoors = TRUE
-	flags_1 = NONE
+	flags = NONE
 	ambientsounds = MINING
 
 /area/mine/unexplored
@@ -29,7 +29,7 @@
 	power_equip = FALSE
 	power_light = FALSE
 	outdoors = TRUE
-	flags_1 = NONE
+	flags = NONE
 	ambientsounds = MINING
 
 /area/mine/lobby
@@ -81,7 +81,7 @@
 /area/lavaland
 	icon_state = "mining"
 	has_gravity = STANDARD_GRAVITY
-	flags_1 = NONE
+	flags = NONE
 
 /area/lavaland/surface
 	name = "Lavaland"

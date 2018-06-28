@@ -115,7 +115,7 @@
 	if(user.zone_selected != BODY_ZONE_HEAD)
 		return ..()
 
-	if((C.head && (C.head.flags_cover & HEADCOVERSEYES)) || (C.wear_mask && (C.wear_mask.flags_cover & MASKCOVERSEYES)) || (C.glasses && (C.glasses.flags_1 & GLASSESCOVERSEYES)))
+	if((C.head && (C.head.flags_cover & HEADCOVERSEYES)) || (C.wear_mask && (C.wear_mask.flags_cover & MASKCOVERSEYES)) || (C.glasses && (C.glasses.flags & GLASSESCOVERSEYES)))
 		to_chat(user, "<span class='warning'>You're going to need to remove [C.p_their()] head cover first!</span>")
 		return
 
