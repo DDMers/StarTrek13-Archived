@@ -364,6 +364,9 @@
 	var/mob/living/carbon/human/crewman
 	icon_state = "shields"
 
+/obj/structure/fluff/helm/desk/functional/romulan
+	icon_state = "rom-shields"
+
 /obj/structure/fluff/helm/desk/functional/alt
 	icon_state = "shields_alt"
 	density = 0

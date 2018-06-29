@@ -65,7 +65,7 @@ var/global/list/global_ship_list = list()
 	jumpgate_position = 4
 
 /area/overmap/system/z4
-	name = "Consil" //Test
+	name = "Neutral Zone (Romulan)" //Test
 	jumpgate_position = 5
 
 /area/overmap/system/z5
@@ -335,10 +335,22 @@ var/global/list/global_ship_list = list()
 //	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
-	max_health = 30000
+	max_health = 40000
 	pixel_z = -128
 	pixel_w = -120
 
+/obj/structure/overmap/ship/romulan
+	name = "Decius"
+	icon = 'StarTrek13/icons/trek/large_ships/dderidex.dmi'
+	icon_state = "dderidex"
+	spawn_name = "romulan_spawn"
+//	pixel_x = -100
+//	pixel_y = -100
+//	var/datum/shipsystem_controller/SC
+	warp_capable = TRUE
+	max_health = 35000
+	pixel_z = -128
+	pixel_w = -120
 
 /obj/structure/overmap/ship/cruiser
 	name = "USS Excelsior"

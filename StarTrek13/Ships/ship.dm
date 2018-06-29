@@ -697,7 +697,11 @@
 //Starfleet
 
 /area/ship/federation/starbase
-	name = "starbase 1"
+	name = "Starbase 1"
+	icon_state = "ship"
+
+/area/ship/romulan
+	name = "Decius"
 	icon_state = "ship"
 
 /area/ship/federation/entax
@@ -776,6 +780,10 @@
 	var/ambience = 'StarTrek13/sound/borg/machines/tng_bridge_2.ogg'
 	var/cooldown3 = 150 //15
 	var/saved_time2 = 0
+
+/obj/structure/fluff/helm/desk/tactical/romulan
+	name = "tactical"
+	icon_state = "rom_tactical"
 
 /obj/structure/fluff/helm/desk/tactical/ex_act(severity)
 	return 0

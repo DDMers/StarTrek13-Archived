@@ -15,6 +15,11 @@
 	anchored = 1
 	var/obj/structure/overmap/target
 
+/obj/structure/weapons_console/romulan
+	name = "Tactical console"
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "rom-weapons"
+
 /obj/structure/weapons_console/alt
 	icon_state = "weapons_alt"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
@@ -51,23 +56,25 @@
 			to_chat(L, "<span class='notice'>Now targeting: [SS] subsystem.</span>")
 			our_ship.target_subsystem = SS
 		if(href_list["flush"])
-			if(!subsystem.failed)
-				if(subsystem.charge > 3000)
-					to_chat(L, "<span class='notice'>Flushing weapons system.</span>")
-					to_chat(our_ship.pilot, "<span class='notice'>Reycling weapons ./--</span>")
-					subsystem.heat -= 20
-					subsystem.charge = 0
-					return
-				else
-					to_chat(L, "<span class='notice'>You cannot do this now.</span>")
-
+			to_chat(L, "Target reset.")
+			target = null
 	else
+		target = null
 		to_chat(user, "Move closer to [src]")
 
 
 /obj/structure/weapons_console/attack_hand(mob/user)
 	if(winget(user,"Weapons control","is-visible") == "false")
 		target = null
+	if(!target)
+		var/list/L = list()
+		for(var/obj/structure/overmap/OM in get_area(our_ship))
+			if(istype(OM, /obj/structure/overmap))
+				L += OM
+		var/obj/structure/overmap/V = input("What ship shall we analyze?", "Weapons console)", null) in L
+		target = V
+		if(!V)
+			return
 	if(user in orange(1, src))
 		for(var/obj/structure/overmap/ship/s in theicons)
 			qdel(s)
@@ -81,16 +88,13 @@
 		heat = subsystem.heat
 		charge = subsystem.charge
 		s += "<B>CONTROL PANEL</B><BR>"
-		s += "<A href='?src=\ref[src];flush=1;clicker=\ref[user]'>Reycle weapon system (Recycles the weapons to cool them)</A><BR>"
+		s += "<A href='?src=\ref[src];flush=1;clicker=\ref[user]'>Reset Target</A><BR>"
 		s += "<B>STATISTICS</B><BR>"
 		s += "[our_ship] weapons subsystem:<BR>"
 		s += "Heat: [heat] |"
 		s += " Weapon power (Gigawatts): [damage] |"
 		s += " Weapon charge: [charge] / [subsystem.max_charge]<BR>"
 		var/ss = ""
-		if(!target)
-			var/obj/structure/overmap/V = input("What ship shall we analyze?", "Weapons console)", null) in our_ship.interactables_near_ship
-			target = V
 		if(target)
 			s += "<B> Target: [target] | Target Subsystem: [our_ship.target_subsystem]</B><BR>"
 		var/thing = "Inactive"

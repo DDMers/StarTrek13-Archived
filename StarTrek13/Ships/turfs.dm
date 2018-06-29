@@ -278,6 +278,12 @@
 	density = 1
 	blocks_air = 1
 
+/turf/open/bridge_overlay/romulan
+	icon = 'StarTrek13/icons/trek/romulan_bridge_overlay.PNG'
+	name = "floor"
+	density = 1
+	blocks_air = 1
+
 /turf/open/cargobay_overlay
 	icon = 'StarTrek13/icons/trek/cargobay_overlay.PNG'
 	name = "floor"

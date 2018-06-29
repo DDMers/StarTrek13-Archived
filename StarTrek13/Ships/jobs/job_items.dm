@@ -15,3 +15,13 @@
 	item_state = "bl_suit"
 	item_color = "independant2"
 	armor = list(melee = 10, bullet = 5, laser = 0,energy = 5, bomb = 5, bio = 0, rad = 0, fire = 0, acid = 0)
+
+/obj/item/clothing/under/romulan
+	name = "romulan uniform"
+	desc = "Worn by the rank and file members of the romulan military"
+	icon = 'StarTrek13/icons/trek/uniforms.dmi'
+	alternate_worn_icon = 'StarTrek13/icons/trek/uniform.dmi'
+	icon_state = "romulan"
+	item_state = "bl_suit"
+	item_color = "romulan"
+	can_adjust = FALSE
