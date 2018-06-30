@@ -143,7 +143,7 @@
 "cM" = (/turf/open/floor/plating/asteroid/basalt/lava_land_surface,/area/mine/laborcamp)
 "cN" = (/turf/closed/wall,/area/mine/eva)
 "cO" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/plating,/area/mine/eva)
-"cP" = (/obj/structure/table,/obj/item/pickaxe,/obj/item/device/gps/mining,/obj/item/device/gps/mining,/obj/item/device/gps/mining,/obj/item/device/gps/mining,/turf/open/floor/plasteel/purple/side{dir = 9},/area/mine/eva)
+"cP" = (/obj/structure/table,/obj/item/pickaxe,/obj/item/gps/mining,/obj/item/gps/mining,/obj/item/gps/mining,/obj/item/gps/mining,/turf/open/floor/plasteel/purple/side{dir = 9},/area/mine/eva)
 "cQ" = (/obj/machinery/suit_storage_unit/mining,/turf/open/floor/plasteel/brown{dir = 1},/area/mine/eva)
 "cR" = (/obj/machinery/suit_storage_unit/mining,/turf/open/floor/plasteel/purple/side{dir = 5},/area/mine/eva)
 "cS" = (/turf/closed/wall,/area/mine/production)
@@ -161,12 +161,12 @@
 "de" = (/obj/structure/tank_dispenser/oxygen,/turf/open/floor/plasteel/purple/corner,/area/mine/eva)
 "df" = (/obj/machinery/light/small{dir = 1},/turf/open/floor/plasteel/purple/corner{dir = 8},/area/mine/eva)
 "dg" = (/obj/structure/extinguisher_cabinet{pixel_x = -5; pixel_y = 30},/obj/machinery/shower{dir = 8},/turf/open/floor/plasteel/purple/corner,/area/mine/eva)
-"dh" = (/obj/structure/sign/securearea{desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'."; name = "KEEP CLEAR: DOCKING AREA"},/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/plating,/area/mine/production)
-"di" = (/obj/item/device/radio/beacon,/turf/open/floor/plasteel/purple/corner{dir = 8},/area/mine/production)
+"dh" = (/obj/structure/sign/warning/securearea{desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'."; name = "KEEP CLEAR: DOCKING AREA"},/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/plating,/area/mine/production)
+"di" = (/obj/item/beacon,/turf/open/floor/plasteel/purple/corner{dir = 8},/area/mine/production)
 "dj" = (/turf/open/floor/plasteel,/area/mine/production)
 "dk" = (/obj/structure/cable{icon_state = "2-4"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 6},/turf/open/floor/plasteel,/area/mine/production)
 "dl" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/plasteel/brown{dir = 4},/area/mine/production)
-"dm" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/door/airlock/glass_mining{name = "Mining Station EVA"; req_access_txt = "54"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel,/area/mine/eva)
+"dm" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/door/airlock/mining/glass{name = "Mining Station EVA"; req_access_txt = "54"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel,/area/mine/eva)
 "dn" = (/obj/structure/cable{icon_state = "2-8"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/plasteel/brown{dir = 8},/area/mine/eva)
 "do" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/structure/cable{icon_state = "2-8"},/turf/open/floor/plasteel,/area/mine/eva)
 "dp" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 9},/turf/open/floor/plasteel,/area/mine/eva)
@@ -176,7 +176,7 @@
 "dt" = (/turf/open/floor/plasteel/brown{dir = 4},/area/mine/eva)
 "du" = (/obj/machinery/door/airlock/external{cyclelinkeddir = 8; glass = 1; name = "Mining External Airlock"; opacity = 0; req_access_txt = "54"},/turf/open/floor/plasteel,/area/mine/eva)
 "dv" = (/turf/open/lava/smooth/lava_land_surface,/area/mine/laborcamp/security)
-"dw" = (/obj/docking_port/stationary{area_type = /area/lavaland/surface/outdoors; baseturf_type = /turf/open/lava/smooth/lava_land_surface; dir = 8; dwidth = 3; height = 5; id = "mining_away"; name = "lavaland mine"; turf_type = /turf/open/floor/plating/asteroid/basalt/lava_land_surface; width = 7},/turf/open/floor/plating/asteroid/basalt/lava_land_surface,/area/lavaland/surface/outdoors)
+"dw" = (/obj/docking_port/stationary{area_type = /area/lavaland/surface/outdoors;dir = 8;dwidth = 3;height = 5;id = "mining_away";name = "lavaland mine";width = 7},/turf/open/floor/plating/asteroid/basalt/lava_land_surface,/area/lavaland/surface/outdoors)
 "dx" = (/obj/machinery/door/airlock/external{cyclelinkeddir = 4; glass = 1; name = "Mining Shuttle Airlock"; opacity = 0; req_access_txt = "0"},/turf/open/floor/plasteel,/area/mine/production)
 "dy" = (/obj/machinery/door/airlock/external{cyclelinkeddir = 8; glass = 1; name = "Mining Shuttle Airlock"; opacity = 0; req_access_txt = "0"},/turf/open/floor/plasteel,/area/mine/production)
 "dz" = (/turf/open/floor/plasteel/brown{dir = 8},/area/mine/production)
@@ -200,8 +200,8 @@
 "dR" = (/obj/machinery/light/small{dir = 1},/turf/open/floor/plating,/area/mine/production)
 "dS" = (/obj/machinery/space_heater,/turf/open/floor/plating,/area/mine/production)
 "dT" = (/turf/closed/wall,/area/mine/living_quarters)
-"dU" = (/obj/structure/sign/securearea{desc = "A warning sign which reads 'HIGH VOLTAGE'"; icon_state = "shock"; name = "HIGH VOLTAGE"},/turf/closed/wall,/area/mine/living_quarters)
-"dV" = (/obj/item/device/radio/intercom{dir = 8; name = "Station Intercom (General)"; pixel_x = -28},/turf/open/floor/plasteel/brown{dir = 8},/area/mine/production)
+"dU" = (/obj/structure/sign/warning/securearea{desc = "A warning sign which reads 'HIGH VOLTAGE'"; icon_state = "shock"; name = "HIGH VOLTAGE"},/turf/closed/wall,/area/mine/living_quarters)
+"dV" = (/obj/item/radio/intercom{dir = 8; name = "Station Intercom (General)"; pixel_x = -28},/turf/open/floor/plasteel/brown{dir = 8},/area/mine/production)
 "dW" = (/obj/structure/extinguisher_cabinet{pixel_x = 30},/turf/open/floor/plasteel/brown{dir = 4},/area/mine/production)
 "dX" = (/turf/closed/wall/r_wall,/area/mine/living_quarters)
 "dY" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/plating,/area/mine/living_quarters)
@@ -232,7 +232,7 @@
 "ex" = (/obj/structure/cable{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 6},/turf/open/floor/plating,/area/mine/living_quarters)
 "ey" = (/obj/machinery/meter,/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plating,/area/mine/living_quarters)
 "ez" = (/obj/machinery/atmospherics/components/unary/tank/air{dir = 8},/turf/open/floor/plating,/area/mine/living_quarters)
-"eA" = (/obj/item/device/tricorder,/obj/structure/table,/turf/open/floor/plasteel,/area/mine/living_quarters)
+"eA" = (/obj/item/tricorder,/obj/structure/table,/turf/open/floor/plasteel,/area/mine/living_quarters)
 "eB" = (/obj/machinery/trek/transporter,/turf/open/floor/plasteel,/area/mine/living_quarters)
 "eC" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/plasteel,/area/mine/living_quarters)
 "eD" = (/obj/machinery/mineral/equipment_vendor,/turf/open/floor/plasteel/purple/side{dir = 4},/area/mine/production)
@@ -243,7 +243,7 @@
 "eI" = (/obj/structure/cable{icon_state = "2-8"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 6},/turf/open/floor/plasteel/dark,/area/mine/living_quarters)
 "eJ" = (/obj/machinery/light_switch{pixel_y = -25},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 9},/turf/open/floor/circuit,/area/mine/living_quarters)
 "eK" = (/obj/machinery/camera{c_tag = "Communications Relay"; dir = 8; network = list("MINE")},/turf/open/floor/circuit,/area/mine/living_quarters)
-"eL" = (/obj/structure/closet/crate/freezer,/obj/item/reagent_containers/blood/empty,/obj/item/reagent_containers/blood/empty{pixel_x = -3; pixel_y = -3},/obj/item/reagent_containers/blood/AMinus,/obj/item/reagent_containers/blood/BMinus{pixel_x = -4; pixel_y = 4},/obj/item/reagent_containers/blood/BPlus{pixel_x = 1; pixel_y = 2},/obj/item/reagent_containers/blood/OMinus,/obj/item/reagent_containers/blood/OPlus{pixel_x = -2; pixel_y = -1},/obj/item/reagent_containers/blood/random,/obj/item/reagent_containers/blood/random,/obj/item/reagent_containers/blood/random,/obj/machinery/camera{c_tag = "Sleeper Room"; dir = 1; network = list("MINE")},/turf/open/floor/plasteel/white,/area/mine/living_quarters)
+"eL" = (/obj/structure/closet/crate/freezer,/obj/item/reagent_containers/blood,/obj/item/reagent_containers/blood/AMinus,/obj/item/reagent_containers/blood/BMinus{pixel_x = -4; pixel_y = 4},/obj/item/reagent_containers/blood/BPlus{pixel_x = 1; pixel_y = 2},/obj/item/reagent_containers/blood/OMinus,/obj/item/reagent_containers/blood/OPlus{pixel_x = -2; pixel_y = -1},/obj/item/reagent_containers/blood/random,/obj/item/reagent_containers/blood/random,/obj/item/reagent_containers/blood/random,/obj/machinery/camera{c_tag = "Sleeper Room"; dir = 1; network = list("MINE")},/turf/open/floor/plasteel/white,/area/mine/living_quarters)
 "eM" = (/turf/open/floor/plasteel/white,/area/mine/living_quarters)
 "eN" = (/obj/machinery/atmospherics/components/unary/vent_pump/on,/turf/open/floor/plasteel/white,/area/mine/living_quarters)
 "eO" = (/obj/structure/table,/obj/item/storage/firstaid/regular,/turf/open/floor/plasteel/whiteblue/side{dir = 4},/area/mine/living_quarters)
@@ -251,19 +251,17 @@
 "eQ" = (/obj/machinery/power/port_gen/pacman{anchored = 1},/obj/structure/cable{icon_state = "0-8"},/turf/open/floor/plating,/area/mine/living_quarters)
 "eR" = (/obj/structure/cable{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/manifold/supply/hidden{dir = 8},/turf/open/floor/plating,/area/mine/living_quarters)
 "eS" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plating,/area/mine/living_quarters)
-"eT" = (/turf/open/floor/plasteel,/area/mine/living_quarters)
 "eU" = (/turf/open/floor/plasteel/purple/side{dir = 8},/area/mine/production)
 "eV" = (/obj/effect/baseturf_helper/lava_land/surface,/turf/open/floor/plasteel,/area/mine/production)
 "eW" = (/obj/machinery/light{dir = 4},/obj/machinery/camera{c_tag = "Shuttle Docking Foyer"; dir = 8; network = list("MINE")},/obj/machinery/newscaster{pixel_x = 30; pixel_y = 1},/turf/open/floor/plasteel/brown{dir = 4},/area/mine/production)
 "eX" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/effect/turf_decal/bot,/turf/open/floor/plasteel,/area/mine/production)
 "eY" = (/obj/machinery/atmospherics/components/unary/vent_pump/on,/turf/open/floor/plasteel,/area/mine/production)
-"eZ" = (/obj/machinery/camera{c_tag = "Processing Area Room"; dir = 8; network = list("MINE")},/obj/item/device/radio/intercom{dir = 8; name = "Station Intercom (General)"; pixel_x = 28},/turf/open/floor/plasteel/brown{dir = 4},/area/mine/production)
+"eZ" = (/obj/machinery/camera{c_tag = "Processing Area Room"; dir = 8; network = list("MINE")},/obj/item/radio/intercom{dir = 8; name = "Station Intercom (General)"; pixel_x = 28},/turf/open/floor/plasteel/brown{dir = 4},/area/mine/production)
 "fa" = (/obj/machinery/mineral/unloading_machine{dir = 1; icon_state = "unloader-corner"; input_dir = 1; output_dir = 2},/obj/effect/turf_decal/stripes/line{dir = 9},/turf/open/floor/plating,/area/mine/production)
 "fb" = (/obj/machinery/door/airlock/maintenance{name = "Mining Station Communications"; req_access_txt = "48"},/obj/structure/cable{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/supply/hidden,/turf/open/floor/plasteel,/area/mine/living_quarters)
 "fc" = (/obj/effect/spawner/structure/window,/turf/open/floor/plating,/area/mine/living_quarters)
-"fd" = (/obj/machinery/door/airlock/glass_medical{id_tag = null; name = "Infirmary"; req_access_txt = "0"},/obj/machinery/atmospherics/pipe/simple/supply/hidden,/turf/open/floor/plasteel/white,/area/mine/living_quarters)
+"fd" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden,/turf/open/floor/plasteel/white,/area/mine/living_quarters)
 "fe" = (/obj/structure/cable{icon_state = "1-2"},/obj/machinery/door/airlock/maintenance{name = "Mining Station Maintenance"; req_access_txt = "48"},/obj/structure/cable{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/supply/hidden,/turf/open/floor/plating,/area/mine/living_quarters)
-"ff" = (/obj/machinery/door/airlock/glass_mining{name = "transporter"},/turf/open/floor/plasteel,/area/mine/living_quarters)
 "fg" = (/turf/open/floor/plasteel/brown/corner{dir = 1},/area/mine/production)
 "fh" = (/turf/open/floor/plasteel/purple/corner,/area/mine/production)
 "fi" = (/obj/effect/spawner/structure/window,/turf/open/floor/plating,/area/mine/production)
@@ -282,7 +280,7 @@
 "fv" = (/obj/machinery/camera{c_tag = "Crew Area Hallway East"; network = list("MINE")},/turf/open/floor/plasteel/purple/corner{dir = 1},/area/mine/living_quarters)
 "fw" = (/obj/structure/overmap/lavaland,/turf/open/floor/plasteel,/area/mine/living_quarters)
 "fx" = (/turf/open/floor/plasteel/brown{dir = 1},/area/mine/living_quarters)
-"fy" = (/obj/machinery/door/airlock/glass_mining{name = "Processing Area"; req_access_txt = "48"},/turf/open/floor/plasteel,/area/mine/living_quarters)
+"fy" = (/turf/open/floor/plasteel,/area/mine/living_quarters)
 "fz" = (/obj/machinery/light{dir = 4},/turf/open/floor/plasteel/brown{dir = 4},/area/mine/production)
 "fA" = (/obj/machinery/mineral/processing_unit_console,/turf/closed/wall,/area/mine/production)
 "fB" = (/obj/machinery/mineral/processing_unit{dir = 1; output_dir = 2},/obj/effect/turf_decal/stripes/line{dir = 9},/turf/open/floor/plating,/area/mine/production)
@@ -295,15 +293,14 @@
 "fI" = (/obj/structure/cable{icon_state = "1-4"},/obj/structure/cable{icon_state = "1-8"},/obj/machinery/atmospherics/pipe/manifold/supply/hidden,/turf/open/floor/plasteel,/area/mine/living_quarters)
 "fJ" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/manifold/supply/hidden{dir = 1},/turf/open/floor/plasteel,/area/mine/living_quarters)
 "fK" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/plasteel/brown{dir = 4},/area/mine/living_quarters)
-"fL" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/door/airlock/glass_mining{name = "Mining Station Bridge"; req_access_txt = "48"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel,/area/mine/living_quarters)
+"fL" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel,/area/mine/living_quarters)
 "fM" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/plasteel/brown{dir = 8},/area/mine/living_quarters)
 "fN" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/plasteel,/area/mine/production)
-"fO" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/door/airlock/glass_mining{name = "Mining Station Bridge"; req_access_txt = "48"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel,/area/mine/production)
+"fO" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel,/area/mine/production)
 "fP" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel/brown{dir = 8},/area/mine/production)
 "fQ" = (/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden,/obj/structure/cable{icon_state = "1-8"},/turf/open/floor/plasteel,/area/mine/production)
-"fR" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel,/area/mine/production)
 "fS" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel/brown{dir = 4},/area/mine/production)
-"fT" = (/obj/machinery/door/airlock/glass_mining{name = "Processing Area"; req_access_txt = "48"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel,/area/mine/production)
+"fT" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel,/area/mine/production)
 "fU" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel/brown{dir = 8},/area/mine/production)
 "fV" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel/purple/corner,/area/mine/production)
 "fW" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 9},/turf/open/floor/plasteel/brown,/area/mine/production)
@@ -341,13 +338,13 @@
 "gC" = (/obj/structure/table,/obj/machinery/microwave{pixel_y = 6},/turf/open/floor/plasteel/bar,/area/mine/living_quarters)
 "gD" = (/obj/structure/ore_box,/turf/open/floor/plasteel/purple/side{dir = 8},/area/mine/living_quarters)
 "gE" = (/obj/machinery/atmospherics/components/unary/vent_pump/on{dir = 1},/turf/open/floor/plasteel,/area/mine/living_quarters)
-"gF" = (/obj/item/device/radio/intercom{dir = 8; name = "Station Intercom (General)"; pixel_x = 28},/turf/open/floor/plasteel/purple/side{dir = 4},/area/mine/living_quarters)
+"gF" = (/obj/item/radio/intercom{dir = 8; name = "Station Intercom (General)"; pixel_x = 28},/turf/open/floor/plasteel/purple/side{dir = 4},/area/mine/living_quarters)
 "gG" = (/obj/structure/table,/turf/open/floor/carpet,/area/mine/living_quarters)
 "gH" = (/obj/machinery/light/small{dir = 4},/obj/machinery/button/door{id = "miningdorm1"; name = "Door Bolt Control"; normaldoorcontrol = 1; pixel_x = 25; req_access_txt = "0"; specialfunctions = 4},/turf/open/floor/carpet,/area/mine/living_quarters)
 "gI" = (/obj/machinery/camera{c_tag = "Dormitories"; dir = 4; network = list("MINE")},/turf/open/floor/plasteel/purple/corner{dir = 1},/area/mine/living_quarters)
 "gJ" = (/obj/structure/chair,/obj/machinery/atmospherics/pipe/simple/supply/hidden,/turf/open/floor/plasteel/bar,/area/mine/living_quarters)
 "gK" = (/obj/structure/table,/obj/machinery/reagentgrinder,/turf/open/floor/plasteel/bar,/area/mine/living_quarters)
-"gL" = (/obj/docking_port/stationary{area_type = /area/lavaland/surface/outdoors; baseturf_type = /turf/open/lava/smooth/lava_land_surface; dir = 2; dwidth = 11; height = 22; id = "whiteship_lavaland"; name = "lavaland wastes"; turf_type = /turf/open/floor/plating/asteroid/basalt/lava_land_surface; width = 35},/turf/open/floor/plating/asteroid/basalt/lava_land_surface,/area/lavaland/surface/outdoors)
+"gL" = (/obj/docking_port/stationary{area_type = /area/lavaland/surface/outdoors;dir = 2;dwidth = 11;height = 22;id = "whiteship_lavaland";name = "lavaland wastes";width = 35},/turf/open/floor/plating/asteroid/basalt/lava_land_surface,/area/lavaland/surface/outdoors)
 "gM" = (/obj/structure/ore_box,/turf/open/floor/plasteel/brown{dir = 10},/area/mine/living_quarters)
 "gN" = (/obj/machinery/recharge_station,/turf/open/floor/plasteel/purple/side,/area/mine/living_quarters)
 "gO" = (/obj/structure/closet/secure_closet/miner,/turf/open/floor/plasteel/brown,/area/mine/living_quarters)
@@ -359,7 +356,7 @@
 "gU" = (/obj/machinery/atmospherics/components/unary/vent_pump/on{dir = 8},/turf/open/floor/plasteel/bar,/area/mine/living_quarters)
 "gV" = (/obj/structure/table,/obj/item/storage/box/donkpockets,/turf/open/floor/plasteel/bar,/area/mine/living_quarters)
 "gW" = (/obj/machinery/door/airlock{id_tag = "miningdorm2"; name = "Room 2"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/open/floor/plasteel,/area/mine/living_quarters)
-"gX" = (/obj/item/device/radio/intercom{dir = 8; name = "Station Intercom (General)"; pixel_x = -28},/turf/open/floor/plasteel/bar,/area/mine/living_quarters)
+"gX" = (/obj/item/radio/intercom{dir = 8; name = "Station Intercom (General)"; pixel_x = -28},/turf/open/floor/plasteel/bar,/area/mine/living_quarters)
 "gY" = (/obj/machinery/camera{c_tag = "Crew Area"; dir = 1; network = list("MINE")},/obj/machinery/computer/security/telescreen/entertainment{pixel_y = -32},/obj/machinery/light,/turf/open/floor/plasteel/bar,/area/mine/living_quarters)
 "gZ" = (/obj/machinery/airalarm{dir = 1; pixel_y = -22},/turf/open/floor/plasteel/bar,/area/mine/living_quarters)
 "ha" = (/obj/structure/sink{dir = 4; pixel_x = 11},/turf/open/floor/plasteel/bar,/area/mine/living_quarters)
@@ -598,14 +595,14 @@ bpbpbpbpbpbpbpbpbpbpcKcKbpcKcKbpbpbpbpcKdvdvdvdvcJcJcJcJcJcJbpbpbpbpbpbpbpbpbcbp
 bpbpbpbpbpaDaDaDbpbpaDcKbpaDcKbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDazbcaDaDaDaDazdTdTdUdTdTdTdTbpbpbpaDaDaDaDaDaDaDbpaDcSdVdMdWcScScScScScScScScSbcaDaDbpbpbpaDaDaDaDaDaDaDaDaDaDbccHcHcHcHcHbcaDaDaDaDaDaDbcaDaDaDaDaDaDbccHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
 bpbpbpbpbpaDaDbpbpbpbpbpbpbpbpbpbpbpcLbpbpbpbpbpbpbpbpdXdXdXdXdXdXdXdTdYdYdTdTdZeaebeceddTeeeeeedTaDaDaDaDaDbpbpbpcSefegdCehcSeiejekelemencSaDbpbpbpbpbpbcaDaDaDbpaDaDaDaDaDaDbccHcHcHcHcHbcbcbcbcaDaDaDaDaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
 bpbpbpbpbpaDbpbpbpbpbpcKbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDdXeoepeqeresdXeteueuevdTewecexeyezdTeAeBeCdTbpbpaDaDbpbpbpbpcSdzdMdjeDcTeEdjdjdjeFeGcSaDbpbpbpbpbpbcaDaDbpbpaDbcbcaDaDaDbccHcHcHcHcHcHcHcHcHbcbcaDaDaDaDbcbccHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
-bpbpbpbpbpbpbpbpaDaDbpbpbpbpbpbpbpbpaDbcbcbpbpbpaDaDazdXeoeHeIeJeKdXeLeMeNeOdTePeQeReSezdTeTeTeTdTbpbpbpbpbpbpbpaDcSeUdMeVeWcSeXdjeYeZcSfacSbpbpbpbpbpbpbcbcaDbpbpaDbccHbcaDaDaDbccHcHcHcHcHcHcHcHcHbcaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
-bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDbpbcbcbcazbcbpaDaDaDbcdXdXdXfbdXdXdXdTfcfdfcdTdTdTfedTdTdTdTffdTdTbpbpbpaDaDaDaDcTcTfgdMdjfhfidOdjfjfkfiflcSbpbpbpbpbpbpbcbcaDbpbpaDbccHcHbcbcbccHcHcHcHcHcHcHcHcHcHbcaDaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
-bpbpbpbpbpbpbpbpbpbpbpbpbpaDbpbpbpaDbcbcbcaDaDaDaDaDaDdYeTfmfnfofpfqeTfmfrfofsftfmfufveTfwfmfxfodYdYdYdYcTcTcTcTcTdOdjdMdjdNfydzdjfjfzfAfBcSbpbpbpbpbpbpbcbcaDbpbpbpbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHbcaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
-bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbcaDaDbpbpaDaDdYfCfDfEfFfFfFfFfFfGfFfHfFfFfIfJfFfFfFfFfKfLfMfFfFfNfNfNdlfOfPfNfQfRfSfTfUfVfWfXfiflcSbpbpbpbpbpbcbcbcbpbpbpbpaDbcbcbcbccHcHcHcHcHcHcHcHcHcHcHcHbcaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
-bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDaDdYeTfYfZgagbeTeTeTeTeTgceTgbfYfZgaeTeTeTgddYdYdYdYcTcTcTcTcTdLdjgedjdCfidLdNcSfififlcSaDbpbpbpbpbcbcbpbpbpbpbpbpbpbpbpbccHcHcHcHcHcHcHcHcHcHcHbcaDaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
+bpbpbpbpbpbpbpbpaDaDbpbpbpbpbpbpbpbpaDbcbcbpbpbpaDaDazdXeoeHeIeJeKdXeLeMeNeOdTePeQeReSezdTfyfyfydTbpbpbpbpbpbpbpaDcSeUdMeVeWcSeXdjeYeZcSfacSbpbpbpbpbpbpbcbcaDbpbpaDbccHbcaDaDaDbccHcHcHcHcHcHcHcHcHbcaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
+bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDbpbcbcbcazbcbpaDaDaDbcdXdXdXfbdXdXdXdTfcfdfcdTdTdTfedTdTdTdTfydTdTbpbpbpaDaDaDaDcTcTfgdMdjfhfidOdjfjfkfiflcSbpbpbpbpbpbpbcbcaDbpbpaDbccHcHbcbcbccHcHcHcHcHcHcHcHcHcHbcaDaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
+bpbpbpbpbpbpbpbpbpbpbpbpbpaDbpbpbpaDbcbcbcaDaDaDaDaDaDdYfyfmfnfofpfqfyfmfrfofsftfmfufvfyfwfmfxfodYdYdYdYcTcTcTcTcTdOdjdMdjdNfydzdjfjfzfAfBcSbpbpbpbpbpbpbcbcaDbpbpbpbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHbcaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
+bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbcaDaDbpbpaDaDdYfCfDfEfFfFfFfFfFfGfFfHfFfFfIfJfFfFfFfFfKfLfMfFfFfNfNfNdlfOfPfNfQfTfSfTfUfVfWfXfiflcSbpbpbpbpbpbcbcbcbpbpbpbpaDbcbcbcbccHcHcHcHcHcHcHcHcHcHcHcHbcaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
+bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDaDdYfyfYfZgagbfyfyfyfyfygcfygbfYfZgafyfyfygddYdYdYdYcTcTcTcTcTdLdjgedjdCfidLdNcSfififlcSaDbpbpbpbpbcbcbpbpbpbpbpbpbpbpbpbccHcHcHcHcHcHcHcHcHcHcHbcaDaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
 bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDbcdTdTdTgfdTdTdTdTdTdTgagcdTdTfcggfcdTdTdTdYaDaDaDaDaDaDaDaDcTcTghgigjgkcSdjglgmgngngocSaDaDbpbpbcbcbcbpbpbpbpbpbpbpbpaDbccHcHcHbcbcbcbcbccHcHcHbcaDaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
 bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDdYgpgqfrgrgsdTgtgugvgwgxdTgygzgAgzgBgCdYaDaDbpbpbpbpbpbpaDaDcScScScTcTcScTcScScScScScSaDaDaDbpbcbcbcbpbpbpbpbpbpbpaDaDbccHcHbcaDaDaDaDaDbcbcbcazaDaDaDaDaDaDbcbcbcbcbcbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
-bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDdYgDeTgEeTgFdTgGgHdTgIgcfcgzgzgJgzgzgKdYaDbpbpbpbpbpbpbpbpaDcHaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDbcbcaDaDbpbpbpbpaDaDaDaDbcbcaDaDaDaDaDaDaDaDaDaDaDgLaDaDaDaDaDaDaDaDaDaDbcbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
+bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDdYgDfygEfygFdTgGgHdTgIgcfcgzgzgJgzgzgKdYaDbpbpbpbpbpbpbpbpaDcHaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDbcbcaDaDbpbpbpbpaDaDaDaDbcbcaDaDaDaDaDaDaDaDaDaDaDgLaDaDaDaDaDaDaDaDaDaDbcbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
 bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDdYgMgNgOgPgQdTdTdTdTgagcfcgzgRgSgTgUgVdYaDbpbpbpbpbpbpbpbpbpcHbpbpbpbpaDaDaDaDaDaDaDaDaDaDaDaDaDaDbcaDaDaDaDbpaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDbcbccHcHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
 bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbcazdTdTdYdYdYdTdTgtgugWgwgxdTgXgzgYgZgzhadYaDbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl
 bpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbcbcbcaDaDaDaDbcdTgGhbdTfohcdTdTdTdTdTdTdTdTbcbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpbpaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDbccHcHcHcHcHcHcHcHcHcHcHcHcHcHclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclclcl

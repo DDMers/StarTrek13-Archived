@@ -27,8 +27,6 @@ require only minor tweaks.
 
 #define SPACERUIN_MAP_EDGE_PAD 15
 
-#define ZLEVEL_SPACEMIN 4
-#define ZLEVEL_SPACEMAX 14
 // traits
 // boolean - marks a level as having that property if present
 #define ZTRAIT_CENTCOM "CentCom"
@@ -65,6 +63,7 @@ require only minor tweaks.
 #define ZTRAITS_SPACE list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_SPACE_RUINS = TRUE)
 #define ZTRAITS_LAVALAND list(ZTRAIT_MINING = TRUE, ZTRAIT_LAVA_RUINS = TRUE, ZTRAIT_BOMBCAP_MULTIPLIER = 2)
 #define ZTRAITS_REEBE list(ZTRAIT_REEBE = TRUE, ZTRAIT_BOMBCAP_MULTIPLIER = 0.5)
+#define ZTRAITS_OVERMAP list(ZTRAIT_BOMBCAP_MULTIPLIER = 0.5)
 
 #define DL_NAME "name"
 #define DL_TRAITS "traits"
@@ -73,7 +72,17 @@ require only minor tweaks.
 // must correspond to _basemap.dm for things to work correctly
 #define DEFAULT_MAP_TRAITS list(\
     DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),\
-)
+    DECLARE_LEVEL("overmap", ZTRAITS_OVERMAP),\
+    DECLARE_LEVEL("one", ZTRAITS_SPACE),\
+    DECLARE_LEVEL("two", ZTRAITS_SPACE),\
+    DECLARE_LEVEL("three", ZTRAITS_SPACE),\
+    DECLARE_LEVEL("four", ZTRAITS_SPACE),\
+    DECLARE_LEVEL("five", ZTRAITS_SPACE),\
+    DECLARE_LEVEL("six", ZTRAITS_SPACE),\
+    DECLARE_LEVEL("seven", ZTRAITS_SPACE),\
+    DECLARE_LEVEL("eight", ZTRAITS_SPACE),\
+    DECLARE_LEVEL("nine", ZTRAITS_SPACE),\
+    )
 
 // Camera lock flags
 #define CAMERA_LOCK_STATION 1
@@ -86,7 +95,7 @@ require only minor tweaks.
 
 //Ruin Generation
 
-#define PLACEMENT_TRIES 100 //How many times we try to fit the ruin somewhere until giving up (really should just swap to some packing algo)
+#define PLACEMENT_TRIES 1 //How many times we try to fit the ruin somewhere until giving up (really should just swap to some packing algo)
 
 #define PLACE_DEFAULT "random"
 #define PLACE_SAME_Z "same"
