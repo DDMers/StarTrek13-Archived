@@ -9,7 +9,7 @@
 "i" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (NORTHEAST)"; icon_state = "lcars"; dir = 5},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "j" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHWEST)"; icon_state = "lcars2"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "k" = (/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"l" = (/obj/structure/fluff/helm/desk/tactical/romulan,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"l" = (/obj/structure/fluff/helm/desk/tactical,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "m" = (/obj/structure/fluff/helm/desk/functional/romulan,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "n" = (/obj/structure/weapons_console/romulan,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "o" = (/turf/open/bridge_overlay/romulan,/area/ship/romulan)
