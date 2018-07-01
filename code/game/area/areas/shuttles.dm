@@ -75,7 +75,7 @@
 /area/shuttle/arrival
 	name = "Arrival Shuttle"
 
-/area/shuttle/pod
+/area/shuttle/pod_1
 	name = "Escape Pod One"
 
 /area/shuttle/pod_2
