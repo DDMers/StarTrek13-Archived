@@ -4,110 +4,6 @@
 //	face_atom(A)//////
 
 //Remember: If your ship appears to have no damage, or won't charge, you probably didn't put physical phasers on the ship's map!
-
-
-//NOTE TO SELF:
-//Make destroy do something, otherwise it seriously glitches out the pilot!
-
-/area/ // fuck your idea of shoving everything into one file
-	var/current_overmap = "none" // current map an area is on.
-
-var/global/list/overmap_objects = list()
-var/global/list/global_ship_list = list()
-
-/area/overmap
-	name = "Teshan"
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
-	flags = NONE
-	requires_power = FALSE
-	var/jumpgate_position = 1 //Change me! whenever you add a new system, incriment this by 1!
-	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg','StarTrek13/sound/ambience/bsgtheme3.ogg','StarTrek13/sound/ambience/interstellar.ogg')
-
-/area/overmap/Entered(A)
-	set waitfor = FALSE
-	if(!isliving(A))
-		return
-
-	var/mob/living/L = A
-	if(!L.ckey)
-		return
-
-	// Ambience goes down here -- make sure to list each area separately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
-	if(L.client && !L.client.ambience_playing && L.client.prefs.toggles & SOUND_SHIP_AMBIENCE)
-		L.client.ambience_playing = 1
-
-	if(!(L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))
-		return //General ambience check is below the ship ambience so one can play without the other
-
-	if(prob(100))
-		var/sound = pick(ambientsounds)
-
-		if(!L.client.played)
-			SEND_SOUND(L, sound(sound, repeat = 0, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
-			L.client.played = TRUE
-			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 800)
-
-/area/overmap/hyperspace
-	name = "hyperspace"
-	parallax_movedir = 8
-
-/area/overmap/system
-	name = "Sol (NT)"
-	jumpgate_position = 2
-	music = 'StarTrek13/sound/ambience/bsgtheme2.ogg'
-
-/area/overmap/system/z2
-	name = "Amann" //Test
-	jumpgate_position = 3
-
-/area/overmap/system/z3
-	name = "Reb'ase" //Test
-	jumpgate_position = 4
-
-/area/overmap/system/z4
-	name = "Consil" //Test
-	jumpgate_position = 5
-
-/area/overmap/system/z5
-	name = "Ursa minor (BORG)" //Test
-	jumpgate_position = 6
-
-
-/area/overmap/system/z6
-	name = "Ursa major (FED)" //Test
-	jumpgate_position = 7
-	music = 'StarTrek13/sound/ambience/trektheme1.ogg'
-
-/obj/structure/space_object
-	icon = 'StarTrek13/icons/trek/space_objects.dmi'
-	name = "Sun"
-	desc = "Don't get too close to it...."
-	anchored = 1
-	can_be_unanchored = 0
-	icon_state = "sun"
-	layer = 2
-
-/obj/structure/space_object/supernova
-	name = "Supernova"
-	desc = "A star that has gone nova."
-	icon_state = "supernova"
-
-/obj/structure/space_object/nebula
-	name = "Nebula"
-	desc = "I wouldn't fly into that if I were you"
-	icon_state = "nebula"
-
-/obj/structure/overmap/lavaland
-	name = "VY Canis Minoris XXIV"
-	desc = "A lizard infested infernal shithole of a rock. Why the hell would anyone but /tg/ EVER want to set foot on it?"
-	icon_state = "lavaland"
-	icon = 'StarTrek13/icons/trek/space_objects.dmi'
-	spawn_name = "lavaland_spawn"
-	layer = 2
-	can_move = FALSE
-	max_health = 1000000
-	health = 1000000
-
 #define TORPEDO_MODE 1//1309
 #define PHASER_MODE 2
 
@@ -335,10 +231,22 @@ var/global/list/global_ship_list = list()
 //	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
-	max_health = 30000
+	max_health = 40000
 	pixel_z = -128
 	pixel_w = -120
 
+/obj/structure/overmap/ship/romulan
+	name = "Decius"
+	icon = 'StarTrek13/icons/trek/large_ships/dderidex.dmi'
+	icon_state = "dderidex"
+	spawn_name = "romulan_spawn"
+//	pixel_x = -100
+//	pixel_y = -100
+//	var/datum/shipsystem_controller/SC
+	warp_capable = TRUE
+	max_health = 35000
+	pixel_z = -128
+	pixel_w = -120
 
 /obj/structure/overmap/ship/cruiser
 	name = "USS Excelsior"
@@ -400,14 +308,6 @@ var/global/list/global_ship_list = list()
 	has_turrets = 1
 	max_health = 30000
 	soundlist = list('StarTrek13/sound/trek/ship_gun.ogg','StarTrek13/sound/trek/ship_gun.ogg')//The sounds made when shooting
-
-/datum/looping_sound/trek/engine_hum
-	start_sound = null
-	start_length = 0
-	mid_sounds = list('StarTrek13/sound/trek/engines/engine.ogg'=1)
-	mid_length = 133
-	end_sound = null
-	volume = 70
 
 /obj/structure/overmap/away/station/nanotrasen/shop
 	name = "NSV Mercator trading outpost"

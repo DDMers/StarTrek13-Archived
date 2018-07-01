@@ -364,6 +364,9 @@
 	var/mob/living/carbon/human/crewman
 	icon_state = "shields"
 
+/obj/structure/fluff/helm/desk/functional/romulan
+	icon_state = "rom-shields"
+
 /obj/structure/fluff/helm/desk/functional/alt
 	icon_state = "shields_alt"
 	density = 0
@@ -662,7 +665,7 @@
 						to_chat(user, "You accidentally slip with your [I] and rupture a plasma conduit! sending a huge arc of charged plasma into the air!")
 						var/turf/t = get_turf(src)
 						t.atmos_spawn_air("plasma=30;TEMP=5000")
-						tesla_zap(src,5,30000) //That'll seriously fuck things up.
+						tesla_zap(target, 5, 30000, tesla_flags) //That'll seriously fuck things up.
 						chosen.failed = TRUE
 						chosen.integrity -= 2000 //You seriously fucked up
 						powered = TRUE
@@ -695,7 +698,7 @@
 		cover.icon = icon
 		var/goal = chosen.max_integrity
 		var/progress = chosen.integrity
-		progress = CLAMP(progress, 0, goal)
+		progress = Clamp(progress, 0, goal)
 		icon_state = "subsystem_panel-[round(((progress / goal) * 100), 25)]" //Get more fucked as our subsystem is damaged
 		switch(open)
 			if(TRUE)

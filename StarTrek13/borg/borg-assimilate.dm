@@ -9,11 +9,11 @@
 	to_chat(src, "We are the borg. You are not fully upgraded. Find a conversion suite.")
 	if(!(src in SSfaction.borg_hivemind.borgs))
 		SSfaction.borg_hivemind.borgs += src //They're in the collective, but need the conversion table for all their upgrades like the tool etc.
-	dna.species.species_traits |= TRAIT_NOCLONE
-	dna.species.species_traits |= TRAIT_CLUMSY
-	dna.species.species_traits |= TRAIT_NOHUNGER
-	dna.species.species_traits |= TRAIT_NOGUNS
-	dna.species.species_traits |= TRAIT_NOBREATH
+	dna.species.species_traits |= NOCLONE
+	dna.species.species_traits |= CLUMSY
+	dna.species.species_traits |= NOHUNGER
+	dna.species.species_traits |= NOGUNS
+	dna.species.species_traits |= NOBREATH
 	mind.special_role = "Borg-Drone" //Placing this last so that it only runtimes after completion, so you can convert AFK mobs
 	eye_color = "red"
 	underwear = "Nude"
@@ -28,11 +28,11 @@
 /mob/living/carbon/human/proc/remove_borg()
 	if(src in SSfaction.borg_hivemind.borgs)
 		SSfaction.borg_hivemind.borgs -= src
-	dna.species.species_traits -= TRAIT_NOCLONE
-	dna.species.species_traits -= TRAIT_CLUMSY
-	dna.species.species_traits -= TRAIT_NOHUNGER
-	dna.species.species_traits -= TRAIT_NOGUNS
-	dna.species.species_traits -= TRAIT_NOBREATH
+	dna.species.species_traits -= NOCLONE
+	dna.species.species_traits -= CLUMSY
+	dna.species.species_traits -= NOHUNGER
+	dna.species.species_traits -= NOGUNS
+	dna.species.species_traits -= NOBREATH
 	unequip_everything()
 	mind.special_role = null
 
@@ -45,7 +45,7 @@
 	resistance_flags = UNACIDABLE
 	var/mode = 1 //can assimilate or build mode
 	var/convert_time = 50 //5 seconds
-	flags = NODROP
+	flags_1 = NODROP_1
 	force = 18 //hella strong
 	var/removing_airlock = FALSE
 	var/dismantling_machine = 0
@@ -105,7 +105,7 @@
 	//1 is assim, 2 build, 3 attack, 4 shoot
 
 /obj/item/borg_tool/cyborg //fucking run NOW
-	flags = null //not nodrop or that will break borg invs
+	flags_1 = null //not nodrop or that will break borg invs
 
 /obj/item/borg_tool/attack_self(mob/user, params)
 	user << sound('StarTrek13/sound/borg/machines/mode.ogg')
@@ -287,10 +287,11 @@
 
 
 /obj/item/organ/borgNanites/proc/borgify()
-	to_chat(owner, "We are being made into a borg...")
 	sleep(20) //2second anti runtime delay
-	if(owner.mind)
-		owner.mind.make_borg()
+	if(owner)
+		to_chat(owner, "We are being made into a borg...")
+		if(owner.mind)
+			owner.mind.make_borg()
 
 /obj/structure/chair/borg/conversion
 	name = "assimilation bench"

@@ -131,12 +131,40 @@
 	return TRUE
 #undef CHECK_EXISTS
 
-/datum/map_config/proc/GetFullMapPaths()
-	if (istext(map_file))
-		return list("_maps/[map_path]/[map_file]")
-	. = list()
-	for (var/file in map_file)
-		. += "_maps/[map_path]/[file]"
+/datum/map_config/proc/TransitionStringToEnum(string)
+	switch(string)
+		if("CROSSLINKED")
+			return CROSSLINKED
+		if("SELFLOOPING")
+			return SELFLOOPING
+		if("UNAFFECTED")
+			return UNAFFECTED
+		if("MAIN_STATION")
+			return MAIN_STATION
+		if("CENTCOM")
+			return CENTCOM
+		if("CITY_OF_COGS")
+			return CITY_OF_COGS
+		if("OVERMAP")
+			return OVERMAP
+		if("MINING")
+			return MINING
+		if("EMPTY_AREA_1")
+			return EMPTY_AREA_1
+		if("EMPTY_AREA_2")
+			return EMPTY_AREA_2
+		if("EMPTY_AREA_3")
+			return EMPTY_AREA_3
+		if("EMPTY_AREA_4")
+			return EMPTY_AREA_4
+		if("EMPTY_AREA_5")
+			return EMPTY_AREA_5
+		if("EMPTY_AREA_6")
+			return EMPTY_AREA_6
+		if("EMPTY_AREA_7")
+			return EMPTY_AREA_7
+		if("EMPTY_AREA_8")
+			return EMPTY_AREA_8
 
 /datum/map_config/proc/MakeNextMap()
 	return config_filename == "data/next_map.json" || fcopy(config_filename, "data/next_map.json")

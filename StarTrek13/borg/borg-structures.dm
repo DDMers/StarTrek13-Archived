@@ -66,7 +66,7 @@
 //	var/goal = N.max_charge
 //	var/time = goal-current
 //	var/amount = time / charge_amount
-//	current = CLAMP(current, 0, goal)
+//	current = Clamp(current, 0, goal)
 //	icon_state = "prog_bar_[round(((progress / goal) * 100), 5)]"
 
 

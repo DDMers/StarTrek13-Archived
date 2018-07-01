@@ -20,7 +20,7 @@
 
 /obj/item/robot_module/xel
 	name = "assimilator module"
-	basic_modules = list(/obj/item/restraints/handcuffs/cable/zipties/cyborg,/obj/item/melee/baton/loaded,/obj/item/gun/energy/e_gun/advtaser/cyborg,/obj/item/clothing/mask/gas/borg/cyborg,/obj/item/borg_tool/cyborg,/obj/item/radio/headset/borg/alt/cyborg)
+	basic_modules = list(/obj/item/restraints/handcuffs/cable/zipties/cyborg,/obj/item/melee/baton/loaded,/obj/item/gun/energy/e_gun/advtaser/cyborg,/obj/item/clothing/mask/gas/borg/cyborg,/obj/item/borg_tool/cyborg,/obj/item/device/radio/headset/borg/alt/cyborg)
 
 //obj/item/weapon/robot_module/xel/on_pick(mob/living/silicon/robot/R)
 //	..()
@@ -94,7 +94,7 @@
 /*
 /datum/surgery/borg_deconvert
 	name = "hostile nanite removal"
-	steps = list(/datum/surgery_step/borg_incise,/datum/surgery_step/borg_sever,/datum/surgery_step/CLAMP_bleeders, /datum/surgery_step/borg_retract, /datum/surgery_step/borg_drill,/datum/surgery_step/borg_bleeders,/datum/surgery_step/CLAMP_bleeders,/datum/surgery_step/borg_subdermal, /datum/surgery_step/borg_subdermal_grab,/datum/surgery_step/borg_cautery )
+	steps = list(/datum/surgery_step/borg_incise,/datum/surgery_step/borg_sever,/datum/surgery_step/clamp_bleeders, /datum/surgery_step/borg_retract, /datum/surgery_step/borg_drill,/datum/surgery_step/borg_bleeders,/datum/surgery_step/clamp_bleeders,/datum/surgery_step/borg_subdermal, /datum/surgery_step/borg_subdermal_grab,/datum/surgery_step/borg_cautery )
 	species = list(/mob/living/carbon/human)
 	possible_locs = list("chest")
 
@@ -224,23 +224,23 @@
 	icon_state = "borgrped"
 	item_state = "RPED"
 
-/obj/item/radio/headset/borg/alt
+/obj/item/device/radio/headset/borg/alt
 	name = "cortical radio implant"
 	desc = "an inbuilt radio that the Xel use to communicate with one another, CTRL click it to access the headset interface, and use the action button up top to message the collective."
 	icon_state = "xelheadset"
 	item_state = "xelheadset"
-	flags = NODROP
+	flags_1 = NODROP_1
 	flags_2 = BANG_PROTECT_2 | NO_EMP_WIRES_2
 	actions_types = list(/datum/action/item_action/xelchat)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
-/obj/item/radio/headset/borg/alt/cyborg
-	flags = null
+/obj/item/device/radio/headset/borg/alt/cyborg
+	flags_1 = null
 
-/obj/item/radio/headset/borg/alt/attackby()
+/obj/item/device/radio/headset/borg/alt/attackby()
 	return //no screwdrivering the keys out for you
 
-/obj/item/radio/headset/borg/alt/CtrlClick(mob/user) //they cant take it off if it gets ION'D to reset it
+/obj/item/device/radio/headset/borg/alt/CtrlClick(mob/user) //they cant take it off if it gets ION'D to reset it
 	var/mob/M = usr
 	if(user.canUseTopic(src))
 		return attack_hand(M)
@@ -249,11 +249,11 @@
 /datum/action/item_action/xelchat
 	name = "collective chat"
 
-/obj/item/radio/headset/borg/alt/ui_action_click(mob/user, actiontype)
+/obj/item/device/radio/headset/borg/alt/ui_action_click(mob/user, actiontype)
 	if(actiontype == /datum/action/item_action/xelchat)
 		collective_chat(user)
 
-/obj/item/radio/headset/borg/proc/collective_chat(mob/user)
+/obj/item/device/radio/headset/borg/proc/collective_chat(mob/user)
 	if(!user)
 		return
 	var/message = stripped_input(user,"Communicate with the collective.","Send Message")
@@ -344,7 +344,7 @@
 
 /obj/item/clothing/suit/space/borg/process()
 	if(world.time > recharge_cooldown && current_charges < max_charges)
-		current_charges = CLAMP((current_charges + recharge_rate), 0, max_charges)
+		current_charges = Clamp((current_charges + recharge_rate), 0, max_charges)
 		playsound(loc, 'sound/effects/stealthoff.ogg', 50, 1)
 		if(current_charges == max_charges)
 			STOP_PROCESSING(SSobj, src)
@@ -376,7 +376,7 @@
 	magboot_state = "borg1"
 	item_state = null
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = NODROP
+	flags_1 = NODROP_1
 
 /obj/item/clothing/head/borg
 	name = "borg helmet"
@@ -388,7 +388,7 @@
 	heat_protection = HEAD
 	max_heat_protection_temperature = SPACE_HELM_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = ABSTRACT | NODROP | STOPSPRESSUREDMAGE
+	flags_1 = ABSTRACT_1 | NODROP_1 | STOPSPRESSUREDMAGE_1
 
 /obj/item/clothing/head/borg/New()
 	for(var/obj/item/clothing/suit/space/borg/B in world)
@@ -405,7 +405,7 @@
 	invis_view = 2
 	flash_protect = -1
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = ABSTRACT | NODROP
+	flags_1 = ABSTRACT_1 | NODROP_1
 /obj/item/clothing/glasses/night/borg/New()
 	. = ..()
 	icon_state = pick("borg","borg2","borg3","borg4") // coloured eyes
@@ -418,7 +418,7 @@
 /datum/outfit/borg
 	name = "borg drone"
 	glasses = /obj/item/clothing/glasses/night/borg
-	ears = /obj/item/radio/headset/borg/alt
+	ears = /obj/item/device/radio/headset/borg/alt
 	uniform =  /obj/item/clothing/under/borg
 	suit = /obj/item/clothing/suit/space/borg
 	shoes = /obj/item/clothing/shoes/magboots/borg
@@ -458,7 +458,7 @@
 	icon_state = "borg"
 	item_state = null
 	siemens_coefficient = 0
-	flags = NODROP | MASKINTERNALS
+	flags_1 = NODROP_1 | MASKINTERNALS_1
 	var/cooldown2 = 60 //6 second cooldown
 	var/saved_time = 0
 	actions_types = list(/datum/action/item_action/futile)
@@ -468,7 +468,7 @@
 		futile(user)
 
 /obj/item/clothing/mask/gas/borg/cyborg
-	flags = null
+	flags_1 = null
 	name = "intimidator"
 
 /obj/item/clothing/mask/gas/borg/proc/futile(mob/user)

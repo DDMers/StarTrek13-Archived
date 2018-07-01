@@ -697,7 +697,11 @@
 //Starfleet
 
 /area/ship/federation/starbase
-	name = "starbase 1"
+	name = "Starbase 1"
+	icon_state = "ship"
+
+/area/ship/romulan
+	name = "Decius"
 	icon_state = "ship"
 
 /area/ship/federation/entax
@@ -748,312 +752,87 @@
 	name = "Unimatrix 1-3"
 	icon_state = "ship"
 
-/obj/structure/fluff/helm/desk/tactical
-	name = "tactical"
-	desc = "A computer built into a desk, showing ship manifests, weapons, tactical systems, anything you could want really, the manifest shows a long list but the 4961 irradiated haggis listing catches your eye..."
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "desk"
+/obj/structure/fluff/warpcore
+	name = "warp core"
+	desc = "It hums lowly, it runs on dilithium"
+	icon = 'StarTrek13/icons/borg/borg.dmi'
+	icon_state = "warp"
 	anchored = TRUE
-	density = 1 //SKREE
-	opacity = 0
+	density = 1
+	opacity = 0 //I AM LOUD REEE WATCH OUT
 	layer = 4.5
-	var/list/weapons = list()
-	var/list/redalertsounds = list('StarTrek13/sound/borg/machines/redalert.ogg','StarTrek13/sound/borg/machines/redalert2.ogg')
-	var/target = null
-	var/cooldown2 = 190 //18.5 second cooldown
+	var/ambience = 'StarTrek13/sound/trek/engines/engine.ogg'
+	var/cooldown2 = 116 //11 second cooldown
 	var/saved_time = 0
-	var/list/shipareas = list()
-	var/obj/machinery/space_battle/shield_generator/shieldgen
-	var/REDALERT = 0
-	var/redalertsound
-	var/area/target_area = null
-	var/list/torpedoes = list()
-	var/obj/structure/overmap/theship = null
-	var/obj/effect/landmark/warp_beacon/targetBeacon = null
-	anchored = 1
-	var/starmapUI
 
-/obj/structure/fluff/helm/desk/tactical/nanotrasen
-	name = "tactical"
-	desc = "Used to control all ship functions...this one looks slightly retro."
-	icon = 'icons/obj/computer.dmi'
-	icon_state = "computer"
+/obj/structure/fluff/warpcore/Initialize(timeofday)
+	START_PROCESSING(SSobj,src)
 
-/obj/structure/fluff/helm/desk/tactical/alt
-	icon_state = "tactical_nt_alt"
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	pixel_x = 15
-	pixel_y = 16
-	density = 0
-	layer = 4.6
-	anchored = 1
 
-/obj/structure/fluff/helm/desk/tactical/process()
-	var/area/thearea = get_area(src)
-	get_weapons()
+/obj/structure/fluff/warpcore/process()
 	if(world.time >= saved_time + cooldown2)
 		saved_time = world.time
-		for(var/mob/M in thearea)
-			M << redalertsound
+		for(var/mob/M in get_area(src))
+			M << ambience
 
-/obj/structure/fluff/helm/desk/tactical/Initialize(timeofday)
+/datum/looping_sound/trek/engine_hum
+	start_sound = null
+	start_length = 0
+	mid_sounds = list('StarTrek13/sound/trek/engines/engine.ogg'=1)
+	mid_length = 133
+	end_sound = null
+	volume = 70
+
+/datum/looping_sound/trek/bridge
+	start_sound = null
+	start_length = 0
+	mid_sounds = list('StarTrek13/sound/borg/machines/tng_bridge_2.ogg'=1)
+	mid_length = 163
+	end_sound = null
+	volume = 150
+
+/datum/looping_sound/trek/warp
+	start_sound = null
+	start_length = 0
+	mid_sounds = list('StarTrek13/sound/borg/machines/engihum.ogg'=1)
+	mid_length = 115
+	end_sound = null
+	volume = 115
+
+/obj/structure/fluff/warpcore/Initialize(timeofday)
 	. = ..()
-	get_weapons()
-	get_shieldgen()
-//	var/area/thearea = get_area(src)
 
-/obj/structure/fluff/helm/desk/tactical/proc/get_shieldgen()
-	var/area/thearea = get_area(src)
-	for(var/obj/machinery/space_battle/shield_generator/S in thearea)
-		shieldgen = S
-		S.controller = src
-		return 1
-	return 0
+/obj/structure/fluff/helm
+	name = "helm control"
+	desc = "A console that sits over a chair, allowing one to fly a starship."
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "helm"
+	anchored = TRUE
+	density = 1
+	opacity = 0
+	layer = 4.5
 
+/obj/structure/sign/trek
+	name = "ship markings"
+	icon_state = "trek1"
 
-/obj/structure/fluff/helm/desk/tactical/proc/get_weapons()
-	weapons = list()
-	torpedoes = list()
-	var/area/thearea = get_area(src)
-	for(var/obj/machinery/power/ship/phaser/P in thearea)
-		weapons += P
-	for(var/obj/structure/torpedo_launcher/T in thearea)
-		torpedoes += T
+/obj/structure/sign/trek/ncc
+	name = "ship markings"
+	icon_state = "trek3"
 
-/datum/asset/simple/starmap
-	assets = list(
-		"background.png"	= 'UI/starmap/helm_background_nogrid.png',
-		"system.png"		= 'UI/starmap/system.png',
-		"system_select.png" = 'UI/starmap/system_select.png',
-		"swiss911.ttf"		= 'UI/starmap/Swiss911UCmBT.ttf'
-	)
+/obj/structure/sign/trek/ncc/a
+	name = "ship markings"
+	icon_state = "trek4"
 
-/obj/structure/fluff/helm/desk/tactical/attack_hand(mob/user)
-	get_weapons()
-	get_shieldgen()
-	if(!theship)
-		to_chat(user, "Your ship has been destroyed!")
-	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap")
+/obj/structure/fluff/warpcore/massive
+	name = "high powered warp core"
+	desc = "This massive machine will propel your starship to unheard of speeds."
+	icon = 'StarTrek13/icons/trek/warp_core_huge.dmi'
+	icon_state = "warpcore"
 
-	starmapUI = "\
-	<!DOCTYPE html>\
-	<html>\
-		<style>\
-			@font-face {\
-				font-family: 'swiss911 UCm BT';\
-				src: url('swiss.ttf') format('truetype');\
-				font-weight: normal;\
-				font-style: normal;\
-			}\
-			html {\
-				background-image: url('background.png');\
-				background-repeat: no-repeat;\
-				font-family: 'swiss911 UCm BT', 'Comic Sans MS';\
-				background-color: black;\
-				font-size: 18px;\
-			}\
-			#StarMap {\
-				height: auto;\
-				width: auto;\
-			}\
-			#StarMapGrid {\
-				border-collapse: collapse;\
-				position: absolute;\
-				left: 80px;\
-				top: 170px;\
-				width: 459px;\
-				height: 185px;\
-				table-layout: fixed;\
-				text-align: center;\
-			}\
-			td {\
-				background-color: black;\
-				border-collapse: collapse;\
-				color: white;\
-				border: 1px solid #9c6b29;\
-				height: 50px;\
-				width: 140px;\
-			}\
-			a:hover td {\
-				background-color: #3e2a10;\
-			}\
-			a td div{\
-				text-align: left;\
-				height: 40px;\
-				width: 100%;\
-				background-image: url('system.png');\
-				background-repeat: no-repeat;\
-			}\
-			a td div span{\
-				position: relative;\
-				top: 15px;\
-				left: 48px;\
-			}\
-			#btn {\
-				position: absolute;\
-				left: 4px;\
-				top: 262px;\
-				background-color: #ce6363;\
-				height: 119px;\
-				width: 53px;\
-				color: black;\
-				text-decoration: none;\
-			}\
-			#btn:hover {\
-				background-color: #cd7c76;\
-			}\
-			#btn span {\
-				position: absolute;\
-				bottom:0;\
-				right:0;\
-			}\
-			#error {\
-				position: absolute;\
-				left: 170px;\
-				top: 50%;\
-				height: 30px;\
-				width: 300px;\
-				color: black;\
-				background-color: red;\
-				text-align: center;\
-				padding-top: 10px;\
-			}\
-		</style>\
-		<body>\
-			<div id=\"StarMap\">\
-				<table id=\"StarMapGrid\">\
-					<tr>"
-	var/r=0 //row
-	var/c=0 //column
-	if(!SSfaction.jumpgates_forbidden)
-		//populate <table data> with star system info
-		for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
-			if(wb.z)
-				starmapUI += "<a href='?src=[REF(src)];beacon=[REF(wb)]' onclick=\"selectSystem(id)\" id=\"system[r][c]\"><td id=\"system\"><div id=\"system[r][c]img\"><span>[wb.name]</span></div> </td></a>"
-				c++
-
-			if(c==4)
-				starmapUI += "</tr> <tr>"
-				r++
-				c=0
-
-		//add the rest of the rows+columns to keep the elements tidy
-	while(r!=4)
-		c++
-		starmapUI += "<td></td>"
-
-		if(c==4)
-			starmapUI += "</tr> <tr>"
-			r++
-			c=0
-
-	starmapUI += 		"</tr>\
-				</table>\
-			</div>"
-	if(!SSfaction.jumpgates_forbidden)
-		starmapUI +=	"<a href='?src=[REF(src)];warp=1' onclick=\"deselectSystem()\">\
-							"
-
-	starmapUI += "<div id=\"btn\">\
-					<span>\
-						WARP\
-					</span>\
-				</div>\
-			</a>"
-	if(SSfaction.jumpgates_forbidden)
-		starmapUI += "<div id=\"error\">ERROR: Subspace distortions prevent warping at this time</div>"
-
-	starmapUI += "\
-			<script>\
-				var img;\
-				function selectSystem(id) {\
-					if(img)\
-					{\
-						img.style.backgroundImage = \"url('system.png')\";\
-					}\
-					img = document.getElementById(id+\"img\");\
-					img.style.backgroundImage = \"url('system_select.png')\";\
-				}\
-				function deselectSystem() {\
-					if(img)\
-					{\
-						img.style.backgroundImage = \"url('system.png')\"\
-					}\
-				}\
-			</script>\
-		</body>\
-	</html>"
-
-	switch(mode)
-		if("choose target")
-			theship.exit(user)
-		//	var/A
-	//		A = input("Area to fire on", "Tactical Control", A) as anything in shipareas
-	//		target_area = shipareas[A]
-	//		new_target()
-	//		for(var/obj/machinery/power/ship/phaser/P in weapons)
-	//			P.target = target
-	//		for(var/obj/structure/torpedo_launcher/T in torpedoes)
-	//			T.target = target
-		if("fly ship")
-			var/datum/skill/piloting/S = user.skills.getskill("piloting")
-			if(!S.value >= theship.pilot_skill_req)//This should change per-ship
-				to_chat(user, "<span class='warning'>You're not skilled enough to pilot this vessel!<span>")
-				return
-			theship.enter(user)
-		//	fire_phasers(target, user)
-		if("shield control")
-			shieldgen.toggle(user)
-		if("red alert siren")
-			redalert()
-		if("fire torpedo")
-			fire_torpedo(target,user)
-		if("starmap")
-			var/datum/asset/assets = get_asset_datum(/datum/asset/simple/starmap)
-			assets.send(user)
-			user << browse(starmapUI, "window=StarMap;size=660x420")
-
-/obj/structure/fluff/helm/desk/tactical/Topic(href, href_list)
-	..()
-	if(href_list["warp"] && targetBeacon)
-		theship.do_warp(targetBeacon.name, targetBeacon.distance)
-		targetBeacon = null
-
-	if(href_list["beacon"])
-		targetBeacon = locate(href_list["beacon"])
-
-/obj/structure/fluff/helm/desk/tactical/proc/redalert()
-	redalertsound = pick(redalertsounds)
-	if(REDALERT)
-		src.say("RED ALERT DEACTIVATED")
-		REDALERT = 0
-		STOP_PROCESSING(SSobj,src)
-		return 0
-	else
-		src.say("RED ALERT ACTIVATED")
-		REDALERT = 1
-		START_PROCESSING(SSobj,src)
-		return 1
-
-/obj/structure/fluff/helm/desk/tactical/proc/fire_phasers(atom/target, mob/user)
-	playsound(src.loc, 'StarTrek13/sound/borg/machines/bleep1.ogg', 100,1)
-
-/obj/structure/fluff/helm/desk/tactical/proc/fire_torpedo(turf/target,mob/user)
-	for(var/obj/structure/torpedo_launcher/T in torpedoes)
-		src.say("firing torpedoes at [target_area.name]")
-		T.fire(target, user)
-		playsound(src.loc, 'StarTrek13/sound/borg/machines/bleep2.ogg', 100,1)
-		to_chat(user, "attempting to fire torpedoes")
-
-
-
-/obj/structure/fluff/helm/desk/tactical/proc/new_target()
-	var/list/L = list()
-	for(var/turf/T in get_area_turfs(target_area.type))
-		L+=T
-	var/location = pick(L)
-	target = location
-
+/obj/structure/fluff/warpcore/massive/smaller
+	icon_state = "warpcore_smaller"
+	pixel_x = 16
 
 /obj/machinery/shieldgen/wallmounted
 		name = "structural integrity field generator"
@@ -1131,7 +910,7 @@
 	name = "panel"
 	desc = "it hums lightly..."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "panel"
+	icon_state = "panel_1"
 
 /obj/structure/fluff/ship/panel/type2
 	name = "panel"
@@ -1154,7 +933,7 @@
 // Based on catwalk.dm from https://github.com/Endless-Horizon/CEV-Eris
 
 //Copied from YawnWiderstation https://github.com/Repede/YawnWiderStation
-/obj/structure/lattice/catwalk
+/obj/structure/catwalk
 	layer = TURF_LAYER + 0.5
 	icon = 'StarTrek13/icons/trek/catwalks.dmi'
 	icon_state = "catwalk"
@@ -1163,21 +942,21 @@
 	density = 0
 	anchored = 1.0
 
-/obj/structure/lattice/catwalk/Initialize(timeofday)
+/obj/structure/catwalk/Initialize(timeofday)
 	. = ..()
-	for(var/obj/structure/lattice/catwalk/C in get_turf(src))
+	for(var/obj/structure/catwalk/C in get_turf(src))
 		if(C != src)
 			warning("Duplicate [type] in [loc] ([x], [y], [z])")
 			qdel(C)
 	update_icon()
 
-/obj/structure/lattice/catwalk/Destroy()
+/obj/structure/catwalk/Destroy()
 	var/turf/location = loc
 	. = ..()
-	for(var/obj/structure/lattice/catwalk/L in orange(location, 1))
+	for(var/obj/structure/catwalk/L in orange(location, 1))
 		L.update_icon()
 
-/obj/structure/lattice/catwalk/ex_act(severity)
+/obj/structure/catwalk/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -1185,11 +964,11 @@
 			qdel(src)
 	return
 
-/obj/structure/lattice/catwalk/attackby(obj/item/C as obj, mob/user as mob)
+/obj/structure/catwalk/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = C
 		if(WT.isOn())
-			if(WT.use_tool(src, user, 40, volume=100))
+			if(WT.remove_fuel(0, user))
 				new /obj/item/stack/rods(src.loc)
 				new /obj/item/stack/rods(src.loc)
 				new /obj/structure/lattice(src.loc)
@@ -1199,7 +978,7 @@
 		new /obj/item/stack/rods(src.loc)
 	return ..()
 
-/obj/structure/lattice/catwalk/Crossed()
+/obj/structure/catwalk/Crossed()
 	. = ..()
 	if(isliving(usr))
 		playsound(src, pick('StarTrek13/sound/trek/catwalk1.ogg', 'StarTrek13/sound/trek/catwalk2.ogg', 'StarTrek13/sound/trek/catwalk3.ogg', 'StarTrek13/sound/trek/catwalk4.ogg', 'StarTrek13/sound/trek/catwalk5.ogg'), 25, 1)

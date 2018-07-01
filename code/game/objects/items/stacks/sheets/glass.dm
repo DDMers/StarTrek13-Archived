@@ -26,6 +26,7 @@ GLOBAL_LIST_INIT(glass_recipes, list ( \
 	grind_results = list("silicon" = 20)
 	point_value = 1
 	skill_requirement = 6
+	skill_requirement = 6
 
 /obj/item/stack/sheet/glass/suicide_act(mob/living/carbon/user)
 	user.visible_message("<span class='suicide'>[user] begins to slice [user.p_their()] neck with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")

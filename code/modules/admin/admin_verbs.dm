@@ -233,6 +233,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/toggle_combo_hud,
 	/client/proc/debug_huds,
 	/client/proc/give_faction_objective,
+	/client/proc/give_faction_objective,
 	))
 
 /client/proc/add_admin_verbs()

@@ -252,7 +252,7 @@
 					A.pixel_x = target_ship.pixel_x
 					A.pixel_y = target_ship.pixel_y
 			else
-				to_chat(pilot, "No photon torpedoes remain")
+				to_chat(pilot, "No photon torpedoes remain.")
 
 #undef TINY
 #undef SMALL

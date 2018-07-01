@@ -317,6 +317,7 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
 	materials = list(MAT_TITANIUM=MINERAL_MATERIAL_AMOUNT, MAT_PLASMA=MINERAL_MATERIAL_AMOUNT)
 	point_value = 45
 	skill_requirement = 7
+	skill_requirement = 7
 
 GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
 	new/datum/stack_recipe("plas-titanium tile", /obj/item/stack/tile/mineral/plastitanium, 1, 4, 20), \

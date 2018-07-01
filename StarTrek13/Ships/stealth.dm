@@ -2,6 +2,8 @@
 
 /mob/living/carbon/human
 	var/next_spot_time = 0
+
+/mob
 	var/datum/faction/player_faction
 
 /mob/living/carbon/human/Move(Newloc, direct)

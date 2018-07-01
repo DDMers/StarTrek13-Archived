@@ -341,6 +341,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list ( \
 	novariants = TRUE
 	grind_results = list("iron" = 5, "blood" = 15)
 	skill_requirement = 0
+	skill_requirement = 0
 
 /obj/item/stack/sheet/runed_metal/ratvar_act()
 	new /obj/item/stack/tile/brass(loc, amount)
@@ -408,6 +409,7 @@ GLOBAL_LIST_INIT(brass_recipes, list ( \
 	turf_type = /turf/open/floor/clockwork
 	novariants = FALSE
 	grind_results = list("iron" = 5, "teslium" = 15)
+	skill_requirement = 0
 	skill_requirement = 0
 
 /obj/item/stack/tile/brass/narsie_act()
@@ -510,6 +512,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	throw_speed = 1
 	throw_range = 3
 	grind_results = list("carbon" = 10)
+	skill_requirement = 0
 	skill_requirement = 0
 
 GLOBAL_LIST_INIT(plastic_recipes, list(

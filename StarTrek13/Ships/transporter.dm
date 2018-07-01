@@ -131,7 +131,8 @@
 			retrievable -= target
 			for(var/obj/machinery/trek/transporter/T in linked)
 				animate(target,'StarTrek13/icons/trek/star_trek.dmi',"transportout")
-				playsound(target.loc, 'StarTrek13/sound/borg/machines/transporter2.ogg', 40, 4)
+				if(target)
+					playsound(target.loc, 'StarTrek13/sound/borg/machines/transporter2.ogg', 40, 4)
 				playsound(src.loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
 				var/obj/machinery/trek/transporter/Z = pick(linked)
 				target.forceMove(Z.loc)
@@ -195,8 +196,8 @@
  // TGUI
 
 /obj/machinery/computer/camera_advanced/transporter_control/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/tricorder))
-		var/obj/item/tricorder/S = I
+	if(istype(I, /obj/item/device/tricorder))
+		var/obj/item/device/tricorder/S = I
 		if(istype(S.buffer, /obj/machinery/trek/transporter) && !(S.buffer in linked))
 			linked += S.buffer
 			S.buffer = null
@@ -360,7 +361,7 @@ Might find a use for this later
 		target.forceMove(get_turf(src))
 
 /obj/machinery/trek/transporter/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/tricorder))
-		var/obj/item/tricorder/T = I
+	if(istype(I, /obj/item/device/tricorder))
+		var/obj/item/device/tricorder/T = I
 		T.buffer = src
 		to_chat(user, "<span class='notice'>Transporter data successfully stored in the tricorder buffer.</span>")

@@ -73,62 +73,6 @@
 	open_door_layer = 4.5 //so people go below it for added coolness
 	closed_door_layer = CLOSED_DOOR_LAYER
 
-/obj/structure/fluff/warpcore
-	name = "warp core"
-	desc = "It hums lowly, it runs on dilithium"
-	icon = 'StarTrek13/icons/borg/borg.dmi'
-	icon_state = "warp"
-	anchored = TRUE
-	density = 1
-	opacity = 0 //I AM LOUD REEE WATCH OUT
-	layer = 4.5
-	var/cooldown2 = 115 //11.5 second cooldown
-	var/saved_time = 0
-	var/datum/looping_sound/trek/warp/soundloop
-
-/obj/structure/sign/trek
-	name = "ship markings"
-	icon_state = "trek1"
-
-/obj/structure/sign/trek/ncc
-	name = "ship markings"
-	icon_state = "trek3"
-
-/obj/structure/sign/trek/ncc/a
-	name = "ship markings"
-	icon_state = "trek4"
-
-/obj/structure/fluff/warpcore/New()
-	. = ..()
-	soundloop = new(list(src), TRUE)
-
-/obj/structure/fluff/helm
-	name = "helm control"
-	desc = "A console that sits over a chair, allowing one to fly a starship."
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "helm"
-	anchored = TRUE
-	density = 1
-	opacity = 0
-	layer = 4.5
-
-//////////////////////////////////////
-/datum/looping_sound/trek/bridge
-	start_sound = null
-	start_length = 10
-	mid_sounds = list('StarTrek13/sound/borg/machines/tng_bridge_2.ogg'=1)
-	mid_length = 163
-	end_sound = null
-	volume = 150
-
-/datum/looping_sound/trek/warp
-	start_sound = null
-	start_length = 10
-	mid_sounds = list('StarTrek13/sound/borg/machines/engihum.ogg'=1)
-	mid_length = 115
-	end_sound = null
-	volume = 115
-
 /obj/structure/fluff/helm/desk/noisy //makes star trek noises!
 	name = "captain's display"
 	desc = "An LCARS display showing all shipboard systems, status: NOMINAL"
@@ -339,7 +283,7 @@
 	item_color = "combadge"
 	slot_flags = 15
 	w_class = 2
-	var/obj/item/radio/embedded
+	var/obj/item/device/radio/embedded
 	actions_types = list(/datum/action/item_action/combadge,/datum/action/item_action/combadge/turn_off)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	var/datum/action/item_action/combadge/broadcast_action = new
@@ -389,7 +333,7 @@
 
 /obj/item/clothing/combadge/New()
 	. = ..()
-	embedded = new/obj/item/radio(src)
+	embedded = new/obj/item/device/radio(src)
 
 //tricord//
 
@@ -407,26 +351,26 @@
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "tricorder_scn"
 	w_class = 1
-	var/obj/item/t_scanner/rayscan //attack
-	var/obj/item/t_scanner/adv_mining_scanner/miningscan //attackself
-	var/obj/item/analyzer/gasscan //attackself
-	var/obj/item/detective_scanner/detscan //attackself to print, afterattack to scan
+	var/obj/item/device/t_scanner/rayscan //attack
+	var/obj/item/device/t_scanner/adv_mining_scanner/miningscan //attackself
+	var/obj/item/device/analyzer/gasscan //attackself
+	var/obj/item/device/detective_scanner/detscan //attackself to print, afterattack to scan
 	var/medical = 0
 	var/obj/machinery/computer/camera_advanced/transporter_control/transporter_controller
 
 /obj/item/weapon/tricordscanner/New()
 	. = ..()
-	rayscan = new /obj/item/t_scanner(src)
-	miningscan =  new /obj/item/t_scanner/adv_mining_scanner(src) //attackself
-	gasscan = new /obj/item/analyzer(src) //attackself
-	detscan = new /obj/item/detective_scanner(src) //attackself to print, afterattack to scan
+	rayscan = new /obj/item/device/t_scanner(src)
+	miningscan =  new /obj/item/device/t_scanner/adv_mining_scanner(src) //attackself
+	gasscan = new /obj/item/device/analyzer(src) //attackself
+	detscan = new /obj/item/device/detective_scanner(src) //attackself to print, afterattack to scan
 
 /obj/item/weapon/tricordscanner/proc/tricorder_med()
 
 
 /obj/item/weapon/tricordscanner/afterattack(atom/I, mob/user)
 	medical = 0
-	if(istype(I, /obj/item/tricorder))
+	if(istype(I, /obj/item/device/tricorder))
 		return I.attackby(src, user)
 	if(tricorder_science_mode(I, user))
 		var/B
@@ -466,7 +410,7 @@
 
 /obj/item/weapon/tricordscanner/proc/tricorder_science_mode(atom/I, mob/living/carbon/human/user)
 //	var/obj/item/weapon/tricordscanner/F
-	for(var/obj/item/tricorder/T in user.contents)
+	for(var/obj/item/device/tricorder/T in user.contents)
 		if(!istype(T))
 			return 0
 		if(T.open == CLOSED)
@@ -484,7 +428,7 @@
 	return
 
 
-/obj/item/tricorder
+/obj/item/device/tricorder
 	name = "tricorder"
 	desc = "Utilized in the fields of repairwork, analyzing, and containing a variety of useful information. Set it to science mode to access scanning capabilities"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
@@ -499,7 +443,7 @@
 	var/obj/machinery/computer/camera_advanced/transporter_control/transporter_controller
 	var/obj/machinery/buffer
 
-/obj/item/tricorder/New()
+/obj/item/device/tricorder/New()
 	..()
 	open = CLOSED
 	update_icon()
@@ -509,7 +453,7 @@
 //		return new /obj/item/weapon/tricordscanner
 
 
-/obj/item/tricorder/update_icon()
+/obj/item/device/tricorder/update_icon()
 	switch(open)
 		if(CLOSED)
 			icon_state = "tricorder_closed"
@@ -519,10 +463,10 @@
 			return
 
 
-/obj/item/tricorder/AltClick()
+/obj/item/device/tricorder/AltClick()
 	toggle_open()
 
-/obj/item/tricorder/proc/toggle_open(mob/user) // Open/close it for muh ARPEEEEEEE
+/obj/item/device/tricorder/proc/toggle_open(mob/user) // Open/close it for muh ARPEEEEEEE
 	var/mob/living/carbon/human/M = user
 //	if(user != M) //ehhh redundant
 	//	return
@@ -535,7 +479,7 @@
 		update_icon()
 
 
-/obj/item/tricorder/attack_self(mob/user)
+/obj/item/device/tricorder/attack_self(mob/user)
 	if(open == CLOSED)
 		toggle_open()
 	switch(setting)
@@ -550,7 +494,7 @@
 		else
 			return
 
-/obj/item/tricorder/attack_hand(mob/user)
+/obj/item/device/tricorder/attack_hand(mob/user)
 	switch(open)
 		if(CLOSED)
 			..()
@@ -561,7 +505,7 @@
 			return
 	..()
 
-/obj/item/tricorder/proc/remove_scanner(mob/user) // remove scanner
+/obj/item/device/tricorder/proc/remove_scanner(mob/user) // remove scanner
 	tscanner.transporter_controller = transporter_controller
 	if(loc == user) //you already sorta defined that, but redundancy doesnt hurt
 		if(open == CLOSED)
@@ -579,7 +523,7 @@
 			update_icon()
 	..()
 
-/obj/item/tricorder/attackby(obj/item/C, mob/user, params)
+/obj/item/device/tricorder/attackby(obj/item/C, mob/user, params)
 	if(istype(C, /obj/item/weapon/tricordscanner))
 		if(C in user.contents)
 			tscanner = new /obj/item/weapon/tricordscanner(src)

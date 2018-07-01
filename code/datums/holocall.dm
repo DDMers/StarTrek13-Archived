@@ -352,3 +352,4 @@
 
 /datum/preset_holoimage/clown
 	outfit_type = /datum/outfit/job/nt/clown
+

@@ -55,9 +55,9 @@
 /datum/outfit/borg/queen
 	name = "borg queen"
 	//id = /obj/item/weapon/card/id/gold
-//	belt = /obj/item/pda/captain
+//	belt = /obj/item/device/pda/captain
 	glasses = /obj/item/clothing/glasses/night/borg
-	ears = /obj/item/radio/headset/borg/alt
+	ears = /obj/item/device/radio/headset/borg/alt
 	uniform =  /obj/item/clothing/under/borg
 	suit = /obj/item/clothing/suit/space/borg/regal
 	shoes = /obj/item/clothing/shoes/magboots/borg
