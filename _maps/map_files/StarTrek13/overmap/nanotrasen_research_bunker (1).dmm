@@ -23,7 +23,6 @@
 "aw" = (/obj/structure/table/reinforced,/obj/item/paper_bin,/obj/item/pen/fourcolor,/obj/item/folder{pixel_x = -9},/obj/item/clipboard{pixel_x = 8},/obj/machinery/button/flasher{id = "researchbunkerflash1"; pixel_y = 7},/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/research)
 "ax" = (/obj/structure/grille,/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/plating,/area/ship/overmap/nanotrasen/research)
 "ay" = (/obj/machinery/vending/wallmed{pixel_x = 25},/turf/open/floor/plating,/area/ship/overmap/nanotrasen/research)
-"az" = (/mob/living/carbon/human/interactive/friendly,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "aA" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/barber,/area/ship/overmap/nanotrasen/research)
 "aB" = (/obj/structure/table/wood,/obj/item/twohanded/spear,/obj/item/restraints/handcuffs/cable/zipties/used,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "aC" = (/turf/open/floor/plasteel/barber,/area/ship/overmap/nanotrasen/research)
@@ -31,7 +30,7 @@
 "aE" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "aF" = (/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "aG" = (/obj/structure/toilet{dir = 8},/obj/machinery/door/window/westright,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
-"aH" = (/obj/structure/sign/poster/contraband/grey_tide{ pixel_y = 32},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
+"aH" = (/obj/structure/sign/poster/contraband/grey_tide{pixel_y = 32},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "aI" = (/obj/structure/disposaloutlet{dir = 8},/obj/structure/disposalpipe/trunk,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "aJ" = (/obj/machinery/door/airlock,/turf/open/floor/plasteel,/area/ship/overmap/nanotrasen/research)
 "aK" = (/obj/structure/disposalpipe/segment,/obj/structure/sign/poster/contraband/pwr_game{pixel_x = -32},/obj/structure/table/wood,/obj/item/shard,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
@@ -40,18 +39,15 @@
 "aN" = (/obj/structure/bed,/obj/item/bedsheet/grey,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "aO" = (/obj/structure/table/glass,/turf/open/floor/plasteel/barber,/area/ship/overmap/nanotrasen/research)
 "aP" = (/obj/structure/chair{dir = 8},/turf/open/floor/plasteel/barber,/area/ship/overmap/nanotrasen/research)
-"aQ" = (/obj/structure/table/wood,/obj/item/device/flashlight,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
+"aQ" = (/obj/structure/table/wood,/obj/item/flashlight,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "aR" = (/obj/machinery/door/airlock,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "aS" = (/turf/open/floor/plasteel/whitepurple/side{dir = 9},/area/ship/overmap/nanotrasen/research)
 "aT" = (/turf/open/floor/plasteel/whitepurple/side{dir = 1},/area/ship/overmap/nanotrasen/research)
 "aU" = (/turf/open/floor/plasteel/whitepurple/corner{dir = 1},/area/ship/overmap/nanotrasen/research)
-"aV" = (/turf/open/floor/plasteel/whitepurple/side{dir = 4},/area/ship/overmap/nanotrasen/research)
 "aW" = (/obj/machinery/door/airlock,/turf/open/floor/plasteel/barber,/area/ship/overmap/nanotrasen/research)
-"aX" = (/obj/structure/sign/restroom{pixel_y = 32},/turf/open/floor/plasteel/barber,/area/ship/overmap/nanotrasen/research)
-"aY" = (/turf/open/floor/plasteel/whitepurple/side{dir = 8},/area/ship/overmap/nanotrasen/research)
+"aX" = (/obj/structure/sign/departments/restroom{pixel_y = 32},/turf/open/floor/plasteel/barber,/area/ship/overmap/nanotrasen/research)
 "aZ" = (/turf/open/floor/plasteel/whitepurple/corner,/area/ship/overmap/nanotrasen/research)
 "ba" = (/obj/machinery/light,/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
-"bb" = (/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
 "bc" = (/obj/machinery/light,/turf/open/floor/plasteel/whitepurple/side{dir = 6},/area/ship/overmap/nanotrasen/research)
 "bd" = (/obj/machinery/light,/turf/open/floor/plasteel/barber,/area/ship/overmap/nanotrasen/research)
 "be" = (/obj/machinery/door/airlock,/turf/open/floor/plasteel/whitepurple/side{dir = 8},/area/ship/overmap/nanotrasen/research)
@@ -65,7 +61,7 @@
 "bm" = (/obj/structure/bed,/obj/item/bedsheet/nanotrasen,/obj/structure/sign/poster/official/no_erp{pixel_x = -32},/turf/open/floor/wood,/area/ship/overmap/nanotrasen/research)
 "bn" = (/turf/open/floor/wood,/area/ship/overmap/nanotrasen/research)
 "bo" = (/obj/structure/bed,/obj/item/bedsheet/nanotrasen,/turf/open/floor/wood,/area/ship/overmap/nanotrasen/research)
-"bp" = (/obj/structure/table/reinforced,/obj/item/device/camera_film{pixel_x = -6},/obj/item/device/camera,/obj/structure/sign/poster/official/wtf_is_co2{pixel_x = -32},/turf/open/floor/plasteel/whitepurple/side{dir = 8},/area/ship/overmap/nanotrasen/research)
+"bp" = (/obj/structure/table/reinforced,/obj/item/camera_film{pixel_x = -6},/obj/item/camera,/obj/structure/sign/poster/official/wtf_is_co2{pixel_x = -32},/turf/open/floor/plasteel/whitepurple/side{dir = 8},/area/ship/overmap/nanotrasen/research)
 "bq" = (/obj/structure/chair/office/light{dir = 8},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "br" = (/obj/structure/chair/office/light{dir = 4},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "bs" = (/obj/structure/closet/crate/freezer/surplus_limbs{name = "Leftovers"},/turf/open/floor/plasteel/whitepurple/side{dir = 4},/area/ship/overmap/nanotrasen/research)
@@ -76,11 +72,11 @@
 "bx" = (/obj/structure/chair/office/light,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "by" = (/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "bz" = (/obj/structure/chair{dir = 4},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
-"bA" = (/obj/structure/table/reinforced,/obj/item/device/taperecorder,/obj/item/device/tape,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
+"bA" = (/obj/structure/table/reinforced,/obj/item/taperecorder,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "bB" = (/obj/structure/table/reinforced,/obj/item/scalpel,/obj/item/hemostat,/obj/item/retractor,/obj/item/surgicaldrill,/obj/item/surgical_drapes,/obj/item/cautery,/obj/item/circular_saw,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "bC" = (/obj/structure/table/reinforced,/obj/item/evidencebag,/obj/item/evidencebag,/obj/item/evidencebag,/obj/item/evidencebag,/obj/item/hand_labeler,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "bD" = (/obj/structure/table/reinforced,/obj/item/defibrillator/loaded,/obj/item/restraints/handcuffs/cable/zipties,/obj/item/restraints/handcuffs/cable/zipties,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
-"bE" = (/obj/structure/table/reinforced,/obj/item/device/tape,/turf/open/floor/plasteel/whitepurple/side{dir = 10},/area/ship/overmap/nanotrasen/research)
+"bE" = (/obj/structure/table/reinforced,/obj/item/tape,/turf/open/floor/plasteel/whitepurple/side{dir = 10},/area/ship/overmap/nanotrasen/research)
 "bF" = (/obj/machinery/computer{dir = 1},/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
 "bG" = (/obj/structure/filingcabinet,/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
 "bH" = (/turf/open/floor/plasteel/whitepurple/side{dir = 6},/area/ship/overmap/nanotrasen/research)
@@ -88,8 +84,8 @@
 "bJ" = (/obj/structure/table/optable,/obj/item/restraints/handcuffs/cable/zipties/used,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "bK" = (/obj/structure/chair{dir = 8},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "bL" = (/obj/structure/table/reinforced,/obj/item/clothing/gloves/color/latex/nitrile,/obj/item/clothing/mask/surgical,/obj/item/clothing/suit/apron/surgical,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
-"bM" = (/obj/structure/sign/science{pixel_x = -32},/turf/open/floor/plasteel/whitepurple/side{dir = 8},/area/ship/overmap/nanotrasen/research)
-"bN" = (/obj/structure/sign/science{pixel_x = 32},/turf/open/floor/plasteel/whitepurple/side{dir = 4},/area/ship/overmap/nanotrasen/research)
+"bM" = (/turf/open/floor/plasteel/whitepurple/side{dir = 8},/area/ship/overmap/nanotrasen/research)
+"bN" = (/turf/open/floor/plasteel/whitepurple/side{dir = 4},/area/ship/overmap/nanotrasen/research)
 "bO" = (/obj/machinery/light,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "bP" = (/obj/structure/table/reinforced,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "bQ" = (/obj/machinery/computer/operating{dir = 4},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
@@ -104,11 +100,11 @@
 "bZ" = (/obj/structure/sign/poster/official/work_for_a_future{pixel_y = 32},/turf/open/floor/plasteel/whitepurple/side{dir = 1},/area/ship/overmap/nanotrasen/research)
 "ca" = (/obj/machinery/light{dir = 1; light_color = "#c1caff"},/turf/open/floor/plasteel/whitepurple/side{dir = 1},/area/ship/overmap/nanotrasen/research)
 "cb" = (/obj/structure/table/reinforced,/turf/open/floor/plasteel/whitepurple/side{dir = 5},/area/ship/overmap/nanotrasen/research)
-"cc" = (/obj/structure/disposalpipe/segment,/obj/structure/table/wood,/obj/item/device/multitool,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
+"cc" = (/obj/structure/disposalpipe/segment,/obj/structure/table/wood,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "cd" = (/obj/machinery/light,/turf/open/floor/plasteel/whitepurple/side{dir = 10},/area/ship/overmap/nanotrasen/research)
 "ce" = (/obj/structure/sign/poster/contraband/missing_gloves{pixel_x = 32},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "cf" = (/obj/machinery/door/airlock,/obj/machinery/door/poddoor/preopen{id = "lablockdown1"; name = "Lab Lockdown"},/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
-"cg" = (/obj/structure/sign/xeno_warning_mining{pixel_y = -30},/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
+"cg" = (/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
 "ch" = (/obj/structure/table/reinforced,/obj/item/paper{info = "The next person to leave the specimen holding blast doors open gets janitor duty for the rest of the month! \[br]\[br] We need to increase our safety and secure protocol standards around here if we want to recieve additional grants from Central!"; name = "IMPORTANT NOTICE!"},/obj/machinery/button/door{id = "specimensentry1"; name = "Specimen Holding Control"; pixel_y = -25},/turf/open/floor/plasteel/whitepurple/side{dir = 6},/area/ship/overmap/nanotrasen/research)
 "ci" = (/obj/structure/disposalpipe/segment,/obj/structure/sign/poster/contraband/hacking_guide{pixel_x = 32},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "cj" = (/obj/structure/window/reinforced{dir = 1; layer = 2.9},/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
@@ -125,7 +121,7 @@
 "cu" = (/obj/structure/grille,/obj/effect/spawner/structure/window/reinforced,/obj/structure/disposalpipe/segment,/obj/machinery/door/poddoor/shutters{id = "greyshutter2"; name = "Cell 2 Shutter"},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "cv" = (/obj/effect/turf_decal/stripes{dir = 1},/obj/machinery/disposal/bin,/obj/structure/disposalpipe/trunk{dir = 1},/turf/open/floor/plasteel/whitepurple/side{dir = 9},/area/ship/overmap/nanotrasen/research)
 "cw" = (/obj/effect/turf_decal/stripes{dir = 1},/turf/open/floor/plasteel/whitepurple/side{dir = 1},/area/ship/overmap/nanotrasen/research)
-"cx" = (/obj/structure/table/reinforced,/obj/effect/turf_decal/stripes/end,/obj/structure/sign/xeno_warning_mining{pixel_y = 32},/turf/open/floor/plasteel/whitepurple/side{dir = 1},/area/ship/overmap/nanotrasen/research)
+"cx" = (/obj/structure/table/reinforced,/obj/effect/turf_decal/stripes/end,/turf/open/floor/plasteel/whitepurple/side{dir = 1},/area/ship/overmap/nanotrasen/research)
 "cy" = (/obj/effect/turf_decal/stripes{dir = 1},/obj/machinery/disposal/bin,/obj/structure/disposalpipe/trunk{dir = 1},/turf/open/floor/plasteel/whitepurple/side{dir = 5},/area/ship/overmap/nanotrasen/research)
 "cz" = (/obj/structure/table/reinforced,/obj/item/restraints/handcuffs/cable/zipties,/obj/item/restraints/handcuffs/cable/zipties,/turf/open/floor/plasteel/whitepurple/side{dir = 8},/area/ship/overmap/nanotrasen/research)
 "cA" = (/obj/machinery/button/door{id = "greydoor1"; name = "Cell 1 Door Control"; pixel_x = -6; pixel_y = 30},/obj/machinery/button/door{id = "greyshutter1"; name = "Cell 1 Shutters"; pixel_x = -6; pixel_y = 40},/obj/machinery/button/door{id = "greydoor2"; name = "Cell 2 Door Control"; pixel_x = 6; pixel_y = 30},/obj/machinery/button/door{id = "greyshutter2"; name = "Cell 2 Shutters"; pixel_x = 6; pixel_y = 40},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
@@ -136,10 +132,10 @@
 "cF" = (/obj/machinery/door/poddoor{id = "outerspecimen1"; name = "Exterior Blast Door"},/obj/effect/turf_decal/stripes{dir = 4},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "cG" = (/turf/open/floor/plasteel/whitepurple/side{dir = 5},/area/ship/overmap/nanotrasen/research)
 "cH" = (/obj/structure/table/reinforced,/obj/item/storage/toolbox/emergency,/obj/item/stock_parts/cell/high,/obj/item/stock_parts/cell/high,/turf/open/floor/plasteel/whitepurple/side{dir = 10},/area/ship/overmap/nanotrasen/research)
-"cI" = (/obj/structure/table/reinforced,/obj/item/stack/sheet/glass/fifty,/obj/item/device/assembly/igniter,/obj/item/device/assembly/igniter,/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
+"cI" = (/obj/structure/table/reinforced,/obj/item/stack/sheet/glass/fifty,/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
 "cJ" = (/obj/structure/table/reinforced,/obj/item/stack/rods/ten,/obj/item/stack/cable_coil/blue,/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
 "cK" = (/obj/structure/table/reinforced,/obj/item/clothing/gloves/color/yellow,/obj/item/clothing/gloves/color/yellow,/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
-"cL" = (/obj/structure/table/reinforced,/obj/item/storage/belt/utility/full/engi,/obj/item/storage/belt/utility/full/engi,/obj/item/device/multitool,/obj/item/device/multitool,/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
+"cL" = (/obj/structure/table/reinforced,/obj/item/storage/belt/utility/full/engi,/obj/item/storage/belt/utility/full/engi,/turf/open/floor/plasteel/whitepurple/side,/area/ship/overmap/nanotrasen/research)
 "cM" = (/obj/machinery/button/door{id = "interiorspecimen1"; name = "Interior Blast Door Control"; pixel_y = -25},/turf/open/floor/plasteel/whitepurple/side{dir = 6},/area/ship/overmap/nanotrasen/research)
 "cN" = (/obj/effect/turf_decal/stripes{dir = 8},/obj/machinery/door/poddoor{id = "interiorspecimen1"; name = "Interior Blast Door"},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "cO" = (/obj/machinery/button/door{id = "interiorspecimen1"; name = "Interior Blast Door Control"; pixel_y = -25},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
@@ -147,12 +143,11 @@
 "cQ" = (/obj/effect/turf_decal/stripes{dir = 4},/obj/machinery/door/poddoor{id = "outerspecimen1"; name = "Exterior Blast Door"},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "cR" = (/obj/structure/grille,/obj/effect/spawner/structure/window/reinforced,/obj/machinery/door/poddoor/preopen{id = "specimenobs1"; name = "observation blast doors"},/turf/open/floor/plating,/area/ship/overmap/nanotrasen/research)
 "cS" = (/obj/machinery/button/door{id = "outerspecimen1"; name = "Exterior Blast Door Control"; pixel_x = -25},/turf/open/floor/plasteel/whitepurple/side{dir = 10},/area/ship/overmap/nanotrasen/research)
-"cT" = (/obj/structure/table/reinforced,/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
 "cU" = (/obj/structure/table/reinforced,/obj/item/clipboard,/obj/item/gun/energy/e_gun/mini,/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
-"cV" = (/obj/structure/table/reinforced,/obj/item/device/taperecorder,/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
-"cW" = (/obj/structure/table/reinforced,/obj/item/folder/blue,/obj/item/folder/blue,/obj/item/device/tape,/obj/item/device/tape,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
+"cV" = (/obj/structure/table/reinforced,/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
+"cW" = (/obj/structure/table/reinforced,/obj/item/folder/blue,/obj/item/folder/blue,/obj/item/tape,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "cX" = (/obj/structure/filingcabinet,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
-"cY" = (/obj/structure/table/reinforced,/obj/item/folder/blue,/obj/item/device/tape,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
+"cY" = (/obj/structure/table/reinforced,/obj/item/folder/blue,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "cZ" = (/obj/structure/chair/comfy/brown{buildstackamount = 0; dir = 1},/obj/machinery/button/door{id = "specimenobs1"; name = "Observation Blast Doors"; pixel_y = 35},/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
 "da" = (/obj/structure/table/reinforced,/obj/item/paper_bin,/obj/item/pen,/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
 "db" = (/obj/structure/table/reinforced,/obj/item/folder/documents,/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
@@ -164,9 +159,8 @@
 "dh" = (/obj/machinery/light,/obj/structure/ladder/unbreakable{height = 1; id = "research1"},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "ds" = (/obj/machinery/door/poddoor{id = "specimensentry1"; name = "Specimen Holding Blast Doors"},/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
 "du" = (/obj/machinery/door/airlock/highsecurity,/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
-"dv" = (/obj/structure/sign/securearea{pixel_x = -32; pixel_y = 32},/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
 "dw" = (/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
-"dx" = (/obj/structure/chair/office/light{dir = 4},/obj/machinery/button/door{id = "lablockdown1"; name = "Labs Lockdown"; pixel_x = 25; },/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
+"dx" = (/obj/structure/chair/office/light{dir = 4},/obj/machinery/button/door{id = "lablockdown1"; name = "Labs Lockdown"; pixel_x = 25},/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
 "dy" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 4},/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
 "dz" = (/obj/machinery/light{dir = 4; light_color = "#e8eaff"},/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 "dA" = (/turf/open/floor/engine,/area/ship/overmap/nanotrasen/research)
@@ -174,7 +168,7 @@
 "dC" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/r_wall,/area/ship/overmap/nanotrasen/research)
 "dD" = (/obj/structure/filingcabinet,/obj/machinery/light,/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
 "dE" = (/obj/structure/table/reinforced,/obj/item/paper_bin,/obj/item/pen/fountain,/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
-"dF" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/item/phone,/obj/item/device/megaphone/command,/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
+"dF" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/item/phone,/turf/open/floor/plasteel/darkblue,/area/ship/overmap/nanotrasen/research)
 "dG" = (/obj/structure/mopbucket,/obj/item/mop,/obj/item/reagent_containers/glass/bucket,/turf/open/floor/plasteel/white,/area/ship/overmap/nanotrasen/research)
 
 (1,1,1) = {"
@@ -182,20 +176,20 @@ aadgadadadadadafafadadadadadadadadadadag
 aadgadahaiajakalamadanaoapaqaradasatauag
 aadgadaiavawaxalayadaAaCaCaCaDadaEaFaGag
 aaadadaJadadadafafadaLaMaOaPaCadaRadadag
-aaadaSaTaTaTaTaUaVaWaCaMaOaPaCaXaCaxdgaa
-aaadaYaZbabbbbbbbcaWaCaCaCbdaCaCaCaxdgaa
+aaadaSaTaTaTaTaUbNaWaCaMaOaPaCaXaCaxdgaa
+aaadbMaZbacgcgcgbcaWaCaCaCbdaCaCaCaxdgaa
 aaadbebfadadadadadadadbgadadadbgadaddgaa
-aaadaYbhadbibjbkbladbmbnboadbobnboaddgaa
-aaaxaYaVadbpbqbrbsadbobtboadbobtboaddgaa
-aaaxaYaVadbuaFaFaVadadadadadadadadadadaa
-aaaxaYaVadbwbxaFbhadaFbybzbAaxbBbCbDadaa
-aaaxaYbhadbEbFbGbHaRaFaFbzbIaxbJbKbLadaa
+aaadbMbhadbibjbkbladbmbnboadbobnboaddgaa
+aaaxbMbNadbpbqbrbsadbobtboadbobtboaddgaa
+aaaxbMbNadbuaFaFbNadadadadadadadadadadaa
+aaaxbMbNadbwbxaFbhadaFbybzbAaxbBbCbDadaa
+aaaxbMbhadbEbFbGbHaRaFaFbzbIaxbJbKbLadaa
 aaadbMbNadadadadaFadaFbObzbPaxbQaFbRadaa
 agadbSbTadbUbUadaRadadadadadadadaRadadaa
-agbVaYbWbXaTaTbYaTbZcaaTaTaTaTcaaTcbadaa
-agbVcdbbcfbbbbbbbbbbbbbbbbbbbbcgbbchadaa
+agbVbMbWbXaTaTbYaTbZcaaTaTaTaTcaaTcbadaa
+agbVcdcgcfcgcgcgcgcgcgcgcgcgcgcgcgchadaa
 agadadadadcjclcmcncocpcpcpcoadaddsadadaa
-aadgadacdudvdwdxdyaFbKbKbKdzaddAdAdBadaa
+aadgadacdudwdwdxdyaFbKbKbKdzaddAdAdBadaa
 aadgadadaddCdDdEdFaFbKbKbKdGaddAdhdAadaa
 aadgdgdgadadadadadadadadadadadadadadadaa
 "}
@@ -207,16 +201,16 @@ aadgdgdgdgdgdgdgdgdgdgdgdgdgdgdgdgdgdgaa
 aadgdgdgdgdgdgdgdgdgdgdgdgdgdgdgdgdgdgaa
 aadgdgdgdgdgdgdgdgdgdgdgdgdgdgdgdgdgdgaa
 aadgdgadadadadadadadadaddgdgdgdgdgdgdgaa
-aadgdgadabaeazadaBaHaIaddgdgdgdgdgdgdgaa
+aadgdgadabaedAadaBaHaIaddgdgdgdgdgdgdgaa
 aadgdgadaKdAaNadaQdAbvaddgdgdgdgdgdgdgaa
-aadgdgadccdAceadazdAciaddgdgdgdgdgdgdgaa
+aadgdgadccdAceaddAdAciaddgdgdgdgdgdgdgaa
 aadgdgadckcqcradcsctcuaddgdgdgdgdgdgdgaa
 aadgdgadcvcwcwcxcwcwcyadadadaddgdgdgdgaa
-aadgdgadczaFaFcAaFaFaVadcBcCadadadadadaa
-aadgdgadcDaFaFdfaFaFaVcEdAdAcFaSaTcGadaa
-aadgdgadcHcIcJcKcLbbcMcNcOcPcQaYaFaVadaa
-aadgdgadadcRcRcRcRcRadadadadadcSbbbHadaa
-aadgdgdgadcTcUcTcVcTadcWcXcYadadaJadadaa
+aadgdgadczaFaFcAaFaFbNadcBcCadadadadadaa
+aadgdgadcDaFaFdfaFaFbNcEdAdAcFaSaTcGadaa
+aadgdgadcHcIcJcKcLcgcMcNcOcPcQbMaFbNadaa
+aadgdgadadcRcRcRcRcRadadadadadcScgbHadaa
+aadgdgdgadcVcUcVcVcVadcWcXcYadadaJadadaa
 aadgadadadcZdacZdacZaddAdAdbadaiaiaiadaa
 aadgaddcdudwdwdwdwdwaddAdAcYadaiaiaiadaa
 aadgadadaddwdwdwdwdwdddAdAcXadaideaiadaa
