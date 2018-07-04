@@ -2,7 +2,7 @@
 //Hydraulic CLAMP, Kill CLAMP, Extinguisher, RCD, Cable layer.
 
 
-/obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp
 	name = "hydraulic CLAMP"
 	desc = "Equipment for engineering exosuits. Lifts objects and loads them into cargo."
 	icon_state = "mecha_CLAMP"
@@ -12,22 +12,22 @@
 	var/obj/mecha/working/ripley/cargo_holder
 	harmful = TRUE
 
-/obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP/can_attach(obj/mecha/working/ripley/M as obj)
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/can_attach(obj/mecha/working/ripley/M as obj)
 	if(..())
 		if(istype(M))
 			return 1
 	return 0
 
-/obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP/attach(obj/mecha/M as obj)
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/attach(obj/mecha/M as obj)
 	..()
 	cargo_holder = M
 	return
 
-/obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP/detach(atom/moveto = null)
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/detach(atom/moveto = null)
 	..()
 	cargo_holder = null
 
-/obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP/action(atom/target)
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/action(atom/target)
 	if(!action_checks(target))
 		return
 	if(!cargo_holder)
@@ -74,12 +74,12 @@
 
 
 //This is pretty much just for the death-ripley
-/obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP/kill
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/kill
 	name = "\improper KILL CLAMP"
 	desc = "They won't know what CLAMPed them!"
 	energy_drain = 0
 
-/obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP/kill/action(atom/target)
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/kill/action(atom/target)
 	if(!action_checks(target))
 		return
 	if(!cargo_holder)

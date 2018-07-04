@@ -23,7 +23,7 @@
 	update_pressure()
 
 /obj/mecha/working/ripley/proc/collect_ore()
-	if(locate(/obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP) in equipment)
+	if(locate(/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp) in equipment)
 		var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in cargo
 		if(ore_box)
 			for(var/obj/item/stack/ore/ore in range(1, src))
@@ -85,7 +85,7 @@
 
 /obj/mecha/working/ripley/deathripley/Initialize()
 	. = ..()
-	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP/kill
+	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/kill
 	ME.attach(src)
 
 /obj/mecha/working/ripley/mining
@@ -113,7 +113,7 @@
 	cargo.Add(new /obj/structure/ore_box(src))
 
 	//Attach hydraulic CLAMP
-	var/obj/item/mecha_parts/mecha_equipment/hydraulic_CLAMP/HC = new
+	var/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/HC = new
 	HC.attach(src)
 	for(var/obj/item/mecha_parts/mecha_tracking/B in trackers)//Deletes the beacon so it can't be found easily
 		qdel(B)

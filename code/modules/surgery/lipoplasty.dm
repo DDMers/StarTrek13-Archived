@@ -1,6 +1,6 @@
 /datum/surgery/lipoplasty
 	name = "lipoplasty"
-	steps = list(/datum/surgery_step/incise, /datum/surgery_step/CLAMP_bleeders, /datum/surgery_step/cut_fat, /datum/surgery_step/remove_fat, /datum/surgery_step/close)
+	steps = list(/datum/surgery_step/incise, /datum/surgery_step/clamp_bleeders, /datum/surgery_step/cut_fat, /datum/surgery_step/remove_fat, /datum/surgery_step/close)
 	possible_locs = list(BODY_ZONE_CHEST)
 
 /datum/surgery/lipoplasty/can_start(mob/user, mob/living/carbon/target)

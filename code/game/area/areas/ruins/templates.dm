@@ -3,7 +3,7 @@
 /area/ruin/powered/shuttle
 	name = "Shuttle"
 
-/area/ruin/powered/shuttle/medium
+/area/ruin/powered/shuttle/medium_1
 
 /area/ruin/powered/shuttle/medium_2
 
