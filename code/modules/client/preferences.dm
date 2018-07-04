@@ -667,6 +667,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		for(var/datum/job/job in player_faction.faction_occupations)
 
+		var/datum/job/overflow = SSjob.GetJob(SSjob.overflow_role)
+
+		for(var/datum/job/job in SSjob.occupations)
 
 			index += 1
 			if((index >= limit) || (job.title in splitJobs))

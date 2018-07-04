@@ -55,9 +55,9 @@
 /datum/outfit/borg/queen
 	name = "borg queen"
 	//id = /obj/item/weapon/card/id/gold
-//	belt = /obj/item/device/pda/captain
+//	belt = /obj/item/pda/captain
 	glasses = /obj/item/clothing/glasses/night/borg
-	ears = /obj/item/device/radio/headset/borg/alt
+	ears = /obj/item/radio/headset/borg/alt
 	uniform =  /obj/item/clothing/under/borg
 	suit = /obj/item/clothing/suit/space/borg/regal
 	shoes = /obj/item/clothing/shoes/magboots/borg
@@ -74,12 +74,12 @@
 	H.socks = "Nude"
 	H.hair_style = "Bald"
 	H.set_species(/datum/species/xelqueen)
-	H.dna.species.species_traits |= NOCLONE
-	H.dna.species.species_traits |= CLUMSY
-	H.dna.species.species_traits |= BORG_DRONE
-	H.dna.species.species_traits |= NOHUNGER
-	H.dna.species.species_traits |= NOGUNS
-	H.dna.species.species_traits |= NOBREATH
+	H.dna.species.species_traits |= TRAIT_NOCLONE
+	H.dna.species.species_traits |= TRAIT_CLUMSY
+	H.dna.species.species_traits |= TRAIT_BORG_DRONE
+	H.dna.species.species_traits |= TRAIT_NOHUNGER
+	H.dna.species.species_traits |= TRAIT_NOGUNS
+	H.dna.species.species_traits |= TRAIT_NOBREATH
 	H.name = "Xel Queen"
 	if(!src in SSticker.mode.hivemind.borgs)
 		SSticker.mode.hivemind.borgs += H

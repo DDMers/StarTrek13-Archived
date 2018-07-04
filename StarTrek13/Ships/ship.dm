@@ -968,7 +968,7 @@
 	if (istype(C, /obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = C
 		if(WT.isOn())
-			if(WT.remove_fuel(0, user))
+			if(WT.use_tool(src, user, 40, volume=100))
 				new /obj/item/stack/rods(src.loc)
 				new /obj/item/stack/rods(src.loc)
 				new /obj/structure/lattice(src.loc)
