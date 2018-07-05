@@ -212,7 +212,7 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"ayD" = (
+"ayG" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 1
 	},
@@ -409,7 +409,7 @@
 	},
 /turf/open/floor/plasteel,
 /area/space)
-"aNJ" = (
+"aNZ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 1
 	},
@@ -709,7 +709,7 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"bxB" = (
+"bxZ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
@@ -2894,7 +2894,7 @@
 /obj/docking_port/mobile/pod{
 	dir = 1;
 	id = "pod5";
-	port_angle = 0
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -5219,13 +5219,6 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"kCB" = (
-/obj/structure/girder/reinforced,
-/turf/open/floor/plating/airless{
-	broken = 1;
-	icon_state = "panelscorched"
-	},
-/area/space)
 "kEd" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 8
@@ -5368,7 +5361,7 @@
 /obj/docking_port/mobile/pod{
 	dir = 2;
 	id = "pod10";
-	port_angle = 180
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -6247,7 +6240,7 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"mYW" = (
+"mYZ" = (
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	dir = 4
 	},
@@ -6999,7 +6992,7 @@
 /obj/docking_port/mobile/pod{
 	dir = 4;
 	id = "pod7";
-	port_angle = -90
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -9097,7 +9090,7 @@
 /obj/docking_port/mobile/pod{
 	dir = 2;
 	id = "pod8";
-	port_angle = 180
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -9307,7 +9300,7 @@
 	},
 /turf/open/floor/plasteel,
 /area/space)
-"sSD" = (
+"sSX" = (
 /obj/machinery/vending/clothing,
 /turf/open/floor/wood,
 /area/space)
@@ -9552,7 +9545,7 @@
 /obj/item/stack/sheet/metal,
 /turf/open/floor/plating/airless,
 /area/space)
-"tvS" = (
+"tvX" = (
 /obj/machinery/libraryscanner,
 /turf/open/floor/plating,
 /area/space)
@@ -9720,7 +9713,7 @@
 /obj/docking_port/mobile/pod{
 	dir = 1;
 	id = "pod1";
-	port_angle = 0
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -10254,7 +10247,7 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"uLJ" = (
+"uLZ" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -10554,7 +10547,7 @@
 /obj/docking_port/mobile/pod{
 	dir = 1;
 	id = "pod2";
-	port_angle = 0
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -16804,7 +16797,7 @@
 /obj/docking_port/mobile/pod{
 	dir = 4;
 	id = "pod4";
-	port_angle = -90
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -17698,7 +17691,7 @@
 /obj/machinery/space_heater,
 /turf/open/floor/plasteel/floorgrime,
 /area/space)
-"Kcb" = (
+"kCB" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 8
 	},
@@ -18593,7 +18586,7 @@
 /obj/docking_port/mobile/pod{
 	dir = 2;
 	id = "pod9";
-	port_angle = 180
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -19271,7 +19264,6 @@
 /obj/machinery/air_sensor{
 	frequency = 1441;
 	id_tag = "engine_sensor";
-	resistance_flags = FIRE_PROOF
 	},
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -20386,7 +20378,7 @@
 /obj/docking_port/mobile/pod{
 	dir = 1;
 	id = "pod3";
-	port_angle = 0
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -20656,7 +20648,7 @@
 /obj/docking_port/mobile/pod{
 	dir = 1;
 	id = "pod6";
-	port_angle = 0
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -47889,7 +47881,7 @@ Ayt
 BhF
 BhF
 oRu
-sSD
+sSX
 SPE
 Vdm
 uoE
@@ -48099,7 +48091,7 @@ slx
 ZMQ
 UCC
 Vbm
-mYW
+mYZ
 lHl
 DZw
 Fds
@@ -48361,7 +48353,7 @@ xqB
 ATz
 PXr
 YMb
-mYW
+mYZ
 fkS
 UYW
 BVT
@@ -48613,7 +48605,7 @@ uoE
 MBB
 zsh
 Jwg
-mYW
+mYZ
 pGU
 ATz
 PXr
@@ -48870,12 +48862,12 @@ uoE
 oYD
 VZd
 Gor
-mYW
+mYZ
 PlZ
 gWv
 cJe
 uYM
-mYW
+mYZ
 mOV
 vAi
 OSS
@@ -49384,7 +49376,7 @@ uoE
 ZNs
 RlM
 SGQ
-mYW
+mYZ
 pGU
 HWx
 CVZ
@@ -49925,7 +49917,7 @@ ApI
 GSn
 MCh
 HBC
-uLJ
+uLZ
 hUQ
 eRA
 KAx
@@ -50412,7 +50404,7 @@ uoE
 GEV
 zsh
 EvG
-mYW
+mYZ
 sNZ
 scq
 SYQ
@@ -50669,7 +50661,7 @@ uoE
 DUD
 vyP
 ohg
-mYW
+mYZ
 sNZ
 scq
 sNZ
@@ -52514,7 +52506,7 @@ lRr
 LaK
 ruA
 HTn
-bxB
+bxZ
 ajw
 HWA
 HWA
@@ -52984,7 +52976,7 @@ XDI
 JrG
 ljL
 tCd
-tvS
+tvX
 slx
 RZE
 RZE
@@ -53004,8 +52996,8 @@ XDI
 RXL
 SUy
 pue
-ayD
-aNJ
+ayG
+aNZ
 RTV
 HWA
 QHZ
@@ -66371,7 +66363,7 @@ XKt
 hIr
 hwG
 HWA
-Kcb
+kCB
 AXx
 HWA
 uoE
