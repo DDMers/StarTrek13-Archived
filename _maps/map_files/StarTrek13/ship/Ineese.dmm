@@ -474,7 +474,7 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/grimy,
 /area/space)
-"aXz" = (
+"AAA" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 9
@@ -1049,7 +1049,7 @@
 	},
 /turf/closed/wall/r_wall,
 /area/space)
-"bUn" = (
+"FFF" = (
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 10
@@ -1062,7 +1062,7 @@
 /obj/item/shard,
 /turf/open/space/basic,
 /area/space)
-"bZB" = (
+"CCC" = (
 /obj/machinery/computer/aifixer{
 	dir = 8
 	},
@@ -1773,7 +1773,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/space)
-"dwo" = (
+"dwZ" = (
 /obj/effect/decal/cleanable/oil/streak,
 /turf/open/floor/plating,
 /area/space)
@@ -5035,7 +5035,7 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"kju" = (
+"kfz" = (
 /obj/structure/cable{
 	crit_fail = 0;
 	d1 = 4;
@@ -5227,7 +5227,7 @@
 	name = "Roboticist";
 	
 	},
-/turf/open/floor/plasteel/bot,
+/turf/open/floor/plasteel,
 /area/space)
 "kEE" = (
 /obj/structure/cable{
@@ -5445,9 +5445,8 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/space)
-"kYf" = (
+"kYZ" = (
 /obj/machinery/conveyor_switch/oneway{
-	convdir = 0;
 	id = "garbage";
 	name = "disposal coveyor"
 	},
@@ -7285,7 +7284,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/telecomms/relay/portable/preset,
 /obj/machinery/camera{
 	c_tag = "Mining Shuttle Storage";
 	dir = 1;
@@ -7729,7 +7727,6 @@
 "pVc" = (
 /obj/machinery/computer/atmos_control/tank{
 	dir = 4;
-	force_blueprints = 0;
 	frequency = 1441;
 	input_tag = "engine_in";
 	name = "Engine Cooling Control";
@@ -10486,7 +10483,7 @@
 	},
 /turf/open/floor/engine,
 /area/space)
-"vkj" = (
+"VVV" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -11573,7 +11570,7 @@
 	},
 /turf/open/floor/plasteel,
 /area/space)
-"xxe" = (
+"EEE" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
@@ -14922,7 +14919,6 @@
 	opened = 1
 	},
 /obj/effect/spawner/lootdrop/maintenance,
-/obj/item/circuitboard/computer/camera_advanced/shuttle_docker,
 /turf/open/floor/plasteel,
 /area/space)
 "EuO" = (
@@ -17059,7 +17055,7 @@
 /obj/structure/window/reinforced/fulltile,
 /turf/open/floor/plating,
 /area/space)
-"IOR" = (
+"GGG" = (
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
@@ -20549,7 +20545,6 @@
 /turf/open/floor/plating,
 /area/space)
 "PDd" = (
-/obj/machinery/computer/pmanagement,
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
@@ -20854,7 +20849,6 @@
 /turf/open/floor/plasteel,
 /area/space)
 "QiU" = (
-/obj/machinery/r_n_d/protolathe,
 /turf/open/floor/plasteel,
 /area/space)
 "Qke" = (
@@ -21960,7 +21954,6 @@
 	},
 /obj/machinery/camera{
 	c_tag = "Brig Conference Room";
-	c_tag_order = 999;
 	dir = 8;
 	network = list("SS13","Brig")
 	},
@@ -22609,9 +22602,6 @@
 /turf/open/floor/plating,
 /area/space)
 "Tuu" = (
-/obj/machinery/computer/pmanagement{
-	dir = 1
-	},
 /turf/open/floor/plasteel/grimy,
 /area/space)
 "TuO" = (
@@ -22650,7 +22640,6 @@
 /turf/open/floor/plating,
 /area/space)
 "Twp" = (
-/obj/machinery/r_n_d/destructive_analyzer,
 /obj/machinery/status_display{
 	density = 0;
 	layer = 4;
@@ -22709,7 +22698,6 @@
 /turf/open/floor/engine,
 /area/space)
 "TIk" = (
-/obj/machinery/r_n_d/protolathe,
 /obj/item/radio/intercom{
 	pixel_x = 32;
 	
@@ -22908,11 +22896,6 @@
 /area/space)
 "UfP" = (
 /obj/structure/rack,
-/obj/item/circuitboard/machine/mac_barrel{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/circuitboard/machine/mac_breech,
 /obj/item/circuitboard/machine/phase_cannon{
 	pixel_x = 3;
 	pixel_y = -3
@@ -23266,10 +23249,6 @@
 /area/space)
 "UIX" = (
 /obj/structure/table,
-/obj/item/storage/box/cookie{
-	desc = "Reward cooperative patients with a cookie. Or eat them yourself.";
-	name = "box of cookies"
-	},
 /obj/item/clothing/ears/earmuffs,
 /obj/item/clothing/neck/stethoscope,
 /turf/open/floor/plasteel/white,
@@ -23796,7 +23775,6 @@
 /area/space)
 "VEC" = (
 /obj/structure/fans/tiny,
-/obj/structure/inflatable/door,
 /turf/open/floor/plating,
 /area/space)
 "VFU" = (
@@ -25049,7 +25027,7 @@
 /turf/open/floor/plating,
 /area/space)
 "XHr" = (
-/obj/machinery/power/supermatter_shard{
+/obj/machinery/power/supermatter_crystal{
 	pressure_resistance = 999
 	},
 /turf/open/floor/engine/vacuum,
@@ -56064,9 +56042,9 @@ zJR
 uoE
 uoE
 Usp
-kYf
+kYZ
 nxv
-dwo
+dwZ
 pKC
 HWA
 VUE
@@ -56348,7 +56326,7 @@ lei
 kOD
 XBx
 UVA
-aXz
+AAA
 uoE
 ibu
 oHI
@@ -57387,7 +57365,7 @@ rCK
 OuU
 uoE
 KNg
-vkj
+VVV
 JXU
 JXU
 ysq
@@ -60455,7 +60433,7 @@ uoE
 qrr
 oeD
 Lxv
-bZB
+CCC
 uoE
 uoE
 uoE
@@ -66115,7 +66093,7 @@ vll
 bNG
 aLI
 oOh
-xxe
+EEE
 ERp
 TIk
 dIO
@@ -69190,7 +69168,7 @@ Bsc
 iqY
 IjH
 OCk
-bUn
+FFF
 CyU
 Unm
 WDS
@@ -69957,7 +69935,7 @@ zJR
 MuM
 KTD
 RZE
-kju
+kfz
 ulN
 dPk
 Lho
@@ -70214,7 +70192,7 @@ uoE
 OGH
 jOe
 DXX
-IOR
+GGG
 fHJ
 dTx
 WCp
