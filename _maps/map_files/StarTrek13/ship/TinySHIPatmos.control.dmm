@@ -7238,7 +7238,7 @@
 	power = 4;
 	resistance_flags = FIRE_PROOF
 	},
-/obj/machinery/power/supermatter_shard/crystal,
+/obj/machinery/power/supermatter_crystal,
 /turf/open/floor/engine/airless,
 /area/shuttle/ftl/engine/supermatter_core)
 "vxa" = (
