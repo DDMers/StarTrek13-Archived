@@ -51,12 +51,14 @@ GLOBAL_PROTECT(security_mode)
 		HandleTestRun()
 
 /world/proc/HandleTestRun()
+	log_world("DEBUG: ITDOESRUN")
 	//trigger things to run the whole process
 	Master.sleep_offline_after_initializations = FALSE
 	SSticker.start_immediately = TRUE
 	CONFIG_SET(number/round_end_countdown, 0)
 	var/datum/callback/cb
 #ifdef UNIT_TESTS
+	log_world("DEBUG: BUT NOT HERE")
 	cb = CALLBACK(GLOBAL_PROC, /proc/RunUnitTests)
 #else
 	cb = VARSET_CALLBACK(SSticker, force_ending, TRUE)
