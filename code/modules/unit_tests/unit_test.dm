@@ -53,7 +53,7 @@ GLOBAL_VAR(test_log)
 	log_world("RUN TESTS WORK")
 	for(var/I in subtypesof(/datum/unit_test))
 		var/datum/unit_test/test = new I
-		log_world("RUNNING UNIT TEST [i]")
+		log_world("RUNNING UNIT TEST [I]")
 		GLOB.current_test = test
 		var/duration = REALTIMEOFDAY
 
@@ -65,7 +65,7 @@ GLOBAL_VAR(test_log)
 
 		var/list/log_entry = list("[test.succeeded ? "PASS" : "FAIL"]: [I] [duration / 10]s")
 		var/list/fail_reasons = test.fail_reasons
-		log_world("IT RAN UNIT TEST [i]")
+		log_world("IT RAN UNIT TEST [I]")
 		qdel(test)
 
 		for(var/J in 1 to LAZYLEN(fail_reasons))
