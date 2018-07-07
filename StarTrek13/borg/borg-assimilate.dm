@@ -14,6 +14,7 @@
 	dna.species.species_traits |= TRAIT_NOHUNGER
 	dna.species.species_traits |= TRAIT_NOGUNS
 	dna.species.species_traits |= TRAIT_NOBREATH
+	dna.species.species_traits |= TRAIT_RESISTCOLD
 	mind.special_role = "Borg-Drone" //Placing this last so that it only runtimes after completion, so you can convert AFK mobs
 	eye_color = "red"
 	underwear = "Nude"
@@ -33,6 +34,7 @@
 	dna.species.species_traits -= TRAIT_NOHUNGER
 	dna.species.species_traits -= TRAIT_NOGUNS
 	dna.species.species_traits -= TRAIT_NOBREATH
+	dna.species.species_traits -= TRAIT_RESISTCOLD
 	unequip_everything()
 	mind.special_role = null
 

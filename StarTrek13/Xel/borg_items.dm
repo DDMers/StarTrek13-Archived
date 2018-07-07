@@ -229,13 +229,13 @@
 	desc = "an inbuilt radio that the Xel use to communicate with one another, CTRL click it to access the headset interface, and use the action button up top to message the collective."
 	icon_state = "xelheadset"
 	item_state = "xelheadset"
-	flags = NODROP
+	item_flags = NODROP
 	flags_2 = BANG_PROTECT_2 | NO_EMP_WIRES_2
 	actions_types = list(/datum/action/item_action/xelchat)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/radio/headset/borg/alt/cyborg
-	flags = null
+	item_flags = null
 
 /obj/item/radio/headset/borg/alt/attackby()
 	return //no screwdrivering the keys out for you
@@ -277,7 +277,7 @@
 	icon_state = "borg"
 	has_sensor = 0
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = NODROP
+	item_flags = NODROP
 
 /obj/item/clothing/suit/space/borg
 	name = "borg exoskeleton"
@@ -289,7 +289,7 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT
 	slowdown = 2
-	flags = NODROP | ABSTRACT | THICKMATERIAL
+	item_flags = NODROP | ABSTRACT | THICKMATERIAL
 	heat_protection = null //burn the borg
 	max_heat_protection_temperature = null
 	armor = list(melee = 10, bullet = 10, laser = 10, energy = 0, bomb = 15, bio = 100, rad = 70) //they can't react to bombs that well, and emps will rape them
@@ -376,7 +376,7 @@
 	magboot_state = "borg1"
 	item_state = null
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = NODROP
+	item_flags = NODROP
 
 /obj/item/clothing/head/borg
 	name = "borg helmet"
@@ -388,7 +388,7 @@
 	heat_protection = HEAD
 	max_heat_protection_temperature = SPACE_HELM_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = ABSTRACT | NODROP | STOPSPRESSUREDMAGE
+	item_flags = ABSTRACT | NODROP | STOPSPRESSUREDMAGE
 
 /obj/item/clothing/head/borg/New()
 	for(var/obj/item/clothing/suit/space/borg/B in world)
@@ -405,7 +405,7 @@
 	invis_view = 2
 	flash_protect = -1
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = ABSTRACT | NODROP
+	item_flags = ABSTRACT | NODROP
 /obj/item/clothing/glasses/night/borg/New()
 	. = ..()
 	icon_state = pick("borg","borg2","borg3","borg4") // coloured eyes
@@ -458,7 +458,7 @@
 	icon_state = "borg"
 	item_state = null
 	siemens_coefficient = 0
-	flags = NODROP | MASKINTERNALS
+	item_flags = NODROP | MASKINTERNALS
 	var/cooldown2 = 60 //6 second cooldown
 	var/saved_time = 0
 	actions_types = list(/datum/action/item_action/futile)
@@ -468,7 +468,7 @@
 		futile(user)
 
 /obj/item/clothing/mask/gas/borg/cyborg
-	flags = null
+	item_flags = null
 	name = "intimidator"
 
 /obj/item/clothing/mask/gas/borg/proc/futile(mob/user)

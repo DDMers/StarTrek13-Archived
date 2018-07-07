@@ -5,7 +5,7 @@
 	icon_state = "syndicate"
 	has_sensor = 0
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = NODROP
+	item_flags = NODROP
 
 /obj/item/clothing/suit/space/borg
 	name = "borg exoskeleton"
@@ -17,7 +17,7 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT
 	slowdown = 3
-	flags = NODROP | ABSTRACT | THICKMATERIAL | STOPSPRESSUREDAMAGE
+	item_flags = NODROP | ABSTRACT | THICKMATERIAL | STOPSPRESSUREDAMAGE
 	armor = list(melee = 40, bullet = 5, laser = 5, energy = 0, bomb = 15, bio = 100, rad = 70) //they can't react to bombs that well, and emps will rape them
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	allowed = list(/obj/item/flashlight)
@@ -46,7 +46,7 @@
 	magboot_state = "borg1"
 	item_state = null
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = NODROP
+	item_flags = NODROP
 
 /obj/item/clothing/head/helmet/space/borg
 	name = "borg helmet"
@@ -58,7 +58,7 @@
 	heat_protection = HEAD
 	max_heat_protection_temperature = SPACE_HELM_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = ABSTRACT | NODROP | STOPSPRESSUREDAMAGE
+	item_flags = ABSTRACT | NODROP | STOPSPRESSUREDAMAGE
 
 /obj/item/clothing/head/helmet/space/borg/New()
 	for(var/obj/item/clothing/suit/space/borg/B in world)
@@ -75,7 +75,7 @@
 	invis_view = 2
 	flash_protect = -1
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags = ABSTRACT | NODROP
+	item_flags = ABSTRACT | NODROP
 	alpha = 0
 
 /obj/item/clothing/glasses/night/borg/New()
@@ -149,7 +149,7 @@
 	icon_state = "borg"
 	item_state = null
 	siemens_coefficient = 0
-	flags = NODROP | MASKINTERNALS
+	item_flags = NODROP | MASKINTERNALS
 	var/cooldown2 = 60 //6 second cooldown
 	var/saved_time = 0
 	actions_types = list(/datum/action/item_action/futile)

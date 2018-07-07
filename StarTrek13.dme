@@ -2652,7 +2652,6 @@
 #include "StarTrek13\Ships\globals.dm"
 #include "StarTrek13\Ships\is_defines.dm"
 #include "StarTrek13\Ships\jumpgate.dm"
-#include "StarTrek13\Ships\MathShitDeleteMeWhenWeRebase.dm"
 #include "StarTrek13\Ships\overmap.dm"
 #include "StarTrek13\Ships\overmap_camera.dm"
 #include "StarTrek13\Ships\overmap_combat.dm"

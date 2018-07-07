@@ -6,7 +6,7 @@
 	resistance_flags = UNACIDABLE
 	var/mode = 1 //can assimilate or build mode
 	var/convert_time = 50 //5 seconds
-	flags = NODROP
+	item_flags = NODROP
 	force = 18 //hella strong
 	var/removing_airlock = FALSE //from zombie claw, are we opening an airlock right now?
 	var/canbuild = list(/obj/structure/chair/borg/conversion,/obj/structure/chair/borg/charging)
@@ -65,7 +65,7 @@
 	//1 is assim, 2 build, 3 attack, 4 shoot
 
 /obj/item/borg_tool/cyborg //fucking run NOW
-	flags = null //not nodrop or that will break borg invs
+	item_flags = null //not nodrop or that will break borg invs
 
 /obj/item/borg_tool/CtrlClick(mob/user)
 	if(!norun)
