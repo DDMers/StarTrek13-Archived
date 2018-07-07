@@ -665,11 +665,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
 		var/datum/job/lastJob
 
-		for(var/datum/job/job in player_faction.faction_occupations)
-
 		var/datum/job/overflow = SSjob.GetJob(SSjob.overflow_role)
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in player_faction.faction_occupations)
 
 			index += 1
 			if((index >= limit) || (job.title in splitJobs))
