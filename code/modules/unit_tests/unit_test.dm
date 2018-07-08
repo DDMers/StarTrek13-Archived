@@ -50,10 +50,10 @@ GLOBAL_VAR(test_log)
 
 /proc/RunUnitTests()
 	CHECK_TICK
-	log_world("RUN TESTS WORK")
+	log_world("DEBUG:RUN TESTS WORK")
 	for(var/I in subtypesof(/datum/unit_test))
 		var/datum/unit_test/test = new I
-		log_world("RUNNING UNIT TEST [I]")
+		log_world("DEBUG:RUNNING UNIT TEST")
 		GLOB.current_test = test
 		var/duration = REALTIMEOFDAY
 
@@ -65,7 +65,7 @@ GLOBAL_VAR(test_log)
 
 		var/list/log_entry = list("[test.succeeded ? "PASS" : "FAIL"]: [I] [duration / 10]s")
 		var/list/fail_reasons = test.fail_reasons
-		log_world("IT RAN UNIT TEST [I]")
+		log_world("DEBUG:IT RAN UNIT TEST")
 		qdel(test)
 
 		for(var/J in 1 to LAZYLEN(fail_reasons))
