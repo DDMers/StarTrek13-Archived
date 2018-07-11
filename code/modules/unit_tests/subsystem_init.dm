@@ -1,4 +1,5 @@
 /datum/unit_test/subsystem_init/Run()
+	log_world("DEBUG: SUBSYSTEM TEST STARTS")
 	for(var/i in Master.subsystems)
 		var/datum/controller/subsystem/ss = i
 		if(ss.flags & SS_NO_INIT)

@@ -3,9 +3,10 @@
 /datum/unit_test/reagent_id_typos
 
 /datum/unit_test/reagent_id_typos/Run()
+	log_world("DEBUG: REAGENT ID DOES START")
 	build_chemical_reactions_list()
 	build_chemical_reagent_list()
-
+	log_world("DEBUG: REAGENT ID POST BUILDING RUNS")
 	for(var/I in GLOB.chemical_reactions_list)
 		for(var/V in GLOB.chemical_reactions_list[I])
 			var/datum/chemical_reaction/R = V
