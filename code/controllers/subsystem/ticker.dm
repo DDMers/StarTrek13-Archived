@@ -278,6 +278,7 @@ SUBSYSTEM_DEF(ticker)
 
 	for(var/I in round_start_events)
 		var/datum/callback/cb = I
+		log_world("DEBUG:RUN Round Start Events event name :[cb.delegate]")
 		cb.InvokeAsync()
 	LAZYCLEARLIST(round_start_events)
 
