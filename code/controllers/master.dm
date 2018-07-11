@@ -207,6 +207,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	if(sleep_offline_after_initializations)
 
 		world.sleep_offline = TRUE
+	log_world("DEBUG SLEEP OFFLINE IS[world.sleep_offline]")
 	sleep(1)
 
 	if(sleep_offline_after_initializations && CONFIG_GET(flag/resume_after_initializations))
