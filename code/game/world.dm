@@ -66,7 +66,7 @@ GLOBAL_PROTECT(security_mode)
 	WHYDOUNITTESTSFAIL = "ITS DUMB"
 #endif
 	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/addtimer, cb, 10 SECONDS))
-	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/log_world, WHYDOUNITTESTSFAIL))
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/log_world, world.sleep_offline))
 
 /world/proc/SetupExternalRSC()
 #if (PRELOAD_RSC == 0)
