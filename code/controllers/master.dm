@@ -203,6 +203,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/initialized_tod = REALTIMEOFDAY
 
 	world.TgsInitializationComplete()
+	log_world("DEBUG SLEEP OFFLINE IS[world.sleep_offline]")
 	log_world("DEBUG TG INIT[sleep_offline_after_initializations]")
 	if(sleep_offline_after_initializations)
 
