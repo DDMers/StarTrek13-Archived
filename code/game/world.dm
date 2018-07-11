@@ -56,14 +56,13 @@ GLOBAL_PROTECT(security_mode)
 	SSticker.start_immediately = TRUE
 	CONFIG_SET(number/round_end_countdown, 0)
 	var/datum/callback/cb
-	var/WHYDOUNITTESTSFAIL
 #ifdef UNIT_TESTS
 	log_world("DEBUG: CALLING RUN UNIT TESTS")
 	cb = CALLBACK(GLOBAL_PROC, /proc/RunUnitTests)
-	WHYDOUNITTESTSFAIL = "REASONS"
+
 #else
 	cb = VARSET_CALLBACK(SSticker, force_ending, TRUE)
-	WHYDOUNITTESTSFAIL = "ITS DUMB"
+
 #endif
 	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/addtimer, cb, 10 SECONDS))
 	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/log_world, world.sleep_offline))
