@@ -401,6 +401,7 @@
 
 /datum/config_entry/flag/resume_after_initializations/ValidateAndSet(str_val)
 	. = ..()
+	log_world("DEBUG SLEEP OFFLINE IS[world.sleep_offline]")
 	if(. && Master.current_runlevel)
 		log_world("DEBUG CONFIG ENTRY VAL [config_entry_value]")
 		world.sleep_offline = !config_entry_value

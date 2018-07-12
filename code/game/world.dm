@@ -52,7 +52,9 @@ GLOBAL_PROTECT(security_mode)
 
 /world/proc/HandleTestRun()
 	//trigger things to run the whole process
+	log_world("DEBUG SLEEP OFFLINE IS[world.sleep_offline]")
 	Master.sleep_offline_after_initializations = FALSE
+	log_world("DEBUG SLEEP OFFLINE IS[world.sleep_offline]")
 	SSticker.start_immediately = TRUE
 	CONFIG_SET(number/round_end_countdown, 0)
 	var/datum/callback/cd
