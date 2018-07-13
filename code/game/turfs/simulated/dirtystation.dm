@@ -11,7 +11,7 @@
 	if(prob(66))	//fastest possible exit 2/3 of the time
 		return
 
-	if(!(flags_1 & CAN_BE_DIRTY_1))
+	if(!(flags & CAN_BE_DIRTY))
 		return
 
 	if(locate(/obj/structure/grille) in contents)
@@ -19,7 +19,7 @@
 
 	var/area/A = get_area(src)
 
-	if(A && !(A.flags_1 & CAN_BE_DIRTY_1))
+	if(A && !(A.flags & CAN_BE_DIRTY))
 		return
 
 	//The code below here isn't exactly optimal, but because of the individual decals that each area uses it's still applicable.
@@ -28,8 +28,6 @@
 	var/static/list/high_dirt_areas = typecacheof(list(/area/science/test_area,
 														/area/mine/production,
 														/area/mine/living_quarters,
-														/area/mine/north_outpost,
-														/area/mine/west_outpost,
 														/area/ruin/space))
 	if(is_type_in_typecache(A, high_dirt_areas))
 		new /obj/effect/decal/cleanable/dirt(src)	//vanilla, but it works
@@ -40,7 +38,7 @@
 		return
 
 		//Construction zones. Blood, sweat, and oil.  Oh, and dirt.
-	var/static/list/engine_dirt_areas = typecacheof(list(/area/engine,			
+	var/static/list/engine_dirt_areas = typecacheof(list(/area/engine,
 														/area/crew_quarters/heads/chief,
 														/area/ruin/space/derelict/assembly_line,
 														/area/science/robotics,
@@ -84,7 +82,6 @@
 
 		//Areas where gibs will be present. Robusting probably happened some time ago.
 	var/static/list/gib_covered_areas = typecacheof(list(/area/ai_monitored/turret_protected,
-														/area/prison,
 														/area/security,
 														/area/crew_quarters/heads/hos))
 	if(is_type_in_typecache(A, gib_covered_areas))

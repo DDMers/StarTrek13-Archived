@@ -25,7 +25,7 @@ Assistant
 		return ..()
 
 /datum/job/nt/crewman/config_check()
-	var/ac = CONFIG_GET(number/assistant_cap)
+	var/ac = CONFIG_GET(number/overflow_cap)
 	if(ac != 0)
 		total_positions = ac
 		spawn_positions = ac
@@ -80,15 +80,15 @@ Captain
 	jobtype = /datum/job/nt/captain
 
 	id = /obj/item/card/id/gold
-	belt = /obj/item/device/pda/captain
+	belt = /obj/item/pda/captain
 	glasses = /obj/item/clothing/glasses/sunglasses
-	ears = /obj/item/device/radio/headset/heads/captain/alt
+	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/captain
 	uniform =  /obj/item/clothing/under/captainparade
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/alt
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/caphat/parade
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/station_charter=1,/obj/item/device/modular_computer/tablet/preset/advanced)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/station_charter=1,/obj/item/modular_computer/tablet/preset/advanced)
 
 	backpack = /obj/item/storage/backpack/captain
 	satchel = /obj/item/storage/backpack/satchel/cap
@@ -133,15 +133,15 @@ Captain
 	jobtype = /datum/job/nt/admiral
 
 	id = /obj/item/card/id/gold
-	belt = /obj/item/device/pda/captain
+	belt = /obj/item/pda/captain
 	glasses = /obj/item/clothing/glasses/sunglasses
-	ears = /obj/item/device/radio/headset/heads/captain/alt
+	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform =  /obj/item/clothing/under/rank/centcom_officer
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/laceup
 	head = /obj/item/clothing/head/centhat
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/station_charter=1,/obj/item/device/modular_computer/tablet/preset/advanced)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/station_charter=1,/obj/item/modular_computer/tablet/preset/advanced)
 
 	backpack = /obj/item/storage/backpack/captain
 	satchel = /obj/item/storage/backpack/satchel/cap
@@ -185,13 +185,13 @@ Head of Personnel
 			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
 			            ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_MORGUE,
 			            ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MAILSORTING, ACCESS_QM, ACCESS_HYDROPONICS, ACCESS_LAWYER,
-			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
+			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_VAULT, ACCESS_MINING_STATION,
 			            ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_COURT, ACCESS_WEAPONS,
 			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
 			            ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_MORGUE,
 			            ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MAILSORTING, ACCESS_QM, ACCESS_HYDROPONICS, ACCESS_LAWYER,
-			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
+			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_VAULT, ACCESS_MINING_STATION,
 			            ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM)
 
 
@@ -200,12 +200,12 @@ Head of Personnel
 	jobtype = /datum/job/nt/firstofficer
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/device/pda/heads/hop
-	ears = /obj/item/device/radio/headset/heads/hop
+	belt = /obj/item/pda/heads/hop
+	ears = /obj/item/radio/headset/heads/hop
 	uniform = /obj/item/clothing/under/rank/head_of_personnel
 	shoes = /obj/item/clothing/shoes/laceup
 	backpack_contents = list(/obj/item/storage/box/ids=1,\
-		/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced = 1,/obj/item/device/tricorder)
+		/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced = 1,/obj/item/tricorder)
 
 /datum/outfit/job/nt/firstofficer/post_equip(mob/living/carbon/human/H)
 	H.skills.add_skill("piloting", 4)
@@ -236,7 +236,7 @@ Clown
 	name = "Clown"
 	jobtype = /datum/job/nt/clown
 
-	belt = /obj/item/device/pda/clown
+	belt = /obj/item/pda/clown
 	uniform = /obj/item/clothing/under/rank/clown
 	shoes = /obj/item/clothing/shoes/clown_shoes
 	mask = /obj/item/clothing/mask/gas/clown_hat
@@ -245,7 +245,7 @@ Clown
 		/obj/item/stamp/clown = 1,
 		/obj/item/reagent_containers/spray/waterflower = 1,
 		/obj/item/reagent_containers/food/snacks/grown/banana = 1,
-		/obj/item/device/instrument/bikehorn = 1,
+		/obj/item/instrument/bikehorn = 1,
 		)
 
 	implants = list(/obj/item/implant/sad_trombone)
@@ -301,7 +301,7 @@ Mime
 	name = "Mime"
 	jobtype = /datum/job/nt/mime
 
-	belt = /obj/item/device/pda/mime
+	belt = /obj/item/pda/mime
 	uniform = /obj/item/clothing/under/rank/mime
 	mask = /obj/item/clothing/mask/gas/mime
 	gloves = /obj/item/clothing/gloves/color/white
@@ -348,11 +348,11 @@ Curator
 	name = "Curator"
 	jobtype = /datum/job/nt/curator
 
-	belt = /obj/item/device/pda/curator
+	belt = /obj/item/pda/curator
 	uniform = /obj/item/clothing/under/rank/curator
 	l_hand = /obj/item/storage/bag/books
 	r_pocket = /obj/item/key/displaycase
-	l_pocket = /obj/item/device/laser_pointer
+	l_pocket = /obj/item/laser_pointer
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 	backpack_contents = list(
 		/obj/item/melee/curator_whip = 1,
@@ -389,26 +389,26 @@ Lawyer
 			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
 			            ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_MORGUE,
 			            ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MAILSORTING, ACCESS_QM, ACCESS_HYDROPONICS, ACCESS_LAWYER,
-			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
+			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_VAULT, ACCESS_MINING_STATION,
 			            ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_COURT, ACCESS_WEAPONS,
 			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
 			            ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_MORGUE,
 			            ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MAILSORTING, ACCESS_QM, ACCESS_HYDROPONICS, ACCESS_LAWYER,
-			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
+			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_VAULT, ACCESS_MINING_STATION,
 			            ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM)
 
 /datum/outfit/job/nt/aide
 	name = "Aide"
 	jobtype = /datum/job/nt/aide
 
-	belt = /obj/item/device/pda/lawyer
-	ears = /obj/item/device/radio/headset/heads/hop
+	belt = /obj/item/pda/lawyer
+	ears = /obj/item/radio/headset/heads/hop
 	uniform = /obj/item/clothing/under/lawyer/black
 	suit = /obj/item/clothing/suit/toggle/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	l_hand = /obj/item/storage/briefcase/lawyer
-	l_pocket = /obj/item/device/laser_pointer
+	l_pocket = /obj/item/laser_pointer
 	r_pocket = /obj/item/clothing/accessory/lawyers_badge
 	var/admirals = 0
 
@@ -446,18 +446,18 @@ Shaft Miner
 	name = "Shaft Miner (Lavaland)"
 	jobtype = /datum/job/nt/mining
 
-	belt = /obj/item/device/pda/shaftminer
-	ears = /obj/item/device/radio/headset/headset_cargo/mining
+	belt = /obj/item/pda/shaftminer
+	ears = /obj/item/radio/headset/headset_cargo/mining
 	shoes = /obj/item/clothing/shoes/workboots/mining
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform = /obj/item/clothing/under/rank/miner
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival
-	r_pocket = /obj/item/device/flashlight/seclite
+	r_pocket = /obj/item/flashlight/seclite
 	backpack_contents = list(
 		/obj/item/storage/bag/ore=1,\
 		/obj/item/kitchen/knife/combat/survival=1,\
 		/obj/item/mining_voucher=1,\
-		/obj/item/device/tricorder=1,\
+		/obj/item/tricorder=1,\
 		/obj/item/stack/marker_beacon/ten=1)
 
 	backpack = /obj/item/storage/backpack/explorer
@@ -475,14 +475,14 @@ Shaft Miner
 	mask = /obj/item/clothing/mask/gas/explorer
 	glasses = /obj/item/clothing/glasses/meson
 	suit_store = /obj/item/tank/internals/oxygen
-	internals_slot = slot_s_store
+	internals_slot = SLOT_S_STORE
 	backpack_contents = list(
 		/obj/item/storage/bag/ore=1,
 		/obj/item/kitchen/knife/combat/survival=1,
 		/obj/item/mining_voucher=1,
-		/obj/item/device/t_scanner/adv_mining_scanner/lesser=1,
+		/obj/item/t_scanner/adv_mining_scanner/lesser=1,
 		/obj/item/gun/energy/kinetic_accelerator=1,\
-		/obj/item/device/tricorder=1,\
+		/obj/item/tricorder=1,\
 		/obj/item/stack/marker_beacon/ten=1)
 
 /datum/outfit/job/nt/miner/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -527,8 +527,8 @@ Bartender
 	jobtype = /datum/job/nt/bartender
 
 	glasses = /obj/item/clothing/glasses/sunglasses/reagent
-	belt = /obj/item/device/pda/bar
-	ears = /obj/item/device/radio/headset/headset_srv
+	belt = /obj/item/pda/bar
+	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/bartender
 	suit = /obj/item/clothing/suit/armor/vest
 	backpack_contents = list(/obj/item/storage/box/beanbag=1)
@@ -558,8 +558,8 @@ Cook
 	name = "Cook"
 	jobtype = /datum/job/cook
 
-	belt = /obj/item/device/pda/cook
-	ears = /obj/item/device/radio/headset/headset_srv
+	belt = /obj/item/pda/cook
+	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/chef
 	suit = /obj/item/clothing/suit/toggle/chef
 	head = /obj/item/clothing/head/chefhat
@@ -580,7 +580,7 @@ Cook
     var/list/possible_boxes = subtypesof(/obj/item/storage/box/ingredients)
     var/chosen_box = pick(possible_boxes)
     var/obj/item/storage/box/I = new chosen_box(src)
-    H.equip_to_slot_or_del(I,slot_in_backpack)
+    H.equip_to_slot_or_del(I,SLOT_IN_BACKPACK)
 
 /*
 Botanist
@@ -609,12 +609,12 @@ Botanist
 	name = "Botanist"
 	jobtype = /datum/job/nt/hydro
 
-	belt = /obj/item/device/pda/botanist
-	ears = /obj/item/device/radio/headset/headset_srv
+	belt = /obj/item/pda/botanist
+	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/hydroponics
 	suit = /obj/item/clothing/suit/apron
 	gloves  =/obj/item/clothing/gloves/botanic_leather
-	suit_store = /obj/item/device/plant_analyzer
+	suit_store = /obj/item/plant_analyzer
 
 	backpack = /obj/item/storage/backpack/botany
 	satchel = /obj/item/storage/backpack/satchel/hyd
@@ -644,10 +644,10 @@ Janitor
 	name = "Janitor"
 	jobtype = /datum/job/nt/janitor
 
-	belt = /obj/item/device/pda/janitor
-	ears = /obj/item/device/radio/headset/headset_srv
+	belt = /obj/item/pda/janitor
+	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/janitor
-	backpack_contents = list(/obj/item/device/modular_computer/tablet/preset/advanced=1,/obj/item/device/tricorder)
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1,/obj/item/tricorder)
 
 
 //Due to how large this one is it gets its own file
@@ -682,7 +682,7 @@ Chaplain
 		B.icon_state = SSreligion.bible_icon_state
 		B.item_state = SSreligion.bible_item_state
 		to_chat(H, "There is already an established religion onboard the station. You are an acolyte of [SSreligion.deity]. Defer to the Chaplain.")
-		H.equip_to_slot_or_del(B, slot_in_backpack)
+		H.equip_to_slot_or_del(B, SLOT_IN_BACKPACK)
 		var/nrt = SSreligion.holy_weapon_type || /obj/item/nullrod
 		var/obj/item/nullrod/N = new nrt(H)
 		H.put_in_hands(N)
@@ -730,7 +730,7 @@ Chaplain
 	SSreligion.bible_name = B.name
 	SSreligion.deity = B.deity_name
 
-	H.equip_to_slot_or_del(B, slot_in_backpack)
+	H.equip_to_slot_or_del(B, SLOT_IN_BACKPACK)
 
 	SSblackbox.record_feedback("text", "religion_name", 1, "[new_religion]", 1)
 	SSblackbox.record_feedback("text", "religion_deity", 1, "[new_deity]", 1)
@@ -740,9 +740,9 @@ Chaplain
 	name = "Chaplain"
 	jobtype = /datum/job/nt/chaplain
 
-	belt = /obj/item/device/pda/chaplain
+	belt = /obj/item/pda/chaplain
 	uniform = /obj/item/clothing/under/color/black
-	backpack_contents = list(/obj/item/device/camera/spooky = 1)
+	backpack_contents = list(/obj/item/camera/spooky = 1)
 	accessory = /obj/item/clothing/accessory/pocketprotector/cosmetology
 	backpack = /obj/item/storage/backpack/cultpack
 	satchel = /obj/item/storage/backpack/cultpack
@@ -784,19 +784,19 @@ Chief Engineer
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility/chief/full
-	l_pocket = /obj/item/device/pda/heads/ce
-	ears = /obj/item/device/radio/headset/heads/ce
+	l_pocket = /obj/item/pda/heads/ce
+	ears = /obj/item/radio/headset/heads/ce
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	shoes = /obj/item/clothing/shoes/workboots
 	gloves = /obj/item/clothing/gloves/color/black/ce
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced=1,/obj/item/device/tricorder)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced=1,/obj/item/tricorder)
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
-	pda_slot = slot_l_store
+	pda_slot = SLOT_L_STORE
 
 /datum/outfit/job/nt/ce/rig
 	name = "Chief Engineer (Hardsuit)"
@@ -807,7 +807,7 @@ Chief Engineer
 	suit_store = /obj/item/tank/internals/oxygen
 	gloves = /obj/item/clothing/gloves/color/yellow
 	head = null
-	internals_slot = slot_s_store
+	internals_slot = SLOT_S_STORE
 
 /datum/outfit/job/nt/ce/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -842,19 +842,19 @@ Station Engineer
 	jobtype = /datum/job/nt/engineer
 
 	belt = /obj/item/storage/belt/utility/full/engi
-	l_pocket = /obj/item/device/pda/engineering
-	ears = /obj/item/device/radio/headset/headset_eng
+	l_pocket = /obj/item/pda/engineering
+	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/rank/engineer
 	shoes = /obj/item/clothing/shoes/workboots
-	r_pocket = /obj/item/device/tricorder
+	r_pocket = /obj/item/tricorder
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
-	pda_slot = slot_l_store
-	backpack_contents = list(/obj/item/device/modular_computer/tablet/preset/advanced=1)
+	pda_slot = SLOT_L_STORE
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1)
 
 /datum/outfit/job/nt/engineer/gloved
 	name = "Ship Engineer (Gloves)"
@@ -867,7 +867,7 @@ Station Engineer
 	suit = /obj/item/clothing/suit/space/hardsuit/engine
 	suit_store = /obj/item/tank/internals/oxygen
 	head = null
-	internals_slot = slot_s_store
+	internals_slot = SLOT_S_STORE
 
 /datum/outfit/job/nt/engineer/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -902,19 +902,19 @@ Atmospheric Technician
 
 	shoes = /obj/item/clothing/shoes/workboots
 	belt = /obj/item/storage/belt/utility/atmostech
-	l_pocket = /obj/item/device/pda/atmos
-	ears = /obj/item/device/radio/headset/headset_eng
+	l_pocket = /obj/item/pda/atmos
+	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	suit = /obj/item/clothing/suit/hazardvest
-	r_pocket = /obj/item/device/tricorder
+	r_pocket = /obj/item/tricorder
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
-	pda_slot = slot_l_store
-	backpack_contents = list(/obj/item/device/modular_computer/tablet/preset/advanced=1)
+	pda_slot = SLOT_L_STORE
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1)
 
 /datum/outfit/job/nt/atmos/rig
 	name = "Atmospheric Technician (Hardsuit)"
@@ -922,7 +922,7 @@ Atmospheric Technician
 	mask = /obj/item/clothing/mask/gas
 	suit = /obj/item/clothing/suit/space/hardsuit/engine/atmos
 	suit_store = /obj/item/tank/internals/oxygen
-	internals_slot = slot_s_store
+	internals_slot = SLOT_S_STORE
 
 /datum/outfit/job/nt/atmos/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -962,14 +962,14 @@ Chief Medical Officer
 	jobtype = /datum/job/nt/cmo
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/device/pda/heads/cmo
+	belt = /obj/item/pda/heads/cmo
 	l_pocket = /obj/item/pinpointer/crew
-	ears = /obj/item/device/radio/headset/heads/cmo
+	ears = /obj/item/radio/headset/heads/cmo
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
 	shoes = /obj/item/clothing/shoes/laceup
 	suit = /obj/item/clothing/suit/toggle/labcoat/cmo
 	l_hand = /obj/item/storage/firstaid/regular
-	suit_store = /obj/item/device/flashlight/pen
+	suit_store = /obj/item/flashlight/pen
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1)
 
 	backpack = /obj/item/storage/backpack/medic
@@ -1006,12 +1006,12 @@ Medical Doctor
 	name = "Medical Doctor"
 	jobtype = /datum/job/nt/doctor
 
-	belt = /obj/item/device/pda/medical
-	ears = /obj/item/device/radio/headset/headset_med
+	belt = /obj/item/pda/medical
+	ears = /obj/item/radio/headset/headset_med
 	uniform = /obj/item/clothing/under/rank/medical
 	shoes = /obj/item/clothing/shoes/sneakers/white
 	l_hand = /obj/item/storage/firstaid/regular
-	suit_store = /obj/item/device/flashlight/pen
+	suit_store = /obj/item/flashlight/pen
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
@@ -1047,8 +1047,8 @@ Chemist ?To be merged with medical doctor?
 	jobtype = /datum/job/nt/chemist
 
 	glasses = /obj/item/clothing/glasses/science
-	belt = /obj/item/device/pda/chemist
-	ears = /obj/item/device/radio/headset/headset_med
+	belt = /obj/item/pda/chemist
+	ears = /obj/item/radio/headset/headset_med
 	uniform = /obj/item/clothing/under/rank/chemist
 	suit = /obj/item/clothing/suit/toggle/labcoat/chemist
 	shoes = /obj/item/clothing/shoes/sneakers/white
@@ -1088,12 +1088,12 @@ Geneticist
 	name = "Geneticist"
 	jobtype = /datum/job/nt/geneticist
 
-	belt = /obj/item/device/pda/geneticist
-	ears = /obj/item/device/radio/headset/headset_medsci
+	belt = /obj/item/pda/geneticist
+	ears = /obj/item/radio/headset/headset_medsci
 	uniform = /obj/item/clothing/under/rank/geneticist
 	suit = /obj/item/clothing/suit/toggle/labcoat/genetics
 	shoes = /obj/item/clothing/shoes/sneakers/white
-	suit_store =  /obj/item/device/flashlight/pen
+	suit_store =  /obj/item/flashlight/pen
 
 	backpack = /obj/item/storage/backpack/genetics
 	satchel = /obj/item/storage/backpack/satchel/gen
@@ -1129,13 +1129,13 @@ Virologist
 	name = "Virologist"
 	jobtype = /datum/job/nt/virologist
 
-	belt = /obj/item/device/pda/viro
-	ears = /obj/item/device/radio/headset/headset_med
+	belt = /obj/item/pda/viro
+	ears = /obj/item/radio/headset/headset_med
 	uniform = /obj/item/clothing/under/rank/virologist
 	mask = /obj/item/clothing/mask/surgical
 	shoes = /obj/item/clothing/shoes/sneakers/white
 	suit =  /obj/item/clothing/suit/toggle/labcoat/virologist
-	suit_store =  /obj/item/device/flashlight/pen
+	suit_store =  /obj/item/flashlight/pen
 
 	backpack = /obj/item/storage/backpack/virology
 	satchel = /obj/item/storage/backpack/satchel/vir
@@ -1183,14 +1183,14 @@ Research Director
 	jobtype = /datum/job/nt/rd
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/device/pda/heads/rd
-	ears = /obj/item/device/radio/headset/heads/rd
+	belt = /obj/item/pda/heads/rd
+	ears = /obj/item/radio/headset/heads/rd
 	uniform = /obj/item/clothing/under/rank/research_director
 	shoes = /obj/item/clothing/shoes/laceup
 	l_hand = /obj/item/clipboard
-	l_pocket = /obj/item/device/laser_pointer
+	l_pocket = /obj/item/laser_pointer
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced=1)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced=1)
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
@@ -1202,7 +1202,7 @@ Research Director
 	mask = /obj/item/clothing/mask/breath
 	suit = /obj/item/clothing/suit/space/hardsuit/rd
 	suit_store = /obj/item/tank/internals/oxygen
-	internals_slot = slot_s_store
+	internals_slot = SLOT_S_STORE
 
 /*
 Scientist
@@ -1229,8 +1229,8 @@ Scientist
 	name = "Scientist"
 	jobtype = /datum/job/nt/scientist
 
-	belt = /obj/item/device/pda/toxins
-	ears = /obj/item/device/radio/headset/headset_sci
+	belt = /obj/item/pda/toxins
+	ears = /obj/item/radio/headset/headset_sci
 	uniform = /obj/item/clothing/under/rank/scientist
 	shoes = /obj/item/clothing/shoes/sneakers/white
 	suit = /obj/item/clothing/suit/toggle/labcoat/science
@@ -1265,15 +1265,15 @@ Roboticist
 	jobtype = /datum/job/nt/roboticist
 
 	belt = /obj/item/storage/belt/utility/full
-	l_pocket = /obj/item/device/pda/roboticist
-	ears = /obj/item/device/radio/headset/headset_sci
+	l_pocket = /obj/item/pda/roboticist
+	ears = /obj/item/radio/headset/headset_sci
 	uniform = /obj/item/clothing/under/rank/roboticist
 	suit = /obj/item/clothing/suit/toggle/labcoat
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
 
-	pda_slot = slot_l_store
+	pda_slot = SLOT_L_STORE
 
 
 //Warden and regular officers add this result to their get_access()
@@ -1318,8 +1318,8 @@ Head of Security
 	jobtype = /datum/job/nt/hos
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/device/pda/heads/hos
-	ears = /obj/item/device/radio/headset/heads/hos/alt
+	belt = /obj/item/pda/heads/hos
+	ears = /obj/item/radio/headset/heads/hos/alt
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/hos/trenchcoat
@@ -1327,7 +1327,7 @@ Head of Security
 	head = /obj/item/clothing/head/HoS/beret
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	suit_store = /obj/item/gun/energy/e_gun
-	r_pocket = /obj/item/device/assembly/flash/handheld
+	r_pocket = /obj/item/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs
 	backpack_contents = list(/obj/item/melee/baton/loaded=1)
 
@@ -1369,15 +1369,15 @@ Warden
 	name = "Warden"
 	jobtype = /datum/job/nt/warden
 
-	belt = /obj/item/device/pda/warden
-	ears = /obj/item/device/radio/headset/headset_sec/alt
+	belt = /obj/item/pda/warden
+	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/rank/warden
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/vest/warden/alt
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/beret/sec
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
-	r_pocket = /obj/item/device/assembly/flash/handheld
+	r_pocket = /obj/item/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs
 	suit_store = /obj/item/gun/energy/e_gun/advtaser
 	backpack_contents = list(/obj/item/melee/baton/loaded=1)
@@ -1416,8 +1416,8 @@ Detective
 	name = "Detective"
 	jobtype = /datum/job/nt/detective
 
-	belt = /obj/item/device/pda/detective
-	ears = /obj/item/device/radio/headset/headset_sec/alt
+	belt = /obj/item/pda/detective
+	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/rank/det
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	suit = /obj/item/clothing/suit/det_suit
@@ -1426,8 +1426,8 @@ Detective
 	l_pocket = /obj/item/toy/crayon/white
 	r_pocket = /obj/item/lighter
 	backpack_contents = list(/obj/item/storage/box/evidence=1,\
-		/obj/item/device/detective_scanner=1,\
-		/obj/item/device/tricorder=1,\
+		/obj/item/detective_scanner=1,\
+		/obj/item/tricorder=1,\
 		/obj/item/melee/classic_baton=1)
 	mask = /obj/item/clothing/mask/cigarette
 
@@ -1489,25 +1489,25 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	var/spawn_point = null
 	switch(department)
 		if(SEC_DEPT_SUPPLY)
-			ears = /obj/item/device/radio/headset/headset_sec/alt/department/supply
+			ears = /obj/item/radio/headset/headset_sec/alt/department/supply
 			dep_access = list(ACCESS_MAILSORTING, ACCESS_MINING, ACCESS_MINING_STATION)
 			destination = /area/security/checkpoint/supply
 			spawn_point = locate(/obj/effect/landmark/start/depsec/supply) in GLOB.department_security_spawns
 			accessory = /obj/item/clothing/accessory/armband/cargo
 		if(SEC_DEPT_ENGINEERING)
-			ears = /obj/item/device/radio/headset/headset_sec/alt/department/engi
+			ears = /obj/item/radio/headset/headset_sec/alt/department/engi
 			dep_access = list(ACCESS_CONSTRUCTION, ACCESS_ENGINE)
 			destination = /area/security/checkpoint/engineering
 			spawn_point = locate(/obj/effect/landmark/start/depsec/engineering) in GLOB.department_security_spawns
 			accessory = /obj/item/clothing/accessory/armband/engine
 		if(SEC_DEPT_MEDICAL)
-			ears = /obj/item/device/radio/headset/headset_sec/alt/department/med
+			ears = /obj/item/radio/headset/headset_sec/alt/department/med
 			dep_access = list(ACCESS_MEDICAL)
 			destination = /area/security/checkpoint/medical
 			spawn_point = locate(/obj/effect/landmark/start/depsec/medical) in GLOB.department_security_spawns
 			accessory =  /obj/item/clothing/accessory/armband/medblue
 		if(SEC_DEPT_SCIENCE)
-			ears = /obj/item/device/radio/headset/headset_sec/alt/department/sci
+			ears = /obj/item/radio/headset/headset_sec/alt/department/sci
 			dep_access = list(ACCESS_RESEARCH)
 			destination = /area/security/checkpoint/science
 			spawn_point = locate(/obj/effect/landmark/start/depsec/science) in GLOB.department_security_spawns
@@ -1519,7 +1519,7 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	if(ears)
 		if(H.ears)
 			qdel(H.ears)
-		H.equip_to_slot_or_del(new ears(H),slot_ears)
+		H.equip_to_slot_or_del(new ears(H),SLOT_EARS)
 
 	var/obj/item/card/id/W = H.wear_id
 	W.access |= dep_access
@@ -1553,15 +1553,15 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	name = "Security Officer"
 	jobtype = /datum/job/nt/officer
 
-	belt = /obj/item/device/pda/security
-	ears = /obj/item/device/radio/headset/headset_sec/alt
+	belt = /obj/item/pda/security
+	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/trek/engsec/next
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/beret/sec
 	suit = /obj/item/clothing/suit/armor/vest/alt
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/restraints/handcuffs
-	r_pocket = /obj/item/device/assembly/flash/handheld
+	r_pocket = /obj/item/assembly/flash/handheld
 	suit_store = /obj/item/gun/energy/e_gun/advtaser
 	backpack_contents = list(/obj/item/melee/baton/loaded=1)
 
@@ -1573,27 +1573,27 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	implants = list(/obj/item/implant/mindshield)
 
 
-/obj/item/device/radio/headset/headset_sec/alt/department/Initialize()
+/obj/item/radio/headset/headset_sec/alt/department/Initialize()
 	. = ..()
 	wires = new/datum/wires/radio(src)
 	secure_radio_connections = new
 	recalculateChannels()
 
-/obj/item/device/radio/headset/headset_sec/alt/department/engi
-	keyslot = new /obj/item/device/encryptionkey/headset_sec
-	keyslot2 = new /obj/item/device/encryptionkey/headset_eng
+/obj/item/radio/headset/headset_sec/alt/department/engi
+	keyslot = new /obj/item/encryptionkey/headset_sec
+	keyslot2 = new /obj/item/encryptionkey/headset_eng
 
-/obj/item/device/radio/headset/headset_sec/alt/department/supply
-	keyslot = new /obj/item/device/encryptionkey/headset_sec
-	keyslot2 = new /obj/item/device/encryptionkey/headset_cargo
+/obj/item/radio/headset/headset_sec/alt/department/supply
+	keyslot = new /obj/item/encryptionkey/headset_sec
+	keyslot2 = new /obj/item/encryptionkey/headset_cargo
 
-/obj/item/device/radio/headset/headset_sec/alt/department/med
-	keyslot = new /obj/item/device/encryptionkey/headset_sec
-	keyslot2 = new /obj/item/device/encryptionkey/headset_med
+/obj/item/radio/headset/headset_sec/alt/department/med
+	keyslot = new /obj/item/encryptionkey/headset_sec
+	keyslot2 = new /obj/item/encryptionkey/headset_med
 
-/obj/item/device/radio/headset/headset_sec/alt/department/sci
-	keyslot = new /obj/item/device/encryptionkey/headset_sec
-	keyslot2 = new /obj/item/device/encryptionkey/headset_sci
+/obj/item/radio/headset/headset_sec/alt/department/sci
+	keyslot = new /obj/item/encryptionkey/headset_sec
+	keyslot2 = new /obj/item/encryptionkey/headset_sci
 
 //When adding new jobs, go to jobs.dm
 
@@ -1620,8 +1620,8 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	name = "Company Enforcer"
 	jobtype = /datum/job/nt/soldier
 
-	belt = /obj/item/device/pda/security
-	ears = /obj/item/device/radio/headset/headset_sec/alt
+	belt = /obj/item/pda/security
+	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/syndicate/camo
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/helmet/swat/nanotrasen
@@ -1676,8 +1676,8 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	jobtype = /datum/job/pilot
 
 	id = /obj/item/card/id
-	belt = /obj/item/device/pda
-	ears = /obj/item/device/radio/headset
+	belt = /obj/item/pda
+	ears = /obj/item/radio/headset
 	uniform = /obj/item/clothing/under/soviet
 	shoes = /obj/item/clothing/shoes/laceup
 

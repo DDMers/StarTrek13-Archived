@@ -3,26 +3,44 @@
 //They cannot be cured with chemicals, and require brain surgery to solve.
 
 /datum/brain_trauma/severe
+	resilience = TRAUMA_RESILIENCE_SURGERY
 
 /datum/brain_trauma/severe/mute
 	name = "Mutism"
 	desc = "Patient is completely unable to speak."
-	scan_desc = "extensive damage to the brain's language center"
+	scan_desc = "extensive damage to the brain's speech center"
 	gain_text = "<span class='warning'>You forget how to speak!</span>"
 	lose_text = "<span class='notice'>You suddenly remember how to speak.</span>"
 
 /datum/brain_trauma/severe/mute/on_gain()
-	owner.disabilities |= MUTE
-	..()
-
-//no fiddling with genetics to get out of this one
-/datum/brain_trauma/severe/mute/on_life()
-	if(!(owner.disabilities & MUTE))
-		on_gain()
+	owner.add_trait(TRAIT_MUTE, TRAUMA_TRAIT)
 	..()
 
 /datum/brain_trauma/severe/mute/on_lose()
-	owner.disabilities &= ~MUTE
+	owner.remove_trait(TRAIT_MUTE, TRAUMA_TRAIT)
+	..()
+
+/datum/brain_trauma/severe/aphasia
+	name = "Aphasia"
+	desc = "Patient is unable to speak or understand any language."
+	scan_desc = "extensive damage to the brain's language center"
+	gain_text = "<span class='warning'>You have trouble forming words in your head...</span>"
+	lose_text = "<span class='notice'>You suddenly remember how languages work.</span>"
+	var/datum/language_holder/prev_language
+	var/datum/language_holder/mob_language
+
+/datum/brain_trauma/severe/aphasia/on_gain()
+	mob_language = owner.get_language_holder()
+	prev_language = mob_language.copy()
+	mob_language.remove_all_languages()
+	mob_language.grant_language(/datum/language/aphasia)
+	..()
+
+/datum/brain_trauma/severe/aphasia/on_lose()
+	mob_language.remove_language(/datum/language/aphasia)
+	mob_language.copy_known_languages_from(prev_language) //this will also preserve languages learned during the trauma
+	QDEL_NULL(prev_language)
+	mob_language = null
 	..()
 
 /datum/brain_trauma/severe/blindness
@@ -33,17 +51,11 @@
 	lose_text = "<span class='notice'>Your vision returns.</span>"
 
 /datum/brain_trauma/severe/blindness/on_gain()
-	owner.become_blind()
-	..()
-
-//no fiddling with genetics to get out of this one
-/datum/brain_trauma/severe/blindness/on_life()
-	if(!(owner.disabilities & BLIND))
-		on_gain()
+	owner.become_blind(TRAUMA_TRAIT)
 	..()
 
 /datum/brain_trauma/severe/blindness/on_lose()
-	owner.cure_blind()
+	owner.cure_blind(TRAUMA_TRAIT)
 	..()
 
 /datum/brain_trauma/severe/paralysis
@@ -109,7 +121,7 @@
 		stress -= 4
 
 /datum/brain_trauma/severe/monophobia/proc/check_alone()
-	if(owner.disabilities & BLIND)
+	if(owner.has_trait(TRAIT_BLIND))
 		return TRUE
 	for(var/mob/M in oview(owner, 7))
 		if(!isliving(M)) //ghosts ain't people
@@ -148,7 +160,7 @@
 				to_chat(owner, "<span class='warning'>You feel really lonely...</span>")
 			else
 				to_chat(owner, "<span class='warning'>You're going mad with loneliness!</span>")
-				owner.hallucination += 20
+				owner.hallucination += 30
 
 		if(5)
 			if(!high_stress)
@@ -171,9 +183,24 @@
 	lose_text = "<span class='notice'>You feel in control of your hands again.</span>"
 
 /datum/brain_trauma/severe/discoordination/on_gain()
-	owner.disabilities |= MONKEYLIKE
+	owner.add_trait(TRAIT_MONKEYLIKE, TRAUMA_TRAIT)
 	..()
 
 /datum/brain_trauma/severe/discoordination/on_lose()
-	owner.disabilities &= ~MONKEYLIKE
+	owner.remove_trait(TRAIT_MONKEYLIKE, TRAUMA_TRAIT)
+	..()
+
+/datum/brain_trauma/severe/pacifism
+	name = "Traumatic Non-Violence"
+	desc = "Patient is extremely unwilling to harm others in violent ways."
+	scan_desc = "pacific syndrome"
+	gain_text = "<span class='notice'>You feel oddly peaceful.</span>"
+	lose_text = "<span class='notice'>You no longer feel compelled to not harm.</span>"
+
+/datum/brain_trauma/severe/pacifism/on_gain()
+	owner.add_trait(TRAIT_PACIFISM, TRAUMA_TRAIT)
+	..()
+
+/datum/brain_trauma/severe/pacifism/on_lose()
+	owner.remove_trait(TRAIT_PACIFISM, TRAUMA_TRAIT)
 	..()

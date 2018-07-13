@@ -17,8 +17,8 @@
 /obj/item/folder/red{
 	pixel_x = 3
 	},
-/obj/item/device/camera_film,
-/obj/item/device/camera,
+/obj/item/camera_film,
+/obj/item/camera,
 /turf/open/floor/plating)
 "acZ" = (
 /turf/open/floor/plating)
@@ -185,7 +185,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel/darkblue/corner{
 	dir = 4
@@ -236,7 +236,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2
@@ -326,7 +326,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	})
 "bgh" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
@@ -415,7 +415,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel/floorgrime,
 /area/shuttle/ftl/security/brig)
@@ -433,7 +433,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -456,9 +456,9 @@
 /obj/item/storage/pod{
 	pixel_x = -28
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	pixel_x = 32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 "bBI" = (
@@ -644,7 +644,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -666,7 +666,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 5
@@ -729,7 +729,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/closed/wall/r_wall,
 /battle_bridge)
@@ -770,7 +770,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/closed/wall/r_wall,
 )
@@ -864,13 +864,13 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /battle_bridge)
@@ -958,7 +958,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -976,11 +976,11 @@
 /obj/structure/table,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -4;
 	pixel_y = 6
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = -3;
 	pixel_y = 6
 	},
@@ -1078,7 +1078,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -1102,7 +1102,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/closet/crate/hydroponics,
 /obj/item/reagent_containers/glass/bucket,
@@ -1126,7 +1126,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -1213,7 +1213,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/wood,
 )
@@ -1229,7 +1229,7 @@
 	name = "Supermatter Monitoring";
 	network = list("Supermatter");
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 /area/shuttle/ftl/engine/break_room)
@@ -1292,7 +1292,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/medical/chemistry)
@@ -1356,9 +1356,9 @@
 /obj/item/storage/pod{
 	pixel_x = -28
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	pixel_x = 32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -1457,7 +1457,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -1469,7 +1469,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -1483,7 +1483,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2
@@ -1511,7 +1511,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 8
@@ -1529,7 +1529,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 1
@@ -1559,7 +1559,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -1618,7 +1618,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -1819,7 +1819,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
@@ -1843,11 +1843,11 @@
 /area/shuttle/ftl/crew_quarters/kitchen)
 "frW" = (
 /obj/structure/table/reinforced,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -4;
 	pixel_y = 6
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = 3
 	},
 ,
@@ -2026,7 +2026,7 @@
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	dir = 4
 	},
-/obj/item/device/analyzer,
+/obj/item/analyzer,
 /turf/open/floor/plasteel,
 )
 "giS" = (
@@ -2100,7 +2100,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/item/storage/toolbox/emergency,
 ,
@@ -2237,7 +2237,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -2245,16 +2245,16 @@
 /turf/open/floor/plating,
 /area/shuttle/ftl/security/main)
 "hdF" = (
-/obj/item/device/modular_computer/laptop/preset/civillian,
+/obj/item/modular_computer/laptop/preset/civillian,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table/wood,
-/obj/item/device/modular_computer/tablet/preset/cheap,
-/obj/item/device/flashlight/lamp,
+/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/flashlight/lamp,
 /turf/open/floor/plating,
 /area/shuttle/ftl/maintenance/engineering)
 "hjS" = (
@@ -2262,7 +2262,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table,
 ,
@@ -2342,7 +2342,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/storage/tech)
@@ -2369,7 +2369,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/effect/landmark/start{
 	name = "Security Officer";
@@ -2417,7 +2417,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
@@ -2435,7 +2435,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table/wood,
 /obj/item/folder/blue,
@@ -2549,7 +2549,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/chair/office/dark{
 	dir = 8
@@ -2574,7 +2574,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -2598,7 +2598,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/main)
@@ -2695,7 +2695,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/maintenance/engineering)
@@ -2780,7 +2780,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -2802,7 +2802,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /eva)
@@ -2812,7 +2812,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
@@ -2826,7 +2826,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -2908,7 +2908,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -2959,7 +2959,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -2996,7 +2996,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table,
 /turf/open/floor/plating,
@@ -3007,7 +3007,7 @@
 	density = 0;
 	layer = 4;
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -3018,7 +3018,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 )
@@ -3131,7 +3131,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/medical/sleeper)
@@ -3141,7 +3141,7 @@
 	density = 0;
 	layer = 4;
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -3197,7 +3197,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -3257,7 +3257,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table,
 /obj/machinery/computer/med_data/laptop,
@@ -3323,7 +3323,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -3348,7 +3348,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/crew_quarters/heads)
@@ -3412,7 +3412,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2
@@ -3462,9 +3462,9 @@
 /obj/item/storage/pod{
 	pixel_x = -28
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	pixel_x = 32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -3699,7 +3699,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/chair/office/dark{
 	dir = 8
@@ -3718,7 +3718,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/closet{
 	name = "spare parts closet"
@@ -3768,7 +3768,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table/wood,
 /obj/item/toy/cards/deck/cas/black{
@@ -3796,7 +3796,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -3829,7 +3829,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -3881,7 +3881,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -3962,7 +3962,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -3989,7 +3989,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -4064,7 +4064,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/engine,
 )
@@ -4100,7 +4100,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -4128,7 +4128,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/maintenance/engineering)
@@ -4186,7 +4186,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
@@ -4220,7 +4220,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/hallway/secondary/construction)
@@ -4446,7 +4446,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -4479,7 +4479,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/turret_protected/ai_upload)
@@ -4513,7 +4513,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/closed/wall/r_wall,
 )
@@ -4616,7 +4616,7 @@
 	pixel_x = 28;
 	pixel_y = -28
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	anyai = 1;
 	broadcasting = 0;
 	freerange = 1;
@@ -4625,7 +4625,7 @@
 	pixel_x = 27;
 	pixel_y = -11
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	anyai = 1;
 	freerange = 1;
 	listening = 0;
@@ -4633,12 +4633,12 @@
 	pixel_x = 27;
 	pixel_y = 5
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	broadcasting = 0;
 	freerange = 1;
 	listening = 1;
 	name = "Common Channel";
-	pixel_x = 0;
+	
 	pixel_y = 22
 	},
 /obj/machinery/power/apc/ship{
@@ -5031,7 +5031,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 {
 	dir = 8
@@ -5102,7 +5102,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2
@@ -5244,7 +5244,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/cargo/office)
@@ -5329,7 +5329,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/maintenance/engineering)
@@ -5340,9 +5340,9 @@
 /obj/item/storage/pod{
 	pixel_x = -28
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	pixel_x = 32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -5357,7 +5357,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -5450,7 +5450,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2
@@ -5489,7 +5489,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/brig)
@@ -5501,7 +5501,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 8
@@ -5561,7 +5561,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/chair{
 	dir = 8
@@ -5598,7 +5598,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -5611,7 +5611,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/wood,
 )
@@ -5702,7 +5702,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -5769,7 +5769,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/closet/bombcloset,
 ,
@@ -5790,7 +5790,7 @@
 	density = 0;
 	layer = 4;
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -5844,7 +5844,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -5898,7 +5898,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2
@@ -5928,7 +5928,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -6023,7 +6023,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/storage/tech)
@@ -6051,7 +6051,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -6063,7 +6063,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/maintenance/disposal)
@@ -6177,7 +6177,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /meeting_room)
@@ -6190,7 +6190,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -6205,7 +6205,7 @@
 	density = 0;
 	layer = 4;
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -6330,7 +6330,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -6344,7 +6344,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -6382,7 +6382,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance";
@@ -6493,7 +6493,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -6641,7 +6641,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/engine,
 /area/shuttle/ftl/engine/ftl_drive)
@@ -6658,7 +6658,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -6770,7 +6770,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/carpet,
 /area/shuttle/ftl/crew_quarters/captain)
@@ -6829,7 +6829,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/medical/chemistry)
@@ -6892,7 +6892,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/engine,
 )
@@ -6957,7 +6957,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel/white,
 /area/shuttle/ftl/medical/sleeper)
@@ -7008,7 +7008,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/blackbox_recorder,
 /turf/open/floor/circuit,
@@ -7069,7 +7069,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -7091,7 +7091,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 2
@@ -7129,7 +7129,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -7198,7 +7198,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/computer/monitor,
 /turf/open/floor/plating,
@@ -7222,8 +7222,8 @@
 	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
 	icon_state = "radiation";
 	name = "RADIOACTIVE AREA";
-	pixel_x = 0;
-	pixel_y = 0
+	
+	
 	},
 /turf/closed/wall,
 /area/shuttle/ftl/engine/break_room)
@@ -7238,7 +7238,7 @@
 	power = 4;
 	resistance_flags = FIRE_PROOF
 	},
-/obj/machinery/power/supermatter_shard/crystal,
+/obj/machinery/power/supermatter_crystal,
 /turf/open/floor/engine/airless,
 /area/shuttle/ftl/engine/supermatter_core)
 "vxa" = (
@@ -7290,7 +7290,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 /area/shuttle/ftl/research/lab)
@@ -7314,7 +7314,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
@@ -7393,7 +7393,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table,
 /turf/open/floor/engine,
@@ -7406,7 +7406,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /eva)
@@ -7415,7 +7415,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -7461,7 +7461,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 2
@@ -7495,8 +7495,8 @@
 	pixel_x = 4;
 	pixel_y = 28
 	},
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
+/obj/item/radio/intercom{
+	
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel,
@@ -7511,7 +7511,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/brig)
@@ -7520,7 +7520,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/vending/cart,
 ,
@@ -7534,7 +7534,7 @@
 	icon_state = "radiation";
 	name = "RADIOACTIVE AREA";
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/engine/airless,
 /area/shuttle/ftl/engine/supermatter_core)
@@ -7591,7 +7591,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table/wood,
 /turf/open/floor/wood,
@@ -7720,7 +7720,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -7765,7 +7765,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/engine/break_room)
@@ -7777,7 +7777,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -7878,7 +7878,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
@@ -7896,7 +7896,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -8029,7 +8029,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -8046,7 +8046,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/station{
 	dir = 4
@@ -8135,7 +8135,7 @@
 	density = 0;
 	layer = 4;
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -8181,7 +8181,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/computer/security,
 ,
@@ -8267,7 +8267,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
@@ -8307,7 +8307,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -8333,7 +8333,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/engine/break_room)
@@ -8430,11 +8430,11 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -4;
 	pixel_y = 6
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_y = 3
 	},
 /turf/open/floor/plasteel,
@@ -8483,7 +8483,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 {
 	dir = 8
@@ -8507,7 +8507,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2
@@ -8654,7 +8654,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/maintenance/engineering)
@@ -8697,7 +8697,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/smartfridge,
 /turf/open/floor/plasteel/cafeteria,
@@ -8744,7 +8744,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/maintenance/engineering)
@@ -8991,7 +8991,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -9170,7 +9170,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel/white,
 /area/shuttle/ftl/medical/sleeper)
@@ -9280,7 +9280,7 @@
 	density = 0;
 	layer = 4;
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -9331,7 +9331,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/brig)
@@ -9355,7 +9355,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 )
@@ -9367,7 +9367,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance";
@@ -9414,7 +9414,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/rack,
 /turf/open/floor/plasteel,
@@ -9530,7 +9530,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel/white,
 )
@@ -9601,7 +9601,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/main)
@@ -9714,7 +9714,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
@@ -9752,7 +9752,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel/white,
 /area/shuttle/ftl/medical/sleeper)
@@ -9822,7 +9822,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -9882,7 +9882,7 @@
 	name = "Brig Monitoring";
 	network = list("Brig");
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/main)
@@ -9936,7 +9936,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/security/main)
@@ -9960,7 +9960,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table/wood,
 /turf/open/floor/wood,
@@ -9975,7 +9975,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -10052,7 +10052,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table/wood,
 /turf/open/floor/carpet,
@@ -10101,7 +10101,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/munitions/cannon)
@@ -10120,7 +10120,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/armory)
@@ -10129,7 +10129,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -10179,7 +10179,7 @@
 /turf/open/floor/plasteel,
 )
 "DGG" = (
-/obj/item/device/modular_computer/laptop/preset/civillian{
+/obj/item/modular_computer/laptop/preset/civillian{
 	pixel_x = 2;
 	pixel_y = 4
 	},
@@ -10230,7 +10230,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/brig)
@@ -10260,8 +10260,8 @@
 	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
 	icon_state = "radiation";
 	name = "RADIOACTIVE AREA";
-	pixel_x = 0;
-	pixel_y = 0
+	
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 8
@@ -10383,7 +10383,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/effect/landmark/start{
 	name = "Security Officer";
@@ -10435,8 +10435,8 @@
 	pixel_y = 3
 	},
 /obj/item/clothing/shoes/magboots{
-	pixel_x = 0;
-	pixel_y = 0
+	
+	
 	},
 /obj/item/clothing/shoes/magboots{
 	pixel_x = 4;
@@ -10512,7 +10512,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/window/brigdoor{
 	dir = 1;
@@ -10580,7 +10580,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -10615,7 +10615,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -10711,7 +10711,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 8
@@ -10855,7 +10855,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -10908,7 +10908,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -10923,7 +10923,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -11105,7 +11105,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -11136,9 +11136,9 @@
 /obj/item/storage/pod{
 	pixel_x = -28
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	pixel_x = 32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -11158,8 +11158,8 @@
 	pixel_x = 4;
 	pixel_y = 28
 	},
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
+/obj/item/radio/intercom{
+	
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel,
@@ -11177,7 +11177,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/security/brig)
@@ -11201,7 +11201,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/effect/landmark/start{
 	name = "Master-at-Arms"
@@ -11258,7 +11258,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/effect/landmark/start{
 	name = "Scientist";
@@ -11281,7 +11281,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -11313,7 +11313,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -11334,7 +11334,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
@@ -11402,7 +11402,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/medical/chemistry)
@@ -11476,7 +11476,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/effect/landmark/start{
 	name = "Medical Doctor";
@@ -11547,7 +11547,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
@@ -11588,7 +11588,7 @@
 /obj/structure/table,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -4;
 	pixel_y = 6
 	},
@@ -11651,14 +11651,14 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table,
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_y = 3
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = 3
 	},
 /turf/open/floor/plasteel,
@@ -11675,7 +11675,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -11862,9 +11862,9 @@
 /obj/item/storage/pod{
 	pixel_x = -28
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	pixel_x = 32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -11886,7 +11886,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/engine,
 )
@@ -11907,7 +11907,7 @@
 	density = 0;
 	layer = 4;
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -11919,7 +11919,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/window/brigdoor{
 	dir = 1;
@@ -11960,7 +11960,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/chair/bridge{
 	dir = 2
@@ -12050,7 +12050,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -12059,9 +12059,9 @@
 /obj/item/storage/pod{
 	pixel_x = -28
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	pixel_x = 32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -12094,7 +12094,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/item/twohanded/required/kirbyplants/random,
 /turf/open/floor/plasteel,
@@ -12195,7 +12195,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel/white,
 /area/shuttle/ftl/medical/sleeper)
@@ -12303,7 +12303,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -12375,7 +12375,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/closet/bombcloset,
 ,
@@ -12449,7 +12449,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -12501,7 +12501,7 @@
 /obj/structure/table,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -4;
 	pixel_y = 6
 	},
@@ -12538,14 +12538,14 @@
 )
 "KzY" = (
 /obj/structure/table,
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_y = 3
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = 3
 	},
 /turf/open/floor/plasteel,
@@ -12705,7 +12705,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/hallway/secondary/construction)
@@ -12802,7 +12802,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -12858,7 +12858,7 @@
 /obj/structure/table,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -4;
 	pixel_y = 6
 	},
@@ -12875,7 +12875,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -12893,7 +12893,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -12965,7 +12965,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/medical/genetics)
@@ -12980,7 +12980,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -13004,7 +13004,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -13031,7 +13031,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -13069,7 +13069,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2
@@ -13106,7 +13106,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 1
@@ -13121,7 +13121,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/research/lab)
@@ -13172,7 +13172,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/maintenance/cargo{
@@ -13192,7 +13192,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/airlock/security{
 	id_tag = "innerbrig";
@@ -13235,7 +13235,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/maintenance/medbay)
@@ -13411,7 +13411,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -13421,7 +13421,7 @@
 	icon_state = "radiation";
 	name = "RADIOACTIVE AREA";
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /obj/structure/bookcase,
 /obj/item/book/manual/wiki/engineering_hacking{
@@ -13528,7 +13528,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -13712,11 +13712,11 @@
 	},
 /obj/item/clothing/mask/breath{
 	pixel_x = 4;
-	pixel_y = 0
+	
 	},
 /obj/item/clothing/mask/breath{
 	pixel_x = 4;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -13839,7 +13839,7 @@
 	icon_state = "radiation";
 	name = "RADIOACTIVE AREA";
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -13876,7 +13876,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /battle_bridge)
@@ -13999,7 +13999,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = 3
 	},
 /turf/open/floor/plating,
@@ -14031,7 +14031,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/open/floor/plasteel,
@@ -14073,7 +14073,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/medical/chemistry)
@@ -14103,7 +14103,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/table,
 /turf/open/floor/plating,
@@ -14239,7 +14239,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/crew_quarters/heads)
@@ -14293,7 +14293,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2
@@ -14418,7 +14418,7 @@
 /obj/item/folder/red{
 	pixel_x = 3
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -4;
 	pixel_y = 6
 	},
@@ -14454,7 +14454,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 8
@@ -14554,7 +14554,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -14623,7 +14623,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -14675,7 +14675,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2
@@ -14697,7 +14697,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /battle_bridge)
@@ -14726,7 +14726,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/closet/secure_closet/engineering_electrical,
 /turf/open/floor/plasteel,
@@ -14755,7 +14755,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -14776,7 +14776,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/effect/landmark/start{
 	name = "Botanist";
@@ -14860,7 +14860,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -14910,7 +14910,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/brig)
@@ -14928,7 +14928,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -14979,7 +14979,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
@@ -15051,7 +15051,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/crew_quarters/captain)
@@ -15089,7 +15089,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable/cyan{
 	d1 = 0;
@@ -15172,7 +15172,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -15250,7 +15250,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -15328,13 +15328,13 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -15352,7 +15352,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance";
@@ -15401,7 +15401,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -15476,7 +15476,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -15543,7 +15543,7 @@
 /obj/structure/table,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -4;
 	pixel_y = 6
 	},
@@ -15608,7 +15608,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
@@ -15641,7 +15641,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/turret_protected/ai_upload)
@@ -15815,7 +15815,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel/white,
 /area/shuttle/ftl/medical/sleeper)
@@ -15824,7 +15824,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 4
@@ -15863,7 +15863,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance";
@@ -15907,7 +15907,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/effect/landmark/start{
 	name = "Munitions Officer";
@@ -15948,7 +15948,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -15975,14 +15975,14 @@
 /area/shuttle/ftl/medical/genetics)
 "TUO" = (
 /obj/structure/table,
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_y = 3
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = 3
 	},
 /turf/open/floor/plasteel,
@@ -15995,7 +15995,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/prison)
@@ -16046,7 +16046,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -4;
 	pixel_y = 6
 	},
@@ -16066,7 +16066,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/chair{
 	dir = 8
@@ -16094,7 +16094,7 @@
 	name = "Ship Monitoring";
 	network = list("SS13");
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/main)
@@ -16179,9 +16179,9 @@
 /obj/item/storage/pod{
 	pixel_x = -28
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	pixel_x = 32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -16356,7 +16356,7 @@
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = 3
 	},
 ,
@@ -16418,7 +16418,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -16479,7 +16479,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -16709,8 +16709,8 @@
 	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
 	icon_state = "radiation";
 	name = "RADIOACTIVE AREA";
-	pixel_x = 0;
-	pixel_y = 0
+	
+	
 	},
 /turf/closed/wall/r_wall,
 )
@@ -16722,7 +16722,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 )
@@ -16799,7 +16799,7 @@
 	icon_state = "radiation";
 	name = "RADIOACTIVE AREA";
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /obj/structure/table,
 /obj/item/paper_bin,
@@ -16808,7 +16808,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = 3
 	},
 /turf/open/floor/plasteel,
@@ -16818,7 +16818,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/hallway/secondary/construction)
@@ -16845,7 +16845,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/medical/genetics)
@@ -16921,7 +16921,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
@@ -16956,7 +16956,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -17030,7 +17030,7 @@
 	density = 0;
 	layer = 4;
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 {
@@ -17186,7 +17186,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/main)
@@ -17237,7 +17237,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -17255,7 +17255,7 @@
 	icon_state = "radiation";
 	name = "RADIOACTIVE AREA";
 	pixel_x = -32;
-	pixel_y = 0
+	
 	},
 /turf/open/floor/engine/airless,
 /area/shuttle/ftl/engine/supermatter_core)
@@ -17349,7 +17349,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -17382,7 +17382,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 )
@@ -17568,7 +17568,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/ftl/maintenance/medbay)
@@ -17590,7 +17590,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plating,
 /eva)
@@ -17607,7 +17607,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/prison)
@@ -17731,7 +17731,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /turf/open/floor/plasteel,
 )
@@ -17749,8 +17749,8 @@
 /obj/machinery/computer/security/telescreen{
 	name = "Ship Monitoring";
 	network = list("SS13");
-	pixel_x = 0;
-	pixel_y = 0
+	
+	
 	},
 ,
 )
@@ -17911,7 +17911,7 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -18006,7 +18006,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 8
@@ -18032,7 +18032,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -18099,7 +18099,7 @@
 /obj/structure/table,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = -3;
 	pixel_y = 6
 	},
@@ -18113,7 +18113,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 ,
 /area/shuttle/ftl/security/armory)
@@ -18129,7 +18129,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0
+	
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 2

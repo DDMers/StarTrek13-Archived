@@ -63,8 +63,7 @@ GLOBAL_LIST_EMPTY(total_extraction_beacons)
 			to_chat(user, "<span class='notice'>You attach the pack to [A] and activate it.</span>")
 			if(loc == user && istype(user.back, /obj/item/storage/backpack))
 				var/obj/item/storage/backpack/B = user.back
-				if(B.can_be_inserted(src,stop_messages = 1))
-					B.handle_item_insertion(src)
+				SEND_SIGNAL(B, COMSIG_TRY_STORAGE_INSERT, src, user, FALSE, FALSE)
 			uses_left--
 			if(uses_left <= 0)
 				user.transferItemToLoc(src, A, TRUE)
@@ -159,8 +158,7 @@ GLOBAL_LIST_EMPTY(total_extraction_beacons)
 
 /obj/structure/extraction_point/Initialize()
 	. = ..()
-	var/area/area_name = get_area(src)
-	name += " ([rand(100,999)]) ([area_name.name])"
+	name += " ([rand(100,999)]) ([get_area_name(src, TRUE)])"
 	GLOB.total_extraction_beacons += src
 
 /obj/structure/extraction_point/Destroy()

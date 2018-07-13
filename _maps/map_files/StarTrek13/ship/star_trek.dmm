@@ -19,7 +19,7 @@
 "as" = (/obj/machinery/atmospherics/pipe/simple/general/visible{dir = 4},/turf/open/space,/area/ship)
 "at" = (/obj/machinery/atmospherics/pipe/simple/general/visible{dir = 4},/obj/structure/lattice/catwalk,/turf/open/space,/area/ship)
 "au" = (/obj/machinery/atmospherics/pipe/simple/general/visible{dir = 5},/obj/structure/lattice/catwalk,/turf/open/space,/area/ship)
-"av" = (/obj/machinery/atmospherics/pipe/simple/general/visible{dir = 10; pixel_x = 0; initialize_directions = 10},/turf/open/floor/plating/airless,/area/ship)
+"av" = (/obj/machinery/atmospherics/pipe/simple/general/visible{dir = 10;  initialize_directions = 10},/turf/open/floor/plating/airless,/area/ship)
 "aw" = (/obj/machinery/atmospherics/pipe/simple/general/visible,/turf/open/floor/plating/airless,/area/ship)
 "ax" = (/obj/structure/sign/vacuum,/turf/closed/wall/mineral/titanium,/area/ship)
 "ay" = (/obj/structure/sign/radiation,/turf/closed/wall/mineral/titanium,/area/ship)

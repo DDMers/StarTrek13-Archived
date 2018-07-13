@@ -91,7 +91,7 @@
 
 //ALL THE THINGS BELOW WERE CREATED BY FLAKSIM, MANY THANKS TO THEM FOR ALLOWING ME TO USE THEM! ~Kmc//
 
-/obj/structure/catwalk/cargo
+/obj/structure/lattice/catwalk/cargo
 	layer = TURF_LAYER + 0.5
 	icon = 'StarTrek13/icons/trek/trek_turfs.dmi'
 	icon_state = "cargogrille"

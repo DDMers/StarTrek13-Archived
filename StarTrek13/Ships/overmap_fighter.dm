@@ -35,6 +35,7 @@
 	icon_state = "viper"
 	name = "Viper"
 
+
 /obj/structure/overmap/ship/fighter/raider
 	icon_state = "raider"
 	name = "Cylon Raider"

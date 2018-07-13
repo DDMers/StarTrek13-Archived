@@ -37,7 +37,7 @@
 		built-in navigation, entertainment, medical facilities and a \
 		sleeping area! Order now, and we'll throw in a TINY FAN, \
 		absolutely free!"
-	mappath = "_maps/templates/shelter_1.dmm"
+	mappath = "_maps/templates/shelter.dmm"
 
 /datum/map_template/shelter/alpha/New()
 	. = ..()

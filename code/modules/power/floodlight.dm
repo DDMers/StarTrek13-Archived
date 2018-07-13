@@ -41,7 +41,6 @@
 	desc = "A pole with powerful mounted lights on it. Due to its high power draw, it must be powered by a direct connection to a wire node."
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "floodlight"
-	anchored = TRUE
 	density = TRUE
 	max_integrity = 100
 	integrity_failure = 80
@@ -95,6 +94,9 @@
 		. = ..()
 
 /obj/machinery/power/floodlight/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
 	var/current = setting
 	if(current == 1)
 		current = light_setting_list.len
@@ -103,12 +105,8 @@
 	change_setting(current, user)
 	..()
 
-/obj/machinery/power/floodlight/attack_ai(mob/user)
-	attack_hand(user)
-	..()
-
 /obj/machinery/power/floodlight/obj_break(damage_flag)
-	if(!(flags_1 & NODECONSTRUCT_1))
+	if(!(flags & NODECONSTRUCT))
 		playsound(loc, 'sound/effects/glassbr3.ogg', 100, 1)
 		var/obj/structure/floodlight_frame/F = new(loc)
 		F.state = FLOODLIGHT_NEEDS_LIGHTS

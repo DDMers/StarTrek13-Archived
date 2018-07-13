@@ -5,7 +5,7 @@
 	icon_state = "syndicate"
 	has_sensor = 0
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags_1 = NODROP_1
+	item_flags = NODROP
 
 /obj/item/clothing/suit/space/borg
 	name = "borg exoskeleton"
@@ -17,10 +17,10 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT
 	slowdown = 3
-	flags_1 = NODROP_1 | ABSTRACT_1 | THICKMATERIAL_1 | STOPSPRESSUREDMAGE_1
+	item_flags = NODROP | ABSTRACT | THICKMATERIAL | STOPSPRESSUREDAMAGE
 	armor = list(melee = 40, bullet = 5, laser = 5, energy = 0, bomb = 15, bio = 100, rad = 70) //they can't react to bombs that well, and emps will rape them
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	allowed = list(/obj/item/device/flashlight)
+	allowed = list(/obj/item/flashlight)
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
@@ -46,7 +46,7 @@
 	magboot_state = "borg1"
 	item_state = null
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags_1 = NODROP_1
+	item_flags = NODROP
 
 /obj/item/clothing/head/helmet/space/borg
 	name = "borg helmet"
@@ -58,7 +58,7 @@
 	heat_protection = HEAD
 	max_heat_protection_temperature = SPACE_HELM_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags_1 = ABSTRACT_1 | NODROP_1 | STOPSPRESSUREDMAGE_1
+	item_flags = ABSTRACT | NODROP | STOPSPRESSUREDAMAGE
 
 /obj/item/clothing/head/helmet/space/borg/New()
 	for(var/obj/item/clothing/suit/space/borg/B in world)
@@ -75,7 +75,7 @@
 	invis_view = 2
 	flash_protect = -1
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags_1 = ABSTRACT_1 | NODROP_1
+	item_flags = ABSTRACT | NODROP
 	alpha = 0
 
 /obj/item/clothing/glasses/night/borg/New()
@@ -90,7 +90,7 @@
 /datum/outfit/borg
 	name = "borg drone"
 	glasses = /obj/item/clothing/glasses/night/borg
-//ars = /obj/item/device/radio/headset/borg/alt
+//ars = /obj/item/radio/headset/borg/alt
 	uniform =  /obj/item/clothing/under/borg
 	suit = /obj/item/clothing/suit/space/borg
 	shoes = /obj/item/clothing/shoes/magboots/borg
@@ -109,11 +109,11 @@
 	H.undershirt = "Nude"
 	H.socks = "Nude"
 	H.hair_style = "Bald"
-	H.dna.species.species_traits |= NOCLONE
-	H.dna.species.species_traits |= CLUMSY
-	H.dna.species.species_traits |= NOHUNGER
-	H.dna.species.species_traits |= NOGUNS
-	H.dna.species.species_traits |= NOBREATH
+	H.dna.species.species_traits |= TRAIT_NOCLONE
+	H.dna.species.species_traits |= TRAIT_CLUMSY
+	H.dna.species.species_traits |= TRAIT_NOHUNGER
+	H.dna.species.species_traits |= TRAIT_NOGUNS
+	H.dna.species.species_traits |= TRAIT_NOBREATH
 	H.update_body()
 	H.skills.add_skill("construction and maintenance", 10)
 	H.skills.add_skill("medicine", 10)
@@ -149,7 +149,7 @@
 	icon_state = "borg"
 	item_state = null
 	siemens_coefficient = 0
-	flags_1 = NODROP_1 | MASKINTERNALS_1
+	item_flags = NODROP | MASKINTERNALS
 	var/cooldown2 = 60 //6 second cooldown
 	var/saved_time = 0
 	actions_types = list(/datum/action/item_action/futile)

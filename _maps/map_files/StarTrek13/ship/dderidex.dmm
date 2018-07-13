@@ -26,7 +26,7 @@
 "z" = (/obj/structure/subsystem_panel/weapons,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
 "A" = (/obj/structure/table/reinforced,/obj/item/storage/toolbox/mechanical,/turf/open/floor/plating,/area/ship/romulan)
 "B" = (/obj/structure/table/reinforced,/turf/open/floor/plating,/area/ship/romulan)
-"C" = (/obj/structure/table/reinforced,/obj/item/device/tricorder,/turf/open/floor/plating,/area/ship/romulan)
+"C" = (/obj/structure/table/reinforced,/obj/item/tricorder,/turf/open/floor/plating,/area/ship/romulan)
 "D" = (/obj/machinery/trek/transporter,/turf/open/floor/plating,/area/ship/romulan)
 "E" = (/obj/machinery/computer/camera_advanced/transporter_control,/turf/open/floor/plating,/area/ship/romulan)
 "F" = (/obj/structure/table/reinforced,/obj/item/clothing/under/romulan,/obj/item/clothing/under/romulan,/obj/item/clothing/under/romulan,/obj/item/clothing/under/romulan,/turf/open/floor/plating,/area/ship/romulan)

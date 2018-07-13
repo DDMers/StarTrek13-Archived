@@ -9,14 +9,21 @@
 
 /mob/living/carbon/human/Unconscious(amount, updating = 1, ignore_canunconscious = 0)
 	amount = dna.species.spec_stun(src,amount)
+	if(has_trait(TRAIT_HEAVY_SLEEPER))
+		amount *= rand(1.25, 1.3)
 	return ..()
 
-/mob/living/carbon/human/cure_husk()
+/mob/living/carbon/human/Sleeping(amount, updating = 1, ignore_sleepimmune = 0)
+	if(has_trait(TRAIT_HEAVY_SLEEPER))
+		amount *= rand(1.25, 1.3)
+	return ..()
+
+/mob/living/carbon/human/cure_husk(list/sources)
 	. = ..()
 	if(.)
 		update_hair()
 
-/mob/living/carbon/human/become_husk()
+/mob/living/carbon/human/become_husk(source)
 	if(istype(dna.species, /datum/species/skeleton)) //skeletons shouldn't be husks.
 		cure_husk()
 		return

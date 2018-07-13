@@ -11,6 +11,7 @@
 	icon_state = "wabbajack_statue"
 	icon_state_on = "wabbajack_statue_on"
 	active = FALSE
+	allow_switch_interact = FALSE
 	var/list/active_tables = list()
 	var/tables_required = 2
 
@@ -40,10 +41,6 @@
 		active = FALSE
 	update_icon()
 
-
-/obj/machinery/power/emitter/energycannon/magical/attack_hand(mob/user)
-	return
-
 /obj/machinery/power/emitter/energycannon/magical/attackby(obj/item/W, mob/user, params)
 	return
 
@@ -61,7 +58,7 @@
 	var/obj/machinery/power/emitter/energycannon/magical/our_statue
 	var/list/mob/living/sleepers = list()
 	var/never_spoken = TRUE
-	flags_1 = NODECONSTRUCT_1
+	flags = NODECONSTRUCT
 
 /obj/structure/table/abductor/wabbajack/Initialize(mapload)
 	. = ..()
@@ -139,7 +136,6 @@
 /mob/living/simple_animal/drone/snowflake/bardrone
 	name = "Bardrone"
 	desc = "A barkeeping drone, an indestructible robot built to tend bars."
-	seeStatic = FALSE
 	hacked = TRUE
 	laws = "1. Serve drinks.\n\
 		2. Talk to patrons.\n\
@@ -169,7 +165,7 @@
 	var/datum/job/captain/C = new /datum/job/captain
 	access_card.access = C.get_access()
 	access_card.access |= ACCESS_CENT_BAR
-	access_card.flags_1 |= NODROP_1
+	access_card.item_flags |= NODROP
 
 /mob/living/simple_animal/hostile/alien/maid/barmaid/Destroy()
 	qdel(access_card)
@@ -181,7 +177,7 @@
 
 /obj/structure/table/wood/bar
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	flags_1 = NODECONSTRUCT_1
+	flags = NODECONSTRUCT
 	max_integrity = 1000
 	var/boot_dir = 1
 
@@ -210,9 +206,11 @@
 //Luxury Shuttle Blockers
 
 /obj/effect/forcefield/luxury_shuttle
+	timeleft = 0
 	var/threshold = 500
 	var/static/list/approved_passengers = list()
 	var/static/list/check_times = list()
+
 
 /obj/effect/forcefield/luxury_shuttle/CanPass(atom/movable/mover, turf/target)
 	if(mover in approved_passengers)

@@ -2,7 +2,7 @@
 
 /area/mine
 	icon_state = "mining"
-	has_gravity = TRUE
+	has_gravity = STANDARD_GRAVITY
 
 /area/mine/explored
 	name = "Mine"
@@ -15,7 +15,7 @@
 	power_equip = FALSE
 	power_light = FALSE
 	outdoors = TRUE
-	flags_1 = NONE
+	flags = NONE
 	ambientsounds = MINING
 
 /area/mine/unexplored
@@ -29,7 +29,7 @@
 	power_equip = FALSE
 	power_light = FALSE
 	outdoors = TRUE
-	flags_1 = NONE
+	flags = NONE
 	ambientsounds = MINING
 
 /area/mine/lobby
@@ -65,12 +65,6 @@
 /area/mine/sleeper
 	name = "Mining Station Emergency Sleeper"
 
-/area/mine/north_outpost
-	name = "North Mining Outpost"
-
-/area/mine/west_outpost
-	name = "West Mining Outpost"
-
 /area/mine/laborcamp
 	name = "Labor Camp"
 
@@ -86,8 +80,8 @@
 
 /area/lavaland
 	icon_state = "mining"
-	has_gravity = TRUE
-	flags_1 = NONE
+	has_gravity = STANDARD_GRAVITY
+	flags = NONE
 
 /area/lavaland/surface
 	name = "Lavaland"

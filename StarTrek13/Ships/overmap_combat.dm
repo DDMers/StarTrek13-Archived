@@ -113,7 +113,7 @@
 	theship = mob_viewer.overmap_ship
 	var/goal = theship.SC.weapons.max_charge
 	var/progress = theship.SC.weapons.charge
-	progress = Clamp(progress, 0, goal)
+	progress = CLAMP(progress, 0, goal)
 	icon_state = "prog_bar_[round(((progress / goal) * 100), 5)]"
 
 /obj/screen/alert/charge/hull
@@ -135,13 +135,13 @@
 	theship = mob_viewer.overmap_ship
 	var/goal = theship.SC.shields.max_health
 	var/progress = theship.SC.shields.health
-	progress = Clamp(progress, 0, goal)
+	progress = CLAMP(progress, 0, goal)
 	icon_state = "prog_bar_[round(((progress / goal) * 100), 5)]"
 	cut_overlays()
 	var/image/tdamage = image('StarTrek13/icons/trek/overmap_indicators3.dmi',icon_state = "damage_0")
 	var/damage = theship.health
 	var/damagegoal = theship.max_health
-	progress = Clamp(progress, 0, damagegoal)
+	progress = CLAMP(progress, 0, damagegoal)
 	tdamage.icon_state = "damage_[round(((damage / damagegoal) * 100), 5)]"
 	add_overlay(tdamage)
 
@@ -294,7 +294,7 @@
 			client.images -= bar
 		if (user.client)
 			user.client.images += bar
-	progress = Clamp(progress, 0, goal)
+	progress = CLAMP(progress, 0, goal)
 	bar.icon_state = "prog_bar_[round(((progress / goal) * 100), 5)]"
 	if (!shown)
 		user.client.images += bar

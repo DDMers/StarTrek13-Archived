@@ -95,7 +95,7 @@
 				for(var/datum/d in objs)
 					world.SDQL_var(d, query_tree["call"][1], source = d)
 					CHECK_TICK
-					
+
 			if("delete")
 				for(var/datum/d in objs)
 					SDQL_qdel_datum(d)
@@ -133,9 +133,9 @@
 		var/turf/T = a.loc
 		var/turf/actual = get_turf(a)
 		if(istype(T))
-			text += ": [t] at turf [T] [COORD(T)]<br>"
+			text += ": [t] <font color='gray'>at turf</font> [T] [ADMIN_COORDJMP(T)]<br>"
 		else if(a.loc && istype(actual))
-			text += ": [t] in [a.loc] at turf [actual] [COORD(actual)]<br>"
+			text += ": [t] <font color='gray'>in</font> [a.loc] <font color='gray'>at turf</font> [actual] [ADMIN_COORDJMP(actual)]<br>"
 		else
 			text += ": [t]<br>"
 	else
@@ -235,42 +235,42 @@
 
 	if(ispath(type, /mob))
 		for(var/mob/d in location)
-			if(typecache[d.type])
+			if(typecache[d.type] && d.can_vv_get())
 				out += d
 			CHECK_TICK
 
 	else if(ispath(type, /turf))
 		for(var/turf/d in location)
-			if(typecache[d.type])
+			if(typecache[d.type] && d.can_vv_get())
 				out += d
 			CHECK_TICK
 
 	else if(ispath(type, /obj))
 		for(var/obj/d in location)
-			if(typecache[d.type])
+			if(typecache[d.type] && d.can_vv_get())
 				out += d
 			CHECK_TICK
 
 	else if(ispath(type, /area))
 		for(var/area/d in location)
-			if(typecache[d.type])
+			if(typecache[d.type] && d.can_vv_get())
 				out += d
 			CHECK_TICK
 
 	else if(ispath(type, /atom))
 		for(var/atom/d in location)
-			if(typecache[d.type])
+			if(typecache[d.type] && d.can_vv_get())
 				out += d
 			CHECK_TICK
 	else if(ispath(type, /datum))
 		if(location == world) //snowflake for byond shortcut
 			for(var/datum/d) //stupid byond trick to have it not return atoms to make this less laggy
-				if(typecache[d.type])
+				if(typecache[d.type] && d.can_vv_get())
 					out += d
 				CHECK_TICK
 		else
 			for(var/datum/d in location)
-				if(typecache[d.type])
+				if(typecache[d.type] && d.can_vv_get())
 					out += d
 				CHECK_TICK
 
@@ -435,7 +435,7 @@
 		else if(expression[start + 1] == "\[" && islist(v))
 			var/list/L = v
 			var/index = SDQL_expression(source, expression[start + 2])
-			if(isnum(index) && (!IsInteger(index) || L.len < index))
+			if(isnum(index) && (!ISINTEGER(index) || L.len < index))
 				to_chat(usr, "<span class='danger'>Invalid list index: [index]</span>")
 				return null
 			return L[index]

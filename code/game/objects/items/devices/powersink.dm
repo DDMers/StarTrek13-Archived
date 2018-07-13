@@ -1,14 +1,15 @@
 // Powersink - used to drain station power
 
-/obj/item/device/powersink
+/obj/item/powersink
 	desc = "A nulling power sink which drains energy from electrical systems."
 	name = "power sink"
+	icon = 'icons/obj/device.dmi'
 	icon_state = "powersink0"
 	item_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
-	flags_1 = CONDUCT_1
+	flags = CONDUCT
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 2
@@ -16,7 +17,7 @@
 	var/drain_rate = 1600000	// amount of power to drain per tick
 	var/power_drained = 0 		// has drained this much power
 	var/max_power = 1e10		// maximum power that can be drained before exploding
-	var/mode = 0		// 0 = off, 1=clamped (off), 2=operating
+	var/mode = 0		// 0 = off, 1=CLAMPed (off), 2=operating
 	var/admins_warned = FALSE // stop spam, only warn the admins once that we are about to boom
 
 	var/const/DISCONNECTED = 0
@@ -25,10 +26,10 @@
 
 	var/obj/structure/cable/attached		// the attached cable
 
-/obj/item/device/powersink/update_icon()
+/obj/item/powersink/update_icon()
 	icon_state = "powersink[mode == OPERATING]"
 
-/obj/item/device/powersink/proc/set_mode(value)
+/obj/item/powersink/proc/set_mode(value)
 	if(value == mode)
 		return
 	switch(value)
@@ -55,7 +56,7 @@
 	update_icon()
 	set_light(0)
 
-/obj/item/device/powersink/attackby(obj/item/I, mob/user, params)
+/obj/item/powersink/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/screwdriver))
 		if(mode == DISCONNECTED)
 			var/turf/T = loc
@@ -80,13 +81,16 @@
 	else
 		return ..()
 
-/obj/item/device/powersink/attack_paw()
+/obj/item/powersink/attack_paw()
 	return
 
-/obj/item/device/powersink/attack_ai()
+/obj/item/powersink/attack_ai()
 	return
 
-/obj/item/device/powersink/attack_hand(mob/user)
+/obj/item/powersink/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
 	switch(mode)
 		if(DISCONNECTED)
 			..()
@@ -96,8 +100,8 @@
 				"[user] activates \the [src]!", \
 				"<span class='notice'>You activate \the [src].</span>",
 				"<span class='italics'>You hear a click.</span>")
-			message_admins("Power sink activated by [ADMIN_LOOKUPFLW(user)] at [ADMIN_COORDJMP(src)]")
-			log_game("Power sink activated by [key_name(user)] at [COORD(src)]")
+			message_admins("Power sink activated by [ADMIN_LOOKUPFLW(user)] at [ADMIN_VERBOSEJMP(src)]")
+			log_game("Power sink activated by [key_name(user)] at [AREACOORD(src)]")
 			set_mode(OPERATING)
 
 		if(OPERATING)
@@ -107,7 +111,7 @@
 				"<span class='italics'>You hear a click.</span>")
 			set_mode(CLAMPED_OFF)
 
-/obj/item/device/powersink/process()
+/obj/item/powersink/process()
 	if(!attached)
 		set_mode(DISCONNECTED)
 		return

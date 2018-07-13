@@ -2,10 +2,10 @@
 	name = "pine tree"
 	desc = "A pissed off tree-like alien. It seems annoyed with the festivities..."
 	icon = 'icons/obj/flora/pinetrees.dmi'
-	icon_state = "pine_1"
-	icon_living = "pine_1"
-	icon_dead = "pine_1"
-	icon_gib = "pine_1"
+	icon_state = "pine"
+	icon_living = "pine"
+	icon_dead = "pine"
+	icon_gib = "pine"
 	gender = NEUTER
 	speak_chance = 0
 	turns_per_move = 5

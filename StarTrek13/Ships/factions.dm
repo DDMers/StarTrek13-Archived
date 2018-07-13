@@ -146,7 +146,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	for(var/mob/living/M in members)
 		to_chat(M, ping)
 
-/datum/faction/proc/addMember(mob/D)
+/datum/faction/proc/addMember(mob/living/carbon/human/D)
 //	if(D in members)
 //	if(isliving(D))
 	members += D

@@ -20,7 +20,7 @@
 "t" = (/obj/structure/reagent_dispensers/watertank/high,/turf/open/floor/borg/trek/lit,/area/ship/nanotrasen/fighter)
 "u" = (/obj/machinery/trek/transporter,/turf/open/floor/borg/trek/lit,/area/ship/nanotrasen/fighter)
 "v" = (/obj/machinery/computer/camera_advanced/transporter_control{dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/nanotrasen/fighter)
-"w" = (/obj/structure/table/reinforced,/obj/item/cultivator,/obj/item/wrench,/obj/item/wirecutters,/obj/item/reagent_containers/glass/bucket,/obj/item/seeds/cabbage,/obj/item/seeds/coffee,/obj/item/device/tricorder,/obj/item/stack/sheet/mineral/wood/fifty,/turf/open/floor/borg/trek/lit,/area/ship/nanotrasen/fighter)
+"w" = (/obj/structure/table/reinforced,/obj/item/cultivator,/obj/item/wrench,/obj/item/wirecutters,/obj/item/reagent_containers/glass/bucket,/obj/item/seeds/cabbage,/obj/item/seeds/coffee,/obj/item/tricorder,/obj/item/stack/sheet/mineral/wood/fifty,/turf/open/floor/borg/trek/lit,/area/ship/nanotrasen/fighter)
 "x" = (/obj/machinery/vending/hydronutrients,/turf/open/floor/borg/trek/lit,/area/ship/nanotrasen/fighter)
 
 (1,1,1) = {"

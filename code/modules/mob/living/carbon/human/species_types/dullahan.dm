@@ -2,8 +2,8 @@
 	name = "dullahan"
 	id = "dullahan"
 	default_color = "FFFFFF"
-	species_traits = list(SPECIES_ORGANIC,EYECOLOR,HAIR,FACEHAIR,LIPS,NOBREATH,NOHUNGER)
-	mutant_bodyparts = list("tail_human", "ears", "wings")
+	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS)
+	inherent_traits = list(TRAIT_NOHUNGER,TRAIT_NOBREATH)
 	default_features = list("mcolor" = "FFF", "tail_human" = "None", "ears" = "None", "wings" = "None")
 	use_skintones = TRUE
 	mutant_brain = /obj/item/organ/brain/dullahan
@@ -24,31 +24,31 @@
 
 /datum/species/dullahan/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
-	H.flags_1 &= ~HEAR_1
-	var/obj/item/bodypart/head/head = H.get_bodypart("head")
+	H.flags &= ~HEAR
+	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	if(head)
 		head.drop_limb()
-		head.flags_1 = HEAR_1
+		head.flags = HEAR
 		head.throwforce = 25
 		myhead = new /obj/item/dullahan_relay (head, H)
 		H.put_in_hands(head)
 
 /datum/species/dullahan/on_species_loss(mob/living/carbon/human/H)
-	H.flags_1 |= ~HEAR_1
+	H.flags |= ~HEAR
 	H.reset_perspective(H)
 	if(myhead)
 		var/obj/item/dullahan_relay/DR = myhead
 		myhead = null
 		DR.owner = null
 		qdel(DR)
-	H.regenerate_limb("head",FALSE)
+	H.regenerate_limb(BODY_ZONE_HEAD,FALSE)
 	..()
 
 /datum/species/dullahan/spec_life(mob/living/carbon/human/H)
 	if(QDELETED(myhead))
 		myhead = null
 		H.gib()
-	var/obj/item/bodypart/head/head2 = H.get_bodypart("head")
+	var/obj/item/bodypart/head/head2 = H.get_bodypart(BODY_ZONE_HEAD)
 	if(head2)
 		myhead = null
 		H.gib()
@@ -109,7 +109,7 @@
 
 /obj/item/dullahan_relay
 	var/mob/living/owner
-	flags_1 = HEAR_1
+	flags = HEAR
 
 /obj/item/dullahan_relay/Initialize(mapload,new_owner)
 	. = ..()

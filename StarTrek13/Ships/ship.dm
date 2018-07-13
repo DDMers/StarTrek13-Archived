@@ -30,7 +30,7 @@
 		return FALSE
 	return 0
 
-/obj/item/device/generator_fan
+/obj/item/generator_fan
 	name = "attachable fan"
 	desc = "Attach this to a shield generator to prevent heat overloads."
 	var/fanhealth = 100
@@ -67,10 +67,10 @@
 //	var/temperature = 0
 //	var/connected = 1
 
-	var/obj/item/device/generator_fan/current_fan = null // lowers heat
+	var/obj/item/generator_fan/current_fan = null // lowers heat
 
 /obj/machinery/space_battle/shield_generator/attackby(obj/item/weapon/W, mob/user, params)
-	if(istype(W, /obj/item/device/generator_fan))
+	if(istype(W, /obj/item/generator_fan))
 		if(!current_fan)
 			W.loc = src
 			current_fan = W
@@ -968,7 +968,7 @@
 	if (istype(C, /obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = C
 		if(WT.isOn())
-			if(WT.remove_fuel(0, user))
+			if(WT.use_tool(src, user, 40, volume=100))
 				new /obj/item/stack/rods(src.loc)
 				new /obj/item/stack/rods(src.loc)
 				new /obj/structure/lattice(src.loc)

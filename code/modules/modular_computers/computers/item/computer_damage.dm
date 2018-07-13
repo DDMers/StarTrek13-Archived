@@ -1,4 +1,4 @@
-/obj/item/device/modular_computer/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1)
+/obj/item/modular_computer/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1)
 	. = ..()
 	var/component_probability = min(50, max(damage_amount*0.1, 1 - obj_integrity/max_integrity))
 	switch(damage_flag)
@@ -13,11 +13,11 @@
 				H.take_damage(round(damage_amount*0.5), damage_type, damage_flag, 0)
 
 
-/obj/item/device/modular_computer/deconstruct(disassembled = TRUE)
+/obj/item/modular_computer/deconstruct(disassembled = TRUE)
 	break_apart()
 
-/obj/item/device/modular_computer/proc/break_apart()
-	if(!(flags_1 & NODECONSTRUCT_1))
+/obj/item/modular_computer/proc/break_apart()
+	if(!(flags & NODECONSTRUCT))
 		physical.visible_message("\The [src] breaks apart!")
 		var/turf/newloc = get_turf(src)
 		new /obj/item/stack/sheet/metal(newloc, round(steel_sheet_cost/2))

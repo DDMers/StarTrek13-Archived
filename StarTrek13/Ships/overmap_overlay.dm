@@ -52,7 +52,7 @@
 	engines.icon = icon
 	var/goal = SC.engines.max_integrity
 	var/progress = SC.engines.integrity
-	progress = Clamp(progress, 0, goal)
+	progress = CLAMP(progress, 0, goal)
 	engines.icon_state = "[icon_state]-engines-[round(((progress / goal) * 100), 50)]"
 	add_overlay(engines)
 	//weapons
@@ -61,7 +61,7 @@
 	weaponsoverlay.icon = icon
 	var/goal1 = SC.weapons.max_integrity
 	var/progress1 = SC.weapons.integrity
-	progress1 = Clamp(progress1, 0, goal1)
+	progress1 = CLAMP(progress1, 0, goal1)
 	weaponsoverlay.icon_state = "[icon_state]-weapons-[round(((progress1 / goal1) * 100), 50)]"
 	add_overlay(weaponsoverlay)
 	//Hull
@@ -70,7 +70,7 @@
 	hulloverlay.icon = icon
 	var/goal2 = max_health
 	var/progress2 = health
-	progress2 = Clamp(progress2, 0, goal2)
+	progress2 = CLAMP(progress2, 0, goal2)
 	hulloverlay.icon_state = "[icon_state]-hull-[round(((progress2 / goal2) * 100), 50)]"
 	add_overlay(hulloverlay)
 	//shield
@@ -79,7 +79,7 @@
 	shieldoverlay.icon = icon
 	var/goal3 = max_health
 	var/progress3 = health
-	progress3 = Clamp(progress3, 0, goal3)
+	progress3 = CLAMP(progress3, 0, goal3)
 //	hulloverlay.icon_state = "[icon_state]-hull-[round(((progress3 / goal3) * 100), 50)]"
 	shieldoverlay.icon_state = "[icon_state]-shield-0"//This will mean the shield goes invisible, as such an icon state does not exist
 	if(has_shields())

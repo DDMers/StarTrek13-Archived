@@ -27,7 +27,7 @@ Assistant
 	jobtype = /datum/job/ind/crewman
 
 	id = /obj/item/card/id
-	belt = /obj/item/device/pda
+	belt = /obj/item/pda
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform =  /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/laceup
@@ -73,12 +73,12 @@ Captain
 	jobtype = /datum/job/ind/captain
 
 	id = /obj/item/card/id/gold
-	belt = /obj/item/device/pda/captain
-	ears = /obj/item/device/radio/headset/heads/captain/alt
+	belt = /obj/item/pda/captain
+	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform =  /obj/item/clothing/under/independant/captain
 	shoes = /obj/item/clothing/shoes/jackboots
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced)
 
 	backpack = /obj/item/storage/backpack/captain
 	satchel = /obj/item/storage/backpack/satchel/cap
@@ -116,13 +116,13 @@ Head of Personnel
 			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
 			            ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_MORGUE,
 			            ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MAILSORTING, ACCESS_QM, ACCESS_HYDROPONICS, ACCESS_LAWYER,
-			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
+			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_VAULT, ACCESS_MINING_STATION,
 			            ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_COURT, ACCESS_WEAPONS,
 			            ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_AI_UPLOAD, ACCESS_EVA, ACCESS_HEADS,
 			            ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_MORGUE,
 			            ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MAILSORTING, ACCESS_QM, ACCESS_HYDROPONICS, ACCESS_LAWYER,
-			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
+			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_VAULT, ACCESS_MINING_STATION,
 			            ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MINERAL_STOREROOM)
 
 
@@ -131,12 +131,12 @@ Head of Personnel
 	jobtype = /datum/job/ind/firstofficer
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/device/pda/heads/hop
-	ears = /obj/item/device/radio/headset/heads/hop
+	belt = /obj/item/pda/heads/hop
+	ears = /obj/item/radio/headset/heads/hop
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/laceup
 	backpack_contents = list(/obj/item/storage/box/ids=1,\
-		/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced = 1,/obj/item/device/tricorder)
+		/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced = 1,/obj/item/tricorder)
 
 /datum/outfit/job/ind/firstofficer/post_equip(mob/living/carbon/human/H)
 	H.skills.add_skill("piloting", 4)
@@ -165,18 +165,18 @@ Shaft Miner
 	name = "Miner (lavaland)"
 	jobtype = /datum/job/ind/mining
 
-	belt = /obj/item/device/pda/shaftminer
-	ears = /obj/item/device/radio/headset/headset_cargo/mining
+	belt = /obj/item/pda/shaftminer
+	ears = /obj/item/radio/headset/headset_cargo/mining
 	shoes = /obj/item/clothing/shoes/workboots/mining
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform = /obj/item/clothing/under/independant
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival
-	r_pocket = /obj/item/device/flashlight/seclite
+	r_pocket = /obj/item/flashlight/seclite
 	backpack_contents = list(
 		/obj/item/storage/bag/ore=1,\
 		/obj/item/kitchen/knife/combat/survival=1,\
 		/obj/item/mining_voucher=1,\
-		/obj/item/device/tricorder=1,\
+		/obj/item/tricorder=1,\
 		/obj/item/stack/marker_beacon/ten=1)
 
 	backpack = /obj/item/storage/backpack/explorer
@@ -195,14 +195,14 @@ Shaft Miner
 	mask = /obj/item/clothing/mask/gas/explorer
 	glasses = /obj/item/clothing/glasses/meson
 	suit_store = /obj/item/tank/internals/oxygen
-	internals_slot = slot_s_store
+	internals_slot = SLOT_S_STORE
 	backpack_contents = list(
 		/obj/item/storage/bag/ore=1,
 		/obj/item/kitchen/knife/combat/survival=1,
 		/obj/item/mining_voucher=1,
-		/obj/item/device/t_scanner/adv_mining_scanner/lesser=1,
+		/obj/item/t_scanner/adv_mining_scanner/lesser=1,
 		/obj/item/gun/energy/kinetic_accelerator=1,\
-		/obj/item/device/tricorder=1,\
+		/obj/item/tricorder=1,\
 		/obj/item/stack/marker_beacon/ten=1)
 
 /datum/outfit/job/ind/miner/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -253,7 +253,7 @@ Chaplain
 		B.icon_state = SSreligion.bible_icon_state
 		B.item_state = SSreligion.bible_item_state
 		to_chat(H, "There is already an established religion onboard the station. You are an acolyte of [SSreligion.deity]. Defer to the Chaplain.")
-		H.equip_to_slot_or_del(B, slot_in_backpack)
+		H.equip_to_slot_or_del(B, SLOT_IN_BACKPACK)
 		var/nrt = SSreligion.holy_weapon_type || /obj/item/nullrod
 		var/obj/item/nullrod/N = new nrt(H)
 		H.put_in_hands(N)
@@ -301,7 +301,7 @@ Chaplain
 	SSreligion.bible_name = B.name
 	SSreligion.deity = B.deity_name
 
-	H.equip_to_slot_or_del(B, slot_in_backpack)
+	H.equip_to_slot_or_del(B, SLOT_IN_BACKPACK)
 
 	SSblackbox.record_feedback("text", "religion_name", 1, "[new_religion]", 1)
 	SSblackbox.record_feedback("text", "religion_deity", 1, "[new_deity]", 1)
@@ -311,9 +311,9 @@ Chaplain
 	name = "Preacher"
 	jobtype = /datum/job/ind/chaplain
 
-	belt = /obj/item/device/pda/chaplain
+	belt = /obj/item/pda/chaplain
 	uniform = /obj/item/clothing/under/rank/chaplain
-	backpack_contents = list(/obj/item/device/camera/spooky = 1)
+	backpack_contents = list(/obj/item/camera/spooky = 1)
 	accessory = /obj/item/clothing/accessory/pocketprotector/cosmetology
 	backpack = /obj/item/storage/backpack/cultpack
 	satchel = /obj/item/storage/backpack/cultpack
@@ -355,19 +355,19 @@ Chief Engineer
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility/chief/full
-	l_pocket = /obj/item/device/pda/heads/ce
-	ears = /obj/item/device/radio/headset/heads/ce
+	l_pocket = /obj/item/pda/heads/ce
+	ears = /obj/item/radio/headset/heads/ce
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black/ce
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced=1,/obj/item/device/tricorder)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced=1,/obj/item/tricorder)
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
-	pda_slot = slot_l_store
+	pda_slot = SLOT_L_STORE
 
 /datum/outfit/job/ind/ce/rig
 	name = "Engineering Officer (Hardsuit)"
@@ -378,7 +378,7 @@ Chief Engineer
 	suit_store = /obj/item/tank/internals/oxygen
 	gloves = /obj/item/clothing/gloves/color/yellow
 	head = null
-	internals_slot = slot_s_store
+	internals_slot = SLOT_S_STORE
 
 /datum/outfit/job/ind/ce/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -418,14 +418,14 @@ Chief Medical Officer
 	jobtype = /datum/job/cmo
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/device/pda/heads/cmo
+	belt = /obj/item/pda/heads/cmo
 	l_pocket = /obj/item/pinpointer/crew
-	ears = /obj/item/device/radio/headset/heads/cmo
+	ears = /obj/item/radio/headset/heads/cmo
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/laceup
 	suit = /obj/item/clothing/suit/toggle/labcoat/cmo
 	l_hand = /obj/item/storage/firstaid/regular
-	suit_store = /obj/item/device/flashlight/pen
+	suit_store = /obj/item/flashlight/pen
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1)
 
 	backpack = /obj/item/storage/backpack/medic
@@ -476,14 +476,14 @@ Research Director
 	jobtype = /datum/job/ind/rd
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/device/pda/heads/rd
-	ears = /obj/item/device/radio/headset/heads/rd
+	belt = /obj/item/pda/heads/rd
+	ears = /obj/item/radio/headset/heads/rd
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/laceup
 	l_hand = /obj/item/clipboard
-	l_pocket = /obj/item/device/laser_pointer
+	l_pocket = /obj/item/laser_pointer
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/device/modular_computer/tablet/preset/advanced=1)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced=1)
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
@@ -495,7 +495,7 @@ Research Director
 	mask = /obj/item/clothing/mask/breath
 	suit = /obj/item/clothing/suit/space/hardsuit/rd
 	suit_store = /obj/item/tank/internals/oxygen
-	internals_slot = slot_s_store
+	internals_slot = SLOT_S_STORE
 
 /*
 Head of Security
@@ -533,8 +533,8 @@ Head of Security
 	jobtype = /datum/job/ind/hos
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/device/pda/heads/hos
-	ears = /obj/item/device/radio/headset/heads/hos/alt
+	belt = /obj/item/pda/heads/hos
+	ears = /obj/item/radio/headset/heads/hos/alt
 	uniform = /obj/item/clothing/under/independant/captain
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/hos/trenchcoat
@@ -542,7 +542,7 @@ Head of Security
 	head = /obj/item/clothing/head/HoS/beret
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	suit_store = /obj/item/gun/energy/e_gun
-	r_pocket = /obj/item/device/assembly/flash/handheld
+	r_pocket = /obj/item/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs
 	backpack_contents = list(/obj/item/melee/baton/loaded=1)
 
@@ -577,8 +577,8 @@ Head of Security
 	name = "enforcer"
 	jobtype = /datum/job/ind/enforcer
 
-	belt = /obj/item/device/pda/security
-	ears = /obj/item/device/radio/headset/headset_sec/alt
+	belt = /obj/item/pda/security
+	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/independant/captain
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/beret/sec
@@ -632,8 +632,8 @@ Head of Security
 	jobtype = /datum/job/ind/pilot
 
 	id = /obj/item/card/id
-	belt = /obj/item/device/pda
-	ears = /obj/item/device/radio/headset
+	belt = /obj/item/pda
+	ears = /obj/item/radio/headset
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/laceup
 
