@@ -57,17 +57,13 @@ GLOBAL_PROTECT(security_mode)
 	log_world("DEBUG SLEEP OFFLINE IS[world.sleep_offline]")
 	SSticker.start_immediately = TRUE
 	CONFIG_SET(number/round_end_countdown, 0)
-	var/datum/callback/cd
 #ifdef UNIT_TESTS
 	log_world("DEBUG: CALLING RUN UNIT TESTS")
-	cd = CALLBACK(GLOBAL_PROC, /proc/RunUnitTests)
-
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/RunUnitTests))
 #else
-	cd = VARSET_CALLBACK(SSticker, force_ending, TRUE)
-
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/addtimer,VARSET_CALLBACK(SSticker, force_ending, TRUE), 10 SECONDS))
 #endif
-	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/addtimer, cd, 10 SECONDS))
-	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/log_world, world.sleep_offline))
+
 
 /world/proc/SetupExternalRSC()
 #if (PRELOAD_RSC == 0)
