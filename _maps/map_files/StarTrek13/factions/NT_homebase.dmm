@@ -24,10 +24,10 @@
 "ax" = (/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/turf/open/floor/plasteel/dark,/area/centcom)
 "ay" = (/obj/structure/chair/comfy/brown{dir = 4},/turf/open/floor/wood,/area/centcom)
 "az" = (/obj/structure/chair/office/light{dir = 8},/turf/open/floor/wood,/area/centcom)
-"aA" = (/obj/structure/subsystem_monitor/weapons{dir = 4; icon_state = "lcars2";  tag = "icon-lcars2 (EAST)"},/turf/closed/wall/ship/steel,/area/centcom)
+"aA" = (/obj/structure/subsystem_monitor/weapons{dir = 4; icon_state = "lcars2"; tag = "icon-lcars2 (EAST)"},/turf/closed/wall/ship/steel,/area/centcom)
 "aB" = (/turf/open/floor/plasteel/blue/side{dir = 8},/area/centcom)
 "aC" = (/turf/open/floor/plasteel/blue/side{dir = 4},/area/centcom)
-"aD" = (/obj/structure/subsystem_monitor{dir = 4; icon_state = "lcars";  tag = "icon-lcars (EAST)"},/turf/closed/wall/ship/steel,/area/centcom)
+"aD" = (/obj/structure/subsystem_monitor{dir = 4; icon_state = "lcars"; tag = "icon-lcars (EAST)"},/turf/closed/wall/ship/steel,/area/centcom)
 "aE" = (/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/obj/machinery/light{dir = 4},/turf/open/floor/plasteel/dark,/area/centcom)
 "aF" = (/obj/machinery/door/airlock/command/glass{name = "Captain's office"},/obj/machinery/door/firedoor,/turf/open/floor/wood,/area/centcom)
 "aG" = (/obj/structure/table/wood,/turf/open/floor/plasteel,/area/centcom)
@@ -112,8 +112,8 @@
 "ch" = (/turf/open/floor/plasteel/white,/area/centcom)
 "ci" = (/turf/open/floor/plasteel/whiteblue/side{icon_state = "whiteblue"; dir = 4},/area/centcom)
 "cj" = (/obj/structure/window/trek/steel,/turf/open/floor/plasteel/white,/area/centcom)
-"ck" = (/obj/structure/extinguisher_cabinet{dir = 4; pixel_x = -27; },/turf/open/floor/plasteel/dark,/area/centcom)
-"cl" = (/obj/structure/extinguisher_cabinet{dir = 4; pixel_x = 27; },/turf/open/floor/plasteel/dark,/area/centcom)
+"ck" = (/obj/structure/extinguisher_cabinet{dir = 4; pixel_x = -27},/turf/open/floor/plasteel/dark,/area/centcom)
+"cl" = (/obj/structure/extinguisher_cabinet{dir = 4; pixel_x = 27},/turf/open/floor/plasteel/dark,/area/centcom)
 "cm" = (/obj/structure/lattice/catwalk,/obj/machinery/light{dir = 4},/turf/open/floor/plating,/area/centcom)
 "cn" = (/obj/structure/rack,/obj/item/clothing/suit/armor/bulletproof,/obj/item/clothing/suit/armor/bulletproof,/obj/item/clothing/suit/armor/bulletproof,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/red/side{dir = 8},/area/centcom)
 "co" = (/obj/structure/rack,/obj/item/gun/energy/e_gun,/turf/open/floor/plasteel,/area/centcom)
@@ -151,6 +151,7 @@
 "cU" = (/turf/open/floor/plasteel/red/side{dir = 5},/area/centcom)
 "cV" = (/obj/structure/closet/crate{name = "Silver Crate"},/turf/open/floor/plasteel,/area/centcom)
 "cW" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/turf/open/floor/plasteel,/area/centcom)
+"cX" = (/obj/effect/landmark/faction_spawn/romulan,/turf/open/floor/plasteel,/area/centcom)
 "cY" = (/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plasteel/red/side{dir = 8},/area/centcom)
 "cZ" = (/obj/structure/table/reinforced,/obj/item/book/manual/wiki/security_space_law,/turf/open/floor/plasteel,/area/centcom)
 "da" = (/obj/structure/chair/office/dark{dir = 8},/turf/open/floor/plasteel,/area/centcom)
@@ -264,7 +265,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcDcEcFcG
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababbbbmabbvafabbwbwbwabafbxabbnbbabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcMasbuascNabbbbmabcOafafafcPafafafcQabbnbbabcRcScTcScUabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcVascWasasdkbbbmabababababababababababbncmabcYascZdacbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabasascWasasabbbdbdcdcdcdcdcdcdcdcdcdcdcddbbdeasasdfdgcbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabasascWasasabbbdbdcdcdcdcdccXdcdcdcdcdcddbbdeasasdfdgcbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabasasasasasabbZbbbbbbbbbbbbbbbbbbbbbbbbbbdhabcYasasascbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdiasasdjabababababdkdkababadadadabdlababababcaasasascbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdiasasasdmasasasabasasdndodpdqdrdpdsabdtasdmcaasdfdgcbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

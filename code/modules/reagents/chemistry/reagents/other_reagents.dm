@@ -84,6 +84,15 @@
 	if(data["blood_DNA"])
 		B.add_blood_DNA(list(data["blood_DNA"] = data["blood_type"]))
 
+/datum/reagent/blood/romulan
+	name = "Green Blood"
+	id = "romulanblood"
+	color = "#74c500"
+	glass_icon_state = "glass_green"
+	glass_name = "glass of liquid cucumber"
+	glass_desc = "Cucumber..?"
+	shot_glass_icon_state = "shotglassgreen"
+
 /datum/reagent/liquidgibs
 	name = "Liquid gibs"
 	id = "liquidgibs"

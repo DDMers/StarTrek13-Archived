@@ -57,3 +57,46 @@
 #define JOB_UNAVAILABLE_PLAYTIME 3
 #define JOB_UNAVAILABLE_ACCOUNTAGE 4
 #define JOB_UNAVAILABLE_SLOTFULL 5
+
+ ////ROMULANS\\\\
+/
+#define RCAPTAIN		(1<<20)
+#define RFIRSTOFFICER	(2 << 14)
+#define RPILOT			(2<<15)
+
+#define RHOS			(2<<1)
+#define RWARDEN			(2<<2)
+#define RDETECTIVE		(2<<3)
+#define ROFFICER		(2<<4)
+
+
+#define RCHIEF			(2<<5)
+#define RENGINEER		(2<<6)
+#define RATMOSTECH		(2<<7)
+
+
+#define RROBOTICIST		(2<<8)
+#define RAI_JF			(2<<9)
+#define RCYBORG			(2<<10)
+#define RADMIRAL		(2<<11)
+#define RSOLDIER		(2<<12)
+#define RADMIRAL_CENTCOM (2 << 13)
+
+#define RBORG_DRONE		(2<<19)
+
+
+#define RRD				(1<<0)
+#define RSCIENTIST		(1<<1)
+#define RCMO			(1<<3)
+#define RDOCTOR			(1<<4)
+#define RVIROLOGIST		(1<<6)
+
+
+#define RHOP			(1<<0)
+#define RCOOK			(1<<3)
+#define RJANITOR		(1<<4)
+#define RQUARTERMASTER	(1<<6)
+#define RCARGOTECH		(1<<7)
+#define RMINER			(1<<8)
+#define RLAWYER			(1<<9)
+#define RASSISTANT		(1<<13)
