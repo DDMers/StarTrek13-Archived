@@ -8,7 +8,7 @@ var/global/list/overmap_objects = list()
 var/global/list/global_ship_list = list()
 
 /area/overmap
-	name = "Sector 417542"
+	name = "Sector 417542 (Federation space)"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	flags = NONE
 	requires_power = FALSE
@@ -16,7 +16,7 @@ var/global/list/global_ship_list = list()
 	ambientsounds = list('StarTrek13/sound/ambience/bsgtheme1.ogg','StarTrek13/sound/ambience/bsgtheme2.ogg','StarTrek13/sound/ambience/trektheme1.ogg','StarTrek13/sound/ambience/trektheme2.ogg','StarTrek13/sound/ambience/masstheme1.ogg','StarTrek13/sound/ambience/bsgtheme3.ogg','StarTrek13/sound/ambience/interstellar.ogg')
 
 /area/overmap/s2
-	name = "Sector 417543"
+	name = "Sector 417543 (Neutral zone)"
 
 /area/overmap/Entered(A)
 	set waitfor = FALSE

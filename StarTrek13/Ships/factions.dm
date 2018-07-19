@@ -82,12 +82,13 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/datum/objective/objectives = list()//IF there are multiple objectives. Also currently unused. ~Cdey
 	var/credits = 0 //:( i'm just a poor boy from a poor family
 
-
+/*
 /datum/faction/independant
 	name = "independant"
 	description = "An independant faction, freelancers, traders, or even pirates, these people choose their own path and forge their own journey."
 	flavourtext = "You are your own person, and no power hungry faction will tell you otherwise. You are in a group of likeminded people, to call your organization a true faction would be inapropriate. Create your own path." //Sent to all new members upon recruitment.
 	pref_colour = "grey"
+*/
 
 //"<FONT color='blue'><B>As this station was initially staffed with a [CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] have been added to your ID card.</B></font>")
 
@@ -97,11 +98,13 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	flavourtext = "Starfleet is a stable career path, with luck you can work your way up the ranks all while protecting the values of the federation"
 	pref_colour = "red"
 
+/*
 /datum/faction/nanotrasen
 	name = "nanotrasen"
 	description = "Nanotrasen, or more specifically, their main corporate arm. Their goal is to make money and maintain the colonies, no matter who opposes them."
 	flavourtext = "Nanotrasen is an oligarchy, but with merit you should be able to climb the ranks...up to a point."
 	pref_colour = "blue"
+*/
 
 /datum/faction/romulan
 	name = "romulan empire"

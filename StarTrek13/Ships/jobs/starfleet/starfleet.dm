@@ -536,7 +536,7 @@ Research Director
 			            ACCESS_TECH_STORAGE, ACCESS_MINISAT, ACCESS_MAINT_TUNNELS, ACCESS_NETWORK)
 
 /datum/outfit/job/fed/rd
-	name = "Research Overseer"
+	name = "Science Officer"
 	jobtype = /datum/job/fed/rd
 
 	id = /obj/item/card/id/silver
@@ -627,7 +627,7 @@ Head of Security
 			            ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MAINT_TUNNELS)
 
 /datum/outfit/job/fed/hos
-	name = "Ship Security Coordinator"
+	name = "Chief of security"
 	jobtype = /datum/job/fed/hos
 
 	id = /obj/item/card/id/silver
@@ -872,7 +872,7 @@ Security Officer
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_CREW
 
-	outfit = /datum/outfit/job/pilot
+	outfit = /datum/outfit/job/fed/pilot
 
 	access = list()
 	minimal_access = list()

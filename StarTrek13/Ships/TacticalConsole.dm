@@ -270,7 +270,7 @@
 /obj/structure/fluff/helm/desk/tactical/Topic(href, href_list)
 	..()
 	if(href_list["warp"] && targetBeacon)
-		theship.do_warp(targetBeacon.name, targetBeacon.distance)
+		theship.do_warp(targetBeacon, targetBeacon.distance)
 		targetBeacon = null
 
 	if(href_list["beacon"])

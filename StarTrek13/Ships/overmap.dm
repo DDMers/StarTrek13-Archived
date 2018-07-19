@@ -650,14 +650,12 @@
 
 /obj/structure/overmap/proc/InputWarpTarget(mob/user) //inputs here were super broken for some fucking reason, so like yogs, i'm gonna say fuck democracy :)
 	var/area/A = get_area(src)
-	var/list/fuck = list()
+	var/list/potential = list()
 	to_chat(user, "Engaging kangaroo drive. Who the fuck knows where you'll end up, do you think I can be bothered to crunch the numbers for you? get out a piece of paper and account for hyperspatial drift yourself loser.")
-	for(var/obj/effect/landmark/L in destinations)
-		var/area/S = get_area(L)
-		fuck += L
-		if(S == A)
-			fuck -= L
-	var/obj/effect/landmark/warp_beacon/SS = pick(fuck)
+	for(var/obj/effect/landmark/L in world)
+		if(!L in A)
+			potential += L
+	var/obj/effect/landmark/warp_beacon/SS = pick(potential)
 	if(can_move)
 		if(!SC.engines.failed)
 			do_warp(SS, SS.distance) //distance being the warp transit time.
