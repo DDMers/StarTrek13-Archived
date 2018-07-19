@@ -87,7 +87,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	name = "independant"
 	description = "An independant faction, freelancers, traders, or even pirates, these people choose their own path and forge their own journey."
 	flavourtext = "You are your own person, and no power hungry faction will tell you otherwise. You are in a group of likeminded people, to call your organization a true faction would be inapropriate. Create your own path." //Sent to all new members upon recruitment.
-	pref_colour = "green"
+	pref_colour = "grey"
 
 //"<FONT color='blue'><B>As this station was initially staffed with a [CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] have been added to your ID card.</B></font>")
 
@@ -103,6 +103,12 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	flavourtext = "Nanotrasen is an oligarchy, but with merit you should be able to climb the ranks...up to a point."
 	pref_colour = "blue"
 
+/datum/faction/romulan
+	name = "romulan empire"
+	description = "The Romulan Empire. One of the most powerful empires surrounding the Federation, they "
+	flavourtext = "Welcome to the Romulan Empire. Play your cards wisely, for there is always a spy somewhere."
+	pref_colour = "green"
+	required_race = /datum/species/romulan
 
 
 /datum/faction/proc/add_objective(var/datum/factionobjective/O)
@@ -174,6 +180,9 @@ var/list/global/faction_spawns = list()
 
 /obj/effect/landmark/faction_spawn/borg
 	name = "the borg"
+
+/obj/effect/landmark/faction_spawn/romulan
+	name = "romulan empire"
 
 /obj/item/clothing/neck/tie/faction_tag //I hate myself for doing this, but I don't have the time to mess around with antag huds...yet...
 	name = "federation dogtag"

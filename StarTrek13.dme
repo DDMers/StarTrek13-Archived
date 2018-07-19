@@ -1901,6 +1901,7 @@
 #include "code\modules\mob\living\carbon\human\species_types\mushpeople.dm"
 #include "code\modules\mob\living\carbon\human\species_types\plasmamen.dm"
 #include "code\modules\mob\living\carbon\human\species_types\podpeople.dm"
+#include "code\modules\mob\living\carbon\human\species_types\romulans.dm"
 #include "code\modules\mob\living\carbon\human\species_types\shadowpeople.dm"
 #include "code\modules\mob\living\carbon\human\species_types\skeletons.dm"
 #include "code\modules\mob\living\carbon\human\species_types\synths.dm"
@@ -2668,6 +2669,7 @@
 #include "StarTrek13\Ships\jobs\job_items.dm"
 #include "StarTrek13\Ships\jobs\independants\independants.dm"
 #include "StarTrek13\Ships\jobs\nanotrasen\nanotrasen.dm"
+#include "StarTrek13\Ships\jobs\romulans\romulans.dm"
 #include "StarTrek13\Ships\jobs\starfleet\starfleet.dm"
 #include "StarTrek13\Xel\trek_items.dm"
 // END_INCLUDE
