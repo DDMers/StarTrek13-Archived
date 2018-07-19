@@ -7,5 +7,7 @@
 	    "ferry": "ferry_fancy",
 	    "whiteship": "whiteship_meta",
 	    "emergency": "emergency_box"
-    }
+    },
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0
 }
