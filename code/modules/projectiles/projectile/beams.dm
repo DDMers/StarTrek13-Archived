@@ -14,11 +14,13 @@
 	ricochets_max = 50	//Honk!
 	ricochet_chance = 80
 	is_reflectable = TRUE
+	hitscan = TRUE
 
 /obj/item/projectile/beam/laser
 	tracer_type = /obj/effect/projectile/tracer/laser
 	muzzle_type = /obj/effect/projectile/muzzle/laser
 	impact_type = /obj/effect/projectile/impact/laser
+
 
 /obj/item/projectile/beam/laser/heavylaser
 	name = "heavy laser"
