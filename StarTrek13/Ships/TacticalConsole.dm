@@ -85,7 +85,7 @@
 	get_shieldgen()
 	if(!theship)
 		to_chat(user, "Your ship has been destroyed!")
-	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap","set speed")
+	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap")
 
 	starmapUI = "\
 	<!DOCTYPE html>\
@@ -264,8 +264,6 @@
 			var/datum/asset/assets = get_asset_datum(/datum/asset/simple/starmap)
 			assets.send(user)
 			user << browse(starmapUI, "window=StarMap;size=660x420")
-		if("set speed")
-			return
 
 /obj/structure/fluff/helm/desk/tactical/Topic(href, href_list)
 	..()

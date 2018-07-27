@@ -244,8 +244,8 @@
 		integrity = 0
 		return
 	if(!failed)
-		if(charge >= 5000)
-			charge -= 5000
+		if(charge >= 3000)
+			charge -= 3000
 			return 1
 
 /datum/shipsystem/engines/process()

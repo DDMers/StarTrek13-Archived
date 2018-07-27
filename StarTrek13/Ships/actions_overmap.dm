@@ -29,12 +29,25 @@
 	name = "Engage warp drive"
 	icon_icon = 'StarTrek13/icons/actions/overmap_ui.dmi'
 	button_icon_state = "warp"
+	var/warping = FALSE
 	var/obj/structure/overmap/ship
+	var/warp_cost = 4000 //Lotsa energy to warp it
 
 /datum/action/innate/warp/Activate()
-	//ship.exit()
-//	ship.InputWarpTarget(ship.pilot)
-	return //Not finished with this yet...
+	if(ship.SC.engines.try_warp())
+		switch(warping)
+			if(TRUE)
+				to_chat(ship.pilot, "Warping deactivated")
+				ship.can_move = TRUE
+				ship.vel = 0
+				warping = FALSE
+			if(FALSE)
+				SEND_SOUND(ship.pilot, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
+				to_chat(ship.pilot, "Engaging warp")
+				ship.can_move = FALSE
+				ship.vel = 9
+				warping = TRUE
+		return
 
 /datum/action/innate/stopfiring
 	name = "Disengage weapons lock"

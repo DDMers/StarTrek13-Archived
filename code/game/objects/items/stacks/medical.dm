@@ -75,8 +75,8 @@
 			user.visible_message("<span class='notice'>[user] starts to apply [src] on [t_himself]...</span>", "<span class='notice'>You begin applying [src] on yourself...</span>")
 			if(!do_mob(user, M, self_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject,user,1)))
 				return
-			if(user.skills.skillcheck(user, "medicine", skill_requirement) != (1 || 3))
-				return
+		//	if(user.skills.skillcheck(user, "medicine", skill_requirement) != (1 || 3))
+			//	return
 			user.visible_message("<span class='green'>[user] applies [src] on [t_himself].</span>", "<span class='green'>You apply [src] on yourself.</span>")
 
 
@@ -86,8 +86,8 @@
 		if(!affecting) //Missing limb?
 			to_chat(user, "<span class='warning'>[C] doesn't have \a [parse_zone(user.zone_selected)]!</span>")
 			return
-		if(user.skills.skillcheck(user, "medicine", skill_requirement) != (1 || 3))
-			return
+	//	if(user.skills.skillcheck(user, "medicine", skill_requirement) != (1 || 3))
+		//	return
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
 			if(stop_bleeding)
