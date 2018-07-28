@@ -39,23 +39,23 @@
 	skill = S.value
 
 	if(requirement == 0)
-		return SUCCESS
+		return TRUE
 
 	if(prob(get_chance(skill, requirement)))
 		if(prob((skill - 4) * 10)) //trained+ are the only ones allowed for a crit success roll
-			return CRIT_SUCCESS
+			return TRUE
 		else
-			return SUCCESS
+			return TRUE
 
 	else if(!prob(get_chance(skill, requirement))) //Roll again. if we fail AGAIN, critfail.
 		if(show_message)
 			message = "CRITICAL FAILURE! [message]"
 			if(show_message)
 				to_chat(target, "<span class='userdanger'>[message]</span>")
-			return CRIT_FAILURE
+			return FALSE
 	else
 		to_chat(target, "<span class='userdanger'>[message]</span>")
-		return FAILURE
+		return FALSE
 
 /datum/skillhandler/proc/get_chance(var/num1, var/num2)
 	var/percentage = (num1 / num2) * 100

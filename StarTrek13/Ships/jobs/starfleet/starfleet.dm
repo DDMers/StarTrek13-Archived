@@ -213,7 +213,7 @@ Head of Personnel
 		/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced = 1,/obj/item/tricorder)
 
 /datum/outfit/job/firstofficer/post_equip(mob/living/carbon/human/H)
-	H.skills.add_skill("piloting", 3)
+	H.skills.add_skill("piloting", 5)
 
 
 /datum/outfit/job/fed/curator/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -892,4 +892,4 @@ Security Officer
 	duffelbag = /obj/item/storage/backpack/duffelbag
 
 /datum/outfit/job/fed/pilot/post_equip(mob/living/carbon/human/H)
-	H.skills.add_skill("pilot", 7)
+	H.skills.add_skill("piloting", 7)

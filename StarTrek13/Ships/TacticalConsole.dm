@@ -86,7 +86,8 @@
 	if(!theship)
 		to_chat(user, "Your ship has been destroyed!")
 	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap")
-
+	if(!user.skills.skillcheck(user, "piloting", 5))
+		return
 	starmapUI = "\
 	<!DOCTYPE html>\
 	<html>\
