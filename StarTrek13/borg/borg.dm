@@ -19,7 +19,7 @@
 
 //datum/borg_hivemind/process()
 
-
+/*
 /datum/faction/borg
 	name = "the borg"
 	description = "We are the borg. Your biological and technological distinctiveness will be added to our own. You will be adapted to service us."
@@ -32,3 +32,5 @@
 	D.unequip_everything()
 	D.make_borg()
 	D.equipOutfit(/datum/outfit/borg, visualsOnly = FALSE)
+
+*/
