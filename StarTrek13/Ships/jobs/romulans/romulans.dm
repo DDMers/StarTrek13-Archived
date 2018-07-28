@@ -85,7 +85,11 @@ Captain
 	implants = list(/obj/item/implant/mindshield)
 
 /datum/outfit/job/rom/captain/post_equip(mob/living/carbon/human/H)
-	H.skills.add_skill("piloting", 5)
+	if(H.skills)
+		H.skills.add_skill("piloting", 5)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 5)
 	..()
 
 
@@ -138,7 +142,11 @@ Head of Personnel
 		/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced = 1,/obj/item/tricorder)
 
 /datum/outfit/job/rom/firstofficer/post_equip(mob/living/carbon/human/H)
-	H.skills.add_skill("piloting", 4)
+	if(H.skills)
+		H.skills.add_skill("piloting", 5)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 5)
 	..()
 
 /*
@@ -487,4 +495,8 @@ Head of Security
 	duffelbag = /obj/item/storage/backpack/duffelbag
 
 /datum/outfit/job/rom/pilot/post_equip(mob/living/carbon/human/H)
-	H.skills.add_skill("piloting", 7)
+	if(H.skills)
+		H.skills.add_skill("piloting", 7)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 7)

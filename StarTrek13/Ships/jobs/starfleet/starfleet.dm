@@ -102,7 +102,11 @@ Captain
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
 
 /datum/outfit/job/captain/post_equip(mob/living/carbon/human/H)
-	H.skills.add_skill("piloting", 5)
+	if(H.skills)
+		H.skills.add_skill("piloting", 5)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 5)
 
 
 /datum/job/fed/admiral
@@ -213,7 +217,11 @@ Head of Personnel
 		/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced = 1,/obj/item/tricorder)
 
 /datum/outfit/job/firstofficer/post_equip(mob/living/carbon/human/H)
-	H.skills.add_skill("piloting", 5)
+	if(H.skills)
+		H.skills.add_skill("piloting", 5)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 5)
 
 
 /datum/outfit/job/fed/curator/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -356,7 +364,11 @@ Chief Engineer
 
 /datum/outfit/job/fed/ce/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.skills.add_skill("piloting", 5)
+	if(H.skills)
+		H.skills.add_skill("piloting", 5)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 5)
 	H.skills.add_skill("construction and maintenance", 7)
 
 /*
@@ -458,7 +470,11 @@ Chief Medical Officer
 /datum/outfit/job/fed/cmo/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.skills.add_skill("medicine", 8)
-	H.skills.add_skill("piloting", 3)
+	if(H.skills)
+		H.skills.add_skill("piloting", 3)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 3)
 //NOTICE: ALL SCIENCE RElATED JOBS/RESEARCH WILL WORK ON STARBASES, ONLY MEDICAL DOCTORS ETC. WILL WORK ON THE SHIPS.
 
 
@@ -892,4 +908,8 @@ Security Officer
 	duffelbag = /obj/item/storage/backpack/duffelbag
 
 /datum/outfit/job/fed/pilot/post_equip(mob/living/carbon/human/H)
-	H.skills.add_skill("piloting", 7)
+	if(H.skills)
+		H.skills.add_skill("piloting", 7)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 7)
