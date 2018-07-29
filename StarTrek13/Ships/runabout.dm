@@ -51,18 +51,23 @@
 		return ..()
 
 /obj/structure/overmap/ship/runabout/enter(mob/user)
-	if(!carrier.shields_active)
-		forceMove(carrier.loc)
-		carrier = null
-		to_chat(user, "Undocking..")
-		icon_state = "runabout-small"
-		. = ..()
+	if(carrier)
+		if(!carrier.shields_active)
+			forceMove(carrier.loc)
+			carrier = null
+			to_chat(user, "Undocking..")
+			icon_state = "runabout-small"
+			. = ..()
+		else
+			to_chat(user, "You cannot undock from [carrier] while its shields are raised")
+			icon_state = initial(icon_state)
+			exit(TRUE)
 	else
-		to_chat(user, "You cannot undock from [carrier] while its shields are raised")
-		icon_state = initial(icon_state)
-		exit(TRUE)
+		. = ..()
 
 /obj/structure/overmap/ship/runabout/exit(var/forced = FALSE, var/runaboutexit = FALSE, var/mob/living/override = null)
+	if(!runaboutexit)
+		. = ..()
 	if(runaboutexit)
 		if(carrier)
 			var/obj/effect/landmark/T = pick(carrier.docks)
@@ -72,8 +77,6 @@
 	if(!forced)
 		try_dock()
 		return
-	else
-		. = ..()
 
 /obj/structure/overmap/ship/runabout/proc/try_dock()
 	var/obj/structure/overmap/L = list()
@@ -84,7 +87,7 @@
 	if(!A)
 		to_chat(pilot, "Docking cancelled")
 		icon_state = "runabout-small"
-		exit()
+		exit(FALSE, FALSE, null)
 		return
 	A.linkto()
 	var/obj/effect/landmark/T = pick(A.docks)
