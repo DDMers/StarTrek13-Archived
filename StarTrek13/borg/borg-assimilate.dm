@@ -47,7 +47,7 @@
 	resistance_flags = UNACIDABLE
 	var/mode = 1 //can assimilate or build mode
 	var/convert_time = 50 //5 seconds
-	flags = NODROP
+	item_flags = NODROP
 	force = 18 //hella strong
 	var/removing_airlock = FALSE
 	var/dismantling_machine = 0
