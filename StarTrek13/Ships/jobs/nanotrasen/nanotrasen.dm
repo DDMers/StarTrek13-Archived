@@ -14,7 +14,7 @@ Assistant
 	selection_color = "#dddddd"
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
-	outfit = /datum/outfit/job/ind/crewman
+	outfit = /datum/outfit/job/nt/crewman
 
 
 /datum/job/ind/crewman/get_access()

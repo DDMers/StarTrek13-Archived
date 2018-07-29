@@ -311,7 +311,7 @@
 		unset_busy_human_dummy("HOLODISK_PRESET")
 
 /obj/item/disk/holodisk/example
-	preset_image_type = /datum/preset_holoimage/clown
+	preset_image_type = /datum/preset_holoimage/captain
 	preset_record_text = {"
 	NAME Clown
 	DELAY 10
@@ -333,13 +333,10 @@
 
 
 /datum/preset_holoimage/engineer
-	outfit_type = /datum/outfit/job/ce
-
-/datum/preset_holoimage/researcher
-	outfit_type = /datum/job/fed/scientist
+//	outfit_type = /datum/outfit/job/ce
 
 /datum/preset_holoimage/captain
-	outfit_type = /datum/outfit/job/captain
+//	outfit_type = /datum/outfit/job/captain
 
 /datum/preset_holoimage/nanotrasenprivatesecurity
 	outfit_type = /datum/outfit/nanotrasensoldiercorpse2
@@ -349,7 +346,3 @@
 
 /datum/preset_holoimage/corgi
 	nonhuman_mobtype = /mob/living/simple_animal/pet/dog/corgi
-
-/datum/preset_holoimage/clown
-	outfit_type = /datum/outfit/job/nt/clown
-

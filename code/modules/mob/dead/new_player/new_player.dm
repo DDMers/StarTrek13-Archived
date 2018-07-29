@@ -101,6 +101,13 @@
 		//Avoid updating ready if we're after PREGAME (they should use latejoin instead)
 		//This is likely not an actual issue but I don't have time to prove that this
 		//no longer is required
+		if(!client.prefs.player_faction)
+			var/A
+			A = input(src,"Choose a faction to start as", "Preferences", A) as null|anything in SSfaction.factions
+			if(!A)
+				return 0
+			var/datum/faction/thefaction = A
+			client.prefs.player_faction = thefaction
 		if(SSticker.current_state <= GAME_STATE_PREGAME)
 			ready = tready
 		//if it's post initialisation and they're trying to observe we do the needful
@@ -117,7 +124,13 @@
 		if(!SSticker || !SSticker.IsRoundInProgress())
 			to_chat(usr, "<span class='danger'>The round is either not ready, or has already finished...</span>")
 			return
-
+		if(!client.prefs.player_faction)
+			var/A
+			A = input(src,"Choose a faction to start as", "Preferences", A) as null|anything in SSfaction.factions
+			if(!A)
+				return 0
+			var/datum/faction/thefaction = A
+			client.prefs.player_faction = thefaction
 		if(href_list["late_join"] == "override")
 			LateChoices()
 			return

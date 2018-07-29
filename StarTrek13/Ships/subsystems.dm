@@ -308,30 +308,27 @@
 			S2.active = FALSE
 //	controller.theship.shields_active = FALSE
 	health = 0
-	STOP_PROCESSING(SSobj,src)
 	failed = TRUE
 
 /datum/shipsystem/shields/process()
-	if(integrity > max_integrity)
-		integrity = max_integrity
+	if(!failed && toggled)
+		health += chargeRate*power_modifier
+		heat -= heat_loss_bonus
 	if(heat < 0)
 		heat = 0
 	if(integrity < 0)
 		integrity = 0
 	health -= heat
 	integrity -= heat
+	heat -= 5
 	max_integrity = initial(max_integrity)
-	if(integrity <= 5000)
+	if(integrity <= 3000)
 		fail()
 	if(health > max_health)
 		health = max_health
 	if(integrity > max_integrity)
 		integrity = max_integrity
-	if(!failed && toggled)
-		health += chargeRate*power_modifier
-		heat -= heat_loss_bonus
-	else
-		return
+
 
 //round(100 * value / max_value PERCENTAGE CALCULATIONS, quick maths.
 //U3VwZXIgaXMgYmFk
@@ -651,7 +648,6 @@
 					powered = FALSE
 					chosen.failed = TRUE
 					STOP_PROCESSING(SSobj, chosen)
-
 			if(istype(I, /obj/item/wrench) && powered)
 				to_chat(user, "I can't afford to depower the [chosen] subsystem, i'll have to take the risk, you begin prodding at live electrical wires and plasma tubes in a desperate attempt to repower the [chosen] subsystem") //You can chance it, but if you fuck up it'll get even worse.
 				if(do_after(user, 250, target = src))
@@ -659,6 +655,7 @@
 						to_chat(user, "You successfully repair the [chosen] subsystem, thank God you didn't touch any of the live wires with your metallic wrench.")
 						chosen.integrity = chosen.max_integrity
 						chosen.failed = FALSE
+						chosen.heat = 0
 						START_PROCESSING(SSobj, chosen)
 						powered = TRUE
 					else
@@ -676,6 +673,7 @@
 					if(do_after(user, 300, target = src))
 						to_chat(user, "You've finished jury-rigging [src], the [chosen] subsystem should now come back online. You may now close [src]'s cover.")
 						chosen.integrity = chosen.max_integrity
+						chosen.heat = 0
 						chosen.failed = FALSE
 						powered = TRUE
 						START_PROCESSING(SSobj, chosen)

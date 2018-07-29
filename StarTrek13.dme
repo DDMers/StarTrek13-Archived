@@ -2669,10 +2669,7 @@
 #include "StarTrek13\Ships\unsorted.dm"
 #include "StarTrek13\Ships\jobs\borg_jobs.dm"
 #include "StarTrek13\Ships\jobs\job_items.dm"
-#include "StarTrek13\Ships\jobs\independants\independants.dm"
-#include "StarTrek13\Ships\jobs\nanotrasen\nanotrasen.dm"
-#include "StarTrek13\Ships\jobs\romulans\romulans.dm"
-#include "StarTrek13\Ships\jobs\starfleet\starfleet.dm"
+#include "StarTrek13\Ships\jobs\jobs.dm"
 #include "StarTrek13\Weapons\Guns.dm"
 #include "StarTrek13\Xel\trek_items.dm"
 // END_INCLUDE

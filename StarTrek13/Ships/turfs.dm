@@ -36,7 +36,7 @@
 	icon_state = "sleeper"
 	death = FALSE
 	roundstart = FALSE
-	outfit = /datum/outfit/job/fed/crewman
+//	outfit = /datum/outfit/job/crewman
 
 
 /obj/machinery/door/airlock/trek/tng
@@ -389,7 +389,7 @@
 	name = "wall"
 	desc = "No running through me please"
 	icon = 'StarTrek13/icons/trek/trek_turfs.dmi'
-	layer = 4.5
+	layer = 4.25
 	pixel_x = 0
 	pixel_y = 0
 	opacity = 0
