@@ -81,6 +81,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/datum/objective/current_objective //only one at a time, please.. These constantly check for completion. ~Cdey
 	var/datum/objective/objectives = list()//IF there are multiple objectives. Also currently unused. ~Cdey
 	var/credits = 0 //:( i'm just a poor boy from a poor family
+	var/factag = "none" //Faction icon tag
 
 /*
 /datum/faction/independant
@@ -97,6 +98,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	description = "The military arm of the federation, its officers are disciplined and intelligent but there is plenty of room for ensigns and other inexperienced officers."
 	flavourtext = "Starfleet is a stable career path, with luck you can work your way up the ranks all while protecting the values of the federation"
 	pref_colour = "red"
+	factag = "starfleet"
 
 /*
 /datum/faction/nanotrasen
@@ -112,6 +114,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	flavourtext = "Welcome to the Romulan Empire. Play your cards wisely, for there is always a spy somewhere."
 	pref_colour = "green"
 	required_race = /datum/species/romulan
+	factag = "romulan"
 
 
 /datum/faction/proc/add_objective(var/datum/factionobjective/O)
@@ -168,6 +171,10 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	onspawn(D)
 
 /datum/faction/proc/onspawn(mob/living/carbon/human/D) //If you want things to happen to someone as they join a faction, put it here
+	var/image/factionoverlay = new
+	factionoverlay.icon = 'StarTrek13/icons/trek/faction_icons.dmi'
+	factionoverlay.icon_state = "[factag]"
+	D.add_overlay(factionoverlay)
 	return
 
 var/list/global/faction_spawns = list()

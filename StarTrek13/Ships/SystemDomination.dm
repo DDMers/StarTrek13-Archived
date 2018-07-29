@@ -68,6 +68,10 @@
 		WC.our_ship = src
 	for(var/obj/structure/capture_device/CD in linked_ship)
 		CD.station = src
+	for(var/obj/structure/overmap/ship/runabout/R in linked_ship)
+		R.carrier = src
+	for(var/obj/effect/landmark/runaboutdock/SS in linked_ship)
+		docks += SS
 
 
 /obj/structure/capture_device

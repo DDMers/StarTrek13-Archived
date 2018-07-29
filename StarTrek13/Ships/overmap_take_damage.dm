@@ -52,7 +52,6 @@
 		if(prob(20))
 			for(var/obj/structure/overmap/O in orange(30,src))
 				SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
-		icon_state = initial(icon_state)
 		var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
 		var/turf/open/floor/theturf = get_turf(theturf1)
 		if(prob(10+maths))

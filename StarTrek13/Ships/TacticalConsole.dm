@@ -31,7 +31,7 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
 
-/obj/structure/fluff/helm/desk/tactical/alt
+/obj/structure/fluff/helm/desk/tactical/alt //only use this on runabouts...please
 	icon_state = "tactical_nt_alt"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	pixel_x = 15
@@ -39,6 +39,13 @@
 	density = 0
 	layer = 4.6
 	anchored = 1
+	obj/structure/overmap/ship/runabout/theship
+
+/obj/structure/fluff/helm/desk/tactical/alt/AltClick(mob/user)
+	theship.exit(TRUE,TRUE,user)
+
+/obj/structure/fluff/helm/desk/tactical/alt/ShiftClick(mob/user)
+	theship.exit(TRUE,TRUE,user)
 
 /obj/structure/fluff/helm/desk/tactical/process()
 	var/area/thearea = get_area(src)

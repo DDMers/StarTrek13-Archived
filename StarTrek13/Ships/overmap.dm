@@ -83,6 +83,7 @@
 	var/obj/effect/landmark/warp_beacon/target_beacon
 	var/pilot_skill_req = 5
 	var/wrecked = FALSE
+	var/obj/effect/landmark/runaboutdock/docks = list()
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -425,6 +426,10 @@
 	get_damageable_components()
 	for(var/obj/structure/weapons_console/WC in linked_ship)
 		WC.our_ship = src
+	for(var/obj/structure/overmap/ship/runabout/R in linked_ship)
+		R.carrier = src
+	for(var/obj/effect/landmark/runaboutdock/SS in linked_ship)
+		docks += SS
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	SC.weapons.update_weapons()
@@ -622,18 +627,6 @@
 				fire_mode = 1
 				to_chat(pilot, "You'll now fire phasers")
 
-/obj/structure/overmap/proc/exit(mob/user)
-	pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
-	pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
-	RemoveActions()
-	stop_firing() //to stop the firing indicators staying with the pilot
-	to_chat(pilot,"you have stopped controlling [src]")
-	pilot.forceMove(initial_loc)
-	initial_loc = null
-//	pilot.status_flags -= GODMODE
-	pilot.overmap_ship = null
-	pilot = null
-
 /obj/structure/overmap/proc/navigate()
 //	if(isprocessing)
 //		STOP_PROCESSING(SSobj, src)
@@ -779,6 +772,8 @@
 		if(F.current_objective)
 			var/datum/factionobjective/destroy1/O = F.current_objective
 			O.check_completion(src)
+	for(var/obj/effect/landmark/M in linked_ship) //stop people spawning on a dead ship :(
+		qdel(M)
 	if(agressor)
 		agressor.target_subsystem = null
 		agressor.target_ship = null

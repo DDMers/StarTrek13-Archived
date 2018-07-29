@@ -51,7 +51,7 @@ SUBSYSTEM_DEF(faction)
 
 
 /datum/controller/subsystem/faction/proc/announce_jumpgates()
-	priority_announce("Cross system warping will enable in 5 minutes. All crews should man their stations", "Incoming Priority Message", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
+	priority_announce("Cross system warping will enable in 5 minutes. All crews should man their stations. Any crew posted on stations should beam over to nearby ships via the transporter", "Incoming Priority Message", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
 	addtimer(CALLBACK(src, .proc/announce_jumpgates_soon), 2000)
 
 

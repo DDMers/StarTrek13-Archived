@@ -83,21 +83,31 @@
 		while(nav_target && pilot)
 			navigate()
 
-/obj/structure/overmap/exit(mob/user)
+/obj/structure/overmap/proc/exit(mob/user)
+	pilot.forceMove(initial_loc)
+	initial_loc = null
 	if(pilot.client)
 		pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
 		pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
 		RemoveActions()
 		stop_firing() //to stop the firing indicators staying with the pilot
 		to_chat(pilot,"you have stopped controlling [src]")
-		pilot.forceMove(initial_loc)
-		initial_loc = null
 	//	pilot.status_flags -= GODMODE
 		pilot.overmap_ship = null
 		pilot.incorporeal_move = 1 //Refresh movement to fix an issue
 		pilot.incorporeal_move = 0
 		pilot.whatimControllingOMFG = null
 		pilot.client.pixelXYshit()
+		pilot = null
+	else
+		pilot.incorporeal_move = 1 //Refresh movement to fix an issue
+		pilot.incorporeal_move = 0
+		pilot.overmap_ship = null
+		pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
+		pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
+		RemoveActions()
+		stop_firing() //to stop the firing indicators staying with the pilot
+		to_chat(pilot,"you have stopped controlling [src]")
 		pilot = null
 
 
