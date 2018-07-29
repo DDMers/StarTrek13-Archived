@@ -259,7 +259,7 @@ Head of Personnel
 Shaft Miner
 */
 /datum/job/trek/mining
-	title = "Federation Miner"
+	title = "Miner"
 	flag = MINER
 	department_head = list("First officer")
 	department_flag = CIVILIAN
