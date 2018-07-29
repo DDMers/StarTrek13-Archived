@@ -105,8 +105,8 @@
 
 /obj/item/projectile/beam/laser/photon_torpedo
 	name = "photon torpedo"
-	icon_state = "pulse0_bl"
-	damage = 3500//It has to actually dent ships tbh.
+	icon_state = "photon"
+	damage = 3500//Ouch!.
 
 /obj/item/projectile/beam/laser/ship_turret_laser
 	name = "turbolaser"

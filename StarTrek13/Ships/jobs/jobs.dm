@@ -1,3 +1,6 @@
+/datum/job/trek
+	total_positions = 500
+
 /*
 Assistant
 */
@@ -35,16 +38,14 @@ Assistant
 /datum/outfit/job/crewman
 	name = "Crewman"
 	jobtype = /datum/job/trek/crewman
-
-/datum/outfit/job/crewman/post_equip(mob/living/carbon/human/H)
-
+	uniform = /obj/item/clothing/under/independant
 
 /datum/outfit/job/crewman/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype(H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype(H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/grey
-	if(istype(H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype(H.player_faction, /datum/faction/romulan))
 		uniform = /obj/item/clothing/under/romulan
+	..()
 
 //ADD SPAWNS FOR THE NEW JOBS!
 /*
@@ -87,11 +88,11 @@ Captain
 //	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/black
-	uniform =  /obj/item/clothing/under/trek/command/next
+	uniform =  /obj/item/clothing/under/independant
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/jackboots
 //	head = /obj/item/clothing/head/caphat
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/station_charter=1,/obj/item/modular_computer/tablet/preset/advanced)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1,/obj/item/modular_computer/tablet/preset/advanced)
 
 	backpack = /obj/item/storage/backpack/captain
 	satchel = /obj/item/storage/backpack/satchel/cap
@@ -102,9 +103,9 @@ Captain
 
 /datum/outfit/job/captain/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype(H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/command/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype(H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
 
@@ -154,7 +155,7 @@ Captain
 //	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/black
-	uniform =  /obj/item/clothing/under/trek/command/next
+	uniform =  /obj/item/clothing/under/independant
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/jackboots
 //	head = /obj/item/clothing/head/caphat
@@ -168,13 +169,12 @@ Captain
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
 
 /datum/outfit/job/admiral/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/command/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
-
+	..()
 /*
 /datum/outfit/job/admiral/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
@@ -227,18 +227,18 @@ Head of Personnel
 	id = /obj/item/card/id/silver
 	belt = /obj/item/pda/heads/hop
 	ears = /obj/item/radio/headset/heads/hop
-	uniform = /obj/item/clothing/under/trek/command/next
+	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(/obj/item/storage/box/ids=1,\
 		/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced = 1,/obj/item/tricorder)
 
 /datum/outfit/job/firstofficer/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/command/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	..()
 
 /datum/outfit/job/firstofficer/post_equip(mob/living/carbon/human/H)
 	if(H.skills)
@@ -283,7 +283,7 @@ Shaft Miner
 	ears = /obj/item/radio/headset/headset_cargo/mining
 	shoes = /obj/item/clothing/shoes/workboots/mining
 	gloves = /obj/item/clothing/gloves/color/black
-	uniform = /obj/item/clothing/under/trek/grey
+	uniform = /obj/item/clothing/under/independant
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival
 	r_pocket = /obj/item/flashlight/seclite
 	backpack_contents = list(
@@ -299,12 +299,12 @@ Shaft Miner
 	box = /obj/item/storage/box/survival_mining
 
 /datum/outfit/job/miner/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/grey
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	..()
 
 /datum/outfit/job/miner/asteroid
 	name = "Shaft Miner (Asteroid)"
@@ -382,7 +382,7 @@ Chief Engineer
 	belt = /obj/item/storage/belt/utility/chief/full
 	l_pocket = /obj/item/pda/heads/ce
 	ears = /obj/item/radio/headset/heads/ce
-	uniform = /obj/item/clothing/under/trek/engsec/next
+	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black/ce
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
@@ -395,10 +395,9 @@ Chief Engineer
 	pda_slot = SLOT_L_STORE
 
 /datum/outfit/job/ce/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/engsec/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
 	if(H.skills)
@@ -407,6 +406,7 @@ Chief Engineer
 		H.skills = new
 		H.skills.add_skill("piloting", 5)
 	H.skills.add_skill("construction and maintenance", 7)
+	..()
 
 /*
 Station Engineer
@@ -439,7 +439,7 @@ Station Engineer
 	belt = /obj/item/storage/belt/utility/full/engi
 	l_pocket = /obj/item/pda/engineering
 	ears = /obj/item/radio/headset/headset_eng
-	uniform = /obj/item/clothing/under/trek/engsec/next
+	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
 	r_pocket = /obj/item/tricorder
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
@@ -452,13 +452,13 @@ Station Engineer
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1)
 
 /datum/outfit/job/engineer/pre_equip(mob/living/carbon/human/H)
-	..()
 	H.skills.add_skill("construction and maintenance", 5)
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/engsec/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	..()
 
 /*
 Chief Medical Officer
@@ -498,7 +498,7 @@ Chief Medical Officer
 	belt = /obj/item/pda/heads/cmo
 	l_pocket = /obj/item/pinpointer/crew
 	ears = /obj/item/radio/headset/heads/cmo
-	uniform = /obj/item/clothing/under/trek/medsci/next
+	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/toggle/labcoat/cmo
 	l_hand = /obj/item/storage/firstaid/regular
@@ -510,18 +510,18 @@ Chief Medical Officer
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 /datum/outfit/job/cmo/pre_equip(mob/living/carbon/human/H)
-	..()
 	H.skills.add_skill("medicine", 8)
 	if(H.skills)
 		H.skills.add_skill("piloting", 3)
 	else
 		H.skills = new
 		H.skills.add_skill("piloting", 3)
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/medsci/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	..()
 //NOTICE: ALL SCIENCE RElATED JOBS/RESEARCH WILL WORK ON STARBASES, ONLY MEDICAL DOCTORS ETC. WILL WORK ON THE SHIPS.
 
 
@@ -551,7 +551,7 @@ Medical Doctor
 
 	belt = /obj/item/pda/medical
 	ears = /obj/item/radio/headset/headset_med
-	uniform = /obj/item/clothing/under/trek/medsci/next
+	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_hand = /obj/item/storage/firstaid/regular
 	suit_store = /obj/item/flashlight/pen
@@ -561,14 +561,13 @@ Medical Doctor
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 /datum/outfit/job/doctor/pre_equip(mob/living/carbon/human/H)
-	..()
 	H.skills.add_skill("medicine", 6)
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/medsci/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
-
+	..()
 /*
 Research Director
 */
@@ -610,7 +609,7 @@ Research Director
 	id = /obj/item/card/id/silver
 	belt = /obj/item/pda/heads/rd
 	ears = /obj/item/radio/headset/heads/rd
-	uniform = /obj/item/clothing/under/trek/medsci/next
+	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_hand = /obj/item/clipboard
 	l_pocket = /obj/item/laser_pointer
@@ -621,13 +620,12 @@ Research Director
 	satchel = /obj/item/storage/backpack/satchel/tox
 
 /datum/outfit/job/rd/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/medsci/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
-
+	..()
 /*
 Scientist
 */
@@ -656,7 +654,7 @@ Scientist
 
 	belt = /obj/item/pda/toxins
 	ears = /obj/item/radio/headset/headset_sci
-	uniform = /obj/item/clothing/under/trek/medsci/next
+	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/toggle/labcoat/science
 
@@ -665,12 +663,12 @@ Scientist
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 
 /datum/outfit/job/scientist/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/medsci/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	..()
 
 //Warden and regular officers add this result to their get_access()
 /datum/job/trek/proc/check_config_for_sec_maint()
@@ -717,7 +715,7 @@ Head of Security
 	id = /obj/item/card/id/silver
 	belt = /obj/item/pda/heads/hos
 	ears = /obj/item/radio/headset/heads/hos/alt
-	uniform = /obj/item/clothing/under/trek/engsec/next
+	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black/hos
 	head = /obj/item/clothing/head/HoS/beret
@@ -735,13 +733,12 @@ Head of Security
 	implants = list(/obj/item/implant/mindshield)
 
 /datum/outfit/job/hos/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/engsec/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
-
+	..()
 /*
 Security Officer
 */
@@ -777,7 +774,7 @@ Security Officer
 
 	belt = /obj/item/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt
-	uniform = /obj/item/clothing/under/trek/engsec/next
+	uniform = /obj/item/clothing/under/independant
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/beret/sec
 	suit = /obj/item/clothing/suit/armor/vest/alt
@@ -795,13 +792,12 @@ Security Officer
 	implants = list(/obj/item/implant/mindshield)
 
 /datum/outfit/job/security/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/engsec/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
-
+	..()
 
 /obj/item/radio/headset/headset_sec/alt/department/Initialize()
 	. = ..()
@@ -853,7 +849,7 @@ Security Officer
 
 	belt = /obj/item/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt
-	uniform = /obj/item/clothing/under/trek/engsec/next
+	uniform = /obj/item/clothing/under/independant
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/beret/sec
 	suit = /obj/item/clothing/suit/armor/vest/alt
@@ -869,12 +865,12 @@ Security Officer
 	implants = list(/obj/item/implant/mindshield)
 
 /datum/outfit/job/soldier/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/engsec/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	..()
 
 /datum/outfit/job/soldier/post_equip(mob/living/carbon/human/H)
 	if(prob(5)) //5% chance to be a legendary soldier
@@ -913,7 +909,7 @@ Security Officer
 	id = /obj/item/card/id
 	belt = /obj/item/pda
 	ears = /obj/item/radio/headset
-	uniform = /obj/item/clothing/under/trek/engsec/next
+	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/laceup
 
 	backpack = /obj/item/storage/backpack
@@ -921,12 +917,12 @@ Security Officer
 	duffelbag = /obj/item/storage/backpack/duffelbag
 
 /datum/outfit/job/pilot/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(istype( H.client.prefs.player_faction, /datum/faction/starfleet))
+	if(istype( H.player_faction, /datum/faction/starfleet))
 		uniform = /obj/item/clothing/under/trek/engsec/next
-	if(istype( H.client.prefs.player_faction, /datum/faction/romulan))
+	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	..()
 
 /datum/outfit/job/pilot/post_equip(mob/living/carbon/human/H)
 	if(H.skills)

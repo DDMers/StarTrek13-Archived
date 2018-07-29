@@ -383,6 +383,7 @@ SUBSYSTEM_DEF(job)
 	else
 		H = M
 	var/datum/job/job = GetJob(rank)
+	M.player_faction = M.client.prefs.player_faction
 	if(job.starting_faction == M.client.prefs.player_faction)
 		H.job = rank					//For us, latejoins are a last resort, as they could end up in the middle of the wrong faction base.
 	var/obj/effect/landmark/faction_spawn/S = null

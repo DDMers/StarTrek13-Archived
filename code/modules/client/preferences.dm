@@ -132,7 +132,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 /datum/preferences/New(client/C)
 	parent = C
-	ResetJobs() //Shitty faction code runtime
 	getFactions()
 	custom_names["human"] = random_unique_name()
 	custom_names["ai"] = pick(GLOB.ai_names)
@@ -976,7 +975,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		A = input("Choose a faction to start as", "Preferences", A) as null|anything in factions
 		if(!A)
 			return 0
-		ResetJobs()
 		var/datum/faction/thefaction = A
 		player_faction = thefaction
 		SetChoices(user)

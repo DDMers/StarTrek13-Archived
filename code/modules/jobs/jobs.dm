@@ -1,37 +1,31 @@
 GLOBAL_LIST_INIT(command_positions, list(
 	"Captain",
-	"Head of Personnel",
-	"Head of Security",
-	"Chief Engineer",
-	"Research Director",
-	"Chief Medical Officer"))
+	"First Officer",
+	"Chief of security",
+	"Chief Engineering Officer",
+	"Science Officer",
+	"Admiral",
+	"Surgical Chief"))
 
 
 GLOBAL_LIST_INIT(engineering_positions, list(
 	"Chief Engineer",
-	"Station Engineer",
-	"Atmospheric Technician"))
+	"Ship technician"))
 
 
 GLOBAL_LIST_INIT(medical_positions, list(
 	"Chief Medical Officer",
-	"Medical Doctor",
-	"Geneticist",
-	"Virologist",
-	"Chemist"))
+	"Doctor"))
 
 
 GLOBAL_LIST_INIT(science_positions, list(
-	"Research Director",
-	"Scientist",
-	"Roboticist"))
+	"Science Officer",
+	"Junior Science Officer"))
 
 
 GLOBAL_LIST_INIT(supply_positions, list(
-	"Head of Personnel",
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner"))
+	"First Officer",
+	"Miner"))
 
 
 GLOBAL_LIST_INIT(civilian_positions, list(
@@ -42,15 +36,14 @@ GLOBAL_LIST_INIT(civilian_positions, list(
 	"Curator",
 	"Lawyer",
 	"Chaplain",
-	"Clown",
-	"Mime",
 	"Assistant"))
 
 
 GLOBAL_LIST_INIT(security_positions, list(
-	"Head of Security",
+	"Chief of security",
 	"Warden",
-	"Detective",
+	"Starfleet Infantry",
+	"Ship Helmsman",
 	"Security Officer"))
 
 

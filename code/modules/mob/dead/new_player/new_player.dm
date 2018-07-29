@@ -464,13 +464,6 @@
 			if(!client.prefs.player_faction)
 				client.prefs.player_faction = pick(SSfaction.factions)
 				to_chat(client, "A bug just happened, your faction was randomized instead.")
-			if(client.prefs.player_faction.name != job.starting_faction)
-				continue
-			if(!client.prefs.player_faction)
-				client.prefs.player_faction = pick(SSfaction.factions)
-				to_chat(client, "A bug just happened, your faction was randomized instead.")
-			if(client.prefs.player_faction.name != job.starting_faction)
-				continue
 			job_count++;
 			if (job_count > round(available_job_count / 2))
 				dat += "</div><div class='jobsColumn'>"
