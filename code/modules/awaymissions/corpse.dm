@@ -289,13 +289,13 @@
 
 /obj/effect/mob_spawn/human/corpse/cargo_tech
 	name = "Cargo Tech"
-//	outfit = /datum/outfit/job/crewman
+	outfit = /datum/outfit/job/crewman
 
 
 
 /obj/effect/mob_spawn/human/doctor
 	name = "Doctor"
-//	outfit = /datum/outfit/job/doctor
+	outfit = /datum/outfit/job/doctor
 
 
 /obj/effect/mob_spawn/human/doctor/alive
@@ -318,21 +318,21 @@
 
 /obj/effect/mob_spawn/human/engineer
 	name = "Engineer"
-//	outfit = /datum/outfit/job/ce
+	outfit = /datum/outfit/job/ce
 
 /obj/effect/mob_spawn/human/scientist
 	name = "Scientist"
-//	outfit = /datum/outfit/job/rd
+	outfit = /datum/outfit/job/rd
 
 /obj/effect/mob_spawn/human/miner
 	name = "Shaft Miner"
-//	outfit = /datum/outfit/job/miner/asteroid
+	outfit = /datum/outfit/job/miner/asteroid
 
 /obj/effect/mob_spawn/human/miner/rig
-//	outfit = /datum/outfit/job/miner/equipped/asteroid
+	outfit = /datum/outfit/job/miner/equipped/asteroid
 
 /obj/effect/mob_spawn/human/miner/explorer
-//	outfit = /datum/outfit/job/miner/equipped
+	outfit = /datum/outfit/job/miner/equipped
 
 
 /obj/effect/mob_spawn/human/plasmaman
