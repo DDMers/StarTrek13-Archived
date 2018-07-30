@@ -5,7 +5,7 @@
 	icon = 'StarTrek13/icons/trek/trek_wall.dmi'
 	icon_state = "wall"
 	smooth = 1
-	canSmoothWith = list(/turf/closed/wall/ship,/obj/structure/window/trek/rom,/obj/machinery/door/airlock/trek/tng/voy/single,/obj/machinery/door/airlock/trek/tng,/obj/machinery/door/airlock/trek/tng/voy,/turf/closed/wall/ship/voy,/turf/closed/wall/ship/tng,/obj/machinery/door/airlock/trek, /obj/structure/window,/obj/structure/grille,/obj/structure/window/trek,/turf/closed/wall/ship/steel,/obj/structure/window/trek/steel)
+	canSmoothWith = list(/turf/closed/wall/ship,/obj/structure/window/trek/rom,,/obj/structure/window/trek/rom,/obj/machinery/door/airlock/trek/tng/voy/single,/obj/machinery/door/airlock/trek/tng,/obj/machinery/door/airlock/trek/tng/voy,/turf/closed/wall/ship/voy,/turf/closed/wall/ship/tng,/obj/machinery/door/airlock/trek, /obj/structure/window,/obj/structure/grille,/obj/structure/window/trek,/turf/closed/wall/ship/steel,/obj/structure/window/trek/steel)
 
 /turf/closed/wall/ship/tng
 	name = "Corridor"
