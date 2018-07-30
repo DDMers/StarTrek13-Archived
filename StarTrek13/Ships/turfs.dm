@@ -5,7 +5,7 @@
 	icon = 'StarTrek13/icons/trek/trek_wall.dmi'
 	icon_state = "wall"
 	smooth = 1
-	canSmoothWith = list(/turf/closed/wall/ship,/obj/machinery/door/airlock/trek/tng/voy/single,/obj/machinery/door/airlock/trek/tng,/obj/machinery/door/airlock/trek/tng/voy,/turf/closed/wall/ship/voy,/turf/closed/wall/ship/tng,/obj/machinery/door/airlock/trek, /obj/structure/window,/obj/structure/grille,/obj/structure/window/trek,/turf/closed/wall/ship/steel,/obj/structure/window/trek/steel)
+	canSmoothWith = list(/turf/closed/wall/ship,/obj/structure/window/trek/rom,/obj/machinery/door/airlock/trek/tng/voy/single,/obj/machinery/door/airlock/trek/tng,/obj/machinery/door/airlock/trek/tng/voy,/turf/closed/wall/ship/voy,/turf/closed/wall/ship/tng,/obj/machinery/door/airlock/trek, /obj/structure/window,/obj/structure/grille,/obj/structure/window/trek,/turf/closed/wall/ship/steel,/obj/structure/window/trek/steel)
 
 /turf/closed/wall/ship/tng
 	name = "Corridor"
@@ -17,13 +17,32 @@
 	icon = 'StarTrek13/icons/trek/trek_voy_wall.dmi'
 	icon_state = "wall"
 
+
+/turf/closed/wall/ship/rom //Rommies be crazy
+	name = "Corridor"
+	icon = 'StarTrek13/icons/trek/trek_wall_rom.dmi'
+	icon_state = "wall"
+
+/obj/structure/window/trek/rom
+	name = "window"
+	desc = "A window."
+	icon = 'StarTrek13/icons/trek/trek_wall_rom.dmi'
+	icon_state = "window"
+	density = 1
+	layer = ABOVE_OBJ_LAYER //Just above doors
+	CanAtmosPass = 0
+
 /turf/closed/wall/ship/voy/Initialize(timeofday)
 	. = ..()
-	set_light(5)
+	set_light(3)
+
+/turf/closed/wall/ship/rom/Initialize(timeofday)
+	. = ..()
+	set_light(3)
 
 /turf/closed/wall/ship/tng/Initialize(timeofday)
 	. = ..()
-	set_light(5)
+	set_light(3)
 
 /turf/closed/wall/ship/steel
 	name = "steel hull"
@@ -126,9 +145,6 @@
 	desc = "it's lit up"
 	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
 
-/turf/open/floor/borg/trek/lit/Initialize(timeofday)
-	. = ..()
-	set_light(10)
 
 /obj/structure/fluff/ship/warpbooster
 	name = "wall panel"
