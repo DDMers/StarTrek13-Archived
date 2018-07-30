@@ -105,6 +105,7 @@
 	projectile_type = /obj/item/projectile/beam/laser/photon_torpedo
 
 /obj/item/projectile/beam/laser/photon_torpedo
+	hitscan = FALSE
 	name = "photon torpedo"
 	icon_state = "photon"
 	damage = 3500//Ouch!.

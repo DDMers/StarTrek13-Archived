@@ -333,20 +333,22 @@
 	layer = 4.5
 	var/armed = 0
 	var/damage = 400 //Quite damaging, but not really for battering shields
-	var/timer = 0
 	var/timing = FALSE
 	//var/obj/structure/torpedo_launcher/launcher
 
-/obj/structure/photon_torpedo/attack_hand(mob/user)
+/obj/structure/photon_torpedo/AltClick(mob/user)
 	if(!timing)
-		timer = input("Countdown to explosion (THIS ARMS THE TORPEDO!!!)", "Set a countdown timer in seconds (set it to 0 or less to cancel, minimum time is 10 seconds)") as num
-		if(timer > 0)
-			armed = TRUE
-			timing = TRUE
-			timer *= 10
-			to_chat(user, "You set [src] to detonate in [timer/10] seconds")
-			desc += "Its trigger is set for a delayed detonation of [timer] seconds!"
-			addtimer(CALLBACK(src, .proc/force_explode), timer)
+		var/mode = input("Arm the torpedo?.", "Are you sure?")in list("yes","no")
+		if(mode == "yes")
+			var/timer = input("Countdown to explosion (THIS ARMS THE TORPEDO!!!)", "Set a countdown timer in seconds ( minimum time is 10 seconds)") as num
+			if(timer > 0)
+				message_admins("[key_name(user)] just armed a torpedo for detonation in [get_area(src)]")
+				armed = TRUE
+				timing = TRUE
+				timer *= 10
+				to_chat(user, "You set [src] to detonate in [timer/10] seconds")
+				desc += "Its trigger is set for a delayed detonation of [timer] seconds!"
+				addtimer(CALLBACK(src, .proc/force_explode), timer)
 		else
 			return 0
 	else

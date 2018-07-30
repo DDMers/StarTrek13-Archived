@@ -1,7 +1,7 @@
 /obj/structure/overmap/ship/runabout
 	name = "Danube Class Runabout"
 	icon = 'StarTrek13/icons/trek/runabout.dmi'
-	desc = "A small self-contained starship, you can enter it by clicking it, and exit it by either beaming out, or alt-clicking its tactical console"
+	desc = "A small self-contained starship, you can enter it by clicking it, and exit it by either beaming out, or alt-clicking its tactical console: To dock, alt or shift click the craft."
 	icon_state = "runabout"
 	spawn_name = null
 	var/obj/structure/overmap/ship/carrier
@@ -66,28 +66,21 @@
 		. = ..()
 
 /obj/structure/overmap/ship/runabout/exit(var/forced = FALSE, var/runaboutexit = FALSE, var/mob/living/override = null)
-	if(!runaboutexit)
-		. = ..()
-	if(runaboutexit)
+	if(runaboutexit && override)
 		if(carrier)
 			var/obj/effect/landmark/T = pick(carrier.docks)
 			override.forceMove(get_turf(T))
-		else
-			to_chat(override, "Dock the runabout first! If you need to exit it NOW, use the transporter and beam out.")
-	if(!forced)
-		try_dock()
-		return
+	. = ..()
 
 /obj/structure/overmap/ship/runabout/proc/try_dock()
 	var/obj/structure/overmap/L = list()
-	for(var/obj/structure/overmap/S in orange(src, 5))
+	for(var/obj/structure/overmap/S in orange(src, 9))
 		if(!S.shields_active)
 			L += S
 	var/obj/structure/overmap/A = input("Docking target?", "Weapons console)", null) as obj in L
 	if(!A)
-		to_chat(pilot, "Docking cancelled")
+		to_chat(pilot, "Unable to dock")
 		icon_state = "runabout-small"
-		exit(FALSE, FALSE, null)
 		return
 	A.linkto()
 	var/obj/effect/landmark/T = pick(A.docks)
@@ -95,4 +88,10 @@
 	if(T)
 		icon_state = initial(icon_state)
 	carrier = A
-	exit(TRUE)
+
+/obj/structure/overmap/ship/runabout/CtrlClick()
+	try_dock()
+
+
+/obj/structure/overmap/ship/runabout/AltClick()
+	try_dock()
