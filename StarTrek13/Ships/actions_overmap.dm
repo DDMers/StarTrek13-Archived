@@ -45,7 +45,7 @@
 				SEND_SOUND(ship.pilot, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
 				to_chat(ship.pilot, "Engaging warp")
 				ship.can_move = FALSE
-				ship.vel = 9
+				ship.vel = 12
 				warping = TRUE
 		return
 
