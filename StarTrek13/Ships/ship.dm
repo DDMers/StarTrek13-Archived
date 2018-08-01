@@ -167,34 +167,29 @@
 	return
 
 */
-
-/obj/machinery/space_battle/shield_generator/attack_hand(mob/user)
+/obj/machinery/space_battle/shield_generator/ui_interact(mob/user)
+	. = ..()
 	if(shield_system.failed)
 		to_chat(user, "Shield Systems have failed.")
 		return
-	var/obj/machinery/space_battle/shield_generator/s = ""
+	var/dat = "<B>CONTROL PANEL</B><BR>"
+	dat += "<A href='?src=\ref[src];toggle=1;clicker=\ref[user]'>Toggle Power</A><BR><BR>"
 
-	s += "<B>CONTROL PANEL</B><BR>"
+	dat += "Fan Power: [current_fan ? current_fan.fancurrent : "?"]<BR>"
+	dat += "<A href='?src=\ref[src];fandecrease=1;clicker=\ref[user]'>-</A> -------- <A href='?src=\ref[src];fanincrease=1;clicker=\ref[user]'>+</A><BR><BR>"
 
-	s += "<A href='?src=\ref[src];toggle=1;clicker=\ref[user]'>Toggle Power</A><BR><BR>"
-
-	s += "Fan Power: [current_fan ? current_fan.fancurrent : "?"]<BR>"
-	s += "<A href='?src=\ref[src];fandecrease=1;clicker=\ref[user]'>-</A> -------- <A href='?src=\ref[src];fanincrease=1;clicker=\ref[user]'>+</A><BR><BR>"
-
-	s += "<B>STATISTICS</B><BR>"
-	s += "Shields Maintained: [shields_maintained]<BR>"
-	s += "Flux Rate: [flux_rate]<BR>"
-	s += "Power Usage: [idle_power_usage]<BR>"
-	s += "Heat: [heat]<BR>"
+	dat += "<B>STATISTICS</B><BR>"
+	dat += "Shields Maintained: [shields_maintained]<BR>"
+	dat += "Flux Rate: [flux_rate]<BR>"
+	dat += "Power Usage: [idle_power_usage]<BR>"
+	dat += "Heat: [heat]<BR>"
 	if(current_fan)
-		s += "Fan Utility: [current_fan.fanhealth]"
+		dat += "Fan Utility: [current_fan.fanhealth]"
 
 	var/datum/browser/popup = new(user, "Shield Generator Options", name, 360, 350)
-	popup.set_content(s)
+	popup.set_content(dat)
 	popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
-	if(user.canUseTopic(src))
-		addtimer(CALLBACK(src,/atom/proc/attack_hand, user), 20)
 
 /obj/machinery/space_battle/shield_generator/Topic(href, href_list)
 	..()
