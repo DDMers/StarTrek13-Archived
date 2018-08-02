@@ -534,6 +534,10 @@
 		if(wear_mask.flags_inv & HIDEEYES)
 			obscured |= SLOT_GLASSES
 
+	if(dna.species)
+		if(SLOT_W_UNIFORM in obscured && SLOT_WEAR_MASK in obscured)
+			obscured |= SPECIES_SHOWN
+
 	if(obscured.len)
 		return obscured
 	else
