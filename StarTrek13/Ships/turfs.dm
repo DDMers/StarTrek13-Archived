@@ -309,6 +309,23 @@
 	density = 1
 	blocks_air = 1
 
+
+/turf/closed/messhall
+	icon = 'StarTrek13/icons/trek/messhalloverlay.PNG'
+	name = "windows"
+	desc = "huge windows, wow.."
+	density = 1
+	blocks_air = 1
+
+
+/turf/closed/trophies
+	icon = 'StarTrek13/icons/trek/trophyoverlay.PNG'
+	name = "trophy rack"
+	desc = "A huge wall with a tasteful collection of miniature starships adorning it."
+	density = 1
+	blocks_air = 1
+
+
 /turf/open/brig_overlay
 	icon = 'StarTrek13/icons/trek/brig_overlay.PNG'
 	name = "floor"
@@ -413,6 +430,8 @@
 	pixel_y = 0
 	opacity = 0
 	density = FALSE
+	anchored = TRUE
+	can_be_unanchored = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 
