@@ -20,7 +20,7 @@
 #include "_maps\map_files\StarTrek13\ship\ai_ships.dmm"
 #include "_maps\map_files\StarTrek13\ship\destroyer1.dmm"
 #include "_maps\map_files\StarTrek13\ship\romulan_capital_ships.dmm"
-#include "_maps\map_files\StarTrek13\ship\sovereign2.dmm"
+#include "_maps\map_files\StarTrek13\ship\starfleet_capital_ships.dmm"
 #include "code\_compile_options.dm"
 #include "code\world.dm"
 #include "code\__DEFINES\_globals.dm"

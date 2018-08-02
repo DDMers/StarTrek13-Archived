@@ -21,6 +21,15 @@
 	//var/datum/action/innate/togglelock/lock_action = new
 	//	var/turf/open/teleport_target = null
 
+/obj/machinery/computer/camera_advanced/transporter_control/Initialize()
+	. = ..()
+	link_by_range()
+
+/obj/machinery/computer/camera_advanced/transporter_control/proc/link_by_range()
+	for(var/obj/machinery/trek/transporter/A in orange(10,src))
+		if(istype(A, /obj/machinery/trek/transporter))
+			linked += A
+
 /obj/machinery/computer/camera_advanced/transporter_control/huge
 	name = "transporter control station"
 	icon = 'StarTrek13/icons/trek/transporter.dmi'
@@ -219,24 +228,6 @@
 		off_action.target = user
 		off_action.Grant(user)
 		actions += off_action
-
-	if(area_action)
-		area_action.target = user
-		area_action.Grant(user)
-		area_action.console = src
-		actions += area_action
-
-	if(down_action)
-		down_action.target = user
-		down_action.Grant(user)
-		down_action.console = src
-		actions += down_action
-
-	if(up_action)
-		up_action.target = user
-		up_action.Grant(user)
-		up_action.console = src
-		actions += up_action
 /*
 	if(movedown_action)
 		movedown_action.target = user
@@ -333,7 +324,7 @@ Might find a use for this later
 	var/obj/machinery/computer/camera_advanced/transporter_control/console
 
 /datum/action/innate/jump_area/Activate()
-	to_chat(target, "<span class='danger'>!!! not yet implemented because bucket has deadlines and is totally not lazy !!!</span>")
+	return 0
 
 
 

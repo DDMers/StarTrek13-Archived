@@ -189,8 +189,6 @@
 	icon_state = "generic"
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	spawn_name = "ship_spawn"
-	pixel_x = 0
-	pixel_y = -32
 	damage = 800
 
 /obj/structure/overmap/ship/borg_cube // we are the borg
@@ -199,8 +197,6 @@
 	icon = 'StarTrek13/icons/trek/large_ships/borg_cube.dmi'
 	spawn_name = "borg_spawn"
 	damage = 800
-	pixel_x = -100
-	pixel_y = -110
 	max_health = 50000
 	turnspeed = 0.3
 	pixel_z = -128
@@ -217,8 +213,6 @@
 	name = "USS Cadaver"
 	icon = 'StarTrek13/icons/trek/large_ships/cadaver.dmi'
 	icon_state = "cadaver"
-	pixel_x = -100
-	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 	max_health = 30000
@@ -254,8 +248,6 @@
 	name = "USS Excelsior"
 	icon = 'StarTrek13/icons/trek/large_ships/excelsior.dmi'
 	icon_state = "excelsior"
-	pixel_x = -100
-	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 	max_health = 30000

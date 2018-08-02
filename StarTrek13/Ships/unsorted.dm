@@ -38,6 +38,8 @@
 
 
 /obj/item/clothing/neck/combadge/proc/send_message(var/message, mob/living/user)
+	if(user.stat == DEAD)
+		return 0
 	if(!linked) //Yeah. People got confused
 		link_to_area(user)
 		if(!on)
@@ -216,13 +218,28 @@
 	icon_state = "replicator-off"
 	desc = "It invariably produces something that's almost (but not quite) entirely unlike tea"
 	var/power = 100
-	var/power_cost = 50 //Burgers are pricy yo
-	var/recharge_rate = 5
+	var/power_cost = 10 //Burgers are pricy yo
+	var/recharge_rate = 3
 	anchored = TRUE
 	density = TRUE
 
+
+/obj/structure/replicator/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj,src)
+
+
+/obj/structure/replicator/process()
+	if(power < 100)
+		power += recharge_rate
+	else
+		power = 100
+
 /obj/structure/replicator/attack_hand(mob/user)
 	icon_state = "replicator-on"
+	if(power < power_cost)
+		to_chat(user, "[src]'s matter synthesisers are still recharging")
+		return 0
 	if(ishuman(user))
 		var/mode = alert("What kind of food would you like?",,"Burger", "Pizza", "Tea, earl grey", "Sandwich")
 		var/temp = alert("How hot do you want it?",,"Cold", "Warm", "Hot")
@@ -230,9 +247,10 @@
 			return 0
 		user.say("[mode], [temp]")
 		icon_state = "replicator-replicate"
+		power -= power_cost
 		switch(mode)
 			if("Burger")
-				var/obj/item/reagent_containers/food/snacks/burger/thefood = new(src.loc)
+				var/obj/item/reagent_containers/food/snacks/burger/plain/thefood = new(src.loc)
 				playsound(src.loc, 'StarTrek13/sound/trek/replicator.ogg', 100,1)
 				thefood.name = "[temp] [thefood.name]"
 			if("Pizza")

@@ -24,6 +24,7 @@
 	var/obj/effect/landmark/warp_beacon/targetBeacon = null
 	anchored = 1
 	var/starmapUI
+	var/datum/looping_sound/trek/bridge/soundloop
 
 /obj/structure/fluff/helm/desk/tactical/nanotrasen
 	name = "tactical"
@@ -48,17 +49,21 @@
 	theship.exit(TRUE,TRUE,user)
 
 /obj/structure/fluff/helm/desk/tactical/process()
+	if(!soundloop)
+		soundloop = new(list(src), TRUE)
 	var/area/thearea = get_area(src)
 	get_weapons()
-	if(world.time >= saved_time + cooldown2)
-		saved_time = world.time
-		for(var/mob/M in thearea)
-			M << redalertsound
+	if(REDALERT)
+		if(world.time >= saved_time + cooldown2)
+			saved_time = world.time
+			for(var/mob/M in thearea)
+				M << redalertsound
 
-/obj/structure/fluff/helm/desk/tactical/Initialize(timeofday)
+/obj/structure/fluff/helm/desk/tactical/Initialize(mapload)
 	. = ..()
 	get_weapons()
 	get_shieldgen()
+	START_PROCESSING(SSobj,src)
 //	var/area/thearea = get_area(src)
 
 /obj/structure/fluff/helm/desk/tactical/proc/get_shieldgen()
@@ -286,13 +291,11 @@
 	redalertsound = pick(redalertsounds)
 	if(REDALERT)
 		src.say("RED ALERT DEACTIVATED")
-		REDALERT = 0
-		STOP_PROCESSING(SSobj,src)
+		REDALERT = FALSE
 		return 0
 	else
 		src.say("RED ALERT ACTIVATED")
-		REDALERT = 1
-		START_PROCESSING(SSobj,src)
+		REDALERT = TRUE
 		return 1
 
 /obj/structure/fluff/helm/desk/tactical/proc/fire_phasers(atom/target, mob/user)
