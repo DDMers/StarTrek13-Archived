@@ -84,6 +84,7 @@
 	var/pilot_skill_req = 5
 	var/wrecked = FALSE
 	var/obj/effect/landmark/runaboutdock/docks = list()
+	var/true_name = null //For respawning
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -220,7 +221,7 @@
 	pixel_w = -120
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
-	name = "USS Sovreign"
+	name = "sovereign"
 	icon = 'StarTrek13/icons/trek/large_ships/sovreign.dmi'
 	icon_state = "sovreign"
 //	pixel_x = -100
@@ -232,7 +233,7 @@
 	pixel_w = -120
 
 /obj/structure/overmap/ship/romulan
-	name = "Decius"
+	name = "dderidex"
 	icon = 'StarTrek13/icons/trek/large_ships/dderidex.dmi'
 	icon_state = "dderidex"
 	spawn_name = "romulan_spawn"
@@ -279,7 +280,9 @@
 
 
 /obj/structure/overmap/Initialize(timeofday)
+	true_name = name //We want true name to always be the same, so we can respawn things correctly
 	var/area/A = get_area(src)
+	name = A.name
 	linked_ship = A
 	health = max_health
 	SC = new(src)
@@ -292,6 +295,11 @@
 	for(var/obj/effect/landmark/warp_beacon/W in warp_beacons)
 		destinations += W
 	..()
+
+/obj/structure/overmap/ship/Initialize(timeofday)
+	. = ..()
+	if(!istype(src,/obj/structure/overmap/ship/fighter))
+		SetName()
 
 /obj/structure/overmap/ship/nanotrasen_capitalclass
 	name = "NSV annulment"
@@ -316,7 +324,7 @@
 	spawn_name = "research_spawn"
 
 /obj/structure/overmap/ship/target //dummy for testing woo
-	name = "USS Entax"
+	name = "miranda"
 	icon_state = "destroyer"
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	spawn_name = "ship_spawn"
@@ -423,6 +431,9 @@
 		R.carrier = src
 	for(var/obj/effect/landmark/runaboutdock/SS in linked_ship)
 		docks += SS
+	for(var/obj/structure/subsystem_panel/PP in linked_ship)
+		PP.check_ship()
+		PP.check_overlays()
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	SC.weapons.update_weapons()
@@ -756,7 +767,7 @@
 	else//nope
 		return 0
 
-/obj/structure/overmap/proc/destroy(severity)
+/obj/structure/overmap/proc/destroy(var/severity = 1)
 	for(var/obj/structure/overmap/ship/AI/A in world)
 		if(A.stored_target == src)
 			A.stored_target = null
@@ -764,8 +775,6 @@
 		if(F.current_objective)
 			var/datum/factionobjective/destroy1/O = F.current_objective
 			O.check_completion(src)
-	for(var/obj/effect/landmark/M in linked_ship) //stop people spawning on a dead ship :(
-		qdel(M)
 	if(agressor)
 		agressor.target_subsystem = null
 		agressor.target_ship = null
@@ -775,7 +784,8 @@
 		var/obj/structure/overmap/O = L
 		SEND_SOUND(O.pilot, thesound)
 	STOP_PROCESSING(SSobj,src)
-	exit()
+	if(pilot)
+		exit()
 	if(agressor)
 		agressor.stop_firing()
 		agressor.target_subsystem = null
@@ -802,20 +812,6 @@
 	if(!istype(src, /obj/structure/overmap/ship/fighter))
 		switch(severity)
 			if(1)
-				//Here we will blow up the ship map as well, 0 is if you dont want to lag the server.
-				for(var/i = 1 to 6) //Whoah mamma
-					if(linked_ship)
-						var/turf/T = pick(get_area_turfs(linked_ship))
-						explosion(get_turf(T), 20, 10, 10, flame_range = 30)
-						var/area/A = linked_ship
-						A.invisibility = 0
-					//	A.set_opacity(TRUE)
-						A.alpha = 180
-						A.layer = ABOVE_OPEN_TURF_LAYER
-						A.icon = 'icons/effects/weather_effects.dmi'
-						A.icon_state = "darkness"
-						A.has_gravity = 0
-						//now make a shipwreck
 				var/obj/structure/overmap/shipwreck/wreck = new(src.loc)
 				wreck.name = "Shipwreck ([name])"
 				if(linked_ship)
@@ -825,11 +821,10 @@
 				wreck.max_health = 10000000
 				for(var/datum/shipsystem/F in SC.systems)
 					qdel(F)
+				wreck.true_name = true_name
 				qdel(SC)
 				qdel(src)
-				//make explosion in ship
-			if(0)
-				qdel(src)
+
 
 
 /obj/structure/overmap/proc/has_shields()

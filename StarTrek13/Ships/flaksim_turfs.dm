@@ -31,6 +31,15 @@
 	desc = "Suffer not a human to climb, this model of lift has phased out the primitive turboladders of yore, allowing rapid movement up and down!"
 	icon = 'StarTrek13/icons/trek/flaksim_structures.dmi'
 
+/obj/structure/ladder/unbreakable/Destroy(var/sev = 0)
+	switch(sev)
+		if(0)
+			return 0
+		else
+			GLOB.ladders -= src
+			. = ..()
+			qdel(src)
+
 
 /obj/structure/ladder/unbreakable/lift/show_fluff_message(going_up, mob/user)
 	shake_camera(user, 2, 10)

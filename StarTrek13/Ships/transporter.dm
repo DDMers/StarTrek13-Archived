@@ -228,19 +228,18 @@
 		off_action.target = user
 		off_action.Grant(user)
 		actions += off_action
-/*
-	if(movedown_action)
-		movedown_action.target = user
-		movedown_action.Grant(user)
-		movedown_action.console = src
-		actions += movedown_action
 
-	if(moveup_action)
-		moveup_action.target = user
-		moveup_action.Grant(user)
-		moveup_action.console = src
-		actions += moveup_action
-*/
+	if(down_action)
+		down_action.target = user
+		down_action.Grant(user)
+		down_action.console = src
+		actions += down_action
+
+	if(up_action)
+		up_action.target = user
+		up_action.Grant(user)
+		up_action.console = src
+		actions += up_action
 /*
 	if(lock_action)
 		lock_action.target = user

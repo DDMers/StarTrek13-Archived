@@ -65,7 +65,7 @@
 "bm" = (/turf/closed/indestructible/riveted{alpha = 0; opacity = 1},/area/ship/federation/entax)
 "bn" = (/obj/structure/chair/office/dark{dir = 1; name = "tactical swivel chair"},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (SOUTHWEST)"; icon_state = "trek_edge2"; dir = 10},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 "bo" = (/obj/structure/chair/office/dark{dir = 1; name = "tactical swivel chair"},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (SOUTHEAST)"; icon_state = "trek_edge2"; dir = 6},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
-"bp" = (/turf/open/transporter_overlay,/area/ship/federation/entax)
+"bp" = (/obj/structure/transporter_overlay,/turf/open/transporterblack,/area/ship/federation/entax)
 "bq" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTH)"; icon_state = "trek_edge2"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/federation/entax)
 "br" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/federation/entax)
 "bs" = (/obj/effect/turf_decal/stripes/asteroid/line{tag = "icon-ast_warn (NORTH)"; icon_state = "ast_warn"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/federation/entax)

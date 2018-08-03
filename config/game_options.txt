@@ -55,12 +55,12 @@ ANIMAL_DELAY 1
 
 
 ## ALERT LEVELS ###
-ALERT_GREEN All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced.
-ALERT_BLUE_UPTO The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted.
-ALERT_BLUE_DOWNTO The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed.
-ALERT_RED_UPTO There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised. Additionally, access requirements on some doors have been lifted.
-ALERT_RED_DOWNTO The station's destruction has been averted. There is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised.
-ALERT_DELTA Destruction of the station is imminent. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
+ALERT_GREEN All Credible military threats have passed, privacy laws are once again fully enforced.
+ALERT_BLUE_UPTO Credible sources indicate a possible military attack on the sector, all starships must maintain yellow alert.
+ALERT_BLUE_DOWNTO The immediate threat has passed.
+ALERT_RED_UPTO There is a serious military threat and a violation of borders in this sector, all starships must remain combat ready.
+ALERT_RED_DOWNTO The military incursion has been repelled, however all ships must maintain yellow alert.
+ALERT_DELTA A serious threat endangers the entire quadrant, all crew must follow orders; failure to do so will result in instant death.
 
 
 
