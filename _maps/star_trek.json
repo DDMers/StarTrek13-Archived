@@ -1,5 +1,15 @@
 {
-    "map_name": "Star Trek Z1",
-    "map_path": "map_files/star_trek",
-    "map_file": "star_trek.dmm"
+    "map_name": "star_trek",
+    "map_path": "map_files/StarTrek13",
+    "map_file": ["overmap.dmm",
+				"overmap_s2.dmm",
+				"overmap.dmm",
+				"SystemCapturePoints.dmm",
+				"ship/ai_ships.dmm",
+				"ship/destroyer1.dmm",
+				"ship/romulan_capital_ships.dmm",
+				"ship/starfleet_capital_ships.dmm"],
+	
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0
 }
