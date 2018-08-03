@@ -190,18 +190,15 @@ SUBSYSTEM_DEF(mapping)
 			traits.Cut(total_z + 1)
 		while (total_z > traits.len)  // fall back to defaults on extra levels
 			traits += list(default_traits)
-	log_world("Startrek13 Z amount is [total_z] compared to [traits.len]traits ")
 	// preload the relevant space_level datums
 	var/start_z = world.maxz + 1
 	var/i = 0
 	for (var/level in traits)
-		log_world("Startrek13map [i] z level created")
 		add_new_zlevel("[name][i ? " [i + 1]" : ""]", level)
 		++i
 
 	// load the maps
 	for (var/file in files)
-		log_world("Creating [file] map")
 		var/full_path = "_maps/[path]/[file]"
 		if(!loader.load_map(file(full_path), 0, 0, start_z + files[file], no_changeturf = TRUE))
 			errorList |= full_path
@@ -218,8 +215,6 @@ SUBSYSTEM_DEF(mapping)
 	// load the station
 	station_start = world.maxz + 1
 	INIT_ANNOUNCE("Loading [config.map_name]...")
-	var/list/FUCKINGAWFULSHIT = config.map_file
-	log_world("AMOUNT OF DAMN MAP FILES [FUCKINGAWFULSHIT.len]")
 	LoadGroup(FailedZs, "Station", config.map_path, config.map_file, config.traits, ZTRAITS_STATION)
 
 	if(SSdbcore.Connect())
