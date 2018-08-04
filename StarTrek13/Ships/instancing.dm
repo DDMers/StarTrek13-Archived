@@ -51,6 +51,16 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 			qdel(src)
 			return
 
+/obj/structure/overmap/Destroy(var/severity = 1)
+	if(faction)
+		var/datum/faction/F
+		for(var/datum/faction/S in SSfaction.factions)
+			if(S.name == faction)
+				F = S
+		priority_announce("[name] has been destroyed! we are dispatching a replacement. [cost] credits has been deducted from your allowance to pay for the replacement ship.", "Communication from: [F]", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
+		F.credits -= cost
+	. = ..()
+
 /obj/structure/overmap/proc/SetName(var/string)
 	if(!string)
 		string = pick(GLOB.ship_names)

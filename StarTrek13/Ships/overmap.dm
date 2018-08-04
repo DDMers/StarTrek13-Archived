@@ -48,7 +48,6 @@
 	var/marker = "cadaver"
 	var/atom/movable/nav_target = null
 	var/navigating = FALSE
-	var/faction = null //So the ai ships don't shoot it.
 	var/charge = 4000 //Phaser chareg													////TESTING REMOVE ME AND PUT BME BACK TO 0 OR THIS WILL KILL ALL BALANCE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	var/phaser_charge_total = 0 //How much power all the ship phasers draw together
 	var/phaser_charge_rate = 0
@@ -85,7 +84,8 @@
 	var/wrecked = FALSE
 	var/obj/effect/landmark/runaboutdock/docks = list()
 	var/true_name = null //For respawning
-	var/cost = 15000
+	var/faction = null //Are we a faction's ship? if so, when we blow up, DEDUCT EXPENSES
+	var/cost = 8000 //How much does this ship cost to replace?
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -221,6 +221,7 @@
 	pixel_z = -128
 	pixel_w = -120
 	faction = "starfleet"
+  cost = 20000
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
 	name = "sovereign"
@@ -234,6 +235,7 @@
 	pixel_z = -128
 	pixel_w = -120
 	turnspeed = 0.7 //It's still quite small for its class
+	cost = 20000
 
 /obj/structure/overmap/ship/romulan
 	name = "dderidex"
@@ -248,6 +250,7 @@
 	pixel_z = -128
 	pixel_w = -120
 	faction = "romulan empire"
+	cost = 10000
 
 /obj/structure/overmap/ship/cruiser
 	name = "USS Excelsior"
@@ -259,6 +262,7 @@
 	pixel_z = -128
 	pixel_w = -120
 	faction = "starfleet"
+	cost = 20000
 
 /obj/structure/overmap/ship/fighter_medium
 	name = "USS Hagan"
@@ -574,6 +578,7 @@
 */
 
 /obj/structure/overmap/process()
+	pilot.update_parallax_contents() //Need this to be on SUPERSPEED or it'll look awful
 	if(wrecked)
 		if(prob(5)) //This damn wreck is falling apart
 			take_damage(1001)
@@ -589,19 +594,16 @@
 		destroy(1)
 	if(!health)
 		destroy(1)
-//	ProcessMove()
 	if(turret_recharge >0)
 		turret_recharge --
 	if(prob(10))
 		linkto()
-	//	update_weapons()
 	location()
 	if(agressor)
 		if(agressor.target_ship != src)
 			agressor = null
 	check_overlays()
 	counter ++
-	update_observers()
 	SC.weapons.update_weapons()
 	damage = SC.weapons.damage
 	if(can_move)
@@ -624,8 +626,6 @@
 		charge = max_charge
 	else
 		charge = max_charge
-
-
 
 /obj/structure/overmap/AltClick(mob/user)
 	if(user == pilot)

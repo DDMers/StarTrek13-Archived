@@ -18,7 +18,6 @@
 #define PILOT			(1<<14)
 #define BORG_DRONE (1<<15)
 
-
 #define MEDSCI			(1<<1)
 
 #define RD_JF			(1<<0)
@@ -32,7 +31,7 @@
 
 #define CIVILIAN		(1<<2)
 
-#define HOP				(1<<0)
+#define FIRSTOFFICER	(1<<0)
 #define BARTENDER		(1<<1)
 #define BOTANIST		(1<<2)
 #define COOK			(1<<3)
@@ -47,9 +46,12 @@
 #define MIME			(1<<12)
 #define ASSISTANT		(1<<13)
 
+
 #define JOB_AVAILABLE 0
 #define JOB_UNAVAILABLE_GENERIC 1
 #define JOB_UNAVAILABLE_BANNED 2
 #define JOB_UNAVAILABLE_PLAYTIME 3
 #define JOB_UNAVAILABLE_ACCOUNTAGE 4
 #define JOB_UNAVAILABLE_SLOTFULL 5
+
+
