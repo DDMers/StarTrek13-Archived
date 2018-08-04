@@ -36,7 +36,7 @@
 
 #define CIVILIAN		(1<<2)
 
-#define HOP				(1<<0)
+#define FIRSTOFFICER				(1<<0)
 #define BARTENDER		(1<<1)
 #define BOTANIST		(1<<2)
 #define COOK			(1<<3)
@@ -92,7 +92,7 @@
 #define RVIROLOGIST		(1<<6)
 
 
-#define RHOP			(1<<0)
+#define RFIRSTOFFICER			(1<<0)
 #define RCOOK			(1<<3)
 #define RJANITOR		(1<<4)
 #define RQUARTERMASTER	(1<<6)

@@ -95,7 +95,7 @@
 	icon_state = "systemdominator"
 	var/datum/faction/owner
 	var/beingcaptured = FALSE
-	var/hacktime = 600 //1 minute to capture
+	var/hacktime = 300 //30 seconds to capture
 	var/obj/structure/overmap/away/station/system_outpost/station
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	anchored = TRUE

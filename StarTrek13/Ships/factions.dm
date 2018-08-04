@@ -70,7 +70,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 
 /datum/faction	//a holder datum for sorting players
 	var/name = "a faction"
-	var/mob/living/members = list()
+	var/list/members = list()
 	var/description = "why are you seeing this."
 	var/datum/species/required_race = null //Framework for having race only empires, IE if you want to be klingon you have to be klingon.
 	var/flavourtext = "you shouldnt be here" //Sent to all new members upon recruitment.
@@ -158,17 +158,17 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	for(var/mob/living/M in members)
 		to_chat(M, ping)
 
-/datum/faction/proc/addMember(mob/living/carbon/human/D)
+/datum/faction/proc/addMember(mob/D)
 //	if(D in members)
 //	if(isliving(D))
 	members += D
 	if(D.client.prefs.player_faction)
 		D.client.prefs.player_faction = src
-		D.client.prefs.player_faction.members -= D
 	D.player_faction = src
 	to_chat(D, "<FONT color='blue'><B>You have been recruited into [name]!</B></font>")
 	to_chat(D, "<FONT color='[pref_colour]'><B>[flavourtext]</B></font>")
 	onspawn(D)
+
 
 /datum/faction/proc/onspawn(mob/living/carbon/human/D) //If you want things to happen to someone as they join a faction, put it here
 	var/image/factionoverlay = new

@@ -26,6 +26,6 @@
 			winner = F
 	var/list/players = list()
 	for(var/mob/M in winner.members)
-		players += "[M.real_name] ([M.client.ckey])"
+		players += "[M.name]"
 	return "<div class='panel greenborder'><span class='header'>[winner] won the round with a total of [winner.credits] credits!<br>Their faction consisted of:</span><br>[players.Join("<br>")]</div>"
 
