@@ -231,6 +231,7 @@
 	max_health = 40000
 	pixel_z = -128
 	pixel_w = -120
+	turnspeed = 0.7 //It's still quite small for its class
 
 /obj/structure/overmap/ship/romulan
 	name = "dderidex"
