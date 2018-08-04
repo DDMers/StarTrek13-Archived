@@ -33,9 +33,10 @@
 	START_PROCESSING(SSobj,src)
 	if(our_ship)
 		subsystem = our_ship.SC.weapons
-	damage = subsystem.damage
-	heat = subsystem.heat
-	charge = subsystem.charge
+	if(subsystem)
+		damage = subsystem.damage
+		heat = subsystem.heat
+		charge = subsystem.charge
 
 
 /obj/structure/weapons_console/proc/get_ship_icon(atom/item,mob/user)

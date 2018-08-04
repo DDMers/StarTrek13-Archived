@@ -1,6 +1,5 @@
 /datum/job/trek
 	total_positions = 500
-
 /*
 Assistant
 */
@@ -9,7 +8,6 @@ Assistant
 	flag = ASSISTANT
 	department_flag = CIVILIAN
 	faction = "Station"
-
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "all other crew members of higher rank."
@@ -175,6 +173,15 @@ Captain
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
 	..()
+
+
+/datum/outfit/job/admiral/post_equip(mob/living/carbon/human/H)
+	if(H.skills)
+		H.skills.add_skill("piloting", 5)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 5)
+
 /*
 /datum/outfit/job/admiral/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()

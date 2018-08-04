@@ -1,0 +1,3208 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/open/space/basic,
+/area/space)
+"ab" = (
+/turf/closed/indestructible/riveted{
+	alpha = 0
+	},
+/area/ship/federation/entax)
+"ac" = (
+/obj/structure/chair/office/dark{
+	dir = 1;
+	name = "tactical swivel chair"
+	},
+/obj/effect/turf_decal/trek{
+	tag = "icon-trek_edge2 (SOUTHWEST)";
+	icon_state = "trek_edge2";
+	dir = 10
+	},
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 10
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"ad" = (
+/obj/structure/chair/office/dark{
+	dir = 1;
+	name = "tactical swivel chair"
+	},
+/obj/effect/turf_decal/trek{
+	tag = "icon-trek_edge2 (SOUTHEAST)";
+	icon_state = "trek_edge2";
+	dir = 6
+	},
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 6
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"ae" = (
+/obj/structure/fluff/helm/desk{
+	desc = "Systems: NOMINAL";
+	dir = 1;
+	name = "engineering desk"
+	},
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 8
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"af" = (
+/obj/structure/fluff/helm/desk{
+	desc = "Systems: NOMINAL";
+	dir = 1;
+	name = "engineering desk"
+	},
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 4
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"ag" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 1
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"ah" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 6
+	},
+/obj/item/tricorder,
+/obj/structure/table/reinforced,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"ai" = (
+/obj/item/storage/firstaid,
+/obj/item/storage/firstaid/toxin,
+/obj/structure/table/reinforced,
+/obj/item/defibrillator/compact/loaded,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 5
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"aj" = (
+/obj/effect/turf_decal/trek/grey,
+/obj/machinery/sleeper,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"ak" = (
+/obj/structure/rack,
+/obj/structure/photon_torpedo,
+/obj/effect/turf_decal/trek/grey,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"al" = (
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"am" = (
+/obj/structure/torpedo_launcher,
+/obj/effect/turf_decal/trek/grey,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"an" = (
+/obj/machinery/power/ship/phaser{
+	tag = "icon-phaserarray";
+	icon_state = "phaserarray";
+	dir = 2
+	},
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 1
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"ao" = (
+/obj/effect/landmark/runaboutdock,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"ap" = (
+/turf/open/floor/borg/trek/lit,
+/turf/closed/trekshield{
+	icon_state = "shield";
+	dir = 8
+	},
+/area/ship/federation/entax)
+"aq" = (
+/obj/structure/overmap/ship/target,
+/obj/effect/turf_decal/trek/grey,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"ar" = (
+/obj/effect/turf_decal/trek/grey,
+/obj/machinery/iv_drip,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"at" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 8
+	},
+/turf/closed/wall/ship/voy,
+/area/ship/federation/entax)
+"aw" = (
+/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/o2,
+/obj/structure/table/reinforced,
+/obj/item/defibrillator/compact/loaded,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 4
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"az" = (
+/obj/item/storage/firstaid/fire,
+/obj/item/tricorder,
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 4
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"aA" = (
+/turf/closed/indestructible/riveted{
+	alpha = 0;
+	opacity = 0
+	},
+/area/ship/federation/entax)
+"aB" = (
+/obj/structure/special_trek_turf{
+	tag = "icon-black (WEST)";
+	icon_state = "black";
+	dir = 8
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"aC" = (
+/turf/closed/wall/ship/voy,
+/area/ship/federation/entax)
+"aD" = (
+/obj/machinery/door/airlock/trek/tng/voy,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"aF" = (
+/obj/structure/special_trek_turf/bridge/alt{
+	pixel_y = -7
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"aG" = (
+/obj/structure/viewscreen{
+	pixel_x = -5;
+	pixel_y = -6
+	},
+/turf/closed/indestructible/riveted{
+	alpha = 0;
+	opacity = 0
+	},
+/area/ship/federation/entax)
+"aH" = (
+/turf/open/space/basic,
+/area/ship/federation/entax)
+"aI" = (
+/obj/structure/subsystem_monitor/weapons{
+	tag = "icon-lcars2 (NORTHEAST)";
+	icon_state = "lcars2";
+	dir = 5
+	},
+/turf/closed/indestructible/riveted{
+	alpha = 0;
+	opacity = 0
+	},
+/area/ship/federation/entax)
+"aJ" = (
+/obj/machinery/door/airlock/trek/tng/voy/single,
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"aK" = (
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"aL" = (
+/obj/structure/subsystem_monitor{
+	tag = "icon-lcars (SOUTHWEST)";
+	icon_state = "lcars";
+	dir = 10
+	},
+/turf/closed/indestructible/riveted{
+	alpha = 0;
+	opacity = 0
+	},
+/area/ship/federation/entax)
+"aM" = (
+/obj/structure/subsystem_monitor{
+	tag = "icon-lcars (NORTHEAST)";
+	icon_state = "lcars";
+	dir = 5
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"aN" = (
+/obj/structure/subsystem_monitor/weapons{
+	tag = "icon-lcars2 (NORTHWEST)";
+	icon_state = "lcars2";
+	dir = 9
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"aQ" = (
+/obj/structure/subsystem_panel/engines,
+/turf/closed/wall/ship/voy,
+/area/ship/federation/entax)
+"aR" = (
+/obj/structure/ship_component,
+/turf/closed/wall/ship/voy,
+/area/ship/federation/entax)
+"aS" = (
+/obj/structure/subsystem_panel/weapons,
+/turf/closed/wall/ship/voy,
+/area/ship/federation/entax)
+"aT" = (
+/obj/structure/chair/office/dark{
+	dir = 1;
+	name = "tactical swivel chair"
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"aU" = (
+/obj/structure/fluff/helm/desk/tactical{
+	tag = "icon-desk (NORTH)";
+	icon_state = "desk";
+	dir = 1
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"aV" = (
+/obj/structure/fluff/warpcore/massive/smaller{
+	pixel_x = -16
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"aW" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 9
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"aX" = (
+/obj/machinery/power/ship/phaser{
+	tag = "icon-phaserarray";
+	icon_state = "phaserarray";
+	dir = 2
+	},
+/turf/closed/wall/ship/voy,
+/area/ship/federation/entax)
+"aY" = (
+/obj/machinery/trek/transporter{
+	layer = 2
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"aZ" = (
+/obj/machinery/door/airlock/trek/tng/voy{
+	tag = "icon-closed (WEST)";
+	icon_state = "closed";
+	dir = 8
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"ba" = (
+/obj/structure/special_trek_turf,
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bb" = (
+/obj/effect/turf_decal/trek/grey,
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bc" = (
+/obj/structure/fluff/helm/desk/noisy,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bd" = (
+/obj/structure/fluff/helm/desk{
+	tag = "icon-miniconsole (NORTH)";
+	icon_state = "miniconsole";
+	dir = 1
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"be" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 5
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bf" = (
+/obj/structure/special_trek_turf{
+	dir = 1;
+	icon_state = "black";
+	tag = "icon-black (NORTH)"
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bg" = (
+/obj/machinery/computer/camera_advanced/transporter_control/huge,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bh" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 10
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bi" = (
+/obj/structure/fluff/helm/desk/functional,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bj" = (
+/obj/structure/chair/trek/bridge{
+	tag = "icon-bridgechair (NORTH)";
+	icon_state = "bridgechair";
+	dir = 1
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bk" = (
+/obj/structure/weapons_console,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bl" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 6
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bm" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 8
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bn" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 4
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bu" = (
+/turf/open/bridge_overlay/alt,
+/area/ship/federation/entax)
+"bv" = (
+/obj/machinery/door/airlock/trek/tng/voy,
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bE" = (
+/obj/machinery/door/airlock/trek/tng/voy{
+	tag = "icon-closed (WEST)";
+	icon_state = "closed";
+	dir = 8
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bI" = (
+/obj/structure/subsystem_panel,
+/turf/closed/wall/ship/voy,
+/area/ship/federation/entax)
+"bJ" = (
+/obj/structure/ship_component/capbooster,
+/turf/closed/wall/ship/voy,
+/area/ship/federation/entax)
+"bK" = (
+/obj/structure/sign/viewscreen{
+	icon_state = "trekscreen"
+	},
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 9
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bL" = (
+/obj/structure/sign/viewscreen{
+	icon_state = "trekscreen"
+	},
+/obj/effect/turf_decal/trek/grey,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bM" = (
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/item/storage/toolbox/electrical,
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 4
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bN" = (
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/item/storage/toolbox/mechanical,
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 8
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bO" = (
+/obj/structure/chair/trek{
+	tag = "icon-chair (EAST)";
+	icon_state = "chair";
+	dir = 4
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bP" = (
+/obj/structure/table/glass,
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bQ" = (
+/obj/structure/table/glass,
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bR" = (
+/obj/structure/chair/trek{
+	tag = "icon-chair (WEST)";
+	icon_state = "chair";
+	dir = 8
+	},
+/turf/open/floor/borg/trek/lit{
+	color = "#A9A9A9"
+	},
+/area/ship/federation/entax)
+"bT" = (
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/item/storage/toolbox/electrical,
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 10
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bU" = (
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/item/storage/toolbox/mechanical,
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 6
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bV" = (
+/obj/machinery/space_battle/shield_generator,
+/turf/closed/wall/ship/voy,
+/area/ship/federation/entax)
+"bW" = (
+/obj/effect/turf_decal/trek/grey,
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bX" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 9
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bY" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 5
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"bZ" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 8
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"ca" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 1
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"cb" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 4
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"cc" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 10
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+"cd" = (
+/obj/effect/turf_decal/trek/grey{
+	icon_state = "trek_edge3";
+	dir = 6
+	},
+/turf/open/floor/borg/trek/lit,
+/area/ship/federation/entax)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bX
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+cc
+aC
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+aC
+aC
+aC
+aC
+aC
+bW
+al
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+al
+ca
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bX
+bZ
+bZ
+cc
+at
+bW
+ca
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aZ
+aC
+aC
+aC
+aC
+aC
+bW
+ca
+aC
+bX
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+cc
+aC
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+aY
+aY
+ca
+aC
+bW
+ca
+aC
+ab
+aA
+ab
+ab
+ab
+ab
+ba
+ab
+ab
+aA
+bu
+aC
+bW
+ca
+aD
+bY
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cd
+aC
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+aY
+aY
+ca
+aC
+bW
+ca
+aC
+ab
+ab
+aA
+aA
+aK
+aK
+aK
+aK
+aK
+ab
+ab
+aC
+aq
+ca
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+bE
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+al
+al
+ca
+aC
+bW
+ca
+aC
+ab
+aA
+aI
+aM
+aK
+aK
+aK
+aK
+aK
+aK
+ab
+aC
+bW
+ca
+aC
+aW
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bh
+aC
+bK
+bN
+bZ
+bT
+aC
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+al
+bg
+ca
+aD
+bW
+ca
+aD
+aB
+aF
+aJ
+aK
+bX
+bZ
+bZ
+ae
+ac
+ag
+aB
+aD
+bW
+ca
+aQ
+bb
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ag
+aC
+bW
+aK
+aK
+ca
+aC
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+al
+al
+ca
+aC
+bW
+ca
+aC
+ab
+aA
+aA
+aK
+bW
+al
+al
+bi
+ca
+aK
+ab
+aC
+bW
+ca
+aR
+bb
+al
+al
+al
+al
+al
+aV
+al
+al
+al
+ag
+aC
+bW
+aK
+aK
+ca
+aC
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+al
+al
+ca
+aC
+bW
+ca
+aC
+ab
+aA
+aK
+aK
+bW
+al
+bc
+al
+ca
+aK
+ab
+aC
+bW
+ca
+aC
+bb
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ag
+bv
+bW
+bO
+bO
+ca
+aC
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+al
+al
+ca
+aC
+bW
+ca
+aC
+ab
+aG
+aK
+aK
+bW
+aT
+al
+al
+ca
+aK
+ab
+aC
+bW
+ca
+bJ
+bb
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ag
+aC
+bW
+bP
+bQ
+ca
+aC
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+aZ
+aC
+aC
+aZ
+aC
+bW
+ca
+aC
+ab
+aA
+aK
+aK
+bW
+aU
+al
+bj
+ca
+aK
+ab
+aC
+bW
+ca
+aC
+bb
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ag
+bI
+bW
+bQ
+bQ
+ca
+bV
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+al
+al
+ca
+aC
+bW
+ca
+aC
+ab
+aA
+aK
+aK
+bW
+aT
+al
+al
+ca
+aK
+ab
+aC
+bW
+ca
+bJ
+bb
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ag
+aC
+bW
+bQ
+bQ
+ca
+aC
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+al
+al
+ca
+aC
+bW
+ca
+aC
+ab
+aA
+aK
+aK
+bW
+al
+bd
+al
+ca
+aK
+ab
+aC
+bW
+ca
+aC
+bb
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ag
+bv
+bW
+bR
+bR
+ca
+aC
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+aj
+al
+al
+ca
+aC
+bW
+ca
+aC
+ab
+aA
+aA
+aK
+bW
+al
+al
+bk
+ca
+aK
+ab
+aC
+bW
+ca
+aR
+bb
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ag
+bJ
+bL
+aK
+aK
+ca
+aC
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+aj
+al
+al
+ca
+aD
+bW
+ca
+aD
+aB
+aF
+aJ
+aK
+bY
+cb
+cb
+af
+ad
+ag
+aB
+aD
+bW
+ca
+aS
+bb
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ag
+aC
+bW
+aK
+aK
+ca
+aC
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+aj
+al
+al
+ca
+aC
+bW
+ca
+aC
+ab
+aA
+aL
+aN
+aK
+aK
+aK
+aK
+aK
+aK
+ab
+aC
+bW
+ca
+aC
+be
+bn
+bn
+bn
+bn
+bn
+bn
+bn
+bn
+bn
+bl
+aC
+bY
+bM
+cb
+bU
+aC
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+ar
+al
+al
+ca
+aC
+bW
+ca
+aC
+ab
+ab
+aA
+aA
+aK
+aK
+aK
+aK
+aK
+ab
+ab
+aC
+bW
+ca
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+bE
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+al
+al
+ca
+aC
+bW
+ca
+aC
+ab
+aH
+ab
+ab
+ab
+ab
+bf
+ab
+ab
+ab
+ab
+aC
+bW
+ca
+aD
+bX
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+cc
+aC
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+ai
+aw
+az
+ah
+aC
+bW
+ca
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aZ
+aC
+aC
+aC
+aC
+aC
+bW
+ca
+aC
+bY
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cd
+aC
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+aC
+aC
+aC
+aC
+aC
+bW
+al
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+al
+ca
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bY
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cb
+cd
+aC
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aZ
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bX
+bZ
+bZ
+bZ
+bZ
+bZ
+cc
+aC
+al
+al
+al
+al
+al
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+ak
+al
+al
+al
+al
+al
+an
+aC
+al
+al
+al
+al
+ao
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+al
+al
+al
+al
+al
+ca
+bv
+al
+al
+al
+al
+al
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+am
+al
+al
+al
+al
+al
+ca
+aC
+al
+al
+al
+al
+al
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bW
+al
+al
+al
+al
+al
+ca
+bv
+al
+al
+al
+al
+al
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+ak
+al
+al
+al
+al
+al
+ca
+aC
+al
+al
+al
+al
+al
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+bY
+cb
+cb
+cb
+cb
+cb
+cd
+aC
+al
+al
+al
+al
+al
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aC
+aC
+aC
+aX
+aC
+aC
+aC
+aX
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(33,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(34,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(35,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(36,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(37,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(38,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(39,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(40,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(41,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(42,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(43,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(44,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(45,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(46,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(47,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(48,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(49,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(50,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

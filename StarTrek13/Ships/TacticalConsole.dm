@@ -25,6 +25,7 @@
 	anchored = 1
 	var/starmapUI
 	var/datum/looping_sound/trek/bridge/soundloop
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //it's very bad if this dies
 
 /obj/structure/fluff/helm/desk/tactical/nanotrasen
 	name = "tactical"

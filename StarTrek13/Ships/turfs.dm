@@ -99,6 +99,9 @@
 /obj/effect/turf_decal/trek
 	icon_state = "trek_edge2"
 
+/obj/effect/turf_decal/trek/grey
+	icon_state = "trek_edge3"
+
 /obj/effect/turf_decal/trek/cargo
 	icon_state = "trek_edge_cargo"
 
@@ -267,11 +270,19 @@
 	density = 1
 	blocks_air = 1
 
-/turf/open/transporter_overlay
+/turf/open/transporterblack
+	icon = 'StarTrek13/icons/trek/transporter_black.PNG'
+	name = "black"
+
+/obj/structure/transporter_overlay
 	icon = 'StarTrek13/icons/trek/transporterroom_overlay.PNG'
 	name = "floor"
 	density = 1
-	blocks_air = 1
+	CanAtmosPass = FALSE
+	layer = 4.5
+	anchored = 1
+	can_be_unanchored = 0
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 /turf/open/fighter_overlay
 	icon = 'StarTrek13/icons/trek/fighter_interior_overlay.PNG'
@@ -331,13 +342,14 @@
 	name = "floor"
 	density = 1
 	blocks_air = 1
+	layer = 2.8
 
 /turf/open/storagebay_overlay
 	icon = 'StarTrek13/icons/trek/storagebay_overlay.PNG'
 	name = "floor"
 	density = 1
 	blocks_air = 1
-
+	layer = 2.8
 
 /turf/open/small_engineering_overlay
 	icon = 'StarTrek13/icons/trek/warp_room_small_overlay.PNG'
@@ -389,7 +401,7 @@
 	name = "wall"
 	desc = "No running through me please"
 	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
-	layer = 4.5
+	layer = 2.8
 	pixel_x = -8
 	pixel_y = 10
 
