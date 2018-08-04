@@ -225,7 +225,7 @@
 		ship.SC.shields.active = FALSE
 		return
 	if(!on)
-		if(ship.SC.shields.health >= 5000)
+		if(ship.SC.shields.integrity >= 5000)
 			to_chat(user, "shields activated")
 			on = 1
 			ship.SC.shields.toggled = TRUE
