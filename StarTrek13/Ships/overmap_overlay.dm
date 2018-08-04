@@ -39,10 +39,11 @@
 			continue
 //	for(var/obj/effect/landmark/transport_zone/T in world)
 	//	transport_zone = get_area(T)
-	var/obj/effect/landmark/A = pick(thelist)
-	var/turf/theloc = get_turf(A)
-	if(spawn_random)
-		forceMove(theloc)
+	if(thelist.len)
+		var/obj/effect/landmark/A = pick(thelist)
+		var/turf/theloc = get_turf(A)
+		if(spawn_random)
+			forceMove(theloc)
 	check_overlays()
 
 /obj/structure/overmap/proc/check_overlays()

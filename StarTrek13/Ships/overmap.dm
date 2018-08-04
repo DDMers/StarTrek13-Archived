@@ -85,7 +85,7 @@
 	var/obj/effect/landmark/runaboutdock/docks = list()
 	var/true_name = null //For respawning
 	var/faction = null //Are we a faction's ship? if so, when we blow up, DEDUCT EXPENSES
-	var/cost = 20000 //How much does this ship cost to replace?
+	var/cost = 8000 //How much does this ship cost to replace?
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -221,6 +221,7 @@
 	pixel_z = -128
 	pixel_w = -120
 	faction = "starfleet"
+  cost = 20000
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
 	name = "sovereign"
@@ -249,7 +250,7 @@
 	pixel_z = -128
 	pixel_w = -120
 	faction = "romulan empire"
-	cost = 15000
+	cost = 10000
 
 /obj/structure/overmap/ship/cruiser
 	name = "USS Excelsior"
@@ -774,6 +775,14 @@
 		return 0
 
 /obj/structure/overmap/proc/destroy(var/severity = 1)
+	if(faction)
+		var/datum/faction/F
+		for(var/datum/faction/S in SSfaction.factions)
+			if(S.name == faction)
+				F = S
+		priority_announce("[name] has been destroyed! we are dispatching a replacement. [cost] credits has been deducted from your allowance to pay for the replacement ship.", "Communication from: [F]", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
+		F.credits -= cost
+	. = ..()
 	for(var/obj/structure/overmap/ship/AI/A in world)
 		if(A.stored_target == src)
 			A.stored_target = null

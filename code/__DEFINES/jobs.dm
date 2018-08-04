@@ -14,7 +14,9 @@
 #define CYBORG			(1<<10)
 #define ADMIRAL			(1<<11)
 #define SOLDIER			(1<<12)
-#define PILOT		(1<<13)
+#define FIRSTOFFICER (1 << 13)
+#define PILOT			(1<<14)
+#define BORG_DRONE (1<<15)
 
 #define MEDSCI			(1<<1)
 
@@ -51,4 +53,5 @@
 #define JOB_UNAVAILABLE_PLAYTIME 3
 #define JOB_UNAVAILABLE_ACCOUNTAGE 4
 #define JOB_UNAVAILABLE_SLOTFULL 5
+
 

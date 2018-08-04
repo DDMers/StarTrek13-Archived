@@ -25,9 +25,3 @@
 		if(F.credits >= highest)
 			winner = F
 	return "<div class='panel greenborder'><span class='header'>[winner] won the round with a total of [winner.credits] credits!</div>"
-
-/*
-	var/list/players = list()
-	for(var/mob/M in winner.members)
-		players += "[M.name]"
-*/
