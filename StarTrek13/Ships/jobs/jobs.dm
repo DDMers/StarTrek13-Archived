@@ -861,7 +861,7 @@ Security Officer
 	head = /obj/item/clothing/head/beret/sec
 	suit = /obj/item/clothing/suit/armor/vest/alt
 	shoes = /obj/item/clothing/shoes/jackboots
-	suit_store = /obj/item/gun/energy/handphaser //change this shit
+	suit_store = /obj/item/gun/energy/laser/retro //change this shit
 	backpack_contents = list(/obj/item/melee/baton/loaded=1,/obj/item/gun/energy/laser/retro=1,/obj/item/kitchen/knife/combat=1)
 
 	backpack = /obj/item/storage/backpack/security

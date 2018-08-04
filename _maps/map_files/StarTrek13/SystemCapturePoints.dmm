@@ -721,9 +721,9 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/obj/item/gun/energy/handphaser,
-/obj/item/gun/energy/handphaser,
-/obj/item/gun/energy/handphaser,
+/obj/item/gun/energy/laser/retro,
+/obj/item/gun/energy/laser/retro,
+/obj/item/gun/energy/laser/retro,
 /turf/open/floor/plasteel/red/side{
 	dir = 10
 	},
@@ -11561,12 +11561,12 @@
 	},
 /area/ship/barnardstar)
 "El" = (
-/obj/item/gun/energy/handphaser,
+/obj/item/gun/energy/laser/retro,
 /obj/structure/rack,
 /turf/open/floor/plasteel,
 /area/ship/barnardstar)
 "Em" = (
-/obj/item/gun/energy/handphaser,
+/obj/item/gun/energy/laser/retro,
 /obj/structure/rack,
 /turf/open/floor/plasteel/red/side{
 	dir = 4

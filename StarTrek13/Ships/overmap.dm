@@ -221,7 +221,7 @@
 	pixel_z = -128
 	pixel_w = -120
 	faction = "starfleet"
-  cost = 20000
+	cost = 20000
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
 	name = "sovereign"
