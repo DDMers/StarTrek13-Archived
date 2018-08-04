@@ -1,6 +1,5 @@
 /datum/job/trek
 	total_positions = 500
-
 /*
 Assistant
 */

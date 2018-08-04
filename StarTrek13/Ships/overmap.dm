@@ -592,12 +592,10 @@
 		destroy(1)
 	if(!health)
 		destroy(1)
-//	ProcessMove()
 	if(turret_recharge >0)
 		turret_recharge --
 	if(prob(10))
 		linkto()
-	//	update_weapons()
 	location()
 	if(agressor)
 		if(agressor.target_ship != src)
@@ -627,8 +625,6 @@
 		charge = max_charge
 	else
 		charge = max_charge
-
-
 
 /obj/structure/overmap/AltClick(mob/user)
 	if(user == pilot)

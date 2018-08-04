@@ -159,8 +159,6 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 		to_chat(M, ping)
 
 /datum/faction/proc/addMember(mob/D)
-//	if(D in members)
-//	if(isliving(D))
 	members += D
 	if(D.client.prefs.player_faction)
 		D.client.prefs.player_faction = src
