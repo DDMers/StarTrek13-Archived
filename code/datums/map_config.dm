@@ -78,7 +78,6 @@
 			return
 	// "map_file": ["Lower.dmm", "Upper.dmm"]
 	else if (islist(map_file))
-		log_world("SO IT IS A LIST!")
 		for (var/file in map_file)
 			if (!fexists("_maps/[map_path]/[file]"))
 				log_world("Map file ([map_path]/[file]) does not exist!")

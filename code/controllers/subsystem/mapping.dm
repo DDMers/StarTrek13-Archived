@@ -169,8 +169,6 @@ SUBSYSTEM_DEF(mapping)
 	var/start_time = REALTIMEOFDAY
 	if (!islist(files))  // handle single-level maps
 		files = list(files)
-	else
-		files = files
 
 
 	// check that the total z count of all maps matches the list of traits
