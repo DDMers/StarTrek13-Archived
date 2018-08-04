@@ -267,3 +267,20 @@
 				thefood.name = "[temp] [thefood.name]"
 	sleep(40)
 	icon_state = "replicator-off"
+
+/obj/item/ammo_casing/energy/electrode/phaserstun
+	e_cost = 100
+	fire_sound = 'StarTrek13/sound/borg/machines/phaser.ogg'
+	select_name = "stun"
+
+/obj/item/ammo_casing/energy/laser/phaserkill
+	select_name = "kill"
+	fire_sound = 'StarTrek13/sound/borg/machines/phaser.ogg'
+
+/obj/item/gun/energy/handphaser
+	name = "hand phaser"
+	desc = "A standard issue phaser with two modes: Stun and Kill."
+	icon_state = "phaser"
+	ammo_x_offset = 2
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode/phaserstun, /obj/item/ammo_casing/energy/laser/phaserkill)
+

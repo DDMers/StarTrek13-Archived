@@ -159,7 +159,7 @@
 "de" = (/obj/machinery/vending/security,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
 "df" = (/obj/structure/chair{dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
 "dg" = (/obj/structure/table,/obj/machinery/dish_drive,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dh" = (/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/machinery/door/window/eastleft{dir = 8},/obj/item/gun/energy/phaser,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dh" = (/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/machinery/door/window/eastleft{dir = 8},/obj/item/gun/energy/handphaser,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "di" = (/obj/structure/table/reinforced,/obj/item/storage/box/hug/medical,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
 "dj" = (/obj/structure/chair,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
 "dk" = (/obj/machinery/vending/snack/green,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
