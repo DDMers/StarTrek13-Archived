@@ -73,6 +73,8 @@
 	. = ..()
 
 /obj/structure/overmap/ship/runabout/proc/try_dock()
+	if(!pilot)
+		return
 	var/obj/structure/overmap/L = list()
 	for(var/obj/structure/overmap/S in orange(src, 9))
 		if(!S.shields_active)
@@ -89,9 +91,13 @@
 		icon_state = initial(icon_state)
 	carrier = A
 
-/obj/structure/overmap/ship/runabout/CtrlClick()
+/obj/structure/overmap/ship/runabout/CtrlClick(mob/user)
+	if(user != pilot)
+		return
 	try_dock()
 
 
-/obj/structure/overmap/ship/runabout/AltClick()
+/obj/structure/overmap/ship/runabout/AltClick(mob/user)
+	if(user != pilot)
+		return
 	try_dock()

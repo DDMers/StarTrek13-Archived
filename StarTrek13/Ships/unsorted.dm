@@ -267,3 +267,31 @@
 				thefood.name = "[temp] [thefood.name]"
 	sleep(40)
 	icon_state = "replicator-off"
+
+/obj/item/ammo_casing/energy/electrode/phaserstun
+	e_cost = 100
+	fire_sound = 'StarTrek13/sound/borg/machines/phaser.ogg'
+	select_name = "stun"
+
+/obj/item/ammo_casing/energy/laser/phaserkill
+	select_name = "kill"
+	fire_sound = 'StarTrek13/sound/borg/machines/phaser.ogg'
+
+/obj/item/gun/energy/handphaser
+	name = "hand phaser"
+	desc = "A standard issue phaser with two modes: Stun and Kill."
+	icon_state = "phaser"
+	ammo_x_offset = 2
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode/phaserstun, /obj/item/ammo_casing/energy/laser/phaserkill)
+
+/obj/item/storage/book/skillbook
+	name = "Piloting field manual"
+	desc = "This small book contains a myriad of complex annotated digrams which will help you learn to fly ships! After clicking this in hand, you will learn basic piloting skills and the book will disappear"
+
+/obj/item/storage/book/skillbook/attack_self(mob/user)
+	if(ishuman(user))
+		user.skills.add_skill("piloting", 5)
+		to_chat(user, "After skimming through [src] you feel confident that you'll be able to fly a starship to a basic level!")
+		qdel(src)
+	else
+		. = ..()

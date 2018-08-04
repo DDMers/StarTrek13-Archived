@@ -1,6 +1,5 @@
 /datum/job/trek
 	total_positions = 500
-
 /*
 Assistant
 */
@@ -9,7 +8,6 @@ Assistant
 	flag = ASSISTANT
 	department_flag = CIVILIAN
 	faction = "Station"
-
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "all other crew members of higher rank."
@@ -175,6 +173,15 @@ Captain
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
 	..()
+
+
+/datum/outfit/job/admiral/post_equip(mob/living/carbon/human/H)
+	if(H.skills)
+		H.skills.add_skill("piloting", 5)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 5)
+
 /*
 /datum/outfit/job/admiral/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
@@ -854,7 +861,7 @@ Security Officer
 	head = /obj/item/clothing/head/beret/sec
 	suit = /obj/item/clothing/suit/armor/vest/alt
 	shoes = /obj/item/clothing/shoes/jackboots
-	suit_store = /obj/item/gun/energy/laser/retro //change this shit
+	suit_store = /obj/item/gun/energy/handphaser //change this shit
 	backpack_contents = list(/obj/item/melee/baton/loaded=1,/obj/item/gun/energy/laser/retro=1,/obj/item/kitchen/knife/combat=1)
 
 	backpack = /obj/item/storage/backpack/security

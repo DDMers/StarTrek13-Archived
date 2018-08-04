@@ -4,7 +4,6 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 /atom/proc/deletearea(var/area/A)
 	if(!A)
 		A = get_area(src)
-	to_chat(world, "feetus deletus YEETUS")
 	for(var/atom/S in A) //We're adding istypes here to force the game to check for specific troublemakers
 		if(istype(S, /obj/structure/girder))
 			qdel(S)
@@ -51,6 +50,16 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 			to_chat(world, "Respawning [true_name]..")
 			qdel(src)
 			return
+
+/obj/structure/overmap/Destroy(var/severity = 1)
+	if(faction)
+		var/datum/faction/F
+		for(var/datum/faction/S in SSfaction.factions)
+			if(S.name == faction)
+				F = S
+		priority_announce("[name] has been destroyed! we are dispatching a replacement. [cost] credits has been deducted from your allowance to pay for the replacement ship.", "Communication from: [F]", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
+		F.credits -= cost
+	. = ..()
 
 /obj/structure/overmap/proc/SetName(var/string)
 	if(!string)

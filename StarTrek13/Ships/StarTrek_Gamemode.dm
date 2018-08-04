@@ -16,7 +16,18 @@
 	return "An advanced Romulan scout fleet has made an incursion into the neutral zone, if they prove to be hostile, engage with lethal force - Ensure you retain control of all outposts within our systems."
 
 /datum/game_mode/conquest/special_report()
+	var/list/schmoney = list()
 	for(var/datum/faction/F in SSfaction.factions)
-		if(F.credits > 0)
-			to_chat(world, "<span class='danger'>[F] finished the round with [F.credits] credits.</span>")
-	return
+		schmoney += F.credits
+	var/highest = max(schmoney)
+	var/datum/faction/winner
+	for(var/datum/faction/F in SSfaction.factions)
+		if(F.credits >= highest)
+			winner = F
+	return "<div class='panel greenborder'><span class='header'>[winner] won the round with a total of [winner.credits] credits!</div>"
+
+/*
+	var/list/players = list()
+	for(var/mob/M in winner.members)
+		players += "[M.name]"
+*/
