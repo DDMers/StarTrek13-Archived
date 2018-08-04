@@ -24,7 +24,6 @@
 	for(var/datum/faction/F in SSfaction.factions)
 		if(F.credits >= highest)
 			winner = F
-//	return "<div class='panel greenborder'><span class='header'>[winner] won the round with a total of [winner.credits] credits!<br>Their faction consisted of:</span><br>[players.Join("<br>")]</div>"
 	return "<div class='panel greenborder'><span class='header'>[winner] won the round with a total of [winner.credits] credits!</div>"
 
 /*

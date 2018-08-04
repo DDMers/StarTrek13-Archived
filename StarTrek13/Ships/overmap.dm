@@ -602,7 +602,6 @@
 			agressor = null
 	check_overlays()
 	counter ++
-	update_observers()
 	SC.weapons.update_weapons()
 	damage = SC.weapons.damage
 	if(can_move)

@@ -81,6 +81,7 @@
 			stoplag()
 			ProcessMove()
 			parallax_update() //Need this to be on SUPERSPEED or it'll look awful
+			update_observers()
 		while(nav_target && pilot)
 			navigate()
 
