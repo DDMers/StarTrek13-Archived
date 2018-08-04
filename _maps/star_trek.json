@@ -6,9 +6,8 @@
 				"overmap.dmm",
 				"SystemCapturePoints.dmm",
 				"ship/ai_ships.dmm",
-				"ship/destroyer1.dmm",
 				"ship/romulan_capital_ships.dmm",
-				"ship/starfleet_capital_ships.dmm"],
+				"ship/starfleet_ships.dmm"],
 	
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0
