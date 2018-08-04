@@ -80,7 +80,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/faction_occupations = list()//List of occupations in this faction.
 	var/datum/objective/current_objective //only one at a time, please.. These constantly check for completion. ~Cdey
 	var/datum/objective/objectives = list()//IF there are multiple objectives. Also currently unused. ~Cdey
-	var/credits = 0 //:( i'm just a poor boy from a poor family
+	var/credits = 10000 //:( i'm just a poor boy from a poor family
 	var/factag = "none" //Faction icon tag
 
 /*

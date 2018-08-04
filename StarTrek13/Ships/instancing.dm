@@ -4,7 +4,6 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 /atom/proc/deletearea(var/area/A)
 	if(!A)
 		A = get_area(src)
-	to_chat(world, "feetus deletus YEETUS")
 	for(var/atom/S in A) //We're adding istypes here to force the game to check for specific troublemakers
 		if(istype(S, /obj/structure/girder))
 			qdel(S)

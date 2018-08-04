@@ -48,7 +48,7 @@
 	var/marker = "cadaver"
 	var/atom/movable/nav_target = null
 	var/navigating = FALSE
-	var/faction = "federation" //So the ai ships don't shoot it.
+	var/faction = null //So the ai ships don't shoot it.
 	var/charge = 4000 //Phaser chareg													////TESTING REMOVE ME AND PUT BME BACK TO 0 OR THIS WILL KILL ALL BALANCE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	var/phaser_charge_total = 0 //How much power all the ship phasers draw together
 	var/phaser_charge_rate = 0
@@ -85,6 +85,7 @@
 	var/wrecked = FALSE
 	var/obj/effect/landmark/runaboutdock/docks = list()
 	var/true_name = null //For respawning
+	var/cost = 15000
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -219,6 +220,7 @@
 	max_health = 30000
 	pixel_z = -128
 	pixel_w = -120
+	faction = "starfleet"
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
 	name = "sovereign"
@@ -245,6 +247,7 @@
 	max_health = 35000
 	pixel_z = -128
 	pixel_w = -120
+	faction = "romulan empire"
 
 /obj/structure/overmap/ship/cruiser
 	name = "USS Excelsior"
@@ -255,6 +258,7 @@
 	max_health = 30000
 	pixel_z = -128
 	pixel_w = -120
+	faction = "starfleet"
 
 /obj/structure/overmap/ship/fighter_medium
 	name = "USS Hagan"
@@ -339,6 +343,8 @@
 	pixel_collision_size_x = 48
 	pixel_collision_size_y = 48
 	max_speed = 3
+	faction = "starfleet"
+	cost = 7000
 
 /obj/structure/overmap/ship/nanotrasen
 	name = "NSV Muffin"
@@ -769,6 +775,14 @@
 		return 0
 
 /obj/structure/overmap/proc/destroy(var/severity = 1)
+	if(faction)
+		var/datum/faction/F
+		for(var/datum/faction/S in SSfaction.factions)
+			if(S.name == faction)
+				F = S
+		priority_announce("[name] has been destroyed! we are dispatching a replacement. [cost] credits has been deducted from your allowance to pay for the replacement ship.", "Communication from: [F]", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
+		F.credits -= cost
+	. = ..()
 	for(var/obj/structure/overmap/ship/AI/A in world)
 		if(A.stored_target == src)
 			A.stored_target = null

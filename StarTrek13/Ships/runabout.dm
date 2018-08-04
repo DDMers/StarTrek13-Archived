@@ -9,6 +9,7 @@
 	turnspeed = 2
 	max_speed = 5
 	warp_capable = TRUE
+	cost = 2000
 
 /obj/structure/overmap/ship/runabout/process()
 	. = ..()
