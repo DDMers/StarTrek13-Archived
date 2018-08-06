@@ -49,12 +49,13 @@
 			candidates -= I
 		return 0
 	for(var/I = 0 to max_crewmen)
-		var/mob/living/steve = pick(candidates)
-		candidates -= steve
-		crewmen += steve
-		to_chat(steve, "You got your desired position on a [name]")
-		SendToSpawn(steve)
-		count ++
+		if(candidates.len)
+			var/mob/living/steve = pick(candidates)
+			candidates -= steve
+			crewmen += steve
+			to_chat(steve, "You got your desired position on a [name]")
+			SendToSpawn(steve)
+			count ++
 	SanityCheck()
 
 
@@ -62,12 +63,13 @@
 	for(var/mob/living/M in crewmen)
 		if(M.skills.skillcheck(M, "piloting", 5))
 			return //Good, one of them has a piloting skill and can fly.
-	var/mob/unluckybastard = pick(crewmen) //Nobody spawned with a piloting skill, so give someone the skill.
-	to_chat(unluckybastard, "None of your crewmates had the skills to fly a [name], you have been made the designated pilot for this ship, this overrides your normal duties. If you are unable to stay / fly the ship due to inexperience, please contact an admin immediately.")
-	unluckybastard.skills.add_skill("piloting", 7)
-	for(var/mob/S in crewmen)
-		if(unluckybastard)
-			to_chat(S, "<FONT color='red'>[unluckybastard] is your substitute pilot for this shift.</font>")
+	if(crewmen.len)
+		var/mob/unluckybastard = pick(crewmen) //Nobody spawned with a piloting skill, so give someone the skill.
+		to_chat(unluckybastard, "None of your crewmates had the skills to fly a [name], you have been made the designated pilot for this ship, this overrides your normal duties. If you are unable to stay / fly the ship due to inexperience, please contact an admin immediately.")
+		unluckybastard.skills.add_skill("piloting", 7)
+		for(var/mob/S in crewmen)
+			if(unluckybastard)
+				to_chat(S, "<FONT color='red'>[unluckybastard] is your substitute pilot for this shift.</font>")
 
 /datum/crew/proc/SendToSpawn(mob/user)
 	for(var/obj/effect/landmark/crewstart/S in world)
