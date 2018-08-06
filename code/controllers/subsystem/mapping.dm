@@ -168,9 +168,9 @@ SUBSYSTEM_DEF(mapping)
 #define INIT_ANNOUNCE(X) to_chat(world, "<span class='boldannounce'>[X]</span>"); log_world(X)
 /datum/controller/subsystem/mapping/proc/LoadGroup(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE)
 	var/start_time = REALTIMEOFDAY
-
 	if (!islist(files))  // handle single-level maps
 		files = list(files)
+
 
 	// check that the total z count of all maps matches the list of traits
 	var/total_z = 0
@@ -189,7 +189,6 @@ SUBSYSTEM_DEF(mapping)
 			traits.Cut(total_z + 1)
 		while (total_z > traits.len)  // fall back to defaults on extra levels
 			traits += list(default_traits)
-
 	// preload the relevant space_level datums
 	var/start_z = world.maxz + 1
 	var/i = 0
@@ -211,13 +210,12 @@ SUBSYSTEM_DEF(mapping)
 
 	// ensure we have space_level datums for compiled-in maps
 	InitializeDefaultZLevels()
-	/*
+
 	// load the station
 	station_start = world.maxz + 1
 	INIT_ANNOUNCE("Loading [config.map_name]...")
-
 	LoadGroup(FailedZs, "Station", config.map_path, config.map_file, config.traits, ZTRAITS_STATION)
-	*/
+
 	if(SSdbcore.Connect())
 		var/datum/DBQuery/query_round_map_name = SSdbcore.NewQuery("UPDATE [format_table_name("round")] SET map_name = '[config.map_name]' WHERE id = [GLOB.round_id]")
 		query_round_map_name.Execute()

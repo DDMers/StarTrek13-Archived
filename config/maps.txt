@@ -13,8 +13,10 @@ Format:
 	disabled (disables the map)
 endmap
 
-map boxstation
+map star_trek
 	default
+endmap
+map boxstation
 	#voteweight 1.5
 endmap
 
