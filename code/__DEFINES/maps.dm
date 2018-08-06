@@ -59,11 +59,10 @@ require only minor tweaks.
 
 // default trait definitions, used by SSmapping
 #define ZTRAITS_CENTCOM list(ZTRAIT_CENTCOM = TRUE)
-#define ZTRAITS_STATION list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_STATION = TRUE)
+#define ZTRAITS_STATION list(ZTRAIT_STATION = TRUE)
 #define ZTRAITS_SPACE list(ZTRAIT_SPACE_RUINS = TRUE)
 #define ZTRAITS_LAVALAND list(ZTRAIT_MINING = TRUE, ZTRAIT_LAVA_RUINS = TRUE, ZTRAIT_BOMBCAP_MULTIPLIER = 2)
 #define ZTRAITS_REEBE list(ZTRAIT_REEBE = TRUE, ZTRAIT_BOMBCAP_MULTIPLIER = 0.5)
-#define ZTRAITS_OVERMAP list(ZTRAIT_BOMBCAP_MULTIPLIER = 0.5)
 
 #define DL_NAME "name"
 #define DL_TRAITS "traits"
@@ -72,13 +71,6 @@ require only minor tweaks.
 // must correspond to _basemap.dm for things to work correctly
 #define DEFAULT_MAP_TRAITS list(\
     DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),\
-    DECLARE_LEVEL("overmap", ZTRAITS_OVERMAP),\
-    DECLARE_LEVEL("overmap2", ZTRAITS_OVERMAP),\
-    DECLARE_LEVEL("SystemCapture", ZTRAITS_SPACE),\
-    DECLARE_LEVEL("one", ZTRAITS_SPACE),\
-    DECLARE_LEVEL("two", ZTRAITS_SPACE),\
-    DECLARE_LEVEL("three", ZTRAITS_SPACE),\
-    DECLARE_LEVEL("four", ZTRAITS_SPACE),\
     )
 
 // Camera lock flags
