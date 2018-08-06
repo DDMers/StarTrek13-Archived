@@ -14,6 +14,7 @@
 
 	anchored = TRUE	//  don't get pushed around
 	var/mob/living/new_character	//for instant transfer once the round is set up
+	var/datum/crew/crews = list()
 
 /mob/dead/new_player/Initialize()
 	if(client && SSticker.state == GAME_STATE_STARTUP)
@@ -497,7 +498,6 @@
 	close_spawn_windows()
 
 	var/mob/living/carbon/human/H = new(loc)
-
 	var/frn = CONFIG_GET(flag/force_random_names)
 	if(!frn)
 		frn = jobban_isbanned(src, "appearance")
@@ -506,7 +506,7 @@
 	if(frn)
 		client.prefs.random_character()
 		client.prefs.real_name = client.prefs.pref_species.random_name(gender,1)
-	client.prefs.copy_to(H)
+	client.prefs.copy_to(H) ///aaand that's why faction spawns got weird, nice
 	H.dna.update_dna_identity()
 	if(mind)
 		if(transfer_after)
@@ -515,7 +515,7 @@
 		mind.transfer_to(H)					//won't transfer key since the mind is not active
 
 	H.name = real_name
-
+	H.player_faction = client.prefs.player_faction //Startrek13 start
 	. = H
 	new_character = .
 	if(transfer_after)

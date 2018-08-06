@@ -116,7 +116,6 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	required_race = /datum/species/romulan
 	factag = "romulan"
 
-
 /datum/faction/proc/add_objective(var/datum/factionobjective/O)
 	if(O in subtypesof(/datum/factionobjective))
 		if(current_objective)
@@ -166,9 +165,16 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	to_chat(D, "<FONT color='blue'><B>You have been recruited into [name]!</B></font>")
 	to_chat(D, "<FONT color='[pref_colour]'><B>[flavourtext]</B></font>")
 	onspawn(D)
-
+	if(istype(src, /datum/faction/romulan))
+		if(D.client)
+			if(D.client.prefs.romulan_name && !isnull(D.client.prefs.romulan_name))
+				D.real_name = D.client.prefs.romulan_name
+				D.name = D.client.prefs.romulan_name
+				to_chat(D, "You have been renamed to [name], your chosen romulan name.")
+				return
 
 /datum/faction/proc/onspawn(mob/living/carbon/human/D) //If you want things to happen to someone as they join a faction, put it here
+
 	var/image/factionoverlay = new
 	factionoverlay.icon = 'StarTrek13/icons/trek/faction_icons.dmi'
 	factionoverlay.icon_state = "[factag]"

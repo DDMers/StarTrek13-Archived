@@ -11,21 +11,28 @@ SUBSYSTEM_DEF(faction)
 	var/mob/living/vips = list() //People involved in vip objectives
 	var/mob/living/lovers = list() //people involved in VIP objectives as the VIPs lover
 	var/datum/borg_hivemind/borg_hivemind
-
+	var/datum/crew/crews = list() //available crew slots to fill
 
 /datum/controller/subsystem/faction/Initialize(timeofday)
-	borg_hivemind = new
-	if(!factions)
-		WARNING("No factions have been created!")
 	for(var/F in subtypesof(/datum/faction))
 		var/datum/faction/thefaction = F
 		var/datum/faction/instance = new thefaction
 		factions += instance
 		message_admins("DEBUG: [instance] was created")
+	borg_hivemind = new
+	if(!factions)
+		WARNING("No factions have been created!")
+	for(var/F in subtypesof(/datum/crew))
+		var/datum/crew/crew = F
+		var/datum/crew/instance = new crew
+		crews += instance
 	. = ..()
 
 /datum/controller/subsystem/faction/fire()
 	if(SSticker.current_state > GAME_STATE_PREGAME) //Round started. Now begin the countdown to allow jumpgates.
+		for(var/datum/crew/S in crews)
+			if(!S.filled)
+				S.FillRoles()
 		if(!timing_jumpgates)
 			addtimer(CALLBACK(src, .proc/announce_jumpgates), 200)
 			timing_jumpgates = TRUE
