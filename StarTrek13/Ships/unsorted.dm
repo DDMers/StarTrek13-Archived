@@ -267,7 +267,7 @@
 				thefood.name = "[temp] [thefood.name]"
 	sleep(40)
 	icon_state = "replicator-off"
-  
+
 /obj/item/ammo_casing/energy/electrode/phaserstun
 	e_cost = 100
 	fire_sound = 'StarTrek13/sound/borg/machines/phaser.ogg'
@@ -285,13 +285,49 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode/phaserstun, /obj/item/ammo_casing/energy/laser/phaserkill)
 
 /obj/item/storage/book/skillbook
-	name = "Piloting field manual"
-	desc = "This small book contains a myriad of complex annotated digrams which will help you learn to fly ships! After clicking this in hand, you will learn basic piloting skills and the book will disappear"
+	name = "piloting field manual"
+	desc = "This small book contains a myriad of complex annotated digrams which will help you learn to fly ships! After clicking this in hand, you will learn basic piloting skills and the book will disappear."
 
 /obj/item/storage/book/skillbook/attack_self(mob/user)
 	if(ishuman(user))
-		user.skills.add_skill("piloting", 5)
+		var/datum/skill/S = user.skills.getskill("piloting")
+		if(S.value > 4)
+			to_chat(user, "You skim through the manual, but you already know this material.")
+			return ..()
+		user.skills.add_skill("piloting", (5 - S.value))
 		to_chat(user, "After skimming through [src] you feel confident that you'll be able to fly a starship to a basic level!")
+		qdel(src)
+	else
+		. = ..()
+
+/obj/item/storage/book/skillbook/engi
+	name = "guide to engineering"
+	desc = "This small book contains a set of complex annotated blueprints and instructions which will help you learn to maintain and modify starships! After clicking this in hand, you will learn basic engineering skills and the book will disappear."
+
+/obj/item/storage/book/skillbook/engi/attack_self(mob/user)
+	if(ishuman(user))
+		var/datum/skill/S = user.skills.getskill("construction and maintenance")
+		if(S.value > 4)
+			to_chat(user, "You skim through the manual, but you already know this material.")
+			return ..()
+		user.skills.add_skill("construction and maintenance", (5 - S.value))
+		to_chat(user, "After skimming through [src] you feel confident that you'll be able to maintain a starship!")
+		qdel(src)
+	else
+		. = ..()
+
+/obj/item/storage/book/skillbook/med
+	name = "doctor's guide for medical practices"
+	desc = "This small book contains a set of instructions and pictures of the human body, annotated. After clicking this in hand, you will learn basic engineering skills and the book will disappear."
+
+/obj/item/storage/book/skillbook/med/attack_self(mob/user)
+	if(ishuman(user))
+		var/datum/skill/S = user.skills.getskill("medicine")
+		if(S.value > 4)
+			to_chat(user, "You skim through the manual, but you already know this material.")
+			return ..()
+		user.skills.add_skill("medicine", (5 - S.value))
+		to_chat(user, "After skimming through [src] you feel confident that you'll be able to work basic medicinal practices!")
 		qdel(src)
 	else
 		. = ..()
