@@ -578,7 +578,8 @@
 */
 
 /obj/structure/overmap/process()
-	pilot.update_parallax_contents() //Need this to be on SUPERSPEED or it'll look awful
+	if(pilot)
+		pilot.update_parallax_contents() //Need this to be on SUPERSPEED or it'll look awful
 	if(wrecked)
 		if(prob(5)) //This damn wreck is falling apart
 			take_damage(1001)

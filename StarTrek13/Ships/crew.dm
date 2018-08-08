@@ -53,7 +53,7 @@
 			var/mob/living/steve = pick(candidates)
 			candidates -= steve
 			crewmen += steve
-			to_chat(steve, "You got your desired position on a [name]")
+			to_chat(steve, "You have been posted on a [name]")
 			SendToSpawn(steve)
 			count ++
 	SanityCheck()
