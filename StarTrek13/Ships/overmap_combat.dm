@@ -191,6 +191,7 @@
 		qdel(progbar)
 
 /obj/structure/overmap/proc/attempt_fire()
+	update_weapons()
 	if(wrecked)
 		return
 	var/obj/structure/overmap/S = target_ship

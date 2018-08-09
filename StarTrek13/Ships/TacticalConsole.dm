@@ -80,10 +80,14 @@
 	weapons = list()
 	torpedoes = list()
 	var/area/thearea = get_area(src)
-	for(var/obj/machinery/power/ship/phaser/P in thearea)
-		weapons += P
-	for(var/obj/structure/torpedo_launcher/T in thearea)
-		torpedoes += T
+	for(var/P in thearea)
+		if(istype(P,/obj/machinery/power/ship/phaser))
+			var/obj/machinery/power/ship/phaser/PP = P
+			weapons += PP
+	for(var/T in thearea)
+		if(istype(T, /obj/structure/torpedo_launcher))
+			var/obj/structure/torpedo_launcher/TT = T
+			torpedoes += TT
 
 /datum/asset/simple/starmap
 	assets = list(

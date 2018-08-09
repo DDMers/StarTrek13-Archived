@@ -300,6 +300,7 @@
 	START_PROCESSING(SSobj,src)
 	linkto()
 	update_weapons()
+	addtimer(CALLBACK(src, .proc/update_stats), 500)
 	for(var/obj/effect/landmark/warp_beacon/W in warp_beacons)
 		destinations += W
 	..()
@@ -411,9 +412,11 @@
 //	var/datum/action/innate/mecha/strafe/strafing_action = new
 
 /obj/structure/overmap/proc/linkto()	//weapons etc. don't link!
-	for(var/obj/structure/fluff/helm/desk/tactical/T in linked_ship)
-		weapons = T
-		T.theship = src
+	for(var/TT in linked_ship)
+		if(istype(TT, /obj/structure/fluff/helm/desk/tactical))
+			var/obj/structure/fluff/helm/desk/tactical/T = TT
+			weapons = T
+			T.theship = src
 	for(var/obj/machinery/space_battle/shield_generator/G in linked_ship)
 		generator = G
 		G.ship = src
@@ -434,7 +437,6 @@
 		M.get_ship()
 	for(var/obj/structure/viewscreen/V in linked_ship)
 		V.our_ship = src
-	get_damageable_components()
 	for(var/obj/structure/weapons_console/WC in linked_ship)
 		WC.our_ship = src
 	for(var/obj/structure/overmap/ship/runabout/R in linked_ship)
@@ -576,6 +578,11 @@
 		max_shield_health = theshield.maxhealth
 */
 
+/obj/structure/overmap/proc/update_stats()
+	SC.weapons.update_weapons()
+	linkto()
+	addtimer(CALLBACK(src, .proc/update_stats), 500)
+
 /obj/structure/overmap/process()
 	if(pilot)
 		update_observers()
@@ -596,15 +603,12 @@
 		destroy(1)
 	if(turret_recharge >0)
 		turret_recharge --
-	if(prob(10))
-		linkto()
 	location()
 	if(agressor)
 		if(agressor.target_ship != src)
 			agressor = null
 	check_overlays()
 	counter ++
-	SC.weapons.update_weapons()
 	damage = SC.weapons.damage
 	if(nav_target)
 		navigate()

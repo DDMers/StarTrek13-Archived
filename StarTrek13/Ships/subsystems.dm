@@ -160,12 +160,14 @@
 		chargeRate = 100
 		fire_cost = 150
 		return TRUE
-	for(var/obj/machinery/power/ship/phaser/P in controller.theship.linked_ship)
-		chargeRate += P.charge_rate
-		damage += P.damage
-		fire_cost += P.fire_cost
-		counter ++
-		temp = P.charge
+	for(var/PS in controller.theship.linked_ship)
+		if(istype(PS, /obj/machinery/power/ship/phaser))
+			var/obj/machinery/power/ship/phaser/P = PS
+			chargeRate += P.charge_rate
+			damage += P.damage
+			fire_cost += P.fire_cost
+			counter ++
+			temp = P.charge
 	maths_damage = damage
 	maths_damage -= round(max_charge - charge)/2 //Damage drops off heavily if you don't let them charge
 	damage = maths_damage
@@ -622,7 +624,6 @@
 	START_PROCESSING(SSobj,src)
 
 /obj/structure/subsystem_panel/process()
-	check_ship()
 	check_overlays()
 
 /obj/structure/subsystem_panel/attack_hand(mob/user)
