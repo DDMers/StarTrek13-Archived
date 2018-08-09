@@ -216,6 +216,7 @@
 "eh" = (/obj/structure/table/trek,/obj/item/stack/sheet/metal/fifty,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "ei" = (/obj/structure/table/trek{icon_state = "table"; dir = 1},/obj/item/storage/toolbox/mechanical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "ej" = (/obj/structure/table/trek,/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/electrical,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
+"ek" = (/turf/open/bridge_overlay{pixel_x = -64; pixel_y = -32},/area/ship/federation/sovreign)
 "em" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/turf/open/floor/borg/trek/lit,/area/ship/federation/sovreign)
 "en" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/obj/structure/rack,/obj/item/gun/energy/laser/retro,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "eo" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/structure/photon_torpedo,/obj/structure/photon_torpedo,/obj/structure/photon_torpedo,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
@@ -276,7 +277,7 @@ abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaOaoaX
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbaanaoaoaoaoaobbaoaoaoaoaoapbcacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaOaoaoaoaobdadaYadbfaoaoaoaoaOacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaOaoaoaobgaoaoaoaoaobhaoaoaoaOacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
-abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaNaOaoaoaoaoaoaoaoaoaoaoaoaOaOacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaNaOekaoaoaoaoaoaoaoaoaoaoaOaOacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbiababaLabababababababaLabababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaLacacacacacacacaLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTdNchblblblblblblblchdNbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
