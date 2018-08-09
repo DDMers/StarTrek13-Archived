@@ -759,10 +759,20 @@
 	var/ambience = 'StarTrek13/sound/trek/engines/engine.ogg'
 	var/cooldown2 = 116 //11 second cooldown
 	var/saved_time = 0
+	var/datum/looping_sound/trek/engine_hum/soundloop
 
 /obj/structure/fluff/warpcore/Initialize(timeofday)
 	. = ..()
+	START_PROCESSING(SSobj,src)
 
+/obj/structure/fluff/warpcore/process()
+	if(!soundloop)
+		soundloop = new(list(src), TRUE)
+	if(world.time >= saved_time + cooldown2)
+		saved_time = world.time
+		for(var/MM in get_area(src))
+			var/mob/M = MM
+			SEND_SOUND(M, ambience)
 
 /datum/looping_sound/trek/engine_hum
 	start_sound = null

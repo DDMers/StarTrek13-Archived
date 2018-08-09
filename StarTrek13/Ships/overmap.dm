@@ -455,6 +455,8 @@
 			fighters += F
 
 /obj/structure/overmap/take_damage(amount, var/override)
+	if(wrecked)
+		return 0
 	var/obj/structure/overmap/source = agressor
 	if(override)
 		if(has_shields())

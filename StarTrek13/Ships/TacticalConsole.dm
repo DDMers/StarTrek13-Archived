@@ -53,7 +53,6 @@
 	if(!soundloop)
 		soundloop = new(list(src), TRUE)
 	var/area/thearea = get_area(src)
-	get_weapons()
 	if(REDALERT)
 		if(world.time >= saved_time + cooldown2)
 			saved_time = world.time
