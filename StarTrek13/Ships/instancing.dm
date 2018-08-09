@@ -36,10 +36,8 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	announcedanger()
 
 /obj/structure/overmap/proc/announcedanger()//GET THE FUCK OUTTA THAT WRECK BOYOH
-	message_admins("a [true_name] class ship has been destroyed, it will respawn in 4 mins | 30 secs.")
-	addtimer(CALLBACK(src, .proc/respawn), 2400)
-	for(var/mob/M in linked_ship)
-		to_chat(M, "<span class='userdanger'>This wreck isn't going to last much longer, 4 minutes at most... I should get out of here before it collapses in on itself!</span>")
+	message_admins("a [true_name] class ship has been destroyed, it will respawn in about 2 mins")
+	addtimer(CALLBACK(src, .proc/respawn), 400)
 
 /obj/structure/overmap/proc/respawn() //Time's up to ditch the wreck, respawn time!
 	weapons.deletearea()

@@ -47,9 +47,9 @@
 	var/datum/action/innate/camera_off/overmap/off_action
 
 /obj/structure/overmap/proc/update_observers() //So cameras follow it
-	for(var/mob/camera/aiEye/remote/overmap_observer/R in observers)
-		var/turf/theturf = get_turf(src)
-		R.forceMove(theturf)
+	for(var/R in observers)
+		var/mob/RR = R
+		RR.forceMove(get_turf(src))
 
 
 /mob/camera/aiEye/remote/overmap_observer/relaymove(mob/user,direct)

@@ -759,22 +759,25 @@
 	var/ambience = 'StarTrek13/sound/trek/engines/engine.ogg'
 	var/cooldown2 = 116 //11 second cooldown
 	var/saved_time = 0
+	var/datum/looping_sound/trek/engine_hum/soundloop
 
 /obj/structure/fluff/warpcore/Initialize(timeofday)
 	START_PROCESSING(SSobj,src)
 
-
 /obj/structure/fluff/warpcore/process()
+	if(!soundloop)
+		soundloop = new(list(src), TRUE)
 	if(world.time >= saved_time + cooldown2)
 		saved_time = world.time
-		for(var/mob/M in get_area(src))
-			M << ambience
+		for(var/MM in get_area(src))
+			var/mob/M = MM
+			SEND_SOUND(M, ambience)
 
 /datum/looping_sound/trek/engine_hum
 	start_sound = null
 	start_length = 0
-	mid_sounds = list('StarTrek13/sound/trek/engines/engine.ogg'=1)
-	mid_length = 133
+	mid_sounds = list('StarTrek13/sound/trek/engineloop.ogg'=1)
+	mid_length = 140
 	end_sound = null
 	volume = 70
 
@@ -830,20 +833,15 @@
 	pixel_x = 16
 
 /obj/machinery/shieldgen/wallmounted
-		name = "structural integrity field generator"
-		desc = "Can be activated to seal off hull breaches, don't expect the emergency fields it creates to last long though...."
-		icon = 'StarTrek13/icons/trek/star_trek.dmi'
-		icon_state = "shieldoff"
-		density = 1
-		opacity = 0
-		anchored = 1
-		can_be_unanchored = 0
-		shield_range = 10
-
-
-/obj/machinery/shieldgen/wallmounted/process
-
-//Par made some sick bridge sprites, nut on them and think of Par not me whilst you do
+	name = "structural integrity field generator"
+	desc = "Can be activated to seal off hull breaches, don't expect the emergency fields it creates to last long though...."
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "shieldoff"
+	density = 1
+	opacity = 0
+	anchored = 1
+	can_be_unanchored = 0
+	shield_range = 10
 
 /obj/structure/fluff/ship
 	name = "wall panel"

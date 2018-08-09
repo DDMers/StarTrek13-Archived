@@ -18,7 +18,10 @@
 "ar" = (/obj/effect/turf_decal/trek/grey,/obj/machinery/iv_drip,/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 "as" = (/obj/structure/chair/trek/bridge{tag = "icon-bridgechair (NORTH)"; icon_state = "bridgechair"; dir = 1},/obj/effect/landmark/crewstart/miranda,/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 "at" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 8},/turf/closed/wall/ship/voy,/area/ship/federation/entax)
+"au" = (/obj/structure/closet/crate/trek{color = "#FFA500"},/obj/item/storage/box/metalfoam,/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
+"av" = (/obj/structure/closet/crate/trek{color = "#40E0D0"},/obj/item/stack/sheet/metal/fifty,/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 "aw" = (/obj/item/storage/firstaid/brute,/obj/item/storage/firstaid/o2,/obj/structure/table/reinforced,/obj/item/defibrillator/compact/loaded,/obj/item/reagent_containers/spray/cleaner,/obj/item/reagent_containers/spray/cleaner,/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 4},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
+"ax" = (/obj/machinery/shieldgen/wallmounted,/turf/closed/wall/ship/voy,/area/ship/federation/entax)
 "az" = (/obj/item/storage/firstaid/fire,/obj/item/tricorder,/obj/structure/table/reinforced,/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 4},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 "aA" = (/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/federation/entax)
 "aB" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/federation/entax)
@@ -96,17 +99,17 @@ aaaaaCbXbWbWbWbWbWbWbWaZbWbWajajajarbWaiaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaCbZaYaYalalalalalaCalalalalalalalawaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaCbZaYaYalbgalalalaCalalalalalalalazaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaCcccacacacacacacaaZcacacacacacacaahaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aCaCaCataCaCaCaDaCaCaCaCaCaCaCaDaCaCaCaCaCaCaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aCaCaCataCaCaCaDaCaCaCaxaCaCaCaDaCaCaCaCaCaCaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCbXbWbWbWbWbWbWbWbWbWbWbWbWbWbWbWbWbWbWbWbYaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCbZalcacacacacacacacacacacacacacacacacaalcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aCbZcbaCaCaCaCaDaCaCaCaCaCaCaCaDaCaCaCaCbZcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aCbZcbaCaCaCaCaDaCaCaCaxaCaCaCaDaCaCaCaCbZcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCbZcbaCabababaBabababababababaBabababaCbZcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCbZcbaCaAabaAaFaAaAaGaAaAaAaAaFaAabaHaCbZcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aCbZcbaCabaAaIaJaAaKaKaKaKaKaAaJaLaAabaCbZcbaCaCaCaCaCaCaCaCaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aCbZcbaCabaAaIaJaAaKaKaKaKaKaAaJaLaAabaCbZcbaCaCaCaCaCaxaCaCaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCbZcbaCabaAaMaKaKaKaKaKaKaKaKaKaNaAabaCbZcbaCbXakbWambWakbYaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCbZcbaCabaKaKbXbWbWbWbWbWbWbWbYaKaKabaCbZcbaCbZalalalalalcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aCbZcbaCabaKaKbZalalaTaUaTalalcbaKaKabaCbZcbaCbZalalalalalcbaXaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aCbZcbaZbaaKaKbZalbcalalalbdalcbaKaKbfaZbZcbaZbZalalalalalcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aCbZcbaCabaKaKbZalalaTaUaTalalcbaKaKabaCbZcbaCbZalalaualalcbaXaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aCbZcbaZbaaKaKbZalbcalalalbdalcbaKaKbfaZbZcbaZbZalalavalalcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCbZcbaCabaKaKaebialalasalalbkafaKaKabaCbZcbaCbZalalalalalcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCbZcbaCabaKaKaccacacacacacacaadaKaKabaCbZcbaCbZalalalalalcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCbZcbaCaAabaKagaKaKaKaKaKaKaKagaKababaCbZcbaCccancacacacacdaXaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -114,7 +117,7 @@ aCbZcbaCbuababaBabababababababaBabababaCbZcbaCaCaCbvaCbvaCaCaCaaaaaaaaaaaaaaaaaa
 aCbZcbaCaCaCaCaDaCaCaCaCaCaCaCaDaCaCaCaCbZcbaCalalalalalalalaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCbZalbWbWaqbWbWbWbWbWbWbWbWbWbWbWbWbWbWalcbaCalalalalalalalaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aCcccacacacacacacacacacacacacacacacacacacacdaCalalalalalalalaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aCaCaCaCaDaCaCaQaRaCbJaCbJaCaRaSaCaCaDaCaCaCaCalalalalalalalaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aCaCaCaCaDaCaCaQaRaCbJaxbJaCaRaSaCaCaDaCaCaCaCalalalalalalalaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaCbXbYaCaWbbbbbbbbbbbbbbbbbbbeaCbXbYaCaaaCalaoalalalalalaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaCbZcbaCbmalalalalalalalalalbnaCbZcbaCaaaCapapapapapapapaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaCbZcbaCbmalalalalalalalalalbnaCbZcbaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

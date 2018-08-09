@@ -418,6 +418,7 @@
 	icon_state = "lcars"
 	var/datum/shipsystem/shields/subsystem //change me as you need. This one's for testing
 	var/obj/structure/overmap/ship/our_ship
+	anchored = TRUE
 
 /obj/structure/subsystem_monitor/proc/get_ship()
 	subsystem = our_ship.SC.shields

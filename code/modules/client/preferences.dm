@@ -237,6 +237,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<b>Custom job preferences:</b><BR>"
 			dat += "<a href='?_src_=prefs;preference=sec_dept;task=input'><b>Prefered security department:</b> [prefered_security_department]</a><BR></td>"
+			dat += "Preferred Crews: <a href='?_src_=prefs;crewchange=true'>"
 
 			dat += "<td valign='center'>"
 
@@ -658,7 +659,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		HTML += "style='background-color: [player_faction.pref_colour]'" //For some reason this doesnt work.
 		HTML += "<center>[player_faction.name]</a></center><br>"
 		HTML += "<p>[player_faction.description]]</p>"
-		HTML += "<center>Preferred Crews: <a href='?_src_=prefs;crewchange=true' </a>"
 
 //		HTML += "<p>[factionRosters[faction][1]]</p><br>"
 

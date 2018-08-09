@@ -579,7 +579,7 @@
 
 /obj/structure/overmap/process()
 	if(pilot)
-		pilot.update_parallax_contents() //Need this to be on SUPERSPEED or it'll look awful
+		update_observers()
 	if(wrecked)
 		if(prob(5)) //This damn wreck is falling apart
 			take_damage(1001)
@@ -607,26 +607,25 @@
 	counter ++
 	SC.weapons.update_weapons()
 	damage = SC.weapons.damage
+	if(nav_target)
+		navigate()
 	if(can_move)
-		if(!can_move)
-			return
 		if(SC.engines.failed) //i hate you nichlas
 			return
-		if(navigating)
-			navigate()
 	get_interactibles()
 	//transporter.destinations = list() //so when we leave the area, it stops being transportable.
 	if(pilot)
 		if(pilot.loc != src)
-			pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
-			pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
 			for(var/obj/screen/alert/charge/C in pilot.alerts)
 				C.theship = src
+			pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
+			pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
 			exit() //pilot has been tele'd out, remove them!
 	if(charge > max_charge)
 		charge = max_charge
 	else
 		charge = max_charge
+//	parallax_update() //Need this to be on SUPERSPEED or it'll look awful
 
 /obj/structure/overmap/AltClick(mob/user)
 	if(user == pilot)
@@ -688,10 +687,10 @@
 			angle = 180
 			EditAngle()
 		//	setDir(4)
-			for(var/mob/L in linked_ship.contents)
+			for(var/mob/L in linked_ship)
 				shake_camera(L, 1, 10)
 				SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
-				to_chat(pilot, "The deck plates shudder as the ship builds up immense speed.")
+				to_chat(L, "The deck plates shudder as the ship builds up immense speed.")
 				linked_ship.parallax_movedir = NORTH
 			addtimer(CALLBACK(src, .proc/finish_warp, destination),jump_time)
 			for(var/obj/structure/overmap/ship/AI/A in world)
@@ -776,13 +775,12 @@
 		return 0
 
 /obj/structure/overmap/proc/destroy(var/severity = 1)
-	if(faction)
-		var/datum/faction/F
-		for(var/datum/faction/S in SSfaction.factions)
-			if(S.name == faction)
-				F = S
-		priority_announce("[name] has been destroyed! we are dispatching a replacement. [cost] credits has been deducted from your allowance to pay for the replacement ship.", "Communication from: [F]", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
-		F.credits -= cost
+	STOP_PROCESSING(SSobj,src)
+	if(wrecked)
+		for(var/datum/F in SC.systems)
+			qdel(F)
+		qdel(SC)
+		return ..()
 	. = ..()
 	for(var/obj/structure/overmap/ship/AI/A in world)
 		if(A.stored_target == src)
@@ -799,7 +797,6 @@
 	for(var/obj/structure/overmap/L in orange(30, src))
 		var/obj/structure/overmap/O = L
 		SEND_SOUND(O.pilot, thesound)
-	STOP_PROCESSING(SSobj,src)
 	if(pilot)
 		exit()
 	if(agressor)
@@ -825,6 +822,9 @@
 	for(var/datum/shipsystem/S in SC.systems)
 		qdel(S)
 	qdel(SC)
+	for(var/mob/M in linked_ship)
+		M << 'StarTrek13/sound/trek/corebreach.ogg'
+		to_chat(M, "<span class='userdanger'>Warp core breach imminent!</span>")
 	if(!istype(src, /obj/structure/overmap/ship/fighter))
 		switch(severity)
 			if(1)

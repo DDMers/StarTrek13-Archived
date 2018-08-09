@@ -33,7 +33,10 @@
 "aG" = (/obj/structure/table/trek{icon_state = "table"; dir = 4},/obj/item/modular_computer/laptop,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "aH" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/obj/structure/chair/trek{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "aI" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
+"aJ" = (/obj/structure/closet/crate/trek{color = "#40E0D0"},/turf/open/floor/borg/trek/lit,/area/ship/federation/sovreign)
+"aK" = (/obj/structure/closet/crate/trek{color = "#FFA500"},/turf/open/floor/borg/trek/lit,/area/ship/federation/sovreign)
 "aL" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
+"aM" = (/obj/structure/closet/crate/trek{color = "#FFA500"},/obj/item/stack/sheet/metal/fifty,/turf/open/floor/borg/trek/lit,/area/ship/federation/sovreign)
 "aN" = (/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/federation/sovreign)
 "aO" = (/turf/closed/indestructible/riveted{alpha = 0},/area/ship/federation/sovreign)
 "aP" = (/obj/structure/special_trek_turf/bridge{pixel_x = 6; pixel_y = -6},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
@@ -51,6 +54,7 @@
 "bb" = (/obj/effect/landmark/observer_start,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bc" = (/obj/structure/special_trek_turf{dir = 1; icon_state = "black"; tag = "icon-black (NORTH)"},/turf/closed/wall/trek{icon_state = "black"; dir = 1},/area/ship/federation/sovreign)
 "bd" = (/obj/structure/fluff/helm/desk/noisy,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
+"be" = (/obj/structure/closet/crate/trek{color = "#FFA500"},/obj/item/storage/box/metalfoam,/turf/open/floor/borg/trek/lit,/area/ship/federation/sovreign)
 "bf" = (/obj/structure/fluff/helm/desk{tag = "icon-miniconsole (NORTH)"; icon_state = "miniconsole"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bg" = (/obj/structure/fluff/helm/desk/functional,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bh" = (/obj/structure/weapons_console,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
@@ -71,6 +75,7 @@
 "bw" = (/turf/closed/wall/trek{icon_state = "black"; dir = 1},/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHWEST)"; icon_state = "lift"; dir = 10},/area/ship/federation/sovreign)
 "bx" = (/turf/closed/wall/trek{icon_state = "black"; dir = 1},/turf/closed/trek_raised/lift{tag = "icon-lift (WEST)"; icon_state = "lift"; dir = 8},/area/ship/federation/sovreign)
 "by" = (/turf/open/floor/fakespace,/area/ship/federation/sovreign)
+"bz" = (/obj/structure/closet/crate/trek{color = "#40E0D0"},/obj/item/stack/sheet/metal/fifty,/turf/open/floor/borg/trek/lit,/area/ship/federation/sovreign)
 "bA" = (/obj/structure/chair/trek{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bB" = (/obj/structure/table/trek,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bC" = (/obj/structure/table/trek{icon_state = "table"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
@@ -94,8 +99,10 @@
 "bU" = (/turf/closed/wall/trek{icon_state = "interior"; dir = 8},/area/ship/federation/sovreign)
 "bV" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (EAST)"; icon_state = "trek_edge2"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bW" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (WEST)"; icon_state = "trek_edge2"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
+"bX" = (/obj/machinery/shieldgen/wallmounted,/turf/open/floor/fakespace,/area/ship/federation/sovreign)
 "bY" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/effect/turf_decal/trek,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bZ" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (NORTH)"; icon_state = "trek_edge2"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
+"ca" = (/obj/machinery/shieldgen/wallmounted,/turf/closed/wall/trek{icon_state = "wall_light"},/area/ship/federation/sovreign)
 "cb" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "cc" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "cd" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 6},/area/ship/federation/sovreign)
@@ -186,6 +193,8 @@
 "dK" = (/obj/structure/transporter_overlay,/turf/open/transporterblack,/area/space)
 "dL" = (/turf/open/cargobay_overlay,/area/ship/federation/sovreign)
 "dM" = (/turf/open/storagebay_overlay,/area/ship/federation/sovreign)
+"dN" = (/obj/machinery/shieldgen/wallmounted,/turf/closed/wall/trek{icon_state = "interior"; dir = 1},/area/ship/federation/sovreign)
+"dO" = (/obj/machinery/shieldgen/wallmounted,/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/federation/sovreign)
 "dP" = (/obj/machinery/door/airlock/trek/tng/single,/turf/open/floor/hallway{icon_state = "hallway"; dir = 4},/area/ship/federation/sovreign)
 "dQ" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/turf/open/floor/borg/trek/lit,/area/ship/federation/sovreign)
 "dR" = (/obj/structure/bed/pod,/obj/item/bedsheet/red,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
@@ -270,7 +279,7 @@ abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaOaoao
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaNaOaoaoaoaoaoaoaoaoaoaoaoaOaOacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbiababaLabababababababaLabababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaLacacacacacacacaLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
-abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTagchblblblblblblblchagbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTdNchblblblblblblblchdNbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTbjaybkblblaoblblblbjaybLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTanaoaoaoaoaoaoaoaoaoapbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTanaoaobmbmbmbmbmaoaoapbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
@@ -283,7 +292,7 @@ abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacac
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacblblblblblblblblblblblblblblblblacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacblbybybybybybybybybybybybybybyblacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
-abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacahbybybybybybybybybybybybybybybLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacahbXbybybybybybybybybybybybybXbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTbjajajajajajajajajajajajajaybLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTbAbBbCboaobnbBbCboaobnbBbCbDbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTbAbEbFboaobnbEbFboaobnbEbFbDbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
@@ -311,9 +320,9 @@ abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacac
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTanapbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTanapbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTavavcdanapceavavbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
-abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTavavavavcdbjajajbWbVajajayceavavavavbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTavavcaavcdbjajajbWbVajajayceavcaavavbLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTbjajajajajbWaoaoaoaoaoaobVajajajajaybLacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
-abacacacacacacacacacacacacacacacbTavavavavavavavavavavavavavavavavcfavcdanaoaoaobGararararararararbIaoaoaoapceavcfavavavavavavavavavavavavavavbLacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
+abacacacacacacacacacacacacacacacbTavavavavavavcaavavavavavavavavavcfavcdanaoaoaobGararararararararbIaoaoaoapceavcfavavavavavavavavcaavavavavavbLacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacbTbjajajajajajajajajajajajajajajajajajcicjarararasbJbrbrbrbrbrbrbKaIarararckclajajajajajajajajajajajajajajajaybLacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacbTaIarararararararararararararararararasbJaLaLbrbrePcmcmcmcmcmcmeLbrbrbrbrbKaIarararararararararararararararasbLacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacbTagatchbUcnbJbrbKagatchbUagbJbrbrbrbrbrePaLaLcmcmcmcmcmcmcmcmcmcmcmcmcmcmeLbrbrbrbrbrcuaOaOaOaOaOaOaOcpaOaOaOaOacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
@@ -344,7 +353,7 @@ abacacacacacacacacacacacacacacacacacbTdRajajajajdSbLacacacaccmcmcmdTdUdVbTanapbL
 abacacacacacacacacacacacacacacacacacbTanaoaoaoaoapbLacacacaccmcmcmdWdXdYbTanapbLcmcmcmcmcmcmcmcmcmcmbTanapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanaoaoaoaoapbLacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacbTanbnbBbCboapbLacacacaccmcmcmcmcmcmbTanapbLcmcmcmcmcmcmcmcmcmcmbTanapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanbnbBbCboapbLacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacbTanbnbEbFboapbLacacacaccmcmcmcmcmcmbTanapbLcmcmcmcmcmcmcmcmcmcmbTanapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanbnbEbFboapbLacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
-abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTaIararararasbLcmcmcmcmcmbTavavavavcdanapceavavavavavavavavavavcdanapceavavavavbLcmcmcmcmcmcmcmcmcmcmbTaIararararasbLacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
+abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTaIararararasbLcmcmcmcmcmbTavavavavcdanapcecaavavavavavavavavcacdanapceavavavavbLcmcmcmcmcmcmcmcmcmcmbTaIararararasbLacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmeLbrbrbrbrbrbrePcmcmcmcmcmbTbjajajajajbWbVajajajajajajajajajajajajbWbVajajajajaybLcmcmcmcmcmcmcmcmcmcmblbrbrbrbrbrbrePacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTaIararararararararararararararararararararararararasbLcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTavavavdPavavbJbKagagatdIbUatdIbUagagbJbKavavdPavavavbLaccmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
@@ -366,24 +375,24 @@ abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbT
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanaoaobnejbCboaoaoapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanaoaoaobEbFaoaoaoapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTaIararararararararasbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
-abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTavavavavdIavavavavavavavavdIavavavavbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
+abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTavavavavdIavavavcaavavavavdIavavavavbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTbjajajajajajajajajajajajajajajajajaybLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTaIarararararararbIbGarararararararasbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTagagaechaeagbJbKanapbJbKagaechaeagagbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmdududududududududucmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmbTagefagagagagagagagagefagbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTdZajajajajdSbLbTanapbLbTdZajajajajdSbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTavavavavavavavbLcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
-abcmcmcmcmcmcmbTembMbMbMemememembMbMbMembLcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanaoaoaoaoapbLbTanapbLbTanaoaoaoaoapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTeneoepepepeoeqbLcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
+abcmcmcmcmcmcmbTembMbMbMaJaJaKaKbMbMbMembLcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanaoaoaoaoapbLbTanapbLbTanaoaoaoaoapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTeneoepepepeoeqbLcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmbTbMbMbMbMbMbMbMbMbMbMbMbMbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanbnbBbCboapbLbTanapbLbTanbnbBbCboapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanaoaoaoaoaoapbLcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmaNaNeraNaNaNaNaNaNaNaNaNaNaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanbnbEbFboapbLbTanapbLbTanbnbEbFboapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTesaoaoaoaoaoetbLcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
-abcmcmcmcmcmcmaNcJeuaNaNaNaNaNaNaNaNaNaNaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTaIararararasbLbTanapbLbTaIararararasbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTevaoaoaoaoaoetbLcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
+abcmcmcmcmcmcmaNcJeuaNaNaNaNaNaNaNaNaNdOaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTaIararararasbLbTanapbLbTaIararararasbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTevaoaoaoaoaoetbLcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmaNbMewbMbMbMbMbMbMbMbMbMbMaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmeLbrbrbrbrbrbrePbTanapbLeLbrbrbrbrbrbrePcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTexarareyararezbLcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
-abcmcmcmcmcmcmaNbMbMbMbMbMbMbMbMbMbMbMbMaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmeLbrbrbrcbbrbrbrePcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
-abcmcmcmcmcmcmaNbMbMbMbMbMbMbMbMbMbMbMbMaNavavavavavavavavavavavavavavavavavavavavavcfcdanapcecfavavavavavavavavavavavavavavavavavavavavavbLcmbTavavdPavavbLcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
+abcmcmcmcmcmcmaNbMaMbeaKaKbMbMbMbMbMbMbMaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmbTanapbLcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmeLbrbrbrcbbrbrbrePcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
+abcmcmcmcmcmcmaNbMaJbzaJaJbMbMbMbMbMbMbMaNavavavavavavavavavavavavavavavavavavavavcacfcdanapcecfcaavavavavavavavavavavavavavavavavavavavavbLcmbTavcadPavavbLcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmaNbMbMbMbMbMbMbMbMbMbMbMbMaNbjajajajajajajajajajajajajajajajajajajajajajajbWbVajajajajajajajajajajajajajajajajajajajajajajaybLdubTbjajajajaybLcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmaNbMbMbMbMbMbMbMbMbMeAeBbMdQanaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoapaoaoaoanaoaoaoapbLcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmaNbMbMbMbMbMbMbMbMbMbMbMbMaNaIararararararararararararararararararararararararararararararararararararararararararararararasbLdubTaIarararasbLcmcmcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
-abcmcmcmcmcmcmaNbMbMbMbMbMbMbMbMbMbMbMbMaNbrbrbraLbrbrbrbKaOaOaOaOaOaObMbMbMaOaOaOaOaOaOaOaOaOaOaOaOaOaObMbMbMaOaOaOaOaOaObJbrbrbrbrbrbrbrbTavavavavdPavavavavbLcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
-abcmcmcmcmcmcmaNbMbMbMbMbMbMbMbMbMbMbMbMaNcmcmdTeDdVcmabaOaOaOaOaOaOaOeFbMbMaOaOaOaOaOaOaOaOaOaOaOaOaOaOeFbMbMaOaOaOaOaOaOaOabcmcmcmcmcmcmbTeGeGeGeGeGeGeGeGeGbLcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
+abcmcmcmcmcmcmaNbMaJaJaJaJbMbMbMbMbMbMbMaNbrbrbraLbrbrbrbKaOaOaOaOaOaObMbMbMaOaOaOaOaOaOaOaOaOaOaOaOaOaObMbMbMaOaOaOaOaOaObJbrbrbrbrbrbrbrbTavavavavdPavavavavbLcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
+abcmcmcmcmcmcmaNbMaKaKaKaKbMbMbMbMbMbMbMaNcmcmdTeDdVcmabaOaOaOaOaOaOaOeFbMbMaOaOaOaOaOaOaOaOaOaOaOaOaOaOeFbMbMaOaOaOaOaOaOaOabcmcmcmcmcmcmbTeGeGeGeGeGeGeGeGeGbLcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmaNbMbMbMbMbMbMbMbMbMbMbMbMaNcmcmdWdXdYcmabaOaOaOaOaOaOaOeHeHeHaOaOaOaOaOaOaOaOaOaOaOaOaOaOeHeHeHaOaOaOaOaOaOaOabcmcmcmcmcmcmbTeIeGeIeGeIeGeIeGeIbLcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmdMaNaNaNaNaNaNaNaNaNaNaNaNaNcmcmcmcmcmcmabaObMbMbMbMbMbMbMbMbMbMbMbMbMbMbMaOaObMbMbMbMbMbMbMbMbMbMbMbMbMbMbMaOabcmcmcmcmcmcmbTeIeGeIeGeIeGeIeGeIbLcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
 abcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmabaObMbMbMbMbMbMbMbMbMbMbMbMbMbMbMaOaObMbMbMbMbMbMbMbMbMbMbMbMbMbMbMaOabcmcmcmcmcmcmbTeIeGeKeGeKeGeKeGeKbLcmcmcmcmcmcmcmcmcmabaaaaaaaaaaaaaaaaaaaa
