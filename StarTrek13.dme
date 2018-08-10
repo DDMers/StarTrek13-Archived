@@ -2641,6 +2641,7 @@
 #include "StarTrek13\Ships\experimental.dm"
 #include "StarTrek13\Ships\factions.dm"
 #include "StarTrek13\Ships\flaksim_turfs.dm"
+#include "StarTrek13\Ships\footstep.dm"
 #include "StarTrek13\Ships\globals.dm"
 #include "StarTrek13\Ships\instancing.dm"
 #include "StarTrek13\Ships\is_defines.dm"

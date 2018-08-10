@@ -454,12 +454,28 @@
 		if(!F in fighters)
 			fighters += F
 
+/obj/effect/temp_visual/trek
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "shipexplode"
+	duration = 30
+
+/obj/effect/temp_visual/trek/Initialize()
+	. = ..()
+	pixel_x = rand(3,15)
+	pixel_y = rand(3,15)
+
+/obj/effect/temp_visual/trek/shieldhit
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "shieldhit"
+	duration = 10
+
 /obj/structure/overmap/take_damage(amount, var/override)
 	if(wrecked)
 		return 0
 	var/obj/structure/overmap/source = agressor
 	if(override)
 		if(has_shields())
+			new /obj/effect/temp_visual/trek/shieldhit(loc)
 			var/heat_multi = 1
 			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 			var/obj/structure/overmap/ship/S = src
@@ -467,15 +483,13 @@
 			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
 			//	generator.take_damage(amount*heat_multi)
 			SC.shields.health -= amount*heat_multi
-			var/datum/effect_system/spark_spread/s = new
-			s.set_up(2, 1, src)
-			s.start() //make a better overlay effect or something, this is for testing
 			if(source)
 				if(source.target_subsystem)
 					source.target_subsystem.integrity -= (amount)/5 //Shields absorbs most of the damage
 				apply_damage(amount)
 				return//no shields are up! take the hit
 		else
+			new /obj/effect/temp_visual/trek(loc)
 			health -= amount
 			SC.hull_integrity.integrity -= amount
 			if(take_damage_traditionally)
@@ -483,6 +497,7 @@
 			return
 	if(take_damage_traditionally) //Set this var to 0 to do your own weird shitcode
 		if(has_shields())
+			new /obj/effect/temp_visual/trek/shieldhit(loc)
 			var/heat_multi = 1
 			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 			var/obj/structure/overmap/ship/S = src
@@ -514,6 +529,7 @@
 					apply_damage(amount)
 					return
 			else
+				new /obj/effect/temp_visual/trek(loc)
 				health -= amount
 				apply_damage(amount)
 				return
@@ -528,6 +544,7 @@
 			apply_damage(amount)
 			return
 	else
+		new /obj/effect/temp_visual/trek(loc)
 		shake_camera(pilot, 1, 10)
 		var/sound/thesound = pick(ship_damage_sounds)
 		SEND_SOUND(pilot, thesound)
