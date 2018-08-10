@@ -238,9 +238,9 @@
 					var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)
 					A.starting = loc
 					A.preparePixelProjectile(target_ship,pilot)
-					A.pixel_x = rand(-20, 50)
+					A.pixel_x = rand(0, 5)
 					A.fire()
-					playsound(src,'StarTrek13/sound/borg/machines/torpedo1.ogg',40,1)
+					playsound(src,'StarTrek13/sound/borg/machines/torpedo1.ogg',70,1)
 					sleep(1)
 					A.pixel_x = target_ship.pixel_x
 					A.pixel_y = target_ship.pixel_y

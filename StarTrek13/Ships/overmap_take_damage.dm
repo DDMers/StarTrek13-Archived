@@ -58,6 +58,9 @@
 		if(prob(10+maths))
 			explosion(theturf,0,5,5) //Pretty bad hit right there
 		if(prob(70+maths))
+			var/datum/effect_system/smoke_spread/smoke = new
+			smoke.set_up(4, theturf)
+			smoke.start()
 			new /obj/effect/hotspot/shipfire(theturf)  //begin the fluff! as ships are damaged, they start visibly getting destroyed
 			theturf.atmos_spawn_air("plasma=30;TEMP=1000")
 			for(var/turf/open/floor/T in orange(5,theturf))

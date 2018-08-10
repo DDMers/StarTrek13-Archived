@@ -10,7 +10,7 @@
 	opacity = 0
 	layer = 4.5
 	var/list/weapons = list()
-	var/list/redalertsounds = list('StarTrek13/sound/borg/machines/redalert.ogg','StarTrek13/sound/borg/machines/redalert2.ogg')
+	var/list/redalertsounds = list('StarTrek13/sound/borg/machines/redalert.ogg')
 	var/target = null
 	var/cooldown2 = 190 //18.5 second cooldown
 	var/saved_time = 0

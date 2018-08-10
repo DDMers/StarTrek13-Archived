@@ -470,6 +470,7 @@
 	duration = 10
 
 /obj/structure/overmap/take_damage(amount, var/override)
+	playsound(src,'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg',100,1)
 	if(wrecked)
 		return 0
 	var/obj/structure/overmap/source = agressor
