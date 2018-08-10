@@ -228,14 +228,6 @@
 				//	current_beam.beam.pixel_y = target_ship.pixel_y
 					to_chat(pilot, "You successfully hit [S]")
 					target_ship.take_damage(damage)
-					if(!S.has_shields())
-						var/obj/effect/explosion/explosion = new(get_turf(target_ship))
-						var/matrix/ntransform = matrix(transform)
-						ntransform.Scale(0.5)
-						explosion.layer = 4.5
-						explosion.pixel_x = target_ship.pixel_x + rand(50,100)
-						explosion.pixel_y = target_ship.pixel_y + rand(50,100)
-						animate(explosion, transform = ntransform, time = 0.5,easing = EASE_IN|EASE_OUT)
 					spawn(0)
 						current_beam.Start()
 					return

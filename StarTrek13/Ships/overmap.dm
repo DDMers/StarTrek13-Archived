@@ -473,13 +473,28 @@
 	if(wrecked)
 		return 0
 	var/obj/structure/overmap/source = agressor
+	if(prob(40))
+		var/meme = rand(1,6)
+		switch(meme)
+			if(1)
+				visible_message("<span class='warning'>Bits of [name] fly off into space!</span>")
+			if(2)
+				visible_message("<span class='warning'>[name]'s hull ruptures!</span>")
+			if(3)
+				visible_message("<span class='warning'>[name]'s hull buckles!</span>")
+			if(4)
+				visible_message("<span class='warning'>warp plasma vents from [name]'s engines!</span>")
+			if(5)
+				visible_message("<span class='warning'>a beam tears across [name]'s hull!</span>")
+			if(6)
+				visible_message("<span class='warning'>[name]'s hull is scorched!</span>")
 	if(override)
 		if(has_shields())
 			new /obj/effect/temp_visual/trek/shieldhit(loc)
 			var/heat_multi = 1
 			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 			var/obj/structure/overmap/ship/S = src
-			heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
+			heat_multi = S.SC.shields.heat >= 500 ? 2 : 1 // double damage if heat is over 500.
 			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
 			//	generator.take_damage(amount*heat_multi)
 			SC.shields.health -= amount*heat_multi

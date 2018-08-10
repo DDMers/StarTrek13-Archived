@@ -288,7 +288,7 @@
 
 /datum/shipsystem/shields
 	name = "shields" //in this case, integrity is shield health. If your shields are smashed to bits, it's assumed that all the control circuits are pretty fried anyways.
-	var/breakingpoint = 150 //at 150 heat, shields will take double damage
+	var/breakingpoint = 500 //at 500 heat, shields will take double damage
 	var/heat_resistance = 50 // how much we resist gaining heat
 	power_draw = 0//just so it's not an empty type TBH.
 	var/list/obj/machinery/space_battle/shield_generator/linked_generators = list()
@@ -297,8 +297,8 @@
 	var/obj/structure/ship_component/capbooster/boosters = list()
 	icon_state = "shields"
 	var/chargeRate = 500 // per tick
-	var/health = 20000
-	var/max_health = 20000 //This will become shield health, integrity is subsystem integrity
+	var/health = 30000
+	var/max_health = 30000 //This will become shield health, integrity is subsystem integrity
 	integrity = 20000
 	max_integrity = 20000
 	var/max_integrity_bonus = 0 //From capboosters
