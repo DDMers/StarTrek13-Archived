@@ -631,7 +631,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	factions = SSfaction.factions
 
 /datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
-//	ResetJobs() //stop spawning with the wrong gear please. Thank you gamers
 	getFactions()
 	if(!SSjob)
 		return
