@@ -150,6 +150,13 @@
 //	theship.phaser_charge_rate = 0
 
 /datum/shipsystem/weapons/proc/update_weapons()
+	if(istype(controller.theship, /obj/structure/overmap/ship/AI))
+		var/obj/structure/overmap/ship/AI/theship2 = controller.theship
+		damage = theship2.dam
+		fire_cost = theship2.firecost
+		max_charge = theship2.maxcharge
+		chargeRate = theship2.chargerate
+		return
 	damage = initial(damage)
 	fire_cost = initial(fire_cost)
 	max_charge = initial(max_charge)
@@ -198,6 +205,9 @@
 
 /datum/shipsystem/weapons/proc/attempt_fire(var/firemode)
 	if(!failed)
+		if(istype(controller.theship, /obj/structure/overmap/ship/AI))
+			if(charge >= fire_cost)
+				return 1
 		if(controller.theship.fire_mode == 1)
 			if(charge >= fire_cost || charge > 0)
 				if(world.time < nextfire) //Spam blocker! spam your phasers and expect shit damage.
