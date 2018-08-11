@@ -30,6 +30,7 @@
 		var/x_speed = vel * cos(angle)
 		var/y_speed = vel * sin(angle)
 		PixelMove(x_speed,y_speed)
+		parallax_update()
 		if(pilot && pilot.client)
 			pilot.client.pixelXYshit()
 

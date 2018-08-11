@@ -111,6 +111,12 @@
 	icon_state = "photon"
 	damage = 3500//Ouch!.
 
+/obj/item/projectile/beam/laser/disruptor
+	hitscan = FALSE
+	name = "photon torpedo"
+	icon_state = "photon"
+	damage = 1000//Ouch!.
+
 /obj/item/projectile/beam/laser/ship_turret_laser
 	name = "turbolaser"
 	icon_state = "shiplaser"
@@ -235,21 +241,6 @@
 	pixel_w = -120
 	turnspeed = 0.7 //It's still quite small for its class
 	cost = 20000
-
-/obj/structure/overmap/ship/romulan
-	name = "dderidex"
-	icon = 'StarTrek13/icons/trek/large_ships/dderidex.dmi'
-	icon_state = "dderidex"
-	spawn_name = "romulan_spawn"
-//	pixel_x = -100
-//	pixel_y = -100
-//	var/datum/shipsystem_controller/SC
-	warp_capable = TRUE
-	max_health = 35000
-	pixel_z = -128
-	pixel_w = -120
-	faction = "romulan empire"
-	cost = 10000
 
 /obj/structure/overmap/ship/cruiser
 	name = "USS Excelsior"
@@ -484,9 +475,9 @@
 			if(3)
 				visible_message("<span class='warning'>[name]'s hull buckles!</span>")
 			if(4)
-				visible_message("<span class='warning'>warp plasma vents from [name]'s engines!</span>")
+				visible_message("<span class='warning'>Warp plasma vents from [name]'s engines!</span>")
 			if(5)
-				visible_message("<span class='warning'>a beam tears across [name]'s hull!</span>")
+				visible_message("<span class='warning'>A beam tears across [name]'s hull!</span>")
 			if(6)
 				visible_message("<span class='warning'>[name]'s hull is scorched!</span>")
 	if(override)

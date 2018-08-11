@@ -996,7 +996,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			to_chat(user, "You've signed up to crew a [A]")
 			fucc.crews += A
 			crews += A
-			SetChoices(user)
 
 		else
 			to_chat(user, "You can only do this in the lobby")
