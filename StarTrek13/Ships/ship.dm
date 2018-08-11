@@ -766,6 +766,8 @@
 	START_PROCESSING(SSobj,src)
 
 /obj/structure/fluff/warpcore/process()
+	if(SUPERLAGMODE)
+		return
 	if(!soundloop)
 		soundloop = new(list(src), TRUE)
 	if(world.time >= saved_time + cooldown2)
