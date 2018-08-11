@@ -50,7 +50,7 @@
 		if(agressor)
 			if(istype(agressor.target_subsystem, /datum/shipsystem/integrity)) //If they target the hull subsystem, they deal heavy physical damage
 				maths += 20 //Heavily increase physical damage
-		if(prob(20))
+		if(prob(5))
 			for(var/obj/structure/overmap/O in orange(30,src))
 				SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
 		var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))

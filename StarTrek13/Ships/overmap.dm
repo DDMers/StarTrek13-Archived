@@ -85,6 +85,8 @@
 	var/true_name = null //For respawning
 	var/faction = null //Are we a faction's ship? if so, when we blow up, DEDUCT EXPENSES
 	var/cost = 8000 //How much does this ship cost to replace?
+	var/cloaked = FALSE
+	var/stored_name //used in cloaking code to restore ship names
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -437,6 +439,10 @@
 	for(var/obj/structure/subsystem_panel/PP in linked_ship)
 		PP.check_ship()
 		PP.check_overlays()
+	for(var/CD in linked_ship)
+		if(istype(CD, /obj/structure/cloaking_device))
+			var/obj/structure/cloaking_device/CC = CD
+			CC.theship = src
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	SC.weapons.update_weapons()
@@ -831,24 +837,10 @@
 	if(agressor)
 		agressor.stop_firing()
 		agressor.target_subsystem = null
-	SpinAnimation(1000, 1)
-	var/image/explosion = image('StarTrek13/icons/trek/overmap_effects.dmi')
-	explosion.icon_state = "shipexplode"
-	explosion.layer = 4.5
-	overlays += explosion
-	sleep(10)
-	overlays -= explosion
-	qdel(explosion)
-	sleep(40)
-	var/image/explosion1 = image('StarTrek13/icons/trek/overmap_effects.dmi')
-	explosion1.icon_state = "shipexplode2"
-	explosion1.layer = 4.5
-	overlays += explosion1
-	sleep(10)
-	overlays -= explosion1
-	qdel(explosion1)
-	sleep(30)
+	SpinAnimation(2000, 1)
+	new /obj/effect/temp_visual/trek(loc)
 	for(var/datum/shipsystem/S in SC.systems)
+		new /obj/effect/temp_visual/trek(loc)
 		qdel(S)
 	qdel(SC)
 	for(var/mob/M in linked_ship)

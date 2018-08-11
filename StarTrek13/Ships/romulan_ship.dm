@@ -15,6 +15,7 @@
 	soundlist = ('StarTrek13/sound/borg/machines/disruptor.ogg')
 
 
+
 /obj/structure/overmap/ship/romulan/attempt_fire()
 	update_weapons()
 	if(wrecked)
@@ -53,3 +54,50 @@
 					A.pixel_y = target_ship.pixel_y
 			else
 				to_chat(pilot, "No photon torpedoes remain.")
+
+/obj/structure/overmap/ship/process()
+	. = ..()
+	if(cloaked)
+		if(SC.engines.charge <= 500) //Engines completely drained, forcibly decloak!
+			cloak()
+		SC.engines.charge -= 500
+		SC.shields.health -= 1000 //No shields whilst cloaked
+
+
+/obj/structure/overmap/proc/cloak()
+	if(agressor)
+		agressor.stop_firing()
+		if(src == agressor.nav_target)
+			agressor.nav_target = null
+	if(cloaked)
+		playsound(src,'StarTrek13/sound/trek/decloak.ogg',100,1)
+		to_chat(pilot, "Ship decloaking...")
+		alpha = 255
+		icon_state = "decloak"
+		sleep(10)
+		icon_state = initial(icon_state)
+		cloaked = FALSE
+		name = stored_name //Stop it appearing on any sensors and right click menus
+		stored_name = null
+	else
+		playsound(src,'StarTrek13/sound/trek/cloak.ogg',100,1)
+		to_chat(pilot, "Ship cloaking...")
+		stored_name = name
+		alpha = 255
+		icon_state = "cloak"
+		sleep(10)
+		icon_state = initial(icon_state)
+		alpha = 0
+		cloaked = TRUE
+		name = null
+
+/obj/structure/cloaking_device
+	name = "cloaking device"
+	desc = "aeh'lla-ifv"
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "cloakingdevice"
+	var/obj/structure/overmap/theship
+
+/obj/structure/cloaking_device/attack_hand(mob/user)
+	theship.cloak()
+	to_chat(user, "Cloak toggled, WARNING: This will drain engine and shield power when in use!")

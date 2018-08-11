@@ -38,6 +38,8 @@
 /obj/structure/overmap/proc/fire(obj/structure/overmap/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
 	if(wrecked)
 		return 0
+	if(cloaked)
+		return 0
 	if(target)
 		if(isOVERMAP(target))
 			target.agressor = src

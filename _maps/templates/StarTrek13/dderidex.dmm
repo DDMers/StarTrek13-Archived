@@ -90,7 +90,7 @@
 "bL" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen/fountain/captain,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
 "bM" = (/obj/structure/chair/comfy/lime{dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "bN" = (/obj/structure/debris,/turf/open/floor/plating,/area/ship/romulan)
-"bO" = (/obj/item/wirecutters,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/generic,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bO" = (/obj/effect/decal/cleanable/dirt,/obj/item/wirecutters,/turf/open/floor/plating,/area/ship/romulan)
 "bP" = (/obj/structure/closet/crate/rcd,/obj/effect/decal/cleanable/dirt,/turf/open/floor/plating,/area/ship/romulan)
 "bQ" = (/obj/structure/table,/obj/item/mecha_parts/mecha_equipment/cable_layer,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
 "bR" = (/obj/machinery/door/airlock/trek/tng/voy{dir = 8; icon_state = "closed"; name = "captain's quarters"; tag = "icon-closed (WEST)"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
@@ -213,6 +213,7 @@
 "ee" = (/obj/structure/table,/obj/item/circular_saw,/obj/item/scalpel{pixel_y = 12},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "ef" = (/obj/structure/table,/obj/item/surgical_drapes,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "eg" = (/obj/structure/bed,/obj/item/bedsheet/medical,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"eh" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/generic,/obj/structure/cloaking_device,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -264,8 +265,8 @@ abaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaavanaiavanaiaiaiaiaRaiaiaiaiaiaiaiaiai
 abaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaavanaiaRaiaiaiaianavbkblbmbnaibobpbqbravanaiaiaiaibsaianavbeaNbfbgbtbuaiaiaibvavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaaaa
 abaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaavanaiavanaiaiaianavavavavavaxavavavavavanaiaiaianavaianavaxavavavavavavaxavavavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaaaa
 abaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaavanaiavaFaiaiaianavbwbxbybzbAbBbwanbCavanaiaiaianavaiaiaRaiaianavbDbEbFaiananavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaaaa
-abavavbGbGbGbGbGbGbGbGbHavavavaaaaaaaaaaaaavanaiavanaiaiaianavanbCbIbJaVbCaibCbKavanaiaiaianavaianavanaianavbLbMaiaiaianavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaaaa
-abavbdananananananananananbdavaaaaaaaaaaaaavanaiavanaiaiaianavbNaibAaVbObPbAbCbQavanaiaiaianavaianavanaiaibRaiaiaiaiaianavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaaaa
+abavavbGbGbGbGbGbGbGbGbHavavavaaaaaaaaaaaaavanaiavanaiaiaianavanbObIbJaVbCaibCbKavanaiaiaianavaianavanaianavbLbMaiaiaianavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaaaa
+abavbdananananananananananbdavaaaaaaaaaaaaavanaiavanaiaiaianavbNaibAaVehbPbAbCbQavanaiaiaianavaianavanaiaibRaiaiaiaiaianavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaaaa
 abavbdananananananananananbdavaaaaaaaaaaaaavananavanananaianavbSbTbCbUaVbAbVbAbWavanananananavananavanaianavavavavavavavavavavavavavavavavavavavaaaaaaaaaaaaaaaaabababaaaa
 abavanananbXbXbXbXananananbdavavavavavavavavavajavavavavaxavavavavavavavavavavavavavavavavajavavavavanaianavbibvanbibhavbibvanbibhavbibvanbibhavaaaaaaaaaaaaaaaaabababaaaa
 abavavananananananavaxavavavavbdbdanavbYbZavcacacacaavaiaiaiavadadadadadadadadadadadavbdaEancbavaaavanaianavccaiaiaicdavccaiaiaicdavccaiaiaicdavaaaaaaaaaaaaaaaaabababaaaa
