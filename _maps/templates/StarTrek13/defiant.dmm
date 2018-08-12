@@ -14,7 +14,7 @@
 "an" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/structure/photon_torpedo,/obj/structure/photon_torpedo,/obj/structure/photon_torpedo,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "ao" = (/turf/closed/wall/trek{icon_state = "wall_light"},/area/ship/federation/entax)
 "ap" = (/turf/closed/indestructible/riveted{alpha = 0},/area/ship/federation/entax)
-"aq" = (/obj/structure/viewscreen{icon_state = "viewscreenmini"; pixel_x = -5; pixel_y = 0},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/federation/entax)
+"aq" = (/obj/structure/viewscreen{icon_state = "viewscreenmini"; pixel_x = -5; pixel_y = 1},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/federation/entax)
 "ar" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/structure/rack,/obj/item/gun/energy/laser/retro,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "as" = (/obj/structure/torpedo_launcher,/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "at" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/obj/structure/rack,/obj/item/gun/energy/laser/retro,/obj/item/clothing/suit/armor/vest,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)

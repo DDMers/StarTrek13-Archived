@@ -83,7 +83,7 @@
 "bE" = (/obj/structure/table/trek,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bF" = (/obj/structure/table/trek{icon_state = "table"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bG" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 9},/area/space)
-"bH" = (/obj/structure/viewscreen{icon_state = "viewscreenmini"; pixel_x = -5; pixel_y = 0},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/federation/entax)
+"bH" = (/obj/structure/viewscreen{icon_state = "viewscreenmini"; pixel_x = -5; pixel_y = 1},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/federation/entax)
 "bI" = (/obj/structure/chair/trek{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bJ" = (/obj/structure/table/trek{icon_state = "table"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bK" = (/obj/structure/table/trek{icon_state = "table"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
