@@ -938,12 +938,14 @@
 	density = 0
 	anchored = 1.0
 
-/obj/structure/catwalk/Initialize(timeofday)
+/obj/structure/catwalk/Initialize()
 	. = ..()
+	for(var/obj/structure/catwalk/O in range(1))
+		O.update_icon()
 	for(var/obj/structure/catwalk/C in get_turf(src))
 		if(C != src)
 			warning("Duplicate [type] in [loc] ([x], [y], [z])")
-			qdel(C)
+			return INITIALIZE_HINT_QDEL
 	update_icon()
 
 /obj/structure/catwalk/Destroy()
@@ -959,6 +961,33 @@
 		if(2.0)
 			qdel(src)
 	return
+
+/obj/structure/catwalk/update_icon()
+	var/connectdir = 0
+	for(var/direction in GLOB.cardinals)
+		if(locate(/obj/structure/catwalk, get_step(src, direction)))
+			connectdir |= direction
+
+	//Check the diagonal connections for corners, where you have, for example, connections both north and east. In this case it checks for a north-east connection to determine whether to add a corner marker or not.
+	var/diagonalconnect = 0 //1 = NE; 2 = SE; 4 = NW; 8 = SW
+	//NORTHEAST
+	if(connectdir & NORTH && connectdir & EAST)
+		if(locate(/obj/structure/catwalk, get_step(src, NORTHEAST)))
+			diagonalconnect |= 1
+	//SOUTHEAST
+	if(connectdir & SOUTH && connectdir & EAST)
+		if(locate(/obj/structure/catwalk, get_step(src, SOUTHEAST)))
+			diagonalconnect |= 2
+	//NORTHWEST
+	if(connectdir & NORTH && connectdir & WEST)
+		if(locate(/obj/structure/catwalk, get_step(src, NORTHWEST)))
+			diagonalconnect |= 4
+	//SOUTHWEST
+	if(connectdir & SOUTH && connectdir & WEST)
+		if(locate(/obj/structure/catwalk, get_step(src, SOUTHWEST)))
+			diagonalconnect |= 8
+
+	icon_state = "catwalk[connectdir]-[diagonalconnect]"
 
 /obj/structure/catwalk/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/weldingtool))
