@@ -45,3 +45,22 @@
 	name = "command department"
 	desc = "A direction sign, pointing out which way the Command department is."
 	icon_state = "direction_bridge"
+
+//ST13
+
+/obj/structure/sign/directions/transporter
+	name = "transporter room"
+	desc = "A direction sign, pointing out which way the Transporter is."
+	icon_state = "direction_transporter"
+
+/obj/structure/sign/directions/eva
+	name = "eva storage"
+	desc = "A direction sign, pointing out which way EVA Storage is."
+	icon_state = "direction_eva"
+
+/obj/structure/sign/directions/hangar
+	name = "Hangars"
+	desc = "A direction sign, pointing out which way the Hangars are."
+	icon_state = "direction_hangar"
+
+
