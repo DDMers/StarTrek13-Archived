@@ -62,7 +62,7 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 /obj/structure/overmap/proc/SetName(var/string)
 	if(!string)
 		string = pick(GLOB.ship_names)
-	name = string //Keep true name seperate for respawning
+	name = "[string] ([true_name] class)" //Keep true name seperate for respawning
 	linked_ship.name = string
 	message_admins("[true_name] has been renamed to [name]")
 
@@ -70,7 +70,7 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	if(!string)
 		string = pick(GLOB.romulan_ship_names)
 	name = string //Keep true name seperate for respawning
-	linked_ship.name = string
+	linked_ship.name = "[string] ([true_name] class)"
 	message_admins("[true_name] has been renamed to [name]")
 
 /datum/map_template/ship/sovereign
