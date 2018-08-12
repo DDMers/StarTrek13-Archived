@@ -25,7 +25,6 @@
 	icon_state = "hallway"
 	CanAtmosPass = FALSE
 
-
 /obj/structure/ladder/unbreakable/lift
 	name = "turbolift"
 	desc = "Suffer not a human to climb, this model of lift has phased out the primitive turboladders of yore, allowing rapid movement up and down!"

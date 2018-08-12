@@ -224,7 +224,6 @@ var/list/global/faction_spawns = list()
 
 /datum/faction/proc/addCredits(amount)
 	credits += amount
-	broadcast("Our faction has just earned [amount] credits!")
 
 //datum/objective/faction/
 

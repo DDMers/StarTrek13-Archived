@@ -343,6 +343,21 @@
 	faction = "starfleet"
 	cost = 7000
 
+/obj/structure/overmap/ship/defiant
+	name = "defiant"
+	icon_state = "defiant"
+	icon = 'StarTrek13/icons/trek/large_ships/defiant.dmi'
+	spawn_name = "ship_spawn"
+	health = 15000
+	max_health = 15000
+	warp_capable = TRUE
+	turnspeed = 2.7
+	pixel_collision_size_x = 48
+	pixel_collision_size_y = 48
+	max_speed = 5
+	faction = "starfleet"
+	cost = 7000
+
 /obj/structure/overmap/ship/nanotrasen
 	name = "NSV Muffin"
 	icon_state = "whiteship"

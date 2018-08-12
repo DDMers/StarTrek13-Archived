@@ -58,9 +58,9 @@
 /obj/structure/overmap/ship/process()
 	. = ..()
 	if(cloaked)
-		if(SC.engines.charge <= 500) //Engines completely drained, forcibly decloak!
+		if(SC.engines.charge <= 100) //Engines completely drained, forcibly decloak!
 			cloak()
-		SC.engines.charge -= 500
+		SC.engines.charge -= 150
 		SC.shields.health -= 1000 //No shields whilst cloaked
 
 

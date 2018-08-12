@@ -85,8 +85,8 @@
 /obj/effect/landmark/crewstart
 	name = "sovereign class heavy cruiser"
 
-/obj/effect/landmark/crewstart/miranda
-	name = "miranda class light cruiser"
+/obj/effect/landmark/crewstart/defiant
+	name = "defiant class warship"
 
 /obj/effect/landmark/crewstart/romulan
 	name = "dderidex class warbird"
@@ -100,7 +100,7 @@
 	priority = MED
 
 /datum/crew/cruiser
-	name = "miranda class light cruiser"
+	name = "defiant class warship"
 	priority = LOW
 	max_crewmen = 6
 

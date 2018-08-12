@@ -86,6 +86,11 @@
 	icon = 'StarTrek13/icons/trek/trek_door_single.dmi'
 	icon_state = "closed"
 
+/obj/machinery/door/airlock/trek/tng/single/defiant
+	name = "bulkhead"
+	icon = 'StarTrek13/icons/trek/defiant_door.dmi'
+	icon_state = "closed"
+
 /obj/machinery/door/airlock/trek/tng/double
 	name = "airlock"
 	icon = 'StarTrek13/icons/trek/trek_door_double.dmi'
@@ -316,6 +321,12 @@
 /turf/open/bridge_overlay/alt
 	icon = 'StarTrek13/icons/trek/bridge_voy_overlay.PNG'
 	name = "floor"
+	density = 1
+	blocks_air = 1
+
+/turf/open/bridge_overlay/defiant
+	icon = 'StarTrek13/icons/trek/bridge_defiant_overlay.PNG'
+	name = "bridge"
 	density = 1
 	blocks_air = 1
 

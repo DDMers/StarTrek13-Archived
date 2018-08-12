@@ -77,9 +77,9 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	name = "sovereign"
 	mappath = "_maps/templates/StarTrek13/sov2.dmm"
 
-/datum/map_template/ship/miranda
-	name = "miranda"
-	mappath = "_maps/templates/StarTrek13/miranda3.dmm"
+/datum/map_template/ship/defiant
+	name = "defiant"
+	mappath = "_maps/templates/StarTrek13/defiant.dmm"
 
 /datum/map_template/ship/romulan
 	name = "dderidex"
@@ -99,10 +99,10 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	desc = "Spawns new ships!"
 	templatename = "dderidex"
 
-/obj/effect/landmark/ShipSpawner/miranda
+/obj/effect/landmark/ShipSpawner/defiant
 	name = "Ship spawning warp beacon"
 	desc = "Spawns new ships!"
-	templatename = "miranda"
+	templatename = "defiant"
 
 /obj/effect/landmark/ShipSpawner/proc/load()
 	var/turf/T = get_turf(src)
