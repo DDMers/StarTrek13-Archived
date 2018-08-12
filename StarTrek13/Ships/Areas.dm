@@ -138,6 +138,7 @@ var/global/list/global_ship_list = list()
 
 	for(var/obj/structure/overmap/S in orange(src, 6))
 		if(!S.shields_active)
+			to_chat(S.pilot, "Warning: hull temperature rising.")
 			var/turf/open/floor/picked_turf = pick(get_area_turfs(S.linked_ship))
 			picked_turf.atmos_spawn_air("plasma=60;TEMP=3000")
 			time_elapse = world.time + cooldown
