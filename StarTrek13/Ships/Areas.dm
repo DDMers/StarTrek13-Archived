@@ -87,6 +87,23 @@ var/global/list/global_ship_list = list()
 	desc = "A star that has gone nova."
 	icon_state = "supernova"
 
+/obj/structure/space_object/earth
+	name = "Earth"
+	desc = "An utterly uninteresting little blue green planet situated in the unfashionable end of the western spiral arm of the galaxy."
+	icon_state = "earth"
+
+/obj/structure/space_object/rocky
+	name = "Class D planetoid"
+	desc = "A lifeless chunk of rock"
+	icon_state = "rockyplanet"
+
+
+/obj/structure/space_object/planet
+	name = "Uncharted planet"
+	desc = "A planet whose composition is unknown."
+	icon_state = "1"
+
+
 /obj/structure/space_object/nebula
 	name = "Nebula"
 	desc = "I wouldn't fly into that if I were you."

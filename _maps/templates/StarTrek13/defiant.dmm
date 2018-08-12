@@ -41,8 +41,10 @@
 "aO" = (/turf/closed/indestructible/riveted{alpha = 0},/area/space)
 "aP" = (/obj/structure/chair/trek/bridge{icon_state = "bridgechair"; dir = 1},/obj/effect/landmark/crewstart/defiant,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "aQ" = (/obj/machinery/computer/camera_advanced/transporter_control/huge,/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
+"aR" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 4},/area/ship/federation/entax)
 "aS" = (/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "aT" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (SOUTHWEST)"; icon_state = "lcars"; dir = 10},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
+"aU" = (/obj/structure/chair/trek/bridge{icon_state = "bridgechair"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "aV" = (/obj/structure/bed,/obj/structure/bed{pixel_y = 8},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "aX" = (/obj/machinery/sleeper{dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "aY" = (/obj/item/storage/firstaid/brute,/obj/item/storage/firstaid/o2,/obj/structure/table/reinforced,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/item/defibrillator/compact/loaded,/obj/item/reagent_containers/spray/cleaner,/obj/item/reagent_containers/spray/cleaner,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
@@ -98,8 +100,8 @@
 (1,1,1) = {"
 bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIapapaqapapapapbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
-bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIapaLaSaSaSaTapbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
-bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIapaSblaSaSaSapbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
+bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIapaLblaSaSaTapbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
+bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIapaSaSaUaSaSapbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIapbsaSaSaSbvapbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIapaSbwaPbyaSapbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbIbIbIbIbIbzbAbAbAbBapaSaSaSaSaSapbzbCbCbCbBbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
@@ -130,7 +132,7 @@ bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
-bIbIbIbIbIbzaaaaaaaaaaaaaaapapapapapapapapapapapapaoaoaoaoaoaoaobBbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
+bIbIbIbIbIbzaaaaaaaRaaaaaaapapapapapapapapapapapapaoaoaoaoaoaoaobBbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbzacacacacacacafapagaeaeaeaeaeaeajaeakapalanarasaranatbBbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbzacacacacacacafapauauauauauauauauauapapbNaSaSaSaSaSbObBbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbzacacacacacacafapauahahahahahahahauapapbNaSaSaSaSaSavbBbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
