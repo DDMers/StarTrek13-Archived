@@ -11,8 +11,8 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 			var/turf/T = S
 			T.ChangeTurf(/turf/open/space/basic)
 		if(istype(S, /obj/structure))
-			if(istype(S, /obj/structure/ladder/unbreakable/lift))
-				var/obj/structure/ladder/unbreakable/lift/V = S
+			if(istype(S, /obj/structure/ladder/unbreakable))
+				var/obj/structure/ladder/unbreakable/V = S
 				V.Destroy(1)
 			qdel(S)
 		if(istype(S, /obj/machinery))
