@@ -87,6 +87,7 @@
 	var/cost = 8000 //How much does this ship cost to replace?
 	var/cloaked = FALSE
 	var/stored_name //used in cloaking code to restore ship names
+	var/max_warp = 0 //Dictated by the warp core
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -354,7 +355,7 @@
 	turnspeed = 2.7
 	pixel_collision_size_x = 48
 	pixel_collision_size_y = 48
-	max_speed = 5
+	max_speed = 3
 	faction = "starfleet"
 	cost = 7000
 
@@ -458,6 +459,10 @@
 		if(istype(CD, /obj/structure/cloaking_device))
 			var/obj/structure/cloaking_device/CC = CD
 			CC.theship = src
+	for(var/WP in linked_ship)
+		if(istype(WP, /obj/machinery/power/warpcore))
+			var/obj/machinery/power/warpcore/WW = WP
+			WW.ship = src
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	SC.weapons.update_weapons()
@@ -858,9 +863,9 @@
 		new /obj/effect/temp_visual/trek(loc)
 		qdel(S)
 	qdel(SC)
-	for(var/mob/M in linked_ship)
-		M << 'StarTrek13/sound/trek/corebreach.ogg'
-		to_chat(M, "<span class='userdanger'>Warp core breach imminent!</span>")
+	for(var/obj/machinery/power/warpcore/W in linked_ship)
+		if(!W.breaching)
+			W.breach()
 	if(!istype(src, /obj/structure/overmap/ship/fighter))
 		switch(severity)
 			if(1)

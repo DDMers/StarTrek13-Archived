@@ -290,7 +290,7 @@ var/list/global/faction_spawns = list()
 /datum/factionobjective/stealth //Place a tracker on a target ship's warp core to study it, you can get spotted 3 times before it fails
 	var/spotted_amount = 0
 	var/max_spots = 3
-	var/obj/structure/fluff/warpcore/target
+	var/obj/machinery/power/warpcore/target
 
 /datum/factionobjective/stealth/setup()
 	if(!global_ship_list)
@@ -299,7 +299,7 @@ var/list/global/faction_spawns = list()
 	var/list/pickables = global_ship_list
 	for(var/obj/structure/overmap/ship/fighter/F in pickables)
 		pickables -= F
-	for(var/obj/structure/fluff/warpcore/W in GLOB.sortedAreas)
+	for(var/obj/machinery/power/warpcore/W in GLOB.sortedAreas)
 		if(!W)
 			return
 		var/area/A = get_area(W)

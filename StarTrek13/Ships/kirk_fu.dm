@@ -1,5 +1,35 @@
 //stolen from a cool PR i saw guppy make :b1://
 
+/mob/living/carbon/human/proc/grant_kirkfu()
+	var/art = pick("Flip","Block","Punch","Headbutt","Grab","Disarm")
+	var/description = ""
+	switch(art)
+		if("Block")
+			var/datum/martial_art/kirkfu/blocker/martialart = new
+			description = martialart.desc
+			martialart.teach(src)
+		if("Punch")
+			var/datum/martial_art/kirkfu/puncher/martialart = new
+			description = martialart.desc
+			martialart.teach(src)
+		if("Headbutt")
+			var/datum/martial_art/kirkfu/headbutter/martialart = new
+			description = martialart.desc
+			martialart.teach(src)
+		if("Grab")
+			var/datum/martial_art/kirkfu/grabber/martialart = new
+			description = martialart.desc
+			martialart.teach(src)
+		if("Disarm")
+			var/datum/martial_art/kirkfu/disarmer/martialart = new
+			description = martialart.desc
+			martialart.teach(src)
+		if("Flip")
+			var/datum/martial_art/kirkfu/flipper/martialart = new
+			description = martialart.desc
+			martialart.teach(src)
+	to_chat(src, "<span class='bold info'><font size='2'[description]</span></font>")
+
 /datum/martial_art/
 	var/constant_block = 0 // CONSTANT block chance, rather than requiring to have thrown mode on
 
@@ -16,7 +46,7 @@
 
 /datum/martial_art/kirkfu/flipper
 	name = "Dropkick"
-	desc = "Sometimes you just get the urge to lunge at people feet first, bringing you both down!"
+	desc = "Through hard work and watching lots of instructional videos, you've mastered the kirk kick technique, and will use it at random when punching people"
 
 /datum/martial_art/kirkfu/flipper/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(prob(60))
@@ -24,8 +54,8 @@
 		A.visible_message("<span class = 'danger'><B>[A] hops in the air and rams his legs into [D]!</B></span>")
 		playsound(A.loc, "swing_hit", 50, 1)
 		D.apply_damage(15, BRUTE)
-		D.Knockdown(35) //3.5 milisecond stun, because why not
-		A.Knockdown(15) //1.5 Ms stun, because kirk always falls overa fter doing this
+		D.Knockdown(35) //3.5 ms stun, because why not
+		A.Knockdown(15) //1.5 ms stun, because kirk always falls overa fter doing this
 		return TRUE
 	..()
 
@@ -52,7 +82,7 @@
 
 /datum/martial_art/kirkfu/headbutter
 	name = "Double fisted back blow"
-	desc = "You can slam both your fists into someone's spine to send them flying!"
+	desc = "You can slam both your fists into someone's spine to send them flying! Aim at their chest on harm intent."
 
 /datum/martial_art/kirkfu/headbutter/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(prob(50) && A.zone_selected == BODY_ZONE_CHEST)
@@ -68,8 +98,14 @@
 	..()
 
 /datum/martial_art/kirkfu/grabber
+	name = "Vulcan nerve grip"
+	desc = "I could never get the hang of this one mr Spock. Aim for the head and grab to attempt this difficult manouvre"
+	var/success_rate = 10
+
+/datum/martial_art/kirkfu/grabber/super
 	name = "Vulcan nerve pinch"
-	desc = "I could never get the hang of this one mr Spock."
+	desc = "Having spent decades practicing, you have mastered the vulcan nerve grip"
+	success_rate = 100
 
 /datum/martial_art/kirkfu/grabber/grab_act(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	if(A.grab_state >= GRAB_AGGRESSIVE)  // this isnt stolen from sleeping carp code, i dont know what you're talking about
@@ -80,10 +116,10 @@
 			D.drop_all_held_items()
 			D.stop_pulling()
 			if(A.a_intent == INTENT_GRAB)
-				D.visible_message("<span class='warning'>[A] pinches [D]'s shoulder!</span>", \
+				D.visible_message("<span class='warning'>[A] grips [D]'s shoulder!</span>", \
 				  "<span class='userdanger'>[A] pinches your shoulder!</span>")
 				D.apply_damage(5, BRUTE, BODY_ZONE_HEAD)
-				if(prob(20)) //Kirk was never any good at this one..
+				if(prob(success_rate)) //Kirk was never any good at this one..
 					D.Knockdown(rand(5,30))
 					D.SetSleeping(100)
 				else

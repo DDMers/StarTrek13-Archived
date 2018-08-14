@@ -34,15 +34,12 @@
 
 /turf/closed/wall/ship/voy/Initialize(timeofday)
 	. = ..()
-	set_light(3)
 
 /turf/closed/wall/ship/rom/Initialize(timeofday)
 	. = ..()
-	set_light(3)
 
 /turf/closed/wall/ship/tng/Initialize(timeofday)
 	. = ..()
-	set_light(3)
 
 /turf/closed/wall/ship/steel
 	name = "steel hull"
@@ -156,13 +153,12 @@
 	icon_state = "cargofloor"
 
 /turf/open/floor/borg/trek/lit
-	name = "lit carpet"
-	desc = "it's lit up"
+	name = "space carpet"
+	desc = "the merits of a static charge generating material for flooring on a highly sensitive starship is questionable, but can you question that threadcount?"
 	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
 
 /turf/open/floor/borg/trek/lit/Initialize()
 	. = ..()
-	set_light(7)
 
 /obj/structure/fluff/ship/warpbooster
 	name = "wall panel"

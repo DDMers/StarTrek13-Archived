@@ -246,7 +246,7 @@
 	icon_state = "engines"
 	var/charge = 0
 	var/max_charge = 7000 //This should NickVr proof warping rather nicely :)
-	var/chargeRate = 100
+	var/chargeRate = 10000 //TESTING, i'm making power dictated by the powernet soon
 
 
 /datum/shipsystem/engines/proc/try_warp() //You can't warp if your engines are down

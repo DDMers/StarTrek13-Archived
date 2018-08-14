@@ -39,13 +39,13 @@
 			if(TRUE)
 				to_chat(ship.pilot, "Warping deactivated")
 				ship.can_move = TRUE
-				ship.vel = 0
+				ship.vel = 1
 				warping = FALSE
 			if(FALSE)
 				SEND_SOUND(ship.pilot, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
 				to_chat(ship.pilot, "Engaging warp")
 				ship.can_move = FALSE
-				ship.vel = 12
+				ship.vel = ship.max_warp
 				warping = TRUE
 				for(var/mob/L in ship.linked_ship)
 					SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')

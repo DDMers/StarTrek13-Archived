@@ -143,8 +143,73 @@ var/global/list/global_ship_list = list()
 			picked_turf.atmos_spawn_air("plasma=60;TEMP=3000")
 			time_elapse = world.time + cooldown
 
-/area/ship/sov_backup
-	name = "USS Herald Of Free Enterprise"
+/area/ship
+	parallax_movedir = FALSE
+	name = "USS Cadaver"
+	icon_state = "ship"
+	requires_power = 1 //what have i unleashed unto this world
+	has_gravity = 1 //Grav plates will stay on as long as the area is powered.
+	noteleport = 0
+	blob_allowed = 0
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	var/obj/item/clothing/neck/combadge/combadges = list()
 
-/area/ship/rom_backup
-	name = "Aurelius"
+//Starfleet
+/area/ship/test
+	name = "USS Runtime"
+
+/area/ship/federation/starbase
+	name = "Starbase 1"
+	icon_state = "ship"
+
+/area/ship/romulan
+	name = "Decius"
+	icon_state = "ship"
+
+/area/ship/federation/entax
+	name = "USS Entax"
+	icon_state = "ship"
+
+/area/ship/federation/sovreign
+	name = "USS Sovereign"
+	icon_state = "ship"
+
+//Nanotrasen
+
+/area/ship/nanotrasen
+	name = "NSV Muffin"
+	icon_state = "ship"
+
+/area/ship/nanotrasen/fighter
+	name = "NSV Hagan"
+	icon_state = "ship"
+
+/area/ship/nanotrasen/cruiser
+	name = "NSV Hyperion"
+	icon_state = "ship"
+
+/area/ship/nanotrasen/freighter
+	name = "NSV Crates"
+	icon_state = "ship"
+
+/area/ship/nanotrasen/capital_class
+	name = "NSV Annulment"
+	icon_state = "ship"
+
+/area/ship/nanotrasen/ss13
+	name = "Space Station 13"
+	icon_state = "ship"
+
+/area/ship/overmap/nanotrasen/research
+	name = "NSV Woolf research outpost"
+	icon_state = "ship"
+
+/area/ship/overmap/nanotrasen/trading_outpost
+	name = "NSV Mercator trade station."
+	icon_state = "ship"
+
+//Borg
+
+/area/ship/borg
+	name = "Unimatrix 1-3"
+	icon_state = "ship"

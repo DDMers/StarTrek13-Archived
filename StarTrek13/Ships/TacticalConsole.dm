@@ -305,10 +305,18 @@
 	if(REDALERT)
 		src.say("RED ALERT DEACTIVATED")
 		REDALERT = FALSE
+		var/area/a = theship.linked_ship
+		a.fire = FALSE
+		for(var/obj/machinery/light/L in a)
+			L.update()
 		return 0
 	else
 		src.say("RED ALERT ACTIVATED")
 		REDALERT = TRUE
+		var/area/a = theship.linked_ship
+		a.fire = TRUE
+		for(var/obj/machinery/light/L in a)
+			L.update()
 		return 1
 
 /obj/structure/fluff/helm/desk/tactical/proc/fire_phasers(atom/target, mob/user)

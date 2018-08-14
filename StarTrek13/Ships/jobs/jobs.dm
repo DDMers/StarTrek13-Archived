@@ -70,6 +70,10 @@ Captain
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 
+/datum/job/trek/captain/after_spawn(mob/living/carbon/human/H, mob/M)
+	. = ..()
+	H.grant_kirkfu()
+
 /datum/job/trek/captain/get_access()
 	return get_all_accesses()
 
@@ -714,6 +718,10 @@ Head of Security
 			            ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_ALL_PERSONAL_LOCKERS,
 			            ACCESS_RESEARCH, ACCESS_ENGINE, ACCESS_MINING, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING,
 			            ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MAINT_TUNNELS)
+
+/datum/job/trek/hos/after_spawn(mob/living/carbon/human/H, mob/M)
+	. = ..()
+	H.grant_kirkfu()
 
 /datum/outfit/job/hos
 	name = "Chief of security"

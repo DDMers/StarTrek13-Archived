@@ -110,7 +110,7 @@
 		remove_eye_control(operator)
 	operator = user
 
-	B = input(user, "Mode:","Transporter Control",B) in list("Visual Scanner","retrieve away team member", "cancel")
+	B = input(user, "Mode:","Transporter Control",B) in list("Visual Scanner", "cancel")
 	switch(B)
 		if("Visual Scanner")
 			if(linked.len)
@@ -134,25 +134,6 @@
 			else
 				to_chat(user, "<span class='notice'>There are no linked transporter pads</span>")
 				return
-		if("retrieve away team member")
-			var/C = input(user, "Beam someone back", "Transporter Control") as anything in retrievable
-			if(!C in retrievable)
-				return
-			var/atom/movable/target = C
-			playsound(src.loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
-			retrievable -= target
-			for(var/obj/machinery/trek/transporter/T in linked)
-				animate(target,'StarTrek13/icons/trek/star_trek.dmi',"transportout")
-				if(target)
-					playsound(target.loc, 'StarTrek13/sound/borg/machines/transporter2.ogg', 40, 4)
-				playsound(src.loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
-				var/obj/machinery/trek/transporter/Z = pick(linked)
-				target.forceMove(Z.loc)
-				target.alpha = 255
-				//Z.rematerialize(target)
-				animate(Z,'StarTrek13/icons/trek/star_trek.dmi',"transportin")
-                        //        Z.alpha = 255
-				break
 		if("cancel")
 			if(operator)
 				remove_eye_control(operator)
