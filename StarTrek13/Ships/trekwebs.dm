@@ -142,7 +142,7 @@
 	damage = 0
 	charge_rate = 0
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
-		damage += P.rating*100//rating of 1 is stock, rating of 4 gives insane power
+		damage += C.rating*100//rating of 1 is stock, rating of 4 gives insane power
 	for(var/obj/item/stock_parts/cell/P in component_parts)
 		charge_rate += P.chargerate
 
