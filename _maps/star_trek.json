@@ -3,12 +3,12 @@
     "map_path": "map_files/StarTrek13",
     "map_file": ["overmap.dmm",
 				"overmap_s2.dmm",
-				"overmap.dmm",
-				"SystemCapturePoints.dmm",
-				"ship/ai_ships.dmm",
-				"ship/romulan_capital_ships.dmm",
-				"ship/starfleet_ships.dmm"],
-	
+				"SystemCapturePoints.dmm"],
 	"space_ruin_levels": 0,
-	"space_empty_levels": 0
+	"space_empty_levels": 0,
+	
+	"ships_map_file": [
+					"ship/ai_ships.dmm",
+					"ship/romulan_capital_ships.dmm",
+					"ship/starfleet_ships.dmm"]
 }
