@@ -14,7 +14,8 @@ Format:
 endmap
 
 map star_trek
-
+	default
+	
 endmap
 map boxstation
 	#voteweight 1.5
