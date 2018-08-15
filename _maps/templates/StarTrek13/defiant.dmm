@@ -27,7 +27,7 @@
 "aA" = (/obj/structure/overmap/ship/defiant,/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 "aB" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/entax)
 "aC" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHEAST)"; icon_state = "trek_edge"; dir = 6},/obj/structure/tank_dispenser/oxygen,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
-"aD" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (EAST)"; icon_state = "trek_edge2"; dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (WEST)"; icon_state = "trek_edge2"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
+"aD" = (/obj/machinery/space_battle/shield_generator,/obj/structure/cable/white{icon_state = "0-2"},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 4},/area/ship/federation/entax)
 "aE" = (/turf/open/small_engineering_overlay,/area/ship/federation/entax)
 "aF" = (/obj/structure/catwalk,/obj/machinery/light{dir = 1},/turf/open/floor/plating,/area/ship/federation/entax)
 "aG" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/obj/machinery/light{dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
@@ -41,7 +41,7 @@
 "aO" = (/turf/closed/indestructible/riveted{alpha = 0},/area/space)
 "aP" = (/obj/structure/chair/trek/bridge{icon_state = "bridgechair"; dir = 1},/obj/effect/landmark/crewstart/defiant,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "aQ" = (/obj/machinery/computer/camera_advanced/transporter_control/huge,/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
-"aR" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 4},/area/ship/federation/entax)
+"aR" = (/obj/machinery/light{dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/federation/entax)
 "aS" = (/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "aT" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (SOUTHWEST)"; icon_state = "lcars"; dir = 10},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "aU" = (/obj/structure/chair/trek/bridge{icon_state = "bridgechair"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
@@ -162,7 +162,7 @@
 "df" = (/obj/structure/sign/warning/securearea,/obj/structure/cable/white{icon_state = "4-8"},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/federation/entax)
 "dg" = (/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/federation/entax)
 "dh" = (/obj/structure/cable/white{icon_state = "2-8"},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/federation/entax)
-"di" = (/obj/machinery/light{dir = 1},/turf/open/floor/plating,/area/ship/federation/entax)
+"di" = (/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/federation/entax)
 "dj" = (/obj/machinery/atmospherics/components/unary/tank/toxins,/turf/open/floor/plating,/area/ship/federation/entax)
 "dk" = (/obj/structure/subsystem_panel/engines,/obj/machinery/light{dir = 1},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/federation/entax)
 "dl" = (/obj/structure/subsystem_panel,/obj/machinery/light{dir = 1},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/federation/entax)
@@ -189,11 +189,11 @@
 "dG" = (/obj/machinery/power/warpcore/smaller{pixel_x = 0},/obj/structure/cable/white{icon_state = "0-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 "dH" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/federation/entax)
 "dI" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
-"dJ" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 6},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
-"dK" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
-"dL" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
-"dM" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
-"dN" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
+"dJ" = (/obj/machinery/door/airlock/trek/tng/single/defiant,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/hallway{icon_state = "defianthall"},/area/ship/federation/entax)
+"dK" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (EAST)"; icon_state = "trek_edge2"; dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (WEST)"; icon_state = "trek_edge2"; dir = 8},/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
+"dL" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 6},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
+"dM" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHEAST)"; icon_state = "trek_edge"; dir = 5},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
+"dN" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 "dO" = (/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 "dP" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 "dQ" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
@@ -224,6 +224,8 @@
 "ep" = (/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/wall/trek{icon_state = "defiant"},/area/ship/federation/entax)
 "eq" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (EAST)"; icon_state = "trek_edge2"; dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (WEST)"; icon_state = "trek_edge2"; dir = 8},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
 "er" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/machinery/light{dir = 1},/obj/structure/cable/white{icon_state = "1-8"},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
+"es" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
+"et" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/obj/structure/cable/white{icon_state = "1-4"},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit,/area/ship/federation/entax)
 
 (1,1,1) = {"
 bIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbIbI
@@ -260,14 +262,14 @@ bIbIbIbIbIbUcscscsctbGcdcscscscscscscscscscscscscsctbGcdcscscscsctbGcdbIbzbJbvcQ
 bIbIbIbIbIbFbgbgbgbgcucGcHcHcHcHcHcHcGcHcHcHcHcHcHcGcIcHcHcHcHcHcHcxcJbJbzcScTayaBcSbBbIbIbIbIbIbIbI
 bIbIbIbIbIbUcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcBbGbJbzcWbgcXcYcZbBbIbIbIbIbIbIbI
 bIbIbIbIbIbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbFbGbJbzdadbdcdbddbBbIbIbIbIbIbIbI
-bIbIbIbIbIbzaaaaaaaRaaaaaaapapapapapapapapapapapapaoaoaoaoaoaoaobBbFbGbJbzdedfdgdfdhbBbIbIbIbIbIbIbI
-bIbIbIbIbIbzacacacdiacdjafapdkaeaeaeaeaeaeajaedlapalanardmaranatbBbFbGbJbzdndodpdqdnbBbIbIbIbIbIbIbI
-bIbIbIbIbIbzacacacacacdrafapauauauauauauauauauaxapbNaSaSaSaSaSbObBbFbGbJdsbWcBdtdubWclbIbIbIbIbIbIbI
-bIbIbIbIbIbzacacacacacdvdwdxdydzaxaxaxaxaxaxauaxapbNaSaSaSaSaSavbBbFbGcdcscsctdAbJbIbIbIbIbIbIbIbIbI
-bIbIbIbIbIbzacacacacacacafapaudBaxaxaxaxaxaxauaxapbNcUcVdTelaSavbBbFdCdDdEdEdEdFbJbIbIbIbIbIbIbIbIbI
-bIbIbIbIbIbzawacacacacacafapaxdGaxaxaxaxaxaxaxaxapbRememeneobSaCbBbFdHducAcAcAcAbKbIbIbIbIbIbIbIbIbI
-bIbIbIbIbIbzbYbYbYbZbYbYbYapaxdIaxaxaxaxaxaxaxaxapbYbYbYbZepbYbYbBbFdHbJbIbIbIbIbIbIbIbIbIbIbIbIbIbI
-bIbIbIbIbIbzcabEaKaDaKdJdKdLdMdNdOdOdOdOdOdOdOdOdPdQdRdSeqerbEbMbBbFdHbJbIbIbIbIbIbIbIbIbIbIbIbIbIbI
+bIbIbIbIbIbzaaaaaaaDaaaaaaapapapapapapapapapapapapaoaoaoaoaoaoaobBbFbGbJbzdedfdgdfdhbBbIbIbIbIbIbIbI
+bIbIbIbIbIbzacacacaRacdjafapdkaeaeaeaeaeaeajaedlapalanardmaranatbBbFbGbJbzdndodpdqdnbBbIbIbIbIbIbIbI
+bIbIbIbIbIbzacacacdiacdrafapauauauauauauauauauaxapbNaSaSaSaSaSbObBbFbGbJdsbWcBdtdubWclbIbIbIbIbIbIbI
+bIbIbIbIbIbzacacacdiacdvdwdxdydzaxaxaxaxaxaxauaxapbNaSaSaSaSaSavbBbFbGcdcscsctdAbJbIbIbIbIbIbIbIbIbI
+bIbIbIbIbIbzacacacdiacacafapaudBaxaxaxaxaxaxauaxapbNcUcVdTelaSavbBbFdCdDdEdEdEdFbJbIbIbIbIbIbIbIbIbI
+bIbIbIbIbIbzawacacdiacacafapaxdGaxaxaxaxaxaxaxaxapbRememeneobSaCbBbFdHducAcAcAcAbKbIbIbIbIbIbIbIbIbI
+bIbIbIbIbIbzbYbYbYdJbYbYbYapaxdIaxaxaxaxaxaxaxaxapbYbYbYbZepbYbYbBbFdHbJbIbIbIbIbIbIbIbIbIbIbIbIbIbI
+bIbIbIbIbIbzcabEaKdKdSdLdMdNesetdOdOdOdOdOdOdOdOdPdQdRdSeqerbEbMbBbFdHbJbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbzbNaSaSaSaSdUbOapaxaxbsaxaxaxaxbsaxaxapbNaSaSdVaSaSbObBbFdHbJbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbzbNaSaSdWaSdUbOaEapapapapapapapapapapapbNaSaSdXaSaSbObBbFdHbJbIbIbIbIbIbIbIbIbIbIbIbIbIbI
 bIbIbIbIbIbzbNaSaSaSaSdUbObYbYbYbYbYbYbYbYbYbYbYbYbNaScKdYcMaSbObBbFdHbJbIbIbIbIbIbIbIbIbIbIbIbIbIbI

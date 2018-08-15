@@ -60,6 +60,7 @@
 	var/regen = 0
 	var/obj/structure/overmap/ship = null
 	var/datum/shipsystem/shields/shield_system = null
+	use_power = 2000
 //	var/efficiency = 1
 //	var/heat_capacity = 20000
 //	var/conduction_coefficient = 0.3
