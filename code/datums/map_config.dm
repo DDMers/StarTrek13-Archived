@@ -23,6 +23,8 @@
 
 	var/minetype = "lavaland"
 
+	var/ships_map_file= null
+
 	var/allow_custom_shuttles = TRUE
 	var/shuttles = list(
 		"cargo" = "cargo_box",
@@ -126,6 +128,19 @@
 		minetype = json["minetype"]
 
 	allow_custom_shuttles = json["allow_custom_shuttles"] != FALSE
+
+	ships_map_file = json["ships_map_file"]
+	if (istext(ships_map_file))
+		if (!fexists("_maps/[map_path]/[ships_map_file]"))
+			log_world("Map file ([map_path]/[ships_map_file]) does not exist!")
+			return
+	// BECAUSE I NEED TO MODULARISE THIS AND MOVE IT OUT- Jalleo (I should stop shouting at myself) [Shout at me if I dont do this]
+	else if (islist(ships_map_file))
+		for (var/file in ships_map_file)
+			if (!fexists("_maps/[map_path]/[file]"))
+				log_world("Map file ([map_path]/[file]) does not exist!")
+				return
+
 
 	defaulted = FALSE
 	return TRUE
