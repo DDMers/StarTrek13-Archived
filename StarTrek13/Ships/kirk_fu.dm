@@ -2,35 +2,39 @@
 
 /mob/living/carbon/human/proc/grant_kirkfu()
 	var/art = pick("Flip","Block","Punch","Headbutt","Grab","Disarm")
-	var/description = ""
 	switch(art)
 		if("Block")
 			var/datum/martial_art/kirkfu/blocker/martialart = new
-			description = martialart.desc
 			martialart.teach(src)
+			martialart.themind = mind
+			martialart.explain()
 		if("Punch")
 			var/datum/martial_art/kirkfu/puncher/martialart = new
-			description = martialart.desc
 			martialart.teach(src)
+			martialart.themind = mind
+			martialart.explain()
 		if("Headbutt")
 			var/datum/martial_art/kirkfu/headbutter/martialart = new
-			description = martialart.desc
 			martialart.teach(src)
+			martialart.themind = mind
+			martialart.explain()
 		if("Grab")
 			var/datum/martial_art/kirkfu/grabber/martialart = new
-			description = martialart.desc
 			martialart.teach(src)
+			martialart.themind = mind
+			martialart.explain()
 		if("Disarm")
 			var/datum/martial_art/kirkfu/disarmer/martialart = new
-			description = martialart.desc
 			martialart.teach(src)
+			martialart.themind = mind
+			martialart.explain()
 		if("Flip")
 			var/datum/martial_art/kirkfu/flipper/martialart = new
-			description = martialart.desc
 			martialart.teach(src)
-	to_chat(src, "<span class='bold info'><font size='2'[description]</span></font>")
+			martialart.themind = mind
+			martialart.explain()
 
-/datum/martial_art/
+/datum/martial_art
 	var/constant_block = 0 // CONSTANT block chance, rather than requiring to have thrown mode on
 
 /mob/living/carbon/human/check_block()  // i dont wanna make a whole new fucking file just for this
@@ -43,14 +47,23 @@
  	name = "Kirk Fu"
  	constant_block = 5
  	var/desc = ""
+ 	var/datum/mind/themind
+
+/datum/martial_art/kirkfu/New()
+	. = ..()
+
+/datum/martial_art/kirkfu/proc/explain()
+	sleep(50)
+	to_chat(themind.current, "<span class='warning'>[desc]</span>")
 
 /datum/martial_art/kirkfu/flipper
 	name = "Dropkick"
 	desc = "Through hard work and watching lots of instructional videos, you've mastered the kirk kick technique, and will use it at random when punching people"
 
 /datum/martial_art/kirkfu/flipper/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	if(prob(60))
+	if(prob(30))
 		A.emote("flip")
+		A.emote("spin")
 		A.visible_message("<span class = 'danger'><B>[A] hops in the air and rams his legs into [D]!</B></span>")
 		playsound(A.loc, "swing_hit", 50, 1)
 		D.apply_damage(15, BRUTE)
@@ -91,7 +104,8 @@
 				  "<span class='userdanger'>[A] slams both their fists into your back!</span>")
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 40, 1, -1)
 		var/throwtarget = get_edge_target_turf(A, get_dir(A, get_step_away(D, A)))
-		D.throw_at(throwtarget, 4, 2, A)
+		A.emote("spin")
+		D.throw_at(throwtarget, 1, 2, A)
 		D.apply_damage(12, BRUTE, BODY_ZONE_CHEST)
 		D.Knockdown(rand(5,30))
 		return TRUE
@@ -142,11 +156,11 @@
 				A.put_in_hands(I)
 		D.visible_message("<span class='danger'>[A] karate chops [D] in the stomach!</span>", \
 						"<span class='userdanger'>[A] has karate chopped [D] in the stomach!</span>")
-		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 40, 1, -1)
 		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		D.visible_message("<span class='danger'>[A] karate chops [D] in the stomach!</span>", \
 						"<span class='userdanger'>[A] has karate chopped [D] in the stomach!</span>")
-		D.apply_damage(15, BRUTE, BODY_ZONE_CHEST)
+		D.apply_damage(7, BRUTE, BODY_ZONE_CHEST)
 	else
 		D.visible_message("<span class='danger'>[A] attempted to karate chop [D]!</span>", \
 							"<span class='userdanger'>[A] attempted to karate chop [D]!</span>")

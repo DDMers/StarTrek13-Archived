@@ -456,8 +456,8 @@
 		PP.check_ship()
 		PP.check_overlays()
 	for(var/CD in linked_ship)
-		if(istype(CD, /obj/structure/cloaking_device))
-			var/obj/structure/cloaking_device/CC = CD
+		if(istype(CD, /obj/machinery/cloaking_device))
+			var/obj/machinery/cloaking_device/CC = CD
 			CC.theship = src
 	for(var/WP in linked_ship)
 		if(istype(WP, /obj/machinery/power/warpcore))

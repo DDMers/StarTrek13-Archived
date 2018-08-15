@@ -86,8 +86,8 @@
 	torpedoes = list()
 	var/area/thearea = get_area(src)
 	for(var/P in thearea)
-		if(istype(P,/obj/machinery/power/ship/phaser))
-			var/obj/machinery/power/ship/phaser/PP = P
+		if(istype(P,/obj/machinery/ship/phaser))
+			var/obj/machinery/ship/phaser/PP = P
 			weapons += PP
 	for(var/T in thearea)
 		if(istype(T, /obj/structure/torpedo_launcher))

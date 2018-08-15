@@ -168,8 +168,8 @@
 		fire_cost = 150
 		return TRUE
 	for(var/PS in controller.theship.linked_ship)
-		if(istype(PS, /obj/machinery/power/ship/phaser))
-			var/obj/machinery/power/ship/phaser/P = PS
+		if(istype(PS, /obj/machinery/ship/phaser))
+			var/obj/machinery/ship/phaser/P = PS
 			chargeRate += P.charge_rate
 			damage += P.damage
 			fire_cost += P.fire_cost
@@ -179,7 +179,8 @@
 	maths_damage -= round(max_charge - charge)/2 //Damage drops off heavily if you don't let them charge
 	damage = maths_damage
 	max_charge += counter*temp //To avoid it dropping to 0 on update, so then the charge spikes to maximum due to process()
-	damage = damage+(200*power_modifier)
+	if(damage > 0)
+		damage = damage+(200*power_modifier)
 	chargeRate = chargeRate*power_modifier
 
 /datum/shipsystem/weapons/process()
@@ -246,7 +247,7 @@
 	icon_state = "engines"
 	var/charge = 0
 	var/max_charge = 7000 //This should NickVr proof warping rather nicely :)
-	var/chargeRate = 10000 //TESTING, i'm making power dictated by the powernet soon
+	var/chargeRate = 100 //Warp coils drain all the powernet power, this is to prevent infinite spams, and infinite cloaks.
 
 
 /datum/shipsystem/engines/proc/try_warp() //You can't warp if your engines are down
@@ -325,6 +326,9 @@
 	failed = TRUE
 
 /datum/shipsystem/shields/process()
+	if(controller.theship.generator)
+		if(!controller.theship.generator.powered())
+			health = 0
 	if(!failed && toggled)
 		health += chargeRate*power_modifier
 		heat -= heat_loss_bonus

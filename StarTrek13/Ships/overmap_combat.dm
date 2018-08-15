@@ -196,6 +196,9 @@
 	update_weapons()
 	if(wrecked)
 		return
+	if(SC.weapons.damage <= 0)
+		to_chat(pilot, "<span_class = 'warning'>Weapon systems are depowered!</span>")
+		return 0
 	var/obj/structure/overmap/S = target_ship
 	if(target_ship)
 		target_ship.agressor = src

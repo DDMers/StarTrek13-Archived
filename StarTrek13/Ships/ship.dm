@@ -580,7 +580,7 @@
 /obj/item/circuitboard/machine/phase_cannon
 	name = "phaser array circuit board"
 
-/obj/machinery/power/ship/phaser
+/obj/machinery/ship/phaser
 	name = "phaser array"
 	desc = "A powerful weapon designed to take down shields.\n<span class='notice'>Alt-click to rotate it clockwise.</span>"
 	icon = 'StarTrek13/icons/trek/phaser.dmi'
@@ -601,80 +601,32 @@
 	var/target = null
 	var/obj/machinery/space_battle/shield_generator/shieldgen
 	var/damage = 650
+	use_power = 1500
 
-/obj/machinery/power/ship/phaser/opposite
+/obj/machinery/ship/phaser/opposite
 	dir = 8
 	pixel_x = 64
 
-/obj/machinery/power/ship/phaser/examine(mob/user)
+/obj/machinery/ship/phaser/examine(mob/user)
 	. = ..()
 	percentage = (charge / max_power) * 100
 	to_chat(user, "it is [percentage]% full")
 
-/obj/machinery/power/ship/phaser/ex_act(severity)
+/obj/machinery/ship/phaser/ex_act(severity)
 	return 0
 
-/*
-/obj/machinery/power/ship/phaser/process()
-	if(!attached)
-	//	state = 0
-		return
-	var/datum/powernet/PN = attached.powernet
-	if(PN)
-		// found a powernet, so drain up to max power from it
-		percentage = (charge / max_power) * 100
-		var/drained = min ( charge_rate, PN.avail )
-		PN.load += drained
-		charge += drained
-		if(drained < charge_rate)
-			for(var/obj/machinery/power/terminal/T in PN.nodes)
-				if(istype(T.master, /obj/machinery/power/apc))
-					var/obj/machinery/power/apc/A = T.master
-					if(A.operating && A.cell)
-						A.cell.charge = max(0, A.cell.charge - 50)
-						charge += 50
-						if(A.charging == 2) // If the cell was full
-							A.charging = 1 // It's no longer full
+/obj/machinery/ship/phaser/process()
+	if(!powered())
+		damage = 0
+	else
+		damage = initial(damage)
 
-*/
-
-/obj/machinery/power/ship/phaser/Initialize(timeofday)
-	..()
+/obj/machinery/ship/phaser/Initialize(timeofday)
+	. = ..()
+	START_PROCESSING(SSmachines,src)
 	var/obj/item/circuitboard/machine/B = new /obj/item/circuitboard/machine/phase_cannon(null)
 	B.apply_default_parts(src)
 	RefreshParts()
-	find_generator()
-
-/obj/machinery/power/ship/phaser/proc/find_generator()
-	var/area/thearea = get_area(src)
-	for(var/obj/machinery/space_battle/shield_generator/S in thearea)
-		shieldgen = S
-
-/obj/machinery/power/ship/phaser/proc/find_cores()
-	var/area/thearea = get_area(src)
-	for(var/area/AR in world)
-		if(istype(AR, /area/ship)) //change me
-			shipareas += AR.name
-			shipareas[AR.name] = AR
-			if(AR == thearea)
-				shipareas -= AR.name
-				shipareas[AR.name] = null
-	if(shipareas.len)
-		src.say("Target located")
-	else
-		src.say("No warp signatures detected")
-	for(var/obj/structure/fluff/helm/desk/tactical/T in thearea)
-		if(!src in T.weapons)
-			T.weapons += src
-
-/obj/machinery/power/ship/phaser/proc/can_fire()
-	if(state == 1)
-		if(charge >= 200)
-			return 1
-		else
-			return 0
-	else
-		return 0
 
 //DEFINE TARGET
 

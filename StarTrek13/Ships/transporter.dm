@@ -43,6 +43,8 @@
 
 
 /obj/machinery/computer/camera_advanced/transporter_control/proc/activate_pads()
+	if(!powered())
+		return
 	if(eyeobj.eye_user)
 		for(var/obj/machinery/trek/transporter/T in linked)
 			for(var/mob/living/L in T.loc)
@@ -61,6 +63,8 @@
 		to_chat(usr, "<span class='notice'>Target has no linked transporter pads</span>")
 
 /obj/machinery/computer/camera_advanced/transporter_control/proc/transporters_retrieve()
+	if(!powered())
+		return
 	playsound(loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
 	for(var/mob/living/thehewmon in orange(eyeobj,1))
 		var/obj/machinery/trek/transporter/T = pick(linked)
@@ -104,6 +108,9 @@
 
 /obj/machinery/computer/camera_advanced/transporter_control/attack_hand(mob/user)
 //	interact(user)
+	if(!powered())
+		to_chat(user, "Insufficient power!")
+		return
 	var/A
 	var/B
 	if(operator)
@@ -331,6 +338,8 @@ Might find a use for this later
 	var/obj/machinery/computer/camera_advanced/transporter_control/transporter_controller = null
 
 /obj/machinery/trek/transporter/proc/send(turf/open/teleport_target)
+	if(!powered())
+		return
 	flick("alien-pad", src)
 	for(var/atom/movable/target in loc) //test
 		if(target != src)
@@ -340,6 +349,8 @@ Might find a use for this later
 			playsound(target.loc, 'StarTrek13/sound/borg/machines/transporter2.ogg', 40, 4)
 
 /obj/machinery/trek/transporter/proc/retrieve(mob/living/target)
+	if(!powered())
+		return
 	flick("alien-pad", src)
 	if(!target.buckled)
 		new /obj/effect/temp_visual/transporter(get_turf(target))

@@ -77,7 +77,7 @@
 		sleep(10)
 		icon_state = initial(icon_state)
 		cloaked = FALSE
-		name = stored_name //Stop it appearing on any sensors and right click menus
+		name = linked_ship.name //Stop it appearing on any sensors and right click menus
 		stored_name = null
 	else
 		playsound(src,'StarTrek13/sound/trek/cloak.ogg',100,1)
@@ -91,13 +91,18 @@
 		cloaked = TRUE
 		name = null
 
-/obj/structure/cloaking_device
+/obj/machinery/cloaking_device
 	name = "cloaking device"
 	desc = "aeh'lla-ifv"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "cloakingdevice"
 	var/obj/structure/overmap/theship
 
-/obj/structure/cloaking_device/attack_hand(mob/user)
-	theship.cloak()
-	to_chat(user, "Cloak toggled, WARNING: This will drain engine and shield power when in use!")
+/obj/machinery/cloaking_device/attack_hand(mob/user)
+	if(powered())
+		theship.cloak()
+		to_chat(user, "Cloak toggled, WARNING: This will drain engine and shield power when in use!")
+	else
+		to_chat(user, "Insufficient power!")
+		if(theship.cloaked)
+			theship.cloak()
