@@ -30,6 +30,8 @@
 		var/x_speed = vel * cos(angle)
 		var/y_speed = vel * sin(angle)
 		PixelMove(x_speed,y_speed)
+		if(!SUPERLAGMODE)
+			parallax_update()
 		if(pilot && pilot.client)
 			pilot.client.pixelXYshit()
 
@@ -49,8 +51,9 @@
 
 /obj/structure/overmap/proc/parallax_update()
 	if(pilot)
-		for(var/obj/screen/parallax_layer/P in pilot.client.parallax_layers)
+		for(var/PP in pilot.client.parallax_layers)
 		//	var/turf/posobj = get_turf(src)
+			var/obj/screen/parallax_layer/P = PP
 			var/x_speed = 5 * cos(angle)
 			var/y_speed = 5 * sin(angle)
 			P.PixelMove(x_speed,y_speed)

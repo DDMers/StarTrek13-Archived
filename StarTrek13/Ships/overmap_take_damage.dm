@@ -50,14 +50,19 @@
 		if(agressor)
 			if(istype(agressor.target_subsystem, /datum/shipsystem/integrity)) //If they target the hull subsystem, they deal heavy physical damage
 				maths += 20 //Heavily increase physical damage
-		if(prob(20))
+		if(prob(5))
 			for(var/obj/structure/overmap/O in orange(30,src))
 				SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
 		var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
 		var/turf/open/floor/theturf = get_turf(theturf1)
+		if(prob(30+maths))
+			weapons.explode_effect()
 		if(prob(10+maths))
 			explosion(theturf,0,5,5) //Pretty bad hit right there
 		if(prob(70+maths))
+			var/datum/effect_system/smoke_spread/smoke = new
+			smoke.set_up(4, theturf)
+			smoke.start()
 			new /obj/effect/hotspot/shipfire(theturf)  //begin the fluff! as ships are damaged, they start visibly getting destroyed
 			theturf.atmos_spawn_air("plasma=30;TEMP=1000")
 			for(var/turf/open/floor/T in orange(5,theturf))

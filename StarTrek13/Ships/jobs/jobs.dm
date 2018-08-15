@@ -40,7 +40,7 @@ Assistant
 
 /datum/outfit/job/crewman/pre_equip(mob/living/carbon/human/H)
 	if(istype(H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/grey
+		uniform = /obj/item/clothing/under/trek/grey/sov
 	if(istype(H.player_faction, /datum/faction/romulan))
 		uniform = /obj/item/clothing/under/romulan
 	..()
@@ -69,6 +69,10 @@ Captain
 
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
+
+/datum/job/trek/captain/after_spawn(mob/living/carbon/human/H, mob/M)
+	. = ..()
+	H.grant_kirkfu()
 
 /datum/job/trek/captain/get_access()
 	return get_all_accesses()
@@ -102,7 +106,7 @@ Captain
 /datum/outfit/job/captain/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(istype(H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/command/next
+		uniform = /obj/item/clothing/under/trek/command/sov
 	if(istype(H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -168,7 +172,7 @@ Captain
 
 /datum/outfit/job/admiral/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/command/next
+		uniform = /obj/item/clothing/under/trek/command/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -241,7 +245,7 @@ Head of Personnel
 
 /datum/outfit/job/firstofficer/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/command/next
+		uniform = /obj/item/clothing/under/trek/command/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -307,7 +311,7 @@ Shaft Miner
 
 /datum/outfit/job/miner/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/grey
+		uniform = /obj/item/clothing/under/trek/grey/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -403,7 +407,7 @@ Chief Engineer
 
 /datum/outfit/job/ce/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/engsec/next
+		uniform = /obj/item/clothing/under/trek/engsec/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -461,7 +465,7 @@ Station Engineer
 /datum/outfit/job/engineer/pre_equip(mob/living/carbon/human/H)
 	H.skills.add_skill("construction and maintenance", 5)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/engsec/next
+		uniform = /obj/item/clothing/under/trek/engsec/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -524,7 +528,7 @@ Chief Medical Officer
 		H.skills = new
 		H.skills.add_skill("piloting", 3)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/medsci/next
+		uniform = /obj/item/clothing/under/trek/medsci/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -570,7 +574,7 @@ Medical Doctor
 /datum/outfit/job/doctor/pre_equip(mob/living/carbon/human/H)
 	H.skills.add_skill("medicine", 6)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/medsci/next
+		uniform = /obj/item/clothing/under/trek/medsci/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -628,7 +632,7 @@ Research Director
 
 /datum/outfit/job/rd/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/medsci/next
+		uniform = /obj/item/clothing/under/trek/medsci/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -671,7 +675,7 @@ Scientist
 
 /datum/outfit/job/scientist/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/medsci/next
+		uniform = /obj/item/clothing/under/trek/medsci/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -715,6 +719,10 @@ Head of Security
 			            ACCESS_RESEARCH, ACCESS_ENGINE, ACCESS_MINING, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING,
 			            ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MAINT_TUNNELS)
 
+/datum/job/trek/hos/after_spawn(mob/living/carbon/human/H, mob/M)
+	. = ..()
+	H.grant_kirkfu()
+
 /datum/outfit/job/hos
 	name = "Chief of security"
 	jobtype = /datum/job/trek/hos
@@ -741,7 +749,7 @@ Head of Security
 
 /datum/outfit/job/hos/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/engsec/next
+		uniform = /obj/item/clothing/under/trek/engsec/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -800,7 +808,7 @@ Security Officer
 
 /datum/outfit/job/security/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/engsec/next
+		uniform = /obj/item/clothing/under/trek/engsec/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -873,7 +881,7 @@ Security Officer
 
 /datum/outfit/job/soldier/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/engsec/next
+		uniform = /obj/item/clothing/under/trek/engsec/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
@@ -925,7 +933,7 @@ Security Officer
 
 /datum/outfit/job/pilot/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
-		uniform = /obj/item/clothing/under/trek/engsec/next
+		uniform = /obj/item/clothing/under/trek/engsec/sov
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan

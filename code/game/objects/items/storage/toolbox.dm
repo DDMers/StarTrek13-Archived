@@ -43,7 +43,7 @@
 	item_state = "toolbox_red"
 
 /obj/item/storage/toolbox/emergency/PopulateContents()
-	new /obj/item/crowbar/red(src)
+	new /obj/item/crowbar/trek(src)
 	new /obj/item/weldingtool/mini(src)
 	new /obj/item/extinguisher/mini(src)
 	switch(rand(1,3))
@@ -66,12 +66,12 @@
 	item_state = "toolbox_blue"
 
 /obj/item/storage/toolbox/mechanical/PopulateContents()
-	new /obj/item/screwdriver(src)
-	new /obj/item/wrench(src)
+	new /obj/item/screwdriver/trek(src)
+	new /obj/item/wrench/trek(src)
 	new /obj/item/weldingtool(src)
-	new /obj/item/crowbar(src)
+	new /obj/item/crowbar/trek(src)
 	new /obj/item/analyzer(src)
-	new /obj/item/wirecutters(src)
+	new /obj/item/wirecutters/trek(src)
 
 /obj/item/storage/toolbox/mechanical/old
 	name = "rusty blue toolbox"
@@ -94,10 +94,10 @@
 
 /obj/item/storage/toolbox/electrical/PopulateContents()
 	var/pickedcolor = pick("red","yellow","green","blue","pink","orange","cyan","white")
-	new /obj/item/screwdriver(src)
-	new /obj/item/wirecutters(src)
+	new /obj/item/screwdriver/trek(src)
+	new /obj/item/wirecutters/trek(src)
 	new /obj/item/t_scanner(src)
-	new /obj/item/crowbar(src)
+	new /obj/item/crowbar/trek(src)
 	new /obj/item/stack/cable_coil(src,30,pickedcolor)
 	new /obj/item/stack/cable_coil(src,30,pickedcolor)
 	if(prob(5))
@@ -133,12 +133,12 @@
 
 /obj/item/storage/toolbox/drone/PopulateContents()
 	var/pickedcolor = pick("red","yellow","green","blue","pink","orange","cyan","white")
-	new /obj/item/screwdriver(src)
-	new /obj/item/wrench(src)
+	new /obj/item/screwdriver/trek(src)
+	new /obj/item/wrench/trek(src)
 	new /obj/item/weldingtool(src)
-	new /obj/item/crowbar(src)
+	new /obj/item/crowbar/trek(src)
 	new /obj/item/stack/cable_coil(src,30,pickedcolor)
-	new /obj/item/wirecutters(src)
+	new /obj/item/wirecutters/trek(src)
 	new /obj/item/multitool(src)
 
 /obj/item/storage/toolbox/brass

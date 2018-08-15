@@ -10,7 +10,7 @@
 	opacity = 0
 	layer = 4.5
 	var/list/weapons = list()
-	var/list/redalertsounds = list('StarTrek13/sound/borg/machines/redalert.ogg','StarTrek13/sound/borg/machines/redalert2.ogg')
+	var/list/redalertsounds = list('StarTrek13/sound/borg/machines/redalert.ogg')
 	var/target = null
 	var/cooldown2 = 190 //18.5 second cooldown
 	var/saved_time = 0
@@ -26,12 +26,30 @@
 	var/starmapUI
 	var/datum/looping_sound/trek/bridge/soundloop
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //it's very bad if this dies
+	var/list/zaps = list('StarTrek13/sound/trek/ship_effects/consolehit.ogg','StarTrek13/sound/trek/ship_effects/consolehit2.ogg','StarTrek13/sound/trek/ship_effects/consolehit3.ogg','StarTrek13/sound/trek/ship_effects/consolehit4.ogg')
+	var/datum/effect_system/spark_spread/spark_system
+
+/obj/structure/fluff/helm/desk/tactical/proc/explode_effect()
+	var/sound = pick(zaps)
+	playsound(src.loc, sound, 70,1)
+	spark_system.start()
 
 /obj/structure/fluff/helm/desk/tactical/nanotrasen
 	name = "tactical"
 	desc = "Used to control all ship functions...this one looks slightly retro."
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
+
+/obj/structure/fluff/helm/desk/tactical/defiant
+	name = "weapon control computer"
+	desc = "Used to control all ship functions, this one looks extra sleek"
+	icon = 'StarTrek13/icons/trek/defianttactical.dmi'
+	icon_state = "tactical"
+
+
+/obj/structure/fluff/helm/desk/tactical/defiant/romulan
+	redalertsounds = list('StarTrek13/sound/borg/machines/romulanredalert.ogg')
+	cooldown2 = 40 //romulan alarm is really short
 
 /obj/structure/fluff/helm/desk/tactical/alt //only use this on runabouts...please
 	icon_state = "tactical_nt_alt"
@@ -53,7 +71,6 @@
 	if(!soundloop)
 		soundloop = new(list(src), TRUE)
 	var/area/thearea = get_area(src)
-	get_weapons()
 	if(REDALERT)
 		if(world.time >= saved_time + cooldown2)
 			saved_time = world.time
@@ -62,6 +79,9 @@
 
 /obj/structure/fluff/helm/desk/tactical/Initialize(mapload)
 	. = ..()
+	spark_system = new /datum/effect_system/spark_spread
+	spark_system.set_up(4,1,src)
+	spark_system.attach(src)
 	get_weapons()
 	get_shieldgen()
 	START_PROCESSING(SSobj,src)
@@ -80,10 +100,14 @@
 	weapons = list()
 	torpedoes = list()
 	var/area/thearea = get_area(src)
-	for(var/obj/machinery/power/ship/phaser/P in thearea)
-		weapons += P
-	for(var/obj/structure/torpedo_launcher/T in thearea)
-		torpedoes += T
+	for(var/P in thearea)
+		if(istype(P,/obj/machinery/ship/phaser))
+			var/obj/machinery/ship/phaser/PP = P
+			weapons += PP
+	for(var/T in thearea)
+		if(istype(T, /obj/structure/torpedo_launcher))
+			var/obj/structure/torpedo_launcher/TT = T
+			torpedoes += TT
 
 /datum/asset/simple/starmap
 	assets = list(
@@ -94,12 +118,15 @@
 	)
 
 /obj/structure/fluff/helm/desk/tactical/attack_hand(mob/user)
+	playsound(src.loc, 'StarTrek13/sound/borg/machines/alert2.ogg', 100,1)
 	get_weapons()
 	get_shieldgen()
 	if(!theship)
 		to_chat(user, "Your ship has been destroyed!")
 	if(!user.skills.skillcheck(user, "piloting", 5))
 		return
+
+	playsound(src.loc, 'StarTrek13/sound/borg/machines/alertbuzz.ogg', 100,1)
 	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap")
 	starmapUI = "\
 	<!DOCTYPE html>\
@@ -293,10 +320,18 @@
 	if(REDALERT)
 		src.say("RED ALERT DEACTIVATED")
 		REDALERT = FALSE
+		var/area/a = theship.linked_ship
+		a.fire = FALSE
+		for(var/obj/machinery/light/L in a)
+			L.update()
 		return 0
 	else
 		src.say("RED ALERT ACTIVATED")
 		REDALERT = TRUE
+		var/area/a = theship.linked_ship
+		a.fire = TRUE
+		for(var/obj/machinery/light/L in a)
+			L.update()
 		return 1
 
 /obj/structure/fluff/helm/desk/tactical/proc/fire_phasers(atom/target, mob/user)

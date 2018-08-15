@@ -11,8 +11,8 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 			var/turf/T = S
 			T.ChangeTurf(/turf/open/space/basic)
 		if(istype(S, /obj/structure))
-			if(istype(S, /obj/structure/ladder/unbreakable/lift))
-				var/obj/structure/ladder/unbreakable/lift/V = S
+			if(istype(S, /obj/structure/ladder/unbreakable))
+				var/obj/structure/ladder/unbreakable/V = S
 				V.Destroy(1)
 			qdel(S)
 		if(istype(S, /obj/machinery))
@@ -36,10 +36,8 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	announcedanger()
 
 /obj/structure/overmap/proc/announcedanger()//GET THE FUCK OUTTA THAT WRECK BOYOH
-	message_admins("a [true_name] class ship has been destroyed, it will respawn in 4 mins | 30 secs.")
-	addtimer(CALLBACK(src, .proc/respawn), 2400)
-	for(var/mob/M in linked_ship)
-		to_chat(M, "<span class='userdanger'>This wreck isn't going to last much longer, 4 minutes at most... I should get out of here before it collapses in on itself!</span>")
+	message_admins("a [true_name] class ship has been destroyed, it will respawn in about 2 mins")
+	addtimer(CALLBACK(src, .proc/respawn), 400)
 
 /obj/structure/overmap/proc/respawn() //Time's up to ditch the wreck, respawn time!
 	weapons.deletearea()
@@ -64,24 +62,24 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 /obj/structure/overmap/proc/SetName(var/string)
 	if(!string)
 		string = pick(GLOB.ship_names)
-	name = string //Keep true name seperate for respawning
-	linked_ship.name = string
+	name =  string //Keep true name seperate for respawning
+	linked_ship.name = "[string] ([true_name] class)"
 	message_admins("[true_name] has been renamed to [name]")
 
 /obj/structure/overmap/ship/romulan/SetName(string)
 	if(!string)
 		string = pick(GLOB.romulan_ship_names)
 	name = string //Keep true name seperate for respawning
-	linked_ship.name = string
+	linked_ship.name = "[string] ([true_name] class)"
 	message_admins("[true_name] has been renamed to [name]")
 
 /datum/map_template/ship/sovereign
 	name = "sovereign"
 	mappath = "_maps/templates/StarTrek13/sov2.dmm"
 
-/datum/map_template/ship/miranda
-	name = "miranda"
-	mappath = "_maps/templates/StarTrek13/miranda3.dmm"
+/datum/map_template/ship/defiant
+	name = "defiant"
+	mappath = "_maps/templates/StarTrek13/defiant.dmm"
 
 /datum/map_template/ship/romulan
 	name = "dderidex"
@@ -101,10 +99,10 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	desc = "Spawns new ships!"
 	templatename = "dderidex"
 
-/obj/effect/landmark/ShipSpawner/miranda
+/obj/effect/landmark/ShipSpawner/defiant
 	name = "Ship spawning warp beacon"
 	desc = "Spawns new ships!"
-	templatename = "miranda"
+	templatename = "defiant"
 
 /obj/effect/landmark/ShipSpawner/proc/load()
 	var/turf/T = get_turf(src)

@@ -150,6 +150,13 @@
 //	theship.phaser_charge_rate = 0
 
 /datum/shipsystem/weapons/proc/update_weapons()
+	if(istype(controller.theship, /obj/structure/overmap/ship/AI))
+		var/obj/structure/overmap/ship/AI/theship2 = controller.theship
+		damage = theship2.dam
+		fire_cost = theship2.firecost
+		max_charge = theship2.maxcharge
+		chargeRate = theship2.chargerate
+		return
 	damage = initial(damage)
 	fire_cost = initial(fire_cost)
 	max_charge = initial(max_charge)
@@ -160,17 +167,20 @@
 		chargeRate = 100
 		fire_cost = 150
 		return TRUE
-	for(var/obj/machinery/power/ship/phaser/P in controller.theship.linked_ship)
-		chargeRate += P.charge_rate
-		damage += P.damage
-		fire_cost += P.fire_cost
-		counter ++
-		temp = P.charge
+	for(var/PS in controller.theship.linked_ship)
+		if(istype(PS, /obj/machinery/ship/phaser))
+			var/obj/machinery/ship/phaser/P = PS
+			chargeRate += P.charge_rate
+			damage += P.damage
+			fire_cost += P.fire_cost
+			counter ++
+			temp = P.charge
 	maths_damage = damage
 	maths_damage -= round(max_charge - charge)/2 //Damage drops off heavily if you don't let them charge
 	damage = maths_damage
 	max_charge += counter*temp //To avoid it dropping to 0 on update, so then the charge spikes to maximum due to process()
-	damage = damage+(200*power_modifier)
+	if(damage > 0)
+		damage = damage+(200*power_modifier)
 	chargeRate = chargeRate*power_modifier
 
 /datum/shipsystem/weapons/process()
@@ -196,6 +206,9 @@
 
 /datum/shipsystem/weapons/proc/attempt_fire(var/firemode)
 	if(!failed)
+		if(istype(controller.theship, /obj/structure/overmap/ship/AI))
+			if(charge >= fire_cost)
+				return 1
 		if(controller.theship.fire_mode == 1)
 			if(charge >= fire_cost || charge > 0)
 				if(world.time < nextfire) //Spam blocker! spam your phasers and expect shit damage.
@@ -234,7 +247,7 @@
 	icon_state = "engines"
 	var/charge = 0
 	var/max_charge = 7000 //This should NickVr proof warping rather nicely :)
-	var/chargeRate = 100
+	var/chargeRate = 100 //Warp coils drain all the powernet power, this is to prevent infinite spams, and infinite cloaks.
 
 
 /datum/shipsystem/engines/proc/try_warp() //You can't warp if your engines are down
@@ -286,7 +299,7 @@
 
 /datum/shipsystem/shields
 	name = "shields" //in this case, integrity is shield health. If your shields are smashed to bits, it's assumed that all the control circuits are pretty fried anyways.
-	var/breakingpoint = 150 //at 150 heat, shields will take double damage
+	var/breakingpoint = 500 //at 500 heat, shields will take double damage
 	var/heat_resistance = 50 // how much we resist gaining heat
 	power_draw = 0//just so it's not an empty type TBH.
 	var/list/obj/machinery/space_battle/shield_generator/linked_generators = list()
@@ -295,8 +308,8 @@
 	var/obj/structure/ship_component/capbooster/boosters = list()
 	icon_state = "shields"
 	var/chargeRate = 500 // per tick
-	var/health = 20000
-	var/max_health = 20000 //This will become shield health, integrity is subsystem integrity
+	var/health = 30000
+	var/max_health = 30000 //This will become shield health, integrity is subsystem integrity
 	integrity = 20000
 	max_integrity = 20000
 	var/max_integrity_bonus = 0 //From capboosters
@@ -313,6 +326,9 @@
 	failed = TRUE
 
 /datum/shipsystem/shields/process()
+	if(controller.theship.generator)
+		if(!controller.theship.generator.powered())
+			health = 0
 	if(!failed && toggled)
 		health += chargeRate*power_modifier
 		heat -= heat_loss_bonus
@@ -418,6 +434,7 @@
 	icon_state = "lcars"
 	var/datum/shipsystem/shields/subsystem //change me as you need. This one's for testing
 	var/obj/structure/overmap/ship/our_ship
+	anchored = TRUE
 
 /obj/structure/subsystem_monitor/proc/get_ship()
 	subsystem = our_ship.SC.shields
@@ -621,7 +638,6 @@
 	START_PROCESSING(SSobj,src)
 
 /obj/structure/subsystem_panel/process()
-	check_ship()
 	check_overlays()
 
 /obj/structure/subsystem_panel/attack_hand(mob/user)

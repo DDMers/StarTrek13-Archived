@@ -28,7 +28,6 @@
 /obj/structure/overmap/Initialize(timeofday)
 	. = ..()
 	overmap_objects += src
-	soundloop = new(list(src), TRUE)
 	START_PROCESSING(SSobj,src)
 	linkto()
 	linked_ship = get_area(src)

@@ -237,6 +237,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<b>Custom job preferences:</b><BR>"
 			dat += "<a href='?_src_=prefs;preference=sec_dept;task=input'><b>Prefered security department:</b> [prefered_security_department]</a><BR></td>"
+			dat += "Preferred Crews: <a href='?_src_=prefs;crewchange=true'>"
 
 			dat += "<td valign='center'>"
 
@@ -630,7 +631,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	factions = SSfaction.factions
 
 /datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
-//	ResetJobs() //stop spawning with the wrong gear please. Thank you gamers
 	getFactions()
 	if(!SSjob)
 		return
@@ -658,7 +658,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		HTML += "style='background-color: [player_faction.pref_colour]'" //For some reason this doesnt work.
 		HTML += "<center>[player_faction.name]</a></center><br>"
 		HTML += "<p>[player_faction.description]]</p>"
-		HTML += "<center>Preferred Crews: <a href='?_src_=prefs;crewchange=true' </a>"
 
 //		HTML += "<p>[factionRosters[faction][1]]</p><br>"
 
@@ -996,7 +995,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			to_chat(user, "You've signed up to crew a [A]")
 			fucc.crews += A
 			crews += A
-			SetChoices(user)
 
 		else
 			to_chat(user, "You can only do this in the lobby")

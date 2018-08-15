@@ -29,7 +29,6 @@
 	item_color = "trek_medsci"
 	item_state = "b_suit"
 
-
 //TNG
 /obj/item/clothing/under/trek/command/next
 	icon_state = "trek_next_command"
@@ -76,3 +75,22 @@
 	icon_state = "trek_Q"
 	item_color = "trek_Q"
 	item_state = "r_suit"
+
+//Sovereign era TNG jumpsuits
+/obj/item/clothing/under/trek/command/sov
+	icon_state = "trek_sov_command"
+	item_color = "trek_sov_command"
+	item_state = "r_suit"
+
+/obj/item/clothing/under/trek/engsec/sov
+	icon_state = "trek_sov_engsec"
+	item_color = "trek_sov_engsec"
+	item_state = "y_suit"
+
+/obj/item/clothing/under/trek/medsci/sov
+	icon_state = "trek_sov_medsci"
+	item_color = "trek_sov_medsci"
+
+/obj/item/clothing/under/trek/grey/sov
+	icon_state = "trek_sov_grey"
+	item_color = "trek_sov_grey"

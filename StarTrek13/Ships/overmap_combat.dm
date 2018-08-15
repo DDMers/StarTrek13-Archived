@@ -38,6 +38,8 @@
 /obj/structure/overmap/proc/fire(obj/structure/overmap/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
 	if(wrecked)
 		return 0
+	if(cloaked)
+		return 0
 	if(target)
 		if(isOVERMAP(target))
 			target.agressor = src
@@ -191,8 +193,12 @@
 		qdel(progbar)
 
 /obj/structure/overmap/proc/attempt_fire()
+	update_weapons()
 	if(wrecked)
 		return
+	if(SC.weapons.damage <= 0)
+		to_chat(pilot, "<span_class = 'warning'>Weapon systems are depowered!</span>")
+		return 0
 	var/obj/structure/overmap/S = target_ship
 	if(target_ship)
 		target_ship.agressor = src
@@ -200,15 +206,6 @@
 		if(FIRE_PHASER)
 			if(SC.weapons.attempt_fire())
 				if(target_ship && locked == target_ship) //Is the locked target the one we're clicking?
-				//	if(!target_subsystem)
-					//	target_subsystem = pick(S.SC.systems) //Redundant, but here just in case it
-					if(prob(10))
-						var/source = get_turf(src)
-						SEND_SOUND(pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
-						var/turf/T = pick(orange(2, S))
-						current_beam = new(source,T,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
-						to_chat(pilot, "You missed [S]")
-						return 0 //Miss! they're too fast for YOU suckah
 					var/source = get_turf(src)
 					S.take_damage(SC.weapons.damage,1)
 					var/list/L = list()
@@ -216,25 +213,14 @@
 						var/area/thearea = S.linked_ship
 						for(var/turf/T in get_area_turfs(thearea.type))
 							L+=T
-				//	S.take_damage(SC.weapons.maths_damage,theturf)
 					in_use1 = 0
 					var/chosen_sound = pick(soundlist)
-					SEND_SOUND(pilot, sound(chosen_sound))
+					playsound(src,chosen_sound,100,1)
 					SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
 					SC.weapons.charge -= SC.weapons.fire_cost
 					current_beam = new(source,target_ship,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
-				//	current_beam.beam.pixel_x = target_ship.pixel_x
-				//	current_beam.beam.pixel_y = target_ship.pixel_y
 					to_chat(pilot, "You successfully hit [S]")
 					target_ship.take_damage(damage)
-					if(!S.has_shields())
-						var/obj/effect/explosion/explosion = new(get_turf(target_ship))
-						var/matrix/ntransform = matrix(transform)
-						ntransform.Scale(0.5)
-						explosion.layer = 4.5
-						explosion.pixel_x = target_ship.pixel_x + rand(50,100)
-						explosion.pixel_y = target_ship.pixel_y + rand(50,100)
-						animate(explosion, transform = ntransform, time = 0.5,easing = EASE_IN|EASE_OUT)
 					spawn(0)
 						current_beam.Start()
 					return
@@ -245,9 +231,9 @@
 					var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)
 					A.starting = loc
 					A.preparePixelProjectile(target_ship,pilot)
-					A.pixel_x = rand(-20, 50)
+					A.pixel_x = rand(0, 5)
 					A.fire()
-					playsound(src,'StarTrek13/sound/borg/machines/torpedo1.ogg',40,1)
+					playsound(src,'StarTrek13/sound/borg/machines/torpedo1.ogg',100,1)
 					sleep(1)
 					A.pixel_x = target_ship.pixel_x
 					A.pixel_y = target_ship.pixel_y

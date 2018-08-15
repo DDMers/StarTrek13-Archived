@@ -13,7 +13,9 @@
 /turf/open/floor/fakespace,
 /area/overmap/s2)
 "d" = (
-/obj/structure/space_object/nebula,
+/obj/structure/space_object/planet{
+	icon_state = "10"
+	},
 /turf/open/floor/fakespace,
 /area/overmap/s2)
 "e" = (
@@ -57,6 +59,10 @@
 "m" = (
 /turf/open/floor/fakespace,
 /area/overmap/backup)
+"n" = (
+/obj/structure/space_object/rocky,
+/turf/open/floor/fakespace,
+/area/overmap/s2)
 "o" = (
 /obj/effect/landmark{
 	name = "sovbackup"
@@ -69,6 +75,36 @@
 	},
 /turf/open/floor/fakespace,
 /area/overmap/backup)
+"q" = (
+/obj/structure/space_object/planet{
+	icon_state = "9"
+	},
+/turf/open/floor/fakespace,
+/area/overmap/s2)
+"r" = (
+/obj/structure/space_object/planet{
+	icon_state = "3"
+	},
+/turf/open/floor/fakespace,
+/area/overmap/s2)
+"s" = (
+/obj/structure/space_object/planet{
+	icon_state = "2"
+	},
+/turf/open/floor/fakespace,
+/area/overmap/s2)
+"t" = (
+/obj/structure/space_object/planet{
+	icon_state = "5"
+	},
+/turf/open/floor/fakespace,
+/area/overmap/s2)
+"u" = (
+/obj/structure/space_object/planet{
+	icon_state = "6"
+	},
+/turf/open/floor/fakespace,
+/area/overmap/s2)
 
 (1,1,1) = {"
 e
@@ -2436,7 +2472,7 @@ b
 b
 b
 b
-b
+u
 b
 b
 b
@@ -4689,7 +4725,7 @@ b
 b
 b
 b
-b
+d
 b
 b
 b
@@ -8801,7 +8837,7 @@ b
 b
 b
 b
-d
+b
 b
 b
 b
@@ -14584,7 +14620,7 @@ b
 b
 b
 i
-b
+q
 b
 b
 b
@@ -19386,7 +19422,7 @@ b
 b
 b
 b
-b
+r
 b
 b
 b
@@ -22649,7 +22685,7 @@ b
 b
 b
 b
-b
+q
 b
 b
 b
@@ -31086,7 +31122,7 @@ b
 b
 b
 b
-b
+t
 b
 b
 b
@@ -43385,7 +43421,7 @@ b
 b
 b
 b
-b
+s
 b
 b
 b
@@ -48755,8 +48791,8 @@ b
 b
 b
 b
+n
 b
-d
 b
 b
 b

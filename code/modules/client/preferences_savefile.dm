@@ -176,7 +176,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["tip_delay"], tip_delay)
 	WRITE_FILE(S["pda_style"], pda_style)
 	WRITE_FILE(S["pda_color"], pda_color)
-	WRITE_FILE(S["player_faction"],player_faction)
+	//WRITE_FILE(S["player_faction"],player_faction)
 
 	return 1
 
@@ -246,6 +246,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		S["feature_human_ears"]				>> features["ears"]
 	S["human_name"]         >> custom_names["human"]
 	S["clown_name"]			>> custom_names["clown"]
+	S["romulan_name"]			>> romulan_name
 	S["mime_name"]			>> custom_names["mime"]
 	S["ai_name"]			>> custom_names["ai"]
 	S["cyborg_name"]		>> custom_names["cyborg"]
@@ -264,7 +265,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["job_engsec_high"]	>> job_engsec_high
 	S["job_engsec_med"]		>> job_engsec_med
 	S["job_engsec_low"]		>> job_engsec_low
-	S["player_faction"]		>> player_faction
 
 	//Quirks
 	S["all_quirks"]			>> all_quirks
@@ -376,6 +376,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["feature_moth_wings"]			, features["moth_wings"])
 	WRITE_FILE(S["human_name"]			, custom_names["human"])
 	WRITE_FILE(S["clown_name"]			, custom_names["clown"])
+	WRITE_FILE(S["romulan_name"]		, romulan_name)
 	WRITE_FILE(S["mime_name"]			, custom_names["mime"])
 	WRITE_FILE(S["ai_name"]			, custom_names["ai"])
 	WRITE_FILE(S["cyborg_name"]		, custom_names["cyborg"])

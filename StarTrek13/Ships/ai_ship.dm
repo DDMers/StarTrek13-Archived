@@ -17,6 +17,34 @@
 	acceleration = 0.1
 	damage = 5000
 	spawn_name = "ai_spawn"
+	var/firecost = 1000 // Buffs AI ships
+	var/dam = 3500 //They always hit quite hard, this is to prevent negative numbers
+	var/chargerate = 500
+	var/maxcharge = 6000
+
+/obj/structure/overmap/ship/AI/Initialize(timeofday)
+	. = ..()
+	name = true_name
+	overmap_objects += src
+	START_PROCESSING(SSobj,src)
+	linkto()
+	var/list/thelist = list()
+	for(var/obj/effect/landmark/A in GLOB.landmarks_list)
+		if(A.name == spawn_name)
+			thelist += A
+			continue
+	if(thelist.len)
+		var/obj/effect/landmark/A = pick(thelist)
+		var/turf/theloc = get_turf(A)
+		if(spawn_random)
+			forceMove(theloc)
+	check_overlays()
+
+/obj/structure/overmap/ship/AI/linkto()	//weapons etc. don't link!
+	for(var/area/AR in world)
+		if(istype(AR, /area/ship/ai))
+			linked_ship = AR
+			return
 
 /obj/structure/overmap/ship/AI/small
 	name = "Pirate Reaver"
@@ -86,7 +114,7 @@
 	. = ..()
 	if(!stored_target)
 		PickRandomShip()
-	if(stored_target in orange(src, 6))
+	if(stored_target in orange(src, 7))
 		if(prob(60)) //Allow it time to recharge
 			fire(stored_target)
 	else
@@ -95,6 +123,8 @@
 		vel += acceleration
 
 /obj/structure/overmap/ship/AI/proc/PickRandomShip()
+	if(agressor)
+		stored_target = agressor
 	if(!stored_target)
 		for(var/obj/structure/overmap/S in orange(src, 5))
 			if(istype(S, /obj/structure/overmap) && !istype(S, /obj/structure/overmap/ship/AI) && !istype(S, /obj/structure/overmap/shipwreck)) //No ai megaduels JUST yet!
@@ -119,8 +149,7 @@
 		stored_target.agressor = src
 		if(SC.weapons.attempt_fire())
 			if(S) //Is the locked target the one we're clicking?
-			//	if(!target_subsystem)
-				//	target_subsystem = pick(S.SC.systems) //Redundant, but here just in case it
+				SC.weapons.damage = damage
 				S.take_damage(SC.weapons.damage,1)
 				var/source = get_turf(src)
 				var/list/L = list()

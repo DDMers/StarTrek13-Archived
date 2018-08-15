@@ -553,7 +553,7 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "cd" = (
-/obj/effect/mob_spawn/human/cook{
+/obj/effect/mob_spawn/human/alive{
 	mob_name = "Chef"
 	},
 /turf/open/floor/plasteel/cafeteria{
@@ -718,7 +718,7 @@
 /turf/open/floor/plasteel/stage_bleft,
 /area/awaymission/wildwest/gov)
 "cH" = (
-/obj/effect/mob_spawn/human/cook{
+/obj/effect/mob_spawn/human/alive{
 	mob_name = "Chef"
 	},
 /turf/open/floor/plasteel/stage_bleft,
