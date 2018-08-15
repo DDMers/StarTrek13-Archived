@@ -30,24 +30,31 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 			if(!istype(S, /mob/dead))
 				to_chat(S, "you're filled with an overwhelming sense of dread as the wreck around you deteriorates completely.")
 				qdel(S)
+	return TRUE
+
+/obj/structure/overmap
+	var/respawning = FALSE
 
 /obj/structure/overmap/shipwreck/Initialize()
 	. = ..()
 	announcedanger()
 
 /obj/structure/overmap/proc/announcedanger()//GET THE FUCK OUTTA THAT WRECK BOYOH
-	message_admins("a [true_name] class ship has been destroyed, it will respawn in about 2 mins")
-	addtimer(CALLBACK(src, .proc/respawn), 400)
+	if(!respawning)
+		respawning = TRUE
+		message_admins("a [true_name] class ship has been destroyed, it will respawn in about 2 mins")
+		addtimer(CALLBACK(src, .proc/respawn), 400)
+
 
 /obj/structure/overmap/proc/respawn() //Time's up to ditch the wreck, respawn time!
-	weapons.deletearea()
-	for(var/obj/effect/landmark/ShipSpawner/S in world)
-		if(S.templatename == true_name)
-			qdel(weapons)
-			to_chat(world, "Respawning [true_name]..")
-			if(S.load())
-				qdel(src)
-			return
+	if(weapons.deletearea())
+		for(var/obj/effect/landmark/ShipSpawner/S in world)
+			if(S.templatename == true_name)
+				qdel(weapons)
+				to_chat(world, "Respawning [true_name]..")
+				if(S.load())
+					qdel(src)
+				return
 
 /obj/structure/overmap/Destroy(var/severity = 1)
 	if(faction)
