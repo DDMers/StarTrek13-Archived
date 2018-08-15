@@ -2664,6 +2664,7 @@
 #include "StarTrek13\Ships\subsystems.dm"
 #include "StarTrek13\Ships\SystemDomination.dm"
 #include "StarTrek13\Ships\TacticalConsole.dm"
+#include "StarTrek13\Ships\tools.dm"
 #include "StarTrek13\Ships\transporter.dm"
 #include "StarTrek13\Ships\turfs.dm"
 #include "StarTrek13\Ships\unsorted.dm"

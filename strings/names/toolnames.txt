@@ -1,0 +1,27 @@
+Alphanumeric Sequencer
+Chronometric Analyzer
+Coil Scanner
+Coil Spanner
+Decoupler
+Descrambler
+Dualitic Inverter
+Duotronic Probe
+Dualitic Inverter
+Emitter Module
+Flux Coupler
+Gravitic Caliper
+Phase Compensator
+Sonic Driver
+Veridium Injector
+Waveform Discriminator
+Thermal Regulator
+Triphasic Metastatic Laser-Relay
+Uniphasic Phasing Flux Adjuster
+Universal Disengagement Caliper
+Gravitic Resonator
+Protonic Regulator
+Supermatter Regulator
+Optronic Recoupler
+Optronic Decoupler
+Flux Decoupler
+Parametric Scanner

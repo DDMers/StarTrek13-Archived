@@ -108,19 +108,3 @@
 	user.dust()
 
 	return OXYLOSS
-
-//TREK TOOL
-/obj/item/wrench/trek
-	desc = "A tool of sorts, that only a qualified engineer should know what it is."
-
-/obj/item/wrench/trek/examine(var/mob/user)
-	..()
-	var/datum/skill/skill = user.skills.getskill("construction and maintenance")
-	if(skill.value < 4)
-		to_chat(user, "<span class='info'><b>Sadly, you are no such engineer.</b></span>")
-		return
-	to_chat(user, "<span class='info'><b>This seems to be a form of crowbar.</b></span>")
-
-/obj/item/wrench/trek/New()
-	icon_state = "trek[rand(1,4)]"
-	..()

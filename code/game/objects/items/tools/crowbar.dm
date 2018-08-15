@@ -86,19 +86,3 @@
 	to_chat(user, "<span class='notice'>You attach the cutting jaws to [src].</span>")
 	qdel(src)
 	user.put_in_active_hand(cutjaws)
-
-//TREK TOOL
-/obj/item/crowbar/trek
-	desc = "A tool of sorts, that only a qualified engineer should know what it is."
-
-/obj/item/crowbar/trek/examine(var/mob/user)
-	..()
-	var/datum/skill/skill = user.skills.getskill("construction and maintenance")
-	if(skill.value < 4)
-		to_chat(user, "<span class='info'><b>Sadly, you are no such engineer.</b></span>")
-		return
-	to_chat(user, "<span class='info'><b>This seems to be a form of crowbar.</b></span>")
-
-/obj/item/crowbar/trek/New()
-	icon_state = "trek[rand(1,4)]"
-	..()

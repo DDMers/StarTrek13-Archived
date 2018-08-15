@@ -26,6 +26,13 @@
 	var/starmapUI
 	var/datum/looping_sound/trek/bridge/soundloop
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //it's very bad if this dies
+	var/list/zaps = list('StarTrek13/sound/trek/ship_effects/consolehit.ogg','StarTrek13/sound/trek/ship_effects/consolehit2.ogg','StarTrek13/sound/trek/ship_effects/consolehit3.ogg','StarTrek13/sound/trek/ship_effects/consolehit4.ogg')
+	var/datum/effect_system/spark_spread/spark_system
+
+/obj/structure/fluff/helm/desk/tactical/proc/explode_effect()
+	var/sound = pick(zaps)
+	playsound(src.loc, sound, 70,1)
+	spark_system.start()
 
 /obj/structure/fluff/helm/desk/tactical/nanotrasen
 	name = "tactical"
@@ -38,6 +45,11 @@
 	desc = "Used to control all ship functions, this one looks extra sleek"
 	icon = 'StarTrek13/icons/trek/defianttactical.dmi'
 	icon_state = "tactical"
+
+
+/obj/structure/fluff/helm/desk/tactical/defiant/romulan
+	redalertsounds = list('StarTrek13/sound/borg/machines/romulanredalert.ogg')
+	cooldown2 = 40 //romulan alarm is really short
 
 /obj/structure/fluff/helm/desk/tactical/alt //only use this on runabouts...please
 	icon_state = "tactical_nt_alt"
@@ -67,6 +79,9 @@
 
 /obj/structure/fluff/helm/desk/tactical/Initialize(mapload)
 	. = ..()
+	spark_system = new /datum/effect_system/spark_spread
+	spark_system.set_up(4,1,src)
+	spark_system.attach(src)
 	get_weapons()
 	get_shieldgen()
 	START_PROCESSING(SSobj,src)

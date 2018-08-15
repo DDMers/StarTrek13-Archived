@@ -12,6 +12,10 @@ SUBSYSTEM_DEF(faction)
 	var/mob/living/lovers = list() //people involved in VIP objectives as the VIPs lover
 	var/datum/borg_hivemind/borg_hivemind
 	var/datum/crew/crews = list() //available crew slots to fill
+	var/Screwdrivername //Specific tool names to confuse non engineers.
+	var/Wrenchname //PASS ME THE DUOTRONIC SEQUENCER! NO NOT THE TRIPHASIC REGULATOR!
+	var/Crowbarname
+	var/Wirecuttername
 
 /datum/controller/subsystem/faction/Initialize(timeofday)
 	for(var/F in subtypesof(/datum/faction))
@@ -26,7 +30,21 @@ SUBSYSTEM_DEF(faction)
 		var/datum/crew/crew = F
 		var/datum/crew/instance = new crew
 		crews += instance
+	InitToolNames()
 	. = ..()
+
+/datum/controller/subsystem/faction/proc/InitToolNames()
+	Screwdrivername = pick(GLOB.toolnames)
+	Wrenchname = pick(GLOB.toolnames)
+	if(Wrenchname == Screwdrivername)
+		Wrenchname = pick(GLOB.toolnames)
+	Crowbarname = pick(GLOB.toolnames)
+	if(Crowbarname == Screwdrivername || Wrenchname)
+		Crowbarname = pick(GLOB.toolnames)
+	Wirecuttername = pick(GLOB.toolnames)
+	if(Wirecuttername == Screwdrivername || Wrenchname || Crowbarname)
+		Wirecuttername = pick(GLOB.toolnames)
+	return
 
 /datum/controller/subsystem/faction/fire()
 	if(SSticker.current_state > GAME_STATE_PREGAME) //Round started. Now begin the countdown to allow jumpgates.

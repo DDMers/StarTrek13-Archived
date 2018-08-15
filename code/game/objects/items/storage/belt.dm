@@ -38,11 +38,11 @@
 	. = ..()
 	GET_COMPONENT(STR, /datum/component/storage)
 	var/static/list/can_hold = typecacheof(list(
-		/obj/item/crowbar,
-		/obj/item/screwdriver,
+		/obj/item/crowbar/trek,
+		/obj/item/screwdriver/trek,
 		/obj/item/weldingtool,
-		/obj/item/wirecutters,
-		/obj/item/wrench,
+		/obj/item/wirecutters/trek,
+		/obj/item/wrench/trek,
 		/obj/item/multitool,
 		/obj/item/flashlight,
 		/obj/item/stack/cable_coil,
@@ -74,30 +74,30 @@
 	//much roomier now that we've managed to remove two tools
 
 /obj/item/storage/belt/utility/full/PopulateContents()
-	new /obj/item/screwdriver(src)
-	new /obj/item/wrench(src)
+	new /obj/item/screwdriver/trek(src)
+	new /obj/item/wrench/trek(src)
 	new /obj/item/weldingtool(src)
-	new /obj/item/crowbar(src)
-	new /obj/item/wirecutters(src)
+	new /obj/item/crowbar/trek(src)
+	new /obj/item/wirecutters/trek(src)
 	new /obj/item/multitool(src)
 	new /obj/item/stack/cable_coil(src,30,pick("red","yellow","orange"))
 
 /obj/item/storage/belt/utility/full/engi/PopulateContents()
-	new /obj/item/screwdriver(src)
-	new /obj/item/wrench(src)
+	new /obj/item/screwdriver/trek(src)
+	new /obj/item/wrench/trek(src)
 	new /obj/item/weldingtool/largetank(src)
-	new /obj/item/crowbar(src)
-	new /obj/item/wirecutters(src)
+	new /obj/item/crowbar/trek(src)
+	new /obj/item/wirecutters/trek(src)
 	new /obj/item/multitool(src)
 	new /obj/item/stack/cable_coil(src,30,pick("red","yellow","orange"))
 
 
 /obj/item/storage/belt/utility/atmostech/PopulateContents()
-	new /obj/item/screwdriver(src)
-	new /obj/item/wrench(src)
+	new /obj/item/screwdriver/trek(src)
+	new /obj/item/wrench/trek(src)
 	new /obj/item/weldingtool(src)
-	new /obj/item/crowbar(src)
-	new /obj/item/wirecutters(src)
+	new /obj/item/crowbar/trek(src)
+	new /obj/item/wirecutters/trek(src)
 	new /obj/item/t_scanner(src)
 	new /obj/item/extinguisher/mini(src)
 
@@ -343,7 +343,7 @@
 		/obj/item/reagent_containers/food/snacks,
 		/obj/item/reagent_containers/food/drinks
 		))
-	
+
 	var/amount = 5
 	var/rig_snacks
 	while(contents.len <= amount)

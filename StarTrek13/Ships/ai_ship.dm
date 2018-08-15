@@ -149,8 +149,7 @@
 		stored_target.agressor = src
 		if(SC.weapons.attempt_fire())
 			if(S) //Is the locked target the one we're clicking?
-			//	if(!target_subsystem)
-				//	target_subsystem = pick(S.SC.systems) //Redundant, but here just in case it
+				SC.weapons.damage = damage
 				S.take_damage(SC.weapons.damage,1)
 				var/source = get_turf(src)
 				var/list/L = list()

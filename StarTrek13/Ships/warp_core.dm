@@ -186,15 +186,13 @@ Antimatter tank, if this is ever fucked with it'll explode
 	. = ..()
 	to_chat(user, "It has [matter] L  stored, with a max of [max_matter]")
 
-/obj/structure/warp_storage/attack_hand(mob/user) //replace this with a tool!
-	var/t = input(user,"Set fuel transfer rate", "Deuterium Storage Tank") as num
-	if(t)
-		flow_rate = t
-
-/obj/structure/antimatter_storage/attack_hand(mob/user) //replace this with a tool!
-	var/t = input(user,"Set fuel transfer rate", "Deuterium Storage Tank") as num
-	if(t) //No negative numbers!
-		flow_rate = t
+/obj/structure/warp_storage/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/wrench))
+		to_chat(user, "You start to tweak [src]'s flow controls...")
+		if(I.use_tool(src, user, 40, volume=100))
+			var/t = input(user,"Set fuel transfer rate", "Deuterium Storage Tank") as num
+			if(t) //No negative numbers!
+				flow_rate = t
 
 /obj/structure/antimatter_storage
 	name = "Anti-Deuterium storage tank"
@@ -204,6 +202,14 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/antimatter = 5000 //You'll need to refuel every now and then with highly toxic deuterium cells.
 	var/max_antimatter = 5000
 	var/flow_rate = 0 //Transfer it how fast?
+
+/obj/structure/antimatter_storage/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/wrench))
+		to_chat(user, "You start to tweak [src]'s flow controls...")
+		if(I.use_tool(src, user, 40, volume=100))
+			var/t = input(user,"Set fuel transfer rate", "Anti-Deuterium Storage Tank") as num
+			if(t) //No negative numbers!
+				flow_rate = t
 
 /obj/structure/antimatter_storage/examine(mob/user)
 	. = ..()
