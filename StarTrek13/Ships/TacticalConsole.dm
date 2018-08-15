@@ -49,7 +49,9 @@
 
 /obj/structure/fluff/helm/desk/tactical/defiant/romulan
 	redalertsounds = list('StarTrek13/sound/borg/machines/romulanredalert.ogg')
-	cooldown2 = 40 //romulan alarm is really short
+	cooldown2 = 50 //romulan alarm is really short
+	pixel_x = -5
+	icon_state = "rom-tactical"
 
 /obj/structure/fluff/helm/desk/tactical/alt //only use this on runabouts...please
 	icon_state = "tactical_nt_alt"

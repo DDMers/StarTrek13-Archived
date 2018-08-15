@@ -6,14 +6,14 @@
 "af" = (/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
 "ag" = (/obj/structure/viewscreen{pixel_x = -5; pixel_y = -6},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
 "ah" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHEAST)"; icon_state = "lcars2"; dir = 5},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
-"ai" = (/turf/open/floor/plating,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
+"ai" = (/obj/structure/fluff/helm/desk/tactical/defiant/romulan,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
 "aj" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
 "ak" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (SOUTHWEST)"; icon_state = "lcars"; dir = 10},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
 "al" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (NORTHEAST)"; icon_state = "lcars"; dir = 5},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "am" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHWEST)"; icon_state = "lcars2"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
 "an" = (/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
 "ao" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"ap" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/structure/fluff/helm/desk/tactical/defiant{pixel_x = -3},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"ap" = (/turf/open/floor/plating,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
 "aq" = (/obj/structure/overmap/ship/romulan,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
 "ar" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 5},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
 "as" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
@@ -283,7 +283,7 @@ abacacacacacacacacacacacacacacacacadadadadaeadadadadadadadaeadadadadacacacacacac
 abacacacacacacacacacacacacacacacacadaeadaeaeaeaeagaeaeaeaeaeaeaeaeadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abacacacacacacacacacacacacacacacacadadaeahaeaecBcBcBcBcBaeaeakaeadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abacacacacacacacacacacacacacacacacadadaealcBcBcBcBcBcBcBcBcBamaeadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
-abacacacacacacacacacacacacacacacacadadafcBajaoaoaoapaqaoaoarcBafadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacadadafcBajaoaoaoaiaqaoaoarcBafadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abacacacacacacacacacacacacacacacacadadafcBasafafafafafafafavcBafadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abacacacacacacacacacacacacacacacacadanafawaxayazafaAafaBafavcBafanadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFcqcqcqcqcqaHacacacacacacacacacadadafawaCaDaDaDaDaDaDaDaEcBafadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
@@ -292,7 +292,7 @@ abaFbYcCaLbPbWaHaFafafbQafafafaHacadaeadafaNbRaoaoaoaoaobRaoafadadadaJaFafafcaaf
 abaFbYcCaLbPbWaHaFafaPaPaPafafaHacadatadadaQadadadadadadadauadadadadaJaFaRaRafafafaSaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFbYcCccbPbWaHaFaTafafafafaTaUaWaXaXaXaWaYaWaXaXaXaXaXaWaZaWaXaXaXaWaUaRaRafafbaafaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFbYcCcicjbWaHaFaWaXaXaZaXaXaWckbbbbbbbbbcbbbbbbclbbbbbbaDbbbbbbbbcmaWaXaXaZaXaXaWaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
-abaFaWcraibiaWaHaFbbbbbbbbbbbbbbaEcBawbdbebfcBcBcBbgcBcBcBcBcBcBcBcBbhbbbbbbbbbbbbbbaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abaFaWcrapbiaWaHaFbbbbbbbbbbbbbbaEcBawbdbebfcBcBcBbgcBcBcBcBcBcBcBcBbhbbbbbbbbbbbbbbaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFcvbAcScVdkaHaFcBcBcBcBcBcBcBcBcBawawbqbubvbvbvbybvbvbvbvbZcBcBcBcBcBcBcBcBcBcBcBaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFdldmdndmdoaHaFaGaGaGaZaGaGaGaHaFaWaWegaWaWaUaWbgaWaUbjbkeMblbmaHaFaGaGaGaZaGaGaGaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFdpdqdrdqdsaHaFbncBcBcBcBcBboaHaFanbpeSananaUdtbgdtaUananeTananaHaFbrcBcBcBcBcBdhaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
