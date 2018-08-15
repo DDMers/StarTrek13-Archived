@@ -879,6 +879,9 @@
 				for(var/datum/shipsystem/F in SC.systems)
 					qdel(F)
 				wreck.true_name = true_name
+				wreck.linked_ship = linked_ship
+				wreck.weapons = weapons
+				wreck.announcedanger()
 				qdel(SC)
 				qdel(src)
 

@@ -35,26 +35,22 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 /obj/structure/overmap
 	var/respawning = FALSE
 
-/obj/structure/overmap/shipwreck/Initialize()
-	. = ..()
-	announcedanger()
+/obj/structure/overmap/shipwreck/proc/announcedanger()//GET THE FUCK OUTTA THAT WRECK BOYOH
+	message_admins("a [true_name] class ship has been destroyed, it will respawn in about 2 mins")
+	addtimer(CALLBACK(src, .proc/respawn), 400)
 
-/obj/structure/overmap/proc/announcedanger()//GET THE FUCK OUTTA THAT WRECK BOYOH
+/obj/structure/overmap/shipwreck/proc/respawn() //Time's up to ditch the wreck, respawn time!
 	if(!respawning)
 		respawning = TRUE
-		message_admins("a [true_name] class ship has been destroyed, it will respawn in about 2 mins")
-		addtimer(CALLBACK(src, .proc/respawn), 400)
-
-
-/obj/structure/overmap/proc/respawn() //Time's up to ditch the wreck, respawn time!
-	if(weapons.deletearea())
-		for(var/obj/effect/landmark/ShipSpawner/S in world)
-			if(S.templatename == true_name)
-				qdel(weapons)
-				to_chat(world, "Respawning [true_name]..")
-				if(S.load())
-					qdel(src)
-				return
+		if(weapons.deletearea())
+			for(var/obj/effect/landmark/ShipSpawner/S in world)
+				if(S.templatename == true_name)
+					if(weapons)
+						qdel(weapons)
+					to_chat(world, "Respawning [true_name]..")
+					if(S.load())
+						qdel(src)
+					return
 
 /obj/structure/overmap/Destroy(var/severity = 1)
 	if(faction)
@@ -100,6 +96,7 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	name = "Ship spawning warp beacon"
 	desc = "Spawns new ships!"
 	var/templatename = "sovereign"
+	var/loading
 
 /obj/effect/landmark/ShipSpawner/romulan
 	name = "Ship spawning warp beacon"
@@ -112,11 +109,14 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	templatename = "defiant"
 
 /obj/effect/landmark/ShipSpawner/proc/load()
-	var/turf/T = get_turf(src)
-	if(!T)
-		return FALSE
-	var/datum/map_template/template = SSmapping.ship_templates[templatename]
-	if(!template)
-		return FALSE
-	template.load(T, centered = FALSE)
-	return TRUE
+	if(!loading)
+		loading = TRUE
+		var/turf/T = get_turf(src)
+		if(!T)
+			return FALSE
+		var/datum/map_template/template = SSmapping.ship_templates[templatename]
+		if(!template)
+			return FALSE
+		if(template.load(T, centered = FALSE))
+			loading = FALSE
+		return TRUE

@@ -6,6 +6,8 @@
 	icon_keyboard = null
 	icon_screen = null
 	layer = 4.5
+	anchored = TRUE
+	can_be_unanchored = TRUE
 	var/area/target_area
 	var/list/retrievable = list()
 	var/list/linked = list()
@@ -107,6 +109,7 @@
 
 
 /obj/machinery/computer/camera_advanced/transporter_control/attack_hand(mob/user)
+	link_by_range()
 //	interact(user)
 	if(!powered())
 		to_chat(user, "Insufficient power!")
@@ -331,7 +334,7 @@ Might find a use for this later
 	name = "transporter pad"
 	density = 0
 	anchored = 1
-	can_be_unanchored = 0
+	can_be_unanchored = 1
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "transporter"
 	anchored = TRUE

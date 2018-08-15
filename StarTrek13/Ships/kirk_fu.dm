@@ -53,12 +53,12 @@
 	. = ..()
 
 /datum/martial_art/kirkfu/proc/explain()
-	sleep(50)
-	to_chat(themind.current, "<span class='warning'>[desc]</span>")
+	sleep(20)
+	to_chat(themind.current, "<span class='warning'>You have received elite training in CQC, as a consequence [desc]</span>")
 
 /datum/martial_art/kirkfu/flipper
 	name = "Dropkick"
-	desc = "Through hard work and watching lots of instructional videos, you've mastered the kirk kick technique, and will use it at random when punching people"
+	desc = "You've mastered the kirk dropkick technique, and will use it at random when punching people"
 
 /datum/martial_art/kirkfu/flipper/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(prob(30))
@@ -75,11 +75,11 @@
 /datum/martial_art/kirkfu/blocker
 	name = "Block Affinity"
 	constant_block = 25
-	desc = "As a starfleet officer, you are much better at blocking attacks than the rank and file."
+	desc = "You are much better at blocking attacks than the rank and file."
 
 /datum/martial_art/kirkfu/puncher
 	name = "Gorn punch"
-	desc = "Captain J.T.Kirk, the pioneer of this manouvre described it as horribly ineffective against the Gorn, but probably VERY effective vs other sapients."
+	desc = "You are able to deliver a heavy blow to your opponents."
 
 /datum/martial_art/kirkfu/puncher/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(prob(50))
@@ -113,12 +113,12 @@
 
 /datum/martial_art/kirkfu/grabber
 	name = "Vulcan nerve grip"
-	desc = "I could never get the hang of this one mr Spock. Aim for the head and grab to attempt this difficult manouvre"
+	desc = "You can attempt a vulcan nerve pinch, aim for the head and grab to attempt this difficult manouvre"
 	var/success_rate = 10
 
 /datum/martial_art/kirkfu/grabber/super
 	name = "Vulcan nerve pinch"
-	desc = "Having spent decades practicing, you have mastered the vulcan nerve grip"
+	desc = "You've learned the Vulcan nerve grip technique by having spent decades practicing."
 	success_rate = 100
 
 /datum/martial_art/kirkfu/grabber/grab_act(mob/living/carbon/human/A, mob/living/carbon/human/D)
@@ -146,7 +146,7 @@
 
 /datum/martial_art/kirkfu/disarmer
 	name = "One two chop"
-	desc = "You can do a karate chop! then another one! grabbing the enemy's weapon."
+	desc = "You can do a karate chop! then another one! grabbing the enemy's weapon by clicking someone on disarm intent."
 
 /datum/martial_art/kirkfu/disarmer/disarm_act(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	if(prob(50))

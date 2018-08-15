@@ -326,6 +326,8 @@
 	failed = TRUE
 
 /datum/shipsystem/shields/process()
+	if(controller.theship.weapons.shieldgen)
+		chargeRate = controller.theship.weapons.shieldgen.chargerate
 	if(controller.theship.generator)
 		if(!controller.theship.generator.powered())
 			health = 0

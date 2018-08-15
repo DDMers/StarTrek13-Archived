@@ -70,10 +70,6 @@ Captain
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 
-/datum/job/trek/captain/after_spawn(mob/living/carbon/human/H, mob/M)
-	. = ..()
-	H.grant_kirkfu()
-
 /datum/job/trek/captain/get_access()
 	return get_all_accesses()
 
@@ -117,7 +113,7 @@ Captain
 	else
 		H.skills = new
 		H.skills.add_skill("piloting", 5)
-
+	H.grant_kirkfu()
 
 /datum/job/trek/admiral
 	title = "Admiral"
@@ -719,10 +715,6 @@ Head of Security
 			            ACCESS_RESEARCH, ACCESS_ENGINE, ACCESS_MINING, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING,
 			            ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MAINT_TUNNELS)
 
-/datum/job/trek/hos/after_spawn(mob/living/carbon/human/H, mob/M)
-	. = ..()
-	H.grant_kirkfu()
-
 /datum/outfit/job/hos
 	name = "Chief of security"
 	jobtype = /datum/job/trek/hos
@@ -753,6 +745,7 @@ Head of Security
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	H.grant_kirkfu()
 	..()
 /*
 Security Officer
@@ -812,6 +805,7 @@ Security Officer
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	H.grant_kirkfu()
 	..()
 
 /obj/item/radio/headset/headset_sec/alt/department/Initialize()
@@ -888,6 +882,7 @@ Security Officer
 	..()
 
 /datum/outfit/job/soldier/post_equip(mob/living/carbon/human/H)
+	H.grant_kirkfu()
 	if(prob(5)) //5% chance to be a legendary soldier
 //		H.add_skill(110, rand(60, 68), rand(24, 32), ..(), ..())
 		to_chat(H, "<big>You are a legendary soldier! You've had some experience, and are well versed in the arts of close-quarters combat.</big>")
