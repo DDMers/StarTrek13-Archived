@@ -44,9 +44,9 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	for(var/obj/effect/landmark/ShipSpawner/S in world)
 		if(S.templatename == true_name)
 			qdel(weapons)
-			S.load()
 			to_chat(world, "Respawning [true_name]..")
-			qdel(src)
+			if(S.load())
+				qdel(src)
 			return
 
 /obj/structure/overmap/Destroy(var/severity = 1)
