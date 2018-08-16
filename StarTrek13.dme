@@ -2628,6 +2628,7 @@
 #include "StarTrek13\borg\borg-items.dm"
 #include "StarTrek13\borg\borg-structures.dm"
 #include "StarTrek13\borg\borg.dm"
+#include "StarTrek13\borg\borg_ship.dm"
 #include "StarTrek13\computer\shipcomms.dm"
 #include "StarTrek13\computer\messagetypes\message.dm"
 #include "StarTrek13\Ships\actions_overmap.dm"

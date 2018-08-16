@@ -6,7 +6,7 @@
 	var/obj/item/organ/borgNanites/biglongtube = new
 	biglongtube.Insert(src)
 	skin_tone = "albino"
-	to_chat(src, "We are the borg. You are not fully upgraded. Find a conversion suite.")
+	to_chat(src, "<span_class='warning'>We have been assimilated! We should find a conversion suite to augment ourselves. All other drones are to be obeyed, all past lives and memories are forgotten.</span>")
 	if(!(src in SSfaction.borg_hivemind.borgs))
 		SSfaction.borg_hivemind.borgs += src //They're in the collective, but need the conversion table for all their upgrades like the tool etc.
 	dna.species.species_traits |= TRAIT_NOCLONE
@@ -169,7 +169,9 @@
 						to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
 						var/turf/closed/wall/A = I
 						if(do_after(user, convert_time, target = A))
+							var/storedd = A.dir //for directional walls
 							A.ChangeTurf(/turf/closed/wall/borg)
+							A.dir = storedd
 							resource_amount += 5
 			else if(istype(I, /obj/machinery/door/airlock) && !istype(I, /obj/machinery/door/airlock/borg))
 				var/obj/machinery/door/airlock/G = I

@@ -26,8 +26,9 @@
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 
-/obj/item/clothing/suit/space/borg/New()
+/obj/item/clothing/suit/space/borg/Initialize()
 	. = ..()
+	icon_state = "borg[pick(1,2)]"
 
 /obj/item/clothing/suit/space/borg/IsReflect() //Watch your lazers, they adapt quickly
 	if(prob(SSfaction.borg_hivemind.adaptation))
@@ -104,9 +105,7 @@
 	H.skin_tone = "albino"
 	H.real_name = pick(possible_names1)+" "+pick(possible_names2)
 	H.name = H.real_name
-	H.eye_color = "red"
-	H.underwear = "Nude"
-	H.undershirt = "Nude"
+	H.eye_color = "black"
 	H.socks = "Nude"
 	H.hair_style = "Bald"
 	H.dna.species.species_traits |= TRAIT_NOCLONE
