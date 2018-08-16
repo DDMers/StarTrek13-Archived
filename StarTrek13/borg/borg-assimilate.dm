@@ -148,7 +148,7 @@
 							M.make_borg()
 							return
 			else if(istype(I, /turf/open))
-				if(!istype(I, /turf/open/floor/borg)
+				if(!istype(I, /turf/open/floor/borg))
 					var/turf/open/A = I
 					to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
 					if(do_after(user, convert_time, target = A))
