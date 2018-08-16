@@ -115,7 +115,7 @@
 	density = 0
 	anchored = TRUE
 	can_be_unanchored = TRUE
-	var/charge = 1000 //current power levels
+	var/charge = 2500 //buffed to match faster recharge speeds
 	var/charge_rate = 100
 	var/state = 1
 	var/locked = 0

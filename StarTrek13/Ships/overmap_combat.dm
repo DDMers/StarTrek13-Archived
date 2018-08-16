@@ -310,7 +310,7 @@
 
 /obj/structure/photon_torpedo
 	name = "photon torpedo"
-	desc = "A casing for a powerful explosive, I wouldn't touch it if I were you..."
+	desc = "A casing for a powerful explosive, you can AltClick it to set it to detonate after a set time."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "torpedo"
 	anchored = FALSE

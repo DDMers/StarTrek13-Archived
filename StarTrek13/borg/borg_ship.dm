@@ -72,7 +72,7 @@
 		var/mode = alert("Select mode",,"Fabricate Parts", "Assimilate Vessel")
 		switch(mode)
 			if("Fabricate Parts")
-				var/mode2 = alert("Fabricate what",,"Advanced power cell (50 R)", "Advanced Capacitor (50 R)", "Part exchanger (50 R)")
+				var/mode2 = alert("Fabricate what",,"Advanced power cell (50 R)", "Advanced Capacitor (50 R)", "Part exchanger (150 R)")
 				switch(mode2)
 					if("Advanced power cell (50 R)")
 						if(stored_resources > 50)
@@ -86,12 +86,12 @@
 							s.name = "Flux-state Trans-Capacitor"
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/borgtransport.ogg', 100,1)
 							stored_resources -= 50
-					if("Part exchanger (50 R)")
-						if(stored_resources > 50)
-							var/obj/item/storage/part_replacer/s = new(src.loc)
+					if("Part exchanger (150 R)")
+						if(stored_resources > 150)
+							var/obj/item/storage/part_replacer/bluespace/s = new(src.loc)
 							s.name = "Part Exchange Matrix"
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/borgtransport.ogg', 100,1)
-							stored_resources -= 50
+							stored_resources -= 150
 			if("Assimilate Vessel")
 				switch(ship.assimilation_tier)
 					if(0)
@@ -130,7 +130,7 @@
 					if(3)
 						if(stored_resources > 1200) //The apex borg ship, once it reaches this point, it is extremely difficult to stop.
 							icon_state = "converter-on"
-							stored_resources -= 800
+							stored_resources -= 1200
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
 							sleep(20)
 							say("Augmentation of [ship]'s hull fully complete. No further assimilation is possible.")
@@ -164,7 +164,7 @@
 	if(target_ship)
 		target_ship.agressor = src
 	switch(fire_mode)
-		if(2)
+		if(1)
 			if(SC.weapons.attempt_fire())
 				if(target_ship && locked == target_ship) //Is the locked target the one we're clicking?
 					in_use1 = 0
@@ -179,7 +179,7 @@
 					spawn(0)
 						current_beam.Start()
 					return
-		if(1)
+		if(2)
 			if(assimilation_tier < 3)
 				if(photons > 0)
 					if(target_ship && locked == target_ship)
@@ -203,6 +203,8 @@
 					SS.integrity -= damage //Drain those shields HARD so we can flood drones
 					SS.health -= damage/2
 					SS.heat += damage/10
+					var/datum/shipsystem/engines/E = locate(/datum/shipsystem/engines) in(S.SC.systems)
+					E.integrity -= damage
 					var/turf/source = get_turf(src)
 					current_beam = new(source,target_ship,time=10,beam_icon_state="romulanbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 					spawn(0)

@@ -88,6 +88,11 @@
 	item_state = null
 	icon_state = null
 
+/obj/effect/mob_spawn/human/alive/borg
+	name = "borg drone"
+	assignedrole = "borg drone"
+	outfit = /datum/outfit/borg
+
 /datum/outfit/borg
 	name = "borg drone"
 	glasses = /obj/item/clothing/glasses/night/borg
@@ -98,10 +103,14 @@
 	head = /obj/item/clothing/head/helmet/space/borg
 	l_hand = /obj/item/borg_tool
 	mask = /obj/item/clothing/mask/gas/borg
+	belt = /obj/item/storage/belt/utility/full/engi
 
 /datum/outfit/borg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/possible_names1 = list("First of","Second of","Third of","Fourth of","Five of","Six of","Seven of","Eight of","Nine of","Ten of","Eleven of","Twelve of","Thirteen of","Fourteen of","Fifteen of")
 	var/possible_names2 = list("one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen")
+	var/obj/item/organ/borgNanites/B = locate(/obj/item/organ/borgNanites) in (H.internal_organs)
+	if(!B)
+		H.make_borg()
 	H.skin_tone = "albino"
 	H.real_name = pick(possible_names1)+" "+pick(possible_names2)
 	H.name = H.real_name
