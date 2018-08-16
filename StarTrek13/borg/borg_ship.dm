@@ -122,7 +122,7 @@
 							ship.assimilation_tier ++
 							ship.check_assimilation()
 							var/ping = "<font color='green' size='2'><B><i>Borg Collective: </b> <b>Hivemind Notice:</b></i>Use of photonic torpedoes is deprecated. We have replaced [src]'s photon torpedo systems with a shield draining beam.</font></span>"
-							for(var/mob/living/carbon/human/H in borgs)
+							for(var/mob/living/carbon/human/H in SSfaction.borg_hivemind.borgs)
 								for(var/obj/item/organ/borgNanites/B in H.internal_organs)
 									B.receive_message(ping)
 							for(var/mob/M in GLOB.dead_mob_list)
