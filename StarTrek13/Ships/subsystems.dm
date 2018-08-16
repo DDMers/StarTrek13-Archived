@@ -326,11 +326,13 @@
 	failed = TRUE
 
 /datum/shipsystem/shields/process()
-	if(controller.theship.weapons.shieldgen)
-		chargeRate = controller.theship.weapons.shieldgen.chargerate
-	if(controller.theship.generator)
-		if(!controller.theship.generator.powered())
-			health = 0
+	if(controller)
+		if(controller.theship)
+			if(controller.theship.weapons.shieldgen)
+				chargeRate = controller.theship.weapons.shieldgen.chargerate
+			if(controller.theship.generator)
+				if(!controller.theship.generator.powered())
+					health = 0
 	if(!failed && toggled)
 		health += chargeRate*power_modifier
 		heat -= heat_loss_bonus
@@ -443,6 +445,10 @@
 
 /obj/structure/subsystem_monitor/examine(mob/user)
 	. = ..()
+	if(!subsystem || !our_ship)
+		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+		our_ship = W.theship
+		get_ship()
 	to_chat(user, "Status of: [subsystem.name] subsystem: Integrity: [subsystem.integrity] Heat: [subsystem.heat] Current overclock factor: [subsystem.overclock]")
 
 /obj/structure/subsystem_monitor/weapons
@@ -493,6 +499,9 @@
 	health -= severity*10
 
 /obj/structure/ship_component/process()
+	if(!chosen || !our_ship)
+		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+		our_ship = W.theship
 	var/area/A = get_area(src)
 	if(A.requires_power) //BE SURE TO CHANGE THIS WHEN WE ADD SHIP POWER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		active = FALSE
@@ -572,6 +581,9 @@
 
 /obj/structure/ship_component/capbooster/examine(mob/user)
 	. = ..()
+	if(!chosen)
+		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+		our_ship = W.theship
 	if(active)
 		to_chat(user, "It is active")
 	else
@@ -605,11 +617,9 @@
 	icon_state = "subsystem_panel"
 
 /obj/structure/subsystem_panel/weapons/check_ship()
-	var/area/a = get_area(src)
-	for(var/obj/structure/fluff/helm/desk/tactical/T in a)
-		var/obj/structure/overmap/S = T.theship
-		if(T.theship)
-			chosen = S.SC.weapons
+	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+	if(W.theship)
+		chosen = W.theship.SC.weapons
 
 /obj/structure/subsystem_panel/engines		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!
 	name = "ODN Relay (engines)"
@@ -618,11 +628,9 @@
 	icon_state = "subsystem_panel"
 
 /obj/structure/subsystem_panel/engines/check_ship()
-	var/area/a = get_area(src)
-	for(var/obj/structure/fluff/helm/desk/tactical/T in a)
-		var/obj/structure/overmap/S = T.theship
-		if(T.theship)
-			chosen = S.SC.engines
+	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+	if(W.theship)
+		chosen = W.theship.SC.engines
 
 /*
 	var/state = 1
@@ -640,9 +648,13 @@
 	START_PROCESSING(SSobj,src)
 
 /obj/structure/subsystem_panel/process()
+	if(!chosen)
+		check_ship()
 	check_overlays()
 
 /obj/structure/subsystem_panel/attack_hand(mob/user)
+	if(!chosen)
+		check_ship()
 	switch(open)
 		if(TRUE)
 			cut_overlays()
@@ -659,7 +671,7 @@
 	check_overlays()
 
 /obj/structure/subsystem_panel/attackby(obj/item/I, mob/user)
-	if(chosen.integrity < chosen.max_integrity)
+	if(chosen)
 		if(open)
 			if(istype(I, /obj/item/wirecutters) && powered)
 				to_chat(user, "You are deactivating the [chosen] subsystem for repair, this will avoid shocks but the ship's [chosen] will be down until you're done.")
@@ -699,9 +711,6 @@
 						START_PROCESSING(SSobj, chosen)
 		if(!open)
 			to_chat(user, "Try opening [src]'s panel first")
-	else
-		to_chat(user, "The [chosen] subsystem is fully operational, [src]'s circuits aren't fried, so why repair it?")
-		powered = TRUE
 
 /obj/effect/panel_overlay
 	name = "subsystem panel cover"

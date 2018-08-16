@@ -71,7 +71,7 @@
 	desc = "The core piece of a phaser array"
 	id = "phaser_board"
 	build_path = /obj/item/circuitboard/machine/trek/phase_cannon
-	category = list("ships")
+	category = list("Engineering Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_ALL
 
 /datum/design/board/shield
@@ -79,7 +79,7 @@
 	desc = "The core logic chip of a shield generator"
 	id = "shield_board"
 	build_path = /obj/item/circuitboard/machine/trek/shield_generator
-	category = list("ships")
+	category = list("Engineering Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_ALL
 
 /datum/design/phaser_prefire
@@ -87,7 +87,7 @@
 	desc = "An essential component in phaser production, allowing for intake plasma to be fired as a high energy beam."
 	id = "phaser_prefire"
 	build_path = /obj/item/stock_parts/phaser_chamber
-	category = list("ships")
+	category = list("Engineering Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_ALL
 
 /datum/design/board/transporter_comp
@@ -95,7 +95,7 @@
 	desc = "The central processor of any transporter computer"
 	id = "transporter_control"
 	build_path = /obj/item/circuitboard/computer/transporter_console
-	category = list("transporter_tech")
+	category = list("Engineering Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_ALL
 
 /datum/design/board/transporter_pad
@@ -103,7 +103,7 @@
 	desc = "An all in one logic system for transporter pads, containing their pattern buffers pre-installed"
 	id = "transporter_pad"
 	build_path = /obj/item/circuitboard/machine/trek/transporter
-	category = list("transporter_tech")
+	category = list("Engineering Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_ALL
 
 /obj/machinery/ship/phaser

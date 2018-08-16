@@ -95,14 +95,14 @@ Antimatter tank, if this is ever fucked with it'll explode
 	if(!outlet)
 		CheckPipes()
 	get_warp_factor()
-	for(var/obj/structure/warp_storage/WS in get_area(src))
-		if(WS.matter)
-			WS.matter -= WS.flow_rate
-			matter += WS.flow_rate
-	for(var/obj/structure/antimatter_storage/AS in get_area(src))
-		if(AS.antimatter)
-			AS.antimatter -= AS.flow_rate
-			antimatter += AS.flow_rate
+	var/obj/structure/warp_storage/WS = locate(/obj/structure/warp_storage) in(get_area(src))
+	if(WS.matter)
+		WS.matter -= WS.flow_rate
+		matter += WS.flow_rate
+	var/obj/structure/antimatter_storage/AS = locate(/obj/structure/antimatter_storage) in(get_area(src))
+	if(AS.antimatter)
+		AS.antimatter -= AS.flow_rate
+		antimatter += AS.flow_rate
 	if(containment < 10)
 		breach()
 	if(crystal) //The crystal balances the matter stream with the antimatter stream, if you don't have the crystal, the reaction becomes inert over time.
@@ -129,9 +129,8 @@ Antimatter tank, if this is ever fucked with it'll explode
 			soundloop = new(list(src), TRUE)
 		if(world.time >= saved_time + cooldown2)
 			saved_time = world.time
-			for(var/MM in get_area(src))
-				var/mob/M = MM
-				SEND_SOUND(M, ambience)
+			var/mob/MM = locate(/mob) in(get_area(src))  //this may break stuff
+			SEND_SOUND(MM, ambience)
 	else
 		qdel(soundloop)
 
@@ -231,7 +230,6 @@ Antimatter tank, if this is ever fucked with it'll explode
 		say("Success: Outlet pump registered as [outlet].")
 		return TRUE
 	else
-		say("Error: No outlet pump could be found!")
 		return FALSE
 
 /obj/machinery/power/warpcore/Initialize(timeofday)

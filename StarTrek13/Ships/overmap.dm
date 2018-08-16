@@ -81,7 +81,7 @@
 	var/obj/effect/landmark/warp_beacon/target_beacon
 	var/pilot_skill_req = 5
 	var/wrecked = FALSE
-	var/obj/effect/landmark/runaboutdock/docks = list()
+	var/list/docks = list()
 	var/true_name = null //For respawning
 	var/faction = null //Are we a faction's ship? if so, when we blow up, DEDUCT EXPENSES
 	var/cost = 8000 //How much does this ship cost to replace?
@@ -421,48 +421,36 @@
 //	var/datum/action/innate/mecha/strafe/strafing_action = new
 
 /obj/structure/overmap/proc/linkto()	//weapons etc. don't link!
-	for(var/TT in linked_ship)
-		if(istype(TT, /obj/structure/fluff/helm/desk/tactical))
-			var/obj/structure/fluff/helm/desk/tactical/T = TT
-			weapons = T
-			T.theship = src
-	for(var/obj/machinery/space_battle/shield_generator/G in linked_ship)
-		generator = G
-		G.ship = src
-		var/obj/structure/overmap/ship/S = src
-		S.SC.shields.linked_generators += G
-		G.shield_system = S.SC.shields
-	for(var/obj/machinery/computer/camera_advanced/transporter_control/T in linked_ship)
-		transporters += T
-	for(var/obj/structure/overmap/ship/fighter/F in linked_ship)
-		F.carrier_ship = src
-		if(!F in fighters)
-			fighters += F
-	for(var/obj/structure/fluff/helm/desk/functional/F in linked_ship)
-		F.our_ship = src
-		F.get_ship()
-	for(var/obj/structure/subsystem_monitor/M in linked_ship)
-		M.our_ship = src
-		M.get_ship()
-	for(var/obj/structure/viewscreen/V in linked_ship)
-		V.our_ship = src
-	for(var/obj/structure/weapons_console/WC in linked_ship)
-		WC.our_ship = src
-	for(var/obj/structure/overmap/ship/runabout/R in linked_ship)
-		R.carrier = src
-	for(var/obj/effect/landmark/runaboutdock/SS in linked_ship)
-		docks += SS
-	for(var/obj/structure/subsystem_panel/PP in linked_ship)
-		PP.check_ship()
-		PP.check_overlays()
-	for(var/CD in linked_ship)
-		if(istype(CD, /obj/machinery/cloaking_device))
-			var/obj/machinery/cloaking_device/CC = CD
-			CC.theship = src
-	for(var/WP in linked_ship)
-		if(istype(WP, /obj/machinery/power/warpcore))
-			var/obj/machinery/power/warpcore/WW = WP
-			WW.ship = src
+	if(!weapons)
+		weapons = locate(/obj/structure/fluff/helm/desk/tactical) in(linked_ship) //why the hell did I think using for loops for everything was ever a good idea :blobthinking:
+		weapons.theship = src
+	if(!generator)
+		generator = locate(/obj/machinery/space_battle/shield_generator) in(linked_ship)
+		generator.ship = src
+		SC.shields.linked_generators += generator
+		generator.shield_system = SC.shields
+	var/obj/machinery/computer/camera_advanced/transporter_control/TT = locate(/obj/machinery/computer/camera_advanced/transporter_control) in(linked_ship)
+	transporters += TT
+	var/obj/structure/overmap/ship/fighter/F = locate(/obj/structure/overmap/ship/fighter) in(linked_ship)
+	F.carrier_ship = src
+	fighters += F
+	var/obj/structure/fluff/helm/desk/functional/FF = locate(/obj/structure/fluff/helm/desk/functional) in(linked_ship)
+	FF.our_ship = src
+	FF.get_ship()
+	var/obj/structure/subsystem_monitor/M = locate(/obj/structure/subsystem_monitor) in(linked_ship)
+	M.our_ship = src
+	M.get_ship()
+	var/obj/structure/viewscreen/V = locate(/obj/structure/viewscreen) in(linked_ship)
+	V.our_ship = src
+	var/obj/structure/weapons_console/WC = locate(/obj/structure/weapons_console) in(linked_ship)
+	WC.our_ship = src
+	var/obj/structure/subsystem_panel/PP = locate(/obj/structure/subsystem_panel) in(linked_ship)
+	PP.check_ship()
+	PP.check_overlays()
+	var/obj/machinery/cloaking_device/CD = locate(/obj/machinery/cloaking_device) in(linked_ship)
+	CD.theship = src
+	var/obj/machinery/power/warpcore/WP = locate(/obj/machinery/power/warpcore) in(linked_ship)
+	WP.ship = src
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	SC.weapons.update_weapons()

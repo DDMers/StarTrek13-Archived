@@ -54,7 +54,7 @@
 					retrievable += L
 			var/turf/open/Tu = get_turf(pick(orange(1, get_turf(eyeobj))))
 			T.send(Tu)
-			playsound(loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
+		playsound(loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
 	else if(available_turfs)
 		for(var/obj/machinery/trek/transporter/T in linked)
 			for(var/mob/living/L in T.loc)
