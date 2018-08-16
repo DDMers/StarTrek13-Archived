@@ -148,11 +148,12 @@
 							M.make_borg()
 							return
 			else if(istype(I, /turf/open))
-				var/turf/open/A = I
-				to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
-				if(do_after(user, convert_time, target = A))
-					A.ChangeTurf(/turf/open/floor/borg)
-					resource_amount += 5
+				if(!istype(I, /turf/open/floor/borg)
+					var/turf/open/A = I
+					to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
+					if(do_after(user, convert_time, target = A))
+						A.ChangeTurf(/turf/open/floor/borg)
+						resource_amount += 5
 			else if(istype(I, /turf/closed/wall))
 				if(!istype(I, /turf/closed/indestructible))
 					if(istype(I, /turf/closed/wall/borg)) //convert wall to door

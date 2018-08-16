@@ -86,7 +86,7 @@
 							s.name = "Flux-state Trans-Capacitor"
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/borgtransport.ogg', 100,1)
 							stored_resources -= 50
-					if("Advanced Capacitor (50 R)")
+					if("Part exchanger (50 R)")
 						if(stored_resources > 50)
 							var/obj/item/storage/part_replacer/s = new(src.loc)
 							s.name = "Part Exchange Matrix"
