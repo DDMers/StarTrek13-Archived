@@ -202,6 +202,7 @@
 					var/datum/shipsystem/shields/SS = locate(/datum/shipsystem/shields) in(S.SC.systems)
 					SS.integrity -= damage //Drain those shields HARD so we can flood drones
 					SS.health -= damage/2
+					SS.heat += damage/10
 					var/turf/source = get_turf(src)
 					current_beam = new(source,target_ship,time=10,beam_icon_state="romulanbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 					spawn(0)
