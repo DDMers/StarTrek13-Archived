@@ -138,39 +138,40 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/cochranes = 0
 	for(var/obj/machinery/power/warp_coil/WC in get_area(src))
 		cochranes += WC.cochranes
-	if(cochranes < WARP_1)
-		WF = "sublight travel"
-		ship.max_warp = 1
-	if(cochranes >WARP_1)
-		WF = "warp 1"
-		ship.max_warp = 3
-	if(cochranes >WARP_2)
-		WF = "warp 2"
-		ship.max_warp = 5
-	if(cochranes >WARP_3)
-		WF = "warp 3"
-		ship.max_warp = 7
-	if(cochranes >WARP_4)
-		WF = "warp 4"
-		ship.max_warp = 9
-	if(cochranes >WARP_5)
-		WF = "warp 5"
-		ship.max_warp = 11
-	if(cochranes >WARP_6)
-		WF = "warp 6"
-		ship.max_warp = 13
-	if(cochranes >WARP_7)
-		WF = "warp 7"
-		ship.max_warp = 20
-	if(cochranes >WARP_8)
-		WF = "warp 8"
-		ship.max_warp = 30
-	if(cochranes >WARP_9)
-		WF = "warp 9"
-		ship.max_warp = 35
-	if(cochranes >WARP_10)
-		WF = "warp 9.999999999996"
-		ship.max_warp = 37 //REALLY hard to do
+	if(ship)
+		if(cochranes < WARP_1)
+			WF = "sublight travel"
+			ship.max_warp = 1
+		if(cochranes >WARP_1)
+			WF = "warp 1"
+			ship.max_warp = 3
+		if(cochranes >WARP_2)
+			WF = "warp 2"
+			ship.max_warp = 5
+		if(cochranes >WARP_3)
+			WF = "warp 3"
+			ship.max_warp = 7
+		if(cochranes >WARP_4)
+			WF = "warp 4"
+			ship.max_warp = 9
+		if(cochranes >WARP_5)
+			WF = "warp 5"
+			ship.max_warp = 11
+		if(cochranes >WARP_6)
+			WF = "warp 6"
+			ship.max_warp = 13
+		if(cochranes >WARP_7)
+			WF = "warp 7"
+			ship.max_warp = 20
+		if(cochranes >WARP_8)
+			WF = "warp 8"
+			ship.max_warp = 30
+		if(cochranes >WARP_9)
+			WF = "warp 9"
+			ship.max_warp = 35
+		if(cochranes >WARP_10)
+			WF = "warp 9.999999999996"
+			ship.max_warp = 37 //REALLY hard to do
 
 /obj/structure/warp_storage
 	name = "Deuterium storage tank"

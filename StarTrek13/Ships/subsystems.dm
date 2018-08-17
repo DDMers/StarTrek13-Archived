@@ -328,8 +328,8 @@
 /datum/shipsystem/shields/process()
 	if(controller)
 		if(controller.theship)
-			if(controller.theship.weapons.shieldgen)
-				chargeRate = controller.theship.weapons.shieldgen.chargerate
+			if(controller.theship.generator)
+				chargeRate = controller.theship.generator.chargerate
 			if(controller.theship.generator)
 				if(!controller.theship.generator.powered())
 					health = 0
