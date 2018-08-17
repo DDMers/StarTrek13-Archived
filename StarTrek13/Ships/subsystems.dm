@@ -618,7 +618,7 @@
 
 /obj/structure/subsystem_panel/weapons/check_ship()
 	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
-	if(W.theship)
+	if(W.theship && W.theship.SC && W.theship.SC.weapons)
 		chosen = W.theship.SC.weapons
 
 /obj/structure/subsystem_panel/engines		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!
@@ -629,7 +629,7 @@
 
 /obj/structure/subsystem_panel/engines/check_ship()
 	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
-	if(W.theship)
+	if(W.theship && W.theship.SC && W.theship.SC.engines)
 		chosen = W.theship.SC.engines
 
 /*

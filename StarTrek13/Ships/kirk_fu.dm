@@ -7,32 +7,32 @@
 			var/datum/martial_art/kirkfu/blocker/martialart = new
 			martialart.teach(src)
 			martialart.themind = mind
-			martialart.explain()
+			addtimer(CALLBACK(martialart, /datum/martial_art/kirkfu.proc/explain, src), 3)
 		if("Punch")
 			var/datum/martial_art/kirkfu/puncher/martialart = new
 			martialart.teach(src)
 			martialart.themind = mind
-			martialart.explain()
+			addtimer(CALLBACK(martialart, /datum/martial_art/kirkfu.proc/explain, src), 3)
 		if("Headbutt")
 			var/datum/martial_art/kirkfu/headbutter/martialart = new
 			martialart.teach(src)
 			martialart.themind = mind
-			martialart.explain()
+			addtimer(CALLBACK(martialart, /datum/martial_art/kirkfu.proc/explain, src), 3)
 		if("Grab")
 			var/datum/martial_art/kirkfu/grabber/martialart = new
 			martialart.teach(src)
 			martialart.themind = mind
-			martialart.explain()
+			addtimer(CALLBACK(martialart, /datum/martial_art/kirkfu.proc/explain, src), 3)
 		if("Disarm")
 			var/datum/martial_art/kirkfu/disarmer/martialart = new
 			martialart.teach(src)
 			martialart.themind = mind
-			martialart.explain()
+			addtimer(CALLBACK(martialart, /datum/martial_art/kirkfu.proc/explain, src), 3)
 		if("Flip")
 			var/datum/martial_art/kirkfu/flipper/martialart = new
 			martialart.teach(src)
 			martialart.themind = mind
-			martialart.explain()
+			addtimer(CALLBACK(martialart, /datum/martial_art/kirkfu.proc/explain, src), 3)
 
 /datum/martial_art
 	var/constant_block = 0 // CONSTANT block chance, rather than requiring to have thrown mode on
@@ -52,9 +52,8 @@
 /datum/martial_art/kirkfu/New()
 	. = ..()
 
-/datum/martial_art/kirkfu/proc/explain()
-	sleep(20)
-	to_chat(themind.current, "<span class='warning'>You have received elite training in CQC, as a consequence [desc]</span>")
+/datum/martial_art/kirkfu/proc/explain(mob/living/M)
+	to_chat(M, "<span class='warning'>You have received elite training in CQC, as a consequence [desc]</span>")
 
 /datum/martial_art/kirkfu/flipper
 	name = "Dropkick"

@@ -38,8 +38,9 @@
 /obj/effect/landmark/runaboutdock/Initialize()
 	. = ..()
 	var/obj/structure/fluff/helm/desk/tactical/T = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
-	if(T.theship)
-		T.theship.docks += src
+	if(T)
+		if(T.theship)
+			T.theship.docks += src
 
 /area/ship/thames
 	name = "USS Thames"

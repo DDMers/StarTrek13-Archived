@@ -11,14 +11,19 @@
 	attack_verb = "smash"
 	armor = 1 //Klingons strong
 
-/datum/species/klingon/on_species_gain(mob/living/carbon/C, datum/species/old_species)
-	C.grant_language(/datum/language/klingon)
-	C.mind.language_holder.omnitongue = TRUE
-	to_chat(C, "<span_class='notice'>You are playing a roleplay heavy race! As a Klingon, you should be agressive and short tempered, you despise romulans and tribbles in particular.</span>")
-	var/obj/item/storage/backpack/BP = locate(/obj/item/storage/backpack) in C.GetAllContents()
+/datum/species/klingon/after_equip_job(datum/job/J, mob/living/carbon/human/H)
+	var/obj/item/storage/backpack/BP = locate(/obj/item/storage/backpack) in H.GetAllContents()
 	if(BP)
 		var/obj/item/clothing/accessory/sash/wharf = new
 		wharf.forceMove(BP)
+
+/datum/species/klingon/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	addtimer(CALLBACK(src, .proc/give_language, C), 3)
+
+/datum/species/klingon/proc/give_language(mob/living/carbon/C)
+	C.grant_language(/datum/language/klingon)
+	C.mind.language_holder.omnitongue = TRUE
+	to_chat(C, "<font size=3 color=red>You are playing a roleplay heavy race! As a Klingon, you should be agressive and short tempered, you despise romulans and tribbles in particular.</font>")
 
 
 /datum/species/klingon/qualifies_for_rank(rank, list/features)

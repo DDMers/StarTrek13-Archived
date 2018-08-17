@@ -25,9 +25,12 @@
 	shot_glass_icon_state = "shotglassgold"
 
 /datum/species/romulan/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	addtimer(CALLBACK(src, .proc/give_language, C), 3)
+
+/datum/species/romulan/proc/give_language(mob/living/carbon/C)
 	C.grant_language(/datum/language/romulan)
 	C.mind.language_holder.omnitongue = TRUE
-	to_chat(C, "<span_class='notice'>You are playing a roleplay heavy race! As a Romulan, you should be distrustful of aliens with a reserved, calculated attitude.</span>")
+	to_chat(C, "<font size=3 color=green>You are playing a roleplay heavy race! As a Romulan, you should be distrustful of aliens with a reserved, calculated attitude.</font>")
 
 /datum/language/romulan
 	name = "romulan"

@@ -50,8 +50,8 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/datum/looping_sound/trek/engine_hum/soundloop
 	var/obj/item/dilithium_crystal/crystal
 	var/obj/machinery/atmospherics/components/binary/pump/outlet
-	var/matter = 50 //give the engis a little time to set everything up before all power dies
-	var/antimatter = 50
+	var/matter = 150 //give the engis a little time to set everything up before all power dies
+	var/antimatter = 150
 	var/anihilation_rate = 0 //how powerful is this reaction ? (matter : antimatter balance)
 	var/containment = 100 //How strong is the containment field? only way to fix this is replacing the isolinear chips inside it
 	var/breaching = FALSE //Is the core about to die?
