@@ -167,7 +167,7 @@
 "dk" = (/obj/structure/subsystem_panel/engines,/obj/machinery/light{dir = 1},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/federation/entax)
 "dl" = (/obj/structure/subsystem_panel,/obj/machinery/light{dir = 1},/turf/closed/indestructible/riveted{alpha = 0},/area/ship/federation/entax)
 "dm" = (/obj/structure/torpedo_launcher,/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/entax)
-"dn" = (/obj/structure/catwalk,/obj/machinery/power/smes/engineering,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/federation/entax)
+"dn" = (/obj/structure/catwalk,/obj/machinery/power/smes/engineering,/obj/structure/cable/white,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/federation/entax)
 "do" = (/obj/structure/catwalk,/obj/machinery/light{dir = 1},/obj/machinery/power/terminal{icon_state = "term"; dir = 8},/obj/structure/cable/white{icon_state = "0-4"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/federation/entax)
 "dp" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/federation/entax)
 "dq" = (/obj/structure/catwalk,/obj/machinery/light{dir = 1},/obj/machinery/power/terminal{icon_state = "term"; dir = 4},/obj/structure/cable/white{icon_state = "0-8"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/federation/entax)

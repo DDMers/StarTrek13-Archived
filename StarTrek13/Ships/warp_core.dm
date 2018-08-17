@@ -60,6 +60,7 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/obj/structure/overmap/ship
 	var/WF = "impulse" //Text representation of our maximum warp.
 	var/power = 0
+	var/stored_cochranes = 0
 
 /obj/machinery/power/warpcore/massive
 	name = "high powered warp core"
