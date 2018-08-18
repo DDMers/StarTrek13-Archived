@@ -114,7 +114,7 @@
 	. = ..()
 	if(!stored_target)
 		PickRandomShip()
-	if(stored_target in orange(src, 7))
+	if(stored_target in orange(src, 10))
 		if(prob(60)) //Allow it time to recharge
 			fire(stored_target)
 	else
