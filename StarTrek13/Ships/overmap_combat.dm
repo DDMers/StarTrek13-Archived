@@ -371,7 +371,9 @@
 	var/timing = FALSE
 	//var/obj/structure/torpedo_launcher/launcher
 
-/obj/structure/photon_torpedo/AltClick(mob/user)
+/obj/structure/photon_torpedo/AltClick(mob/living/user)
+	if(!iscarbon(user) || user.stat == DEAD)
+		return
 	if(!timing)
 		var/mode = input("Arm the torpedo?.", "Are you sure?")in list("yes","no")
 		if(mode == "yes")
