@@ -163,10 +163,6 @@
 	chargeRate = initial(chargeRate)
 	var/counter = 0
 	var/temp = 0
-	if(istype(controller.theship, /obj/structure/overmap/ship/fighter))
-		chargeRate = 100
-		fire_cost = 150
-		return TRUE
 	for(var/PS in controller.theship.linked_ship)
 		if(istype(PS, /obj/machinery/ship/phaser))
 			var/obj/machinery/ship/phaser/P = PS
@@ -175,19 +171,15 @@
 			fire_cost += P.fire_cost
 			counter ++
 			temp = P.charge
-	maths_damage = damage
-	maths_damage -= round(max_charge - charge)/2 //Damage drops off heavily if you don't let them charge
-	damage = maths_damage
 	max_charge += counter*temp //To avoid it dropping to 0 on update, so then the charge spikes to maximum due to process()
-	if(damage > 0)
-		damage = damage+(200*power_modifier)
 	chargeRate = chargeRate*power_modifier
+	return damage
 
 /datum/shipsystem/weapons/process()
 	. = ..()
+	charge += chargeRate
 	if(charge < 0)
 		charge = 0
-	charge += chargeRate
 	heat -= 30
 	if(integrity > max_integrity)
 		integrity = max_integrity
@@ -201,36 +193,24 @@
 		failed = 1
 		fail()
 		//So stop processing
-	if(overclock > 0) //Drain power.
-		power_draw += overclock //again, need power stats to fiddle with.
+
+/datum/shipsystem/weapons/proc/gimp_damage()
+	return (max_charge-charge)/5
 
 /datum/shipsystem/weapons/proc/attempt_fire(var/firemode)
 	if(!failed)
 		if(istype(controller.theship, /obj/structure/overmap/ship/AI))
 			if(charge >= fire_cost)
-				return 1
+				return TRUE
 		if(controller.theship.fire_mode == 1)
 			if(charge >= fire_cost || charge > 0)
-				if(world.time < nextfire) //Spam blocker! spam your phasers and expect shit damage.
-					var/quickmafs = world.time - nextfire
-					times_fired ++
-					maths_damage = damage
-					maths_damage -= round(max_charge - charge)/1.5 //Damage drops off heavily if you don't let them charge
+				if(damage > 0)
 					charge -= fire_cost
-					heat += (fire_cost/30) //And a bit more heat for being spammy
-					maths_damage -= quickmafs * 1000 //Phasers take 2 seconds to become fully effective again, if you spam them that's fine but the damage will get fucking MERC'D //Eg, 2 seconds * 200 -> -400 damage
-					damage = maths_damage
-					return 1
+					return TRUE
 				else
-					nextfire = world.time + fire_delay
-					maths_damage = damage
-					maths_damage -= round(max_charge - charge)/1.5 //Damage drops off heavily if you don't let them charge
-					damage = maths_damage
-					charge -= fire_cost
-					heat += (fire_cost/30)
-					return 1
+					return FALSE
 		else
-			return 1 //We already check photon numbers in the actual ship procs, this is to check if we can fire.
+			return TRUE //We already check photon numbers in the actual ship procs, this is to check if we can fire.
 	else
 		to_chat(controller.theship.pilot, "<span class='userdanger'>CRITICAL SYSTEM FAILURE: The [name] subsystem has failed.</span>")
 		return 0
@@ -308,8 +288,8 @@
 	var/obj/structure/ship_component/capbooster/boosters = list()
 	icon_state = "shields"
 	var/chargeRate = 500 // per tick
-	var/health = 30000
-	var/max_health = 30000 //This will become shield health, integrity is subsystem integrity
+	var/health = 40000
+	var/max_health = 40000 //This will become shield health, integrity is subsystem integrity
 	integrity = 20000
 	max_integrity = 20000
 	var/max_integrity_bonus = 0 //From capboosters

@@ -126,7 +126,7 @@
 	var/list/shipareas = list()
 	var/target = null
 	var/obj/machinery/space_battle/shield_generator/shieldgen
-	var/damage = 650
+	var/damage = 400
 	use_power = 1500
 
 /obj/machinery/ship/phaser/opposite
@@ -142,9 +142,9 @@
 	damage = 0
 	charge_rate = 0
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
-		damage += C.rating*100//rating of 1 is stock, rating of 4 gives insane power
+		damage += C.rating*60//rating of 1 is stock, rating of 4 gives insane power
 	for(var/obj/item/stock_parts/cell/P in component_parts)
-		charge_rate += P.chargerate
+		charge_rate += P.chargerate //They were getting wayyyy heyy HEYYYYY too strong for my tastes alright?
 
 /obj/machinery/ship/phaser/ex_act(severity)
 	return 0

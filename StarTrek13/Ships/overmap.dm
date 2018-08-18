@@ -11,8 +11,8 @@
 	name = "generic structure"
 //	var/linked_ship = /area/ship //change me
 	var/datum/beam/current_beam = null //stations will be able to fire back, too!
-	var/health = 20000 //pending balance, 20k for now
-	var/max_health = 20000
+	var/health = 30000 //pending balance, 20k for now
+	var/max_health = 30000
 	var/obj/machinery/space_battle/shield_generator/generator
 	var/obj/structure/fluff/helm/desk/tactical/weapons
 	var/shield_health = 1050 //How much health do the shields have left, for UI type stuff and icon_states
@@ -239,7 +239,7 @@
 //	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
-	max_health = 40000
+	max_health = 50000
 	pixel_z = -128
 	pixel_w = -120
 	turnspeed = 0.7 //It's still quite small for its class
@@ -251,7 +251,7 @@
 	icon_state = "excelsior"
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
-	max_health = 30000
+	max_health = 40000
 	pixel_z = -128
 	pixel_w = -120
 	faction = "starfleet"
@@ -334,7 +334,7 @@
 	pixel_x = -32
 	pixel_y = -32
 	health = 8000
-	max_health = 15000
+	max_health = 25000
 	vehicle_move_delay = 2
 	warp_capable = TRUE
 	turnspeed = 3
@@ -349,8 +349,8 @@
 	icon_state = "defiant"
 	icon = 'StarTrek13/icons/trek/large_ships/defiant.dmi'
 	spawn_name = "ship_spawn"
-	health = 15000
-	max_health = 15000
+	health = 25000
+	max_health = 25000
 	warp_capable = TRUE
 	turnspeed = 2.7
 	pixel_collision_size_x = 48
@@ -475,7 +475,10 @@
 	duration = 10
 
 /obj/structure/overmap/take_damage(amount, var/override)
-	playsound(src,'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg',100,1)
+	if(!amount)
+		return
+	if(prob(30))
+		playsound(src,'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg',100,1)
 	if(wrecked)
 		return 0
 	var/obj/structure/overmap/source = agressor

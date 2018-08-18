@@ -5,8 +5,8 @@
 	spawn_name = "borg_spawn"
 	pixel_x = -32
 	pixel_y = -32
-	health = 10000
-	max_health = 15000
+	health = 20000
+	max_health = 20000
 	warp_capable = TRUE
 	turnspeed = 3
 	pixel_collision_size_x = 48
@@ -22,20 +22,20 @@
 		if(0)
 			icon_state = "borgship0"
 			health += 7000 //Get out clause, so they can run
-			max_health = 15000
+			max_health = 25000
 		if(1)
 			icon_state = "borgship1"
 			health += 7000 //Get out clause, so they can run
-			max_health = 25000
+			max_health = 30000
 		if(2)
 			icon_state = "borgship2"
 			health += 7000 //Get out clause, so they can run
-			max_health = 30000
+			max_health = 35000
 			name = "Scout 554"
 		if(3)
 			icon_state = "borgship3" //By this point it gets borg cube abilities
 			health += 7000 //Get out clause, so they can run
-			max_health = 40000
+			max_health = 45000
 			name = "Submatrix 554"
 		if(4)
 			icon_state = "borgship4" //fucking unit
@@ -159,26 +159,37 @@
 /obj/structure/overmap/ship/assimilated/attempt_fire()
 	update_weapons()
 	if(wrecked)
+		firinginprogress = FALSE
 		return
+	if(SC.weapons.damage <= 0)
+		to_chat(pilot, "<span_class = 'warning'>Weapon systems are depowered!</span>")
+		firinginprogress = FALSE
+		return FALSE
 	var/obj/structure/overmap/S = target_ship
 	if(target_ship)
 		target_ship.agressor = src
 	switch(fire_mode)
 		if(1)
 			if(SC.weapons.attempt_fire())
-				if(target_ship && locked == target_ship) //Is the locked target the one we're clicking?
-					in_use1 = 0
+				var/source = get_turf(src)
+				if(!current_beam)
+					current_beam = new(source,target_ship,time=1000,beam_icon_state="romulanbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 					var/chosen_sound = pick(soundlist)
-					SEND_SOUND(pilot, sound(chosen_sound))
+					playsound(src,chosen_sound,100,1)
 					SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
-					SC.weapons.charge -= SC.weapons.fire_cost
-					var/turf/source = get_turf(src)
-					current_beam = new(source,target_ship,time=6,beam_icon_state="romulanbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 					to_chat(pilot, "You successfully hit [S]")
-					target_ship.take_damage(damage)
+					var/list/L = list()
+					if(S.linked_ship)
+						var/area/thearea = S.linked_ship
+						for(var/turf/T in get_area_turfs(thearea.type))
+							L+=T
+					in_use1 = 0
 					spawn(0)
 						current_beam.Start()
-					return
+				damage = SC.weapons.update_weapons()
+				damage -= SC.weapons.gimp_damage()
+				S.take_damage(damage, TRUE)
+				return TRUE
 		if(2)
 			if(assimilation_tier < 3)
 				if(photons > 0)
@@ -197,15 +208,17 @@
 				else
 					to_chat(pilot, "No photon torpedoes remain.")
 			else
-				if(SC.weapons.attempt_fire())
+				var/datum/shipsystem/engines/E = locate(/datum/shipsystem/engines) in(S.SC.systems)
+				E.charge = 0
+				S.vel = 0
+				var/datum/shipsystem/shields/SS = locate(/datum/shipsystem/shields) in(S.SC.systems)
+				SS.health -= 1000
+				if(!current_beam)
 					playsound(src,'StarTrek13/sound/trek/borg_tractorbeam.ogg',100,1) //this is where the fun begins
-					var/datum/shipsystem/shields/SS = locate(/datum/shipsystem/shields) in(S.SC.systems)
-					SS.integrity -= damage //Drain those shields HARD so we can flood drones
-					SS.health -= damage/2
-					SS.heat += damage/10
-					var/datum/shipsystem/engines/E = locate(/datum/shipsystem/engines) in(S.SC.systems)
-					E.integrity -= damage
 					var/turf/source = get_turf(src)
-					current_beam = new(source,target_ship,time=10,beam_icon_state="romulanbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+					current_beam = new(source,target_ship,time=1000,beam_icon_state="romulanbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 					spawn(0)
 						current_beam.Start()
+					to_chat(pilot, "Tractor beam established.")
+				return TRUE
+

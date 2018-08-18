@@ -34,6 +34,12 @@
 			parallax_update()
 		if(pilot && pilot.client)
 			pilot.client.pixelXYshit()
+		if(firinginprogress) //Star trek legacy like weapons here we come!!!
+			if(attempt_fire())
+				return
+			else
+				firinginprogress = FALSE
+				return
 
 /obj/effect/ship_overlay
 	var/angle = 0 //the angle
