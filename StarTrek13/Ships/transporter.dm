@@ -29,7 +29,7 @@
 	link_by_range()
 
 /obj/machinery/computer/camera_advanced/transporter_control/proc/link_by_range()
-	var/obj/structure/helm/desk/tactical/AA = locate(/obj/structure/helm/desk/tactical) in get_area(src)
+	var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/helm/desk/tactical) in get_area(src)
 	theship = AA.theship
 	for(var/obj/machinery/trek/transporter/A in orange(10,src))
 		if(istype(A, /obj/machinery/trek/transporter))
