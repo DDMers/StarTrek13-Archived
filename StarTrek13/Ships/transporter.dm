@@ -29,8 +29,6 @@
 	link_by_range()
 
 /obj/machinery/computer/camera_advanced/transporter_control/proc/link_by_range()
-	var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/helm/desk/tactical) in get_area(src)
-	theship = AA.theship
 	for(var/obj/machinery/trek/transporter/A in orange(10,src))
 		if(istype(A, /obj/machinery/trek/transporter))
 			linked += A
@@ -103,6 +101,9 @@
 
 /obj/machinery/computer/camera_advanced/transporter_control/attack_hand(mob/user)
 	link_by_range()
+	if(!theship)
+		var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/helm/desk/tactical) in get_area(src)
+		theship = AA.theship
 	destinations = theship.interactables_near_ship
 //	interact(user)
 	if(!powered())
