@@ -102,7 +102,7 @@
 /obj/machinery/computer/camera_advanced/transporter_control/attack_hand(mob/user)
 	link_by_range()
 	if(!theship)
-		var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/helm/desk/tactical) in get_area(src)
+		var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/fluff/helm/desk/tactical) in get_area(src)
 		theship = AA.theship
 	destinations = theship.interactables_near_ship
 //	interact(user)
