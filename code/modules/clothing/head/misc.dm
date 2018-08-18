@@ -345,10 +345,3 @@
 		if(prob(3))
 			M += pick(" Honh honh honh!"," Honh!"," Zut Alors!")
 	return trim(M)
-
-/obj/item/clothing/mask/fake_horns
-	name = "pair of fake horns"
-	desc = "A cheap pair of fake troll horns."
-	icon_state = "fake_horns"
-	item_state = "fake_horns"
-	dog_fashion = /datum/dog_fashion/head/fake_horns
