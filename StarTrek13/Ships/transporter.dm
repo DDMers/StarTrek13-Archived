@@ -51,13 +51,8 @@
 		for(var/obj/machinery/trek/transporter/T in linked)
 			var/turf/open/Tu = get_turf(pick(orange(1, get_turf(eyeobj))))
 			T.send(Tu)
-	playsound(loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
-	else if(available_turfs)
-		for(var/obj/machinery/trek/transporter/T in linked)
-			T.send(pick(available_turfs))
-	playsound(loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
-	else
-		to_chat(usr, "<span class='notice'>Target has no linked transporter pads</span>")
+		playsound(loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
+
 
 /obj/machinery/computer/camera_advanced/transporter_control/proc/transporters_retrieve()
 	if(!powered())
