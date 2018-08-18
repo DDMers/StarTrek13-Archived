@@ -475,8 +475,12 @@
 	duration = 10
 
 /obj/structure/overmap/take_damage(amount, var/override)
-	if(!amount)
-		return
+	var/before = 0
+	before = health
+	var/after = 0
+	after = health - amount
+	if(before < after) //if it'd stain to be healed by a shot, kill it
+		return 0
 	if(prob(30))
 		playsound(src,'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg',100,1)
 	if(wrecked)

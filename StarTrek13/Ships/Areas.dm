@@ -18,6 +18,7 @@ var/global/list/global_ship_list = list()
 /area/overmap/s2
 	name = "Sector 417543 (Neutral zone)"
 
+/*
 /area/overmap/Entered(A)
 	set waitfor = FALSE
 	if(!isliving(A))
@@ -41,6 +42,7 @@ var/global/list/global_ship_list = list()
 			SEND_SOUND(L, sound(sound, repeat = 0, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
 			L.client.played = TRUE
 			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 800)
+*/
 
 /area/overmap/hyperspace
 	name = "hyperspace"

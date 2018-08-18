@@ -288,7 +288,7 @@
 	var/obj/structure/ship_component/capbooster/boosters = list()
 	icon_state = "shields"
 	var/chargeRate = 500 // per tick
-	var/health = 40000
+	var/health = 25000
 	var/max_health = 40000 //This will become shield health, integrity is subsystem integrity
 	integrity = 20000
 	max_integrity = 20000

@@ -237,7 +237,8 @@
 	var/firecount  = 0
 
 /obj/structure/overmap/proc/attempt_fire()
-	update_weapons()
+	if(prob(20))
+		update_weapons()
 	if(wrecked)
 		firinginprogress = FALSE
 		return
@@ -266,6 +267,7 @@
 					in_use1 = 0
 					spawn(0)
 						current_beam.Start()
+				current_beam.origin = src
 				damage = SC.weapons.update_weapons()
 				damage -= SC.weapons.gimp_damage()
 				S.take_damage(damage, TRUE)
@@ -285,6 +287,7 @@
 				return TRUE
 			else
 				to_chat(pilot, "No photon torpedoes remain.")
+				return FALSE
 
 #undef TINY
 #undef SMALL

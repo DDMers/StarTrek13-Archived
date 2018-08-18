@@ -46,35 +46,36 @@
 			shake_camera(L, 1, 10)
 			var/sound/thesound = pick(ship_damage_sounds)
 			SEND_SOUND(L, thesound)
-		var/maths = 5
-		if(agressor)
-			if(istype(agressor.target_subsystem, /datum/shipsystem/integrity)) //If they target the hull subsystem, they deal heavy physical damage
-				maths += 20 //Heavily increase physical damage
-		if(prob(5))
-			for(var/obj/structure/overmap/O in orange(30,src))
-				SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
-		var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
-		var/turf/open/floor/theturf = get_turf(theturf1)
-		if(prob(30+maths))
+		if(prob(40))
 			weapons.explode_effect()
-		if(prob(10+maths))
-			explosion(theturf,0,5,5) //Pretty bad hit right there
-		if(prob(70+maths))
-			var/datum/effect_system/smoke_spread/smoke = new
-			smoke.set_up(4, theturf)
-			smoke.start()
-			new /obj/effect/hotspot/shipfire(theturf)  //begin the fluff! as ships are damaged, they start visibly getting destroyed
-			theturf.atmos_spawn_air("plasma=30;TEMP=1000")
-			for(var/turf/open/floor/T in orange(5,theturf))
-				new /obj/effect/hotspot/shipfire(T.loc)
-			if(!shields_active)
-				if(prob(15+maths))
-					explosion(theturf,2,4,0)
-			return
-		else//40% chance
-			var/new_type = pick(subtypesof(/obj/structure/debris))
-			theturf.visible_message("<span class='danger'>Something falls down from the ceiling above you!</span>")
-			new new_type(get_turf(theturf))
+		if(!has_shields())
+			var/maths = 5
+			if(agressor)
+				if(istype(agressor.target_subsystem, /datum/shipsystem/integrity)) //If they target the hull subsystem, they deal heavy physical damage
+					maths += 20 //Heavily increase physical damage
+			if(prob(5))
+				for(var/obj/structure/overmap/O in orange(30,src))
+					SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
+			var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
+			var/turf/open/floor/theturf = get_turf(theturf1)
+			if(prob(10+maths))
+				explosion(theturf,0,5,5) //Pretty bad hit right there
+			if(prob(70+maths))
+				var/datum/effect_system/smoke_spread/smoke = new
+				smoke.set_up(4, theturf)
+				smoke.start()
+				new /obj/effect/hotspot/shipfire(theturf)  //begin the fluff! as ships are damaged, they start visibly getting destroyed
+				theturf.atmos_spawn_air("plasma=30;TEMP=1000")
+				for(var/turf/open/floor/T in orange(5,theturf))
+					new /obj/effect/hotspot/shipfire(T.loc)
+				if(!shields_active)
+					if(prob(15+maths))
+						explosion(theturf,2,4,0)
+				return
+			else//40% chance
+				var/new_type = pick(subtypesof(/obj/structure/debris))
+				theturf.visible_message("<span class='danger'>Something falls down from the ceiling above you!</span>")
+				new new_type(get_turf(theturf))
 
 
 	//	for(var/turf/open/floor/T in orange(2,theturf))

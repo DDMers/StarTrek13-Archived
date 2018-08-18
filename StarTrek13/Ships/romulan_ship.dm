@@ -44,6 +44,7 @@
 					in_use1 = 0
 					spawn(0)
 						current_beam.Start()
+				current_beam.origin = src
 				damage = SC.weapons.update_weapons()
 				damage -= SC.weapons.gimp_damage()
 				S.take_damage(damage, TRUE)
