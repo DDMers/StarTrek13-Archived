@@ -94,6 +94,7 @@
 			return
 		else
 			firinginprogress = FALSE
+			target_ship = null
 			return
 
 /obj/structure/overmap/proc/exit(mob/user)
