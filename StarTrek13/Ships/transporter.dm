@@ -49,18 +49,13 @@
 		return
 	if(eyeobj.eye_user)
 		for(var/obj/machinery/trek/transporter/T in linked)
-			for(var/mob/living/L in T.loc)
-				if(!(L in retrievable))
-					retrievable += L
 			var/turf/open/Tu = get_turf(pick(orange(1, get_turf(eyeobj))))
 			T.send(Tu)
-		playsound(loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
+	playsound(loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
 	else if(available_turfs)
 		for(var/obj/machinery/trek/transporter/T in linked)
-			for(var/mob/living/L in T.loc)
-				retrievable += L
 			T.send(pick(available_turfs))
-			playsound(loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
+	playsound(loc, 'StarTrek13/sound/borg/machines/transporter.ogg', 40, 4)
 	else
 		to_chat(usr, "<span class='notice'>Target has no linked transporter pads</span>")
 
@@ -344,12 +339,12 @@ Might find a use for this later
 	if(!powered())
 		return
 	flick("alien-pad", src)
-	for(var/atom/movable/target in loc) //test
-		if(target != src)
-			new /obj/effect/temp_visual/transporter(get_turf(target))
-			target.forceMove(teleport_target)
-			new /obj/effect/temp_visual/transporter/mob(get_turf(target))
-			playsound(target.loc, 'StarTrek13/sound/borg/machines/transporter2.ogg', 40, 4)
+	var/mob/living/target = locate(/mob/living) in loc
+	if(target != src)
+		new /obj/effect/temp_visual/transporter(get_turf(target))
+		target.forceMove(teleport_target)
+		new /obj/effect/temp_visual/transporter/mob(get_turf(target))
+		playsound(target.loc, 'StarTrek13/sound/borg/machines/transporter2.ogg', 40, 4)
 
 /obj/machinery/trek/transporter/proc/retrieve(mob/living/target)
 	if(!powered())
