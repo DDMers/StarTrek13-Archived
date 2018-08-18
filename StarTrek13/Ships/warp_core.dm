@@ -137,7 +137,7 @@ Antimatter tank, if this is ever fucked with it'll explode
 
 /obj/machinery/power/warpcore/proc/get_warp_factor()
 	var/cochranes = 0
-	if(!theship)
+	if(!ship)
 		var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/helm/desk/tactical) in get_area(src)
 		ship = AA.theship
 	for(var/obj/machinery/power/warp_coil/WC in get_area(src))
