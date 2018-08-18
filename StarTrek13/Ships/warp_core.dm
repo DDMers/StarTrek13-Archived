@@ -61,7 +61,6 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/WF = "impulse" //Text representation of our maximum warp.
 	var/power = 0
 	var/stored_cochranes = 0
-	var/obj/structure/overmap/theship
 
 /obj/machinery/power/warpcore/massive
 	name = "high powered warp core"
@@ -140,7 +139,7 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/cochranes = 0
 	if(!theship)
 		var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/helm/desk/tactical) in get_area(src)
-		theship = AA.theship
+		ship = AA.theship
 	for(var/obj/machinery/power/warp_coil/WC in get_area(src))
 		cochranes += WC.cochranes
 	if(ship)
