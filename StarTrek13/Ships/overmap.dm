@@ -498,7 +498,7 @@
 			if(4)
 				visible_message("<span class='warning'>Warp plasma vents from [name]'s engines!</span>")
 			if(5)
-				visible_message("<span class='warning'>A beam tears across [name]'s hull!</span>")
+				visible_message("<spanR class='warning'>A beam tears across [name]'s hull!</span>")
 			if(6)
 				visible_message("<span class='warning'>[name]'s hull is scorched!</span>")
 	if(override)

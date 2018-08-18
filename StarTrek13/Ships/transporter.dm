@@ -17,6 +17,7 @@
 	var/datum/action/innate/jump_area/area_action = new
 	var/datum/action/innate/beamdown/down_action = new
 	var/datum/action/innate/beamup/up_action = new
+	var/obj/structure/overmap/theship
 //	var/datum/action/innate/movedown/movedown_action = new
 //	var/datum/action/innate/moveup/moveup_action = new
 	var/mob/living/carbon/operator
@@ -28,6 +29,8 @@
 	link_by_range()
 
 /obj/machinery/computer/camera_advanced/transporter_control/proc/link_by_range()
+	var/obj/structure/helm/desk/tactical/AA = locate(/obj/structure/helm/desk/tactical) in get_area(src)
+	theship = AA.theship
 	for(var/obj/machinery/trek/transporter/A in orange(10,src))
 		if(istype(A, /obj/machinery/trek/transporter))
 			linked += A
@@ -100,6 +103,7 @@
 
 /obj/machinery/computer/camera_advanced/transporter_control/attack_hand(mob/user)
 	link_by_range()
+	destinations = theship.interactables_near_ship
 //	interact(user)
 	if(!powered())
 		to_chat(user, "Insufficient power!")
