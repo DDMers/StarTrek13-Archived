@@ -68,5 +68,6 @@
 		to_chat(O, "<span class='alert'>Open band transmission: [theship], [html_encode(message)]</span>")
 	for(var/obj/structure/overmap/OM in get_area(theship))
 		if(!OM.comms)
-			OM.linkto()
-		OM.comms.receive_hail(message, theship)
+			continue
+		if(OM.comms)
+			OM.comms.receive_hail(message, theship)
