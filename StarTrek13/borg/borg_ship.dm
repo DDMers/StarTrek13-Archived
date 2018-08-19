@@ -95,7 +95,7 @@
 			if("Assimilate Vessel")
 				switch(ship.assimilation_tier)
 					if(0)
-						if(stored_resources > 200) //First one's cheap
+						if(stored_resources >= 200) //First one's cheap
 							icon_state = "converter-on"
 							stored_resources -= 200
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
@@ -104,7 +104,7 @@
 							ship.assimilation_tier ++
 							ship.check_assimilation()
 					if(1)
-						if(stored_resources > 500) //Slightly more expensive, 5 resources per turf, so 60 turfs assimilated is the required amt.
+						if(stored_resources >= 500) //Slightly more expensive, 5 resources per turf, so 60 turfs assimilated is the required amt.
 							icon_state = "converter-on"
 							stored_resources -= 500
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
@@ -113,7 +113,7 @@
 							ship.assimilation_tier ++
 							ship.check_assimilation()
 					if(2)
-						if(stored_resources > 800) //Once they hit this tier, they've already become REALLY dangerous, with classical borg abilities.
+						if(stored_resources >= 800) //Once they hit this tier, they've already become REALLY dangerous, with classical borg abilities.
 							icon_state = "converter-on"
 							stored_resources -= 800
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
@@ -128,7 +128,7 @@
 							for(var/mob/M in GLOB.dead_mob_list)
 								to_chat(M, ping)
 					if(3)
-						if(stored_resources > 1200) //The apex borg ship, once it reaches this point, it is extremely difficult to stop.
+						if(stored_resources >= 1200) //The apex borg ship, once it reaches this point, it is extremely difficult to stop.
 							icon_state = "converter-on"
 							stored_resources -= 1200
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
@@ -176,7 +176,8 @@
 					current_beam = new(source,target_ship,time=1000,beam_icon_state="romulanbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 					var/chosen_sound = pick(soundlist)
 					playsound(src,chosen_sound,100,1)
-					SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
+					if(S.pilot)
+						SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
 					to_chat(pilot, "You successfully hit [S]")
 					var/list/L = list()
 					if(S.linked_ship)
