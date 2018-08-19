@@ -104,7 +104,7 @@
 					if("narrow band (direct messages)")
 						wideband = FALSE
 						var/list/L = list()
-						for(var/obj/structure/overmap/OM in get_area(src))
+						for(var/obj/structure/overmap/OM in get_area(theship))
 							if(istype(OM, /obj/structure/overmap))
 								L += OM
 						var/obj/structure/overmap/V = input("Open a channel to which ship?", "Hailing Options", null) in L
