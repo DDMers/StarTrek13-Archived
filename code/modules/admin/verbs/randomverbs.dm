@@ -48,12 +48,12 @@
 /client/proc/cmd_admin_headset_message(mob/M in GLOB.mob_list)
 	set category = "Special Verbs"
 	set name = "Headset Message"
-	
+
 	admin_headset_message(M)
 
 /client/proc/admin_headset_message(mob/M in GLOB.mob_list, sender = null)
 	var/mob/living/carbon/human/H = M
-	
+
 	if(!check_rights(R_ADMIN))
 		return
 
@@ -1201,28 +1201,7 @@ GLOBAL_LIST_EMPTY(custom_outfits) //Admin created outfits
 	log_admin("[key_name(usr)] sent \"[input]\" as the Tip of the Round.")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Tip")
 
-/proc/mass_purrbation()
-	for(var/M in GLOB.mob_list)
-		if(ishumanbasic(M))
-			purrbation_apply(M)
-		CHECK_TICK
-
-/proc/mass_remove_purrbation()
-	for(var/M in GLOB.mob_list)
-		if(ishumanbasic(M))
-			purrbation_remove(M)
-		CHECK_TICK
-
-/proc/purrbation_toggle(mob/living/carbon/human/H, silent = FALSE)
-	if(!ishumanbasic(H))
-		return
-	if(!iscatperson(H))
-		purrbation_apply(H, silent)
-		. = TRUE
-	else
-		purrbation_remove(H, silent)
-		. = FALSE
-
+/*
 /proc/purrbation_apply(mob/living/carbon/human/H, silent = FALSE)
 	if(!ishuman(H))
 		return
@@ -1277,6 +1256,7 @@ GLOBAL_LIST_EMPTY(custom_outfits) //Admin created outfits
 	if(!silent)
 		to_chat(H, "You are no longer a cat.")
 
+*/
 /client/proc/modify_goals()
 	set category = "Debug"
 	set name = "Modify goals"

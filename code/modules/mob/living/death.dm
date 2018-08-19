@@ -86,4 +86,27 @@
 		var/datum/soullink/S = s
 		S.sharerDies(gibbed)
 
+	if(mind && mind.assigned_role)
+		//Handle job slot/tater cleanup.
+		var/job = mind.assigned_role
+
+		SSjob.FreeRole(job)
+
+		if(mind.objectives.len)
+			mind.objectives.Cut()
+			mind.special_role = null
+
+	// Delete them from datacore.
+	for(var/datum/data/record/R in GLOB.data_core.medical)
+		if((R.fields["name"] == real_name))
+			GLOB.data_core.medical -= R
+			qdel(R)
+	for(var/datum/data/record/TT in GLOB.data_core.security)
+		if((TT.fields["name"] == real_name))
+			GLOB.data_core.security -= TT
+			qdel(TT)
+	for(var/datum/data/record/G in GLOB.data_core.general)
+		if((G.fields["name"] == real_name))
+			GLOB.data_core.general -= G
+			qdel(G)
 	return TRUE

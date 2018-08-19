@@ -24,8 +24,4 @@
 	. = ..()
 
 /datum/species/human/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
-	if(H.dna.features["ears"] == "Cat")
-		mutantears = /obj/item/organ/ears/cat
-	if(H.dna.features["tail_human"] == "Cat")
-		mutanttail = /obj/item/organ/tail/cat
 	..()

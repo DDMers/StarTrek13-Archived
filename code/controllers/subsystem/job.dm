@@ -14,6 +14,13 @@ SUBSYSTEM_DEF(job)
 
 	var/overflow_role = "Crewman"
 
+/datum/controller/subsystem/job/proc/FreeRole(var/rank)	//making additional slot on the fly
+	var/datum/job/job = GetJob(rank)
+	if(job && job.current_positions >= job.total_positions && job.total_positions != -1)
+		job.total_positions++
+		return 1
+	return 0 //totally not nicked from bay derivates :b1:
+
 /datum/controller/subsystem/job/Initialize(timeofday)
 	if(!occupations.len)
 		SetupOccupations()
