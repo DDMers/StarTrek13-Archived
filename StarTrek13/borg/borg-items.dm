@@ -19,7 +19,7 @@
 	slowdown = 3
 	item_flags = NODROP | ABSTRACT | THICKMATERIAL | STOPSPRESSUREDAMAGE
 	armor = list(melee = 40, bullet = 5, laser = 5, energy = 0, bomb = 15, bio = 100, rad = 70) //they can't react to bombs that well, and emps will rape them
-	resistance_flags = FIRE_PROOF | ACID_PROOF
+	resistance_flags = FIRE_PROOF
 	allowed = list(/obj/item/flashlight)
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
