@@ -86,7 +86,8 @@
 		if(!message)
 			wideband = FALSE
 			return
-		hail_target.comms.receive_hail(message, theship)
+		for(var/obj/structure/overmap/OM in get_area(theship)
+			OM.comms.receive_hail(message, theship)
 	if(hail_target)
 		wideband = FALSE
 		var/message = stripped_input(user,"Communications.","Transmit message on narrow band frequencies (leave message box empty to close frequencies).")
