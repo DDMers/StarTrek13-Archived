@@ -86,7 +86,7 @@
 		if(!message)
 			wideband = FALSE
 			return
-		for(var/obj/structure/overmap/OM in get_area(theship)
+		for(var/obj/structure/overmap/OM in get_area(theship))
 			OM.comms.receive_hail(message, theship)
 	if(hail_target)
 		wideband = FALSE
