@@ -431,15 +431,13 @@
 		generator.shield_system = SC.shields
 	var/obj/machinery/computer/camera_advanced/transporter_control/TT = locate(/obj/machinery/computer/camera_advanced/transporter_control) in(linked_ship)
 	transporters += TT
-	var/obj/structure/overmap/ship/fighter/F = locate(/obj/structure/overmap/ship/fighter) in(linked_ship)
-	F.carrier_ship = src
-	fighters += F
 	var/obj/structure/hailing_console/HC = locate(/obj/structure/hailing_console) in(linked_ship)
 	comms = HC
 	HC.theship = src
 	var/obj/structure/fluff/helm/desk/functional/FF = locate(/obj/structure/fluff/helm/desk/functional) in(linked_ship)
-	FF.our_ship = src
-	FF.get_ship()
+	if(FF)
+		FF.our_ship = src
+		FF.get_ship()
 	var/obj/structure/subsystem_monitor/M = locate(/obj/structure/subsystem_monitor) in(linked_ship)
 	M.our_ship = src
 	M.get_ship()
@@ -451,9 +449,13 @@
 	PP.check_ship()
 	PP.check_overlays()
 	var/obj/machinery/cloaking_device/CD = locate(/obj/machinery/cloaking_device) in(linked_ship)
-	CD.theship = src
+	if(CD)
+		CD.theship = src
 	var/obj/machinery/power/warpcore/WP = locate(/obj/machinery/power/warpcore) in(linked_ship)
 	WP.ship = src
+	var/obj/structure/overmap/ship/fighter/F = locate(/obj/structure/overmap/ship/fighter) in(linked_ship) //put the ones that arent on every ship LAST or it breaks things!
+	F.carrier_ship = src
+	fighters += F
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	SC.weapons.update_weapons()

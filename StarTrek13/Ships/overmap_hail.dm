@@ -64,7 +64,9 @@
 	var/message = stripped_input(user,"Communications.","Transmit message on all frequencies.")
 	if(!message)
 		return
-	for(var/obj/structure/overmap/OM in get_area(theship))
-		OM.comms.receive_hail(message, theship)
 	for(var/mob/O in GLOB.dead_mob_list)
 		to_chat(O, "<span class='alert'>Open band transmission: [theship], [html_encode(message)]</span>")
+	for(var/obj/structure/overmap/OM in get_area(theship))
+		if(!OM.comms)
+			OM.linkto()
+		OM.comms.receive_hail(message, theship)
