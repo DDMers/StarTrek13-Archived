@@ -56,7 +56,7 @@
 "bd" = (/obj/structure/fluff/helm/desk/noisy,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "be" = (/obj/structure/closet/crate/trek{color = "#FFA500"},/obj/item/storage/box/metalfoam,/turf/open/floor/borg/trek/lit,/area/ship/federation/sovreign)
 "bf" = (/obj/structure/fluff/helm/desk{tag = "icon-miniconsole (NORTH)"; icon_state = "miniconsole"; dir = 1},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
-"bg" = (/obj/structure/fluff/helm/desk/functional,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
+"bg" = (/obj/structure/hailing_console,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bh" = (/obj/structure/weapons_console,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "bi" = (/turf/open/bridge_overlay,/area/space)
 "bj" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)

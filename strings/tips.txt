@@ -16,3 +16,4 @@ The wiki is an endless source of information, it's worth a read.
 You can arm photon torpedoes for detonation by alt clicking them and subsequently beam them aboard enemy ships to wreak havoc.
 Transporters are incredibly powerful, always have an officer manning them, and you'll be able to beam enemy soldiers into a kill chamber.
 Diplomatic relations are preferable to all out war.
+You can hail other ships with communications consoles on starship bridges.

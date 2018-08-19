@@ -596,15 +596,6 @@
 	if(pilot == user)
 		set_nav_target(user)
 
-/obj/structure/overmap/ShiftClick(mob/user)
-	if(user != pilot) //No hailing yourself, please
-		var/obj/structure/overmap/ship/sender = user.loc
-		var/message = stripped_input(user,"Communications.","Send Hail")
-		if(!message)
-			return
-		hail(message, null , sender, src)
-		return
-
 /obj/structure/overmap/proc/update_turrets()
 	return
 
