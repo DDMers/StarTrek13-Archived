@@ -70,6 +70,10 @@
 		to_chat(O, "<span class='alert'>Open band transmission: [sender], [html_encode(message)]</span>")
 
 /obj/structure/hailing_console/attack_hand(mob/user)
+	if(!theship)
+		var/obj/structure/fluff/helm/desk/tactical/weapons = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src)) //why the hell did I think using for loops for everything was ever a good idea :blobthinking:
+		theship = weapons.theship
+		theship.comms = src
 	if(requester)
 		var/mode = alert("[requester] wants to hail your ship",,"accept", "deny")
 		switch(mode)
