@@ -278,7 +278,7 @@
 		owner.visible_message("<span_class='warning'>[owner] writhes in pain on the floor as metallic objects erupt from their skin!</span>")
 		to_chat(owner, "<span_class='warning'>You can feel your bones being torn to shreds as your skeleton is augmented by nanites!</span>")
 		owner.set_species(/datum/species/infiltrator)
-		to_chat(owner, "<span_class='warning'>You feel unnaturally strong, yet you don't feel linked to the borg collective, loud servos actuate as you move your limbs around...Was this a bad idea?</span>")
+		to_chat(owner, "<span_class='warning'>You feel unnaturally strong.. You have the internals of a machine, but you retain your organs. You are NOT a borg, you have free will, despite being able to interface with borg systems.</span>")
 		return
 	for(var/obj/item/organ/borgNanites/B in owner)
 		if(B.message_action)
