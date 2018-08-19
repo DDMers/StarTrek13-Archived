@@ -434,6 +434,9 @@
 	var/obj/structure/overmap/ship/fighter/F = locate(/obj/structure/overmap/ship/fighter) in(linked_ship)
 	F.carrier_ship = src
 	fighters += F
+	var/obj/structure/hailing_console/HC = locate(/obj/structure/hailing_console) in(linked_ship)
+	comms = HC
+	HC.theship = src
 	var/obj/structure/fluff/helm/desk/functional/FF = locate(/obj/structure/fluff/helm/desk/functional) in(linked_ship)
 	FF.our_ship = src
 	FF.get_ship()
