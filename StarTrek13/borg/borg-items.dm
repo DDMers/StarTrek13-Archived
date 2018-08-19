@@ -4,7 +4,7 @@
 	item_state = null
 	icon_state = "syndicate"
 	has_sensor = 0
-	resistance_flags = FIRE_PROOF | ACID_PROOF
+	resistance_flags = FIRE_PROOF
 	item_flags = NODROP
 
 /obj/item/clothing/suit/space/borg
