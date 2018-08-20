@@ -58,14 +58,15 @@
 
 /obj/structure/hailing_console/proc/receive_hail(var/message, var/obj/structure/overmap/sender)
 	var/fluff = "Open Frequency (Wide band):"
-	if(DMpartner == sender)
-		fluff = "<b>Closed Frequency (Narrow band)</b>:"
-	if(theship.pilot)
-		to_chat(theship.pilot, "<span class='alert'>[fluff] <I>[sender]</I>: [html_encode(message)]</span>")
-	for(var/mob/living/M in theship.linked_ship)
-		if(!istype(M, /mob/living))
-			continue
-		to_chat(theship.pilot, "<span class='alert'>[fluff] <I>[sender]</I>: [html_encode(message)]</span>")
+	if(DMpartner)
+		if(sender)//byond sux
+			if(DMpartner == sender)
+				fluff = "<b>Closed Frequency (Narrow band)</b>:"
+	if(theship)
+		if(theship.pilot)
+			to_chat(theship.pilot, "<span class='alert'>[fluff] <I>[sender]</I>: [message]</span>")
+	for(var/mob/living/M in get_area(src))
+		to_chat(M, "<span class='alert'>[fluff] <I>[sender]</I>: [message]</span>") //IM A FUCKING IDIOT
 
 /obj/structure/hailing_console/proc/hail_request(var/obj/structure/overmap/sender)
 	playsound(loc, 'StarTrek13/sound/trek/hail_incoming.ogg', 100)

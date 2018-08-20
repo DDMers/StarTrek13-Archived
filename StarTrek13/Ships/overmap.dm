@@ -430,10 +430,12 @@
 		SC.shields.linked_generators += generator
 		generator.shield_system = SC.shields
 	var/obj/machinery/computer/camera_advanced/transporter_control/TT = locate(/obj/machinery/computer/camera_advanced/transporter_control) in(linked_ship)
-	transporters += TT
+	if(TT)
+		transporters += TT
 	var/obj/structure/hailing_console/HC = locate(/obj/structure/hailing_console) in(linked_ship)
-	comms = HC
-	HC.theship = src
+	if(HC)
+		comms = HC
+		HC.theship = src
 	var/obj/structure/fluff/helm/desk/functional/FF = locate(/obj/structure/fluff/helm/desk/functional) in(linked_ship)
 	if(FF)
 		FF.our_ship = src
