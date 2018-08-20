@@ -31,6 +31,7 @@
 	pass_flags = PASSTABLE | PASSMOB
 	mob_size = MOB_SIZE_SMALL
 	gold_core_spawnable = FRIENDLY_SPAWN
+	//© Haine
 
 
 /mob/living/simple_animal/bird/Life()
@@ -40,6 +41,7 @@
 		icon_state = "[icon_living]-flap"
 		sleep(30)
 		icon_state = initial(icon_state)
+	//© Haine
 
 /mob/living/simple_animal/bird/kea
 	name = "kea"
@@ -47,6 +49,7 @@
 	icon_state = "kea"
 	icon_living = "kea"
 	icon_dead = "kea-dead"
+	//© Haine
 
 /mob/living/simple_animal/bird/eclectus
 	name = "eclectus"
@@ -54,6 +57,7 @@
 	icon_state = "eclectus"
 	icon_living = "eclectus"
 	icon_dead = "eclectus-dead"
+	//© Haine
 
 /mob/living/simple_animal/bird/eclectus/female
 	name = "eclectus"
@@ -61,6 +65,7 @@
 	icon_state = "eclectusf"
 	icon_living = "eclectusf"
 	icon_dead = "eclectusf-dead"
+	//© Haine
 
 /mob/living/simple_animal/bird/grey
 	name = "african grey parrot"
@@ -69,6 +74,7 @@
 	icon_living = "agrey"
 	icon_dead = "agrey-dead"
 	emote_see = list("stares inquisitively.","flaps its wings.")
+	//© Haine
 
 /mob/living/simple_animal/bird/caique
 	name = "caique"
@@ -76,6 +82,7 @@
 	icon_state = "bcaique"
 	icon_living = "bcaique"
 	icon_dead = "bcaique-dead"
+	//© Haine
 
 /mob/living/simple_animal/bird/caique/white
 	name = "caique"
@@ -83,6 +90,7 @@
 	icon_state = "wcaique"
 	icon_living = "wcaique"
 	icon_dead = "wcaique-dead"
+	//© Haine
 
 /mob/living/simple_animal/bird/budgie
 	name = "budgie"
@@ -90,6 +98,7 @@
 	icon_state = "gbudge"
 	icon_living = "gbudge"
 	icon_dead = "gbudge-dead"
+	//© Haine
 
 /mob/living/simple_animal/bird/budgie/blue
 	name = "budgie"
@@ -97,6 +106,7 @@
 	icon_state = "bbudge"
 	icon_living = "bbudge"
 	icon_dead = "bbudge-dead"
+	//© Haine
 
 /mob/living/simple_animal/bird/budgie/bluegreen
 	name = "budgie"
@@ -104,6 +114,7 @@
 	icon_state = "bgbudge"
 	icon_living = "bgbudge"
 	icon_dead = "bgbudge-dead"
+	//© Haine
 
 /mob/living/simple_animal/bird/tiel
 	name = "cockatiel"
@@ -271,3 +282,46 @@
 	icon_state = "crow"
 	icon_living = "crow"
 	icon_dead = "crow-dead"
+
+/mob/living/simple_animal/bird/gannet
+	name = "gannet"
+	icon = 'StarTrek13/icons/goon/bird.dmi'
+	icon_state = "gannet"
+	icon_living = "gannet"
+	icon_dead = "gannet-dead"
+	//© Gannets
+
+/mob/living/simple_animal/bird/huge
+	name = "macaw"
+	icon = 'StarTrek13/icons/goon/bigbird.dmi'
+	icon_state = "parrot"
+	icon_living = "parrot"
+	icon_dead = "parrot-dead"
+
+/mob/living/simple_animal/bird/huge/macaw
+	name = "scarlet macaw"
+	icon = 'StarTrek13/icons/goon/bigbird.dmi'
+	icon_state = "smacaw"
+	icon_living = "smacaw"
+	icon_dead = "smacaw-dead"
+
+/mob/living/simple_animal/bird/huge/macaw/blue
+	name = "scarlet macaw"
+	icon = 'StarTrek13/icons/goon/bigbird.dmi'
+	icon_state = "bmacaw"
+	icon_living = "bmacaw"
+	icon_dead = "bmacaw-dead"
+
+/mob/living/simple_animal/bird/huge/macaw/military
+	name = "military macaw"
+	icon = 'StarTrek13/icons/goon/bigbird.dmi'
+	icon_state = "mmacaw"
+	icon_living = "mmacaw"
+	icon_dead = "mmacaw-dead"
+
+/mob/living/simple_animal/bird/huge/macaw/hyacinth
+	name = "hyacinth macaw"
+	icon = 'StarTrek13/icons/goon/bigbird.dmi'
+	icon_state = "hmacaw"
+	icon_living = "hmacaw"
+	icon_dead = "hmacaw-dead"

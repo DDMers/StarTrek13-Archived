@@ -72,6 +72,9 @@
 				if(!shields_active)
 					if(prob(15+maths))
 						explosion(theturf,2,4,0)
+				var/obj/effect/landmark/music_controller/M = locate(/obj/effect/landmark/music_controller) in (get_area(src))
+				if(M)
+					M.play(TRUE) //danger! begin battle music!
 				return
 			else//40% chance
 				var/new_type = pick(subtypesof(/obj/structure/debris))

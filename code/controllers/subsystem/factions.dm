@@ -16,6 +16,7 @@ SUBSYSTEM_DEF(faction)
 	var/Wrenchname //PASS ME THE DUOTRONIC SEQUENCER! NO NOT THE TRIPHASIC REGULATOR!
 	var/Crowbarname
 	var/Wirecuttername
+	var/obj/effect/landmark/music_controller/music_controllers = list()
 
 /datum/controller/subsystem/faction/Initialize(timeofday)
 	for(var/F in subtypesof(/datum/faction))
@@ -48,6 +49,10 @@ SUBSYSTEM_DEF(faction)
 
 /datum/controller/subsystem/faction/fire()
 	if(SSticker.current_state > GAME_STATE_PREGAME) //Round started. Now begin the countdown to allow jumpgates.
+		for(var/obj/effect/landmark/music_controller/music_controller in music_controllers)
+			if(music_controller && !music_controller.roundstarted)
+				music_controller.play()
+				music_controller.roundstarted = TRUE
 		for(var/datum/crew/S in crews)
 			if(!S.filled)
 				S.FillRoles()
