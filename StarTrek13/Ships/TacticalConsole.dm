@@ -33,6 +33,7 @@
 	var/sound = pick(zaps)
 	playsound(src.loc, sound, 70,1)
 	spark_system.start()
+	playsound(src.loc, 'StarTrek13/sound/borg/machines/bleep1.ogg', 100,1)
 
 /obj/structure/fluff/helm/desk/tactical/nanotrasen
 	name = "tactical"
@@ -120,14 +121,12 @@
 	)
 
 /obj/structure/fluff/helm/desk/tactical/attack_hand(mob/user)
-	playsound(src.loc, 'StarTrek13/sound/borg/machines/alert2.ogg', 100,1)
 	get_weapons()
 	get_shieldgen()
 	if(!theship)
 		to_chat(user, "Your ship has been destroyed!")
 	if(!user.skills.skillcheck(user, "piloting", 5))
 		return
-
 	playsound(src.loc, 'StarTrek13/sound/borg/machines/alertbuzz.ogg', 100,1)
 	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap")
 	starmapUI = "\
