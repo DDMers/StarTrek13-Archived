@@ -112,7 +112,7 @@
 			s += "[icon2html(target.icon, user, target.icon_state)]<BR>"
 		if(target)
 			for(var/datum/shipsystem/S in target.SC.systems)
-				ss += "<A href='?src=\ref[src];system=\ref[S];clicker=\ref[user]'>[icon2html(S.icon, user, S.icon_state, SOUTH)]</A>" //Subsystem icon things done by FTL, modified slightly be me
+				ss += "<A href='?src=\ref[src];system=\ref[S];clicker=\ref[user];display: inline-block'>[icon2html(S.icon, user, S.icon_state, SOUTH)]</A>" //Subsystem icon things done by FTL, modified slightly be me
 			s += ss
 		var/datum/browser/popup = new(user, "Weapons control", name, 550, 550)
 		popup.set_content(s)

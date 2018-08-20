@@ -2637,6 +2637,7 @@
 #include "StarTrek13\Ships\ai_ship.dm"
 #include "StarTrek13\Ships\ai_ships.dm"
 #include "StarTrek13\Ships\Areas.dm"
+#include "StarTrek13\Ships\birds.dm"
 #include "StarTrek13\Ships\bridge_consoles.dm"
 #include "StarTrek13\Ships\clothes.dm"
 #include "StarTrek13\Ships\crew.dm"

@@ -359,7 +359,7 @@
 "gU" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 5},/area/ship/federation/sovreign)
 "gV" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 9},/area/ship/federation/sovreign)
 "gW" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
-"gX" = (/turf/open/floor/plating,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/sovreign)
+"gX" = (/obj/effect/landmark/bird_spawner,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "gY" = (/obj/machinery/door/airlock/trek/tng/jeffries,/turf/open/floor/borg/trek/lit,/area/ship/federation/sovreign)
 "gZ" = (/obj/structure/fluff/ship/panel,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 8},/area/ship/federation/sovreign)
 "ha" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 8},/area/ship/federation/sovreign)
@@ -415,7 +415,7 @@
 "hY" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/federation/sovreign)
 "hZ" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 9},/obj/machinery/portable_atmospherics/scrubber,/turf/open/floor/plating,/area/ship/federation/sovreign)
 "ia" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTH)"; icon_state = "trek_edge"; dir = 1},/obj/structure/cable/white{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
-"ib" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/sovreign)
+"ib" = (/turf/open/floor/plating,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/sovreign)
 "ic" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/structure/cable/white{icon_state = "2-8"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 10},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
 "id" = (/obj/machinery/door/airlock/trek/tng/single,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/open/floor/hallway{icon_state = "hallway"; dir = 8},/area/ship/federation/sovreign)
 "ie" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/sovreign)
@@ -537,6 +537,7 @@
 "kq" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/light{dir = 8},/obj/structure/cable/white{icon_state = "1-2"},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/plating,/area/ship/federation/sovreign)
 "kr" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/plating,/area/ship/federation/sovreign)
 "ks" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-8"},/turf/open/floor/plating,/area/ship/federation/sovreign)
+"kt" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/sovreign)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -554,7 +555,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacacacacacacacaz
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacacacacacbTaPaZbbaZbYbLacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ababababababababababababababababababababababababababababacacacacacacacacacbTbZaEciaEcjbLacacbTaeafagagagagafaebLacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTcncgcicgcnbLacacbTaiajajakalajajaybLacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTctcKcQcRcWbLacacbTbMaoaoaoaoaoaocybLacacacacacacacacacacabababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTctcKcQcRcWbLacacbTbMaoaogXaoaoaocybLacacacacacacacacacacabababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTdpaZdQaZetbLacacbTaqararararararasbLacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTeAeAeBeAeAbLacacbTagagagagagagatchbLacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbTczeAeCeAcAbLacacbTawajajajajaxajaybLacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -629,7 +630,7 @@ abacacacacacacacbTaBeAiqiyazbLacbTdcaoaoaoaoiziAiAiAiAiBdddebLcmcmcmaNdfdkgFiCiD
 abacacacacacacacbTaBeAiqiyazbLacbTaIararararinarararararardibLcmcmcmaNdjdkgFeIiHiHiIdkdkaNaNdkiJdkdkdkdkdkdkdlaNcmcmcmcuaoaoaoaOaoaoaoaOaoaoaoaOacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacbTaBeAiKiyazbLaceLbrbrbrbrbriLbrbrbrbrbrbrbrePaccmcmcudmdkgFgGdkdkdkdkdkdkdkdkiJdkdkdkdkdkdkdmaNcmcmcmcuaoiMaoaOaoiMaoaOaoiMaoaOacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacbTaBeAiNiOazbLacacacacacacaziPaBacacacacacacacaccmcmaNdkdkgFgIgJdkdkdkdkdkdkdkiJdkdkdkgKdkdkdkaNcmcmcmdncucucucucucucucucucucucuacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
-abacacacacacacacbTiQiRgXibiQbLacacacacacacaziPaBacacacacacacacaccmcmaNdmdkgFgGdkdkdkdkdkdododkiJdkdkdkgFdkdkdmaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
+abacacacacacacacbTiQiRibktiQbLacacacacacacaziPaBacacacacacacacaccmcmaNdmdkgFgGdkdkdkdkdkdododkiJdkdkdkgFdkdkdmaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacbTiUcgiViWiXbLacacacacacacgLiLgNacacacacacacacaccmcmaOdmdkgFgGdkdkdkdkdkdkdkdkiJdkdkdkgFdkdkdmaOcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacbTiYiZjaiZjbbLacacacacacazgOiPgPaBacacacacacacaccmcmaOaOdmgFgGjcdkdkdkdqdrdsdtiJdkdkjcgFdkdmaOaOcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
 abacacacacacacacbTjdjejfjejgbLacacacacacazjhiPjhaBacacacacacacaccmcmaOaObTgQhibLdkdkdkdvdwdxdyiJdkdkbTgSgTbLcuaNaNaNaNaNaNaNaNaNcucucmcmcmcmcmcmacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaa
