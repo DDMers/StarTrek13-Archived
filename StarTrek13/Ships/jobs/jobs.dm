@@ -145,7 +145,7 @@ Captain
 //	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "Captain [H.real_name] on deck!"))
 
 /datum/outfit/job/admiral
-	name = "Starfleet Admiral"
+	name = "Admiral"
 	jobtype = /datum/job/trek/admiral
 
 	id = /obj/item/card/id/gold
@@ -288,7 +288,7 @@ Shaft Miner
 
 	belt = /obj/item/pda/shaftminer
 	ears = /obj/item/radio/headset/headset_cargo/mining
-	shoes = /obj/item/clothing/shoes/workboots/mining
+	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform = /obj/item/clothing/under/independant
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival
@@ -312,6 +312,13 @@ Shaft Miner
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
 	..()
+
+/datum/outfit/job/miner/pre_equip/post_equip(mob/living/carbon/human/H) //So they can fly to and from lavaland
+	if(H.skills)
+		H.skills.add_skill("piloting", 5)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 5)
 
 /datum/outfit/job/miner/asteroid
 	name = "Shaft Miner (Asteroid)"
@@ -419,7 +426,7 @@ Chief Engineer
 Station Engineer
 */
 /datum/job/trek/engineer
-	title = "Ship technician"
+	title = "Engineer"
 	flag = ENGINEER
 	department_head = list("Chief Engineer")
 	department_flag = ENGSEC
@@ -833,7 +840,7 @@ Security Officer
 //When adding new jobs, go to jobs.dm
 
 /datum/job/trek/soldier
-	title = "Starfleet Infantry"
+	title = "Combat Specialist"
 	flag = SOLDIER
 	department_head = list("Admirals")
 	department_flag = ENGSEC
@@ -891,7 +898,7 @@ Security Officer
 //		H.add_skill(rand(60, 66), rand(60, 68), rand(24, 32), ..(), ..())
 
 /datum/job/trek/pilot
-	title = "Ship Helmsman"
+	title = "Helmsman"
 	flag = PILOT
 	department_head = list("Captain")
 	department_flag = ENGSEC
