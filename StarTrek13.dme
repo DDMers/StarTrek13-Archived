@@ -2659,6 +2659,7 @@
 #include "StarTrek13\Ships\overmap_hail.dm"
 #include "StarTrek13\Ships\overmap_overlay.dm"
 #include "StarTrek13\Ships\overmap_take_damage.dm"
+#include "StarTrek13\Ships\overmap_voice.dm"
 #include "StarTrek13\Ships\respawns.dm"
 #include "StarTrek13\Ships\romulan_ship.dm"
 #include "StarTrek13\Ships\runabout.dm"

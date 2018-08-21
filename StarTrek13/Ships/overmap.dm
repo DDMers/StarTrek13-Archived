@@ -682,6 +682,7 @@
 			if(1)
 				fire_mode = 2
 				to_chat(pilot, "You'll now fire photons")
+				weapons.voiceline("photon")
 			if(2)
 				fire_mode = 1
 				to_chat(pilot, "You'll now fire phasers")

@@ -47,8 +47,9 @@
 			SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/shiphitbase.ogg')
 			var/sound/thesound = pick(ship_damage_sounds)
 			SEND_SOUND(L, thesound)
-		if(prob(40))
+		if(prob(30))
 			weapons.explode_effect()
+			weapons.voiceline("shieldshp")
 		if(!has_shields())
 			var/maths = 5
 			if(agressor)
@@ -59,6 +60,8 @@
 					SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
 			var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
 			var/turf/open/floor/theturf = get_turf(theturf1)
+			if(prob(30))
+				weapons.voiceline("hull")
 			if(prob(10+maths))
 				explosion(theturf,0,5,5) //Pretty bad hit right there
 			if(prob(70+maths))

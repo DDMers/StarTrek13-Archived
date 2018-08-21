@@ -31,11 +31,10 @@ GLOBAL_LIST_INIT(trek_battle_music, world.file2list("strings/trekmusic_battle.tx
 		stop()
 		playing = TRUE
 		var/web_sound_input
+		web_sound_input= "[pick(GLOB.trek_music)]"
 		if(danger)
 			web_sound_input = "[pick(GLOB.trek_battle_music)]"
 			playing_danger = TRUE
-		else
-			web_sound_input= "[pick(GLOB.trek_music)]"
 		var/ytdl = CONFIG_GET(string/invoke_youtubedl)
 		if(!ytdl)
 			to_chat(src, "<span class='boldwarning'>Youtube-dl was not configured, action unavailable</span>") //Check config.txt for the INVOKE_YOUTUBEDL value
