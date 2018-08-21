@@ -73,6 +73,11 @@ GLOBAL_LIST_INIT(trek_battle_music, world.file2list("config/trekmusic_battle.txt
 				return
 			if(web_sound_url)
 				for(var/obj/structure/overmap/om in get_area(src))
+					if(om.pilot)
+						if(om.pilot.client)
+							var/client/CCE = om.pilot.client
+							if((CCE.prefs.toggles & SOUND_MIDI) && CCE.chatOutput && !CCE.chatOutput.broken && CCE.chatOutput.loaded)
+								CCE.chatOutput.sendMusic(web_sound_url, pitch)
 					for(var/mob/M in om.linked_ship)
 						if(M.client)
 							var/client/C = M.client
