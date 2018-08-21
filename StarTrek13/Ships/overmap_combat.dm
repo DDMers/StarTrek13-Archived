@@ -204,6 +204,8 @@
 	var/firinginprogress = FALSE //are we shooting something by holding our mouse down?
 
 /obj/structure/overmap/proc/onMouseDown(object, location, params, mob/mob)
+	if(object == src)
+		return
 	if(istype(object, /obj/screen) && !istype(object, /obj/screen/click_catcher))
 		return
 	if(istype(object, /obj/structure/overmap))
@@ -386,7 +388,7 @@
 				to_chat(user, "You set [src] to detonate in [timer/10] seconds")
 				desc += "Its trigger is set for a delayed detonation of [timer] seconds!"
 				addtimer(CALLBACK(src, .proc/force_explode), timer)
-		else
+		if(mode == "no" || !mode)
 			return 0
 	else
 		to_chat(user, "It's already been primed, throw it out an airlock!")

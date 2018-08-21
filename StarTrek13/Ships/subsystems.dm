@@ -59,8 +59,8 @@
 //Begin shipsystems!//
 
 /datum/shipsystem
-	var/integrity = 30000 //Will be a percentage, if this drops too low the shipsystem will fail, affecting the ship. EG sensors going down means goodbye sight for the pilot of the ship.
-	var/max_integrity = 30000 //maximum susbsytem health, so that I can do percentage calculations.
+	var/integrity = 20000 //Will be a percentage, if this drops too low the shipsystem will fail, affecting the ship. EG sensors going down means goodbye sight for the pilot of the ship.
+	var/max_integrity = 20000 //maximum susbsytem health, so that I can do percentage calculations.
 	var/power_draw = 0 //Not used yet
 	var/overclock = 0 //Overclock a shipsystem to get better performance, at a higher power draw. Numbers pending warp core and power code
 	var/efficiency = 40 //as a percent, we take our desired effect, such as weapons power, and divide it by this, so a 600 damage rated phaser would be 600*40%, so 40% of 600, in other words; 240 damage. You'll want to be overclocking tbh.
@@ -215,6 +215,11 @@
 		to_chat(controller.theship.pilot, "<span class='userdanger'>CRITICAL SYSTEM FAILURE: The [name] subsystem has failed.</span>")
 		return 0
 
+/datum/shipsystem/weapons/fail()
+	if(!failed)
+		if(controller.theship)
+			controller.theship.weapons.voiceline("phasers")
+	. = ..()
 
 /datum/shipsystem/sensors
 	power_draw = 0//just so it's not an empty type TBH.
@@ -228,6 +233,12 @@
 	var/charge = 0
 	var/max_charge = 7000 //This should NickVr proof warping rather nicely :)
 	var/chargeRate = 100 //Warp coils drain all the powernet power, this is to prevent infinite spams, and infinite cloaks.
+
+/datum/shipsystem/engines/fail()
+	if(!failed)
+		if(controller.theship)
+			controller.theship.weapons.voiceline("warpengines")
+	. = ..()
 
 
 /datum/shipsystem/engines/proc/try_warp() //You can't warp if your engines are down
@@ -296,14 +307,15 @@
 	var/toggled = FALSE //Shieldgencode, Ship.dm
 
 /datum/shipsystem/shields/fail() //Failed as in subsystem has failed, can no longer generate shields
-	..()
-	for(var/obj/machinery/space_battle/shield_generator/S in linked_generators)
-		for(var/obj/effect/adv_shield/S2 in S.shields)
-			S2.deactivate()
-			S2.active = FALSE
-//	controller.theship.shields_active = FALSE
+	if(!failed)
+		if(controller.theship)
+			controller.theship.weapons.voiceline("shields")
+		for(var/obj/machinery/space_battle/shield_generator/S in linked_generators)
+			for(var/obj/effect/adv_shield/S2 in S.shields)
+				S2.deactivate()
+				S2.active = FALSE
 	health = 0
-	failed = TRUE
+	. = ..()
 
 /datum/shipsystem/shields/process()
 	if(controller)
@@ -581,6 +593,7 @@
 	var/open = FALSE
 	var/obj/effect/panel_overlay/cover = new
 	var/powered = TRUE //Used for repairs, replace me with bitflags asap.
+	var/voiceline = "shields"
 
 /obj/structure/subsystem_panel/proc/check_ship()
 	var/area/a = get_area(src) //If you're making a new subsystem panel, copy this and change vvvvv
@@ -595,6 +608,7 @@
 	desc = "A breaker box housing an ODN relay which bridges the ship's power-grid to the weapons subsystem"
 	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
 	icon_state = "subsystem_panel"
+	voiceline = "phasers"
 
 /obj/structure/subsystem_panel/weapons/check_ship()
 	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
@@ -606,6 +620,7 @@
 	desc = "A breaker box housing an ODN relay which bridges the ship's power-grid to the engines subsystem"
 	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
 	icon_state = "subsystem_panel"
+	voiceline = "warpengines"
 
 /obj/structure/subsystem_panel/engines/check_ship()
 	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
@@ -670,6 +685,7 @@
 						chosen.heat = 0
 						START_PROCESSING(SSobj, chosen)
 						powered = TRUE
+						our_ship.weapons.voiceline(voiceline)
 					else
 						to_chat(user, "You accidentally slip with your [I] and rupture a plasma conduit! sending a huge arc of charged plasma into the air!")
 						var/turf/t = get_turf(src)
@@ -689,6 +705,7 @@
 						chosen.failed = FALSE
 						powered = TRUE
 						START_PROCESSING(SSobj, chosen)
+						our_ship.weapons.voiceline(voiceline)
 		if(!open)
 			to_chat(user, "Try opening [src]'s panel first")
 

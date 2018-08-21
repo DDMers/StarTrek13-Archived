@@ -88,6 +88,7 @@
 	var/cloaked = FALSE
 	var/stored_name //used in cloaking code to restore ship names
 	var/max_warp = 0 //Dictated by the warp core
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //no throwing acid on spaceships!
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -681,6 +682,7 @@
 			if(1)
 				fire_mode = 2
 				to_chat(pilot, "You'll now fire photons")
+				weapons.voiceline("photon")
 			if(2)
 				fire_mode = 1
 				to_chat(pilot, "You'll now fire phasers")

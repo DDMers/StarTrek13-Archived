@@ -46,14 +46,21 @@
 	name = "USS Thames"
 
 /obj/structure/overmap/ship/runabout/sov
-	name = "USS Thames"
+	name = "Shuttlecraft"
 	spawn_name = "runaboutsov"
+
+/obj/structure/overmap/ship/runabout/woolfe
+	name = "Shuttlecraft"
+	spawn_name = "runaboutwoolfe"
+
+/area/ship/scishuttle
+	name = "USS Science"
 
 /area/ship/ganges
 	name = "USS Ganges"
 
 /obj/structure/overmap/ship/runabout/station
-	name = "USS Ganges"
+	name = "Shuttlecraft"
 	spawn_name = "runaboutbarnard"
 
 /obj/structure/overmap/ship/runabout/attack_hand(mob/user)
