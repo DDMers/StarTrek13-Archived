@@ -17,7 +17,7 @@ var/global/list/global_ship_list = list()
 /area/overmap/s2
 	name = "Sector 417543 (Neutral zone)"
 
-/*
+/*E
 /area/overmap/Entered(A)
 	set waitfor = FALSE
 	if(!isliving(A))
