@@ -1,5 +1,5 @@
-GLOBAL_LIST_INIT(trek_music, world.file2list("config/trekmusic.txt"))
-GLOBAL_LIST_INIT(trek_battle_music, world.file2list("config/trekmusic_battle.txt"))
+GLOBAL_LIST_INIT(trek_music, world.file2list("strings/trekmusic.txt"))
+GLOBAL_LIST_INIT(trek_battle_music, world.file2list("strings/trekmusic_battle.txt"))
 
 /obj/effect/landmark/music_controller
 	name = "music controller"

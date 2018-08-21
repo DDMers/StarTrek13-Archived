@@ -17,7 +17,7 @@ var/global/list/global_ship_list = list()
 /area/overmap/s2
 	name = "Sector 417543 (Neutral zone)"
 
-/*
+/*E
 /area/overmap/Entered(A)
 	set waitfor = FALSE
 	if(!isliving(A))
@@ -50,7 +50,6 @@ var/global/list/global_ship_list = list()
 /area/overmap/system
 	name = "Sol (NT)"
 	jumpgate_position = 2
-	music = 'StarTrek13/sound/ambience/bsgtheme2.ogg'
 
 /area/overmap/system/z2
 	name = "Amann" //Test
@@ -72,7 +71,6 @@ var/global/list/global_ship_list = list()
 /area/overmap/system/z6
 	name = "Ursa major (FED)" //Test
 	jumpgate_position = 7
-	music = 'StarTrek13/sound/ambience/trektheme1.ogg'
 
 /obj/structure/space_object
 	icon = 'StarTrek13/icons/trek/space_objects.dmi'
