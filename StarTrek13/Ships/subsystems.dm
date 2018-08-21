@@ -76,6 +76,7 @@
 	var/icon_state
 	var/power_modifier = 1 //How much of the allocated power do we have?
 	var/heat_loss_bonus = 0
+	var/voiceline
 
 /datum/shipsystem/New()
 	. = ..()
@@ -109,6 +110,9 @@
 			failed = FALSE
 
 /datum/shipsystem/proc/fail()
+	if(!failed) //captain they've disabled our warp engines (x55)
+		if(voiceline)
+			controller.theship.weapons.voiceline(voiceline)
 	failed = TRUE
 	for(var/obj/structure/shipsystem_console/T in linked_objects)
 		T.fail()
@@ -141,6 +145,7 @@
 	var/fire_delay = 2 //2 seconds to fully recharge the  phasers, to prevent spam
 	var/times_fired = 0 //times fired without letting them fully charge
 	icon_state = "weapons"
+	voiceline = "phasers"
 
 
 //	theship.damage = 0	//R/HMMM
@@ -175,7 +180,6 @@
 	return damage
 
 /datum/shipsystem/weapons/process()
-	. = ..()
 	charge += chargeRate
 	if(charge < 0)
 		charge = 0
@@ -190,7 +194,7 @@
 		integrity -= heat
 	if(integrity <= 2000) //Subsystems will autofail when they're this fucked
 		fail()
-		//So stop processing
+	. = ..()
 
 /datum/shipsystem/weapons/proc/gimp_damage()
 	return (max_charge-charge)/5
@@ -213,12 +217,6 @@
 		to_chat(controller.theship.pilot, "<span class='userdanger'>CRITICAL SYSTEM FAILURE: The [name] subsystem has failed.</span>")
 		return 0
 
-/datum/shipsystem/weapons/fail()
-	if(!failed)
-		if(controller.theship)
-			controller.theship.weapons.voiceline("phasers")
-	. = ..()
-
 /datum/shipsystem/sensors
 	power_draw = 0//just so it's not an empty type TBH.
 	name = "sensors"
@@ -230,14 +228,8 @@
 	icon_state = "engines"
 	var/charge = 0
 	var/max_charge = 7000 //This should NickVr proof warping rather nicely :)
-	var/chargeRate = 100 //Warp coils drain all the powernet power, this is to prevent infinite spams, and infinite cloaks.
-
-/datum/shipsystem/engines/fail()
-	if(!failed)
-		if(controller.theship)
-			controller.theship.weapons.voiceline("warpengines")
-	. = ..()
-
+	var/chargeRate = 400 //Warp coils drain all the powernet power, this is to prevent infinite spams, and infinite cloaks.
+	voiceline = "warpengines"
 
 /datum/shipsystem/engines/proc/try_warp() //You can't warp if your engines are down
 	controller.theship.can_move = initial(controller.theship.can_move)
@@ -251,7 +243,6 @@
 			return 1
 
 /datum/shipsystem/engines/process()
-	. = ..()
 	if(charge < max_charge)
 		charge += chargeRate
 	if(integrity > max_integrity)
@@ -262,7 +253,6 @@
 		integrity -= heat
 	if(integrity <= 4000) //This equates to the engine being visibly shot off
 		controller.theship.max_speed = initial(controller.theship.max_speed)*0.4
-		return
 		if(integrity <= 0)
 			controller.theship.max_speed = 0
 			fail()
@@ -274,6 +264,7 @@
 		power_draw += overclock //again, need power stats to fiddle with.
 	if(controller.theship)
 		controller.theship.can_move = TRUE
+	. = ..()
 
 /datum/shipsystem/integrity
 	name = "hull plates"
@@ -302,17 +293,15 @@
 	max_integrity = 20000
 	var/max_integrity_bonus = 0 //From capboosters
 	var/toggled = FALSE //Shieldgencode, Ship.dm
+	voiceline = "shieldsinteg"
 
 /datum/shipsystem/shields/fail() //Failed as in subsystem has failed, can no longer generate shields
-	if(!failed)
-		if(controller.theship)
-			controller.theship.weapons.voiceline("shields")
-		for(var/obj/machinery/space_battle/shield_generator/S in linked_generators)
-			for(var/obj/effect/adv_shield/S2 in S.shields)
-				S2.deactivate()
-				S2.active = FALSE
-	health = 0
 	. = ..()
+	for(var/obj/machinery/space_battle/shield_generator/S in linked_generators)
+		for(var/obj/effect/adv_shield/S2 in S.shields)
+			S2.deactivate()
+			S2.active = FALSE
+	health = 0
 
 /datum/shipsystem/shields/process()
 	if(controller)

@@ -28,6 +28,12 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //it's very bad if this dies
 	var/list/zaps = list('StarTrek13/sound/trek/ship_effects/consolehit.ogg','StarTrek13/sound/trek/ship_effects/consolehit2.ogg','StarTrek13/sound/trek/ship_effects/consolehit3.ogg','StarTrek13/sound/trek/ship_effects/consolehit4.ogg')
 	var/datum/effect_system/spark_spread/spark_system
+	flags = HEAR
+
+/obj/structure/fluff/helm/desk/tactical/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+	if(theship && theship.pilot)
+		message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
+		to_chat(theship.pilot,message)
 
 /obj/structure/fluff/helm/desk/tactical/proc/explode_effect()
 	var/sound = pick(zaps)

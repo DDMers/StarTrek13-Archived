@@ -49,6 +49,7 @@
 			SEND_SOUND(L, thesound)
 		if(prob(30))
 			weapons.explode_effect()
+		if(prob(20))
 			weapons.voiceline("shieldshp")
 		if(!has_shields())
 			var/maths = 5

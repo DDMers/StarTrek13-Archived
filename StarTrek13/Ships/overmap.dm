@@ -521,7 +521,7 @@
 			SC.shields.health -= amount*heat_multi
 			if(source)
 				if(source.target_subsystem)
-					source.target_subsystem.integrity -= (amount)/5 //Shields absorbs most of the damage
+					source.target_subsystem.integrity -= (amount)/3 //Shields absorbs most of the damage
 				apply_damage(amount)
 				return//no shields are up! take the hit
 		else
@@ -546,7 +546,7 @@
 			s.start() //make a better overlay effect or something, this is for testing
 			if(source)
 				if(source.target_subsystem)
-					source.target_subsystem.integrity -= (amount)/5 //Shields absorbs most of the damage
+					source.target_subsystem.integrity -= (amount)/3 //Shields absorbs most of the damage
 				apply_damage(amount)
 				return//no shields are up! take the hit
 		if(SC.hull_integrity.failed)
@@ -558,7 +558,7 @@
 						source.target_subsystem = null
 						apply_damage(amount)
 						return
-					source.target_subsystem.integrity -= (amount)/1.5 //No shields, fry that system
+					source.target_subsystem.integrity -= (amount) //No shields, fry that system ~Kmc: I nerfed weapon damages, so this had to be buffed again
 					source.target_subsystem.heat += amount/10 //Heat for good measure :)
 					var/quickmaths = amount/2 //Halves the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
 					health -= quickmaths
@@ -842,7 +842,10 @@
 	if(agressor)
 		agressor.target_subsystem = null
 		agressor.target_ship = null
-		to_chat(agressor.pilot, "Target destroyed")
+		if(agressor.weapons)
+			agressor.weapons.voiceline("targetdead")
+		if(agressor.pilot)
+			to_chat(agressor.pilot, "Target destroyed")
 	var/thesound = pick(ship_damage_ambience) //blowing up noises
 	for(var/obj/structure/overmap/L in orange(30, src))
 		var/obj/structure/overmap/O = L
