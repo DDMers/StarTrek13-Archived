@@ -117,6 +117,7 @@
 		var/message = stripped_input(user,"Hailing channel open with [DMpartner].","Transmit message on narrow band frequency.")
 		if(!message)
 			DMpartner.comms.visible_message("Hailing frequencies closed with [theship]")
+			DMpartner.comms.DMpartner = null
 			DMpartner = null
 			return
 		DMpartner.comms.receive_hail(message, theship)

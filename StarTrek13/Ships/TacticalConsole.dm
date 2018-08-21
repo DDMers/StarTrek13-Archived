@@ -128,7 +128,7 @@
 	if(!user.skills.skillcheck(user, "piloting", 5))
 		return
 	playsound(src.loc, 'StarTrek13/sound/borg/machines/alertbuzz.ogg', 100,1)
-	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap")
+	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap", "announce")
 	starmapUI = "\
 	<!DOCTYPE html>\
 	<html>\
@@ -306,6 +306,28 @@
 			var/datum/asset/assets = get_asset_datum(/datum/asset/simple/starmap)
 			assets.send(user)
 			user << browse(starmapUI, "window=StarMap;size=660x420")
+		if("announce")
+			var/message = stripped_input(user,"Communications.","Send a shipwide announcement:")
+			if(!message)
+				return
+			var/announcement
+			var/sound = 'StarTrek13/sound/trek/ship_effects/bosun.ogg'
+			announcement += "<br><h2 class='alert'>Shipwide announcement:</h2>"
+			announcement += "<br><span class='alert'>[html_encode(message)]</span><br>"
+			announcement += "<br>"
+			var/list/list = list()
+			list += theship.pilot
+			for(var/mob/living/M in theship.linked_ship)
+				list += M
+			for(var/mob/O in GLOB.dead_mob_list)
+				list += O
+			var/s = sound(sound)
+			for(var/mob/M in list)
+				if(!isnewplayer(M) && M.can_hear())
+					to_chat(M, announcement)
+					if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
+						SEND_SOUND(M, s)
+
 
 /obj/structure/fluff/helm/desk/tactical/Topic(href, href_list)
 	..()
