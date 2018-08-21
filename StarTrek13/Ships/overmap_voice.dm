@@ -19,7 +19,7 @@
 			progress = CLAMP(progress, 0, goal)
 			var/num = round(((progress / goal) * 100), 5)
 			switch(num)
-				if(81 to 100)
+				if(90 to 100)
 					playsound(speaker.loc,'StarTrek13/sound/voice/Hull100.ogg',100,0)
 					speaker.say("Hull integrity at 100%")
 				if(75 to 80)

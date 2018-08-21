@@ -100,7 +100,6 @@
 		if(heat)
 			integrity -= heat
 		if(integrity <= 5000) //Subsystems will autofail when they're this fucked
-			failed = TRUE
 			fail()
 			//So stop processing
 		if(overclock > 0) //Drain power.
@@ -190,7 +189,6 @@
 	if(heat)
 		integrity -= heat
 	if(integrity <= 2000) //Subsystems will autofail when they're this fucked
-		failed = 1
 		fail()
 		//So stop processing
 
@@ -266,7 +264,6 @@
 		controller.theship.max_speed = initial(controller.theship.max_speed)*0.4
 		return
 		if(integrity <= 0)
-			failed = 1
 			controller.theship.max_speed = 0
 			fail()
 			controller.theship.can_move = FALSE
@@ -691,7 +688,7 @@
 						var/turf/t = get_turf(src)
 						t.atmos_spawn_air("plasma=30;TEMP=5000")
 						tesla_zap(src, 5, 30000) //That'll seriously fuck things up.
-						chosen.failed = TRUE
+						chosen.fail()
 						chosen.integrity -= 2000 //You seriously fucked up
 						powered = TRUE
 						START_PROCESSING(SSobj, chosen)
