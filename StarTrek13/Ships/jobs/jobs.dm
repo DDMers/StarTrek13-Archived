@@ -313,7 +313,7 @@ Shaft Miner
 		uniform = /obj/item/clothing/under/romulan
 	..()
 
-/datum/outfit/job/miner/pre_equip/post_equip(mob/living/carbon/human/H) //So they can fly to and from lavaland
+/datum/outfit/job/miner/post_equip(mob/living/carbon/human/H) //So they can fly to and from lavaland
 	if(H.skills)
 		H.skills.add_skill("piloting", 5)
 	else
