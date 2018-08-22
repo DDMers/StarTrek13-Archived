@@ -143,7 +143,6 @@
 		return
 	try_dock()
 
-
 /obj/structure/overmap/ship/runabout/AltClick(mob/user)
 	if(user != pilot)
 		return

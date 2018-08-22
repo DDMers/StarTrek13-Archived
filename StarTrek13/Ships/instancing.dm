@@ -168,5 +168,6 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 		offer_control(S) //now offer them to ghosts!
 		if(!S.mind || !S.client)
 			qdel(S) //No players want to fill this one up, kill them.
+		to_chat(S, "<span_class='warning'>All past lives are forgotten! You are a new character who has just been assigned to a new ship. You should act differently to any previous characters you've played this round.")
 		i ++
 	message_admins("Respawned a crew at [get_area(src)]")

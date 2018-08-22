@@ -17,8 +17,17 @@
 	var/obj/structure/overmap/ship
 	var/selected = 1
 
+/datum/action/innate/shieldtoggle
+	name = "Toggle Shields"
+	icon_icon = 'StarTrek13/icons/actions/overmap_ui.dmi'
+	button_icon_state = "shieldtoggle"
+	var/obj/structure/overmap/ship
+
+/datum/action/innate/shieldtoggle/Trigger()
+	ship.weapons.shieldgen.toggle(ship.pilot)
+
 /datum/action/innate/weaponswitch/Trigger()
-	ship.AltClick(ship.pilot)
+	ship.switch_mode(ship.pilot)
 	switch(ship.fire_mode)
 		if(1)
 			button_icon_state = "phaser"
@@ -100,6 +109,10 @@
 		warp_action.Grant(pilot)
 		warp_action.ship = src
 
+	if(shieldtoggle_action)
+		shieldtoggle_action.target = pilot
+		shieldtoggle_action.Grant(pilot)
+		shieldtoggle_action.ship = src
 
 	if(stopfiring_action)
 		stopfiring_action.target = pilot
@@ -130,6 +143,9 @@
 	if(stopfiring_action)
 		stopfiring_action.target = null
 		stopfiring_action.Remove(pilot)
+	if(shieldtoggle_action)
+		shieldtoggle_action.target = null
+		shieldtoggle_action.Remove(pilot)
 	if(redalert_action)
 		redalert_action.target = null
 		redalert_action.Remove(pilot)

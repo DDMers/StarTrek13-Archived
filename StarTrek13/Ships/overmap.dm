@@ -76,6 +76,7 @@
 	var/datum/action/innate/redalert/redalert_action = new
 	var/datum/action/innate/autopilot/autopilot_action = new
 	var/datum/action/innate/weaponswitch/weaponswitch = new
+	var/datum/action/innate/shieldtoggle/shieldtoggle_action = new
 	var/obj/structure/ship_component/components = list()
 	var/list/destinations = list()
 	var/obj/effect/landmark/warp_beacon/target_beacon
@@ -676,7 +677,7 @@
 		charge = max_charge
 //	parallax_update() //Need this to be on SUPERSPEED or it'll look awful
 
-/obj/structure/overmap/AltClick(mob/user)
+/obj/structure/overmap/proc/switch_mode(mob/user)
 	if(user == pilot)
 		switch(fire_mode)
 			if(1)

@@ -10,7 +10,7 @@ Assistant
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "all other crew members of higher rank."
+	supervisors = "the captain. As a crewman, you don't have a specific role, but you could become: A janitor | A communications officer | An away team member | A bridge crew member, speak to your supervisors and ask for an assignment."
 	selection_color = "#dddddd"
 	access = list()			//See /datum/job/trek/assistant/get_access()
 	minimal_access = list()	//See /datum/job/trek/assistant/get_access()

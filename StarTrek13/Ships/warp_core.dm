@@ -62,6 +62,7 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/power = 0
 	var/stored_cochranes = 0
 
+
 /obj/machinery/power/warpcore/massive
 	name = "high powered warp core"
 	desc = "This massive machine will propel your starship to unheard of speeds."
@@ -98,8 +99,10 @@ Antimatter tank, if this is ever fucked with it'll explode
 	get_warp_factor()
 	var/obj/structure/warp_storage/WS = locate(/obj/structure/warp_storage) in(get_area(src))
 	if(WS.matter)
-		WS.matter -= WS.flow_rate
-		matter += WS.flow_rate
+		var/math = WS.matter - WS.flow_rate
+		if(math) //Math sucks! xx---x-XD!
+			WS.matter -= WS.flow_rate
+			matter += WS.flow_rate
 	var/obj/structure/antimatter_storage/AS = locate(/obj/structure/antimatter_storage) in(get_area(src))
 	if(AS.antimatter)
 		AS.antimatter -= AS.flow_rate
@@ -185,6 +188,8 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/matter = 5000 //You'll need to refuel every now and then with highly toxic deuterium cells.
 	var/max_matter = 5000
 	var/flow_rate = 0 //Transfer it how fast?
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //STOP BREAKING MEEE
+	anchored = TRUE
 
 /obj/structure/warp_storage/examine(mob/user)
 	. = ..()
@@ -206,6 +211,8 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/antimatter = 5000 //You'll need to refuel every now and then with highly toxic deuterium cells.
 	var/max_antimatter = 5000
 	var/flow_rate = 0 //Transfer it how fast?
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //STOP BREAKING MEEE
+	anchored = TRUE
 
 /obj/structure/antimatter_storage/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/wrench))
