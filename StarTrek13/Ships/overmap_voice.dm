@@ -63,19 +63,19 @@
 			progress = CLAMP(progress, 0, goal)
 			var/num = round(((progress / goal) * 100), 10)
 			switch(num)
-				if(51 to 100)
+				if(90 to 100)
 					playsound(speaker.loc,'StarTrek13/sound/voice/shields100.ogg',100,0)
 					speaker.say("Shields are at 100%")
 					sound = 'StarTrek13/sound/voice/shields100.ogg'
-				if(30 to 50)
+				if(50 to 89)
 					playsound(speaker.loc,'StarTrek13/sound/voice/shields50.ogg',100,0)
 					speaker.say("Our shields are buckling sir")
 					sound = 'StarTrek13/sound/voice/shields50.ogg'
-				if(15 to 29)
+				if(5 to 49)
 					playsound(speaker.loc,'StarTrek13/sound/voice/MultipleShieldsOffline.ogg',100,0)
 					speaker.say("Multiple shields are offline!")
 					sound = 'StarTrek13/sound/voice/MultipleShieldsOffline.ogg'
-				if(0 to 14)
+				if(0 to 5)
 					playsound(speaker.loc,'StarTrek13/sound/voice/ShieldsFailed.ogg',100,0)
 					speaker.say("Our shields have failed!")
 					sound = 'StarTrek13/sound/voice/ShieldsFailed.ogg'

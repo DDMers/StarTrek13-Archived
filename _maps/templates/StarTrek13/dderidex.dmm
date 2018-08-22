@@ -259,6 +259,7 @@
 "eY" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
 "eZ" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
 "fa" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 10},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
+"fb" = (/obj/effect/landmark/crewspawnermachine/romulan,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -297,7 +298,7 @@ abaFcvbAcScVdkaHaFcBcBcBcBcBcBcBcBcBawawbqbubvbvbvbybvbvbvbvbZcBcBcBcBcBcBcBcBcB
 abaFdldmdndmdoaHaFaGaGaGaZaGaGaGaHaFaWaWegaWaWaUaWbgaWaUbjbkeMblbmaHaFaGaGaGaZaGaGaGaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFdpdqdrdqdsaHaFbncBcBcBcBcBboaHaFanbpeSananaUdtbgdtaUananeTananaHaFbrcBcBcBcBcBdhaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFdudvdwdxduaHaFdybsafbsafbsboaHaFdzbteUbtanaUcBbgcBaUdzbteVbtanaHaFdAafafafafafdBaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
-abaFbwaGdCaGbxaHaFcBafafafafafboaHaFanbteWbtanaUcBbgcBaUanbtbtbtanaHaFbrafafafafafdhaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abaFbwaGdCaGbxaHaFcBafaffbafafboaHaFanbteWbtanaUcBbgcBaUanbtbtbtanaHaFbrafafafafafdhaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFbzbAdDbAbBaHaFbCcBcBcBcBcBboaHaFananeXananaUcBbgcBaUanananananaHaFbrcBcBcBcBcBdhaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFbEbAdDbAbEaHbFbGbGbHbIbJbGbGbKbFbGbGeYbGbGaFaWbgaWaHbGbGbGbGbGbMbFbGbGbGbNbGbGbGbMacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
 abaFbOdEdFdGbSaHaJaJaJbTbUbVaJaJacacacbWeZbYacaFdtbgdtaHacacacacacacacacacbWcCbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa

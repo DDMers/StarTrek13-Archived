@@ -120,3 +120,53 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 		if(template.load(T, centered = FALSE))
 			loading = FALSE
 		return TRUE
+
+
+/obj/effect/landmark/crewspawnermachine //This ensures that when ships respawn, a new crew respawns with them! Mappers, ONLY place this on the TEMPLATE of your map in our templates folder, starfleet_ships.dmm etc don't need this, or they'll spawn infinity humans
+	name = "crew spawning point"
+	desc = "this is created alongside spawned in ships, it'll automagically spawn some humans, equip them, and offer them to ghosts!"
+	var/humanstomake = 8 //human machine gotta spit out humans
+	var/faction = "starfleet"
+	var/datum/faction/thefaction //What's the datum ref of the faction we're spawning these jokers into :b1:
+
+/obj/effect/landmark/crewspawnermachine/romulan
+	faction = "romulan empire"
+
+/obj/effect/landmark/crewspawnermachine/Initialize()
+	. = ..()
+	spawn_crew()
+
+/obj/effect/landmark/crewspawnermachine/proc/spawn_crew() //this is a machine that spawns crew, HOW DID I LEARN TO CODE THIS?!!! -Nickvr circa 2017
+	for(var/datum/faction/F in SSfaction.factions)
+		if(F.name == faction)
+			thefaction = F
+			break
+	for(var/i = 1 to humanstomake)
+		var/turf/t = get_turf(src)
+		var/mob/living/carbon/human/S = new(t)
+		if(thefaction)
+			thefaction.addMember(S) //This stops romulans getting the same rommie name they always use
+		switch(i) //We're prioritising the really critical jobs first
+			if(1) //we'll make a captain first shall we?
+				S.equipOutfit(/datum/outfit/job/captain)
+			if(2) //we need someone to set up the engines, posthaste!
+				S.equipOutfit(/datum/outfit/job/ce)
+			if(3)
+				S.equipOutfit(/datum/outfit/job/cmo)
+			if(4) //the rest are non essential
+				S.equipOutfit(/datum/outfit/job/hos)
+			if(5)
+				S.equipOutfit(/datum/outfit/job/security)
+			if(6)
+				S.equipOutfit(/datum/outfit/job/engineer)
+			if(7)
+				S.equipOutfit(/datum/outfit/job/pilot)
+			if(8)
+				S.equipOutfit(/datum/outfit/job/security)
+			if(9)
+				S.equipOutfit(/datum/outfit/job/engineer)
+		offer_control(S) //now offer them to ghosts!
+		if(!S.mind || !S.client)
+			qdel(S) //No players want to fill this one up, kill them.
+		i ++
+	message_admins("Respawned a crew at [get_area(src)]")

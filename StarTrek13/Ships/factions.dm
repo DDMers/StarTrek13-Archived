@@ -160,8 +160,9 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 
 /datum/faction/proc/addMember(mob/D)
 	members += D
-	if(D.client.prefs.player_faction)
-		D.client.prefs.player_faction = src
+	if(D.client)
+		if(D.client.prefs.player_faction)
+			D.client.prefs.player_faction = src
 	D.player_faction = src
 	to_chat(D, "<FONT color='blue'><B>You have been recruited into [name]!</B></font>")
 	to_chat(D, "<FONT color='[pref_colour]'><B>[flavourtext]</B></font>")

@@ -42,6 +42,9 @@
 
 /obj/structure/overmap/proc/apply_damage(var/amount)
 	if(amount >= 1000)
+		var/obj/effect/landmark/music_controller/M = locate(/obj/effect/landmark/music_controller) in (get_area(src))
+		if(M)
+			M.play(TRUE) //danger! begin battle music!
 		for(var/mob/L in linked_ship.contents)
 			shake_camera(L, 2, 10)
 			SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/shiphitbase.ogg')
@@ -49,7 +52,8 @@
 			SEND_SOUND(L, thesound)
 		if(prob(30))
 			weapons.explode_effect()
-		if(prob(20))
+			weapons.voiceline("hull")
+		if(prob(30)) //seperate gate to avoid hull and shields fighting over talk time
 			weapons.voiceline("shieldshp")
 		if(!has_shields())
 			var/maths = 5
@@ -61,8 +65,6 @@
 					SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
 			var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
 			var/turf/open/floor/theturf = get_turf(theturf1)
-			if(prob(30))
-				weapons.voiceline("hull")
 			if(prob(10+maths))
 				explosion(theturf,0,5,5) //Pretty bad hit right there
 			if(prob(70+maths))
@@ -76,9 +78,6 @@
 				if(!shields_active)
 					if(prob(15+maths))
 						explosion(theturf,2,4,0)
-				var/obj/effect/landmark/music_controller/M = locate(/obj/effect/landmark/music_controller) in (get_area(src))
-				if(M)
-					M.play(TRUE) //danger! begin battle music!
 				return
 			else//40% chance
 				var/new_type = pick(subtypesof(/obj/structure/debris))
