@@ -8,8 +8,8 @@
 "ah" = (/obj/machinery/light{dir = 1},/turf/open/floor/plating,/area/ship/nanotrasen/cruiser)
 "ai" = (/obj/effect/turf_decal/stripes/line{dir = 1},/turf/open/floor/plating,/area/ship/nanotrasen/cruiser)
 "aj" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/machinery/light{dir = 1},/turf/open/floor/plating,/area/ship/nanotrasen/cruiser)
-"ak" = (/obj/machinery/power/ship/phaser,/turf/open/floor/plating,/area/ship/nanotrasen/cruiser)
-"al" = (/obj/machinery/power/ship/phaser,/turf/closed/wall/ship/steel,/area/ship/nanotrasen/cruiser)
+"ak" = (/obj/machinery/ship/phaser,/turf/open/floor/plating,/area/ship/nanotrasen/cruiser)
+"al" = (/obj/machinery/ship/phaser,/turf/closed/wall/ship/steel,/area/ship/nanotrasen/cruiser)
 "am" = (/obj/structure/sign/warning/vacuum,/turf/closed/wall/ship/steel,/area/ship/nanotrasen/cruiser)
 "an" = (/obj/structure/shuttle/engine/huge{icon_state = "huge_engine"; dir = 8},/turf/open/space/basic,/area/ship/nanotrasen/cruiser)
 "ao" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/ship/nanotrasen/cruiser)
@@ -107,7 +107,7 @@
 "cc" = (/turf/open/floor/plating,/turf/closed/trekshield,/area/ship/nanotrasen/cruiser)
 "cd" = (/obj/structure/lattice/catwalk,/obj/structure/overmap/ship/cruiser/nanotrasen,/turf/open/floor/plating,/area/ship/nanotrasen/cruiser)
 "ce" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/effect/landmark/faction_spawn/nanotrasen,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen/cruiser)
-"cf" = (/obj/structure/fluff/warpcore,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen/cruiser)
+"cf" = (/obj/machinery/power/warpcore,/turf/open/floor/plasteel/dark,/area/ship/nanotrasen/cruiser)
 "cg" = (/obj/machinery/space_battle/shield_generator,/turf/closed/wall/ship/steel,/area/ship/nanotrasen/cruiser)
 "ch" = (/obj/structure/chair/office/dark{tag = "icon-officechair_dark (EAST)"; icon_state = "officechair_dark"; dir = 4},/obj/effect/landmark/faction_spawn/nanotrasen,/turf/open/floor/plasteel/darkblue/side{tag = "icon-darkblue (WEST)"; icon_state = "darkblue"; dir = 8},/area/ship/nanotrasen/cruiser)
 "ci" = (/obj/structure/fluff/helm/desk/tactical/nanotrasen{icon_state = "computer"; dir = 8},/turf/open/floor/plasteel/dark,/area/ship/nanotrasen/cruiser)
@@ -154,7 +154,7 @@
 "cX" = (/obj/machinery/light,/turf/open/floor/plating,/area/ship/nanotrasen/cruiser)
 "cY" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/light,/turf/open/floor/plating,/area/ship/nanotrasen/cruiser)
 "cZ" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/plating,/area/ship/nanotrasen/cruiser)
-"da" = (/obj/machinery/power/ship/phaser,/turf/open/space/basic,/area/ship/nanotrasen/cruiser)
+"da" = (/obj/machinery/ship/phaser,/turf/open/space/basic,/area/ship/nanotrasen/cruiser)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
