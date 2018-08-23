@@ -147,7 +147,7 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 		if(thefaction)
 			thefaction.addMember(S) //This stops romulans getting the same rommie name they always use
 		switch(i) //We're prioritising the really critical jobs first
-			if(1) //we'll make a captain first shall we?
+			if(0 to 1) //we'll make a captain first shall we?
 				S.equipOutfit(/datum/outfit/job/captain)
 			if(2) //we need someone to set up the engines, posthaste!
 				S.equipOutfit(/datum/outfit/job/ce)

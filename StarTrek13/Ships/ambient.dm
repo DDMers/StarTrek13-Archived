@@ -87,7 +87,7 @@ GLOBAL_LIST_INIT(trek_battle_music, world.file2list("strings/trekmusic_battle.tx
 						var/client/C = M.client
 						if((C.prefs.toggles & SOUND_MIDI) && C.chatOutput && !C.chatOutput.broken && C.chatOutput.loaded)
 							C.chatOutput.sendMusic(web_sound_url, pitch)
-		addtimer(CALLBACK(src, .proc/replay), 2000) //6 mins is the longest track length, this means it'll keep spamming songs every 6 minutes until someone gets into a fight and overrides it
+		addtimer(CALLBACK(src, .proc/replay), 3000) //6 mins is the longest track length, this means it'll keep spamming songs every 6 minutes until someone gets into a fight and overrides it
 
 /obj/effect/landmark/music_controller/proc/replay()
 	playing = FALSE

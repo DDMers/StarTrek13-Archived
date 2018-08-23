@@ -1,7 +1,7 @@
 /obj/item/clothing/under/borg
 	name = "grey flesh"
 	desc = "Grotesque grey flesh with veins visibly poking through."
-	item_state = null
+	item_state = "syndicate"
 	icon_state = "syndicate"
 	has_sensor = 0
 	resistance_flags = FIRE_PROOF

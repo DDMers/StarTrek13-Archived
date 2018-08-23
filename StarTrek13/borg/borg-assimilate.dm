@@ -3,9 +3,11 @@
 #define MODE_BUILD 3
 
 /mob/living/carbon/human/proc/make_borg()
-	var/obj/item/organ/borgNanites/biglongtube = new(src)
-	biglongtube.Insert(src)
-	biglongtube.forceMove(src)
+	var/obj/item/organ/borgNanites/F = locate(/obj/item/organ/borgNanites) in(internal_organs)
+	if(!F) //no doublenanites
+		var/obj/item/organ/borgNanites/biglongtube = new(src)
+		biglongtube.Insert(src)
+		biglongtube.forceMove(src)
 	skin_tone = "albino"
 	to_chat(src, "<span_class='warning'>We have been assimilated! We should find a conversion suite to augment ourselves. All other drones are to be obeyed, all past lives and memories are forgotten.</span>")
 	if(!(src in SSfaction.borg_hivemind.borgs))
@@ -144,8 +146,6 @@
 						to_chat(M, "<span class='warning'>[user] pierces you with two long probosces!</span>")
 						playsound(I.loc, 'sound/effects/megascream.ogg', 50, 1, -1)
 						if(do_after(user, 50, target = M)) //5 seconds
-							var/obj/item/organ/borgNanites/biglongtube = new(M)
-							biglongtube.Insert(M)
 							M.skin_tone = "albino"
 							M.update_body()
 							M.make_borg()
