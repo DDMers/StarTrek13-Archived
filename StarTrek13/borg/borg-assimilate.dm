@@ -63,6 +63,9 @@
 	var/resource_cost = 10
 	var/building = FALSE //We building summ't? if so stop trying to break things and spam it
 
+/obj/item/borg_tool/examine(mob/user)
+	. = ..()
+	to_chat(user, "it has [resource_amount] units of resources stored, with a construction cost of [resource_cost] units per structure built")
 
 /obj/item/borg_tool/attackby(obj/item/stack/I, mob/user)
 	if(istype(I, /obj/item/stack))

@@ -694,6 +694,9 @@
 	//	START_PROCESSING(SSfastprocess,src)
 	if(!initial(can_move))
 		return // :(
+	if(nav_target in orange(src, 2))
+		nav_target = null
+		navigating = FALSE
 	update_turrets()
 	if(world.time < next_vehicle_move)
 		return 0
