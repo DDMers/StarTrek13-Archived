@@ -64,7 +64,7 @@
 		linked_emitter.linked_hologram = H
 	if(linked_emitter in orange(linked_emitter.range, H))
 		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in (get_area(H))
-		if(src != W.theship.pilot)
+		if(H != W.theship.pilot)
 			linked_emitter.linked_hologram = null
 			linked_emitter = null
-	..()
+	.=..()
