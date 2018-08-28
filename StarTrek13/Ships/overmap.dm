@@ -48,7 +48,6 @@
 	var/marker = "cadaver"
 	var/atom/movable/nav_target = null
 	var/navigating = FALSE
-	var/faction = "federation" //So the ai ships don't shoot it.
 	var/charge = 4000 //Phaser chareg													////TESTING REMOVE ME AND PUT BME BACK TO 0 OR THIS WILL KILL ALL BALANCE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	var/phaser_charge_total = 0 //How much power all the ship phasers draw together
 	var/phaser_charge_rate = 0
@@ -68,7 +67,6 @@
 	var/turret_firing_cost = 100 //How much does it cost to fire your turrets?
 	var/obj/structure/overmap/ship/fighter/fighters = list()
 	var/take_damage_traditionally = TRUE //Are we a real ship? that will have a shield generator and such? exceptions include fighters.
-	var/datum/looping_sound/trek/engine_hum/soundloop
 	var/obj/structure/overmap/agressor = null //Who is attacking us? this is done to reset their targeting systems when they destroy us!
 	var/warp_capable = FALSE //Does this ship have a warp drive?
 	////IMPORTANT VAR!!!////
@@ -84,6 +82,12 @@
 	var/pilot_skill_req = 5
 	var/wrecked = FALSE
 	var/obj/effect/landmark/runaboutdock/docks = list()
+	var/true_name = null //For respawning
+	var/faction = null //Are we a faction's ship? if so, when we blow up, DEDUCT EXPENSES
+	var/cost = 8000 //How much does this ship cost to replace?
+	var/cloaked = FALSE
+	var/stored_name //used in cloaking code to restore ship names
+	var/max_warp = 0 //Dictated by the warp core
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -109,6 +113,12 @@
 	name = "photon torpedo"
 	icon_state = "photon"
 	damage = 3500//Ouch!.
+
+/obj/item/projectile/beam/laser/disruptor
+	hitscan = FALSE
+	name = "photon torpedo"
+	icon_state = "photon"
+	damage = 1000//Ouch!.
 
 /obj/item/projectile/beam/laser/ship_turret_laser
 	name = "turbolaser"
@@ -189,8 +199,6 @@
 	icon_state = "generic"
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	spawn_name = "ship_spawn"
-	pixel_x = 0
-	pixel_y = -32
 	damage = 800
 
 /obj/structure/overmap/ship/borg_cube // we are the borg
@@ -199,8 +207,6 @@
 	icon = 'StarTrek13/icons/trek/large_ships/borg_cube.dmi'
 	spawn_name = "borg_spawn"
 	damage = 800
-	pixel_x = -100
-	pixel_y = -110
 	max_health = 50000
 	turnspeed = 0.3
 	pixel_z = -128
@@ -217,16 +223,16 @@
 	name = "USS Cadaver"
 	icon = 'StarTrek13/icons/trek/large_ships/cadaver.dmi'
 	icon_state = "cadaver"
-	pixel_x = -100
-	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 	max_health = 30000
 	pixel_z = -128
 	pixel_w = -120
+	faction = "starfleet"
+	cost = 20000
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
-	name = "USS Sovreign"
+	name = "sovereign"
 	icon = 'StarTrek13/icons/trek/large_ships/sovreign.dmi'
 	icon_state = "sovreign"
 //	pixel_x = -100
@@ -236,31 +242,20 @@
 	max_health = 40000
 	pixel_z = -128
 	pixel_w = -120
-
-/obj/structure/overmap/ship/romulan
-	name = "Decius"
-	icon = 'StarTrek13/icons/trek/large_ships/dderidex.dmi'
-	icon_state = "dderidex"
-	spawn_name = "romulan_spawn"
-//	pixel_x = -100
-//	pixel_y = -100
-//	var/datum/shipsystem_controller/SC
-	warp_capable = TRUE
-	max_health = 35000
-	pixel_z = -128
-	pixel_w = -120
+	turnspeed = 0.7 //It's still quite small for its class
+	cost = 20000
 
 /obj/structure/overmap/ship/cruiser
 	name = "USS Excelsior"
 	icon = 'StarTrek13/icons/trek/large_ships/excelsior.dmi'
 	icon_state = "excelsior"
-	pixel_x = -100
-	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
 	max_health = 30000
 	pixel_z = -128
 	pixel_w = -120
+	faction = "starfleet"
+	cost = 20000
 
 /obj/structure/overmap/ship/fighter_medium
 	name = "USS Hagan"
@@ -287,7 +282,9 @@
 
 
 /obj/structure/overmap/Initialize(timeofday)
+	true_name = name //We want true name to always be the same, so we can respawn things correctly
 	var/area/A = get_area(src)
+	name = A.name
 	linked_ship = A
 	health = max_health
 	SC = new(src)
@@ -297,9 +294,15 @@
 	START_PROCESSING(SSobj,src)
 	linkto()
 	update_weapons()
+	addtimer(CALLBACK(src, .proc/update_stats), 500)
 	for(var/obj/effect/landmark/warp_beacon/W in warp_beacons)
 		destinations += W
 	..()
+
+/obj/structure/overmap/ship/Initialize(timeofday)
+	. = ..()
+	if(!istype(src,/obj/structure/overmap/ship/fighter))
+		SetName()
 
 /obj/structure/overmap/ship/nanotrasen_capitalclass
 	name = "NSV annulment"
@@ -324,7 +327,7 @@
 	spawn_name = "research_spawn"
 
 /obj/structure/overmap/ship/target //dummy for testing woo
-	name = "USS Entax"
+	name = "miranda"
 	icon_state = "destroyer"
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	spawn_name = "ship_spawn"
@@ -338,6 +341,23 @@
 	pixel_collision_size_x = 48
 	pixel_collision_size_y = 48
 	max_speed = 3
+	faction = "starfleet"
+	cost = 7000
+
+/obj/structure/overmap/ship/defiant
+	name = "defiant"
+	icon_state = "defiant"
+	icon = 'StarTrek13/icons/trek/large_ships/defiant.dmi'
+	spawn_name = "ship_spawn"
+	health = 15000
+	max_health = 15000
+	warp_capable = TRUE
+	turnspeed = 2.7
+	pixel_collision_size_x = 48
+	pixel_collision_size_y = 48
+	max_speed = 3
+	faction = "starfleet"
+	cost = 7000
 
 /obj/structure/overmap/ship/nanotrasen
 	name = "NSV Muffin"
@@ -401,9 +421,11 @@
 //	var/datum/action/innate/mecha/strafe/strafing_action = new
 
 /obj/structure/overmap/proc/linkto()	//weapons etc. don't link!
-	for(var/obj/structure/fluff/helm/desk/tactical/T in linked_ship)
-		weapons = T
-		T.theship = src
+	for(var/TT in linked_ship)
+		if(istype(TT, /obj/structure/fluff/helm/desk/tactical))
+			var/obj/structure/fluff/helm/desk/tactical/T = TT
+			weapons = T
+			T.theship = src
 	for(var/obj/machinery/space_battle/shield_generator/G in linked_ship)
 		generator = G
 		G.ship = src
@@ -424,13 +446,23 @@
 		M.get_ship()
 	for(var/obj/structure/viewscreen/V in linked_ship)
 		V.our_ship = src
-	get_damageable_components()
 	for(var/obj/structure/weapons_console/WC in linked_ship)
 		WC.our_ship = src
 	for(var/obj/structure/overmap/ship/runabout/R in linked_ship)
 		R.carrier = src
 	for(var/obj/effect/landmark/runaboutdock/SS in linked_ship)
 		docks += SS
+	for(var/obj/structure/subsystem_panel/PP in linked_ship)
+		PP.check_ship()
+		PP.check_overlays()
+	for(var/CD in linked_ship)
+		if(istype(CD, /obj/structure/cloaking_device))
+			var/obj/structure/cloaking_device/CC = CD
+			CC.theship = src
+	for(var/WP in linked_ship)
+		if(istype(WP, /obj/machinery/power/warpcore))
+			var/obj/machinery/power/warpcore/WW = WP
+			WW.ship = src
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	SC.weapons.update_weapons()
@@ -439,26 +471,58 @@
 		if(!F in fighters)
 			fighters += F
 
+/obj/effect/temp_visual/trek
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "shipexplode"
+	duration = 30
+
+/obj/effect/temp_visual/trek/Initialize()
+	. = ..()
+	pixel_x = rand(3,15)
+	pixel_y = rand(3,15)
+
+/obj/effect/temp_visual/trek/shieldhit
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "shieldhit"
+	duration = 10
+
 /obj/structure/overmap/take_damage(amount, var/override)
+	playsound(src,'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg',100,1)
+	if(wrecked)
+		return 0
 	var/obj/structure/overmap/source = agressor
+	if(prob(40))
+		var/meme = rand(1,6)
+		switch(meme)
+			if(1)
+				visible_message("<span class='warning'>Bits of [name] fly off into space!</span>")
+			if(2)
+				visible_message("<span class='warning'>[name]'s hull ruptures!</span>")
+			if(3)
+				visible_message("<span class='warning'>[name]'s hull buckles!</span>")
+			if(4)
+				visible_message("<span class='warning'>Warp plasma vents from [name]'s engines!</span>")
+			if(5)
+				visible_message("<span class='warning'>A beam tears across [name]'s hull!</span>")
+			if(6)
+				visible_message("<span class='warning'>[name]'s hull is scorched!</span>")
 	if(override)
 		if(has_shields())
+			new /obj/effect/temp_visual/trek/shieldhit(loc)
 			var/heat_multi = 1
 			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 			var/obj/structure/overmap/ship/S = src
-			heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
+			heat_multi = S.SC.shields.heat >= 500 ? 2 : 1 // double damage if heat is over 500.
 			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
 			//	generator.take_damage(amount*heat_multi)
 			SC.shields.health -= amount*heat_multi
-			var/datum/effect_system/spark_spread/s = new
-			s.set_up(2, 1, src)
-			s.start() //make a better overlay effect or something, this is for testing
 			if(source)
 				if(source.target_subsystem)
 					source.target_subsystem.integrity -= (amount)/5 //Shields absorbs most of the damage
 				apply_damage(amount)
 				return//no shields are up! take the hit
 		else
+			new /obj/effect/temp_visual/trek(loc)
 			health -= amount
 			SC.hull_integrity.integrity -= amount
 			if(take_damage_traditionally)
@@ -466,6 +530,7 @@
 			return
 	if(take_damage_traditionally) //Set this var to 0 to do your own weird shitcode
 		if(has_shields())
+			new /obj/effect/temp_visual/trek/shieldhit(loc)
 			var/heat_multi = 1
 			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 			var/obj/structure/overmap/ship/S = src
@@ -497,6 +562,7 @@
 					apply_damage(amount)
 					return
 			else
+				new /obj/effect/temp_visual/trek(loc)
 				health -= amount
 				apply_damage(amount)
 				return
@@ -511,6 +577,7 @@
 			apply_damage(amount)
 			return
 	else
+		new /obj/effect/temp_visual/trek(loc)
 		shake_camera(pilot, 1, 10)
 		var/sound/thesound = pick(ship_damage_sounds)
 		SEND_SOUND(pilot, thesound)
@@ -563,7 +630,14 @@
 		max_shield_health = theshield.maxhealth
 */
 
+/obj/structure/overmap/proc/update_stats()
+	SC.weapons.update_weapons()
+	linkto()
+	addtimer(CALLBACK(src, .proc/update_stats), 500)
+
 /obj/structure/overmap/process()
+	if(pilot)
+		update_observers()
 	if(wrecked)
 		if(prob(5)) //This damn wreck is falling apart
 			take_damage(1001)
@@ -579,43 +653,34 @@
 		destroy(1)
 	if(!health)
 		destroy(1)
-//	ProcessMove()
 	if(turret_recharge >0)
 		turret_recharge --
-	if(prob(10))
-		linkto()
-	//	update_weapons()
 	location()
 	if(agressor)
 		if(agressor.target_ship != src)
 			agressor = null
 	check_overlays()
 	counter ++
-	update_observers()
-	SC.weapons.update_weapons()
 	damage = SC.weapons.damage
+	if(nav_target)
+		navigate()
 	if(can_move)
-		if(!can_move)
-			return
 		if(SC.engines.failed) //i hate you nichlas
 			return
-		if(navigating)
-			navigate()
 	get_interactibles()
 	//transporter.destinations = list() //so when we leave the area, it stops being transportable.
 	if(pilot)
 		if(pilot.loc != src)
-			pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
-			pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
 			for(var/obj/screen/alert/charge/C in pilot.alerts)
 				C.theship = src
+			pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
+			pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
 			exit() //pilot has been tele'd out, remove them!
 	if(charge > max_charge)
 		charge = max_charge
 	else
 		charge = max_charge
-
-
+//	parallax_update() //Need this to be on SUPERSPEED or it'll look awful
 
 /obj/structure/overmap/AltClick(mob/user)
 	if(user == pilot)
@@ -677,10 +742,10 @@
 			angle = 180
 			EditAngle()
 		//	setDir(4)
-			for(var/mob/L in linked_ship.contents)
+			for(var/mob/L in linked_ship)
 				shake_camera(L, 1, 10)
 				SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
-				to_chat(pilot, "The deck plates shudder as the ship builds up immense speed.")
+				to_chat(L, "The deck plates shudder as the ship builds up immense speed.")
 				linked_ship.parallax_movedir = NORTH
 			addtimer(CALLBACK(src, .proc/finish_warp, destination),jump_time)
 			for(var/obj/structure/overmap/ship/AI/A in world)
@@ -764,7 +829,14 @@
 	else//nope
 		return 0
 
-/obj/structure/overmap/proc/destroy(severity)
+/obj/structure/overmap/proc/destroy(var/severity = 1)
+	STOP_PROCESSING(SSobj,src)
+	if(wrecked)
+		for(var/datum/F in SC.systems)
+			qdel(F)
+		qdel(SC)
+		return ..()
+	. = ..()
 	for(var/obj/structure/overmap/ship/AI/A in world)
 		if(A.stored_target == src)
 			A.stored_target = null
@@ -772,8 +844,6 @@
 		if(F.current_objective)
 			var/datum/factionobjective/destroy1/O = F.current_objective
 			O.check_completion(src)
-	for(var/obj/effect/landmark/M in linked_ship) //stop people spawning on a dead ship :(
-		qdel(M)
 	if(agressor)
 		agressor.target_subsystem = null
 		agressor.target_ship = null
@@ -782,48 +852,23 @@
 	for(var/obj/structure/overmap/L in orange(30, src))
 		var/obj/structure/overmap/O = L
 		SEND_SOUND(O.pilot, thesound)
-	STOP_PROCESSING(SSobj,src)
-	exit()
+	if(pilot)
+		exit()
 	if(agressor)
 		agressor.stop_firing()
 		agressor.target_subsystem = null
-	SpinAnimation(1000, 1)
-	var/image/explosion = image('StarTrek13/icons/trek/overmap_effects.dmi')
-	explosion.icon_state = "shipexplode"
-	explosion.layer = 4.5
-	overlays += explosion
-	sleep(10)
-	overlays -= explosion
-	qdel(explosion)
-	sleep(40)
-	var/image/explosion1 = image('StarTrek13/icons/trek/overmap_effects.dmi')
-	explosion1.icon_state = "shipexplode2"
-	explosion1.layer = 4.5
-	overlays += explosion1
-	sleep(10)
-	overlays -= explosion1
-	qdel(explosion1)
-	sleep(30)
+	SpinAnimation(2000, 1)
+	new /obj/effect/temp_visual/trek(loc)
 	for(var/datum/shipsystem/S in SC.systems)
+		new /obj/effect/temp_visual/trek(loc)
 		qdel(S)
 	qdel(SC)
+	for(var/obj/machinery/power/warpcore/W in linked_ship)
+		if(!W.breaching)
+			W.breach()
 	if(!istype(src, /obj/structure/overmap/ship/fighter))
 		switch(severity)
 			if(1)
-				//Here we will blow up the ship map as well, 0 is if you dont want to lag the server.
-				for(var/i = 1 to 6) //Whoah mamma
-					if(linked_ship)
-						var/turf/T = pick(get_area_turfs(linked_ship))
-						explosion(get_turf(T), 20, 10, 10, flame_range = 30)
-						var/area/A = linked_ship
-						A.invisibility = 0
-					//	A.set_opacity(TRUE)
-						A.alpha = 180
-						A.layer = ABOVE_OPEN_TURF_LAYER
-						A.icon = 'icons/effects/weather_effects.dmi'
-						A.icon_state = "darkness"
-						A.has_gravity = 0
-						//now make a shipwreck
 				var/obj/structure/overmap/shipwreck/wreck = new(src.loc)
 				wreck.name = "Shipwreck ([name])"
 				if(linked_ship)
@@ -833,11 +878,10 @@
 				wreck.max_health = 10000000
 				for(var/datum/shipsystem/F in SC.systems)
 					qdel(F)
+				wreck.true_name = true_name
 				qdel(SC)
 				qdel(src)
-				//make explosion in ship
-			if(0)
-				qdel(src)
+
 
 
 /obj/structure/overmap/proc/has_shields()

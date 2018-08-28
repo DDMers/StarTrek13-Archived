@@ -1,5 +1,11 @@
 <!-- Most valid html will work in here, excluding images. -->
 
-<h1>Welcome to Space Station 13!</h1>
+<h1>Welcome to Star Trek 13!</h1>
+<br>
+
+<b> Roleplay rules are in full effect, please follow them (press the rules button up top) </b>
+<br>
+<i> This is an unofficial open source mod of the game "Space Station 13", all Star Trek logos, copyrights, trademarks and intellctual property are owned by their respective groups</i>
+<br>
 
 <i>This server is running a /tg/station 13 Git build.</i>

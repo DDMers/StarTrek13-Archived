@@ -53,6 +53,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	//character preferences
 	var/real_name						//our character's name
+	var/romulan_name					//Special romulan name (for romulan mains)
 	var/be_random_name = 0				//whether we'll have a random name every round
 	var/be_random_body = 0				//whether we'll have a random body every round
 	var/gender = MALE					//gender of character (well duh)
@@ -129,6 +130,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/faction = 1
 	var/datum/faction/player_faction
 	var/num_factions = 0 //how many factions are there to be chosen from
+	var/list/crews = list()
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -221,6 +223,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<b>Special Names:</b><BR>"
 			dat += "<a href ='?_src_=prefs;preference=human_name;task=input'><b>Backup Human Name:</b> [custom_names["human"]]</a> "
 			dat += "<br>"
+			dat += "<b>Romulan Name:</b>"
+			dat += "<a href='?_src_=prefs;preference=romulan_name;task=input'>[romulan_name]</a><BR>"
+			dat += "<br>"
 			dat += "<a href ='?_src_=prefs;preference=clown_name;task=input'><b>Clown:</b> [custom_names["clown"]]</a> "
 			dat += "<a href ='?_src_=prefs;preference=mime_name;task=input'><b>Mime:</b> [custom_names["mime"]]</a>"
 			dat += "<br>"
@@ -232,6 +237,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<b>Custom job preferences:</b><BR>"
 			dat += "<a href='?_src_=prefs;preference=sec_dept;task=input'><b>Prefered security department:</b> [prefered_security_department]</a><BR></td>"
+			dat += "Preferred Crews: <a href='?_src_=prefs;crewchange=true'>"
 
 			dat += "<td valign='center'>"
 
@@ -625,7 +631,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	factions = SSfaction.factions
 
 /datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
-//	ResetJobs() //stop spawning with the wrong gear please. Thank you gamers
 	getFactions()
 	if(!SSjob)
 		return
@@ -980,6 +985,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		SetChoices(user)
 
 		return
+	if(href_list["crewchange"] == "true")
+		if(istype(user, /mob/dead/new_player))
+			var/mob/dead/new_player/fucc = user
+			var/datum/crew/A
+			A = input("Please sign up for any crews you'd be interested in (you can choose multiple), otherwise you may be autobalanced.", "Preferences", A) as null|anything in SSfaction.crews
+			if(!A)
+				return 0
+			to_chat(user, "You've signed up to crew a [A]")
+			fucc.crews += A
+			crews += A
+
+		else
+			to_chat(user, "You can only do this in the lobby")
 
 	if(href_list["jobbancheck"])
 		var/job = sanitizeSQL(href_list["jobbancheck"])
@@ -1362,6 +1380,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/new_clown_name = reject_bad_name( input(user, "Choose your character's clown name:", "Character Preference")  as text|null )
 					if(new_clown_name)
 						custom_names["clown"] = new_clown_name
+					else
+						to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
+
+				if("romulan_name")
+					var/new_rom_name = reject_bad_name( input(user, "Choose a name to use when you spawn as a romulan:", "Character Preference")  as text|null )
+					if(new_rom_name)
+						romulan_name = new_rom_name
 					else
 						to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
 

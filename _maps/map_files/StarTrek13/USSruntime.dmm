@@ -1,0 +1,62 @@
+"a" = (/turf/closed/wall/mineral/bronze,/area/ship/test)
+"b" = (/turf/open/floor/plating,/area/ship/test)
+"c" = (/turf/open/floor/bronze,/area/ship/test)
+"d" = (/turf/open/floor/plating,/turf/closed/trekshield{icon_state = "shield"; dir = 6},/area/ship/test)
+"e" = (/turf/open/floor/plating,/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/test)
+"f" = (/turf/open/floor/plating,/turf/closed/trekshield{icon_state = "shield"; dir = 10},/area/ship/test)
+"g" = (/turf/open/floor/plating,/turf/closed/trekshield,/area/ship/test)
+"h" = (/obj/machinery/power/warp_coil,/obj/structure/cable/white{icon_state = "0-4"},/turf/open/floor/plating,/area/ship/test)
+"i" = (/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/plating,/area/ship/test)
+"j" = (/turf/open/floor/plating,/turf/closed/trekshield{icon_state = "shield"; dir = 5},/area/ship/test)
+"k" = (/obj/structure/overmap/ship/federation_capitalclass,/turf/open/floor/plating,/area/ship/test)
+"l" = (/turf/open/floor/plating,/turf/closed/trekshield{icon_state = "shield"; dir = 9},/area/ship/test)
+"m" = (/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/test)
+"n" = (/obj/machinery/atmospherics/components/binary/pump/on{icon_state = "pump_on_map"; dir = 1},/turf/open/floor/plating,/area/ship/test)
+"o" = (/obj/item/dilithium_crystal/crystal,/turf/open/floor/plating,/area/ship/test)
+"p" = (/obj/machinery/power/warpcore,/obj/machinery/atmospherics/pipe/simple/general/visible,/obj/structure/cable/white{icon_state = "0-2"},/obj/machinery/light{dir = 1},/turf/open/floor/plating,/area/ship/test)
+"q" = (/turf/open/floor/plating,/obj/machinery/atmospherics/pipe/simple/general/visible,/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/test)
+"r" = (/obj/machinery/atmospherics/components/unary/tank/toxins,/turf/open/floor/plating,/area/ship/test)
+"s" = (/obj/structure/fluff/helm/desk/tactical{tag = "icon-desk (NORTH)"; icon_state = "desk"; dir = 1},/turf/open/floor/plating,/area/ship/test)
+"t" = (/obj/machinery/space_battle/shield_generator,/turf/open/floor/plating,/area/ship/test)
+"u" = (/obj/machinery/power/apc,/turf/closed/wall/mineral/bronze,/area/ship/test)
+"v" = (/obj/machinery/power/ship/phaser,/turf/open/floor/plating,/area/ship/test)
+"w" = (/obj/machinery/light{dir = 1},/turf/open/floor/plating,/area/ship/test)
+"x" = (/obj/machinery/light{dir = 8},/turf/open/floor/plating,/area/ship/test)
+"y" = (/obj/machinery/atmospherics/pipe/simple/general/visible{icon_state = "intact"; dir = 5},/turf/open/floor/plating,/area/ship/test)
+"z" = (/obj/machinery/light{dir = 4},/turf/open/floor/plating,/area/ship/test)
+"A" = (/obj/machinery/light,/turf/open/floor/plating,/area/ship/test)
+"B" = (/obj/machinery/atmospherics/pipe/simple/general/visible{icon_state = "intact"; dir = 9},/turf/open/floor/plating,/area/ship/test)
+"C" = (/obj/machinery/power/apc,/obj/structure/cable/white{icon_state = "0-2"},/turf/open/floor/plating,/area/ship/test)
+"D" = (/obj/machinery/atmospherics/pipe/simple/general/visible,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/test)
+"E" = (/obj/item/card/emag,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/test)
+"F" = (/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/plating,/area/ship/test)
+"G" = (/obj/machinery/atmospherics/pipe/simple/general/visible,/obj/structure/cable/white{icon_state = "1-8"},/turf/open/floor/plating,/area/ship/test)
+"H" = (/obj/machinery/power/warp_coil,/obj/machinery/atmospherics/components/unary/outlet_injector,/obj/structure/cable/white{icon_state = "0-4"},/turf/open/floor/plating,/area/ship/test)
+"I" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/test)
+"J" = (/obj/machinery/atmospherics/pipe/simple/general/visible,/obj/machinery/meter,/turf/open/floor/plating,/area/ship/test)
+"K" = (/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/test)
+"L" = (/obj/machinery/atmospherics/pipe/simple/general/visible,/obj/structure/cable/white{icon_state = "1-2"},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/plating,/area/ship/test)
+"M" = (/obj/structure/cable/white{icon_state = "1-8"},/turf/open/floor/plating,/area/ship/test)
+
+(1,1,1) = {"
+aaaaaaauaaaaaaaaaaaa
+abbwbbbbbbbbbbbbwbba
+abcbbbbbbtbbbbcbbbba
+abcbbbbbbbbbbbcbbbba
+abcbbbbdeeefbbcbbcba
+abcbbbbgbhigbbcbbcba
+abcbbbbgbhmgbbcbbcba
+abcbbbbgbHmgbbcbbcba
+axbbbbkjeqIlbbbbbbza
+abbbbbbbbJKbbbbbbbba
+abbbbbbbbnKbbbbbbvba
+axbbbbbbopKbbbbbbvba
+abbbbbbbCDKsbbbbbvza
+abcbbcbbELMbbbcbbbba
+abcbbcbbFGrbbbcbbbba
+abcbbcbbbyBbbbcbbbba
+abcbbcbbbrbbbbcbccca
+abcbbcbbbbbbbbcbbbba
+abbAbbbbbbbbbbbAbbba
+aaaaaaaaaaaaaaaaaaaa
+"}

@@ -383,47 +383,6 @@ SUBSYSTEM_DEF(job)
 	else
 		H = M
 	var/datum/job/job = GetJob(rank)
-	M.player_faction = M.client.prefs.player_faction
-	if(job.starting_faction == M.client.prefs.player_faction)
-		H.job = rank					//For us, latejoins are a last resort, as they could end up in the middle of the wrong faction base.
-	var/obj/effect/landmark/faction_spawn/S = null
-	if(!M.client.prefs.player_faction)
-		for(var/datum/faction/F in SSfaction.factions)
-			if(F.name == job.starting_faction)
-				if(M.client)
-					M.client.prefs.player_faction = F//pick(SSfaction.factions) //the runtimes boy oh!
-	var/datum/faction/thefaction = M.client.prefs.player_faction
-	S = pick(thefaction.spawns)
-	if(joined_late)
-		SendToAtom(H, S, buckle = FALSE)
-		thefaction.onspawn(H)
-	else
-		SendToAtom(H, S, buckle = FALSE)
-		thefaction.onspawn(H)
-
-//	if(!S)
-	//	log_world("Couldn't find a round start spawn point for [rank]")
-	//	SendToLateJoin(H)
-	/*
-//	if(!joined_late)//If we joined at roundstart we should be positioned at our workstation
-		for(var/obj/effect/landmark/start/sloc in GLOB.start_landmarks_list)
-			if(sloc.name != rank)
-				S = sloc //so we can revert to spawning them on top of eachother if something goes wrong
-				continue
-			if(locate(/mob/living) in sloc.loc)
-				continue
-			S = sloc
-			sloc.used = TRUE
-			break
-		if(length(GLOB.jobspawn_overrides[rank]))
-			S = pick(GLOB.jobspawn_overrides[rank])
-		if(S)
-			SendToAtom(H, S, buckle = FALSE)
-		if(!S) //if there isn't a spawnpoint send them to latejoin, if there's no latejoin go yell at your mapper
-			log_world("Couldn't find a round start spawn point for [rank]")
-			SendToLateJoin(H)
-		*/
-
 
 	if(H.mind)
 		H.mind.assigned_role = rank
@@ -449,7 +408,19 @@ SUBSYSTEM_DEF(job)
 
 	if(job && H)
 		job.after_spawn(H, M)
+
+	H.player_faction = M.client.prefs.player_faction
+	var/obj/effect/landmark/faction_spawn/S
+	var/datum/faction/thefaction = M.client.prefs.player_faction
+	S = pick(thefaction.spawns)
+	SendToAtom(H, S, buckle = FALSE)
+	thefaction.onspawn(H)
 	SSfaction.addToFaction(M)
+	if(N.crews)
+		H.crew = pick(N.crews)
+		H.crew.Add(H)
+	else
+		H.addme()
 	return H
 
 

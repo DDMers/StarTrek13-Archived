@@ -61,3 +61,10 @@
 	around it myself. Why would a shuttle full of evacuees all snap and beat each other \
 	to death the moment they reached safety?<br>\
 	- D. Cereza"
+
+/obj/item/paper/fluff/awaymissions/centcom/romulan_memo
+	name = "Romulan Command Notice"
+	info = "<b>Medium Priority Notice <br> From:</b> ROMULAN CENTRAL COMMAND <br> Br> \
+	Greetings, crew. You may have noticed that there is a specific room within your ship, that is empty. \
+	To cut straight to the point, we have  gutted your cloaking device and have sent it to a sector with a high demand for cloaking devices. \
+	We shall send a replacement in due time."

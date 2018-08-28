@@ -18,6 +18,10 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 
+	//species check
+	if(!(SPECIES_SHOWN in obscured))
+		msg += "[t_He] [t_is] a [dna.species.name].\n"
+
 	//uniform
 	if(w_uniform && !(SLOT_W_UNIFORM in obscured))
 		//accessory

@@ -22,8 +22,6 @@
 		if(affecting.status != BODYPART_ORGANIC)
 			to_chat(user, "<span class='notice'>Medicine won't work on a robotic limb!</span>")
 			return
-	if(user.skills.skillcheck(user, "medicine", 4) != (1 || 3))// due to inheritance, this is done before Do_After.. finnicky, I might fix it later.
-		return
 	..()
 
 /obj/item/reagent_containers/pill/patch/canconsume(mob/eater, mob/user)

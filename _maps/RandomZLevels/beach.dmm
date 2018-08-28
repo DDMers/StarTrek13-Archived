@@ -154,7 +154,7 @@
 /turf/open/floor/wood,
 /area/awaymission/beach)
 "aC" = (
-/obj/effect/mob_spawn/human/cook{
+/obj/effect/mob_spawn/human/alive{
 	head = null;
 	id_access = "Bartender";
 	id_job = "Bartender";

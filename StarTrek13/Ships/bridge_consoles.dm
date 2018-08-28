@@ -15,6 +15,16 @@
 	anchored = 1
 	var/obj/structure/overmap/target
 
+/obj/structure/weapons_console/defiant
+	icon = 'StarTrek13/icons/trek/defianttactical.dmi'
+	name = "weapons station"
+	icon_state = "weapons"
+
+/obj/structure/helm/desk/functional/defiant
+	icon = 'StarTrek13/icons/trek/defianttactical.dmi'
+	icon_state = "shields"
+	name = "shields station"
+
 /obj/structure/weapons_console/romulan
 	name = "Tactical console"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
@@ -33,9 +43,10 @@
 	START_PROCESSING(SSobj,src)
 	if(our_ship)
 		subsystem = our_ship.SC.weapons
-	damage = subsystem.damage
-	heat = subsystem.heat
-	charge = subsystem.charge
+	if(subsystem)
+		damage = subsystem.damage
+		heat = subsystem.heat
+		charge = subsystem.charge
 
 
 /obj/structure/weapons_console/proc/get_ship_icon(atom/item,mob/user)

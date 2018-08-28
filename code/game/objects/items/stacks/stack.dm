@@ -189,9 +189,6 @@
 			if(!building_checks(R, multiplier))
 				return
 
-		if(usr.skills.skillcheck(usr, "construction and maintenance", skill_requirement) != (1 || 3))
-			return
-
 		var/obj/O
 		if(R.max_res_amount > 1) //Is it a stack?
 			O = new R.result_type(usr.drop_location(), R.res_amount * multiplier)

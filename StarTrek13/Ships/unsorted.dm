@@ -38,6 +38,8 @@
 
 
 /obj/item/clothing/neck/combadge/proc/send_message(var/message, mob/living/user)
+	if(user.stat == DEAD)
+		return 0
 	if(!linked) //Yeah. People got confused
 		link_to_area(user)
 		if(!on)
@@ -216,13 +218,32 @@
 	icon_state = "replicator-off"
 	desc = "It invariably produces something that's almost (but not quite) entirely unlike tea"
 	var/power = 100
-	var/power_cost = 50 //Burgers are pricy yo
-	var/recharge_rate = 5
+	var/power_cost = 10 //Burgers are pricy yo
+	var/recharge_rate = 3
 	anchored = TRUE
 	density = TRUE
 
+/obj/structure/replicator/huge
+	name = "Advanced Replicator"
+	desc = "Now with a built-in subroutine designed to answer why Arthur Dent likes tea to prevent operational runtimes."
+	icon = 'StarTrek13/icons/trek/large_replicator.dmi'
+
+/obj/structure/replicator/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj,src)
+
+
+/obj/structure/replicator/process()
+	if(power < 100)
+		power += recharge_rate
+	else
+		power = 100
+
 /obj/structure/replicator/attack_hand(mob/user)
 	icon_state = "replicator-on"
+	if(power < power_cost)
+		to_chat(user, "[src]'s matter synthesisers are still recharging")
+		return 0
 	if(ishuman(user))
 		var/mode = alert("What kind of food would you like?",,"Burger", "Pizza", "Tea, earl grey", "Sandwich")
 		var/temp = alert("How hot do you want it?",,"Cold", "Warm", "Hot")
@@ -230,9 +251,10 @@
 			return 0
 		user.say("[mode], [temp]")
 		icon_state = "replicator-replicate"
+		power -= power_cost
 		switch(mode)
 			if("Burger")
-				var/obj/item/reagent_containers/food/snacks/burger/thefood = new(src.loc)
+				var/obj/item/reagent_containers/food/snacks/burger/plain/thefood = new(src.loc)
 				playsound(src.loc, 'StarTrek13/sound/trek/replicator.ogg', 100,1)
 				thefood.name = "[temp] [thefood.name]"
 			if("Pizza")
@@ -249,3 +271,93 @@
 				thefood.name = "[temp] [thefood.name]"
 	sleep(40)
 	icon_state = "replicator-off"
+
+/obj/item/ammo_casing/energy/electrode/phaserstun
+	e_cost = 100
+	fire_sound = 'StarTrek13/sound/borg/machines/phaser.ogg'
+	select_name = "stun"
+
+/obj/item/ammo_casing/energy/laser/phaserkill
+	select_name = "kill"
+	fire_sound = 'StarTrek13/sound/borg/machines/phaser.ogg'
+
+/obj/item/gun/energy/laser/retro
+	name = "hand phaser"
+	desc = "A standard issue phaser with two modes: Stun and Kill."
+	icon_state = "phaser"
+	ammo_x_offset = 2
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode/phaserstun, /obj/item/ammo_casing/energy/laser/phaserkill)
+
+/obj/item/storage/book/skillbook
+	name = "piloting field manual"
+	desc = "This small book contains a myriad of complex annotated digrams which will help you learn to fly ships! After clicking this in hand, you will learn basic piloting skills and the book will disappear."
+
+/obj/item/storage/book/skillbook/attack_self(mob/user)
+	if(ishuman(user))
+		var/datum/skill/S = user.skills.getskill("piloting")
+		if(S.value > 4)
+			to_chat(user, "You skim through the manual, but you already know this material.")
+			return ..()
+		user.skills.add_skill("piloting", (5 - S.value))
+		to_chat(user, "After skimming through [src] you feel confident that you'll be able to fly a starship to a basic level!")
+		qdel(src)
+	else
+		. = ..()
+
+/obj/item/storage/book/skillbook/engi
+	name = "guide to engineering"
+	desc = "This small book contains a set of complex annotated blueprints and instructions which will help you learn to maintain and modify starships! After clicking this in hand, you will learn basic engineering skills and the book will disappear."
+
+/obj/item/storage/book/skillbook/engi/attack_self(mob/user)
+	if(ishuman(user))
+		var/datum/skill/S = user.skills.getskill("construction and maintenance")
+		if(S.value > 4)
+			to_chat(user, "You skim through the manual, but you already know this material.")
+			return ..()
+		user.skills.add_skill("construction and maintenance", (5 - S.value))
+		to_chat(user, "After skimming through [src] you feel confident that you'll be able to maintain a starship!")
+		qdel(src)
+	else
+		. = ..()
+
+/obj/item/storage/book/skillbook/med
+	name = "doctor's guide for medical practices"
+	desc = "This small book contains a set of instructions and pictures of the human body, annotated. After clicking this in hand, you will learn basic engineering skills and the book will disappear."
+
+/obj/item/storage/book/skillbook/med/attack_self(mob/user)
+	if(ishuman(user))
+		var/datum/skill/S = user.skills.getskill("medicine")
+		if(S.value > 4)
+			to_chat(user, "You skim through the manual, but you already know this material.")
+			return ..()
+		user.skills.add_skill("medicine", (5 - S.value))
+		to_chat(user, "After skimming through [src] you feel confident that you'll be able to work basic medicinal practices!")
+		qdel(src)
+	else
+		. = ..()
+
+
+	//Atmospherics
+/obj/item/clothing/head/helmet/space/hardsuit/trek
+	name = "EV suit helmet"
+	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has thermal shielding."
+	icon_state = "hardsuit0-federation"
+	item_state = "federation"
+	item_color = "federation"
+	armor = list("melee" = 30, "bullet" = 5, "laser" = 10, "energy" = 5, "bomb" = 10, "bio" = 100, "rad" = 25, "fire" = 100, "acid" = 75)
+	heat_protection = HEAD												//Uncomment to enable firesuit protection
+	max_heat_protection_temperature = FIRE_IMMUNITY_HELM_MAX_TEMP_PROTECT
+
+/obj/item/clothing/suit/space/hardsuit/trek
+	name = "EV suit"
+	desc = "A standard issue hardsuit developed in the 24th century, it has heat shielding and specialized enviornmental plating to protect its wearer from most hazardous situations."
+	icon_state = "hardsuit-federation"
+	item_state = "hardsuit-federation"
+	armor = list("melee" = 30, "bullet" = 5, "laser" = 10, "energy" = 5, "bomb" = 10, "bio" = 100, "rad" = 25, "fire" = 100, "acid" = 75)
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	max_heat_protection_temperature = FIRE_IMMUNITY_SUIT_MAX_TEMP_PROTECT
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/trek
+
+/obj/machinery/suit_storage_unit/trek
+	suit_type = /obj/item/clothing/suit/space/hardsuit/trek
+	mask_type = /obj/item/clothing/mask/breath

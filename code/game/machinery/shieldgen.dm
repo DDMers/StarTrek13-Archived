@@ -1,14 +1,14 @@
 /obj/structure/emergency_shield
-	name = "emergency energy shield"
-	desc = "An energy shield used to contain hull breaches."
+	name = "emergency force field"
+	desc = "A force field used to contain hull breaches."
 	icon = 'icons/effects/effects.dmi'
-	icon_state = "shield-old"
-	density = TRUE
+	icon_state = "trekshieldwall"
+	density = FALSE
 	opacity = 0
 	anchored = TRUE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	max_integrity = 200 //The shield can only take so much beating (prevents perma-prisons)
-	CanAtmosPass = ATMOS_PASS_DENSITY
+	CanAtmosPass = ATMOS_PASS_NO
 
 /obj/structure/emergency_shield/Initialize()
 	. = ..()

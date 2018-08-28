@@ -196,7 +196,7 @@
 	var/on = FALSE					// 1 if on, 0 if off
 	var/on_gs = FALSE
 	var/static_power_used = 0
-	var/brightness = 8			// luminosity when on, also used in power calculation
+	var/brightness = 15			// luminosity when on, also used in power calculation
 	var/bulb_power = 1			// basically the alpha of the emitted light source
 	var/bulb_colour = "#FFFFFF"	// befault colour of the light.
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
@@ -274,11 +274,11 @@
 	spawn(2)
 		switch(fitting)
 			if("tube")
-				brightness = 8
+				brightness = 15
 				if(prob(2))
 					break_light_tube(1)
 			if("bulb")
-				brightness = 4
+				brightness = 6
 				if(prob(5))
 					break_light_tube(1)
 		spawn(1)
@@ -730,7 +730,7 @@
 	icon_state = "ltube"
 	base_state = "ltube"
 	item_state = "c_tube"
-	brightness = 8
+	brightness = 15
 
 /obj/item/light/tube/broken
 	status = LIGHT_BROKEN

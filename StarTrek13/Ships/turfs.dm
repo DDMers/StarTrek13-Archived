@@ -34,15 +34,12 @@
 
 /turf/closed/wall/ship/voy/Initialize(timeofday)
 	. = ..()
-	set_light(3)
 
 /turf/closed/wall/ship/rom/Initialize(timeofday)
 	. = ..()
-	set_light(3)
 
 /turf/closed/wall/ship/tng/Initialize(timeofday)
 	. = ..()
-	set_light(3)
 
 /turf/closed/wall/ship/steel
 	name = "steel hull"
@@ -73,6 +70,13 @@
 	desc = "An advanced door designed in the future, now having relieved bipedal sentients the need to suffer the horror of raising their hands to go into another room."
 
 
+/obj/machinery/door/airlock/trek/tng/jeffries
+	name = "hatch"
+	icon = 'StarTrek13/icons/trek/flaksim_jeffriestube_door.dmi'
+	icon_state = "closed"
+	overlays_file = 'StarTrek13/icons/trek/flaksim_jeffriestube_door.dmi'
+	desc = "An advanced hatch designed in the future, now having relieved bipedal sentients the need to suffer the horror of raising their hands to go into another room."
+
 /obj/machinery/door/airlock/trek/tng/voy
 	name = "airlock"
 	icon = 'StarTrek13/icons/trek/voy_door.dmi'
@@ -84,6 +88,11 @@
 /obj/machinery/door/airlock/trek/tng/single
 	name = "airlock"
 	icon = 'StarTrek13/icons/trek/trek_door_single.dmi'
+	icon_state = "closed"
+
+/obj/machinery/door/airlock/trek/tng/single/defiant
+	name = "bulkhead"
+	icon = 'StarTrek13/icons/trek/defiant_door.dmi'
 	icon_state = "closed"
 
 /obj/machinery/door/airlock/trek/tng/double
@@ -98,6 +107,9 @@
 
 /obj/effect/turf_decal/trek
 	icon_state = "trek_edge2"
+
+/obj/effect/turf_decal/trek/grey
+	icon_state = "trek_edge3"
 
 /obj/effect/turf_decal/trek/cargo
 	icon_state = "trek_edge_cargo"
@@ -141,13 +153,12 @@
 	icon_state = "cargofloor"
 
 /turf/open/floor/borg/trek/lit
-	name = "lit carpet"
-	desc = "it's lit up"
+	name = "space carpet"
+	desc = "the merits of a static charge generating material for flooring on a highly sensitive starship is questionable, but can you question that threadcount?"
 	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
 
 /turf/open/floor/borg/trek/lit/Initialize()
 	. = ..()
-	set_light(7)
 
 /obj/structure/fluff/ship/warpbooster
 	name = "wall panel"
@@ -261,17 +272,36 @@
 	density = 1
 	blocks_air = 1
 
+
+/obj/structure/promenade_overlay
+	icon = 'StarTrek13/icons/trek/promenade_overlay.PNG'
+	name = "promenade"
+	density = 1
+	CanAtmosPass = FALSE
+	layer = 4.5
+	anchored = 1
+	can_be_unanchored = 0
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+
 /turf/open/generic_overlay
 	icon = 'StarTrek13/icons/trek/generic_overlay.PNG'
 	name = "floor"
 	density = 1
 	blocks_air = 1
 
-/turf/open/transporter_overlay
+/turf/open/transporterblack
+	icon = 'StarTrek13/icons/trek/transporter_black.PNG'
+	name = "black"
+
+/obj/structure/transporter_overlay
 	icon = 'StarTrek13/icons/trek/transporterroom_overlay.PNG'
 	name = "floor"
 	density = 1
-	blocks_air = 1
+	CanAtmosPass = FALSE
+	layer = 4.5
+	anchored = 1
+	can_be_unanchored = 0
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 /turf/open/fighter_overlay
 	icon = 'StarTrek13/icons/trek/fighter_interior_overlay.PNG'
@@ -297,6 +327,12 @@
 	density = 1
 	blocks_air = 1
 
+/turf/open/bridge_overlay/defiant
+	icon = 'StarTrek13/icons/trek/bridge_defiant_overlay.PNG'
+	name = "bridge"
+	density = 1
+	blocks_air = 1
+
 /turf/open/bridge_overlay/romulan
 	icon = 'StarTrek13/icons/trek/romulan_bridge_overlay.PNG'
 	name = "floor"
@@ -309,18 +345,36 @@
 	density = 1
 	blocks_air = 1
 
+
+/turf/closed/messhall
+	icon = 'StarTrek13/icons/trek/messhalloverlay.PNG'
+	name = "windows"
+	desc = "huge windows, wow.."
+	density = 1
+	blocks_air = 1
+
+
+/turf/closed/trophies
+	icon = 'StarTrek13/icons/trek/trophyoverlay.PNG'
+	name = "trophy rack"
+	desc = "A huge wall with a tasteful collection of miniature starships adorning it."
+	density = 1
+	blocks_air = 1
+
+
 /turf/open/brig_overlay
 	icon = 'StarTrek13/icons/trek/brig_overlay.PNG'
 	name = "floor"
 	density = 1
 	blocks_air = 1
+	layer = 2.8
 
 /turf/open/storagebay_overlay
 	icon = 'StarTrek13/icons/trek/storagebay_overlay.PNG'
 	name = "floor"
 	density = 1
 	blocks_air = 1
-
+	layer = 2.8
 
 /turf/open/small_engineering_overlay
 	icon = 'StarTrek13/icons/trek/warp_room_small_overlay.PNG'
@@ -372,7 +426,7 @@
 	name = "wall"
 	desc = "No running through me please"
 	icon = 'StarTrek13/icons/trek/special_turfs.dmi'
-	layer = 4.5
+	layer = 2.8
 	pixel_x = -8
 	pixel_y = 10
 
@@ -413,6 +467,8 @@
 	pixel_y = 0
 	opacity = 0
 	density = FALSE
+	anchored = TRUE
+	can_be_unanchored = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 

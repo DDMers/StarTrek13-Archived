@@ -1,0 +1,267 @@
+"aa" = (/turf/open/space/basic,/area/space)
+"ab" = (/turf/closed/indestructible/riveted{alpha = 0},/area/space)
+"ac" = (/turf/closed/wall/trek{icon_state = "black"; dir = 1},/area/space)
+"ad" = (/turf/closed/indestructible/riveted{alpha = 0},/area/ship/romulan)
+"ae" = (/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
+"af" = (/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"ag" = (/obj/structure/viewscreen{pixel_x = -5; pixel_y = -6},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
+"ah" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHEAST)"; icon_state = "lcars2"; dir = 5},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
+"ai" = (/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"aj" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"ak" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (SOUTHWEST)"; icon_state = "lcars"; dir = 10},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
+"al" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (NORTHEAST)"; icon_state = "lcars"; dir = 5},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"am" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHWEST)"; icon_state = "lcars2"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"an" = (/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"ao" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"ap" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/structure/fluff/helm/desk/tactical/defiant{pixel_x = -3},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aq" = (/obj/structure/overmap/ship/romulan,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"ar" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 5},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"as" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"at" = (/turf/open/bridge_overlay/romulan,/area/ship/romulan)
+"au" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"av" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aw" = (/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
+"ax" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 6},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"ay" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"az" = (/obj/structure/fluff/helm/desk/functional/romulan,/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aA" = (/obj/effect/landmark/crewstart/romulan,/obj/structure/chair/office/dark{dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aB" = (/obj/structure/weapons_console/romulan,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aC" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 10},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aD" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aE" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 6},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aF" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 4},/area/ship/romulan)
+"aG" = (/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 8},/area/ship/romulan)
+"aH" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 8},/area/ship/romulan)
+"aI" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"aJ" = (/turf/closed/wall/trek{icon_state = "black"; dir = 1},/area/ship/romulan)
+"aK" = (/obj/structure/table/reinforced,/obj/item/storage/toolbox/mechanical,/turf/open/floor/plating,/area/ship/romulan)
+"aL" = (/obj/structure/table/reinforced,/turf/open/floor/plating,/area/ship/romulan)
+"aM" = (/obj/structure/chair/office/dark,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aN" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aO" = (/obj/structure/table,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"aP" = (/obj/structure/table/reinforced,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aQ" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"aR" = (/obj/machinery/trek/transporter{layer = 2},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aS" = (/obj/structure/chair/office/dark{dir = 8},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aT" = (/obj/item/twohanded/required/kirbyplants{icon_state = "plant-21"; pixel_x = -3; pixel_y = 3},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aU" = (/turf/closed/wall/trek{icon_state = "wall_light_dv"},/area/ship/romulan)
+"aV" = (/turf/open/floor/plating,/area/ship/romulan)
+"aW" = (/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
+"aX" = (/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 1},/area/ship/romulan)
+"aY" = (/obj/machinery/door/airlock/trek/tng/single/defiant,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/hallway{icon_state = "romhall"},/area/ship/romulan)
+"aZ" = (/obj/machinery/door/airlock/trek/tng/single/defiant,/turf/open/floor/hallway{icon_state = "romhall"},/area/ship/romulan)
+"ba" = (/obj/machinery/computer/camera_advanced/transporter_control/huge,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"bb" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"bc" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"bd" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
+"be" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 1},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 1},/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
+"bf" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 9},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 9},/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
+"bg" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"bh" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 10},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"bi" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
+"bj" = (/obj/structure/subsystem_panel/engines,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
+"bk" = (/obj/structure/subsystem_panel,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
+"bl" = (/obj/structure/subsystem_panel/weapons,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
+"bm" = (/obj/structure/ship_component/capbooster,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
+"bn" = (/obj/structure/replicator,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bo" = (/obj/item/clothing/under/romulan,/obj/item/clothing/under/romulan,/obj/structure/closet,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bp" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"bq" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"br" = (/obj/structure/photon_torpedo,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bs" = (/obj/effect/landmark/faction_spawn/romulan,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"bt" = (/obj/structure/catwalk,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bu" = (/obj/structure/cloaking_device,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bv" = (/obj/structure/catwalk,/obj/machinery/space_battle/shield_generator,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bw" = (/obj/machinery/atmospherics/components/unary/tank/air,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 8},/area/ship/romulan)
+"bx" = (/obj/machinery/atmospherics/components/unary/tank{color = "#FF0000"},/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 8},/area/ship/romulan)
+"by" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bz" = (/obj/machinery/atmospherics/components/binary/pump/on,/turf/open/floor/plating,/area/ship/romulan)
+"bA" = (/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
+"bB" = (/obj/machinery/atmospherics/components/binary/volume_pump/on{icon_state = "volpump_on_map"; dir = 1},/turf/open/floor/plating,/area/ship/romulan)
+"bC" = (/obj/structure/closet,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bD" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"bE" = (/obj/machinery/atmospherics/pipe/layer_manifold,/turf/open/floor/plating,/area/ship/romulan)
+"bF" = (/turf/closed/wall/trek{icon_state = "black2"; dir = 4},/area/ship/romulan)
+"bG" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 1},/area/ship/romulan)
+"bH" = (/turf/closed/wall/trek{icon_state = "black"},/turf/closed/trek_raised/lift{tag = "icon-lift (NORTH)"; icon_state = "lift"; dir = 1},/area/ship/romulan)
+"bI" = (/obj/machinery/door/airlock/trek/tng/single,/obj/structure/ladder/unbreakable/lift{height = 1; id = "dderi"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bJ" = (/turf/closed/wall/trek{icon_state = "black"},/turf/closed/trek_raised/lift{tag = "icon-lift (EAST)"; icon_state = "lift"; dir = 4},/area/ship/romulan)
+"bK" = (/turf/closed/wall/trek{dir = 1; icon_state = "black2"},/area/space)
+"bL" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"bM" = (/turf/closed/wall/trek{dir = 1; icon_state = "black2"},/area/ship/romulan)
+"bN" = (/obj/machinery/door/airlock/trek/tng/jeffries,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"bO" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 5},/obj/machinery/portable_atmospherics/scrubber,/turf/open/floor/plating,/area/ship/romulan)
+"bP" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/turf/open/floor/plating,/area/ship/romulan)
+"bQ" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 10},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 6},/turf/open/floor/plating,/area/ship/romulan)
+"bR" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/turf/open/floor/plating,/area/ship/romulan)
+"bS" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 9},/obj/machinery/portable_atmospherics/scrubber,/turf/open/floor/plating,/area/ship/romulan)
+"bT" = (/turf/closed/wall/trek{icon_state = "black"},/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHEAST)"; icon_state = "lift"; dir = 6},/area/ship/romulan)
+"bU" = (/turf/closed/wall/trek{icon_state = "black"},/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHWEST)"; icon_state = "lift"; dir = 10},/area/ship/romulan)
+"bV" = (/turf/closed/wall/trek{icon_state = "black"},/turf/closed/trek_raised/lift{tag = "icon-lift (WEST)"; icon_state = "lift"; dir = 8},/area/ship/romulan)
+"bW" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 2},/area/ship/romulan)
+"bX" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
+"bY" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 1},/area/ship/romulan)
+"bZ" = (/obj/structure/catwalk,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"ca" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cb" = (/obj/machinery/airalarm,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 8},/area/ship/romulan)
+"cc" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
+"cd" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 10},/area/ship/romulan)
+"ce" = (/obj/structure/torpedo_launcher,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cf" = (/obj/machinery/conveyor{dir = 8; id = "romconveyor_ship1"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cg" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 4},/area/ship/romulan)
+"ch" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 6},/area/ship/romulan)
+"ci" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 5},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 5},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
+"cj" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
+"ck" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 1},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 1},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
+"cl" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
+"cm" = (/turf/open/space/basic,/area/ship/romulan)
+"cn" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 8},/area/ship/romulan)
+"co" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 5},/area/ship/romulan)
+"cp" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 9},/area/ship/romulan)
+"cq" = (/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 4},/area/ship/romulan)
+"cr" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"cs" = (/obj/structure/closet/crate/trek{color = "#FFA500"},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"ct" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 1},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"cu" = (/obj/structure/table/reinforced,/obj/item/storage/toolbox/mechanical,/obj/item/tricorder,/turf/open/floor/plating,/area/ship/romulan)
+"cv" = (/obj/structure/fluff/warpcore{icon_state = "ftl"},/obj/structure/catwalk,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"cw" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"cx" = (/obj/structure/table/reinforced,/obj/item/tricorder,/turf/open/floor/plating,/area/ship/romulan)
+"cy" = (/obj/effect/landmark/runaboutdock,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"cz" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 5},/area/ship/romulan)
+"cA" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 9},/area/ship/romulan)
+"cB" = (/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"cC" = (/obj/machinery/power/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/obj/structure/catwalk,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cD" = (/obj/structure/rack,/obj/structure/photon_torpedo,/obj/structure/catwalk,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cE" = (/obj/machinery/conveyor_switch/oneway{dir = 8; id = "romconveyor_ship1"},/obj/structure/catwalk,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cF" = (/obj/item/twohanded/required/kirbyplants{icon_state = "plant-21"; pixel_x = -3; pixel_y = 3},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cG" = (/obj/structure/chair/office/dark,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cH" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cI" = (/obj/structure/chair/office/dark{dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cJ" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cK" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cL" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cM" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"cN" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"cO" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"cP" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 5},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"cQ" = (/obj/machinery/door/airlock/trek/tng/single,/obj/structure/ladder/unbreakable/lift{height = 0; id = "dderi"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"cR" = (/obj/structure/table,/obj/item/wirecutters,/obj/item/clothing/gloves/color/latex,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cS" = (/obj/item/storage/box/beakers{pixel_x = 2; pixel_y = 2},/obj/structure/table/glass,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/glass/beaker/large,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cT" = (/obj/machinery/chem_dispenser,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cU" = (/obj/machinery/chem_master,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cV" = (/obj/machinery/chem_heater,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cW" = (/obj/machinery/iv_drip,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cX" = (/obj/structure/table,/obj/item/stack/rods,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cY" = (/obj/structure/chair/e_chair,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"cZ" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"da" = (/obj/structure/table,/obj/item/pickaxe/drill,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"db" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 10},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dc" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dd" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 6},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"de" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 1},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"df" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dg" = (/obj/structure/table,/obj/item/shard,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dh" = (/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/machinery/door/window/eastleft{dir = 8},/obj/item/gun/energy/laser/retro,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"di" = (/obj/machinery/sleeper{dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dj" = (/turf/closed/wall/trek{icon_state = "black2"; dir = 2},/area/ship/romulan)
+"dM" = (/obj/structure/table,/obj/item/clothing/gloves/color/latex,/obj/item/razor,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dN" = (/obj/machinery/computer/operating,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dO" = (/obj/structure/table/optable,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dP" = (/obj/machinery/door/window/eastright{dir = 1; icon_state = "right"; name = "Robotics Surgery"; req_access_txt = "null"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dQ" = (/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/obj/structure/table,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dR" = (/obj/structure/table,/obj/item/storage/box/bodybags,/obj/item/pen,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dS" = (/obj/machinery/light{dir = 4},/obj/structure/table,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dU" = (/obj/structure/closet/secure_closet/medical3,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dV" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 8},/obj/item/storage/firstaid/regular,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dW" = (/obj/structure/table/reinforced,/obj/item/storage/firstaid/o2,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dX" = (/obj/structure/table/reinforced,/obj/item/storage/firstaid/fire,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dY" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/item/storage/firstaid/brute,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dZ" = (/obj/structure/closet/wardrobe/white/medical,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"eb" = (/obj/structure/table,/obj/item/mmi,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"ec" = (/obj/structure/table,/obj/item/retractor,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"ed" = (/obj/structure/table,/obj/item/hemostat,/obj/item/cautery{pixel_x = 4},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"ee" = (/obj/structure/table,/obj/item/circular_saw,/obj/item/scalpel{pixel_y = 12},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"ef" = (/obj/structure/table,/obj/item/surgical_drapes,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaa
+abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaa
+abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacadaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacadadadadaeadadadadadadadaeadadadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacadaeadaeaeaeaeagaeaeaeaeaeaeaeaeadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacadadaeahaeaeaiaiaiaiaiaeaeakaeadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacadadaealaiaiaiaiaiaiaiaiaiamaeadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacadadafaiajaoaoaoapaqaoaoaraiafadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacadadafaiasafafafafafafafavaiafadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacadanafawaxayazafaAafaBafavaiafanadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacadadafawaCaDaDaDaDaDaDaDaEaiafadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFaGaGaGaGaGaGaHacadadafaiaIaiaiaiaiaiaiaiaiaiafadadaJaFaGaGaGaGaGaGaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFafafaMafafafaHacadaeadafaNaoaoaoaoaoaoaoaoafadadadaJaFafafafafafafaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFafaPaPaPafafaHacadatadadaQadadadadadadadauadadadadaJaFaRaRafafafaSaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFaTafafafafaTaUaWaXaXaXaWaYaWaXaXaXaXaXaWaZaWaXaXaXaWaUaRaRafafbaafaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFaWaXaXaZaXaXaWajbbbbbbbbbcbbbbbbaobbbbbbaDbbbbbbbbaraWaXaXaZaXaXaWaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFbbbbbbbbbbbbbbaEaiawbdbebfaiaiaibgaiaiaiaiaiaiaiaibhbbbbbbbbbbbbbbaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFaiaiaiaiaiaiaiaiaiawawbiawaiaiaibgaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFaGaGaGaZaGaGaGaHaFaWaWaYaWaWaUaWbgaWaUbjbkaZblbmaHaFaGaGaGaZaGaGaGaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFbnaiaiaiaiaiboaHaFanbpbqananaUaibgaiaUanananananaHaFbraiaiaiaiaidhaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFaibsafbsafbsboaHaFanbtbubtanaUaibgaiaUanbtbvbtanaHaFbrafafafafafdhaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abaFbwaGaGaGbxaHaFaiafafafafafboaHaFanbtbybtanaUaibgaiaUanbtbtbtanaHaFbrafafafafafdhaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abaFbzbAbAbAbBaHaFbCaiaiaiaiaiboaHaFananbDananaUaibgaiaUanananananaHaFbraiaiaiaiaidhaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abaFbEbAbAbAbEaHbFbGbGbHbIbJbGbGbKbFbGbGbLbGbGaFaWbgaWaHbGbGbGbGbGbMbFbGbGbGbNbGbGbGbMacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abaFbObPbQbRbSaHaJaJaJbTbUbVaJaJacacacbWbXbYacaFaibgaiaHacacacacacacacacacbWbZbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abaFaGaGcacbaGaHacacacacacacacacacacacbWbXbYacaFaibgaiaHacacacacacacacacacbWbZbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abbWbZbZccbZbZcdcgcgcgcgcgcgcgcgcgcgcgchbXbYacaFaibgaiaHacacacacacacacacacbWbZbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abbWbZbZcicjcjcjcjcjcjcjcjcjcjcjcjckcjcjclbYacaFaibgaiaHacacacacacacacacacbWbZbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abcmcncncncncncncncncncncncncncncobXcpcobXbYacaFaibgaiaHacacacacacacacacacbWbZbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYaFbLcqcqcqaWaZaWcqcqcqcqaUcqcqcqcqcqcqbNcqcqcqcqaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYaFcraoaoaoaoaoaoaoaoaoaraUcscscsafafafafafcscscsaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYaFctaVbtbtbtbtbtbtbtaVavaUafafafafafafafafafafafaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYaFasaKbtbtbtbtbtbtbtaLavaUafafafafafafafafafafafaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYaFascubtbtcvbtbtbtbtaKavcwafafafafafafafafafafafaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYaFasaKbtbtbtbtbtbtbtcxavaUafafafafafafafafafafafaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYaFasaVbtbtbtbtbtbtbtaVavaUafafafafafafafafafafafaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYaFbhaDaDaDaDaDaDaDaDaDaEaUcscscscyafafafafcscscsaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYbFbGczaZcqcqcqcqcqaZcAbGbGbGbGbGbGbGbGbGbGbGbGbGbMacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYacacaFbZaiaiaiaiaibZaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYacacaFbZaiaiaiaiaibZaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYacacaFbZaicBcBcBcBcCaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYacacaFbZbZbZbZbZbZbZaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYacacaFbZcecfcfcfbZcDaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacbWbXbYacacaFbZbZcEbZbZbZcDaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFaGaGaGaGaGaGaHbWbXbYacacaFbZcecfcfcfbZbZaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFcFcGcGcGcGcFaHbWbXbYacacbFbGbGbGbGbGbGbGbMacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFcHaOaOaOaOcIaHbWbXbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFcHaOaOaOaOcIaHbWbXbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFananananananaUaWbLaWaWaWaWaWaWaWaWaWaWaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFaWaZaWaWaZaWaWcJcKcLanananananananananaXaXaXaXaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFananananananancMcNcOcOcOcOcOcOcOcOcOcPananananaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFaGaGaZaGaGaHaFaGaYaGaGaGaGaGaGaGaGaZaGaHbHcQbJaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFcRananananaHaFanbDanancScTcUcVananancWaHbTbUbVaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFcXcMcYcPanaHaFancZcOcOcOcOcOcOcOcOcPancAbGbGbGbMacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFdadbdcddanaHaFandeaiaiaiaiaiaiaiaidfanaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFdgananananaHaFandbdcdcdcdcdcdcdcdcddanaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFdMdNdOdPdQaHaFanandidUdVdWdXdYdUdZdianaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFdRaiaiaidSaHbFbGbGbGbGbGbGbGbGbGbGbGbGbMacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacaFebecedeeefaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacdjbGbGbGbGbGbMacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaa
+abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaa
+"}

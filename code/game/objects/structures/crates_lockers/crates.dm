@@ -69,7 +69,7 @@
 	desc = "It's a burial receptacle for the dearly departed."
 	icon_state = "coffin"
 	resistance_flags = FLAMMABLE
-	max_integrity = 70 
+	max_integrity = 70
 	material_drop = /obj/item/stack/sheet/mineral/wood
 	material_drop_amount = 5
 
@@ -186,3 +186,10 @@
 	..()
 	for(var/i in 1 to 5)
 		new /obj/item/coin/silver(src)
+
+
+
+/obj/structure/closet/crate/trek
+	name = "Octagonal Crate"
+	desc = "A large metal crate"
+	icon_state = "shipcrate"

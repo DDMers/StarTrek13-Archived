@@ -70,7 +70,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 
 /datum/faction	//a holder datum for sorting players
 	var/name = "a faction"
-	var/mob/living/members = list()
+	var/list/members = list()
 	var/description = "why are you seeing this."
 	var/datum/species/required_race = null //Framework for having race only empires, IE if you want to be klingon you have to be klingon.
 	var/flavourtext = "you shouldnt be here" //Sent to all new members upon recruitment.
@@ -80,7 +80,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/faction_occupations = list()//List of occupations in this faction.
 	var/datum/objective/current_objective //only one at a time, please.. These constantly check for completion. ~Cdey
 	var/datum/objective/objectives = list()//IF there are multiple objectives. Also currently unused. ~Cdey
-	var/credits = 0 //:( i'm just a poor boy from a poor family
+	var/credits = 10000 //Credits determine who wins, you lose credits as you lose ships, so stay safe friends!
 	var/factag = "none" //Faction icon tag
 
 /*
@@ -115,7 +115,6 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	pref_colour = "green"
 	required_race = /datum/species/romulan
 	factag = "romulan"
-
 
 /datum/faction/proc/add_objective(var/datum/factionobjective/O)
 	if(O in subtypesof(/datum/factionobjective))
@@ -158,19 +157,24 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	for(var/mob/living/M in members)
 		to_chat(M, ping)
 
-/datum/faction/proc/addMember(mob/living/carbon/human/D)
-//	if(D in members)
-//	if(isliving(D))
+/datum/faction/proc/addMember(mob/D)
 	members += D
 	if(D.client.prefs.player_faction)
 		D.client.prefs.player_faction = src
-		D.client.prefs.player_faction.members -= D
 	D.player_faction = src
 	to_chat(D, "<FONT color='blue'><B>You have been recruited into [name]!</B></font>")
 	to_chat(D, "<FONT color='[pref_colour]'><B>[flavourtext]</B></font>")
 	onspawn(D)
+	if(istype(src, /datum/faction/romulan))
+		if(D.client)
+			if(D.client.prefs.romulan_name && !isnull(D.client.prefs.romulan_name))
+				D.real_name = D.client.prefs.romulan_name
+				D.name = D.client.prefs.romulan_name
+				to_chat(D, "You have been renamed to [name], your chosen romulan name.")
+				return
 
 /datum/faction/proc/onspawn(mob/living/carbon/human/D) //If you want things to happen to someone as they join a faction, put it here
+
 	var/image/factionoverlay = new
 	factionoverlay.icon = 'StarTrek13/icons/trek/faction_icons.dmi'
 	factionoverlay.icon_state = "[factag]"
@@ -220,7 +224,6 @@ var/list/global/faction_spawns = list()
 
 /datum/faction/proc/addCredits(amount)
 	credits += amount
-	broadcast("Our faction has just earned [amount] credits!")
 
 //datum/objective/faction/
 
@@ -287,7 +290,7 @@ var/list/global/faction_spawns = list()
 /datum/factionobjective/stealth //Place a tracker on a target ship's warp core to study it, you can get spotted 3 times before it fails
 	var/spotted_amount = 0
 	var/max_spots = 3
-	var/obj/structure/fluff/warpcore/target
+	var/obj/machinery/power/warpcore/target
 
 /datum/factionobjective/stealth/setup()
 	if(!global_ship_list)
@@ -296,7 +299,7 @@ var/list/global/faction_spawns = list()
 	var/list/pickables = global_ship_list
 	for(var/obj/structure/overmap/ship/fighter/F in pickables)
 		pickables -= F
-	for(var/obj/structure/fluff/warpcore/W in GLOB.sortedAreas)
+	for(var/obj/machinery/power/warpcore/W in GLOB.sortedAreas)
 		if(!W)
 			return
 		var/area/A = get_area(W)
