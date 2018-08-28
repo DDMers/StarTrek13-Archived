@@ -10,5 +10,12 @@
 	disliked_food = GROSS | RAW
 	liked_food = JUNKFOOD | FRIED
 
+<<<<<<< HEAD
 /datum/species/human/qualifies_for_rank(rank, list/features)
 	return TRUE
+=======
+
+/datum/species/romulan/qualifies_for_rank(rank, list/features)
+	return TRUE	//Pure humans are always allowed in all roles.
+
+>>>>>>> parent of 466d63cf44... Emergency Holograms
