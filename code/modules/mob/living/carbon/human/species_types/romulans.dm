@@ -10,7 +10,3 @@
 	disliked_food = GROSS | RAW
 	liked_food = JUNKFOOD | FRIED
 
-
-/datum/species/romulan/qualifies_for_rank(rank, list/features)
-	return TRUE	//Pure humans are always allowed in all roles.
-
