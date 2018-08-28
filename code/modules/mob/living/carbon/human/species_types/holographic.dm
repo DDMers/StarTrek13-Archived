@@ -1,6 +1,8 @@
 /obj/structure/holoemitter
 	name = "holographic emitter"
 	desc = "This bulky machine simulates a real-life human being, minus the real part."
+	density = 1
+	anchored = 1
 
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "holoemitter"
