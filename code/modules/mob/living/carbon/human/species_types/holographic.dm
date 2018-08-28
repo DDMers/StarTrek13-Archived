@@ -14,6 +14,7 @@
 	if(!linked_hologram)
 		var/I = input("Please select a hologram to activate;.", "Hologram Control") as null|anything in list("Medical", "Piloting", "security")
 		var/mob/living/carbon/human/species/holographic/H = new (loc)
+		offer_control(H)
 		switch(I)
 			if("Medical")
 				H.skills.add_skill("medical", 7)
