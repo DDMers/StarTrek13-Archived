@@ -10,17 +10,9 @@
 	disliked_food = GROSS | RAW
 	liked_food = JUNKFOOD | FRIED
 
-<<<<<<< HEAD
 /datum/species/human/qualifies_for_rank(rank, list/features)
 	return TRUE
-=======
 
-/datum/species/romulan/qualifies_for_rank(rank, list/features)
-	return TRUE	//Pure humans are always allowed in all roles.
-
-<<<<<<< HEAD
->>>>>>> parent of 466d63cf44... Emergency Holograms
-=======
 /datum/reagent/blood/romulan
 	data = list("donor"=null,"viruses"=null,"blood_DNA"=null,"blood_type"=null,"resistances"=null,"trace_chem"=null,"mind"=null,"ckey"=null,"gender"=null,"real_name"=null,"cloneable"=null,"factions"=null)
 	name = "Green Blood"
@@ -55,4 +47,3 @@
 		"ef", "veh", "st", "re", "te", "le", "ik", "ra", "Ll", "ea", "v", "w",
 		"y", "'", "mar", "b", "s", "h", "g", "o", "p", "ul","P"
 	)
->>>>>>> master
