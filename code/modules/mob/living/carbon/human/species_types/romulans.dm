@@ -10,9 +10,8 @@
 	disliked_food = GROSS | RAW
 	liked_food = JUNKFOOD | FRIED
 
-
-/datum/species/romulan/qualifies_for_rank(rank, list/features)
-	return TRUE	//Pure humans are always allowed in all roles.
+/datum/species/human/qualifies_for_rank(rank, list/features)
+	return TRUE
 
 /datum/reagent/blood/romulan
 	data = list("donor"=null,"viruses"=null,"blood_DNA"=null,"blood_type"=null,"resistances"=null,"trace_chem"=null,"mind"=null,"ckey"=null,"gender"=null,"real_name"=null,"cloneable"=null,"factions"=null)

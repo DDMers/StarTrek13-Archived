@@ -10,7 +10,7 @@
 # and will override any duplicate entries in the database.									  #
 ###############################################################################################
 Kmc2000	= Host
-Cdey = Moderator
+Cdey = Game-Admin
 HeadyBucket = Coder
 MASMC = Game-Admin
 Kyrac = Game-Admin
