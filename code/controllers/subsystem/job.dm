@@ -14,6 +14,13 @@ SUBSYSTEM_DEF(job)
 
 	var/overflow_role = "Crewman"
 
+/datum/controller/subsystem/job/proc/FreeRole(var/rank)	//making additional slot on the fly
+	var/datum/job/job = GetJob(rank)
+	if(job && job.current_positions >= job.total_positions && job.total_positions != -1)
+		job.total_positions++
+		return 1
+	return 0 //totally not nicked from bay derivates :b1:
+
 /datum/controller/subsystem/job/Initialize(timeofday)
 	if(!occupations.len)
 		SetupOccupations()
@@ -400,7 +407,7 @@ SUBSYSTEM_DEF(job)
 	to_chat(M, "<b>You are the [rank].</b>")
 	if(job)
 		to_chat(M, "<b>As the [rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
-		to_chat(M, "<b>To speak on your departments radio, use the :h button. To see others, look closely at your headset.</b>")
+		to_chat(M, "<b>To speak on your ship's comms net, use :k, if you wish to link your comms to another ship, alt click your combadges. If it falls silent, ctrl click it.</b>")
 		if(job.req_admin_notify)
 			to_chat(M, "<b>You are playing a job that is important for Game Progression. If you have to disconnect, please notify the admins via adminhelp.</b>")
 		if(CONFIG_GET(number/minimal_access_threshold))

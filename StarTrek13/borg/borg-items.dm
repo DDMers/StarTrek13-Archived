@@ -1,10 +1,10 @@
 /obj/item/clothing/under/borg
 	name = "grey flesh"
 	desc = "Grotesque grey flesh with veins visibly poking through."
-	item_state = null
+	item_state = "syndicate"
 	icon_state = "syndicate"
 	has_sensor = 0
-	resistance_flags = FIRE_PROOF | ACID_PROOF
+	resistance_flags = FIRE_PROOF
 	item_flags = NODROP
 
 /obj/item/clothing/suit/space/borg
@@ -19,15 +19,16 @@
 	slowdown = 3
 	item_flags = NODROP | ABSTRACT | THICKMATERIAL | STOPSPRESSUREDAMAGE
 	armor = list(melee = 40, bullet = 5, laser = 5, energy = 0, bomb = 15, bio = 100, rad = 70) //they can't react to bombs that well, and emps will rape them
-	resistance_flags = FIRE_PROOF | ACID_PROOF
+	resistance_flags = FIRE_PROOF
 	allowed = list(/obj/item/flashlight)
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 
-/obj/item/clothing/suit/space/borg/New()
+/obj/item/clothing/suit/space/borg/Initialize()
 	. = ..()
+	icon_state = "borg[pick(1,2)]"
 
 /obj/item/clothing/suit/space/borg/IsReflect() //Watch your lazers, they adapt quickly
 	if(prob(SSfaction.borg_hivemind.adaptation))
@@ -87,6 +88,11 @@
 	item_state = null
 	icon_state = null
 
+/obj/effect/mob_spawn/human/alive/borg
+	name = "borg drone"
+	assignedrole = "borg drone"
+	outfit = /datum/outfit/borg
+
 /datum/outfit/borg
 	name = "borg drone"
 	glasses = /obj/item/clothing/glasses/night/borg
@@ -97,16 +103,18 @@
 	head = /obj/item/clothing/head/helmet/space/borg
 	l_hand = /obj/item/borg_tool
 	mask = /obj/item/clothing/mask/gas/borg
+	belt = /obj/item/storage/belt/utility/full/engi
 
 /datum/outfit/borg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/possible_names1 = list("First of","Second of","Third of","Fourth of","Five of","Six of","Seven of","Eight of","Nine of","Ten of","Eleven of","Twelve of","Thirteen of","Fourteen of","Fifteen of")
 	var/possible_names2 = list("one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen")
+	var/obj/item/organ/borgNanites/B = locate(/obj/item/organ/borgNanites) in (H.internal_organs)
+	if(!B)
+		H.make_borg()
 	H.skin_tone = "albino"
 	H.real_name = pick(possible_names1)+" "+pick(possible_names2)
 	H.name = H.real_name
-	H.eye_color = "red"
-	H.underwear = "Nude"
-	H.undershirt = "Nude"
+	H.eye_color = "black"
 	H.socks = "Nude"
 	H.hair_style = "Bald"
 	H.dna.species.species_traits |= TRAIT_NOCLONE

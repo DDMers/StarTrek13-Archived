@@ -10,7 +10,7 @@ Assistant
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "all other crew members of higher rank."
+	supervisors = "the captain. As a crewman, you don't have a specific role, but you could become: A janitor | A communications officer | An away team member | A bridge crew member, speak to your supervisors and ask for an assignment."
 	selection_color = "#dddddd"
 	access = list()			//See /datum/job/trek/assistant/get_access()
 	minimal_access = list()	//See /datum/job/trek/assistant/get_access()
@@ -70,10 +70,6 @@ Captain
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 
-/datum/job/trek/captain/after_spawn(mob/living/carbon/human/H, mob/M)
-	. = ..()
-	H.grant_kirkfu()
-
 /datum/job/trek/captain/get_access()
 	return get_all_accesses()
 
@@ -94,7 +90,7 @@ Captain
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/jackboots
 //	head = /obj/item/clothing/head/caphat
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1,/obj/item/modular_computer/tablet/preset/advanced)
+	backpack_contents = list(/obj/item/tricorder=1)
 
 	backpack = /obj/item/storage/backpack/captain
 	satchel = /obj/item/storage/backpack/satchel/cap
@@ -117,7 +113,7 @@ Captain
 	else
 		H.skills = new
 		H.skills.add_skill("piloting", 5)
-
+	H.grant_kirkfu()
 
 /datum/job/trek/admiral
 	title = "Admiral"
@@ -149,7 +145,7 @@ Captain
 //	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "Captain [H.real_name] on deck!"))
 
 /datum/outfit/job/admiral
-	name = "Starfleet Admiral"
+	name = "Admiral"
 	jobtype = /datum/job/trek/admiral
 
 	id = /obj/item/card/id/gold
@@ -241,7 +237,7 @@ Head of Personnel
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(/obj/item/storage/box/ids=1,\
-		/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced = 1,/obj/item/tricorder)
+		/obj/item/modular_computer/tablet/preset/advanced = 1,/obj/item/tricorder)
 
 /datum/outfit/job/firstofficer/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
@@ -292,7 +288,7 @@ Shaft Miner
 
 	belt = /obj/item/pda/shaftminer
 	ears = /obj/item/radio/headset/headset_cargo/mining
-	shoes = /obj/item/clothing/shoes/workboots/mining
+	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform = /obj/item/clothing/under/independant
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival
@@ -316,6 +312,13 @@ Shaft Miner
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
 	..()
+
+/datum/outfit/job/miner/post_equip(mob/living/carbon/human/H) //So they can fly to and from lavaland
+	if(H.skills)
+		H.skills.add_skill("piloting", 5)
+	else
+		H.skills = new
+		H.skills.add_skill("piloting", 5)
 
 /datum/outfit/job/miner/asteroid
 	name = "Shaft Miner (Asteroid)"
@@ -397,7 +400,7 @@ Chief Engineer
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black/ce
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced=1,/obj/item/tricorder)
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1,/obj/item/tricorder)
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -423,7 +426,7 @@ Chief Engineer
 Station Engineer
 */
 /datum/job/trek/engineer
-	title = "Ship technician"
+	title = "Engineer"
 	flag = ENGINEER
 	department_head = list("Chief Engineer")
 	department_flag = ENGSEC
@@ -514,7 +517,7 @@ Chief Medical Officer
 	suit = /obj/item/clothing/suit/toggle/labcoat/cmo
 	l_hand = /obj/item/storage/firstaid/regular
 	suit_store = /obj/item/flashlight/pen
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1)
+	backpack_contents = list()
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
@@ -625,7 +628,7 @@ Research Director
 	l_hand = /obj/item/clipboard
 	l_pocket = /obj/item/laser_pointer
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/tablet/preset/advanced=1)
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1)
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
@@ -719,10 +722,6 @@ Head of Security
 			            ACCESS_RESEARCH, ACCESS_ENGINE, ACCESS_MINING, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING,
 			            ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MAINT_TUNNELS)
 
-/datum/job/trek/hos/after_spawn(mob/living/carbon/human/H, mob/M)
-	. = ..()
-	H.grant_kirkfu()
-
 /datum/outfit/job/hos
 	name = "Chief of security"
 	jobtype = /datum/job/trek/hos
@@ -753,6 +752,7 @@ Head of Security
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	H.grant_kirkfu()
 	..()
 /*
 Security Officer
@@ -812,6 +812,7 @@ Security Officer
 	if(istype( H.player_faction, /datum/faction/romulan))
 		shoes = /obj/item/clothing/shoes/jackboots
 		uniform = /obj/item/clothing/under/romulan
+	H.grant_kirkfu()
 	..()
 
 /obj/item/radio/headset/headset_sec/alt/department/Initialize()
@@ -839,7 +840,7 @@ Security Officer
 //When adding new jobs, go to jobs.dm
 
 /datum/job/trek/soldier
-	title = "Starfleet Infantry"
+	title = "Combat Specialist"
 	flag = SOLDIER
 	department_head = list("Admirals")
 	department_flag = ENGSEC
@@ -888,6 +889,7 @@ Security Officer
 	..()
 
 /datum/outfit/job/soldier/post_equip(mob/living/carbon/human/H)
+	H.grant_kirkfu()
 	if(prob(5)) //5% chance to be a legendary soldier
 //		H.add_skill(110, rand(60, 68), rand(24, 32), ..(), ..())
 		to_chat(H, "<big>You are a legendary soldier! You've had some experience, and are well versed in the arts of close-quarters combat.</big>")
@@ -896,7 +898,7 @@ Security Officer
 //		H.add_skill(rand(60, 66), rand(60, 68), rand(24, 32), ..(), ..())
 
 /datum/job/trek/pilot
-	title = "Ship Helmsman"
+	title = "Helmsman"
 	flag = PILOT
 	department_head = list("Captain")
 	department_flag = ENGSEC

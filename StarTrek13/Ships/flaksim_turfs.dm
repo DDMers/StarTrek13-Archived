@@ -46,3 +46,21 @@
 		user.visible_message("[src] ascends.","<span class='notice'>The lift ascends.</span>")
 	else
 		user.visible_message("[src] descends.","<span class='notice'>The lift descends</span>")
+
+/obj/structure/bed/trek
+	name = "large bed"
+	desc = "This is used to lie in, sleep in or strap on. It's huge!"
+	icon_state = "bed"
+	icon = 'StarTrek13/icons/trek/oversized_beds.dmi'
+	anchored = TRUE
+	can_buckle = TRUE
+	buckle_lying = TRUE
+	resistance_flags = FLAMMABLE
+	max_integrity = 100
+	integrity_failure = 30
+
+/obj/structure/table/optable/trek
+	name = "medical bed"
+	icon = 'StarTrek13/icons/trek/oversized_beds.dmi'
+	desc = "For patient restraint, recovery and rest, it's extra spacious!"
+	icon_state = "medbay"

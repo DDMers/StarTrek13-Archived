@@ -59,8 +59,8 @@
 //Begin shipsystems!//
 
 /datum/shipsystem
-	var/integrity = 30000 //Will be a percentage, if this drops too low the shipsystem will fail, affecting the ship. EG sensors going down means goodbye sight for the pilot of the ship.
-	var/max_integrity = 30000 //maximum susbsytem health, so that I can do percentage calculations.
+	var/integrity = 20000 //Will be a percentage, if this drops too low the shipsystem will fail, affecting the ship. EG sensors going down means goodbye sight for the pilot of the ship.
+	var/max_integrity = 20000 //maximum susbsytem health, so that I can do percentage calculations.
 	var/power_draw = 0 //Not used yet
 	var/overclock = 0 //Overclock a shipsystem to get better performance, at a higher power draw. Numbers pending warp core and power code
 	var/efficiency = 40 //as a percent, we take our desired effect, such as weapons power, and divide it by this, so a 600 damage rated phaser would be 600*40%, so 40% of 600, in other words; 240 damage. You'll want to be overclocking tbh.
@@ -76,6 +76,7 @@
 	var/icon_state
 	var/power_modifier = 1 //How much of the allocated power do we have?
 	var/heat_loss_bonus = 0
+	var/voiceline
 
 /datum/shipsystem/New()
 	. = ..()
@@ -100,7 +101,6 @@
 		if(heat)
 			integrity -= heat
 		if(integrity <= 5000) //Subsystems will autofail when they're this fucked
-			failed = TRUE
 			fail()
 			//So stop processing
 		if(overclock > 0) //Drain power.
@@ -110,6 +110,9 @@
 			failed = FALSE
 
 /datum/shipsystem/proc/fail()
+	if(!failed) //captain they've disabled our warp engines (x55)
+		if(voiceline)
+			controller.theship.weapons.voiceline(voiceline)
 	failed = TRUE
 	for(var/obj/structure/shipsystem_console/T in linked_objects)
 		T.fail()
@@ -142,6 +145,7 @@
 	var/fire_delay = 2 //2 seconds to fully recharge the  phasers, to prevent spam
 	var/times_fired = 0 //times fired without letting them fully charge
 	icon_state = "weapons"
+	voiceline = "phasers"
 
 
 //	theship.damage = 0	//R/HMMM
@@ -163,30 +167,22 @@
 	chargeRate = initial(chargeRate)
 	var/counter = 0
 	var/temp = 0
-	if(istype(controller.theship, /obj/structure/overmap/ship/fighter))
-		chargeRate = 100
-		fire_cost = 150
-		return TRUE
 	for(var/PS in controller.theship.linked_ship)
-		if(istype(PS, /obj/machinery/power/ship/phaser))
-			var/obj/machinery/power/ship/phaser/P = PS
+		if(istype(PS, /obj/machinery/ship/phaser))
+			var/obj/machinery/ship/phaser/P = PS
 			chargeRate += P.charge_rate
 			damage += P.damage
 			fire_cost += P.fire_cost
 			counter ++
 			temp = P.charge
-	maths_damage = damage
-	maths_damage -= round(max_charge - charge)/2 //Damage drops off heavily if you don't let them charge
-	damage = maths_damage
 	max_charge += counter*temp //To avoid it dropping to 0 on update, so then the charge spikes to maximum due to process()
-	damage = damage+(200*power_modifier)
 	chargeRate = chargeRate*power_modifier
+	return damage
 
 /datum/shipsystem/weapons/process()
-	. = ..()
+	charge += chargeRate
 	if(charge < 0)
 		charge = 0
-	charge += chargeRate
 	heat -= 30
 	if(integrity > max_integrity)
 		integrity = max_integrity
@@ -197,43 +193,29 @@
 	if(heat)
 		integrity -= heat
 	if(integrity <= 2000) //Subsystems will autofail when they're this fucked
-		failed = 1
 		fail()
-		//So stop processing
-	if(overclock > 0) //Drain power.
-		power_draw += overclock //again, need power stats to fiddle with.
+	. = ..()
+
+/datum/shipsystem/weapons/proc/gimp_damage()
+	return (max_charge-charge)/5
 
 /datum/shipsystem/weapons/proc/attempt_fire(var/firemode)
 	if(!failed)
 		if(istype(controller.theship, /obj/structure/overmap/ship/AI))
 			if(charge >= fire_cost)
-				return 1
+				return TRUE
 		if(controller.theship.fire_mode == 1)
 			if(charge >= fire_cost || charge > 0)
-				if(world.time < nextfire) //Spam blocker! spam your phasers and expect shit damage.
-					var/quickmafs = world.time - nextfire
-					times_fired ++
-					maths_damage = damage
-					maths_damage -= round(max_charge - charge)/1.5 //Damage drops off heavily if you don't let them charge
+				if(damage > 0)
 					charge -= fire_cost
-					heat += (fire_cost/30) //And a bit more heat for being spammy
-					maths_damage -= quickmafs * 1000 //Phasers take 2 seconds to become fully effective again, if you spam them that's fine but the damage will get fucking MERC'D //Eg, 2 seconds * 200 -> -400 damage
-					damage = maths_damage
-					return 1
+					return TRUE
 				else
-					nextfire = world.time + fire_delay
-					maths_damage = damage
-					maths_damage -= round(max_charge - charge)/1.5 //Damage drops off heavily if you don't let them charge
-					damage = maths_damage
-					charge -= fire_cost
-					heat += (fire_cost/30)
-					return 1
+					return FALSE
 		else
-			return 1 //We already check photon numbers in the actual ship procs, this is to check if we can fire.
+			return TRUE //We already check photon numbers in the actual ship procs, this is to check if we can fire.
 	else
 		to_chat(controller.theship.pilot, "<span class='userdanger'>CRITICAL SYSTEM FAILURE: The [name] subsystem has failed.</span>")
 		return 0
-
 
 /datum/shipsystem/sensors
 	power_draw = 0//just so it's not an empty type TBH.
@@ -246,8 +228,8 @@
 	icon_state = "engines"
 	var/charge = 0
 	var/max_charge = 7000 //This should NickVr proof warping rather nicely :)
-	var/chargeRate = 10000 //TESTING, i'm making power dictated by the powernet soon
-
+	var/chargeRate = 400 //Warp coils drain all the powernet power, this is to prevent infinite spams, and infinite cloaks.
+	voiceline = "warpengines"
 
 /datum/shipsystem/engines/proc/try_warp() //You can't warp if your engines are down
 	controller.theship.can_move = initial(controller.theship.can_move)
@@ -261,7 +243,6 @@
 			return 1
 
 /datum/shipsystem/engines/process()
-	. = ..()
 	if(charge < max_charge)
 		charge += chargeRate
 	if(integrity > max_integrity)
@@ -272,9 +253,7 @@
 		integrity -= heat
 	if(integrity <= 4000) //This equates to the engine being visibly shot off
 		controller.theship.max_speed = initial(controller.theship.max_speed)*0.4
-		return
 		if(integrity <= 0)
-			failed = 1
 			controller.theship.max_speed = 0
 			fail()
 			controller.theship.can_move = FALSE
@@ -285,6 +264,7 @@
 		power_draw += overclock //again, need power stats to fiddle with.
 	if(controller.theship)
 		controller.theship.can_move = TRUE
+	. = ..()
 
 /datum/shipsystem/integrity
 	name = "hull plates"
@@ -307,24 +287,30 @@
 	var/obj/structure/ship_component/capbooster/boosters = list()
 	icon_state = "shields"
 	var/chargeRate = 500 // per tick
-	var/health = 30000
-	var/max_health = 30000 //This will become shield health, integrity is subsystem integrity
+	var/health = 25000
+	var/max_health = 40000 //This will become shield health, integrity is subsystem integrity
 	integrity = 20000
 	max_integrity = 20000
 	var/max_integrity_bonus = 0 //From capboosters
 	var/toggled = FALSE //Shieldgencode, Ship.dm
+	voiceline = "shieldsinteg"
 
 /datum/shipsystem/shields/fail() //Failed as in subsystem has failed, can no longer generate shields
-	..()
+	. = ..()
 	for(var/obj/machinery/space_battle/shield_generator/S in linked_generators)
 		for(var/obj/effect/adv_shield/S2 in S.shields)
 			S2.deactivate()
 			S2.active = FALSE
-//	controller.theship.shields_active = FALSE
 	health = 0
-	failed = TRUE
 
 /datum/shipsystem/shields/process()
+	if(controller)
+		if(controller.theship)
+			if(controller.theship.generator)
+				chargeRate = controller.theship.generator.chargerate
+			if(controller.theship.generator)
+				if(!controller.theship.generator.powered())
+					health = 0
 	if(!failed && toggled)
 		health += chargeRate*power_modifier
 		heat -= heat_loss_bonus
@@ -437,6 +423,10 @@
 
 /obj/structure/subsystem_monitor/examine(mob/user)
 	. = ..()
+	if(!subsystem || !our_ship)
+		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+		our_ship = W.theship
+		get_ship()
 	to_chat(user, "Status of: [subsystem.name] subsystem: Integrity: [subsystem.integrity] Heat: [subsystem.heat] Current overclock factor: [subsystem.overclock]")
 
 /obj/structure/subsystem_monitor/weapons
@@ -487,6 +477,9 @@
 	health -= severity*10
 
 /obj/structure/ship_component/process()
+	if(!chosen || !our_ship)
+		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+		our_ship = W.theship
 	var/area/A = get_area(src)
 	if(A.requires_power) //BE SURE TO CHANGE THIS WHEN WE ADD SHIP POWER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		active = FALSE
@@ -566,6 +559,9 @@
 
 /obj/structure/ship_component/capbooster/examine(mob/user)
 	. = ..()
+	if(!chosen)
+		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+		our_ship = W.theship
 	if(active)
 		to_chat(user, "It is active")
 	else
@@ -583,6 +579,7 @@
 	var/open = FALSE
 	var/obj/effect/panel_overlay/cover = new
 	var/powered = TRUE //Used for repairs, replace me with bitflags asap.
+	var/voiceline = "shields"
 
 /obj/structure/subsystem_panel/proc/check_ship()
 	var/area/a = get_area(src) //If you're making a new subsystem panel, copy this and change vvvvv
@@ -597,26 +594,24 @@
 	desc = "A breaker box housing an ODN relay which bridges the ship's power-grid to the weapons subsystem"
 	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
 	icon_state = "subsystem_panel"
+	voiceline = "phasers"
 
 /obj/structure/subsystem_panel/weapons/check_ship()
-	var/area/a = get_area(src)
-	for(var/obj/structure/fluff/helm/desk/tactical/T in a)
-		var/obj/structure/overmap/S = T.theship
-		if(T.theship)
-			chosen = S.SC.weapons
+	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+	if(W.theship && W.theship.SC && W.theship.SC.weapons)
+		chosen = W.theship.SC.weapons
 
 /obj/structure/subsystem_panel/engines		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!
 	name = "ODN Relay (engines)"
 	desc = "A breaker box housing an ODN relay which bridges the ship's power-grid to the engines subsystem"
 	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
 	icon_state = "subsystem_panel"
+	voiceline = "warpengines"
 
 /obj/structure/subsystem_panel/engines/check_ship()
-	var/area/a = get_area(src)
-	for(var/obj/structure/fluff/helm/desk/tactical/T in a)
-		var/obj/structure/overmap/S = T.theship
-		if(T.theship)
-			chosen = S.SC.engines
+	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+	if(W.theship && W.theship.SC && W.theship.SC.engines)
+		chosen = W.theship.SC.engines
 
 /*
 	var/state = 1
@@ -634,9 +629,13 @@
 	START_PROCESSING(SSobj,src)
 
 /obj/structure/subsystem_panel/process()
+	if(!chosen)
+		check_ship()
 	check_overlays()
 
 /obj/structure/subsystem_panel/attack_hand(mob/user)
+	if(!chosen)
+		check_ship()
 	switch(open)
 		if(TRUE)
 			cut_overlays()
@@ -653,7 +652,7 @@
 	check_overlays()
 
 /obj/structure/subsystem_panel/attackby(obj/item/I, mob/user)
-	if(chosen.integrity < chosen.max_integrity)
+	if(chosen)
 		if(open)
 			if(istype(I, /obj/item/wirecutters) && powered)
 				to_chat(user, "You are deactivating the [chosen] subsystem for repair, this will avoid shocks but the ship's [chosen] will be down until you're done.")
@@ -672,12 +671,13 @@
 						chosen.heat = 0
 						START_PROCESSING(SSobj, chosen)
 						powered = TRUE
+						our_ship.weapons.voiceline(voiceline)
 					else
 						to_chat(user, "You accidentally slip with your [I] and rupture a plasma conduit! sending a huge arc of charged plasma into the air!")
 						var/turf/t = get_turf(src)
 						t.atmos_spawn_air("plasma=30;TEMP=5000")
 						tesla_zap(src, 5, 30000) //That'll seriously fuck things up.
-						chosen.failed = TRUE
+						chosen.fail()
 						chosen.integrity -= 2000 //You seriously fucked up
 						powered = TRUE
 						START_PROCESSING(SSobj, chosen)
@@ -691,11 +691,9 @@
 						chosen.failed = FALSE
 						powered = TRUE
 						START_PROCESSING(SSobj, chosen)
+						our_ship.weapons.voiceline(voiceline)
 		if(!open)
 			to_chat(user, "Try opening [src]'s panel first")
-	else
-		to_chat(user, "The [chosen] subsystem is fully operational, [src]'s circuits aren't fried, so why repair it?")
-		powered = TRUE
 
 /obj/effect/panel_overlay
 	name = "subsystem panel cover"

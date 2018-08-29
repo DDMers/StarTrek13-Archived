@@ -72,7 +72,7 @@
 	if(ears)
 		ears.minimumDeafTicks(value)
 
-
+/*
 /obj/item/organ/ears/cat
 	name = "cat ears"
 	icon = 'icons/obj/clothing/hats.dmi'
@@ -94,3 +94,4 @@
 		H.dna.features["ears"] = "None"
 		H.dna.species.mutant_bodyparts -= "ears"
 		H.update_body()
+*/ //fuck off with that /tg/ ~Kmc

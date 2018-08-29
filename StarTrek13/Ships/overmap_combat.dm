@@ -192,50 +192,104 @@
 		locked = null
 		qdel(progbar)
 
-/obj/structure/overmap/proc/attempt_fire()
-	update_weapons()
-	if(wrecked)
+
+/mob/living/carbon/canMobMousedown(atom/object, location, params)
+	. = ..()
+	if(istype(src.loc, /obj/structure/overmap))
+		var/obj/structure/overmap/o = loc
+		. = o
+
+
+/obj/structure/overmap
+	var/firinginprogress = FALSE //are we shooting something by holding our mouse down?
+
+/obj/structure/overmap/proc/onMouseDown(object, location, params, mob/mob)
+	if(object == src)
 		return
+	if(istype(object, /obj/screen) && !istype(object, /obj/screen/click_catcher))
+		return
+	if(istype(object, /obj/structure/overmap))
+		target_ship = object
+	if((object in pilot.contents) || (object == mob))
+		return
+	firinginprogress = TRUE
+	damage = SC.weapons.update_weapons()
+
+/obj/structure/overmap/proc/onMouseDrag(src_object, over_object, src_location, over_location, params, mob)
+	return
+
+/obj/structure/overmap/proc/onMouseUp(object, location, params, mob/M)
+	damage = SC.weapons.update_weapons()
+	firinginprogress = FALSE
+	firecount = 0
+	qdel(current_beam) //Aka finish the attack, and ready the SFX for another one. This saves my eardrums :b1:
+	current_beam = null
+
+/obj/structure/overmap/fire(obj/structure/overmap/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
+	if(wrecked)
+		return 0
+	if(cloaked)
+		return 0
+	if(target)
+		if(isOVERMAP(target))
+			target.agressor = src
+	return TRUE
+
+/obj/structure/overmap
+	var/firecount  = 0
+
+/obj/structure/overmap/proc/attempt_fire()
+	if(prob(20))
+		update_weapons()
+	if(wrecked)
+		firinginprogress = FALSE
+		return
+	if(SC.weapons.damage <= 0)
+		to_chat(pilot, "<span_class = 'warning'>Weapon systems are depowered!</span>")
+		firinginprogress = FALSE
+		return FALSE
 	var/obj/structure/overmap/S = target_ship
 	if(target_ship)
 		target_ship.agressor = src
 	switch(fire_mode)
 		if(FIRE_PHASER)
 			if(SC.weapons.attempt_fire())
-				if(target_ship && locked == target_ship) //Is the locked target the one we're clicking?
-					var/source = get_turf(src)
-					S.take_damage(SC.weapons.damage,1)
+				var/source = get_turf(src)
+				if(!current_beam)
+					current_beam = new(source,target_ship,time=1000,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+					var/chosen_sound = pick(soundlist)
+					playsound(src,chosen_sound,100,1)
+					SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
+					to_chat(pilot, "You successfully hit [S]")
 					var/list/L = list()
 					if(S.linked_ship)
 						var/area/thearea = S.linked_ship
 						for(var/turf/T in get_area_turfs(thearea.type))
 							L+=T
 					in_use1 = 0
-					var/chosen_sound = pick(soundlist)
-					playsound(src,chosen_sound,100,1)
-					SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
-					SC.weapons.charge -= SC.weapons.fire_cost
-					current_beam = new(source,target_ship,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
-					to_chat(pilot, "You successfully hit [S]")
-					target_ship.take_damage(damage)
 					spawn(0)
 						current_beam.Start()
-					return
+				current_beam.origin = src
+				damage = SC.weapons.update_weapons()
+				damage -= SC.weapons.gimp_damage()
+				S.take_damage(damage, TRUE)
+				return TRUE
 		if(FIRE_PHOTON)
 			if(photons > 0)
-				if(target_ship && locked == target_ship)
-					photons --
-					var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)
-					A.starting = loc
-					A.preparePixelProjectile(target_ship,pilot)
-					A.pixel_x = rand(0, 5)
-					A.fire()
-					playsound(src,'StarTrek13/sound/borg/machines/torpedo1.ogg',100,1)
-					sleep(1)
-					A.pixel_x = target_ship.pixel_x
-					A.pixel_y = target_ship.pixel_y
+				photons --
+				var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)
+				A.starting = loc
+				A.preparePixelProjectile(target_ship,pilot)
+				A.pixel_x = rand(0, 5)
+				A.fire()
+				playsound(src,'StarTrek13/sound/borg/machines/torpedo1.ogg',100,1)
+				sleep(1)
+				A.pixel_x = target_ship.pixel_x
+				A.pixel_y = target_ship.pixel_y
+				return TRUE
 			else
 				to_chat(pilot, "No photon torpedoes remain.")
+				return FALSE
 
 #undef TINY
 #undef SMALL
@@ -307,7 +361,7 @@
 
 /obj/structure/photon_torpedo
 	name = "photon torpedo"
-	desc = "A casing for a powerful explosive, I wouldn't touch it if I were you..."
+	desc = "A casing for a powerful explosive, you can AltClick it to set it to detonate after a set time."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "torpedo"
 	anchored = FALSE
@@ -319,7 +373,9 @@
 	var/timing = FALSE
 	//var/obj/structure/torpedo_launcher/launcher
 
-/obj/structure/photon_torpedo/AltClick(mob/user)
+/obj/structure/photon_torpedo/AltClick(mob/living/user)
+	if(!iscarbon(user) || user.stat == DEAD)
+		return
 	if(!timing)
 		var/mode = input("Arm the torpedo?.", "Are you sure?")in list("yes","no")
 		if(mode == "yes")
@@ -332,7 +388,7 @@
 				to_chat(user, "You set [src] to detonate in [timer/10] seconds")
 				desc += "Its trigger is set for a delayed detonation of [timer] seconds!"
 				addtimer(CALLBACK(src, .proc/force_explode), timer)
-		else
+		if(mode == "no" || !mode)
 			return 0
 	else
 		to_chat(user, "It's already been primed, throw it out an airlock!")

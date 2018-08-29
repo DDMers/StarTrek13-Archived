@@ -1,5 +1,5 @@
 /obj/structure/weapons_console
-	name = "Tactical console"
+	name = "Weapons console"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "weapons"
 	var/active = FALSE
@@ -17,7 +17,7 @@
 
 /obj/structure/weapons_console/defiant
 	icon = 'StarTrek13/icons/trek/defianttactical.dmi'
-	name = "weapons station"
+	name = "Weapons console"
 	icon_state = "weapons"
 
 /obj/structure/helm/desk/functional/defiant
@@ -26,7 +26,7 @@
 	name = "shields station"
 
 /obj/structure/weapons_console/romulan
-	name = "Tactical console"
+	name = "Weapons console"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "rom-weapons"
 
@@ -55,8 +55,9 @@
 
 /obj/structure/weapons_console/Topic(href, href_list) //For some reason, S is null
 	..()
-	//var/client/user = locate(href_list["clicker"])
 	var/mob/living/carbon/human/user = locate(href_list["clicker"])
+	if(user.canUseTopic(src))
+		updateUsrDialog()
 	if(user in orange(1, src))
 	//	var/obj/structure/overmap/ship/S = locate(href_list["target"])
 		var/mob/living/carbon/human/L = locate(href_list["clicker"])
@@ -75,8 +76,6 @@
 
 
 /obj/structure/weapons_console/attack_hand(mob/user)
-	if(winget(user,"Weapons control","is-visible") == "false")
-		target = null
 	if(!target)
 		var/list/L = list()
 		for(var/obj/structure/overmap/OM in get_area(our_ship))
@@ -87,13 +86,7 @@
 		if(!V)
 			return
 	if(user in orange(1, src))
-		for(var/obj/structure/overmap/ship/s in theicons)
-			qdel(s)
-		theicons = list()
 		var/s = ""
-		ships = list()
-		for(var/obj/structure/overmap/D in get_area(our_ship)) //having to get close to ships was too irritating.
-			ships += D
 		subsystem = our_ship.SC.weapons
 		damage = subsystem.damage
 		heat = subsystem.heat
@@ -116,17 +109,15 @@
 				thing = "Active"
 			s += "Target subsystem health: [our_ship.target_subsystem.integrity] / [our_ship.target_subsystem.max_integrity] | Status: [thing]<BR>"
 		if(target)
-			s += "[icon2html(target.icon, user, target.icon_state, EAST)]<BR>"
+			s += "[icon2html(target.icon, user, target.icon_state)]<BR>"
 		if(target)
 			for(var/datum/shipsystem/S in target.SC.systems)
-				ss += "<A href='?src=\ref[src];system=\ref[S];clicker=\ref[user]'>[icon2html(S.icon, user, S.icon_state, SOUTH)]</A>" //Subsystem icon things done by FTL, modified slightly be me
+				ss += "<A href='?src=\ref[src];system=\ref[S];clicker=\ref[user];display: inline-block'>[icon2html(S.icon, user, S.icon_state, SOUTH)]</A>" //Subsystem icon things done by FTL, modified slightly be me
 			s += ss
 		var/datum/browser/popup = new(user, "Weapons control", name, 550, 550)
 		popup.set_content(s)
 		popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
 		popup.open()
-		if(user.canUseTopic(src))
-			addtimer(CALLBACK(src,/atom/proc/attack_hand, user), 20)
 	else
 		user = null
 		return

@@ -47,7 +47,7 @@
 			<BR>
 			<A href='?src=[REF(src)];[HrefToken()];secrets=virus'>Trigger a Virus Outbreak</A><BR>
 			<A href='?src=[REF(src)];[HrefToken()];secrets=monkey'>Turn all humans into monkeys</A><BR>
-			<A href='?src=[REF(src)];[HrefToken()];secrets=anime'>Chinese Cartoons</A><BR>
+
 			<A href='?src=[REF(src)];[HrefToken()];secrets=allspecies'>Change the species of all humans</A><BR>
 			<A href='?src=[REF(src)];[HrefToken()];secrets=power'>Make all areas powered</A><BR>
 			<A href='?src=[REF(src)];[HrefToken()];secrets=unpower'>Make all areas unpowered</A><BR>
@@ -380,46 +380,6 @@
 			for(var/obj/machinery/light/L in GLOB.machines)
 				L.break_light_tube()
 
-		if("anime")
-			if(!check_rights(R_FUN))
-				return
-			var/animetype = alert("Would you like to have the clothes be changed?",,"Yes","No","Cancel")
-
-			var/droptype
-			if(animetype =="Yes")
-				droptype = alert("Make the uniforms Nodrop?",,"Yes","No","Cancel")
-
-			if(animetype == "Cancel" || droptype == "Cancel")
-				return
-			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Chinese Cartoons"))
-			message_admins("[key_name_admin(usr)] made everything kawaii.")
-			for(var/mob/living/carbon/human/H in GLOB.carbon_list)
-				SEND_SOUND(H, sound('sound/ai/animes.ogg'))
-
-				if(H.dna.species.id == "human")
-					if(H.dna.features["tail_human"] == "None" || H.dna.features["ears"] == "None")
-						var/obj/item/organ/ears/cat/ears = new
-						var/obj/item/organ/tail/cat/tail = new
-						ears.Insert(H, drop_if_replaced=FALSE)
-						tail.Insert(H, drop_if_replaced=FALSE)
-					var/list/honorifics = list("[MALE]" = list("kun"), "[FEMALE]" = list("chan","tan"), "[NEUTER]" = list("san")) //John Robust -> Robust-kun
-					var/list/names = splittext(H.real_name," ")
-					var/forename = names.len > 1 ? names[2] : names[1]
-					var/newname = "[forename]-[pick(honorifics["[H.gender]"])]"
-					H.fully_replace_character_name(H.real_name,newname)
-					H.update_mutant_bodyparts()
-					if(animetype == "Yes")
-						var/seifuku = pick(typesof(/obj/item/clothing/under/schoolgirl))
-						var/obj/item/clothing/under/schoolgirl/I = new seifuku
-						var/olduniform = H.w_uniform
-						H.temporarilyRemoveItemFromInventory(H.w_uniform, TRUE, FALSE)
-						H.equip_to_slot_or_del(I, SLOT_W_UNIFORM)
-						qdel(olduniform)
-						if(droptype == "Yes")
-							I.item_flags |= NODROP
-				else
-					to_chat(H, "You're not kawaii enough for this.")
-
 		if("whiteout")
 			if(!check_rights(R_FUN))
 				return
@@ -563,20 +523,6 @@
 			if(!check_rights(R_ADMIN))
 				return
 			toggle_all_ctf(usr)
-		if("masspurrbation")
-			if(!check_rights(R_FUN))
-				return
-			mass_purrbation()
-			message_admins("[key_name_admin(usr)] has put everyone on \
-				purrbation!")
-			log_admin("[key_name(usr)] has put everyone on purrbation.")
-		if("massremovepurrbation")
-			if(!check_rights(R_FUN))
-				return
-			mass_remove_purrbation()
-			message_admins("[key_name_admin(usr)] has removed everyone from \
-				purrbation.")
-			log_admin("[key_name(usr)] has removed everyone from purrbation.")
 
 		if("flipmovement")
 			if(!check_rights(R_FUN))

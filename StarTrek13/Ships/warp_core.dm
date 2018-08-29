@@ -50,8 +50,8 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/datum/looping_sound/trek/engine_hum/soundloop
 	var/obj/item/dilithium_crystal/crystal
 	var/obj/machinery/atmospherics/components/binary/pump/outlet
-	var/matter = 50 //give the engis a little time to set everything up before all power dies
-	var/antimatter = 50
+	var/matter = 150 //give the engis a little time to set everything up before all power dies
+	var/antimatter = 150
 	var/anihilation_rate = 0 //how powerful is this reaction ? (matter : antimatter balance)
 	var/containment = 100 //How strong is the containment field? only way to fix this is replacing the isolinear chips inside it
 	var/breaching = FALSE //Is the core about to die?
@@ -60,6 +60,8 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/obj/structure/overmap/ship
 	var/WF = "impulse" //Text representation of our maximum warp.
 	var/power = 0
+	var/stored_cochranes = 0
+
 
 /obj/machinery/power/warpcore/massive
 	name = "high powered warp core"
@@ -95,14 +97,16 @@ Antimatter tank, if this is ever fucked with it'll explode
 	if(!outlet)
 		CheckPipes()
 	get_warp_factor()
-	for(var/obj/structure/warp_storage/WS in get_area(src))
-		if(WS.matter)
+	var/obj/structure/warp_storage/WS = locate(/obj/structure/warp_storage) in(get_area(src))
+	if(WS.matter)
+		var/math = WS.matter - WS.flow_rate
+		if(math) //Math sucks! xx---x-XD!
 			WS.matter -= WS.flow_rate
 			matter += WS.flow_rate
-	for(var/obj/structure/antimatter_storage/AS in get_area(src))
-		if(AS.antimatter)
-			AS.antimatter -= AS.flow_rate
-			antimatter += AS.flow_rate
+	var/obj/structure/antimatter_storage/AS = locate(/obj/structure/antimatter_storage) in(get_area(src))
+	if(AS.antimatter)
+		AS.antimatter -= AS.flow_rate
+		antimatter += AS.flow_rate
 	if(containment < 10)
 		breach()
 	if(crystal) //The crystal balances the matter stream with the antimatter stream, if you don't have the crystal, the reaction becomes inert over time.
@@ -129,49 +133,52 @@ Antimatter tank, if this is ever fucked with it'll explode
 			soundloop = new(list(src), TRUE)
 		if(world.time >= saved_time + cooldown2)
 			saved_time = world.time
-			for(var/MM in get_area(src))
-				var/mob/M = MM
-				SEND_SOUND(M, ambience)
+			var/mob/MM = locate(/mob) in(get_area(src))  //this may break stuff
+			SEND_SOUND(MM, ambience)
 	else
 		qdel(soundloop)
 
 /obj/machinery/power/warpcore/proc/get_warp_factor()
 	var/cochranes = 0
+	if(!ship)
+		var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/fluff/helm/desk/tactical) in get_area(src)
+		ship = AA.theship
 	for(var/obj/machinery/power/warp_coil/WC in get_area(src))
 		cochranes += WC.cochranes
-	if(cochranes < WARP_1)
-		WF = "sublight travel"
-		ship.max_warp = 1
-	if(cochranes >WARP_1)
-		WF = "warp 1"
-		ship.max_warp = 3
-	if(cochranes >WARP_2)
-		WF = "warp 2"
-		ship.max_warp = 5
-	if(cochranes >WARP_3)
-		WF = "warp 3"
-		ship.max_warp = 7
-	if(cochranes >WARP_4)
-		WF = "warp 4"
-		ship.max_warp = 9
-	if(cochranes >WARP_5)
-		WF = "warp 5"
-		ship.max_warp = 11
-	if(cochranes >WARP_6)
-		WF = "warp 6"
-		ship.max_warp = 13
-	if(cochranes >WARP_7)
-		WF = "warp 7"
-		ship.max_warp = 20
-	if(cochranes >WARP_8)
-		WF = "warp 8"
-		ship.max_warp = 30
-	if(cochranes >WARP_9)
-		WF = "warp 9"
-		ship.max_warp = 35
-	if(cochranes >WARP_10)
-		WF = "warp 9.999999999996"
-		ship.max_warp = 37 //REALLY hard to do
+	if(ship)
+		if(cochranes < WARP_1)
+			WF = "sublight travel"
+			ship.max_warp = 1
+		if(cochranes >WARP_1)
+			WF = "warp 1"
+			ship.max_warp = 3
+		if(cochranes >WARP_2)
+			WF = "warp 2"
+			ship.max_warp = 5
+		if(cochranes >WARP_3)
+			WF = "warp 3"
+			ship.max_warp = 7
+		if(cochranes >WARP_4)
+			WF = "warp 4"
+			ship.max_warp = 9
+		if(cochranes >WARP_5)
+			WF = "warp 5"
+			ship.max_warp = 11
+		if(cochranes >WARP_6)
+			WF = "warp 6"
+			ship.max_warp = 13
+		if(cochranes >WARP_7)
+			WF = "warp 7"
+			ship.max_warp = 20
+		if(cochranes >WARP_8)
+			WF = "warp 8"
+			ship.max_warp = 30
+		if(cochranes >WARP_9)
+			WF = "warp 9"
+			ship.max_warp = 35
+		if(cochranes >WARP_10)
+			WF = "warp 9.999999999996"
+			ship.max_warp = 37 //REALLY hard to do
 
 /obj/structure/warp_storage
 	name = "Deuterium storage tank"
@@ -181,20 +188,20 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/matter = 5000 //You'll need to refuel every now and then with highly toxic deuterium cells.
 	var/max_matter = 5000
 	var/flow_rate = 0 //Transfer it how fast?
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //STOP BREAKING MEEE
+	anchored = TRUE
 
 /obj/structure/warp_storage/examine(mob/user)
 	. = ..()
 	to_chat(user, "It has [matter] L  stored, with a max of [max_matter]")
 
-/obj/structure/warp_storage/attack_hand(mob/user) //replace this with a tool!
-	var/t = input(user,"Set fuel transfer rate", "Deuterium Storage Tank") as num
-	if(t)
-		flow_rate = t
-
-/obj/structure/antimatter_storage/attack_hand(mob/user) //replace this with a tool!
-	var/t = input(user,"Set fuel transfer rate", "Deuterium Storage Tank") as num
-	if(t) //No negative numbers!
-		flow_rate = t
+/obj/structure/warp_storage/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/wrench))
+		to_chat(user, "You start to tweak [src]'s flow controls...")
+		if(I.use_tool(src, user, 40, volume=100))
+			var/t = input(user,"Set fuel transfer rate", "Deuterium Storage Tank") as num
+			if(t) //No negative numbers!
+				flow_rate = t
 
 /obj/structure/antimatter_storage
 	name = "Anti-Deuterium storage tank"
@@ -204,6 +211,16 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/antimatter = 5000 //You'll need to refuel every now and then with highly toxic deuterium cells.
 	var/max_antimatter = 5000
 	var/flow_rate = 0 //Transfer it how fast?
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //STOP BREAKING MEEE
+	anchored = TRUE
+
+/obj/structure/antimatter_storage/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/wrench))
+		to_chat(user, "You start to tweak [src]'s flow controls...")
+		if(I.use_tool(src, user, 40, volume=100))
+			var/t = input(user,"Set fuel transfer rate", "Anti-Deuterium Storage Tank") as num
+			if(t) //No negative numbers!
+				flow_rate = t
 
 /obj/structure/antimatter_storage/examine(mob/user)
 	. = ..()
@@ -225,7 +242,6 @@ Antimatter tank, if this is ever fucked with it'll explode
 		say("Success: Outlet pump registered as [outlet].")
 		return TRUE
 	else
-		say("Error: No outlet pump could be found!")
 		return FALSE
 
 /obj/machinery/power/warpcore/Initialize(timeofday)

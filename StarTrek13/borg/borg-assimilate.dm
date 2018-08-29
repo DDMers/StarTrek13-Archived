@@ -3,10 +3,13 @@
 #define MODE_BUILD 3
 
 /mob/living/carbon/human/proc/make_borg()
-	var/obj/item/organ/borgNanites/biglongtube = new
-	biglongtube.Insert(src)
+	var/obj/item/organ/borgNanites/F = locate(/obj/item/organ/borgNanites) in(internal_organs)
+	if(!F) //no doublenanites
+		var/obj/item/organ/borgNanites/biglongtube = new(src)
+		biglongtube.Insert(src)
+		biglongtube.forceMove(src)
 	skin_tone = "albino"
-	to_chat(src, "We are the borg. You are not fully upgraded. Find a conversion suite.")
+	to_chat(src, "<span_class='warning'>We have been assimilated! We should find a conversion suite to augment ourselves. All other drones are to be obeyed, all past lives and memories are forgotten.</span>")
 	if(!(src in SSfaction.borg_hivemind.borgs))
 		SSfaction.borg_hivemind.borgs += src //They're in the collective, but need the conversion table for all their upgrades like the tool etc.
 	dna.species.species_traits |= TRAIT_NOCLONE
@@ -15,6 +18,7 @@
 	dna.species.species_traits |= TRAIT_NOGUNS
 	dna.species.species_traits |= TRAIT_NOBREATH
 	dna.species.species_traits |= TRAIT_RESISTCOLD
+	dna.species.species_traits |= TRAIT_NOHUNGER
 	mind.special_role = "Borg-Drone" //Placing this last so that it only runtimes after completion, so you can convert AFK mobs
 	eye_color = "red"
 	underwear = "Nude"
@@ -35,6 +39,7 @@
 	dna.species.species_traits -= TRAIT_NOGUNS
 	dna.species.species_traits -= TRAIT_NOBREATH
 	dna.species.species_traits -= TRAIT_RESISTCOLD
+	dna.species.species_traits -= TRAIT_NOHUNGER
 	unequip_everything()
 	mind.special_role = null
 
@@ -58,6 +63,9 @@
 	var/resource_cost = 10
 	var/building = FALSE //We building summ't? if so stop trying to break things and spam it
 
+/obj/item/borg_tool/examine(mob/user)
+	. = ..()
+	to_chat(user, "it has [resource_amount] units of resources stored, with a construction cost of [resource_cost] units per structure built")
 
 /obj/item/borg_tool/attackby(obj/item/stack/I, mob/user)
 	if(istype(I, /obj/item/stack))
@@ -141,18 +149,17 @@
 						to_chat(M, "<span class='warning'>[user] pierces you with two long probosces!</span>")
 						playsound(I.loc, 'sound/effects/megascream.ogg', 50, 1, -1)
 						if(do_after(user, 50, target = M)) //5 seconds
-							var/obj/item/organ/borgNanites/biglongtube = new(M)
-							biglongtube.Insert(M)
 							M.skin_tone = "albino"
 							M.update_body()
 							M.make_borg()
 							return
 			else if(istype(I, /turf/open))
-				var/turf/open/A = I
-				to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
-				if(do_after(user, convert_time, target = A))
-					A.ChangeTurf(/turf/open/floor/borg)
-					resource_amount += 5
+				if(!istype(I, /turf/open/floor/borg))
+					var/turf/open/A = I
+					to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
+					if(do_after(user, convert_time, target = A))
+						A.ChangeTurf(/turf/open/floor/borg)
+						resource_amount += 5
 			else if(istype(I, /turf/closed/wall))
 				if(!istype(I, /turf/closed/indestructible))
 					if(istype(I, /turf/closed/wall/borg)) //convert wall to door
@@ -169,7 +176,9 @@
 						to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
 						var/turf/closed/wall/A = I
 						if(do_after(user, convert_time, target = A))
+							var/storedd = A.dir //for directional walls
 							A.ChangeTurf(/turf/closed/wall/borg)
+							A.dir = storedd
 							resource_amount += 5
 			else if(istype(I, /obj/machinery/door/airlock) && !istype(I, /obj/machinery/door/airlock/borg))
 				var/obj/machinery/door/airlock/G = I
@@ -224,12 +233,35 @@
 	removing_airlock = FALSE
 
 /obj/item/organ/borgNanites //Remove the organ, sever the collective.
-	name = "Hivemind receiver"
+	name = "Central processor uplink"
 	desc = "As borg technology grew, the demands on the host did too, thus this central processor was born, in parts to help manage the drone's implants, as well as allowing it to contact the collective."
 	var/charge = 0
 	var/max_charge = 1000
 	var/augmented = FALSE //Are they a fully fledged, augmented drone?
 	var/datum/action/innate/message_collective/message_action = new
+	var/state = 0 //State of modification
+	icon_state = "implant-nanites"
+
+/obj/item/organ/borgNanites/examine(mob/user)
+	..()
+	var/datum/skill/skill = user.skills.getskill("construction and maintenance")
+	if(skill.value < 4)
+		to_chat(user, "<span class='info'><b>Its surface crawls with several tiny specs...</b></span>")
+		return
+	to_chat(user, "<span class='info'><b>I could probably modify it with a screwdriver.</b></span>")
+	var/datum/skill/skill2 = user.skills.getskill("medicine")
+	if(skill2.value > 4)
+		to_chat(user, "<span class='info'><b>with sufficient modification, it may be able to interface with a normal human, though it may not be the best idea..</b></span>")
+		return
+
+/obj/item/organ/borgNanites/attackby(obj/item/W, mob/user) //You can modify borg nanites to replace your skeleton and make you into a borg-human hybrid. This is highly illegal.
+	var/datum/skill/skill = user.skills.getskill("construction and maintenance")
+	if(skill.value > 4)
+		if(istype(W, /obj/item/screwdriver))
+			to_chat(user, "You begin severing [src]'s subspace transmitter...")
+			if(W.use_tool(src, user, 50, volume=50))
+				to_chat(user, "[src] reacts to your changes by shifting its structure..amazing!")
+				state = TRUE
 
 /datum/action/innate/message_collective
 	name = "Message the collective"
@@ -242,6 +274,16 @@
 
 /obj/item/organ/borgNanites/Insert()
 	. = ..()
+	if(state)
+		playsound(owner.loc, 'sound/effects/megascream.ogg', 50, 1, -1)
+		owner.Jitter(35)
+		owner.adjustStaminaLoss(25)
+		owner.Knockdown(15)
+		owner.visible_message("<span_class='warning'>[owner] writhes in pain on the floor as metallic objects erupt from their skin!</span>")
+		to_chat(owner, "<span_class='warning'>You can feel your bones being torn to shreds as your skeleton is augmented by nanites!</span>")
+		owner.set_species(/datum/species/infiltrator)
+		to_chat(owner, "<span_class='warning'>You feel unnaturally strong.. You have the internals of a machine, but you retain your organs. You are NOT a borg, you have free will, despite being able to interface with borg systems.</span>")
+		return
 	for(var/obj/item/organ/borgNanites/B in owner)
 		if(B.message_action)
 			if(B != src)
@@ -263,10 +305,8 @@
 	SSfaction.borg_hivemind.message_collective(message, owner.real_name)
 
 /obj/item/organ/borgNanites/process()
-	if(charge >= max_charge)
+	if(charge > 0)
 		charge -= 1
-//	switch(charge)
-//		if(charge
 	if(owner)
 		if(!(src in owner.internal_organs))
 			to_chat(owner, "We feel our link to the collective weaken...")

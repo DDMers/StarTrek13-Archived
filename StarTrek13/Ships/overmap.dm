@@ -11,8 +11,8 @@
 	name = "generic structure"
 //	var/linked_ship = /area/ship //change me
 	var/datum/beam/current_beam = null //stations will be able to fire back, too!
-	var/health = 20000 //pending balance, 20k for now
-	var/max_health = 20000
+	var/health = 30000 //pending balance, 20k for now
+	var/max_health = 30000
 	var/obj/machinery/space_battle/shield_generator/generator
 	var/obj/structure/fluff/helm/desk/tactical/weapons
 	var/shield_health = 1050 //How much health do the shields have left, for UI type stuff and icon_states
@@ -76,18 +76,20 @@
 	var/datum/action/innate/redalert/redalert_action = new
 	var/datum/action/innate/autopilot/autopilot_action = new
 	var/datum/action/innate/weaponswitch/weaponswitch = new
+	var/datum/action/innate/shieldtoggle/shieldtoggle_action = new
 	var/obj/structure/ship_component/components = list()
 	var/list/destinations = list()
 	var/obj/effect/landmark/warp_beacon/target_beacon
 	var/pilot_skill_req = 5
 	var/wrecked = FALSE
-	var/obj/effect/landmark/runaboutdock/docks = list()
+	var/list/docks = list()
 	var/true_name = null //For respawning
 	var/faction = null //Are we a faction's ship? if so, when we blow up, DEDUCT EXPENSES
 	var/cost = 8000 //How much does this ship cost to replace?
 	var/cloaked = FALSE
 	var/stored_name //used in cloaking code to restore ship names
 	var/max_warp = 0 //Dictated by the warp core
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //no throwing acid on spaceships!
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -239,7 +241,7 @@
 //	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
-	max_health = 40000
+	max_health = 50000
 	pixel_z = -128
 	pixel_w = -120
 	turnspeed = 0.7 //It's still quite small for its class
@@ -251,7 +253,7 @@
 	icon_state = "excelsior"
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
-	max_health = 30000
+	max_health = 40000
 	pixel_z = -128
 	pixel_w = -120
 	faction = "starfleet"
@@ -334,7 +336,7 @@
 	pixel_x = -32
 	pixel_y = -32
 	health = 8000
-	max_health = 15000
+	max_health = 25000
 	vehicle_move_delay = 2
 	warp_capable = TRUE
 	turnspeed = 3
@@ -349,8 +351,8 @@
 	icon_state = "defiant"
 	icon = 'StarTrek13/icons/trek/large_ships/defiant.dmi'
 	spawn_name = "ship_spawn"
-	health = 15000
-	max_health = 15000
+	health = 25000
+	max_health = 25000
 	warp_capable = TRUE
 	turnspeed = 2.7
 	pixel_collision_size_x = 48
@@ -421,48 +423,43 @@
 //	var/datum/action/innate/mecha/strafe/strafing_action = new
 
 /obj/structure/overmap/proc/linkto()	//weapons etc. don't link!
-	for(var/TT in linked_ship)
-		if(istype(TT, /obj/structure/fluff/helm/desk/tactical))
-			var/obj/structure/fluff/helm/desk/tactical/T = TT
-			weapons = T
-			T.theship = src
-	for(var/obj/machinery/space_battle/shield_generator/G in linked_ship)
-		generator = G
-		G.ship = src
-		var/obj/structure/overmap/ship/S = src
-		S.SC.shields.linked_generators += G
-		G.shield_system = S.SC.shields
-	for(var/obj/machinery/computer/camera_advanced/transporter_control/T in linked_ship)
-		transporters += T
-	for(var/obj/structure/overmap/ship/fighter/F in linked_ship)
-		F.carrier_ship = src
-		if(!F in fighters)
-			fighters += F
-	for(var/obj/structure/fluff/helm/desk/functional/F in linked_ship)
-		F.our_ship = src
-		F.get_ship()
-	for(var/obj/structure/subsystem_monitor/M in linked_ship)
-		M.our_ship = src
-		M.get_ship()
-	for(var/obj/structure/viewscreen/V in linked_ship)
-		V.our_ship = src
-	for(var/obj/structure/weapons_console/WC in linked_ship)
-		WC.our_ship = src
-	for(var/obj/structure/overmap/ship/runabout/R in linked_ship)
-		R.carrier = src
-	for(var/obj/effect/landmark/runaboutdock/SS in linked_ship)
-		docks += SS
-	for(var/obj/structure/subsystem_panel/PP in linked_ship)
-		PP.check_ship()
-		PP.check_overlays()
-	for(var/CD in linked_ship)
-		if(istype(CD, /obj/structure/cloaking_device))
-			var/obj/structure/cloaking_device/CC = CD
-			CC.theship = src
-	for(var/WP in linked_ship)
-		if(istype(WP, /obj/machinery/power/warpcore))
-			var/obj/machinery/power/warpcore/WW = WP
-			WW.ship = src
+	if(!weapons)
+		weapons = locate(/obj/structure/fluff/helm/desk/tactical) in(linked_ship) //why the hell did I think using for loops for everything was ever a good idea :blobthinking:
+		weapons.theship = src
+	if(!generator)
+		generator = locate(/obj/machinery/space_battle/shield_generator) in(linked_ship)
+		generator.ship = src
+		SC.shields.linked_generators += generator
+		generator.shield_system = SC.shields
+	var/obj/machinery/computer/camera_advanced/transporter_control/TT = locate(/obj/machinery/computer/camera_advanced/transporter_control) in(linked_ship)
+	if(TT)
+		transporters += TT
+	var/obj/structure/hailing_console/HC = locate(/obj/structure/hailing_console) in(linked_ship)
+	if(HC)
+		comms = HC
+		HC.theship = src
+	var/obj/structure/fluff/helm/desk/functional/FF = locate(/obj/structure/fluff/helm/desk/functional) in(linked_ship)
+	if(FF)
+		FF.our_ship = src
+		FF.get_ship()
+	var/obj/structure/subsystem_monitor/M = locate(/obj/structure/subsystem_monitor) in(linked_ship)
+	M.our_ship = src
+	M.get_ship()
+	var/obj/structure/viewscreen/V = locate(/obj/structure/viewscreen) in(linked_ship)
+	V.our_ship = src
+	var/obj/structure/weapons_console/WC = locate(/obj/structure/weapons_console) in(linked_ship)
+	WC.our_ship = src
+	var/obj/structure/subsystem_panel/PP = locate(/obj/structure/subsystem_panel) in(linked_ship)
+	PP.check_ship()
+	PP.check_overlays()
+	var/obj/machinery/cloaking_device/CD = locate(/obj/machinery/cloaking_device) in(linked_ship)
+	if(CD)
+		CD.theship = src
+	var/obj/machinery/power/warpcore/WP = locate(/obj/machinery/power/warpcore) in(linked_ship)
+	WP.ship = src
+	var/obj/structure/overmap/ship/fighter/F = locate(/obj/structure/overmap/ship/fighter) in(linked_ship) //put the ones that arent on every ship LAST or it breaks things!
+	F.carrier_ship = src
+	fighters += F
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	SC.weapons.update_weapons()
@@ -487,7 +484,14 @@
 	duration = 10
 
 /obj/structure/overmap/take_damage(amount, var/override)
-	playsound(src,'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg',100,1)
+	var/before = 0
+	before = health
+	var/after = 0
+	after = health - amount
+	if(before < after) //if it'd stain to be healed by a shot, kill it
+		return 0
+	if(prob(30))
+		playsound(src,'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg',100,1)
 	if(wrecked)
 		return 0
 	var/obj/structure/overmap/source = agressor
@@ -503,7 +507,7 @@
 			if(4)
 				visible_message("<span class='warning'>Warp plasma vents from [name]'s engines!</span>")
 			if(5)
-				visible_message("<span class='warning'>A beam tears across [name]'s hull!</span>")
+				visible_message("<spanR class='warning'>A beam tears across [name]'s hull!</span>")
 			if(6)
 				visible_message("<span class='warning'>[name]'s hull is scorched!</span>")
 	if(override)
@@ -518,7 +522,7 @@
 			SC.shields.health -= amount*heat_multi
 			if(source)
 				if(source.target_subsystem)
-					source.target_subsystem.integrity -= (amount)/5 //Shields absorbs most of the damage
+					source.target_subsystem.integrity -= (amount)/3 //Shields absorbs most of the damage
 				apply_damage(amount)
 				return//no shields are up! take the hit
 		else
@@ -543,7 +547,7 @@
 			s.start() //make a better overlay effect or something, this is for testing
 			if(source)
 				if(source.target_subsystem)
-					source.target_subsystem.integrity -= (amount)/5 //Shields absorbs most of the damage
+					source.target_subsystem.integrity -= (amount)/3 //Shields absorbs most of the damage
 				apply_damage(amount)
 				return//no shields are up! take the hit
 		if(SC.hull_integrity.failed)
@@ -555,7 +559,7 @@
 						source.target_subsystem = null
 						apply_damage(amount)
 						return
-					source.target_subsystem.integrity -= (amount)/1.5 //No shields, fry that system
+					source.target_subsystem.integrity -= (amount) //No shields, fry that system ~Kmc: I nerfed weapon damages, so this had to be buffed again
 					source.target_subsystem.heat += amount/10 //Heat for good measure :)
 					var/quickmaths = amount/2 //Halves the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
 					health -= quickmaths
@@ -595,15 +599,6 @@
 /obj/structure/overmap/CtrlClick(mob/user)
 	if(pilot == user)
 		set_nav_target(user)
-
-/obj/structure/overmap/ShiftClick(mob/user)
-	if(user != pilot) //No hailing yourself, please
-		var/obj/structure/overmap/ship/sender = user.loc
-		var/message = stripped_input(user,"Communications.","Send Hail")
-		if(!message)
-			return
-		hail(message, null , sender, src)
-		return
 
 /obj/structure/overmap/proc/update_turrets()
 	return
@@ -682,12 +677,13 @@
 		charge = max_charge
 //	parallax_update() //Need this to be on SUPERSPEED or it'll look awful
 
-/obj/structure/overmap/AltClick(mob/user)
+/obj/structure/overmap/proc/switch_mode(mob/user)
 	if(user == pilot)
 		switch(fire_mode)
 			if(1)
 				fire_mode = 2
 				to_chat(pilot, "You'll now fire photons")
+				weapons.voiceline("photon")
 			if(2)
 				fire_mode = 1
 				to_chat(pilot, "You'll now fire phasers")
@@ -698,6 +694,9 @@
 	//	START_PROCESSING(SSfastprocess,src)
 	if(!initial(can_move))
 		return // :(
+	if(nav_target in orange(src, 2))
+		nav_target = null
+		navigating = FALSE
 	update_turrets()
 	if(world.time < next_vehicle_move)
 		return 0
@@ -847,7 +846,10 @@
 	if(agressor)
 		agressor.target_subsystem = null
 		agressor.target_ship = null
-		to_chat(agressor.pilot, "Target destroyed")
+		if(agressor.weapons)
+			agressor.weapons.voiceline("targetdead")
+		if(agressor.pilot)
+			to_chat(agressor.pilot, "Target destroyed")
 	var/thesound = pick(ship_damage_ambience) //blowing up noises
 	for(var/obj/structure/overmap/L in orange(30, src))
 		var/obj/structure/overmap/O = L
@@ -879,6 +881,9 @@
 				for(var/datum/shipsystem/F in SC.systems)
 					qdel(F)
 				wreck.true_name = true_name
+				wreck.linked_ship = linked_ship
+				wreck.weapons = weapons
+				wreck.announcedanger()
 				qdel(SC)
 				qdel(src)
 

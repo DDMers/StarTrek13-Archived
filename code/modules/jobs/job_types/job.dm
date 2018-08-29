@@ -85,7 +85,6 @@
 		if(H.dna.species.id != "human")
 			H.set_species(/datum/species/human)
 			H.rename_self("human", H.client)
-		purrbation_remove(H, silent=TRUE)
 
 	//Equip the rest of the gear
 	H.dna.species.before_equip_job(src, H, visualsOnly)

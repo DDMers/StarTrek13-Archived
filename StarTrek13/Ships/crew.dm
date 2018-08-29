@@ -85,6 +85,9 @@
 /obj/effect/landmark/crewstart
 	name = "sovereign class heavy cruiser"
 
+/obj/effect/landmark/crewstart/nerd
+	name = "uss woolfe research outpost"
+
 /obj/effect/landmark/crewstart/defiant
 	name = "defiant class warship"
 
@@ -98,16 +101,24 @@
 /datum/crew/sovereign
 	name = "sovereign class heavy cruiser"
 	priority = MED
+	faction = "starfleet"
 
 /datum/crew/cruiser
 	name = "defiant class warship"
 	priority = LOW
 	max_crewmen = 6
+	faction = "starfleet"
 
 /datum/crew/romulan
 	name = "dderidex class warbird"
 	priority = HIGH
 	faction = "romulan empire"
+
+/datum/crew/nerds
+	name = "uss woolfe research outpost"
+	priority = LOW
+	faction = "starfleet"
+	max_crewmen = 6
 
 #undef LOW
 #undef MED

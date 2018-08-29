@@ -27,8 +27,6 @@
 		user.adjustFireLoss(-3)
 		if(user.stat == DEAD)
 			user.updatehealth() // Previous "adjust" procs don't update health, so we do it manually.
-			user.visible_message("<span class='notice'>[src]Pings: Resuscitation successful.</span>")
-			playsound(src, 'sound/machines/defib_success.ogg', 50, 0)
 			user.set_heartattack(FALSE)
 			user.revive()
 

@@ -79,6 +79,9 @@
 	icon_state = "viewscreen_mini"
 
 /obj/structure/viewscreen/examine(mob/user)
+	if(!our_ship)
+		var/obj/structure/fluff/helm/desk/tactical/F = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
+		our_ship = F.theship
 	var/area/A = get_area(our_ship)
 	A.Entered(user)
 	if(isliving(user))

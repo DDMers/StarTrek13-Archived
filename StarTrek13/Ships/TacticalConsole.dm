@@ -26,6 +26,20 @@
 	var/starmapUI
 	var/datum/looping_sound/trek/bridge/soundloop
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //it's very bad if this dies
+	var/list/zaps = list('StarTrek13/sound/trek/ship_effects/consolehit.ogg','StarTrek13/sound/trek/ship_effects/consolehit2.ogg','StarTrek13/sound/trek/ship_effects/consolehit3.ogg','StarTrek13/sound/trek/ship_effects/consolehit4.ogg')
+	var/datum/effect_system/spark_spread/spark_system
+	flags = HEAR
+
+/obj/structure/fluff/helm/desk/tactical/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+	if(theship && theship.pilot)
+		message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
+		to_chat(theship.pilot,message)
+
+/obj/structure/fluff/helm/desk/tactical/proc/explode_effect()
+	var/sound = pick(zaps)
+	playsound(src.loc, sound, 70,1)
+	spark_system.start()
+	playsound(src.loc, 'StarTrek13/sound/borg/machines/bleep1.ogg', 100,1)
 
 /obj/structure/fluff/helm/desk/tactical/nanotrasen
 	name = "tactical"
@@ -38,6 +52,13 @@
 	desc = "Used to control all ship functions, this one looks extra sleek"
 	icon = 'StarTrek13/icons/trek/defianttactical.dmi'
 	icon_state = "tactical"
+
+
+/obj/structure/fluff/helm/desk/tactical/defiant/romulan
+	redalertsounds = list('StarTrek13/sound/borg/machines/romulanredalert.ogg')
+	cooldown2 = 50 //romulan alarm is really short
+	pixel_x = -5
+	icon_state = "rom-tactical"
 
 /obj/structure/fluff/helm/desk/tactical/alt //only use this on runabouts...please
 	icon_state = "tactical_nt_alt"
@@ -67,6 +88,9 @@
 
 /obj/structure/fluff/helm/desk/tactical/Initialize(mapload)
 	. = ..()
+	spark_system = new /datum/effect_system/spark_spread
+	spark_system.set_up(4,1,src)
+	spark_system.attach(src)
 	get_weapons()
 	get_shieldgen()
 	START_PROCESSING(SSobj,src)
@@ -86,8 +110,8 @@
 	torpedoes = list()
 	var/area/thearea = get_area(src)
 	for(var/P in thearea)
-		if(istype(P,/obj/machinery/power/ship/phaser))
-			var/obj/machinery/power/ship/phaser/PP = P
+		if(istype(P,/obj/machinery/ship/phaser))
+			var/obj/machinery/ship/phaser/PP = P
 			weapons += PP
 	for(var/T in thearea)
 		if(istype(T, /obj/structure/torpedo_launcher))
@@ -103,16 +127,14 @@
 	)
 
 /obj/structure/fluff/helm/desk/tactical/attack_hand(mob/user)
-	playsound(src.loc, 'StarTrek13/sound/borg/machines/alert2.ogg', 100,1)
 	get_weapons()
 	get_shieldgen()
 	if(!theship)
 		to_chat(user, "Your ship has been destroyed!")
 	if(!user.skills.skillcheck(user, "piloting", 5))
 		return
-
 	playsound(src.loc, 'StarTrek13/sound/borg/machines/alertbuzz.ogg', 100,1)
-	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap")
+	var/mode = input("Tactical console.", "Do what?")in list("fly ship", "remove pilot", "shield control", "red alert siren", "starmap", "announce")
 	starmapUI = "\
 	<!DOCTYPE html>\
 	<html>\
@@ -290,6 +312,28 @@
 			var/datum/asset/assets = get_asset_datum(/datum/asset/simple/starmap)
 			assets.send(user)
 			user << browse(starmapUI, "window=StarMap;size=660x420")
+		if("announce")
+			var/message = stripped_input(user,"Communications.","Send a shipwide announcement:")
+			if(!message)
+				return
+			var/announcement
+			var/sound = 'StarTrek13/sound/trek/ship_effects/bosun.ogg'
+			announcement += "<br><h2 class='alert'>Shipwide announcement:</h2>"
+			announcement += "<br><span class='alert'>[html_encode(message)]</span><br>"
+			announcement += "<br>"
+			var/list/list = list()
+			list += theship.pilot
+			for(var/mob/living/M in theship.linked_ship)
+				list += M
+			for(var/mob/O in GLOB.dead_mob_list)
+				list += O
+			var/s = sound(sound)
+			for(var/mob/M in list)
+				if(!isnewplayer(M) && M.can_hear())
+					to_chat(M, announcement)
+					if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
+						SEND_SOUND(M, s)
+
 
 /obj/structure/fluff/helm/desk/tactical/Topic(href, href_list)
 	..()

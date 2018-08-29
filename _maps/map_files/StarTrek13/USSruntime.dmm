@@ -19,7 +19,7 @@
 "s" = (/obj/structure/fluff/helm/desk/tactical{tag = "icon-desk (NORTH)"; icon_state = "desk"; dir = 1},/turf/open/floor/plating,/area/ship/test)
 "t" = (/obj/machinery/space_battle/shield_generator,/turf/open/floor/plating,/area/ship/test)
 "u" = (/obj/machinery/power/apc,/turf/closed/wall/mineral/bronze,/area/ship/test)
-"v" = (/obj/machinery/power/ship/phaser,/turf/open/floor/plating,/area/ship/test)
+"v" = (/obj/machinery/ship/phaser,/turf/open/floor/plating,/area/ship/test)
 "w" = (/obj/machinery/light{dir = 1},/turf/open/floor/plating,/area/ship/test)
 "x" = (/obj/machinery/light{dir = 8},/turf/open/floor/plating,/area/ship/test)
 "y" = (/obj/machinery/atmospherics/pipe/simple/general/visible{icon_state = "intact"; dir = 5},/turf/open/floor/plating,/area/ship/test)
