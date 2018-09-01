@@ -1046,3 +1046,6 @@
 
 /mob/living/carbon/human/species/zombie/krokodil_addict
 	race = /datum/species/krokodil_addict
+
+/mob/living/carbon/human/species/holographic
+	race = /datum/species/holographic
