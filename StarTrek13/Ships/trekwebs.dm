@@ -162,7 +162,10 @@
 	var/obj/item/circuitboard/machine/trek/phase_cannon/B = new /obj/item/circuitboard/machine/trek/phase_cannon(src)
 	B.apply_default_parts(src)
 	RefreshParts()
-
+	var/obj/structure/fluff/helm/desk/tactical/t = locate(/obj/structure/fluff/helm/desk/tactical) in get_area(src)
+	if(t)
+		var/datum/shipsystem/weapons/S = t.theship.SC.weapons
+		S.getphasers()
 
 /obj/item/generator_fan
 	name = "attachable fan"

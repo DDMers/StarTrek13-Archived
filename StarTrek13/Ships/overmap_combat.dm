@@ -199,21 +199,28 @@
 		var/obj/structure/overmap/o = loc
 		. = o
 
-
 /obj/structure/overmap
 	var/firinginprogress = FALSE //are we shooting something by holding our mouse down?
+	var/stopclickspammingshezza = 20 //2 second cooldown to prevent megalag
+	var/saved_time_fuckoff_shezza
 
 /obj/structure/overmap/proc/onMouseDown(object, location, params, mob/mob)
-	if(object == src)
-		return
-	if(istype(object, /obj/screen) && !istype(object, /obj/screen/click_catcher))
-		return
-	if(istype(object, /obj/structure/overmap))
-		target_ship = object
-	if((object in pilot.contents) || (object == mob))
-		return
-	firinginprogress = TRUE
-	damage = SC.weapons.update_weapons()
+	if(world.time >= saved_time_fuckoff_shezza + stopclickspammingshezza)
+		saved_time_fuckoff_shezza = world.time
+		if(object == src)
+			return
+		if(istype(object, /obj/screen) && !istype(object, /obj/screen/click_catcher))
+			return
+		if(istype(object, /obj/structure/overmap))
+			target_ship = object
+		if((object in pilot.contents) || (object == mob))
+			return
+		firinginprogress = TRUE
+		damage = SC.weapons.update_weapons()
+	else
+		to_chat(mob, "Weapons are recharging ! (You need to click and hold to fire)")
+		firinginprogress = FALSE
+		return 0
 
 /obj/structure/overmap/proc/onMouseDrag(src_object, over_object, src_location, over_location, params, mob)
 	return

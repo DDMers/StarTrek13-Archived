@@ -146,6 +146,20 @@
 	var/times_fired = 0 //times fired without letting them fully charge
 	icon_state = "weapons"
 	voiceline = "phasers"
+	var/list/phasers = list()
+
+/datum/shipsystem/weapons/New()
+	. = ..()
+	if(controller)
+		getphasers()
+
+/datum/shipsystem/weapons/proc/getphasers()
+	phasers = list()
+	for(var/PS in controller.theship.linked_ship)
+		if(istype(PS, /obj/machinery/ship/phaser))
+			var/obj/machinery/ship/phaser/P = PS
+			if(P)
+				phasers += P
 
 
 //	theship.damage = 0	//R/HMMM
@@ -154,6 +168,8 @@
 //	theship.phaser_charge_rate = 0
 
 /datum/shipsystem/weapons/proc/update_weapons()
+	if(!phasers.len)
+		getphasers()
 	if(istype(controller.theship, /obj/structure/overmap/ship/AI))
 		var/obj/structure/overmap/ship/AI/theship2 = controller.theship
 		damage = theship2.dam
@@ -167,14 +183,13 @@
 	chargeRate = initial(chargeRate)
 	var/counter = 0
 	var/temp = 0
-	for(var/PS in controller.theship.linked_ship)
-		if(istype(PS, /obj/machinery/ship/phaser))
-			var/obj/machinery/ship/phaser/P = PS
-			chargeRate += P.charge_rate
-			damage += P.damage
-			fire_cost += P.fire_cost
-			counter ++
-			temp = P.charge
+	for(var/obj/machinery/ship/phaser/PS in phasers)
+		var/obj/machinery/ship/phaser/P = PS
+		chargeRate += P.charge_rate
+		damage += P.damage
+		fire_cost += P.fire_cost
+		counter ++
+		temp = P.charge
 	max_charge += counter*temp //To avoid it dropping to 0 on update, so then the charge spikes to maximum due to process()
 	chargeRate = chargeRate*power_modifier
 	return damage
