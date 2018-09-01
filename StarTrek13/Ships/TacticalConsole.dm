@@ -53,6 +53,10 @@
 	icon = 'StarTrek13/icons/trek/defianttactical.dmi'
 	icon_state = "tactical"
 
+/obj/structure/fluff/helm/desk/tactical/galaxy
+	name = "Helm"
+	icon_state = "galaxytac"
+
 
 /obj/structure/fluff/helm/desk/tactical/defiant/romulan
 	redalertsounds = list('StarTrek13/sound/borg/machines/romulanredalert.ogg')

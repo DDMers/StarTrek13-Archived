@@ -246,6 +246,19 @@
 	pixel_w = -120
 	turnspeed = 0.7 //It's still quite small for its class
 	cost = 20000
+	var/datum/crew/sovereign/crew = new
+
+/obj/structure/overmap/ship/federation_capitalclass/galaxy
+	name = "galaxy"
+	icon = 'StarTrek13/icons/trek/large_ships/galaxy.dmi'
+	icon_state = "galaxy"
+	warp_capable = TRUE
+	max_health = 35000
+	pixel_z = -128
+	pixel_w = -120
+	turnspeed = 0.6 //The galaxy is fucking massive
+	cost = 20000
+	var/datum/crew/galaxy/crew = new
 
 /obj/structure/overmap/ship/cruiser
 	name = "USS Excelsior"
@@ -327,6 +340,7 @@
 	icon = 'StarTrek13/icons/trek/large_overmap.dmi'
 	icon_state = "research"
 	spawn_name = "research_spawn"
+	var/datum/crew/nerds/crew = new
 
 /obj/structure/overmap/ship/target //dummy for testing woo
 	name = "miranda"
@@ -360,6 +374,7 @@
 	max_speed = 3
 	faction = "starfleet"
 	cost = 7000
+	var/datum/crew/cruiser/crew = new
 
 /obj/structure/overmap/ship/nanotrasen
 	name = "NSV Muffin"

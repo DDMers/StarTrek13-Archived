@@ -5,6 +5,13 @@
 	smooth = FALSE
 	icon = 'StarTrek13/icons/trek/flaksim_walls.dmi'
 
+/turf/closed/wall/trek/galaxy
+	name = "Starship hull"
+	desc = "It's like something out of star trek!"
+	smooth = FALSE
+	icon = 'StarTrek13/icons/trek/flaksim_walls.dmi'
+	icon_state = "galaxy"
+
 /obj/structure/window/specialtrek
 	name = "Starship viewport"
 	icon = 'StarTrek13/icons/trek/flaksim_walls.dmi'
@@ -24,6 +31,16 @@
 	icon = 'StarTrek13/icons/trek/flaksim_walls.dmi'
 	icon_state = "hallway"
 	CanAtmosPass = FALSE
+
+/turf/open/floor/hallway/galaxy
+	icon_state = "galaxyhall"
+
+/turf/open/floor/trek
+	name = "space carpet"
+	desc = "the merits of a static charge generating material for flooring on a highly sensitive starship is questionable, but can you question that threadcount?"
+	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "bluetrek"
 
 /obj/structure/ladder/unbreakable/lift
 	name = "turbolift"

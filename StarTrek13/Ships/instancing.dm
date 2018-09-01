@@ -84,6 +84,10 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	name = "defiant"
 	mappath = "_maps/templates/StarTrek13/defiant.dmm"
 
+/datum/map_template/ship/galaxy
+	name = "galaxy"
+	mappath = "_maps/templates/StarTrek13/galaxy.dmm"
+
 /datum/map_template/ship/romulan
 	name = "dderidex"
 	mappath = "_maps/templates/StarTrek13/dderidex.dmm"
@@ -107,6 +111,11 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	name = "Ship spawning warp beacon"
 	desc = "Spawns new ships!"
 	templatename = "defiant"
+
+/obj/effect/landmark/ShipSpawner/galaxy
+	name = "Ship spawning warp beacon"
+	desc = "Spawns new ships!"
+	templatename = "galaxy"
 
 /obj/effect/landmark/ShipSpawner/proc/load()
 	if(!loading)

@@ -327,6 +327,13 @@
 	density = 1
 	blocks_air = 1
 
+/turf/open/bridge_overlay/galaxy
+	icon = 'StarTrek13/icons/trek/galaxy_bridge_overlay.png'
+	name = "floor"
+	density = 1
+	blocks_air = 1
+
+
 /turf/open/bridge_overlay/defiant
 	icon = 'StarTrek13/icons/trek/bridge_defiant_overlay.PNG'
 	name = "bridge"

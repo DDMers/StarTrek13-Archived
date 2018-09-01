@@ -173,6 +173,10 @@ var/global/list/global_ship_list = list()
 	name = "USS Sovereign"
 	icon_state = "ship"
 
+/area/ship/federation/galaxy
+	name = "USS Galaxy"
+	icon_state = "ship"
+
 /area/ship/borg_freighter
 
 

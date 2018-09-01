@@ -27,10 +27,6 @@ SUBSYSTEM_DEF(faction)
 	borg_hivemind = new
 	if(!factions)
 		WARNING("No factions have been created!")
-	for(var/F in subtypesof(/datum/crew))
-		var/datum/crew/crew = F
-		var/datum/crew/instance = new crew
-		crews += instance
 	InitToolNames()
 	. = ..()
 

@@ -50,6 +50,10 @@
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "rom-shields"
 
+/obj/structure/hailing_console/galaxy
+	icon = 'StarTrek13/icons/trek/star_trek.dmi'
+	icon_state = "galaxycom"
+
 /obj/structure/hailing_console/Initialize()
 	. = ..()
 	var/obj/structure/fluff/helm/desk/tactical/weapons = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src)) //why the hell did I think using for loops for everything was ever a good idea :blobthinking:

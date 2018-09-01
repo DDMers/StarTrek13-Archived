@@ -96,6 +96,7 @@ Antimatter tank, if this is ever fucked with it'll explode
 /obj/machinery/power/warpcore/process()
 	if(!outlet)
 		CheckPipes()
+		return
 	get_warp_factor()
 	var/obj/structure/warp_storage/WS = locate(/obj/structure/warp_storage) in(get_area(src))
 	if(WS.matter)
@@ -242,6 +243,7 @@ Antimatter tank, if this is ever fucked with it'll explode
 		say("Success: Outlet pump registered as [outlet].")
 		return TRUE
 	else
+		outlet = locate(/obj/machinery/atmospherics/components/binary/pump) in loc
 		return FALSE
 
 /obj/machinery/power/warpcore/Initialize(timeofday)

@@ -103,6 +103,10 @@
 	priority = MED
 	faction = "starfleet"
 
+/datum/crew/galaxy
+	name = "galaxy class cruiser"
+	faction = "starfleet"
+
 /datum/crew/cruiser
 	name = "defiant class warship"
 	priority = LOW

@@ -13,6 +13,7 @@
 	faction = "romulan empire"
 	cost = 10000
 	soundlist = ('StarTrek13/sound/borg/machines/disruptor.ogg')
+	var/datum/crew/romulan/crew = new
 
 /obj/structure/overmap/ship/romulan/attempt_fire()
 	update_weapons()
