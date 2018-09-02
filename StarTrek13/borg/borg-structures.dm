@@ -25,10 +25,17 @@
 	if(user)
 		user.adjustBruteLoss(-3)
 		user.adjustFireLoss(-3)
+		user.adjustOxyLoss(-3)
+		if(user.nutrition <= NUTRITION_LEVEL_HUNGRY)
+			user.nutrition = NUTRITION_LEVEL_WELL_FED
+			to_chat(user, "Caloric deficiency detected! - Replenishing energy stores.")
 		if(user.stat == DEAD)
 			user.updatehealth() // Previous "adjust" procs don't update health, so we do it manually.
 			user.set_heartattack(FALSE)
 			user.revive()
+			user.adjustBruteLoss(-20) //give them a real kick so they do actually revive
+			user.adjustFireLoss(-20)
+			user.adjustOxyLoss(-20)
 
 	if(world.time >= saved_time2 + cooldown2)
 		saved_time2 = world.time

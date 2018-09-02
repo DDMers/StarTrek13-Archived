@@ -80,7 +80,7 @@
 "bB" = (/obj/structure/chair/trek/bridge{tag = "icon-bridgechair (NORTH)"; icon_state = "bridgechair"; dir = 1},/turf/open/floor/trek{icon_state = "trek3"},/area/ship/federation/galaxy)
 "bC" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/galaxy)
 "bD" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 8},/turf/open/floor/trek{icon_state = "trek3"},/area/ship/federation/galaxy)
-"bE" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/turf/open/floor/trek{icon_state = "trek3"},/area/ship/federation/galaxy)
+"bE" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/obj/effect/landmark/crewspawnermachine,/turf/open/floor/trek{icon_state = "trek3"},/area/ship/federation/galaxy)
 "bF" = (/obj/structure/special_trek_turf{pixel_x = 0},/turf/closed/wall/trek{icon_state = "black"; dir = 1},/area/ship/federation/galaxy)
 "bG" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 8},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/galaxy)
 "bH" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/turf/open/floor/borg/trek/lit{icon_state = "trek2"},/area/ship/federation/galaxy)
