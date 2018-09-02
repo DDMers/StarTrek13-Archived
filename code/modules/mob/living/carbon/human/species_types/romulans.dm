@@ -31,6 +31,13 @@
 	C.grant_language(/datum/language/romulan)
 	C.mind.language_holder.omnitongue = TRUE
 	to_chat(C, "<font size=3 color=green>You are playing a roleplay heavy race! As a Romulan, you should be distrustful of aliens with a reserved, calculated attitude.</font>")
+	if(!istype(C.player_faction, /datum/faction/romulan))
+		for(var/datum/faction/F in SSfaction.factions)
+			if(istype(F, /datum/faction/romulan))
+				C.player_faction = F
+				F.addMember(C)
+				if(C.client)
+					C.client.prefs.player_faction = F
 
 /datum/language/romulan
 	name = "romulan"

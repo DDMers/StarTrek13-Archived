@@ -17,13 +17,23 @@
 	var/datum/faction/required //What faction is this crew for? if they get autobalanced, then force them to become a member of that faction.
 	var/filled = FALSE //Stops it repeatedly filling crews.
 	var/count = 0
+	var/requiredtype = /datum/faction/starfleet
 
 /datum/crew/New()
-	for(var/datum/faction/F in SSfaction.factions)
-		if(F.name == faction)
-			required = F
-	SSfaction.crews += src
 	. = ..()
+	if(SSfaction && SSfaction.crews)
+		SSfaction.crews += src
+	addtimer(CALLBACK(src, .proc/pickthefaction), 200)
+
+/datum/crew/proc/pickthefaction()
+	for(var/datum/faction/F in SSfaction.factions)
+		if(istype(F, /datum/faction/starfleet))
+			required = F
+
+/datum/crew/romulan/pickthefaction() //kinda sucky but hey what you gonna do. Make a snowflake check like this for your crew subtype
+	for(var/datum/faction/F in SSfaction.factions)
+		if(istype(F, /datum/faction/romulan))
+			required = F
 
 /datum/crew/proc/Add(mob/M)
 	candidates += M
@@ -34,35 +44,28 @@
 	S.FillRoles()
 	S.SanityCheck()
 
-/datum/crew/proc/FillRoles()
-	if(count >= max_crewmen)
-		filled = TRUE
-		var/list/L = SSfaction.crews
-		for(var/datum/crew/ST in L)
-			if(ST.crewmen.len >= ST.max_crewmen)
-				L -= ST
-			if(ST == src)
-				L -= ST
-		var/datum/crew/nextcrew = pick(L)
-		for(var/mob/I in candidates)
-			to_chat(I, "You did not get a position on a [name], trying to slot you in aboard a [nextcrew]")
+/datum/crew/proc/addbyforce(mob/I,mob/whocanitbenow) //Two mobs because job equip code seems to make two mobs when switching the client over, so one has no client. WHO CAN IT BE NOOWWWWWW
+	if(I)
+		if(I in candidates)
 			candidates -= I
-		return 0
-	for(var/I = 0 to max_crewmen)
-		if(candidates.len)
-			var/mob/living/steve = pick(candidates)
-			candidates -= steve
-			crewmen += steve
-			to_chat(steve, "You have been posted on a [name]")
-			SendToSpawn(steve)
-			count ++
+		count ++
+		crewmen += I
+		if(whocanitbenow)
+			to_chat(whocanitbenow, "You have been posted on a [name]! If you didn't want to be here, you probably got autobalanced.")
+			SendToSpawn(I, whocanitbenow)
+		else
+			to_chat(I, "You have been posted on a [name]! If you didn't want to be here, you probably got autobalanced.")
+			SendToSpawn(I)
+
+/datum/crew/proc/FillRoles()
 	SanityCheck()
 
 
 /datum/crew/proc/SanityCheck() //Check that someone with piloting skills has spawned.
 	for(var/mob/living/M in crewmen)
-		if(M.skills.skillcheck(M, "piloting", 5))
-			return //Good, one of them has a piloting skill and can fly.
+		if(M.skills)
+			if(M.skills.skillcheck(M, "piloting", 5))
+				return //Good, one of them has a piloting skill and can fly.
 	if(crewmen.len)
 		var/mob/unluckybastard = pick(crewmen) //Nobody spawned with a piloting skill, so give someone the skill.
 		to_chat(unluckybastard, "None of your crewmates had the skills to fly a [name], you have been made the designated pilot for this ship, this overrides your normal duties. If you are unable to stay / fly the ship due to inexperience, please contact an admin immediately.")
@@ -71,16 +74,17 @@
 			if(unluckybastard)
 				to_chat(S, "<FONT color='red'>[unluckybastard] is your substitute pilot for this shift.</font>")
 
-/datum/crew/proc/SendToSpawn(mob/user)
+/datum/crew/proc/SendToSpawn(mob/user, mob/whocanitbenow)
 	for(var/obj/effect/landmark/crewstart/S in world)
 		if(S.name == name)
 			user.forceMove(S.loc)
 			to_chat(user, "<FONT color='red'><B>You have been assigned to a [name], you should not crew another ship unless explicitly ordered to do so by a higher ranking officer.</B></font>")
-			if(!istype(user.player_faction, required))
-				user.client.prefs.player_faction = null
-				to_chat(user, "You have been autobalanced to [faction]. Please contact the admins if you're unable to play this faction.")
-				required.addMember(user)
-			return
+			required.addMember(whocanitbenow)
+			required.onspawn(user)
+			if(whocanitbenow)
+				whocanitbenow.player_faction = required
+			if(whocanitbenow.client)
+				whocanitbenow.client.prefs.player_faction = required
 
 /obj/effect/landmark/crewstart
 	name = "sovereign class heavy cruiser"
@@ -117,6 +121,7 @@
 	name = "dderidex class warbird"
 	priority = HIGH
 	faction = "romulan empire"
+	requiredtype = /datum/faction/romulan
 
 /datum/crew/nerds
 	name = "uss woolfe research outpost"

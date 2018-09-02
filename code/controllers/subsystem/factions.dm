@@ -28,7 +28,39 @@ SUBSYSTEM_DEF(faction)
 	if(!factions)
 		WARNING("No factions have been created!")
 	InitToolNames()
+	for(var/datum/crew/S in crews)
+		S.pickthefaction()
 	. = ..()
+
+
+/datum/controller/subsystem/faction/proc/TryToHandleJob(mob/M, mob/whocanitbenow)
+	var/list/lister = list() //Weighted list, your choice of crew weighs in if you have one
+	var/datum/crew/mostpopulated
+	var/datum/crew/whatcrew
+	var/list/peoplemax = list()
+
+	if(M.client)
+		if(M.client.prefs.crews) //Double the chances of picking the crews you actually want.
+			for(var/datum/crew/F in M.client.prefs.crews)
+				lister += F
+	for(var/datum/crew/C in crews)
+		lister += C
+	for(var/datum/crew/FS in crews)
+		peoplemax += FS.count
+
+	var/highest = max(peoplemax)
+	for(var/datum/crew/EE in crews)
+		var/quickmath = highest - EE.count
+		if(quickmath >= 3) //MAJOR imbalance on crews there buddy :) Show those romulans some love.
+			whatcrew = EE
+			whatcrew.addbyforce(M)
+			return TRUE
+		if(EE.count >= highest)
+			mostpopulated = EE
+	lister -= mostpopulated //Sorry there pal :( lessen the chances of being in an overpopulated crew
+	whatcrew = pick(lister)
+	whatcrew.addbyforce(M,whocanitbenow)
+	return TRUE
 
 /datum/controller/subsystem/faction/proc/InitToolNames()
 	Screwdrivername = pick(GLOB.toolnames)

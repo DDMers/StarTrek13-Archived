@@ -33,7 +33,6 @@ SUBSYSTEM_DEF(job)
 /datum/controller/subsystem/job/proc/set_overflow_role(new_overflow_role)
 	var/datum/job/new_overflow = GetJob(new_overflow_role)
 	var/cap = CONFIG_GET(number/overflow_cap)
-
 	new_overflow.spawn_positions = cap
 	new_overflow.total_positions = cap
 
@@ -416,18 +415,24 @@ SUBSYSTEM_DEF(job)
 	if(job && H)
 		job.after_spawn(H, M)
 
-	H.player_faction = M.client.prefs.player_faction
-	var/obj/effect/landmark/faction_spawn/S
-	var/datum/faction/thefaction = M.client.prefs.player_faction
-	S = pick(thefaction.spawns)
-	SendToAtom(H, S, buckle = FALSE)
-	thefaction.onspawn(H)
-	SSfaction.addToFaction(M)
-	if(N.crews)
-		H.crew = pick(N.crews)
-		H.crew.Add(H)
-	else
-		H.addme()
+	SSfaction.TryToHandleJob(H, M) //Who can it be knockin at my door? go away, don't come down here no more
+
+
+//	H.player_faction = M.client.prefs.player_faction
+//	var/obj/effect/landmark/faction_spawn/S
+//	var/datum/faction/thefaction = M.client.prefs.player_faction
+//	S = pick(thefaction.spawns)
+//	SendToAtom(H, S, buckle = FALSE)
+//	else //Something fucked up, default to normal
+//		thefaction.onspawn(H)
+	//	SSfaction.addToFaction(M)
+
+//	if(N.crews)
+//		H.crew = pick(N.crews)
+//		H.crew.Add(H)
+//	else
+	//	H.crew = pick(SSfaction.crews)
+//		H.crew.Add(H)
 	return H
 
 
@@ -542,10 +547,11 @@ SUBSYSTEM_DEF(job)
 	M.forceMove(get_turf(A))
 
 /datum/controller/subsystem/job/proc/SendToLateJoin(mob/M, buckle = TRUE)
-	var/datum/faction/thefaction = M.client.prefs.player_faction
-	var/obj/effect/S = pick(thefaction.spawns)
-	SendToAtom(M, S, buckle = FALSE)
-	thefaction.onspawn(M)
+	SSfaction.TryToHandleJob(M)
+//	var/datum/faction/thefaction = M.client.prefs.player_faction
+//	var/obj/effect/S = pick(thefaction.spawns)
+//	SendToAtom(M, S, buckle = FALSE)
+//	thefaction.onspawn(M)
 
 ///////////////////////////////////
 //Keeps track of all living heads//
