@@ -33,7 +33,7 @@ SUBSYSTEM_DEF(faction)
 	. = ..()
 
 
-/datum/controller/subsystem/faction/proc/TryToHandleJob(mob/M, mob/whocanitbenow)
+/datum/controller/subsystem/faction/proc/TryToHandleJob(mob/M)
 	var/list/lister = list() //Weighted list, your choice of crew weighs in if you have one
 	var/datum/crew/mostpopulated
 	var/datum/crew/whatcrew
@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(faction)
 			mostpopulated = EE
 	lister -= mostpopulated //Sorry there pal :( lessen the chances of being in an overpopulated crew
 	whatcrew = pick(lister)
-	whatcrew.addbyforce(M,whocanitbenow)
+	whatcrew.addbyforce(M)
 	return TRUE
 
 /datum/controller/subsystem/faction/proc/InitToolNames()
@@ -81,12 +81,11 @@ SUBSYSTEM_DEF(faction)
 			if(music_controller && !music_controller.roundstarted)
 				music_controller.play()
 				music_controller.roundstarted = TRUE
-		for(var/datum/crew/S in crews)
-			if(!S.filled)
-				S.FillRoles()
 		if(!timing_jumpgates)
 			addtimer(CALLBACK(src, .proc/announce_jumpgates), 200)
 			timing_jumpgates = TRUE
+		for(var/datum/crew/S in crews)
+			S.SanityCheck()
 	if(factions)
 		return
 	else

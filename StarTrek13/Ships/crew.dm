@@ -44,27 +44,31 @@
 	S.FillRoles()
 	S.SanityCheck()
 
-/datum/crew/proc/addbyforce(mob/I,mob/whocanitbenow) //Two mobs because job equip code seems to make two mobs when switching the client over, so one has no client. WHO CAN IT BE NOOWWWWWW
+/datum/crew/proc/addbyforce(mob/I) //Two mobs because job equip code seems to make two mobs when switching the client over, so one has no client. WHO CAN IT BE NOOWWWWWW
 	if(I)
 		if(I in candidates)
 			candidates -= I
 		count ++
 		crewmen += I
-		if(whocanitbenow)
-			to_chat(whocanitbenow, "You have been posted on a [name]! If you didn't want to be here, you probably got autobalanced.")
-			SendToSpawn(I, whocanitbenow)
-		else
-			to_chat(I, "You have been posted on a [name]! If you didn't want to be here, you probably got autobalanced.")
-			SendToSpawn(I)
+		to_chat(I, "You have been posted on a [name]! If you didn't want to be here, you probably got autobalanced.")
+		SendToSpawn(I)
 
 /datum/crew/proc/FillRoles()
 	SanityCheck()
 
 
 /datum/crew/proc/SanityCheck() //Check that someone with piloting skills has spawned.
-	for(var/mob/living/M in crewmen)
+	for(var/mob/living/M in crewmen) //Check everyone's in the correct faction
+		if(!istype(M.player_faction, required.type))
+			for(var/datum/faction/F in SSfaction.factions)
+				if(istype(F, required.type))
+					M.player_faction = F
+					F.addMember(M)
+					if(M.client)
+						M.client.prefs.player_faction = F
+	for(var/mob/living/MM in crewmen) //Check that there's someone who can fly the fucker. If not, make someone who can
 		if(M.skills)
-			if(M.skills.skillcheck(M, "piloting", 5))
+			if(M.skills.skillcheck(MM, "piloting", 5, FALSE))
 				return //Good, one of them has a piloting skill and can fly.
 	if(crewmen.len)
 		var/mob/unluckybastard = pick(crewmen) //Nobody spawned with a piloting skill, so give someone the skill.
@@ -74,17 +78,12 @@
 			if(unluckybastard)
 				to_chat(S, "<FONT color='red'>[unluckybastard] is your substitute pilot for this shift.</font>")
 
-/datum/crew/proc/SendToSpawn(mob/user, mob/whocanitbenow)
+/datum/crew/proc/SendToSpawn(mob/user)
 	for(var/obj/effect/landmark/crewstart/S in world)
 		if(S.name == name)
 			user.forceMove(S.loc)
 			to_chat(user, "<FONT color='red'><B>You have been assigned to a [name], you should not crew another ship unless explicitly ordered to do so by a higher ranking officer.</B></font>")
-			required.addMember(whocanitbenow)
 			required.onspawn(user)
-			if(whocanitbenow)
-				whocanitbenow.player_faction = required
-			if(whocanitbenow.client)
-				whocanitbenow.client.prefs.player_faction = required
 
 /obj/effect/landmark/crewstart
 	name = "sovereign class heavy cruiser"
