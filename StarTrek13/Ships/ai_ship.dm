@@ -128,8 +128,9 @@
 	if(!stored_target)
 		for(var/obj/structure/overmap/S in orange(src, 5))
 			if(istype(S, /obj/structure/overmap) && !istype(S, /obj/structure/overmap/ship/AI) && !istype(S, /obj/structure/overmap/shipwreck)) //No ai megaduels JUST yet!
-				stored_target = S
-				break
+				if(!S.cloaked)
+					stored_target = S
+					break
 		return
 
 /obj/structure/overmap/ship/AI/fire(obj/structure/overmap/target) //Try to get a lock on them, the more they move, the harder this is.

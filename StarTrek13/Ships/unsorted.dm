@@ -377,6 +377,18 @@
 	if(!get_turf(M))
 		to_chat(src, "<span class='danger'>You cannot use LOOC while in nullspace. Ahelp this!</span>")
 		return FALSE
+	if(!GLOB.ooc_allowed)
+		to_chat(src, "<span class='danger'>OOC is globally muted.</span>")
+		return
+	if(!GLOB.dooc_allowed && (mob.stat == DEAD))
+		to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
+		return
+	if(prefs.muted & MUTE_OOC)
+		to_chat(src, "<span class='danger'>You cannot use LOOC or OOC (muted).</span>")
+		return
+	if(jobban_isbanned(src.mob, "OOC"))
+		to_chat(src, "<span class='danger'>You have been banned from LOOC & OOC.</span>")
+		return
 	log_talk(mob,"[key_name(src)] : [message]",LOGOOC)
 	message = emoji_parse(message)
 	to_chat(src, "<font color='#3a9696'><b>(LOOC)</b>: <b>[mob]</b> ([ckey]):[message]</font>")
