@@ -67,8 +67,8 @@
 					if(M.client)
 						M.client.prefs.player_faction = F
 	for(var/mob/living/MM in crewmen) //Check that there's someone who can fly the fucker. If not, make someone who can
-		if(M.skills)
-			if(M.skills.skillcheck(MM, "piloting", 5, FALSE))
+		if(MM.skills)
+			if(MM.skills.skillcheck(MM, "piloting", 5, FALSE))
 				return //Good, one of them has a piloting skill and can fly.
 	if(crewmen.len)
 		var/mob/unluckybastard = pick(crewmen) //Nobody spawned with a piloting skill, so give someone the skill.
