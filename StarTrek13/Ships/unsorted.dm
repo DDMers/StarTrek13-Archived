@@ -392,7 +392,7 @@
 	log_talk(mob,"[key_name(src)] : [message]",LOGOOC)
 	message = emoji_parse(message)
 	to_chat(src, "<font color='#3a9696'><b>(LOOC)</b>: <b>[mob]</b> ([ckey]):[message]</font>")
-	for(var/mob/living/MM in orange(mob, 10))
+	for(var/mob/MM in orange(mob, 10))
 		to_chat(MM, "<font color='#3a9696'><b>(LOOC)</b>: <b>[mob]</b> ([ckey]):[message]</font>")
 	for(var/mob/O in GLOB.dead_mob_list)
 		if(!O in orange(mob, 10))
