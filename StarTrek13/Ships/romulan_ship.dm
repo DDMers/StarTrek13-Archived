@@ -17,6 +17,10 @@
 
 /obj/structure/overmap/ship/romulan/attempt_fire()
 	update_weapons()
+	if(cloaked)
+		to_chat(pilot, "<span_class = 'notice'>You cannot fire whilst cloaked.</span>")
+		firinginprogress = FALSE
+		return 0
 	if(wrecked)
 		firinginprogress = FALSE
 		return
@@ -72,7 +76,8 @@
 		if(SC.engines.charge <= 100) //Engines completely drained, forcibly decloak!
 			cloak()
 		SC.engines.charge -= 150
-		SC.shields.health -= 1000 //No shields whilst cloaked
+		if(SC.shields.health)
+			SC.shields.health -= 100 //Can't run both shields and cloak now can we?
 
 
 /obj/structure/overmap/proc/cloak()

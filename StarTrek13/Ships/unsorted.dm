@@ -361,3 +361,27 @@
 /obj/machinery/suit_storage_unit/trek
 	suit_type = /obj/item/clothing/suit/space/hardsuit/trek
 	mask_type = /obj/item/clothing/mask/breath
+
+/client/verb/looc(message as text)
+	set name = "LOOC"
+	set desc = "Local OOC, seen only by those in view. Remember: Just because you see someone that doesn't mean they see you. Abuse of this will lead to a ban!"
+	set category = "OOC"
+	if(message)
+		try_looc(message)
+
+/client/proc/try_looc(var/message as text)
+	var/mob/M = mob
+	if(!M)
+		to_chat(src, "<span class='danger'>You cannot use LOOC without a mob.</span>")
+		return FALSE
+	if(!get_turf(M))
+		to_chat(src, "<span class='danger'>You cannot use LOOC while in nullspace. Ahelp this!</span>")
+		return FALSE
+	log_talk(mob,"[key_name(src)] : [message]",LOGOOC)
+	message = emoji_parse(message)
+	to_chat(src, "<font color='#3a9696'><b>(LOOC)</b>: <b>[mob]</b> ([ckey]):[message]</font>")
+	for(var/mob/living/MM in orange(mob, 10))
+		to_chat(MM, "<font color='#3a9696'><b>(LOOC)</b>: <b>[mob]</b> ([ckey]):[message]</font>")
+	for(var/mob/O in GLOB.dead_mob_list)
+		if(!O in orange(mob, 10))
+			to_chat(M, "<font color='#3a9696'><b>(LOOC)</b>: <b>[mob]</b> ([ckey]):[message]</font>")
