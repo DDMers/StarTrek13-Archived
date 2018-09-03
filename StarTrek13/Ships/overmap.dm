@@ -709,13 +709,12 @@
 	//	START_PROCESSING(SSfastprocess,src)
 	if(!initial(can_move))
 		return // :(
-	if(nav_target in orange(src, 2))
+	if(nav_target in orange(src, 3))
 		nav_target = null
 		navigating = FALSE
-	update_turrets()
-	if(world.time < next_vehicle_move)
-		return 0
-	next_vehicle_move = world.time + vehicle_move_delay
+		if(warping)
+			warping = FALSE
+			vel = 1
 	TurnTo(nav_target)
 	//	STOP_PROCESSING(SSfastprocess,src)
 	//	START_PROCESSING(SSobj, src)

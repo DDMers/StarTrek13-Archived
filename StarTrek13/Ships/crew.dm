@@ -46,12 +46,17 @@
 
 /datum/crew/proc/addbyforce(mob/I) //Two mobs because job equip code seems to make two mobs when switching the client over, so one has no client. WHO CAN IT BE NOOWWWWWW
 	if(I)
+		for(var/datum/crew/F in SSfaction.crews) //To stop endless spam like poor tpos got :(
+			if(I in F.crewmen)
+				F.count --
+				F.crewmen -= I
 		if(I in candidates)
 			candidates -= I
 		count ++
 		crewmen += I
 		to_chat(I, "You have been posted on a [name]! If you didn't want to be here, you probably got autobalanced.")
 		SendToSpawn(I)
+
 
 /datum/crew/proc/FillRoles()
 	SanityCheck()

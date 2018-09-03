@@ -32,13 +32,11 @@ SUBSYSTEM_DEF(faction)
 		S.pickthefaction()
 	. = ..()
 
-
 /datum/controller/subsystem/faction/proc/TryToHandleJob(mob/M)
 	var/list/lister = list() //Weighted list, your choice of crew weighs in if you have one
 	var/datum/crew/mostpopulated
 	var/datum/crew/whatcrew
 	var/list/peoplemax = list()
-
 	if(M.client)
 		if(M.client.prefs.crews) //Double the chances of picking the crews you actually want.
 			for(var/datum/crew/F in M.client.prefs.crews)
@@ -47,17 +45,19 @@ SUBSYSTEM_DEF(faction)
 		lister += C
 	for(var/datum/crew/FS in crews)
 		peoplemax += FS.count
-
 	var/highest = max(peoplemax)
 	for(var/datum/crew/EE in crews)
+		if(EE.count >= highest)
+			mostpopulated = EE //yeah it's the most populated so no need to add someone to it
+			if(EE in lister)
+				lister -= EE //Remove it once for the random select, but they still have a chance to spawn on that crew.
+			highest = EE.count
+			continue
 		var/quickmath = highest - EE.count
-		if(quickmath >= 3) //MAJOR imbalance on crews there buddy :) Show those romulans some love.
+		if(quickmath >= 2) //imbalance on crews there buddy :) Show those romulans some love.
 			whatcrew = EE
 			whatcrew.addbyforce(M)
 			return TRUE
-		if(EE.count >= highest)
-			mostpopulated = EE
-	lister -= mostpopulated //Sorry there pal :( lessen the chances of being in an overpopulated crew
 	whatcrew = pick(lister)
 	whatcrew.addbyforce(M)
 	return TRUE
