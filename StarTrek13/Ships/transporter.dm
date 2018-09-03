@@ -24,6 +24,31 @@
 	//var/datum/action/innate/togglelock/lock_action = new
 	//	var/turf/open/teleport_target = null
 
+/turf/closed/indestructible/transporter_block
+	name = "transporter interference"
+	desc = "Try boosting power to the annular confinement beam?"
+	alpha = 0
+
+
+/mob/camera/aiEye/remote/setLoc(T)
+	if(eye_user)
+		if(!isturf(eye_user.loc))
+			return
+		T = get_turf(T)
+		if (T)
+			if(istype(T, /turf/closed/indestructible/transporter_block)) //stop breaking my game transporter NERDS
+				return 0
+			forceMove(T)
+		else
+			moveToNullspace()
+		if(use_static)
+			GLOB.cameranet.visibility(src, GetViewerClient())
+		if(visible_icon)
+			if(eye_user.client)
+				eye_user.client.images -= user_image
+				user_image = image(icon,loc,icon_state,FLY_LAYER)
+				eye_user.client.images += user_image
+
 /obj/machinery/computer/camera_advanced/transporter_control/Initialize()
 	. = ..()
 	link_by_range()
