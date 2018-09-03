@@ -95,16 +95,7 @@
 			if("Assimilate Vessel")
 				switch(ship.assimilation_tier)
 					if(0)
-						if(stored_resources >= 200) //First one's cheap
-							icon_state = "converter-on"
-							stored_resources -= 200
-							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
-							sleep(20)
-							say("Augmentation of [ship]'s hull completed. Further assimilation will require more resources")
-							ship.assimilation_tier ++
-							ship.check_assimilation()
-					if(1)
-						if(stored_resources >= 500) //Slightly more expensive, 5 resources per turf, so 60 turfs assimilated is the required amt.
+						if(stored_resources >= 500) //First one's cheap
 							icon_state = "converter-on"
 							stored_resources -= 500
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
@@ -112,10 +103,19 @@
 							say("Augmentation of [ship]'s hull completed. Further assimilation will require more resources")
 							ship.assimilation_tier ++
 							ship.check_assimilation()
-					if(2)
-						if(stored_resources >= 800) //Once they hit this tier, they've already become REALLY dangerous, with classical borg abilities.
+					if(1)
+						if(stored_resources >= 1000) //Slightly more expensive, 5 resources per turf, so 60 turfs assimilated is the required amt.
 							icon_state = "converter-on"
-							stored_resources -= 800
+							stored_resources -= 1000
+							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
+							sleep(20)
+							say("Augmentation of [ship]'s hull completed. Further assimilation will require more resources")
+							ship.assimilation_tier ++
+							ship.check_assimilation()
+					if(2)
+						if(stored_resources >= 1500) //Once they hit this tier, they've already become REALLY dangerous, with classical borg abilities.
+							icon_state = "converter-on"
+							stored_resources -= 1500
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
 							sleep(20)
 							say("Augmentation of [ship]'s hull completed. Further assimilation will require more resources")
@@ -128,9 +128,9 @@
 							for(var/mob/M in GLOB.dead_mob_list)
 								to_chat(M, ping)
 					if(3)
-						if(stored_resources >= 1200) //The apex borg ship, once it reaches this point, it is extremely difficult to stop.
+						if(stored_resources >= 2000) //The apex borg ship, once it reaches this point, it is extremely difficult to stop.
 							icon_state = "converter-on"
-							stored_resources -= 1200
+							stored_resources -= 2000
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
 							sleep(20)
 							say("Augmentation of [ship]'s hull fully complete. No further assimilation is possible.")
