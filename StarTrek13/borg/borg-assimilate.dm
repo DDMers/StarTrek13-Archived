@@ -163,11 +163,12 @@
 					var/turf/open/A = I
 					to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
 					stopspammingturfs = TRUE
-					sleep(05)
-					stopspammingturfs = FALSE
 					if(do_after(user, convert_time, target = A))
-						A.ChangeTurf(/turf/open/floor/borg)
-						resource_amount += 5
+						for(var/turf/open/TA in orange(user,1))
+							if(!istype(TA, /turf/open/floor/borg))
+								TA.ChangeTurf(/turf/open/floor/borg)
+								resource_amount += 5
+					stopspammingturfs = FALSE
 			else if(istype(I, /turf/closed/wall))
 				if(!istype(I, /turf/closed/indestructible))
 					if(istype(I, /turf/closed/wall/borg)) //convert wall to door
@@ -180,14 +181,18 @@
 							T.electronics = new/obj/item/electronics/airlock( src.loc )
 							to_chat(user,"We have made an opening in the wall")
 					else
-						playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
-						to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
-						var/turf/closed/wall/A = I
-						if(do_after(user, convert_time, target = A))
-							var/storedd = A.dir //for directional walls
-							A.ChangeTurf(/turf/closed/wall/borg)
-							A.dir = storedd
-							resource_amount += 5
+						if(!stopspammingturfs)
+							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
+							to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
+							var/turf/closed/wall/A = I
+							stopspammingturfs = TRUE
+							sleep(05)
+							stopspammingturfs = FALSE
+							if(do_after(user, convert_time, target = A))
+								var/storedd = A.dir //for directional walls
+								A.ChangeTurf(/turf/closed/wall/borg)
+								A.dir = storedd
+								resource_amount += 5
 			else if(istype(I, /obj/machinery/door/airlock) && !istype(I, /obj/machinery/door/airlock/borg))
 				var/obj/machinery/door/airlock/G = I
 				to_chat(user,"We are assimilating [I]")
