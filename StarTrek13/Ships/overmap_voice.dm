@@ -9,12 +9,13 @@
 	if(voiceCooldown)
 		return FALSE //Spam begone!
 	for(var/mob/living/carbon/human/M in orange(src, 7))
-		if(M.mind)
-			if(M.mind.assigned_role == "captain" || M.mind.assigned_role == "admiral") //Don't want these guys sir-ing themselves
-				continue
-		if(M.gender == "male") //male voice lines coming from women characters = WEIRD
-			speaker = M
-			break
+		if(ishuman(M) && M.stat != DEAD)
+			if(M.mind)
+				if(M.mind.assigned_role == "captain" || M.mind.assigned_role == "admiral") //Don't want these guys sir-ing themselves
+					continue
+			if(M.gender == "male") //male voice lines coming from women characters = WEIRD
+				speaker = M
+				break
 	if(!what)
 		return //nothing's been said
 	var/sound

@@ -48,6 +48,8 @@
 			health = max_health
 			max_health = 100000 ///Ohhh you've really done fucked up now. This will take inter faction cooperation to take down. This equates to 10 fucking photons JUST on its hull, do you realise how fucking strong that is? DO YOU?!
 			name = "Cube 554"
+			turnspeed = 1
+			max_speed = 2
 
 /obj/machinery/borg/converter
 	name = "conversion device"
