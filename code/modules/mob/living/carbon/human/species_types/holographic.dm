@@ -5,7 +5,7 @@
 	anchored = 1
 
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "holoemitter"
+	icon_state = "enhancer"
 
 	var/mob/living/carbon/human/linked_hologram
 	var/range = 8
@@ -14,7 +14,6 @@
 	if(!linked_hologram)
 		var/I = input("Please select a hologram to activate;.", "Hologram Control") as null|anything in list("Medical", "Piloting", "security")
 		var/mob/living/carbon/human/species/holographic/H = new (loc)
-		offer_control(H)
 		switch(I)
 			if("Medical")
 				H.skills.add_skill("medical", 7)
@@ -23,8 +22,12 @@
 			if("Piloting")
 				H.skills.add_skill("piloting", 7)
 			else
+				H.death()
 				return
 		H.real_name = "Emergency [I] Hologram"
+		offer_control(H)
+		if(!H.mind || !H.client)
+			H.death()
 		H.say("Please state the nature of your [I] emergency.")
 	else
 		..()
@@ -49,8 +52,7 @@
 	breathid = "" //You don't need air, you're a hologram.
 	damage_overlay_type = ""//You're a hologram, you don't bleed.
 
-	var/obj/structure/holoemitter/linked_emitter = null
-
+	var/obj/structure/holoemitter/linked_emitter
 
 /datum/species/holographic/spec_death(gibbed, mob/living/carbon/human/H)
 	to_chat(H, "You fade away, as if never having existed. You wonder if you will be remembered.")
@@ -60,13 +62,14 @@
 /datum/species/holographic/spec_life(mob/living/carbon/human/H)
 	if(!linked_emitter)
 		for(var/obj/structure/holoemitter/E in orange(8, H))
-			linked_emitter = E
+			if(!E.linked_hologram)
+				linked_emitter = E
 		if(!linked_emitter)
 			H.death()
 			return
 		linked_emitter.linked_hologram = H
-	if(linked_emitter in orange(linked_emitter.range, H))
-		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in (get_area(H))
+	if(!locate(linked_emitter) in orange(linked_emitter.range, H))
+		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in get_area(H)
 		if(H != W.theship.pilot)
 			linked_emitter.linked_hologram = null
 			linked_emitter = null
