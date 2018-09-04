@@ -712,8 +712,7 @@
 	if(nav_target in orange(src, 3))
 		nav_target = null
 		navigating = FALSE
-		if(warping)
-			warping = FALSE
+		if(vel > 4) //AKA, if theyre gonna shoot past it like a madlad
 			vel = 1
 	TurnTo(nav_target)
 	//	STOP_PROCESSING(SSfastprocess,src)

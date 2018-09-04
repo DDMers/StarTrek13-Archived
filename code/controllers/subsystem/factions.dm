@@ -17,6 +17,7 @@ SUBSYSTEM_DEF(faction)
 	var/Crowbarname
 	var/Wirecuttername
 	var/obj/effect/landmark/music_controller/music_controllers = list()
+	var/datum/crew/most_popular
 
 /datum/controller/subsystem/faction/Initialize(timeofday)
 	for(var/F in subtypesof(/datum/faction))
@@ -33,24 +34,15 @@ SUBSYSTEM_DEF(faction)
 	. = ..()
 
 /datum/controller/subsystem/faction/proc/TryToHandleJob(mob/M)
-	var/list/lister = list() //Weighted list, your choice of crew weighs in if you have one
 	var/datum/crew/mostpopulated
 	var/datum/crew/whatcrew
 	var/list/peoplemax = list()
-	if(M.client)
-		if(M.client.prefs.crews) //Double the chances of picking the crews you actually want.
-			for(var/datum/crew/F in M.client.prefs.crews)
-				lister += F
-	for(var/datum/crew/C in crews)
-		lister += C
 	for(var/datum/crew/FS in crews)
 		peoplemax += FS.count
 	var/highest = max(peoplemax)
 	for(var/datum/crew/EE in crews)
 		if(EE.count >= highest)
 			mostpopulated = EE //yeah it's the most populated so no need to add someone to it
-			if(EE in lister)
-				lister -= EE //Remove it once for the random select, but they still have a chance to spawn on that crew.
 			highest = EE.count
 			continue
 		var/quickmath = highest - EE.count
@@ -58,8 +50,13 @@ SUBSYSTEM_DEF(faction)
 			whatcrew = EE
 			whatcrew.addbyforce(M)
 			return TRUE
-	whatcrew = pick(lister)
-	whatcrew.addbyforce(M)
+	if(prob(70))
+		whatcrew = pick(M.client.prefs.crews)
+		whatcrew.addbyforce(M)
+	else //We'll make it a generous chance to get the crew you want
+		whatcrew = pick(crews)
+		whatcrew.addbyforce(M)
+	most_popular = mostpopulated
 	return TRUE
 
 /datum/controller/subsystem/faction/proc/InitToolNames()

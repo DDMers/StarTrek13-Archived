@@ -102,10 +102,6 @@
 /obj/effect/landmark/crewstart/romulan
 	name = "dderidex class warbird"
 
-/datum/crew/New()
-	. = ..()
-	SSfaction.crews += src
-
 /datum/crew/sovereign
 	name = "sovereign class heavy cruiser"
 	priority = MED

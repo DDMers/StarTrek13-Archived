@@ -26,6 +26,16 @@
 
 /datum/species/romulan/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	addtimer(CALLBACK(src, .proc/give_language, C), 3)
+	if(C.client)
+		if(!C.client.prefs.romulan_name)
+			C.name = romulan_name()
+			C.real_name = romulan_name()
+	else//no client aka no prefs to override a randomname
+		C.name = romulan_name()
+		C.real_name = romulan_name()
+
+/datum/species/romulan/random_name()
+	return romulan_name()
 
 /datum/species/romulan/proc/give_language(mob/living/carbon/C)
 	C.grant_language(/datum/language/romulan)
