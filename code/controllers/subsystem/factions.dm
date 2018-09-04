@@ -52,8 +52,12 @@ SUBSYSTEM_DEF(faction)
 			return TRUE
 	if(prob(70))
 		if(M.client)
-			whatcrew = pick(M.client.prefs.crews)
-			whatcrew.addbyforce(M)
+			if(M.client.prefs.crews.len)
+				whatcrew = pick(M.client.prefs.crews)
+				whatcrew.addbyforce(M)
+			else
+				whatcrew = pick(crews)
+				whatcrew.addbyforce(M)
 		else
 			whatcrew = pick(crews)
 			whatcrew.addbyforce(M)
