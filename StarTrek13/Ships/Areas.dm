@@ -17,6 +17,12 @@ var/global/list/global_ship_list = list()
 /area/overmap/s2
 	name = "Sector 417543 (Neutral zone)"
 
+/area/ship/miranda
+	name = "miranda class"
+
+/area/ship/mirandaDIY
+	name = "USS Ikea Flatpack"
+
 /*E
 /area/overmap/Entered(A)
 	set waitfor = FALSE

@@ -42,7 +42,12 @@
 			health += 7000 //Get out clause, so they can run
 			max_health = 50000
 			name = "Unimatrix 554"
-
+		if(5)
+			icon = 'StarTrek13/icons/trek/large_ships/borg_cube.dmi'
+			icon_state = "cube" //fucking unit
+			health = max_health
+			max_health = 100000 ///Ohhh you've really done fucked up now. This will take inter faction cooperation to take down. This equates to 10 fucking photons JUST on its hull, do you realise how fucking strong that is? DO YOU?!
+			name = "Cube 554"
 
 /obj/machinery/borg/converter
 	name = "conversion device"
@@ -133,10 +138,26 @@
 							stored_resources -= 2000
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
 							sleep(20)
-							say("Augmentation of [ship]'s hull fully complete. No further assimilation is possible.")
+							say("Augmentation of [ship]'s hull completed. Further assimilation will require more resources")
 							ship.assimilation_tier ++
 							ship.check_assimilation()
 					if(4)
+						if(stored_resources >= 5000) //Once they hit this tier, they're unstoppable unless everyone works together to gank them.
+							icon_state = "converter-on"
+							stored_resources -= 5000
+							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
+							sleep(20)
+							say("Augmentation of [ship]'s hull completed. No further upgrades are possible.")
+							ship.assimilation_tier ++
+							ship.check_assimilation()
+							var/ping = "<font color='green' size='2'><B><i>Borg Collective: </b> <b>Hivemind Notice:</b></i>A cube has been established. Peak combat efficiency has been achieved. We are the borg.</font></span>"
+							priority_announce("ATTENTION: Massive subspace gravimetric distortion detected in [get_area(ship)]. A borg cube has been completed!", "Incoming Priority Message", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
+							for(var/mob/living/carbon/human/H in SSfaction.borg_hivemind.borgs)
+								for(var/obj/item/organ/borgNanites/B in H.internal_organs)
+									B.receive_message(ping)
+							for(var/mob/M in GLOB.dead_mob_list)
+								to_chat(M, ping)
+					if(5)
 						to_chat(user, "[ship] is already fully assimilated")
 						return
 

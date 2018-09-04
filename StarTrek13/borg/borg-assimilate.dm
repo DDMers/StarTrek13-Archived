@@ -62,6 +62,7 @@
 	var/resource_amount = 10 //Starts with a bit so you can build a structure from the get-go
 	var/resource_cost = 10
 	var/building = FALSE //We building summ't? if so stop trying to break things and spam it
+	var/stopspammingturfs = FALSE //English reported a bug where you can spam click one tile for infinite resources...say bye to that lol
 
 /obj/item/borg_tool/examine(mob/user)
 	. = ..()
@@ -80,22 +81,24 @@
 		if(CP || CA)
 			user << "<span class='danger'>[T] already has a structure on it.</span>"
 			return
-		var/mode = input("Borg construction.", "Build what?")in list("conversion suite", "borg alcove","cancel")
+		var/mode = input("Borg construction.", "Build what?")in list("conversion suite", "borg alcove","wall","cancel")
 		var/obj/structure/chair/borg/suite
 		switch(mode)
 			if("conversion suite")
 				suite = /obj/structure/chair/borg/conversion
 			if("borg alcove")
 				suite = /obj/structure/chair/borg/charging
+			if("wall")
+				suite = /turf/closed/wall/borg
 			if("cancel")
 				return
 		if(resource_amount >= resource_cost)
 			building = TRUE //stop spamming
 			to_chat(user, "<span class='danger'>We are building a structure ontop of [T].</span>")
 			if(do_after(user, convert_time, target = T)) //doesnt get past here
-				new suite(get_turf(T))
+				var/atom/newsuite = new suite(get_turf(T))
 				building = FALSE
-				to_chat(user, "We have built a [suite]")
+				to_chat(user, "We have built a [newsuite.name]")
 				resource_amount -= resource_cost
 				return
 			building = FALSE //Catch
@@ -155,11 +158,16 @@
 							return
 			else if(istype(I, /turf/open))
 				if(!istype(I, /turf/open/floor/borg))
+					if(stopspammingturfs)
+						return 0
 					var/turf/open/A = I
+					stopspammingturfs = TRUE
 					to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
 					if(do_after(user, convert_time, target = A))
 						A.ChangeTurf(/turf/open/floor/borg)
 						resource_amount += 5
+						sleep(10)
+						stopspammingturfs = FALSE
 			else if(istype(I, /turf/closed/wall))
 				if(!istype(I, /turf/closed/indestructible))
 					if(istype(I, /turf/closed/wall/borg)) //convert wall to door

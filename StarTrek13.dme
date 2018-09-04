@@ -2642,6 +2642,7 @@
 #include "StarTrek13\Ships\birds.dm"
 #include "StarTrek13\Ships\bridge_consoles.dm"
 #include "StarTrek13\Ships\clothes.dm"
+#include "StarTrek13\Ships\construction.dm"
 #include "StarTrek13\Ships\crew.dm"
 #include "StarTrek13\Ships\elevator.dm"
 #include "StarTrek13\Ships\experimental.dm"

@@ -349,16 +349,19 @@
 	spawn_name = "ship_spawn"
 	pixel_x = -32
 	pixel_y = -32
-	health = 8000
-	max_health = 25000
+	health = 15000
+	max_health = 15000
 	vehicle_move_delay = 2
 	warp_capable = TRUE
 	turnspeed = 3
 	pixel_collision_size_x = 48
 	pixel_collision_size_y = 48
-	max_speed = 3
+	max_speed = 6
 	faction = "starfleet"
 	cost = 7000
+
+/obj/structure/overmap/ship/target/diy
+	name = "flatpacked miranda"
 
 /obj/structure/overmap/ship/defiant
 	name = "defiant"
