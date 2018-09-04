@@ -161,13 +161,13 @@
 					if(stopspammingturfs)
 						return 0
 					var/turf/open/A = I
-					stopspammingturfs = TRUE
 					to_chat(user, "<span class='danger'>We are assimilating [I].</span>")
+					stopspammingturfs = TRUE
+					sleep(05)
+					stopspammingturfs = FALSE
 					if(do_after(user, convert_time, target = A))
 						A.ChangeTurf(/turf/open/floor/borg)
 						resource_amount += 5
-						sleep(10)
-						stopspammingturfs = FALSE
 			else if(istype(I, /turf/closed/wall))
 				if(!istype(I, /turf/closed/indestructible))
 					if(istype(I, /turf/closed/wall/borg)) //convert wall to door
