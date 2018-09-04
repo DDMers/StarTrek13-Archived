@@ -26,7 +26,6 @@
 				return
 		H.real_name = "Emergency [I] Hologram"
 		offer_control(H)
-//		sleep(900)
 		if(!H.mind || !H.client)
 			H.death()
 		H.say("Please state the nature of your [I] emergency.")
@@ -63,7 +62,8 @@
 /datum/species/holographic/spec_life(mob/living/carbon/human/H)
 	if(!linked_emitter)
 		for(var/obj/structure/holoemitter/E in orange(8, H))
-			linked_emitter = E
+			if(!E.linked_hologram)
+				linked_emitter = E
 		if(!linked_emitter)
 			H.death()
 			return
