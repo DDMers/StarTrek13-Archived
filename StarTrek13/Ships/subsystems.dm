@@ -306,7 +306,7 @@
 	icon_state = "shields"
 	var/chargeRate = 500 // per tick
 	var/health = 25000 //Shields start off drained
-	var/max_health = 65000 //This will become shield health, integrity is subsystem integrity ||  Buffed from 30K due to request. This will make ships a lot more robust, at 10 shield hits at sovereign damage, ignoring heat.
+	var/max_health = 40000 //This will become shield health, integrity is subsystem integrity ||  Buffed from 30K due to request. This will make ships a lot more robust, at 10 shield hits at sovereign damage, ignoring heat.
 	integrity = 20000
 	max_integrity = 20000
 	var/max_integrity_bonus = 0 //From capboosters
