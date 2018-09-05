@@ -114,7 +114,7 @@
 	hitscan = FALSE
 	name = "photon torpedo"
 	icon_state = "photon"
-	damage = 3500//Ouch!.
+	damage = 2500//Ouch!.
 
 /obj/item/projectile/beam/laser/disruptor
 	hitscan = FALSE
@@ -579,8 +579,9 @@
 						return
 					source.target_subsystem.integrity -= (amount) //No shields, fry that system ~Kmc: I nerfed weapon damages, so this had to be buffed again
 					source.target_subsystem.heat += amount/10 //Heat for good measure :)
-					var/quickmaths = amount/2 //Halves the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
-					health -= quickmaths
+					var/quickmaths = amount/5 //Fives the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
+					if(quickmaths)
+						health -= quickmaths
 					apply_damage(amount)
 					return
 			else

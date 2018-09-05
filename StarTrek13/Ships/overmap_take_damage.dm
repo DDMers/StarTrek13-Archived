@@ -53,7 +53,7 @@
 		if(prob(30))
 			weapons.explode_effect()
 			weapons.voiceline("hull")
-		if(prob(30)) //seperate gate to avoid hull and shields fighting over talk time
+		if(prob(40)) //seperate gate to avoid hull and shields fighting over talk time
 			weapons.voiceline("shieldshp")
 		if(!has_shields())
 			var/maths = 5
@@ -62,7 +62,8 @@
 					maths += 20 //Heavily increase physical damage
 			if(prob(5))
 				for(var/obj/structure/overmap/O in orange(30,src))
-					SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
+					if(O.pilot)
+						SEND_SOUND(O.pilot,'StarTrek13/sound/trek/ship_effects/farawayexplosions.ogg')
 			var/turf/open/floor/theturf1 = pick(get_area_turfs(linked_ship))
 			var/turf/open/floor/theturf = get_turf(theturf1)
 			if(prob(10+maths))

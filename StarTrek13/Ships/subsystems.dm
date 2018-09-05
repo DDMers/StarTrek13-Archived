@@ -98,8 +98,6 @@
 	if(integrity < 0)
 		integrity = 0
 	if(!failed)
-		if(heat)
-			integrity -= heat
 		if(integrity <= 5000) //Subsystems will autofail when they're this fucked
 			fail()
 			//So stop processing
@@ -215,6 +213,12 @@
 	return (max_charge-charge)/5
 
 /datum/shipsystem/weapons/proc/attempt_fire(var/firemode)
+	if(failed || integrity <= 0)
+		if(controller)
+			if(controller.theship)
+				if(controller.theship.pilot)
+					to_chat(controller.theship.pilot, "<span class='userdanger'>CRITICAL SYSTEM FAILURE: The [name] subsystem has failed.</span>")
+					return FALSE
 	if(!failed)
 		if(istype(controller.theship, /obj/structure/overmap/ship/AI))
 			if(charge >= fire_cost)
@@ -228,9 +232,7 @@
 					return FALSE
 		else
 			return TRUE //We already check photon numbers in the actual ship procs, this is to check if we can fire.
-	else
-		to_chat(controller.theship.pilot, "<span class='userdanger'>CRITICAL SYSTEM FAILURE: The [name] subsystem has failed.</span>")
-		return 0
+
 
 /datum/shipsystem/sensors
 	power_draw = 0//just so it's not an empty type TBH.
@@ -268,10 +270,11 @@
 		integrity -= heat
 	if(integrity <= 4000) //This equates to the engine being visibly shot off
 		controller.theship.max_speed = initial(controller.theship.max_speed)*0.4
-		if(integrity <= 0)
+		if(integrity <= 0 || failed)
 			controller.theship.max_speed = 0
 			fail()
 			controller.theship.can_move = FALSE
+			return
 	else
 		if(controller.theship)
 			controller.theship.max_speed = initial(controller.theship.max_speed)
@@ -293,7 +296,7 @@
 
 /datum/shipsystem/shields
 	name = "shields" //in this case, integrity is shield health. If your shields are smashed to bits, it's assumed that all the control circuits are pretty fried anyways.
-	var/breakingpoint = 500 //at 500 heat, shields will take double damage
+	var/breakingpoint = 700 //at 700 heat, shields will take double damage
 	var/heat_resistance = 50 // how much we resist gaining heat
 	power_draw = 0//just so it's not an empty type TBH.
 	var/list/obj/machinery/space_battle/shield_generator/linked_generators = list()
@@ -302,8 +305,8 @@
 	var/obj/structure/ship_component/capbooster/boosters = list()
 	icon_state = "shields"
 	var/chargeRate = 500 // per tick
-	var/health = 25000
-	var/max_health = 40000 //This will become shield health, integrity is subsystem integrity
+	var/health = 25000 //Shields start off drained
+	var/max_health = 65000 //This will become shield health, integrity is subsystem integrity ||  Buffed from 30K due to request. This will make ships a lot more robust, at 10 shield hits at sovereign damage, ignoring heat.
 	integrity = 20000
 	max_integrity = 20000
 	var/max_integrity_bonus = 0 //From capboosters
@@ -334,8 +337,7 @@
 	if(integrity < 0)
 		integrity = 0
 	health -= heat
-	integrity -= heat
-	heat -= 5
+	heat -= 10
 	max_integrity = initial(max_integrity)
 	if(integrity <= 3000)
 		fail()

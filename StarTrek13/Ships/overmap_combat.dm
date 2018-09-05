@@ -14,8 +14,8 @@
 	var/obj/structure/overmap/locked = null
 	var/locking = FALSE
 	var/fire_mode = FIRE_PHASER
-	var/photons = 3 //10 of 10 photons to start, this will link into the torpedo launcher later tm
-	var/max_photons = 3
+	var/photons = 5 //10 of 10 photons to start, this will link into the torpedo launcher later tm
+	var/max_photons = 5
 
 /mob
 	var/obj/structure/overmap/overmap_ship
@@ -266,7 +266,8 @@
 					current_beam = new(source,target_ship,time=1000,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 					var/chosen_sound = pick(soundlist)
 					playsound(src,chosen_sound,100,1)
-					SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
+					if(S.pilot)
+						SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
 					to_chat(pilot, "You successfully hit [S]")
 					var/list/L = list()
 					if(S.linked_ship)

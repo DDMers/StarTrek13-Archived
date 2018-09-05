@@ -64,8 +64,9 @@
 				A.fire()
 				playsound(src,'StarTrek13/sound/borg/machines/torpedo1.ogg',100,1)
 				sleep(1)
-				A.pixel_x = target_ship.pixel_x
-				A.pixel_y = target_ship.pixel_y
+				if(target_ship)
+					A.pixel_x = target_ship.pixel_x
+					A.pixel_y = target_ship.pixel_y
 				return TRUE
 			else
 				to_chat(pilot, "No photon torpedoes remain.")

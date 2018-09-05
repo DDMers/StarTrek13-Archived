@@ -253,6 +253,15 @@
 					/obj/item/gun/energy/disabler)
 	crate_name = "disabler crate"
 
+/datum/supply_pack/misc/torpedo
+	name = "Photon munitions Crate"
+	desc = "Three photon torpedoes in a box, these are ideal for tearing down shields or ripping into hulls"
+	cost = 4500
+	contains = list(/obj/structure/photon_torpedo,
+					/obj/structure/photon_torpedo,
+					/obj/structure/photon_torpedo)
+	crate_name = "torpedo crate"
+
 /datum/supply_pack/security/forensics
 	name = "Forensics Crate"
 	desc = "Stay hot on the criminal's heels with Nanotrasen's Detective Essentials(tm). Contains a forensics scanner, six evidence bags, camera, tape recorder, white crayon, and of course, a fedora. Requires Security access to open."
