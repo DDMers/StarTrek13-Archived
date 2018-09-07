@@ -58,7 +58,7 @@
 				S.take_damage(damage, TRUE)
 				return TRUE
 		if(FIRE_PHOTON)
-			if(assimilation_tier > 3)
+			if(assimilation_tier >= 3)
 				borg_fire(S, 2)
 				return
 			if(photons > 0)
@@ -102,6 +102,7 @@
 		cloaked = FALSE
 		name = linked_ship.name //Stop it appearing on any sensors and right click menus
 		stored_name = null
+		check_assimilation()
 	else
 		playsound(src,'StarTrek13/sound/trek/cloak.ogg',100,1)
 		to_chat(pilot, "Ship cloaking...")
