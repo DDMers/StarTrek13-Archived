@@ -33,6 +33,9 @@
 		target_ship.agressor = src
 	switch(fire_mode)
 		if(FIRE_PHASER)
+			if(assimilation_tier > 1)
+				borg_fire(S, 1)
+				return
 			if(SC.weapons.attempt_fire())
 				var/source = get_turf(src)
 				if(!current_beam)
@@ -55,6 +58,9 @@
 				S.take_damage(damage, TRUE)
 				return TRUE
 		if(FIRE_PHOTON)
+			if(assimilation_tier > 3)
+				borg_fire(S, 2)
+				return
 			if(photons > 0)
 				photons --
 				var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)

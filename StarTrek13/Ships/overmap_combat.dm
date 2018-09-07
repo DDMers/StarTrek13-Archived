@@ -246,6 +246,7 @@
 	var/firecount  = 0
 
 /obj/structure/overmap/proc/attempt_fire()
+	check_assimilation() //Check for special borg weapon attachments
 	if(prob(20))
 		update_weapons()
 	if(wrecked)
@@ -260,6 +261,11 @@
 		target_ship.agressor = src
 	switch(fire_mode)
 		if(FIRE_PHASER)
+			if(assimilation_tier > 1)
+				if(borg_fire(S, 1))
+					return TRUE
+				else
+					return FALSE //:(
 			if(SC.weapons.attempt_fire())
 				var/source = get_turf(src)
 				if(!current_beam)
@@ -283,6 +289,9 @@
 				S.take_damage(damage, TRUE)
 				return TRUE
 		if(FIRE_PHOTON)
+			if(assimilation_tier > 3)
+				borg_fire(S, 2)
+				return
 			if(photons > 0)
 				photons --
 				var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)
@@ -298,6 +307,54 @@
 			else
 				to_chat(pilot, "No photon torpedoes remain.")
 				return FALSE
+
+
+/obj/structure/overmap/proc/borg_fire(var/obj/structure/overmap/S, var/fire_mode) //change me this doesnt work
+	if(!fire_mode)
+		return FALSE
+	if(fire_mode == 1)
+		if(assimilation_tier > 1)
+			if(S)
+				if(SC.weapons.attempt_fire())
+					var/source = get_turf(src)
+					if(!current_beam)
+						current_beam = new(source,target_ship,time=1000,beam_icon_state="romulanbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+						var/chosen_sound = 'StarTrek13/sound/borg/machines/borgphaser.ogg'
+						playsound(src,chosen_sound,100,1)
+						if(S.pilot)
+							SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
+						to_chat(pilot, "You successfully hit [S]")
+						var/list/L = list()
+						if(S.linked_ship)
+							var/area/thearea = S.linked_ship
+							for(var/turf/T in get_area_turfs(thearea.type))
+								L+=T
+						in_use1 = 0
+						spawn(0)
+							current_beam.Start()
+					current_beam.origin = src
+					damage = SC.weapons.update_weapons()
+					damage -= SC.weapons.gimp_damage()
+					S.take_damage(damage, TRUE)
+					return TRUE
+	else
+		if(assimilation_tier >= 3)
+			if(S.SC)
+				var/datum/shipsystem/engines/E = locate(/datum/shipsystem/engines) in(S.SC.systems)
+				E.charge = 0
+				var/datum/shipsystem/shields/SS = locate(/datum/shipsystem/shields) in(S.SC.systems)
+				SS.health -= 1000
+			S.vel = 0
+			if(!current_beam)
+				playsound(src,'StarTrek13/sound/trek/borg_tractorbeam.ogg',100,1) //this is where the fun begins
+				var/turf/source = get_turf(src)
+				current_beam = new(source,target_ship,time=1000,beam_icon_state="romulanbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+				spawn(0)
+					current_beam.Start()
+				to_chat(pilot, "Tractor beam established.")
+			current_beam.origin = src
+			return TRUE
+	return FALSE
 
 #undef TINY
 #undef SMALL

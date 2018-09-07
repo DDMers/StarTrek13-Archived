@@ -1,3 +1,7 @@
+/obj/structure/overmap
+	var/assimilation_tier = 0 //0-4, with 4 being a dreadnought
+
+
 /obj/structure/overmap/ship/assimilated //we are the borg
 	name = "assimilated ship"
 	icon_state = "borgship"
@@ -13,41 +17,40 @@
 	pixel_collision_size_y = 48
 	max_speed = 5
 	faction = "the borg"
-	var/assimilation_tier = 0 //0-4, with 4 being a dreadnought
 	cost = 0 //you only get one
 	soundlist = ('StarTrek13/sound/trek/borg_phaser.ogg')
 
-/obj/structure/overmap/ship/assimilated/proc/check_assimilation()
+/obj/structure/overmap/proc/check_assimilation()
 	switch(assimilation_tier)
 		if(0)
 			icon_state = "borgship0"
-			health += 7000 //Get out clause, so they can run
-			max_health = 25000
+			health += 1000 //Get out clause, so they can run
+			max_health += 2000
 		if(1)
 			icon_state = "borgship1"
-			health += 7000 //Get out clause, so they can run
-			max_health = 30000
+			health += 5000 //Get out clause, so they can run
+			max_health += 8000
 		if(2)
 			icon_state = "borgship2"
-			health += 7000 //Get out clause, so they can run
-			max_health = 35000
-			name = "Scout 554"
+			health += 5000 //Get out clause, so they can run
+			max_health += 5000
+			name = "Scout [rand(0,999)]"
 		if(3)
 			icon_state = "borgship3" //By this point it gets borg cube abilities
-			health += 7000 //Get out clause, so they can run
-			max_health = 45000
-			name = "Submatrix 554"
+			health += 5000 //Get out clause, so they can run
+			max_health += 5000
+			name = "Submatrix [rand(0,999)]"
 		if(4)
 			icon_state = "borgship4" //fucking unit
 			health += 7000 //Get out clause, so they can run
-			max_health = 50000
-			name = "Unimatrix 554"
+			max_health += 10000
+			name = "Unimatrix [rand(0,999)]"
 		if(5)
 			icon = 'StarTrek13/icons/trek/large_ships/borg_cube.dmi'
 			icon_state = "borg_cube" //fucking unit
-			health = max_health
 			max_health = 100000 ///Ohhh you've really done fucked up now. This will take inter faction cooperation to take down. This equates to 10 fucking photons JUST on its hull, do you realise how fucking strong that is? DO YOU?!
-			name = "Cube 554"
+			health = max_health
+			name = "Cube [rand(0,999)]"
 			turnspeed = 1
 			max_speed = 2
 
@@ -58,7 +61,7 @@
 	icon = 'StarTrek13/icons/borg/borg.dmi'
 	var/stored_resources = 10 //click it with a borg tool to dump your resources into it, when you turn it on with the required amount it'll assimilate your ship
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	var/obj/structure/overmap/ship/assimilated/ship
+	var/obj/structure/overmap/ship
 	anchored = TRUE
 
 /obj/machinery/borg/converter/Initialize()
@@ -113,7 +116,7 @@
 					if(1)
 						if(stored_resources >= 600) //Slightly more expensive, 5 resources per turf, so 60 turfs assimilated is the required amt.
 							icon_state = "converter-on"
-							stored_resources -= 1000
+							stored_resources -= 600
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
 							sleep(20)
 							say("Augmentation of [ship]'s hull completed. Further assimilation will require more resources")
@@ -122,7 +125,7 @@
 					if(2)
 						if(stored_resources >= 1000) //Once they hit this tier, they've already become REALLY dangerous, with classical borg abilities.
 							icon_state = "converter-on"
-							stored_resources -= 1500
+							stored_resources -= 1000
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
 							sleep(20)
 							say("Augmentation of [ship]'s hull completed. Further assimilation will require more resources")
@@ -137,14 +140,14 @@
 					if(3)
 						if(stored_resources >= 1000) //The apex borg ship, once it reaches this point, it is extremely difficult to stop.
 							icon_state = "converter-on"
-							stored_resources -= 2000
+							stored_resources -= 1000
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
 							sleep(20)
 							say("Augmentation of [ship]'s hull completed. Further assimilation will require more resources")
 							ship.assimilation_tier ++
 							ship.check_assimilation()
 					if(4)
-						if(stored_resources >= 1800) //Once they hit this tier, they're unstoppable unless everyone works together to gank them.
+						if(stored_resources >= 5000) //Once they hit this tier, they're unstoppable unless everyone works together to gank them.
 							icon_state = "converter-on"
 							stored_resources -= 5000
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
@@ -178,6 +181,8 @@
 			to_chat(user, "[I] has no stored resources to transfer to [src]")
 	else
 		. = ..()
+
+/*
 
 /obj/structure/overmap/ship/assimilated/attempt_fire()
 	update_weapons()
@@ -248,3 +253,4 @@
 				current_beam.origin = src
 				return TRUE
 
+*/

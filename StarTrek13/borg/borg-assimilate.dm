@@ -81,7 +81,7 @@
 		if(CP || CA)
 			user << "<span class='danger'>[T] already has a structure on it.</span>"
 			return
-		var/mode = input("Borg construction.", "Build what?")in list("conversion suite", "borg alcove","wall","cancel")
+		var/mode = input("Borg construction.", "Build what?")in list("conversion suite", "borg alcove","wall","ship assimilation device","cancel")
 		var/obj/structure/chair/borg/suite
 		switch(mode)
 			if("conversion suite")
@@ -90,6 +90,23 @@
 				suite = /obj/structure/chair/borg/charging
 			if("wall")
 				suite = /turf/closed/wall/borg
+			if("ship assimilation device")
+				suite = /obj/machinery/borg/converter
+				if(resource_amount >= 100)
+					var/obj/machinery/borg/converter/TT = locate(/obj/machinery/borg/converter) in get_area(user)
+					if(TT)
+						to_chat(user, "There is already an assimilation device on this vessel.")
+						return FALSE
+					building = TRUE //stop spamming
+					to_chat(user, "<span class='danger'>We are building an assimilation device ontop of [T].</span>")
+					if(do_after(user, convert_time, target = T)) //doesnt get past here
+						var/atom/newsuite = new suite(get_turf(T))
+						building = FALSE
+						to_chat(user, "We have built a [newsuite.name]")
+						resource_amount -= resource_cost
+						return TRUE
+					building = FALSE //Catch
+					return FALSE
 			if("cancel")
 				return
 		if(resource_amount >= resource_cost)

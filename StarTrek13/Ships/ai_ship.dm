@@ -21,6 +21,7 @@
 	var/dam = 3500 //They always hit quite hard, this is to prevent negative numbers
 	var/chargerate = 500
 	var/maxcharge = 6000
+	faction = "pirate"
 
 /obj/structure/overmap/ship/AI/Initialize(timeofday)
 	. = ..()
@@ -53,6 +54,7 @@
 	max_health = 8000
 	max_speed = 2
 	acceleration = 0.5
+	faction = "pirate"
 
 /area/ship/ai
 	name = "Uss AI ship"
@@ -127,7 +129,9 @@
 		stored_target = agressor
 	if(!stored_target)
 		for(var/obj/structure/overmap/S in orange(src, 5))
-			if(istype(S, /obj/structure/overmap) && !istype(S, /obj/structure/overmap/ship/AI) && !istype(S, /obj/structure/overmap/shipwreck)) //No ai megaduels JUST yet!
+			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck)) //No ai megaduels JUST yet!
+				if(S.faction == faction) //allows for teams of ships
+					continue
 				if(!S.cloaked)
 					stored_target = S
 					break
