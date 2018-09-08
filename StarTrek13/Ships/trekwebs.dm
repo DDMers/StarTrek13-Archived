@@ -87,8 +87,11 @@
 	desc = "An essential component in phaser production, allowing for intake plasma to be fired as a high energy beam."
 	id = "phaser_prefire"
 	build_path = /obj/item/stock_parts/phaser_chamber
-	category = list("Engineering Machinery")
+	category = list("Stock Parts")
 	departmental_flags = DEPARTMENTAL_FLAG_ALL
+	build_type = PROTOLATHE | AUTOLATHE
+	materials = list(MAT_METAL = 100, MAT_GLASS = 100)
+	lathe_time_factor = 0.2
 
 /datum/design/board/transporter_comp
 	name = "Transporter control chip"

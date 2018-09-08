@@ -23,7 +23,6 @@
 /obj/structure/overmap/proc/check_assimilation()
 	switch(assimilation_tier)
 		if(0)
-			icon_state = "borgship0"
 			health += 1000 //Get out clause, so they can run
 			max_health += 2000
 		if(1)
