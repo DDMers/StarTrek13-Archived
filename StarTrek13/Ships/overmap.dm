@@ -534,8 +534,8 @@
 			var/heat_multi = 1
 			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 			var/obj/structure/overmap/ship/S = src
-			heat_multi = S.SC.shields.heat >= 500 ? 2 : 1 // double damage if heat is over 500.
-			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
+			heat_multi = S.SC.shields.heat >= 1000 ? 2 : 1 // double damage if heat is over 1000.
+			S.SC.shields.heat += (amount/100)
 			//	generator.take_damage(amount*heat_multi)
 			SC.shields.health -= amount*heat_multi
 			if(source)

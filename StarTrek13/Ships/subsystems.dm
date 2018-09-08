@@ -331,12 +331,13 @@
 					health = 0
 	if(!failed && toggled)
 		health += chargeRate*power_modifier
-		heat -= heat_loss_bonus
+		heat -= 10
+	if(heat)
+		health -= heat
 	if(heat < 0)
 		heat = 0
 	if(integrity < 0)
 		integrity = 0
-	health -= heat
 	heat -= 10
 	max_integrity = initial(max_integrity)
 	if(integrity <= 3000)
