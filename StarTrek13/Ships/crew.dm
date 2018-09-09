@@ -61,6 +61,25 @@
 /datum/crew/proc/FillRoles()
 	SanityCheck()
 
+/datum/crew/proc/NameCheck(mob/living/M) //starfleet admiral tumok run'aat reporting :thinking:
+	if(M.client)
+		if(M.client.prefs.romulan_name)
+			if(M.name == M.client.prefs.romulan_name)
+				M.name = M.client.prefs.real_name
+				M.real_name = M.name
+				return TRUE
+	else
+		return FALSE
+
+/datum/crew/romulan/NameCheck(mob/living/M) //romulan admiral dilbert cook reporting!
+	if(M.client)
+		if(M.client.prefs.romulan_name)
+			if(M.name != M.client.prefs.romulan_name)
+				M.name = M.client.prefs.romulan_name
+				M.real_name = M.name
+				return TRUE
+	else
+		return FALSE
 
 /datum/crew/proc/SanityCheck() //Check that someone with piloting skills has spawned.
 	for(var/mob/living/M in crewmen) //Check everyone's in the correct faction
@@ -71,6 +90,7 @@
 					F.addMember(M)
 					if(M.client)
 						M.client.prefs.player_faction = F
+			NameCheck(M)
 	for(var/mob/living/MM in crewmen) //Check that there's someone who can fly the fucker. If not, make someone who can
 		if(MM.skills)
 			if(MM.skills.skillcheck(MM, "piloting", 5, FALSE))
