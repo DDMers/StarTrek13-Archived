@@ -13,7 +13,7 @@
 	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
 
 
-/turf/open/floor/borg/trek
+/turf/open/floor/trek/standard
 	name = "deck plates"
 	desc = "A big lump of metal to keep you from falling through the ship."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
@@ -22,14 +22,14 @@
 	//canSmoothWith = list(/turf/open/floor/borg/trek,/turf/open/floor/borg/trek/light,/turf/open/floor/borg/trek/blue,/turf/open/floor/borg/trek/red,/turf/open/floor/borg/trek/dark,/turf/open/floor/borg/trek/beige)
 
 
-/turf/open/floor/borg/trek/light
+/turf/open/floor/trek/light
 	name = "carpet"
 	desc = "A carpeted floor that matches the surroundings."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "trek3"
 	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
 
-/turf/open/floor/borg/trek/blue
+/turf/open/floor/trek/blue
 	name = "blue carpet"
 	desc = "A carpeted floor that matches the surroundings."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
@@ -37,7 +37,7 @@
 	smooth = FALSE //change this when I make a smooth proper version
 //	canSmoothWith = list(/turf/open/floor/borg/trek/blue)
 
-/turf/open/floor/borg/trek/red
+/turf/open/floor/trek/red
 	name = "red carpet"
 	desc = "A carpeted floor that matches the surroundings."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
@@ -45,18 +45,11 @@
 	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
 
 
-/turf/open/floor/borg/trek/dark
+/turf/open/floor/trek/dark
 	name = "carpet"
 	desc = "A carpeted floor that matches the surroundings."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "trekfloor"
-	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
-
-/turf/open/floor/borg/trek/beige
-	name = "carpet"
-	desc = "A carpeted floor that matches the surroundings."
-	icon = 'StarTrek13/icons/trek/star_trek.dmi'
-	icon_state = "trek5"
 	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
 
 /obj/machinery/door/airlock/trek

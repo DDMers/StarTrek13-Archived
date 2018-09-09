@@ -176,10 +176,13 @@
 				to_chat(user, "Resource transfer complete, increased [src]'s storage by [transfer]")
 				W.resource_amount = 0
 				stored_resources += transfer
+				return TRUE
 		else
 			to_chat(user, "[I] has no stored resources to transfer to [src]")
+			return FALSE
 	else
 		. = ..()
+		return FALSE
 
 /*
 

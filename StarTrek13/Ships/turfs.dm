@@ -152,14 +152,6 @@
 	icon = 'StarTrek13/icons/trek/trek_turfs.dmi'
 	icon_state = "cargofloor"
 
-/turf/open/floor/borg/trek/lit
-	name = "space carpet"
-	desc = "the merits of a static charge generating material for flooring on a highly sensitive starship is questionable, but can you question that threadcount?"
-	smooth = SMOOTH_FALSE //change this when I make a smooth proper version
-
-/turf/open/floor/borg/trek/lit/Initialize()
-	. = ..()
-
 /obj/structure/fluff/ship/warpbooster
 	name = "wall panel"
 	desc = "a blue panel"
