@@ -1,99 +1,97 @@
-"aa" = (/turf/open/floor/plating,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
+"aa" = (/turf/open/floor/trek/dark,/area/ship/romulan)
 "ab" = (/turf/closed/indestructible/riveted{alpha = 0},/area/space)
 "ac" = (/turf/closed/wall/trek{icon_state = "black"; dir = 1},/area/space)
 "ad" = (/turf/closed/indestructible/riveted{alpha = 0},/area/ship/romulan)
 "ae" = (/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
-"af" = (/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"af" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/turf/open/floor/trek/dark,/area/ship/romulan)
 "ag" = (/obj/structure/viewscreen{pixel_x = -5; pixel_y = -6},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
 "ah" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHEAST)"; icon_state = "lcars2"; dir = 5},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
-"ai" = (/obj/structure/fluff/helm/desk/tactical/defiant/romulan,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aj" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"ai" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
+"aj" = (/obj/structure/fluff/helm/desk/tactical/defiant/romulan,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "ak" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (SOUTHWEST)"; icon_state = "lcars"; dir = 10},/turf/closed/indestructible/riveted{alpha = 0; opacity = 0},/area/ship/romulan)
-"al" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (NORTHEAST)"; icon_state = "lcars"; dir = 5},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"am" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHWEST)"; icon_state = "lcars2"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"an" = (/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"ao" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"ap" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/obj/structure/hailing_console/romulan,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aq" = (/obj/structure/overmap/ship/romulan,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"ar" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 5},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"as" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"al" = (/obj/structure/subsystem_monitor{tag = "icon-lcars (NORTHEAST)"; icon_state = "lcars"; dir = 5},/turf/open/floor/trek/dark,/area/ship/romulan)
+"am" = (/obj/structure/subsystem_monitor/weapons{tag = "icon-lcars2 (NORTHWEST)"; icon_state = "lcars2"; dir = 9},/turf/open/floor/trek/dark,/area/ship/romulan)
+"an" = (/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"ao" = (/obj/structure/overmap/ship/romulan,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"ap" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 5},/turf/open/floor/trek/dark,/area/ship/romulan)
+"aq" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 6},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"ar" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"as" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/obj/structure/hailing_console/romulan,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "at" = (/turf/open/bridge_overlay/romulan,/area/ship/romulan)
-"au" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"av" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aw" = (/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
-"ax" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 6},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"ay" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"au" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"av" = (/obj/effect/landmark/crewstart/romulan,/obj/structure/chair/office/dark{dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"aw" = (/turf/open/floor/plating,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
+"ax" = (/obj/structure/weapons_console/romulan,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"ay" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 10},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "az" = (/turf/closed/indestructible/transporter_block,/area/space)
-"aA" = (/obj/effect/landmark/crewstart/romulan,/obj/structure/chair/office/dark{dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aB" = (/obj/structure/weapons_console/romulan,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aC" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 10},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aD" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aE" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 6},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aA" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
+"aB" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"aC" = (/obj/structure/replicator,/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"aD" = (/obj/item/clothing/under/romulan,/obj/item/clothing/under/romulan,/obj/structure/closet,/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"aE" = (/obj/structure/chair/office/dark,/obj/machinery/light{dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
 "aF" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 4},/area/ship/romulan)
 "aG" = (/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 8},/area/ship/romulan)
 "aH" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 8},/area/ship/romulan)
-"aI" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"aI" = (/obj/machinery/light{dir = 8},/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
 "aJ" = (/turf/closed/wall/trek{icon_state = "black"; dir = 1},/area/ship/romulan)
 "aK" = (/obj/structure/table/reinforced,/obj/item/storage/toolbox/mechanical,/turf/open/floor/plating,/area/ship/romulan)
 "aL" = (/obj/machinery/power/warp_coil,/obj/structure/cable/white{icon_state = "0-4"},/turf/open/floor/plating,/area/ship/romulan)
-"aM" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"aN" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aO" = (/obj/structure/table,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"aP" = (/obj/structure/table/reinforced,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aQ" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"aR" = (/obj/machinery/trek/transporter{layer = 2},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aS" = (/obj/structure/chair/office/dark{dir = 8},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"aT" = (/obj/item/twohanded/required/kirbyplants{icon_state = "plant-21"; pixel_x = -3; pixel_y = 3},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"aM" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"aN" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
+"aO" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/machinery/light,/turf/open/floor/trek/dark,/area/ship/romulan)
+"aP" = (/obj/machinery/light{dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
+"aQ" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"aR" = (/obj/structure/table/reinforced,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"aS" = (/obj/machinery/trek/transporter{layer = 2},/turf/open/floor/trek/dark,/area/ship/romulan)
+"aT" = (/obj/structure/chair/office/dark{dir = 8},/turf/open/floor/trek/dark,/area/ship/romulan)
 "aU" = (/turf/closed/wall/trek{icon_state = "wall_light_dv"},/area/ship/romulan)
 "aV" = (/turf/open/floor/plating,/area/ship/romulan)
 "aW" = (/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
 "aX" = (/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 1},/area/ship/romulan)
 "aY" = (/obj/machinery/door/airlock/trek/tng/single/defiant,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/hallway{icon_state = "romhall"},/area/ship/romulan)
 "aZ" = (/obj/machinery/door/airlock/trek/tng/single/defiant,/turf/open/floor/hallway{icon_state = "romhall"},/area/ship/romulan)
-"ba" = (/obj/machinery/computer/camera_advanced/transporter_control/huge,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"bb" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"bc" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"bd" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
-"be" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 1},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 1},/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
-"bf" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 9},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 9},/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
-"bg" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"bh" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 10},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"bi" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
+"ba" = (/obj/item/twohanded/required/kirbyplants{icon_state = "plant-21"; pixel_x = -3; pixel_y = 3},/turf/open/floor/trek/dark,/area/ship/romulan)
+"bb" = (/obj/machinery/trek/transporter{layer = 2},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"bc" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/obj/machinery/light{dir = 8},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"bd" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"be" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"bf" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/machinery/light{dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"bg" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"bh" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 5},/obj/machinery/light{dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"bi" = (/obj/machinery/computer/camera_advanced/transporter_control/huge,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "bj" = (/obj/structure/subsystem_panel/engines,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
 "bk" = (/obj/structure/subsystem_panel,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
 "bl" = (/obj/structure/subsystem_panel/weapons,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
 "bm" = (/obj/structure/ship_component/capbooster,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
-"bn" = (/obj/structure/replicator,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"bo" = (/obj/item/clothing/under/romulan,/obj/item/clothing/under/romulan,/obj/structure/closet,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"bp" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"bq" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
-"br" = (/obj/structure/photon_torpedo,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"bs" = (/obj/effect/landmark/faction_spawn/romulan,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"bt" = (/obj/structure/catwalk,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"bu" = (/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit{color = "473c3a"},/area/ship/romulan)
-"bv" = (/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bn" = (/obj/effect/landmark/faction_spawn/romulan,/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"bo" = (/obj/effect/landmark/crewspawnermachine/romulan,/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"bp" = (/obj/structure/closet,/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"bq" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 6},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"br" = (/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"bs" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"bt" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 1},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 1},/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"bu" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 9},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 9},/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"bv" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "bw" = (/obj/machinery/atmospherics/components/unary/tank/air,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 8},/area/ship/romulan)
 "bx" = (/obj/machinery/atmospherics/components/unary/tank{color = "#FF0000"},/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 8},/area/ship/romulan)
-"by" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"by" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 10},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "bz" = (/obj/machinery/atmospherics/components/binary/pump/on,/turf/open/floor/plating,/area/ship/romulan)
 "bA" = (/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
 "bB" = (/obj/machinery/atmospherics/components/binary/volume_pump/on{icon_state = "volpump_on_map"; dir = 1},/turf/open/floor/plating,/area/ship/romulan)
-"bC" = (/obj/structure/closet,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"bD" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"bD" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
 "bE" = (/obj/machinery/atmospherics/pipe/layer_manifold,/turf/open/floor/plating,/area/ship/romulan)
 "bF" = (/turf/closed/wall/trek{icon_state = "black2"; dir = 4},/area/ship/romulan)
 "bG" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 1},/area/ship/romulan)
 "bH" = (/turf/closed/wall/trek{icon_state = "black"},/turf/closed/trek_raised/lift{tag = "icon-lift (NORTH)"; icon_state = "lift"; dir = 1},/area/ship/romulan)
-"bI" = (/obj/machinery/door/airlock/trek/tng/single,/obj/structure/ladder/unbreakable/lift{height = 1; id = "dderi"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"bI" = (/obj/machinery/door/airlock/trek/tng/single,/obj/structure/ladder/unbreakable/lift{height = 1; id = "dderi"},/turf/open/floor/trek,/area/ship/romulan)
 "bJ" = (/turf/closed/wall/trek{icon_state = "black"},/turf/closed/trek_raised/lift{tag = "icon-lift (EAST)"; icon_state = "lift"; dir = 4},/area/ship/romulan)
 "bK" = (/turf/closed/wall/trek{dir = 1; icon_state = "black2"},/area/space)
-"bL" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"bL" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
 "bM" = (/turf/closed/wall/trek{dir = 1; icon_state = "black2"},/area/ship/romulan)
-"bN" = (/obj/machinery/door/airlock/trek/tng/jeffries,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"bN" = (/obj/machinery/door/airlock/trek/tng/jeffries,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
 "bO" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 5},/obj/machinery/portable_atmospherics/scrubber,/turf/open/floor/plating,/area/ship/romulan)
-"bP" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"bQ" = (/obj/structure/chair/office/dark,/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"bR" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/machinery/light,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"bP" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"bQ" = (/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
 "bS" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 9},/obj/machinery/portable_atmospherics/scrubber,/turf/open/floor/plating,/area/ship/romulan)
 "bT" = (/turf/closed/wall/trek{icon_state = "black"},/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHEAST)"; icon_state = "lift"; dir = 6},/area/ship/romulan)
 "bU" = (/turf/closed/wall/trek{icon_state = "black"},/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHWEST)"; icon_state = "lift"; dir = 10},/area/ship/romulan)
@@ -101,165 +99,161 @@
 "bW" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 2},/area/ship/romulan)
 "bX" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
 "bY" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 1},/area/ship/romulan)
-"bZ" = (/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"ca" = (/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"bZ" = (/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"ca" = (/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "cb" = (/obj/machinery/airalarm,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 8},/area/ship/romulan)
 "cc" = (/obj/machinery/power/warp_coil,/obj/machinery/atmospherics/components/unary/outlet_injector,/obj/structure/cable/white{icon_state = "0-4"},/turf/open/floor/plating,/area/ship/romulan)
 "cd" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 10},/area/ship/romulan)
-"ce" = (/obj/structure/torpedo_launcher,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cf" = (/obj/machinery/conveyor{dir = 8; id = "romconveyor_ship1"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"ce" = (/obj/structure/torpedo_launcher,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"cf" = (/obj/machinery/conveyor{dir = 8; id = "romconveyor_ship1"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
 "cg" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 4},/area/ship/romulan)
 "ch" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 6},/area/ship/romulan)
 "ci" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/plating,/area/ship/romulan)
-"cj" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"ck" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/obj/machinery/light{dir = 8},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"cl" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"cm" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 5},/obj/machinery/light{dir = 4},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"cj" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"ck" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cl" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "cn" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 8},/area/ship/romulan)
 "co" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 5},/area/ship/romulan)
 "cp" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 9},/area/ship/romulan)
 "cq" = (/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 4},/area/ship/romulan)
 "cr" = (/turf/open/floor/plating,/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
-"cs" = (/obj/structure/closet/crate/trek{color = "#FFA500"},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"ct" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"cu" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"cs" = (/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"ct" = (/obj/structure/photon_torpedo,/turf/open/floor/trek/dark,/area/ship/romulan)
+"cu" = (/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/machinery/door/window/eastleft{dir = 8},/obj/item/gun/energy/laser/retro,/turf/open/floor/trek/dark,/area/ship/romulan)
 "cv" = (/obj/structure/warp_storage,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
-"cw" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"cw" = (/obj/structure/catwalk,/turf/open/floor/trek/dark,/area/ship/romulan)
 "cx" = (/obj/structure/table/reinforced,/obj/item/tricorder,/turf/open/floor/plating,/area/ship/romulan)
-"cy" = (/obj/effect/landmark/runaboutdock,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"cy" = (/obj/machinery/light{dir = 8},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "cz" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 5},/area/ship/romulan)
 "cA" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 9},/area/ship/romulan)
-"cB" = (/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"cC" = (/obj/structure/catwalk,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cD" = (/obj/structure/rack,/obj/structure/photon_torpedo,/obj/structure/catwalk,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cE" = (/obj/machinery/conveyor_switch/oneway{dir = 8; id = "romconveyor_ship1"},/obj/structure/catwalk,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cF" = (/obj/item/twohanded/required/kirbyplants{icon_state = "plant-21"; pixel_x = -3; pixel_y = 3},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cG" = (/obj/structure/chair/office/dark,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cH" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cI" = (/obj/structure/chair/office/dark{dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cJ" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cK" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cL" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cM" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"cN" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"cO" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"cP" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 5},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"cQ" = (/obj/machinery/door/airlock/trek/tng/single,/obj/structure/ladder/unbreakable/lift{height = 0; id = "dderi"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"cR" = (/obj/structure/table,/obj/item/wirecutters,/obj/item/clothing/gloves/color/latex,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cC" = (/obj/structure/catwalk,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"cD" = (/obj/structure/rack,/obj/structure/photon_torpedo,/obj/structure/catwalk,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"cE" = (/obj/machinery/conveyor_switch/oneway{dir = 8; id = "romconveyor_ship1"},/obj/structure/catwalk,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"cF" = (/obj/structure/catwalk,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cH" = (/obj/machinery/cloaking_device,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cI" = (/obj/structure/catwalk,/obj/machinery/space_battle/shield_generator,/obj/structure/cable/white,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cJ" = (/obj/structure/photon_torpedo,/obj/machinery/light{dir = 8},/turf/open/floor/trek/dark,/area/ship/romulan)
+"cK" = (/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/machinery/door/window/eastleft{dir = 8},/obj/item/gun/energy/laser/retro,/obj/machinery/light{dir = 4},/turf/open/floor/trek/dark,/area/ship/romulan)
+"cL" = (/obj/structure/closet/crate/trek{color = "#FFA500"},/turf/open/floor/trek/dark,/area/ship/romulan)
+"cM" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cN" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cO" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cP" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cQ" = (/obj/machinery/door/airlock/trek/tng/single,/obj/structure/ladder/unbreakable/lift{height = 0; id = "dderi"},/turf/open/floor/trek,/area/ship/romulan)
+"cR" = (/obj/machinery/atmospherics/components/unary/tank/toxins,/turf/open/floor/trek/dark,/area/ship/romulan)
 "cS" = (/obj/structure/cable/white{icon_state = "2-4"},/obj/machinery/atmospherics/components/binary/valve,/turf/open/floor/plating,/area/ship/romulan)
-"cT" = (/obj/machinery/chem_dispenser,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cU" = (/obj/machinery/chem_master,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cT" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 5},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cU" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
 "cV" = (/obj/structure/cable/white{icon_state = "1-4"},/obj/structure/cable/white{icon_state = "4-8"},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/romulan)
-"cW" = (/obj/machinery/iv_drip,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cX" = (/obj/structure/table,/obj/item/stack/rods,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"cY" = (/obj/structure/chair/e_chair,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"cZ" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"da" = (/obj/structure/table,/obj/item/pickaxe/drill,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"db" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 10},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dc" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dd" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 6},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"de" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 1},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"df" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dg" = (/obj/structure/table,/obj/item/shard,/obj/item/restraints/handcuffs,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dh" = (/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/machinery/door/window/eastleft{dir = 8},/obj/item/gun/energy/laser/retro,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"di" = (/obj/machinery/sleeper{dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"cW" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 1},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 1},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cX" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cY" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"cZ" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 6},/turf/open/floor/trek/dark,/area/ship/romulan)
+"da" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/trek/dark,/area/ship/romulan)
+"db" = (/obj/machinery/atmospherics/components/binary/pump/on{icon_state = "pump_on_map"; dir = 8},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dc" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dd" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"de" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 5},/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"df" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dg" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 9},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dh" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/trek/dark,/area/ship/romulan)
+"di" = (/obj/machinery/power/warpcore{icon_state = "ftl"},/obj/structure/cable/white{icon_state = "0-8"},/turf/open/floor/trek/dark,/area/ship/romulan)
 "dj" = (/turf/closed/wall/trek{icon_state = "black2"; dir = 2},/area/ship/romulan)
 "dk" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/plating,/area/ship/romulan)
-"dl" = (/obj/structure/antimatter_storage,/obj/structure/catwalk,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dl" = (/obj/structure/antimatter_storage,/obj/structure/catwalk,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
 "dm" = (/obj/structure/catwalk,/obj/machinery/light,/turf/open/floor/plating,/area/ship/romulan)
 "dn" = (/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/machinery/meter,/turf/open/floor/plating,/area/ship/romulan)
-"do" = (/obj/structure/catwalk,/obj/machinery/power/apc,/obj/structure/cable/white,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"do" = (/obj/structure/catwalk,/obj/machinery/power/apc,/obj/structure/cable/white,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
 "dp" = (/obj/structure/cable/white{icon_state = "2-4"},/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
 "dq" = (/obj/structure/cable/white{icon_state = "4-8"},/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
 "dr" = (/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "2-4"},/obj/machinery/door/airlock/trek/tng/single/defiant,/turf/open/floor/hallway{icon_state = "romhall"},/area/ship/romulan)
 "ds" = (/obj/structure/cable/white{icon_state = "2-8"},/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
-"dt" = (/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"du" = (/obj/structure/catwalk,/obj/machinery/power/smes/engineering,/obj/structure/cable/white,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dv" = (/obj/structure/catwalk,/obj/machinery/light{dir = 1},/obj/machinery/power/terminal{icon_state = "term"; dir = 8},/obj/structure/cable/white{icon_state = "0-4"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dw" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dx" = (/obj/structure/catwalk,/obj/machinery/light{dir = 1},/obj/machinery/power/terminal{icon_state = "term"; dir = 4},/obj/structure/cable/white{icon_state = "0-8"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dy" = (/obj/machinery/light{dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dz" = (/obj/machinery/light{dir = 8},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dA" = (/obj/structure/photon_torpedo,/obj/machinery/light{dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dB" = (/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1; layer = 2.9},/obj/machinery/door/window/eastleft{dir = 8},/obj/item/gun/energy/laser/retro,/obj/machinery/light{dir = 4},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dt" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"du" = (/obj/structure/catwalk,/obj/machinery/power/smes/engineering,/obj/structure/cable/white,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"dv" = (/obj/structure/catwalk,/obj/machinery/light{dir = 1},/obj/machinery/power/terminal{icon_state = "term"; dir = 8},/obj/structure/cable/white{icon_state = "0-4"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"dw" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"dx" = (/obj/structure/catwalk,/obj/machinery/light{dir = 1},/obj/machinery/power/terminal{icon_state = "term"; dir = 4},/obj/structure/cable/white{icon_state = "0-8"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"dz" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dA" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dB" = (/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/trek/dark,/area/ship/romulan)
 "dC" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
 "dD" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
 "dE" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/obj/machinery/light,/turf/open/floor/plating,/area/ship/romulan)
 "dF" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 10},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 6},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
 "dG" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/obj/machinery/light,/turf/open/floor/plating,/area/ship/romulan)
-"dH" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dH" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
 "dI" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
-"dJ" = (/obj/structure/catwalk,/obj/machinery/light{dir = 4},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dJ" = (/obj/structure/catwalk,/obj/machinery/light{dir = 4},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
 "dK" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 5},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 5},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 5},/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/plating,/area/ship/romulan)
 "dL" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/plating,/area/ship/romulan)
-"dM" = (/obj/structure/table,/obj/item/clothing/gloves/color/latex,/obj/item/razor,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dN" = (/obj/machinery/computer/operating,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dO" = (/obj/structure/table/optable,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dP" = (/obj/machinery/door/window/eastright{dir = 1; icon_state = "right"; name = "Robotics Surgery"; req_access_txt = "null"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dQ" = (/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/obj/structure/table,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dR" = (/obj/structure/table,/obj/item/storage/box/bodybags,/obj/item/pen,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"dS" = (/obj/machinery/light{dir = 4},/obj/structure/table,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"dM" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dN" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dO" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dP" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"dQ" = (/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dR" = (/obj/structure/cable/white{icon_state = "2-4"},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/trek/dark,/area/ship/romulan)
+"dS" = (/obj/machinery/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/obj/structure/cable/white,/turf/open/floor/trek/dark,/area/ship/romulan)
 "dT" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/cable/white{icon_state = "4-8"},/obj/machinery/light{dir = 1},/turf/open/floor/plating,/area/ship/romulan)
-"dU" = (/obj/structure/closet/secure_closet/medical3,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dV" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 8},/obj/item/storage/firstaid/regular,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dW" = (/obj/structure/table/reinforced,/obj/item/storage/firstaid/o2,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dX" = (/obj/structure/table/reinforced,/obj/item/storage/firstaid/fire,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dY" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/item/storage/firstaid/brute,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"dZ" = (/obj/structure/closet/wardrobe/white/medical,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"dU" = (/obj/item/twohanded/required/kirbyplants{icon_state = "plant-21"; pixel_x = -3; pixel_y = 3},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"dV" = (/obj/effect/landmark/runaboutdock,/turf/open/floor/trek/dark,/area/ship/romulan)
+"dW" = (/obj/machinery/light,/turf/open/floor/trek/dark,/area/ship/romulan)
+"dX" = (/obj/structure/chair/office/dark,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"dY" = (/obj/structure/chair/office/dark,/obj/machinery/light{dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"dZ" = (/obj/structure/chair/office/dark{dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "ea" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 1},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 1},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/plating,/area/ship/romulan)
-"eb" = (/obj/structure/table,/obj/item/mmi,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"ec" = (/obj/structure/table,/obj/item/retractor,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"ed" = (/obj/structure/table,/obj/item/hemostat,/obj/item/cautery{pixel_x = 4},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"ee" = (/obj/structure/table,/obj/item/circular_saw,/obj/item/scalpel{pixel_y = 12},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"ef" = (/obj/structure/table,/obj/item/surgical_drapes,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"eb" = (/obj/structure/table,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"ec" = (/obj/structure/chair/office/dark{dir = 8},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"ed" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"ee" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"ef" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "eg" = (/obj/machinery/door/airlock/trek/tng/single/defiant,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/hallway{icon_state = "romhall"},/area/ship/romulan)
 "eh" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
-"ei" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"ej" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"ek" = (/obj/machinery/atmospherics/components/unary/tank/toxins,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"el" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 1},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 1},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"em" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"en" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"eo" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 6},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"ep" = (/obj/machinery/atmospherics/components/binary/pump/on{icon_state = "pump_on_map"; dir = 8},/turf/open/floor/plating,/area/ship/romulan)
-"eq" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/plating,/area/ship/romulan)
-"er" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
+"ei" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"ej" = (/obj/machinery/light{dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"ek" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
+"el" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"em" = (/obj/structure/table,/obj/item/wirecutters,/obj/item/clothing/gloves/color/latex,/turf/open/floor/trek/dark,/area/ship/romulan)
+"en" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
+"eo" = (/obj/structure/chair/e_chair,/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"ep" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 9},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"eq" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 1},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 1},/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"er" = (/obj/structure/table,/obj/item/clothing/gloves/color/latex,/obj/item/razor,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "es" = (/obj/structure/table/reinforced,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/plating,/area/ship/romulan)
-"et" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"et" = (/obj/item/storage/box/beakers{pixel_x = 2; pixel_y = 2},/obj/structure/table/glass,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/glass/beaker/large,/obj/machinery/light{dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
 "eu" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 8},/turf/closed/wall/trek{icon_state = "wall_light_dv"},/area/ship/romulan)
-"ev" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"ew" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 9},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"ex" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 5},/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"ev" = (/obj/machinery/chem_dispenser,/turf/open/floor/trek/dark,/area/ship/romulan)
+"ew" = (/obj/machinery/chem_master,/turf/open/floor/trek/dark,/area/ship/romulan)
+"ex" = (/obj/machinery/chem_heater,/obj/machinery/light{dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
 "ey" = (/obj/structure/table/reinforced,/obj/item/storage/toolbox/mechanical,/obj/item/tricorder,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/plating,/area/ship/romulan)
-"ez" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"eA" = (/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/plating,/area/ship/romulan)
-"eB" = (/obj/machinery/power/warpcore{icon_state = "ftl"},/obj/structure/cable/white{icon_state = "0-8"},/turf/open/floor/plating,/area/ship/romulan)
+"ez" = (/obj/machinery/computer/operating,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"eA" = (/obj/structure/table/optable,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"eB" = (/obj/machinery/door/window/eastright{dir = 1; icon_state = "right"; name = "Robotics Surgery"; req_access_txt = "null"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "eC" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/obj/machinery/light{dir = 8},/turf/open/floor/plating,/area/ship/romulan)
-"eD" = (/obj/machinery/light,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
-"eE" = (/obj/structure/chair/office/dark,/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"eF" = (/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"eG" = (/obj/item/storage/box/beakers{pixel_x = 2; pixel_y = 2},/obj/structure/table/glass,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/glass/beaker/large,/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"eH" = (/obj/machinery/chem_heater,/obj/machinery/light{dir = 1},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"eI" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"eJ" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"eK" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"eL" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 2},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"eD" = (/obj/machinery/iv_drip,/turf/open/floor/trek/dark,/area/ship/romulan)
+"eE" = (/obj/structure/table,/obj/item/stack/rods,/turf/open/floor/trek/dark,/area/ship/romulan)
+"eF" = (/obj/structure/table,/obj/item/pickaxe/drill,/turf/open/floor/trek/dark,/area/ship/romulan)
+"eG" = (/obj/structure/table,/obj/item/shard,/obj/item/restraints/handcuffs,/turf/open/floor/trek/dark,/area/ship/romulan)
+"eH" = (/obj/machinery/sleeper{dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
+"eI" = (/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/obj/structure/table,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"eJ" = (/obj/structure/table,/obj/item/storage/box/bodybags,/obj/item/pen,/obj/machinery/light{dir = 8; light_color = "#e8eaff"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"eK" = (/obj/machinery/light{dir = 4},/obj/structure/table,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"eL" = (/obj/structure/closet/secure_closet/medical3,/turf/open/floor/trek/dark,/area/ship/romulan)
 "eM" = (/obj/machinery/door/airlock/trek/tng/single/defiant,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/hallway{icon_state = "romhall"},/area/ship/romulan)
-"eN" = (/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"eO" = (/obj/structure/cable/white{icon_state = "2-4"},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"eP" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/structure/cable/white{icon_state = "1-8"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"eQ" = (/obj/machinery/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/obj/structure/cable/white,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"eR" = (/obj/machinery/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/obj/structure/catwalk,/obj/structure/cable/white,/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"eS" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"eT" = (/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"eU" = (/obj/machinery/cloaking_device,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"eV" = (/obj/structure/catwalk,/obj/machinery/space_battle/shield_generator,/obj/structure/cable/white,/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"eW" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit,/area/ship/romulan)
-"eX" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
-"eY" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/borg/trek/lit{color = "#A9A9A9"},/area/ship/romulan)
+"eN" = (/obj/structure/table,/obj/item/mmi,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"eO" = (/obj/structure/table,/obj/item/retractor,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"eP" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/structure/cable/white{icon_state = "1-8"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"eQ" = (/obj/structure/table,/obj/item/hemostat,/obj/item/cautery{pixel_x = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"eR" = (/obj/machinery/ship/phaser{tag = "icon-phaserarray"; icon_state = "phaserarray"; dir = 2},/obj/structure/catwalk,/obj/structure/cable/white,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
+"eS" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 8},/obj/item/storage/firstaid/regular,/turf/open/floor/trek/dark,/area/ship/romulan)
+"eT" = (/obj/structure/table/reinforced,/obj/item/storage/firstaid/o2,/turf/open/floor/trek/dark,/area/ship/romulan)
+"eU" = (/obj/structure/table/reinforced,/obj/item/storage/firstaid/fire,/turf/open/floor/trek/dark,/area/ship/romulan)
+"eV" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/item/storage/firstaid/brute,/turf/open/floor/trek/dark,/area/ship/romulan)
+"eW" = (/obj/structure/closet/wardrobe/white/medical,/turf/open/floor/trek/dark,/area/ship/romulan)
+"eX" = (/obj/structure/table,/obj/item/circular_saw,/obj/item/scalpel{pixel_y = 12},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"eY" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
 "eZ" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
 "fa" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 10},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
-"fb" = (/obj/effect/landmark/crewspawnermachine/romulan,/turf/open/floor/borg/trek/lit{color = "#baadab"},/area/ship/romulan)
+"fb" = (/obj/structure/table,/obj/item/surgical_drapes,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 
 (1,1,1) = {"
 azababababababababababababababababababababababababababababababababababababababababababababababababab
@@ -272,60 +266,60 @@ azacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacac
 azacacacacacacacacacacacacacacacacadaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeadacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacacadadadadaeadadadadadadadaeadadadadacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacacadaeadaeaeaeaeagaeaeaeaeaeaeaeaeadacacacacacacacacacacacacacacacaz
-azacacacacacacacacacacacacacacacacadadaeahaeaecBcBcBcBcBaeaeakaeadadacacacacacacacacacacacacacacacaz
-azacacacacacacacacacacacacacacacacadadaealcBcBcBcBcBcBcBcBcBamaeadadacacacacacacacacacacacacacacacaz
-azacacacacacacacacacacacacacacacacadadafcBajaoaoaoaiaqaoaoarcBafadadacacacacacacacacacacacacacacacaz
-azacacacacacacacacacacacacacacacacadadafcBasafafafafafafafavcBafadadacacacacacacacacacacacacacacacaz
-azacacacacacacacacacacacacacacacacadanafawaxayapafaAafaBafavcBafanadacacacacacacacacacacacacacacacaz
-azaFcqcqcqcqcqaHacacacacacacacacacadadafawaCaDaDaDaDaDaDaDaEcBafadadacacacacacacacacacacacacacacacaz
-azaFbYcCaLaMbWaHaFaGaGaGaGaGaGaHacadadafcBaIcBcBcBcBcBcBcBcBcBafadadaJaFaGaGaGaGaGaGaHacacacacacacaz
-azaFbYcCaLbPbWaHaFafafbQafafafaHacadaeadafaNbRaoaoaoaoaobRaoafadadadaJaFafafcaafafafaHacacacacacacaz
-azaFbYcCaLbPbWaHaFafaPaPaPafafaHacadatadadaQadadadadadadadauadadadadaJaFaRaRafafafaSaHacacacacacacaz
-azaFbYcCccbPbWaHaFaTafafafafaTaUaWaXaXaXaWaYaWaXaXaXaXaXaWaZaWaXaXaXaWaUaRaRafafbaafaHacacacacacacaz
-azaFbYcCcicjbWaHaFaWaXaXaZaXaXaWckbbbbbbbbbcbbbbbbclbbbbbbaDbbbbbbbbcmaWaXaXaZaXaXaWaHacacacacacacaz
-azaFaWcraabiaWaHaFbbbbbbbbbbbbbbaEcBawbdbebfcBcBcBbgcBcBcBcBcBcBcBcBbhbbbbbbbbbbbbbbaHacacacacacacaz
-azaFcvbAcScVdkaHaFcBcBcBcBcBcBcBcBcBawawbqbubvbvbvbybvbvbvbvbZcBcBcBcBcBcBcBcBcBcBcBaHacacacacacacaz
-azaFdldmdndmdoaHaFaGaGaGaZaGaGaGaHaFaWaWegaWaWaUaWbgaWaUbjbkeMblbmaHaFaGaGaGaZaGaGaGaHacacacacacacaz
-azaFdpdqdrdqdsaHaFbncBcBcBcBcBboaHaFanbpeSananaUdtbgdtaUananeTananaHaFbrcBcBcBcBcBdhaHacacacacacacaz
-azaFdudvdwdxduaHaFdybsafbsafbsboaHaFdzbteUbtanaUcBbgcBaUdzbteVbtanaHaFdAafafafafafdBaHacacacacacacaz
-azaFbwaGdCaGbxaHaFcBafaffbafafboaHaFanbteWbtanaUcBbgcBaUanbtbtbtanaHaFbrafafafafafdhaHacacacacacacaz
-azaFbzbAdDbAbBaHaFbCcBcBcBcBcBboaHaFananeXananaUcBbgcBaUanananananaHaFbrcBcBcBcBcBdhaHacacacacacacaz
-azaFbEbAdDbAbEaHbFbGbGbHbIbJbGbGbKbFbGbGeYbGbGaFaWbgaWaHbGbGbGbGbGbMbFbGbGbGbNbGbGbGbMacacacacacacaz
-azaFbOdEdFdGbSaHaJaJaJbTbUbVaJaJacacacbWeZbYacaFdtbgdtaHacacacacacacacacacbWcCbYacacacacacacacacacaz
-azaFaGaGdHcbaGaHacacacacacacacacacacacbWeZbYacaFcBbgcBaHacacacacacacacacacbWcCbYacacacacacacacacacaz
-azbWcCcCdIcCcCcdcgcgcgcgcgcgcgcgcgcgcgcheZbYacaFcBbgcBaHacacacacacacacacacbWdJbYacacacacacacacacacaz
-azbWcCcCdKdLdLdLdLdTdLdLdLdLdLdLdLeadTdLfabYacaFcBbgcBaHacacacacacacacacacbWcCbYacacacacacacacacacaz
-azaJcncncncncncncncncncncncncncncobXcpcoehbYacaFcBbgcBaHacacacacacacacacacbWcCbYacacacacacacacacacaz
+azacacacacacacacacacacacacacacacacadadaeahaeaeaaaaaaaaaaaeaeakaeadadacacacacacacacacacacacacacacacaz
+azacacacacacacacacacacacacacacacacadadaealaaaaaaaaaaaaaaaaaaamaeadadacacacacacacacacacacacacacacacaz
+azacacacacacacacacacacacacacacacacadadaaaaelcPcPcPajaocPcPcTaaaaadadacacacacacacacacacacacacacacacaz
+azacacacacacacacacacacacacacacacacadadaaaadtcacacacacacacacXaaaaadadacacacacacacacacacacacacacacacaz
+azacacacacacacacacacacacacacacacacadanaaaaaqarascaavcaaxcacXaaaaanadacacacacacacacacacacacacacacacaz
+azaFcqcqcqcqcqaHacacacacacacacacacadadaaaaaybgbgbgbgbgbgbgbqaaaaadadacacacacacacacacacacacacacacacaz
+azaFbYcCaLaMbWaHaFaGaGaGaGaGaGaHacadadaaaaenaaaaaaaaaaaaaaaaaaaaadadaJaFaGaGaGaGaGaGaHacacacacacacaz
+azaFbYcCaLbPbWaHaFaaaaaEaaaaaaaHacadaeadaaaNaOaiaiaiaiaiaOaiaaadadadaJaFaacaejcacaaaaHacacacacacacaz
+azaFbYcCaLbPbWaHaFaaaRaRaRcaaaaHacadatadadaQadadadadadadadauadadadadaJaFaSbbcacacaaTaHacacacacacacaz
+azaFbYcCccbPbWaHaFbaaaaaaaaabaaUaWaXaXaXaWaYaWaXaXaXaXaXaWaZaWaXaXaXaWaUaSbbcacabiaaaHacacacacacacaz
+azaFbYcCcicjbWaHaFaWaXaXaZaXaXaWbcbdbdbdbdbebdbdbdbfbdbdbdbgbdbdbdbdbhaWaXaXaZaXaXaWaHacacacacacacaz
+azaFaWcrawaAaWaHaFbdbdbdbdbdbdbdbqbrbrbsbtbubrbrbrbvbrbrbrbrbrbrbrbrbybdbdbdbdbdbdbdaHacacacacacacaz
+azaFcvbAcScVdkaHaFbrbrbrbrbrbrbrbrbrbrbrbDbQbQbQbQaBbQbQbQbQbZbrbrbrbrbrbrbrbrbrbrbraHacacacacacacaz
+azaFdldmdndmdoaHaFaGaGaGaZaGaGaGaHaFaWaWegaWaWaUaWbvaWaUbjbkeMblbmaHaFaGaGaGaZaGaGaGaHacacacacacacaz
+azaFdpdqdrdqdsaHaFaCbrbrbrbrbraDaHaFcackclcacaaUaPbvaPaUcacacscacaaHaFctaaaaaaaaaacuaHacacacacacacaz
+azaFdudvdwdxduaHaFaIbnbrbnbrbnaDaHaFcycFcHcFcaaUaabvaaaUcycFcIcFcaaHaFcJcacacacacacKaHacacacacacacaz
+azaFbwaGdCaGbxaHaFbrbrbrbobrbraDaHaFcacFcMcFcaaUaabvaaaUcacFcFcFcaaHaFctcacacacacacuaHacacacacacacaz
+azaFbzbAdDbAbBaHaFbpbrbrbrbrbraDaHaFcacacNcacaaUaabvaaaUcacacacacaaHaFctaaaaaaaaaacuaHacacacacacacaz
+azaFbEbAdDbAbEaHbFbGbGbHbIbJbGbGbKbFbGbGeYbGbGaFaWbvaWaHbGbGbGbGbGbMbFbGbGbGbNbGbGbGbMacacacacacacaz
+azaFbOdEdFdGbSaHaJaJaJbTbUbVaJaJacacacbWeZbYacaFaPbvaPaHacacacacacacacacacbWcCbYacacacacacacacacacaz
+azaFaGaGdHcbaGaHacacacacacacacacacacacbWeZbYacaFaabvaaaHacacacacacacacacacbWcCbYacacacacacacacacacaz
+azbWcCcCdIcCcCcdcgcgcgcgcgcgcgcgcgcgcgcheZbYacaFaabvaaaHacacacacacacacacacbWdJbYacacacacacacacacacaz
+azbWcCcCdKdLdLdLdLdTdLdLdLdLdLdLdLeadTdLfabYacaFaabvaaaHacacacacacacacacacbWcCbYacacacacacacacacacaz
+azaJcncncncncncncncncncncncncncncobXcpcoehbYacaFaabvaaaHacacacacacacacacacbWcCbYacacacacacacacacacaz
 azacacacacacacacacacacacacacacacbWbXbYaFeicqcqcqaWaZaWcqcqcqcqaUcqcqcqcqcqcqbNcqcqcqcqaHacacacacacaz
-azacacacacacacacacacacacacacacacbWbXbYaFejaoclaoaoaoaoaoaoclaraUcscscsekafcaafcacscscsaHacacacacacaz
-azacacacacacacacacacacacacacacacbWbXbYaFelaVbtbtbtbtbtbtbtaVavaUafafafemafafafafafafafaHacacacacacaz
-azacacacacacacacacacacacacacacacbWbXbYaFenaKbteoepeqeqerereseteuevevevewafafafafafafafaHacacacacacaz
-azacacacacacacacacacacacacacacacbWbXbYaFexeyezcteBbAaVbtbtaKavcwafafafafafafafafafafafaHacacacacacaz
-azacacacacacacacacacacacacacacacbWbXbYaFasaKbtcueAeAeAeIeJcxavaUafafafafafafafafafafafaHacacacacacaz
-azacacacacacacacacacacacacacacacbWbXbYaFasaVbtbtbtbtbtbteKaVavaUafafafafafafafafafafafaHacacacacacaz
-azacacacacacacacacacacacacacacacbWeCbYaFbhaDaDaDaDaDaDaDeLaDaEaUcscscscyafeDafeDcscscsaHacacacacacaz
+azacacacacacacacacacacacacacacacbWbXbYaFcOcPbfcPcPcPcPcPcPbfcTaUcLcLcLcRaaaPaaaPcLcLcLaHacacacacacaz
+azacacacacacacacacacacacacacacacbWbXbYaFcWaVcwcwcwcwcwcwcwaVcXaUaaaaaacUaaaaaaaaaaaaaaaHacacacacacaz
+azacacacacacacacacacacacacacacacbWbXbYaFcYaKcwcZdbdadadcdcesddeudadadadgaaaaaaaaaaaaaaaHacacacacacaz
+azacacacacacacacacacacacacacacacbWbXbYaFdeeydfdhdicwaacwcwaKcXdzaaaaaaaaaaaaaaaaaaaaaaaHacacacacacaz
+azacacacacacacacacacacacacacacacbWbXbYaFdtaKcwdAdBdBdBdMdNcxcXaUaaaaaaaaaaaaaaaaaaaaaaaHacacacacacaz
+azacacacacacacacacacacacacacacacbWbXbYaFdtaVcwcwcwcwcwcwdOaVcXaUaaaaaaaaaaaaaaaaaaaaaaaHacacacacacaz
+azacacacacacacacacacacacacacacacbWeCbYaFbybgbgbgbgbgbgbgdPbgbqaUcLcLcLdVaadWaadWcLcLcLaHacacacacacaz
 azacacacacacacacacacacacacacacacbWbXbYbFbGczaZcqcqcqcqcqeMcAbGbGbGbGbGbGbGbGbGbGbGbGbGbMacacacacacaz
-azacacacacacacacacacacacacacacacbWbXbYacacaFcCcBdtcBdtcBcjaHacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacacacacacacacacacbWbXbYacacaFcCcBeNeOeOeOePaHacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacacacacacacacacacbWbXbYacacaFcCcBeQeQeQeQeRaHacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacacacacacacacacacbWbXbYacacaFcCaaaPaaaPaacjaHacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacacacacacacacacacbWbXbYacacaFcCaadQdRdRdRePaHacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacacacacacacacacacbWbXbYacacaFcCaadSdSdSdSeRaHacacacacacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacbWbXbYacacaFcCcCcCcCcCcCcCaHacacacacacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacbWbXbYacacaFcCcecfcfcfcCcDaHacacacacacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacbWeCbYacacaFcCcCcEcCcCcCcDaHacacacacacacacacacacacacacacacacacacacaz
 azacacacacacacacaFaGaGaGaGaGaGaHbWbXbYacacaFcCcecfcfcfcCcCaHacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFcFcGeEcGcGcFaHbWbXbYacacbFbGbGbGbGbGbGbGbMacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFcHaOaOaOaOcIaHbWbXbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFcHaOaOaOaOcIaHbWbXbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFananananananaUaWbLaWaWaWaWaWaWaWaWaWaWaHacacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFaWaZaWaWaZaWaWcJcKcLananeFeFanananananaXaXaXaXaHacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFananeFanananancMcNcOcOcOcOcOcOcOcOcOcPananeFanaHacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFdUdXdYdXdXdUaHbWbXbYacacbFbGbGbGbGbGbGbGbMacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFdZebebebebecaHbWbXbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFdZebebebebecaHbWbXbYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFcacacacacacaaUaWbLaWaWaWaWaWaWaWaWaWaWaHacacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFaWaZaWaWaZaWaWedeeefcacaejejcacacacacaaXaXaXaXaHacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFcacaejcacacacaafekaiaiaiaiaiaiaiaiaiapcacaejcaaHacacacacacacacacacacacacacacacacaz
 azacacacacacacacaFaGaGaZaGaGaHaFaGaYaGaGaGaGaGaGaGaGaZaGaHbHcQbJaHacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFcRananeFanaHaFanbDananeGcTcUeHananancWaHbTbUbVaHacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFcXcMcYcPanaHaFancZcOcOcOcOcOcOcOcOcPancAbGbGbGbMacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFdadbdcddanaHaFandecBcBcBcBcBcBcBcBdfanaHacacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFdgananananaHaFandbdcdcdcdcdcdcdcdcddanaHacacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFdMdNdOdPdQaHaFanandidUdVdWdXdYdUdZdianaHacacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFdRcBcBcBdSaHbFbGbGbGbGbGbGbGbGbGbGbGbGbMacacacacacacacacacacacacacacacacacacacacaz
-azacacacacacacacaFebecedeeefaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFemaaaaaPaaaHaFaaenaaaaetevewexaaaaaaeDaHbTbUbVaHacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFeEeleocTaaaHaFaaepcPcPcPcPcPcPcPcPcTaacAbGbGbGbMacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFeFbybgbqaaaHaFaaeqcacacacacacacacacXaaaHacacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFeGaaaaaaaaaHaFaabybgbgbgbgbgbgbgbgbqaaaHacacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFerezeAeBeIaHaFaaaaeHeLeSeTeUeVeLeWeHaaaHacacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFeJcacacaeKaHbFbGbGbGbGbGbGbGbGbGbGbGbGbMacacacacacacacacacacacacacacacacacacacacaz
+azacacacacacacacaFeNeOeQeXfbaHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaz
 azacacacacacacacdjbGbGbGbGbGbMacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaz

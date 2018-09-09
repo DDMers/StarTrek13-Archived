@@ -19,7 +19,8 @@
 	dna.species.species_traits |= TRAIT_NOBREATH
 	dna.species.species_traits |= TRAIT_RESISTCOLD
 	dna.species.species_traits |= TRAIT_NOHUNGER
-	mind.special_role = "Borg-Drone" //Placing this last so that it only runtimes after completion, so you can convert AFK mobs
+	if(mind)
+		mind.special_role = "Borg-Drone" //Placing this last so that it only runtimes after completion, so you can convert AFK mobs
 	eye_color = "red"
 	underwear = "Nude"
 	undershirt = "Nude"
@@ -103,7 +104,7 @@
 						var/atom/newsuite = new suite(get_turf(T))
 						building = FALSE
 						to_chat(user, "We have built a [newsuite.name]")
-						resource_amount -= resource_cost
+						resource_amount -= 100
 						return TRUE
 					building = FALSE //Catch
 					return FALSE
@@ -406,9 +407,10 @@
 				overlays -= armoroverlay
 				qdel(armoroverlay)
 				qdel(armoverlay)
+				return TRUE
 			else
 				to_chat(user, "They have already been augmented")
-				return 0
+				return FALSE
 	else
 		to_chat(user, "They are not ready. Assimilate them first.")
-		return 0
+		return FALSE

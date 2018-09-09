@@ -69,7 +69,7 @@
 				M.real_name = M.name
 				return TRUE
 	else
-		return FALSE
+		return FALSE //Funny meme!
 
 /datum/crew/romulan/NameCheck(mob/living/M) //romulan admiral dilbert cook reporting!
 	if(M.client)
