@@ -24,16 +24,7 @@ Antimatter tank, if this is ever fucked with it'll explode
 1 matter unit + 1 antimatter unit = 100 MJ of energy
 
 */
-#define WARP_1 1
-#define WARP_2 10
-#define WARP_3 39
-#define WARP_4 102
-#define WARP_5 214
-#define WARP_6 392
-#define WARP_7 656
-#define WARP_8 1024
-#define WARP_9 1516
-#define WARP_10 2000 //This is translated to warp 9.99996 instead, because warp 10 is impossible
+
 
 /obj/machinery/power/warpcore
 	name = "warp core"
@@ -61,6 +52,7 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/WF = "impulse" //Text representation of our maximum warp.
 	var/power = 0
 	var/stored_cochranes = 0
+	var/cochranes = 0
 
 
 /obj/machinery/power/warpcore/massive
@@ -140,7 +132,7 @@ Antimatter tank, if this is ever fucked with it'll explode
 		qdel(soundloop)
 
 /obj/machinery/power/warpcore/proc/get_warp_factor()
-	var/cochranes = 0
+	cochranes = 0
 	if(!ship)
 		var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/fluff/helm/desk/tactical) in get_area(src)
 		ship = AA.theship

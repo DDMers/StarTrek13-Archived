@@ -77,6 +77,11 @@
 	var/power_modifier = 1 //How much of the allocated power do we have?
 	var/heat_loss_bonus = 0
 	var/voiceline
+	var/power = 0 //Power available thru relays. 		Power is arbitrary, every relay gives 1 power.
+	var/power_required = 1 //how much we need to run
+	var/power_use = 1 //how much power we use
+	var/stored_power = 0
+	var/list/relays = list() //how much of a boost we'll get depends on the active relays in this
 
 /datum/shipsystem/New()
 	. = ..()
@@ -90,7 +95,28 @@
 	if(heat) //  < 0
 		heat -= amount
 
+/datum/shipsystem/proc/check_power()
+	if(stored_power > 10)
+		stored_power -= power_use
+		if(stored_power < power_required)
+			fail(TRUE)
+		else
+			if(integrity > 5000)
+				failed = FALSE
+	else
+		fail(TRUE)
+
+/datum/shipsystem/proc/check_power_bonus()
+	var/thebonus = 1
+	for(var/T in relays)
+		if(istype(T, /obj/structure/ship_component/subsystem_relay))
+			var/obj/structure/ship_component/subsystem_relay/P = T
+			if(P.powered)
+				thebonus += P.power_rating
+	return thebonus
+
 /datum/shipsystem/process()//Here's where the magic happens.
+	check_power()
 	if(integrity > max_integrity)
 		integrity = max_integrity
 	if(heat < 0)
@@ -107,10 +133,11 @@
 		if(integrity > 5000) //reactivate
 			failed = FALSE
 
-/datum/shipsystem/proc/fail()
+/datum/shipsystem/proc/fail(var/silent = FALSE)
 	if(!failed) //captain they've disabled our warp engines (x55)
 		if(voiceline)
-			controller.theship.weapons.voiceline(voiceline)
+			if(controller.theship.weapons && !silent)
+				controller.theship.weapons.voiceline(voiceline)
 	failed = TRUE
 	for(var/obj/structure/shipsystem_console/T in linked_objects)
 		T.fail()
@@ -179,6 +206,7 @@
 	fire_cost = initial(fire_cost)
 	max_charge = initial(max_charge)
 	chargeRate = initial(chargeRate)
+	chargeRate += chargeRate*check_power_bonus()
 	var/counter = 0
 	var/temp = 0
 	for(var/obj/machinery/ship/phaser/PS in phasers)
@@ -193,6 +221,7 @@
 	return damage
 
 /datum/shipsystem/weapons/process()
+	check_power()
 	charge += chargeRate
 	if(charge < 0)
 		charge = 0
@@ -260,8 +289,9 @@
 			return 1
 
 /datum/shipsystem/engines/process()
+	check_power()
 	if(charge < max_charge)
-		charge += chargeRate
+		charge += chargeRate*check_power_bonus()
 	if(integrity > max_integrity)
 		integrity = max_integrity
 	if(heat < 0)
@@ -322,10 +352,11 @@
 	health = 0
 
 /datum/shipsystem/shields/process()
+	check_power()
 	if(controller)
 		if(controller.theship)
 			if(controller.theship.generator)
-				chargeRate = controller.theship.generator.chargerate
+				chargeRate = controller.theship.generator.chargerate*check_power_bonus()
 			if(controller.theship.generator)
 				if(!controller.theship.generator.powered())
 					health = 0
@@ -473,7 +504,7 @@
 	var/damage_message = "ruptures!"
 	var/health = 100
 	var/obj/structure/overmap/our_ship
-	var/datum/shipsystem/shields/chosen
+	var/datum/shipsystem/chosen
 	var/active = FALSE
 	var/benefit_amount = 300 //How much will you gain in health/lose in heat with this component active?
 	anchored = TRUE
@@ -520,8 +551,6 @@
 	if(health >= 100)
 		icon_state = initial(icon_state)
 		return
-	else if(health <100 && health >20)
-		icon_state = "[initial(icon_state)]-damaged"
 	else
 		active = FALSE
 		can_be_reactivated = FALSE
@@ -560,14 +589,14 @@
 	else
 		to_chat(H, "[src] is too badly damaged! repair it first!")
 
-
+/*
 /obj/structure/ship_component/attackby(obj/item/I,mob/living/user)
 	if(istype(I, /obj/item/wrench))
 		to_chat(user, "You're repairing [src] with [I]")
 		if(do_after(user, 5, target = src))
 			to_chat(user, "You patch up some of the dents in [src]!")
 			health += 10
-
+*/
 
 /obj/structure/ship_component/capbooster
 	anchored = TRUE
@@ -586,160 +615,11 @@
 		to_chat(user, "It is not active")
 
 
-/obj/structure/subsystem_panel		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!
-	name = "ODN Relay (Shields)"
-	anchored = TRUE
-	desc = "A breaker box housing an ODN relay which bridges the ship's power-grid to the shields subsystem"
-	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
-	icon_state = "subsystem_panel"
-	var/obj/structure/overmap/our_ship
-	var/datum/shipsystem/chosen
-	var/open = FALSE
-	var/obj/effect/panel_overlay/cover = new
-	var/powered = TRUE //Used for repairs, replace me with bitflags asap.
-	var/voiceline = "shields"
-
-/obj/structure/subsystem_panel/proc/check_ship()
-	var/area/a = get_area(src) //If you're making a new subsystem panel, copy this and change vvvvv
-	for(var/obj/structure/fluff/helm/desk/tactical/T in a)
-		var/obj/structure/overmap/S = T.theship
-		if(T.theship)
-			chosen = S.SC.shields //This line
-
-
-/obj/structure/subsystem_panel/weapons		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!
-	name = "ODN Relay (Weapons)"
-	desc = "A breaker box housing an ODN relay which bridges the ship's power-grid to the weapons subsystem"
-	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
-	icon_state = "subsystem_panel"
-	voiceline = "phasers"
-
-/obj/structure/subsystem_panel/weapons/check_ship()
-	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
-	if(W.theship && W.theship.SC && W.theship.SC.weapons)
-		chosen = W.theship.SC.weapons
-
-/obj/structure/subsystem_panel/engines		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!
-	name = "ODN Relay (engines)"
-	desc = "A breaker box housing an ODN relay which bridges the ship's power-grid to the engines subsystem"
-	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
-	icon_state = "subsystem_panel"
-	voiceline = "warpengines"
-
-/obj/structure/subsystem_panel/engines/check_ship()
-	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
-	if(W.theship && W.theship.SC && W.theship.SC.engines)
-		chosen = W.theship.SC.engines
-
-/*
-	var/state = 1
-	var/state_open = 2
-	var/state_closed = 4
-	var/state_wrenched = 6
-	var/state_crowbar = 8
-	var/state_screwdriver = 10
-	var/state_rewire = 12
-*/
-
-/obj/structure/subsystem_panel/New()
-	. = ..()
-	check_ship()
-	START_PROCESSING(SSobj,src)
-
-/obj/structure/subsystem_panel/process()
-	if(!chosen)
-		check_ship()
-	check_overlays()
-
-/obj/structure/subsystem_panel/attack_hand(mob/user)
-	if(!chosen)
-		check_ship()
-	switch(open)
-		if(TRUE)
-			cut_overlays()
-			to_chat(user, "You close [src]'s lid")
-			cover.icon_state = "[icon_state]-cover"
-			open = FALSE
-			add_overlay(cover)
-		if(FALSE)
-			cut_overlays()
-			to_chat(user, "You open [src]'s lid")
-			cover.icon_state = "[icon_state]-cover-open"
-			open = TRUE
-			add_overlay(cover)
-	check_overlays()
-
-/obj/structure/subsystem_panel/attackby(obj/item/I, mob/user)
-	if(chosen)
-		if(open)
-			if(istype(I, /obj/item/wirecutters) && powered)
-				to_chat(user, "You are deactivating the [chosen] subsystem for repair, this will avoid shocks but the ship's [chosen] will be down until you're done.")
-				if(do_after(user, 500, target = src))
-					to_chat(user, "You've depowered the [chosen] subsystem, use a wrench to begin repairs")
-					powered = FALSE
-					chosen.failed = TRUE
-					STOP_PROCESSING(SSobj, chosen)
-			if(istype(I, /obj/item/wrench) && powered)
-				to_chat(user, "I can't afford to depower the [chosen] subsystem, i'll have to take the risk, you begin prodding at live electrical wires and plasma tubes in a desperate attempt to repower the [chosen] subsystem") //You can chance it, but if you fuck up it'll get even worse.
-				if(do_after(user, 250, target = src))
-					if(prob(60))
-						to_chat(user, "You successfully repair the [chosen] subsystem, thank God you didn't touch any of the live wires with your metallic wrench.")
-						chosen.integrity = chosen.max_integrity
-						chosen.failed = FALSE
-						chosen.heat = 0
-						START_PROCESSING(SSobj, chosen)
-						powered = TRUE
-						our_ship.weapons.voiceline(voiceline)
-					else
-						to_chat(user, "You accidentally slip with your [I] and rupture a plasma conduit! sending a huge arc of charged plasma into the air!")
-						var/turf/t = get_turf(src)
-						t.atmos_spawn_air("plasma=30;TEMP=5000")
-						tesla_zap(src, 5, 30000) //That'll seriously fuck things up.
-						chosen.fail()
-						chosen.integrity -= 2000 //You seriously fucked up
-						powered = TRUE
-						START_PROCESSING(SSobj, chosen)
-			if(open && !powered)
-				if(istype(I, /obj/item/wrench))
-					to_chat(user, "You begin a complicated bout of rewiring, ripping out bits of [src] and hastily replacing them with others, this is no substitute for a good stay in spacedock, but it'll have to do.... Luckily you cut the power beforehand")
-					if(do_after(user, 300, target = src))
-						to_chat(user, "You've finished jury-rigging [src], the [chosen] subsystem should now come back online. You may now close [src]'s cover.")
-						chosen.integrity = chosen.max_integrity
-						chosen.heat = 0
-						chosen.failed = FALSE
-						powered = TRUE
-						START_PROCESSING(SSobj, chosen)
-						our_ship.weapons.voiceline(voiceline)
-		if(!open)
-			to_chat(user, "Try opening [src]'s panel first")
-
-/obj/effect/panel_overlay
-	name = "subsystem panel cover"
-	icon = 'StarTrek13/icons/trek/subsystem_parts.dmi'
-	icon_state = "subsystem_panel-cover"
-	var/obj/structure/overmap/ship
-	anchored = TRUE
-
-/obj/structure/subsystem_panel/proc/check_overlays()
-	if(chosen)
-		cut_overlays()
-		cover.icon = icon
-		var/goal = chosen.max_integrity
-		var/progress = chosen.integrity
-		progress = CLAMP(progress, 0, goal)
-		icon_state = "subsystem_panel-[round(((progress / goal) * 100), 25)]" //Get more fucked as our subsystem is damaged
-		switch(open)
-			if(TRUE)
-				cover.icon_state = "subsystem_panel-cover-open"
-			if(FALSE)
-				cover.icon_state = "subsystem_panel-cover"
-	//	cover.icon_state = "[icon_state]-cover-[round(((progress / goal) * 100), 50)]"
-		cover.layer = 4.5
-		add_overlay(cover)
-	else
-		STOP_PROCESSING(SSobj,src)
 
 // var/thenumber1 = rand(20,40)
 // var/thenumber2 = rand(20,50)
 // var/theanswer = number1 + number2
 // to_chat(user, "Enemy ship unsigned vector X : Mark unsigned vector Y. Phase drift modulation: X + Y = [theanswer].
+
+
+//Add subsystem relays! where you have to shove subsystem power through. These get damaged during battle, if one relay fails mid combat, engi can reroute power.

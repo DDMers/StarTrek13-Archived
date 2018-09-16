@@ -80,11 +80,11 @@
 		var/area/A = get_area(src)
 		if(A)
 			A.Entered(user)
-		while(pilot)
+		while(1)
 			stoplag()
 			ProcessMove()
 			ProcessFire()
-		while(nav_target && pilot)
+		while(nav_target)
 			navigate()
 
 
