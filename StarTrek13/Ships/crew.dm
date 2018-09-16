@@ -122,6 +122,9 @@
 /obj/effect/landmark/crewstart/romulan
 	name = "dderidex class warbird"
 
+/obj/effect/landmark/crewstart/borg
+	name = "submatrix class vessel"
+
 /datum/crew/sovereign
 	name = "sovereign class heavy cruiser"
 	priority = MED
@@ -130,6 +133,10 @@
 /datum/crew/galaxy
 	name = "galaxy class cruiser"
 	faction = "starfleet"
+
+/datum/crew/borg
+	name = "submatrix class vessel"
+	faction = "the borg collective"
 
 /datum/crew/cruiser
 	name = "defiant class warship"

@@ -43,6 +43,9 @@
 	var/warp_cost = 4000 //Lotsa energy to warp it
 
 /datum/action/innate/warp/Activate()
+	to_chat(ship.pilot, "This feature is disabled, use the helm console to set speed.")
+	return
+/*
 	if(ship.SC.engines.try_warp())
 		switch(warping)
 			if(TRUE)
@@ -60,6 +63,7 @@
 					SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
 					to_chat(L, "The deck plates shudder as the ship builds up immense speed.")
 		return
+*/
 
 /datum/action/innate/stopfiring
 	name = "Disengage weapons lock"

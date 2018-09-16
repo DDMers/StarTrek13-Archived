@@ -117,6 +117,15 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	factag = "romulan"
 	speciestype = /datum/species/romulan
 
+/datum/faction/borg
+	name = "the borg collective"
+	description = "The borg seek perfection through the integration of technology and culture from other species. There is no individual in the borg."
+	flavourtext = "Diplomacy is irrelevant, resistance is futile. Assimilate lifeforms to add to our database."
+	pref_colour = "green"
+	required_race = null
+	factag = "borg"
+	speciestype = null
+
 /datum/faction/proc/add_objective(var/datum/factionobjective/O)
 	if(O in subtypesof(/datum/factionobjective))
 		if(current_objective)
