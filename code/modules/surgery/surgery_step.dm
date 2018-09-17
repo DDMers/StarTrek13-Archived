@@ -89,7 +89,7 @@
 			if(failure(user, target, target_zone, tool, surgery))
 				advance = 1
 
-		if(user.skills.skillcheck(user, "medicine", 7) != (1 || 3)) //Only a trained professional may do each surgery PERFECTLY.
+		if(user.skills.skillcheck(user, "medicine", 7) <= 2) //Only a trained professional may do each surgery PERFECTLY.
 			target.apply_damage(8, BRUTE, target_zone)
 			user.visible_message("<span class='warning'>[user] screws up!<span>", "<span class='warning'>You screw up!</span>")
 			advance = 0
