@@ -52,10 +52,11 @@
 			message = "CRITICAL FAILURE! [message]"
 			if(show_message)
 				to_chat(target, "<span class='userdanger'>[message]</span>")
-			return FALSE
+			return CRIT_FAILURE
 	else
-		to_chat(target, "<span class='userdanger'>[message]</span>")
-		return FALSE
+		if(show_message)
+			to_chat(target, "<span class='userdanger'>[message]</span>")
+		return FAILURE
 
 /datum/skillhandler/proc/get_chance(var/num1, var/num2)
 	var/percentage = (num1 / num2) * 100
