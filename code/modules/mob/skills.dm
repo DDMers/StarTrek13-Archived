@@ -38,6 +38,9 @@
 		return
 	skill = S.value
 
+	if(!skill)
+		skill = 1 //Because people were having serious issues with this.
+
 	if(requirement == 0)
 		return SUCCESS
 
