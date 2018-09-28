@@ -491,7 +491,6 @@
 	for(var/obj/structure/ship_component/L in linked_ship)
 		components += L
 		L.our_ship = src
-		L.chosen = SC.shields
 
 //Sparks, smoke, fire, breaches, roof falls on heads
 

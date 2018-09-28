@@ -38,9 +38,15 @@ SUBSYSTEM_DEF(faction)
 	var/datum/crew/whatcrew
 	var/list/peoplemax = list()
 	for(var/datum/crew/FS in crews)
+		if(FS.locked)
+			continue
 		peoplemax += FS.count
 	var/highest = max(peoplemax)
+	var/list/playable = list()
 	for(var/datum/crew/EE in crews)
+		if(EE.locked)
+			continue
+		playable += EE
 		if(EE.count >= highest)
 			mostpopulated = EE //yeah it's the most populated so no need to add someone to it
 			highest = EE.count
@@ -48,21 +54,22 @@ SUBSYSTEM_DEF(faction)
 		var/quickmath = highest - EE.count
 		if(quickmath >= 2) //imbalance on crews there buddy :) Show those romulans some love.
 			whatcrew = EE
-			whatcrew.addbyforce(M)
+			whatcrew.addbyforce(M) //If you want more even splits, 2 is a good number
 			return TRUE
 	if(prob(70))
 		if(M.client)
-			if(M.client.prefs.crews.len)
-				whatcrew = pick(M.client.prefs.crews)
-				whatcrew.addbyforce(M)
+			if(M.client.prefs.crews)
+				try:
+					whatcrew = pick(M.client.prefs.crews)
+					whatcrew.addbyforce(M)
+				catch:
+					whatcrew = pick(playable)
+					whatcrew.addbyforce(M)
 			else
-				whatcrew = pick(crews)
+				whatcrew = pick(playable)
 				whatcrew.addbyforce(M)
-		else
-			whatcrew = pick(crews)
-			whatcrew.addbyforce(M)
-	else //We'll make it a generous chance to get the crew you want
-		whatcrew = pick(crews)
+	else
+		whatcrew = pick(playable)
 		whatcrew.addbyforce(M)
 	most_popular = mostpopulated
 	return TRUE

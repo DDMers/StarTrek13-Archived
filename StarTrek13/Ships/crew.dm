@@ -18,6 +18,7 @@
 	var/filled = FALSE //Stops it repeatedly filling crews.
 	var/count = 0
 	var/requiredtype = /datum/faction/starfleet
+	var/locked = FALSE //block roundstart joins on this?
 
 /datum/crew/New()
 	. = ..()
@@ -137,6 +138,7 @@
 /datum/crew/borg
 	name = "submatrix class vessel"
 	faction = "the borg collective"
+	locked = TRUE
 
 /datum/crew/cruiser
 	name = "defiant class warship"
@@ -149,6 +151,7 @@
 	priority = HIGH
 	faction = "romulan empire"
 	requiredtype = /datum/faction/romulan
+	locked = TRUE //We're only unlocking them when antags spawn 30 mins in
 
 /datum/crew/nerds
 	name = "uss woolfe research outpost"

@@ -49,7 +49,7 @@
 "aW" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
 "aX" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTH)"; icon_state = "trek_edge"; dir = 1},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
 "aY" = (/obj/item/twohanded/required/kirbyplants{icon_state = "plant-21"; pixel_x = -3; pixel_y = 3},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHEAST)"; icon_state = "trek_edge"; dir = 6},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
-"aZ" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8; pixel_x = 0},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
+"aZ" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
 "ba" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 1},/area/ship/miranda)
 "bb" = (/obj/structure/replicator,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
 "bc" = (/obj/machinery/atmospherics/components/binary/pump/on,/turf/open/floor/plating,/area/ship/miranda)

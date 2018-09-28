@@ -1,4 +1,4 @@
-//stolen from a cool PR i saw guppy make :b1://
+///stolen from a cool PR i saw guppy make :b1:///
 
 /mob/living/carbon/human/proc/grant_kirkfu()
 	var/art = pick("Flip","Block","Punch","Headbutt","Grab","Disarm")
