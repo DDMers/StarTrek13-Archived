@@ -1,3 +1,13 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// UI templates created Adge Cutler and are available on their site "http://www.lcars.org.uk/lcars_TNG_panels.htm" //
+// 					        They've been converted to GIF format and are used with their permission.			   //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
 /obj/structure/weapons_console
 	name = "Weapons console"
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
@@ -212,7 +222,6 @@
 			user.say("All stop")
 		if(href_list["warp"])
 			var/obj/machinery/power/warpcore/W = locate(/obj/machinery/power/warpcore) in get_area(src)
-			say("[W.name]")
 			var/cochranes
 			var/list/warplist = list()
 			var/maxwarp
@@ -344,6 +353,7 @@
 			var/s = ""
 			s+= "<img src='subsystemconsole.gif'>"
 			s+= "<p>"
+			s+="<style>body{background-color:#000000}</style>"
 			s += "<B>STATISTICS</B><BR>"
 			s += "[our_ship] weapons subsystem:<BR>"
 			s += "Heat: [our_ship.SC.weapons.heat] |"
@@ -357,6 +367,7 @@
 			var/s = ""
 			s+= "<img src='subsystemconsole.gif'>"
 			s+= "<p>"
+			s+="<style>body{background-color:#000000}</style>"
 			s += "<B>STATISTICS</B><BR>"
 			s += "[our_ship] shields subsystem:<BR>"
 			s += "Subsystem integrity: [our_ship.SC.shields.integrity]/[our_ship.SC.shields.max_integrity] |"
@@ -370,6 +381,7 @@
 			var/s = ""
 			s+= "<img src='subsystemconsole.gif'>"
 			s+= "<p>"
+			s+="<style>body{background-color:#000000}</style>"
 			s += "<B>STATISTICS</B><BR>"
 			s += "[our_ship] engines subsystem:<BR>"
 			s += "Subsystem integrity: [our_ship.SC.engines.integrity]/[our_ship.SC.engines.max_integrity] |"
@@ -384,10 +396,10 @@
 			s+= "<style>body{background-color:#000000}</style>"
 			s+="<img src='warp.gif' usemap='#image-map'>"
 			s+="<map name='image-map'>"
-			s+="<area target='' alt='Modify antimatter stream' title='Antideutcontrols' href='?src=\ref[src];antideut=1;clicker=\ref[user]' coords='175,268,234,363' shape='rect'>"
-			s+="<area target='' alt='Modify matter stream' title='Deutcontrols' href='?src=\ref[src];deut=1;clicker=\ref[user]' coords='177,47,235,140' shape='rect'>"
-			s+="<area target='' alt='Access dilithium chamber' title='Dilithiumchamber' href='?src=\ref[src];dilithium=1;clicker=\ref[user]' coords='176,141,233,265' shape='rect'>"
-			s+="<area target='' alt='Warp field statistics' title='Warpfieldcontrol' href='?src=\ref[src];warpfield2=1;clicker=\ref[user]' coords='20,42,134,367' shape='rect'>"
+			s+="<area target='' alt='Modify antimatter stream' title='Modify antimatter stream' href='?src=\ref[src];antideut=1;clicker=\ref[user]' coords='175,268,234,363' shape='rect'>"
+			s+="<area target='' alt='Modify matter stream' title='Modify matter stream' href='?src=\ref[src];deut=1;clicker=\ref[user]' coords='177,47,235,140' shape='rect'>"
+			s+="<area target='' alt='Access dilithium chamber' title='Access dilithium chamber' href='?src=\ref[src];dilithium=1;clicker=\ref[user]' coords='176,141,233,265' shape='rect'>"
+			s+="<area target='' alt='Warp field statistics' title='Warp field statistics' href='?src=\ref[src];warpfield2=1;clicker=\ref[user]' coords='20,42,134,367' shape='rect'>"
 			s+="</map>"
 			var/datum/browser/popup = new(user, "Warp core access", name, 650, 500)
 			popup.set_content(s)
@@ -469,6 +481,9 @@ Reconnect arrays
 	var/power_rating = 1 //Subsystems will always use 1 power as standard, but giving them more power makes them much stronger, you get 4 relays to start so you can overpower one system (or have one as a backup)
 	icon_state = "relay"
 
+/obj/structure/ship_component/subsystem_relay/Initialize()
+	. = ..()
+
 /obj/structure/ship_component/subsystem_relay/proc/shunt(mob/user)
 	if(chosen)
 		chosen.relays -= src
@@ -483,8 +498,16 @@ Reconnect arrays
 	if(!chosen || !our_ship)
 		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
 		our_ship = W.theship
+		if(our_ship)
+			for(var/datum/shipsystem/S in our_ship.SC.systems)
+				if(!S.relays.len)
+					S.relays += src
+					chosen = S
+					break
 	if(health <= 10)
-		fail()
+		if(powered)
+			fail()
+			powered = FALSE
 	if(powered)
 		health -= 0.5 //Relays can and will fail on you if you keep them running. So it may be wise to keep your bonus relay there as a backup so you can instantly shunt power to it
 		if(chosen)
@@ -688,7 +711,7 @@ Reconnect arrays
 			s+= "<area target='' alt='repair isolinear circuitry' title='repair isolinear circuitry' href='?src=\ref[src];repair=1;clicker=\ref[user]' coords='63,53,145,194' shape='rect'>"
 			s+= "<area target='' alt='toggle power' title='toggle power' href='?src=\ref[src];powertoggle=1;clicker=\ref[user]' coords='58,236,145,369' shape='rect'>"
 			s+= "</map>"
-			var/datum/browser/popup = new(user, "[src]", name, 550, 500)
+			var/datum/browser/popup = new(user, "[src]", name, 580, 500)
 			popup.set_content(s)
 			popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
 			popup.open()

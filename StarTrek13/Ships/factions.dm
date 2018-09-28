@@ -83,6 +83,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/credits = 10000 //Credits determine who wins, you lose credits as you lose ships, so stay safe friends!
 	var/factag = "none" //Faction icon tag
 	var/datum/species/speciestype = null
+	var/locked = FALSE //Lock this one at roundstart?
 /*
 /datum/faction/independant
 	name = "independant"
