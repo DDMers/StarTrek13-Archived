@@ -400,6 +400,10 @@
 			s+="<area target='' alt='Modify matter stream' title='Modify matter stream' href='?src=\ref[src];deut=1;clicker=\ref[user]' coords='177,47,235,140' shape='rect'>"
 			s+="<area target='' alt='Access dilithium chamber' title='Access dilithium chamber' href='?src=\ref[src];dilithium=1;clicker=\ref[user]' coords='176,141,233,265' shape='rect'>"
 			s+="<area target='' alt='Warp field statistics' title='Warp field statistics' href='?src=\ref[src];warpfield2=1;clicker=\ref[user]' coords='20,42,134,367' shape='rect'>"
+			s+="<area target='' alt='Modify antimatter stream' title='Antideutcontrols' href='?src=\ref[src];antideut=1;clicker=\ref[user]' coords='175,268,234,363' shape='rect'>"
+			s+="<area target='' alt='Modify matter stream' title='Deutcontrols' href='?src=\ref[src];deut=1;clicker=\ref[user]' coords='177,47,235,140' shape='rect'>"
+			s+="<area target='' alt='Access dilithium chamber' title='Dilithiumchamber' href='?src=\ref[src];dilithium=1;clicker=\ref[user]' coords='176,141,233,265' shape='rect'>"
+			s+="<area target='' alt='Warp field statistics' title='Warpfieldcontrol' href='?src=\ref[src];warpfield2=1;clicker=\ref[user]' coords='20,42,134,367' shape='rect'>"
 			s+="</map>"
 			var/datum/browser/popup = new(user, "Warp core access", name, 650, 500)
 			popup.set_content(s)
@@ -481,9 +485,10 @@ Reconnect arrays
 	var/power_rating = 1 //Subsystems will always use 1 power as standard, but giving them more power makes them much stronger, you get 4 relays to start so you can overpower one system (or have one as a backup)
 	icon_state = "relay"
 
+
 /obj/structure/ship_component/subsystem_relay/Initialize()
 	. = ..()
-
+  
 /obj/structure/ship_component/subsystem_relay/proc/shunt(mob/user)
 	if(chosen)
 		chosen.relays -= src
@@ -508,6 +513,8 @@ Reconnect arrays
 		if(powered)
 			fail()
 			powered = FALSE
+	if(health <= 10)
+		fail()
 	if(powered)
 		health -= 0.5 //Relays can and will fail on you if you keep them running. So it may be wise to keep your bonus relay there as a backup so you can instantly shunt power to it
 		if(chosen)
@@ -711,7 +718,7 @@ Reconnect arrays
 			s+= "<area target='' alt='repair isolinear circuitry' title='repair isolinear circuitry' href='?src=\ref[src];repair=1;clicker=\ref[user]' coords='63,53,145,194' shape='rect'>"
 			s+= "<area target='' alt='toggle power' title='toggle power' href='?src=\ref[src];powertoggle=1;clicker=\ref[user]' coords='58,236,145,369' shape='rect'>"
 			s+= "</map>"
-			var/datum/browser/popup = new(user, "[src]", name, 580, 500)
+			var/datum/browser/popup = new(user, "[src]", name, 550, 500)
 			popup.set_content(s)
 			popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
 			popup.open()
