@@ -1,5 +1,5 @@
 /datum/game_mode/nuclear
-	name = "assasination"
+	name = "nuclear emergency"
 	config_tag = "nuclear"
 	false_report_weight = 10
 	required_players = 15 // 15 players - 3 players to be the nuke ops = 12 players remaining. Yeah we're a lowpop server >:(
