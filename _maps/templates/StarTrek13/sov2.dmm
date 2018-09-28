@@ -50,7 +50,7 @@
 "aX" = (/obj/effect/landmark/faction_spawn,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "aY" = (/obj/structure/chair/trek/bridge{tag = "icon-bridgechair (NORTH)"; icon_state = "bridgechair"; dir = 1},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "aZ" = (/obj/structure/fluff/ship/sticker,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/federation/sovreign)
-"ba" = (/obj/structure/special_trek_turf{pixel_x = 0},/turf/closed/wall/trek{icon_state = "black"; dir = 1},/area/ship/federation/sovreign)
+"ba" = (/obj/structure/special_trek_turf,/turf/closed/wall/trek{icon_state = "black"; dir = 1},/area/ship/federation/sovreign)
 "bb" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/turf/open/floor/plating,/area/ship/federation/sovreign)
 "bc" = (/obj/structure/special_trek_turf{dir = 1; icon_state = "black"; tag = "icon-black (NORTH)"},/turf/closed/wall/trek{icon_state = "black"; dir = 1},/area/ship/federation/sovreign)
 "bd" = (/obj/structure/fluff/helm/desk/noisy,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
