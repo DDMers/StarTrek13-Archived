@@ -35,9 +35,9 @@
 	var/security_level
 
 	var/requesting_new_port = FALSE
-
+	
 	var/list/intercepted_message_queue
-
+	
 	var/list/custom_commands
 
 	var/list/cached_test_merges
@@ -185,7 +185,7 @@
 		data = list()
 	data[TGS4_PARAMETER_COMMAND] = command
 	var/json = json_encode(data)
-
+	
 	while(requesting_new_port && !override_requesting_new_port)
 		sleep(1)
 
@@ -199,7 +199,7 @@
 		//request a new port
 		export_lock = FALSE
 		var/list/new_port_json = Export(TGS4_COMM_NEW_PORT, list(TGS4_PARAMETER_DATA = "[world.port]"), TRUE)	//stringify this on purpose
-
+		
 		if(!new_port_json)
 			TGS_ERROR_LOG("No new port response from server![TGS4_PORT_CRITFAIL_MESSAGE]")
 			del(world)
@@ -236,7 +236,7 @@
 	var/list/result = Export(TGS4_COMM_WORLD_REBOOT)
 	if(!result)
 		return
-
+	
 	//okay so the standard TGS4 proceedure is: right before rebooting change the port to whatever was sent to us in the above json's data parameter
 
 	var/port = result[TGS4_PARAMETER_DATA]
@@ -255,7 +255,7 @@
 
 /datum/tgs_api/v4/TestMerges()
 	return cached_test_merges
-
+	
 /datum/tgs_api/v4/EndProcess()
 	Export(TGS4_COMM_END_PROCESS)
 
@@ -311,7 +311,9 @@
 
 /*
 The MIT License
+
 Copyright (c) 2017 Jordan Brown
+
 Permission is hereby granted, free of charge,
 to any person obtaining a copy of this software and
 associated documentation files (the "Software"), to
@@ -321,8 +323,10 @@ merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom
 the Software is furnished to do so,
 subject to the following conditions:
+
 The above copyright notice and this permission notice
 shall be included in all copies or substantial portions of the Software.
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
