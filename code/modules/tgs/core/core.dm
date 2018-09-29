@@ -1,4 +1,13 @@
-/world/TgsNew(datum/tgs_event_handler/event_handler)
+/world/TgsNew(datum/tgs_event_handler/event_handler, minimum_required_security_level = TGS_SECURITY_ULTRASAFE)
+	var/current_api = TGS_READ_GLOBAL(tgs)
+	if(current_api)
+		TGS_ERROR_LOG("TgsNew(): TGS API datum already set ([current_api])!")
+		return
+
+#ifdef TGS_V3_API
+	minimum_required_security_level = TGS_SECURITY_TRUSTED
+#endif
+
 	var/tgs_version = world.params[TGS_VERSION_PARAMETER]
 	if(!tgs_version)
 		return
@@ -6,14 +15,16 @@
 	var/path = SelectTgsApi(tgs_version)
 	if(!path)
 		TGS_ERROR_LOG("Found unsupported API version: [tgs_version]. If this is a valid version please report this, backporting is done on demand.")
+		return
 
 	TGS_INFO_LOG("Activating API for version [tgs_version]")
 	var/datum/tgs_api/new_api = new path
 
-	var/result = new_api.OnWorldNew(event_handler ? event_handler : new /datum/tgs_event_handler/tgs_default)
-	if(result && result != TGS_UNIMPLEMENTED)
-		TGS_WRITE_GLOBAL(tgs, new_api)
-	else
+	TGS_WRITE_GLOBAL(tgs, new_api)
+
+	var/result = new_api.OnWorldNew(event_handler, minimum_required_security_level)
+	if(!result || result == TGS_UNIMPLEMENTED)
+		TGS_WRITE_GLOBAL(tgs, null)
 		TGS_ERROR_LOG("Failed to activate API!")
 
 /world/proc/SelectTgsApi(tgs_version)
@@ -29,9 +40,17 @@
 
 	switch(super)
 		if(3)
+#ifndef TGS_V3_API
+			TGS_ERROR_LOG("Detected V3 API but TGS_V3_API isn't defined!")
+#else
 			switch(major)
 				if(2)
 					return /datum/tgs_api/v3210
+#endif
+		if(4)
+			switch(major)
+				if(0)
+					return /datum/tgs_api/v4
 
 	if(super != null && major != null && minor != null && patch != null && tgs_version > TgsMaximumAPIVersion())
 		TGS_ERROR_LOG("Detected unknown API version! Defaulting to latest. Update the DMAPI to fix this problem.")
@@ -116,11 +135,14 @@
 	if(api)
 		api.ChatPrivateMessage(message, user)
 
+/world/TgsSecurityLevel()
+	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
+	if(api)
+		api.SecurityLevel()
+
 /*
 The MIT License
-
 Copyright (c) 2017 Jordan Brown
-
 Permission is hereby granted, free of charge,
 to any person obtaining a copy of this software and
 associated documentation files (the "Software"), to
@@ -130,10 +152,8 @@ merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom
 the Software is furnished to do so,
 subject to the following conditions:
-
 The above copyright notice and this permission notice
 shall be included in all copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
