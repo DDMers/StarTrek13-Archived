@@ -396,6 +396,8 @@
 			var/num = input(L,"Input antimatter stream flow rate", "Engineering console", null) as num
 			if(num < 0)
 				num = 0
+			if(num > 10)
+				num = 10
 			for(var/obj/structure/antimatter_storage/S in get_area(src))
 				S.flow_rate = num
 			to_chat(L, "Modified flow rate to [num] L/S")
@@ -403,6 +405,8 @@
 			var/num = input(L,"Input matter stream flow rate", "Engineering console", null) as num
 			if(num < 0)
 				num = 0
+			if(num > 10)
+				num = 10
 			for(var/obj/structure/warp_storage/S in get_area(src))
 				S.flow_rate = num
 			to_chat(L, "Modified flow rate to [num] L/S")
