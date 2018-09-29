@@ -456,10 +456,10 @@
 	if(HC)
 		comms = HC
 		HC.theship = src
-	var/obj/structure/fluff/helm/desk/functional/FF = locate(/obj/structure/fluff/helm/desk/functional) in(linked_ship)
-	if(FF)
-		FF.our_ship = src
-		FF.get_ship()
+	for(var/obj/structure/fluff/helm/desk/functional/FF in linked_ship)
+		if(FF)
+			FF.our_ship = src
+			FF.get_ship()
 	var/obj/structure/subsystem_monitor/M = locate(/obj/structure/subsystem_monitor) in(linked_ship)
 	M.our_ship = src
 	M.get_ship()

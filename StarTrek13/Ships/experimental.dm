@@ -10,8 +10,8 @@
 	var/angle = 0 //the angle
 	var/vel = 0 //the velocity
 	var/turnspeed = 0.5 //how fast does this bitch turn
-	var/speed = 0 //how fast is this bitch, 5 is pre slow, 2 is hella slow
-	var/max_speed = 2
+	var/speed = 0 //speed
+	var/max_speed = 2 //High warp can get you into the 30s
 	var/acceleration = 0.5 //speed up
 	pixel_collision_size_x = -128
 	pixel_collision_size_y = -120
@@ -27,6 +27,15 @@
 
 	proc/ProcessMove()
 		EditAngle() //we need to edit the transform just incase
+		if(nav_target)
+			if(nav_target in orange(src, 1)) //if we're near our navigational target, slam on the brakes
+				if(vel > 0)
+					if(vel >= 40)
+						vel -= 10
+					else if(vel >= 20)
+						vel -= 2 //Smooth stop, even at high warp.
+					else
+						vel -= acceleration
 		var/x_speed = vel * cos(angle)
 		var/y_speed = vel * sin(angle)
 		PixelMove(x_speed,y_speed)
@@ -34,6 +43,7 @@
 			parallax_update()
 		if(pilot && pilot.client)
 			pilot.client.pixelXYshit()
+
 
 /obj/effect/ship_overlay
 	var/angle = 0 //the angle

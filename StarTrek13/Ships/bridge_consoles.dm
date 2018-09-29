@@ -461,7 +461,7 @@ Reconnect arrays
 	name = "ODN plasma interface relay"
 	desc = "An interface circuit which shunts power from the ship's powergrid to its subsystems, loss of these can lead to severe malfunction."
 	var/access = FALSE //Access panel open? Below are repair steps. Shunt means !chosen subsystem. To shunt, you use the engineering console that I haven't made yet :b1:
-	var/powered = FALSE
+	var/powered = TRUE
 	var/decoupled = FALSE
 	var/descrambled = FALSE
 	var/reconnected = FALSE
@@ -471,15 +471,25 @@ Reconnect arrays
 /obj/structure/ship_component/subsystem_relay/Initialize()
 	. = ..()
 
+/obj/structure/ship_component/subsystem_relay/proc/depower()
+	if(chosen)
+		chosen.relays -= src
+		chosen.power -= power_rating //Power is the sum total of the power of all relays, so we're removing this unit from that
+		chosen = null
+	powered = FALSE
+	return
+
 /obj/structure/ship_component/subsystem_relay/proc/shunt(mob/user)
 	if(chosen)
 		chosen.relays -= src
+		chosen.power -= power_rating
 		chosen = null
 	var/datum/shipsystem/V = input("Where should we shunt power to?", "Weapons console)", null) in our_ship.SC.systems
 	if(V)
 		chosen = V
 		to_chat(user,"[src] is now connected to the [chosen] subsystem")
 		chosen.relays += src
+		chosen.power += power_rating
 
 /obj/structure/ship_component/subsystem_relay/process()
 	if(!chosen || !our_ship)
@@ -489,16 +499,15 @@ Reconnect arrays
 			for(var/datum/shipsystem/S in our_ship.SC.systems)
 				if(!S.relays.len)
 					S.relays += src
+					S.power += power_rating
 					chosen = S
 					break
 	if(health <= 10)
 		if(powered)
 			fail()
-			powered = FALSE
+			depower()
 	if(powered)
 		health -= 0.5 //Relays can and will fail on you if you keep them running. So it may be wise to keep your bonus relay there as a backup so you can instantly shunt power to it
-		if(chosen)
-			chosen.stored_power += power_rating
 		if(health > initial(health))
 			health = initial(health)
 
@@ -642,8 +651,9 @@ Reconnect arrays
 
 /obj/structure/subsystem_panel/weapons/check_ship()
 	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
-	if(W.theship && W.theship.SC && W.theship.SC.weapons)
-		chosen = W.theship.SC.weapons
+	if(W)
+		if(W.theship && W.theship.SC && W.theship.SC.weapons)
+			chosen = W.theship.SC.weapons
 
 /obj/structure/subsystem_panel/engines		//so these lil guys will directly affect subsystem health, they can get damaged when the ship takes hits, so keep your hyperfractalgigaspanners handy engineers!
 	name = "ODN Relay (engines)"
@@ -654,8 +664,9 @@ Reconnect arrays
 
 /obj/structure/subsystem_panel/engines/check_ship()
 	var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
-	if(W.theship && W.theship.SC && W.theship.SC.engines)
-		chosen = W.theship.SC.engines
+	if(W)
+		if(W.theship && W.theship.SC && W.theship.SC.engines)
+			chosen = W.theship.SC.engines
 
 /*
 	var/state = 1
@@ -679,6 +690,7 @@ Reconnect arrays
 	if(!powered)
 		powered = FALSE
 		chosen.failed = TRUE
+		chosen.stored_power = 0 //Thanos snap the power because the SS has failed.
 		STOP_PROCESSING(SSobj, chosen)
 
 /obj/structure/subsystem_panel/attack_hand(mob/user)

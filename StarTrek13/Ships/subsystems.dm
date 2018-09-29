@@ -79,8 +79,9 @@
 	var/voiceline
 	var/power = 0 //Power available thru relays. 		Power is arbitrary, every relay gives 1 power.
 	var/power_required = 1 //how much we need to run
-	var/power_use = 1 //how much power we use
+	var/power_use = 0.8 //how much power we use
 	var/stored_power = 0
+	var/max_power = 1000 //To stop infinite charging
 	var/list/relays = list() //how much of a boost we'll get depends on the active relays in this
 
 /datum/shipsystem/New()
@@ -96,6 +97,8 @@
 		heat -= amount
 
 /datum/shipsystem/proc/check_power()
+	if(stored_power < max_power)
+		stored_power += power //Add on the power we get from the relays
 	if(stored_power > 10)
 		stored_power -= power_use
 		if(stored_power < power_required)

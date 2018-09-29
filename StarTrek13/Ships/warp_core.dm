@@ -245,15 +245,16 @@ Antimatter tank, if this is ever fucked with it'll explode
 
 /obj/machinery/power/warp_coil
 	name = "warp coil"
-	desc = "A huge tungsten based ring which, when provided with high energy warp plasma, will produce a subspace distortion field rated to a maximum of 300 cochranes, you shouldn't get too close when it's active."
+	desc = "A huge ring of verterium cortenide which when provided with high energy warp plasma, will produce a subspace distortion field rated to a maximum of 300 cochranes, you shouldn't get too close when it's active."
 	var/cochranes = 0
 	var/max_cochranes = 300
-	icon = 'StarTrek13/icons/trek/engineering.dmi'
+	icon = 'StarTrek13/icons/trek/warpcoil.dmi'
 	icon_state = "warpcoil"
 	var/spoolup_rate = 10 //How quickly does it charge up? Answer: Slowly.
 	var/heat = 0
 	var/heatloss = 500 //scale this to cochranes. Fear of loss always leads to the darkside...
 	var/active = TRUE
+	pixel_x = -32
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	anchored = TRUE
 	can_be_unanchored = TRUE
