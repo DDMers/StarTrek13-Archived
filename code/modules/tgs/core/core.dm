@@ -19,7 +19,7 @@
 
 	TGS_INFO_LOG("Activating API for version [tgs_version]")
 	var/datum/tgs_api/new_api = new path
-I
+
 	TGS_WRITE_GLOBAL(tgs, new_api)
 
 	var/result = new_api.OnWorldNew(event_handler, minimum_required_security_level)
@@ -30,7 +30,7 @@ I
 /world/proc/SelectTgsApi(tgs_version)
 	//remove the old 3.0 header
 	tgs_version = replacetext(tgs_version, "/tg/station 13 Server v", "")
-
+  
 	var/list/version_bits = splittext(tgs_version, ".")
 
 	var/super = text2num(version_bits[1])
