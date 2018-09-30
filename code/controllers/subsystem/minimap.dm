@@ -8,6 +8,7 @@ SUBSYSTEM_DEF(minimap)
 	var/list/z_levels
 
 /datum/controller/subsystem/minimap/Initialize(timeofday)
+	..()
 	z_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
 	var/list/hashlist = list()
 	for (var/file in SSmapping.config.GetFullMapPaths())
@@ -41,7 +42,7 @@ SUBSYSTEM_DEF(minimap)
 				register_asset("minimap_[z].png", fcopy_rsc(map_path(z,fileloc)))
 		catch:
 			return ..()
-	..()
+
 
 /datum/controller/subsystem/minimap/proc/check_files(backup)	// If the backup argument is true, looks in the icons folder. If false looks in the data folder.
 	for(var/z in z_levels)
