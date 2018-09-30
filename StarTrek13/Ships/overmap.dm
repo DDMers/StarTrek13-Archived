@@ -443,12 +443,14 @@
 /obj/structure/overmap/proc/linkto()	//weapons etc. don't link!
 	if(!weapons)
 		weapons = locate(/obj/structure/fluff/helm/desk/tactical) in(linked_ship) //why the hell did I think using for loops for everything was ever a good idea :blobthinking:
-		weapons.theship = src
+		if(weapons)
+			weapons.theship = src
 	if(!generator)
 		generator = locate(/obj/machinery/space_battle/shield_generator) in(linked_ship)
-		generator.ship = src
-		SC.shields.linked_generators += generator
-		generator.shield_system = SC.shields
+		if(generator)
+			generator.ship = src
+			SC.shields.linked_generators += generator
+			generator.shield_system = SC.shields
 	var/obj/machinery/computer/camera_advanced/transporter_control/TT = locate(/obj/machinery/computer/camera_advanced/transporter_control) in(linked_ship)
 	if(TT)
 		transporters += TT
@@ -461,23 +463,29 @@
 			FF.our_ship = src
 			FF.get_ship()
 	var/obj/structure/subsystem_monitor/M = locate(/obj/structure/subsystem_monitor) in(linked_ship)
-	M.our_ship = src
-	M.get_ship()
+	if(M)
+		M.our_ship = src
+		M.get_ship()
 	var/obj/structure/viewscreen/V = locate(/obj/structure/viewscreen) in(linked_ship)
-	V.our_ship = src
+	if(V)
+		V.our_ship = src
 	var/obj/structure/weapons_console/WC = locate(/obj/structure/weapons_console) in(linked_ship)
-	WC.our_ship = src
+	if(WC)
+		WC.our_ship = src
 	var/obj/structure/subsystem_panel/PP = locate(/obj/structure/subsystem_panel) in(linked_ship)
-	PP.check_ship()
-	PP.check_overlays()
+	if(PP)
+		PP.check_ship()
+		PP.check_overlays()
 	var/obj/machinery/cloaking_device/CD = locate(/obj/machinery/cloaking_device) in(linked_ship)
 	if(CD)
 		CD.theship = src
 	var/obj/machinery/power/warpcore/WP = locate(/obj/machinery/power/warpcore) in(linked_ship)
-	WP.ship = src
+	if(WP)
+		WP.ship = src
 	var/obj/structure/overmap/ship/fighter/F = locate(/obj/structure/overmap/ship/fighter) in(linked_ship) //put the ones that arent on every ship LAST or it breaks things!
-	F.carrier_ship = src
-	fighters += F
+	if(F)
+		F.carrier_ship = src
+		fighters += F
 
 /obj/structure/overmap/proc/update_weapons()	//So when you destroy a phaser, it impacts the overall damage
 	SC.weapons.update_weapons()
