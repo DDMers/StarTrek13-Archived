@@ -57,8 +57,10 @@
 /obj/structure/hailing_console/Initialize()
 	. = ..()
 	var/obj/structure/fluff/helm/desk/tactical/weapons = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src)) //why the hell did I think using for loops for everything was ever a good idea :blobthinking:
-	theship = weapons.theship
-	theship.comms = src
+	if(weapons)
+		theship = weapons.theship
+		if(theship)
+			theship.comms = src
 
 /obj/structure/hailing_console/proc/receive_hail(var/message, var/obj/structure/overmap/sender)
 	var/fluff = "Open Frequency (Wide band):"
