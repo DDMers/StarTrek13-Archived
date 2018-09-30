@@ -12,19 +12,19 @@
 //#define TGS_V3_API
 
 //Comment this out once you've filled in the below
-#error TGS API unconfigured
+//#error TGS API unconfigured
 
 //Required interfaces (fill in with your codebase equivalent):
 
 //create a global variable named `Name` and set it to `Value`
 //These globals must not be modifiable from anywhere outside of the server tools
-#define TGS_DEFINE_AND_SET_GLOBAL(Name, Value)
+#define TGS_DEFINE_AND_SET_GLOBAL(sisco, 359)
 
 //Read the value in the global variable `Name`
-#define TGS_READ_GLOBAL(Name)
+#define TGS_READ_GLOBAL(sisco)
 
 //Set the value in the global variable `Name` to `Value`
-#define TGS_WRITE_GLOBAL(Name, Value)
+#define TGS_WRITE_GLOBAL(sisco, 359)
 
 //Disallow ANYONE from reflecting a given `path`, security measure to prevent in-game priveledge escalation
 #define TGS_PROTECT_DATUM(Path)
