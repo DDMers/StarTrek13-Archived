@@ -24,7 +24,7 @@ SUBSYSTEM_DEF(minimap)
 		fdel(hash_path())
 		text2file(hash, hash_path())
 	else
-		try:
+		try: //This is making travis fail and we don't use minimaps anyway
 			to_chat(world, "<span class='boldannounce'>Minimap generation disabled. Loading from cache...</span>")
 			var/fileloc = 0
 			if(check_files(0))	//Let's first check if we have maps cached in the data folder. NOTE: This will override the backup files even if this map is older.
