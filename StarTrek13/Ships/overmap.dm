@@ -471,7 +471,7 @@
 		V.our_ship = src
 	var/obj/structure/weapons_console/WC = locate(/obj/structure/weapons_console) in(linked_ship)
 	if(WC)
-	WC.our_ship = src
+		WC.our_ship = src
 	var/obj/structure/subsystem_panel/PP = locate(/obj/structure/subsystem_panel) in(linked_ship)
 	if(PP)
 		PP.check_ship()
