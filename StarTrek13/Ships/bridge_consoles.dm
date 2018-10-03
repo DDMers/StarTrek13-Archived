@@ -209,6 +209,7 @@
 			user.say("All stop")
 		if(href_list["warp"])
 			var/obj/machinery/power/warpcore/W = locate(/obj/machinery/power/warpcore) in get_area(src)
+			W.get_warp_factor()
 			var/cochranes
 			var/list/warplist = list()
 			var/maxwarp

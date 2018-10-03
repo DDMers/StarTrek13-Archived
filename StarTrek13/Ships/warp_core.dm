@@ -82,6 +82,7 @@ Antimatter tank, if this is ever fucked with it'll explode
 
 /obj/machinery/power/warpcore/examine(mob/user)
 	. = ..()
+	get_warp_factor()
 	to_chat(user, "It has [matter] units of deuterium reacting against [antimatter] units of antideuterium")
 	to_chat(user, "The current maximum warp of this ship is [WF]")
 
@@ -89,7 +90,6 @@ Antimatter tank, if this is ever fucked with it'll explode
 	if(!outlet)
 		CheckPipes()
 		return
-	get_warp_factor()
 	var/obj/structure/warp_storage/WS = locate(/obj/structure/warp_storage) in(get_area(src))
 	if(WS.matter)
 		var/math = WS.matter - WS.flow_rate
@@ -136,8 +136,10 @@ Antimatter tank, if this is ever fucked with it'll explode
 	if(!ship)
 		var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/fluff/helm/desk/tactical) in get_area(src)
 		ship = AA.theship
-	for(var/obj/machinery/power/warp_coil/WC in get_area(src))
-		cochranes += WC.cochranes
+	for(var/WC in get_area(src))
+		if(istype(WC, /obj/machinery/power/warp_coil))
+			var/obj/machinery/power/warp_coil/WCC = WC
+			cochranes += WCC.cochranes
 	if(ship)
 		if(cochranes < WARP_1)
 			WF = "sublight travel"
