@@ -282,6 +282,7 @@
 			src.updateUsrDialog()
 	else
 		to_chat(user, "Move closer to [src]")
+		return
 
 /obj/structure/fluff/helm/desk/functional/navcomp/attack_hand(mob/user)
 	var/datum/asset/assets = get_asset_datum(/datum/asset/simple/weaponsconsole)
