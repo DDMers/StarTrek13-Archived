@@ -10,6 +10,12 @@
 	var/next_talk = 0 //used for move delays
 	var/talk_delay = 0.1
 
+/obj/item/clothing/neck/combadge/Initialize()
+	. = ..()
+	var/mob/living/theuser = loc
+	if(theuser)
+		link_to_area(theuser)
+
 /obj/item/clothing/neck/combadge/CtrlClick(mob/user)
 	playsound(loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 50, 1)
 	stored_user = user
@@ -34,7 +40,7 @@
 		var/area/ship/S = A
 		linked = S
 		S.combadges += src
-		to_chat(user, "You've linked [src] to the [linked] comms subsystem")
+		to_chat(user, "Combadge linked to [linked] comms network.")
 
 
 /obj/item/clothing/neck/combadge/proc/send_message(var/message, mob/living/user)

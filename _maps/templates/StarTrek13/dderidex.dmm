@@ -149,6 +149,7 @@
 "cS" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/turf/closed/wall/trek{icon_state = "wall_light"; dir = 8},/area/ship/romulan)
 "cT" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 5},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "cU" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/trek/dark,/area/ship/romulan)
+"cV" = (/obj/structure/ship_component/subsystem_relay,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
 "cW" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 1},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 1},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "cX" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 8},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "cY" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 4},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
@@ -282,7 +283,7 @@ azaFbYcCccbPbWbRaFbaaaaaaaaabaaUaWaXaXaXaWaYaWaXaXaXaXaXaWaZaWaXaXaXaWaUaSbbcaca
 azaFbYcCaVcjbWbRaFaWaXaXaZaXaXaWbcbdbdbdbdbebdbdbdbfbdbdbdbgbdbdbdbdbhaWaXaXaZaXaXaWaHacacacacacacaz
 azaFaWcrcrciaWbRaFbdbdbdbdbdbdbdbqbrbrbsbtbubrbrbrbvbrbrbrbrbrbrbrbrbybdbdbdbdbdbdbdaHacacacacacacaz
 azaFcvaVcmcBcGcSaFbrbrbrbrbrbrbrbrbrbrbrbDbQbQbQbQaBbQbQbQbQbZbrbrbrbrbrbrbrbrbrbrbraHacacacacacacaz
-azaFdldmdndmdoaHaFaGaGaGaZaGaGaGaHaFaWaWegaWaWaUaWbvaWaUbjbkeMblbmaHaFaGaGaGaZaGaGaGaHacacacacacacaz
+azaFdldmdndmdoaHaFaGaGaGaZaGaGaGaHaFcVcVegcVcVaUaWbvaWaUbjbkeMblbmaHaFaGaGaGaZaGaGaGaHacacacacacacaz
 azaFdpdqdrdqdsaHaFaCbrbrbrbrbraDaHaFcackclcacaaUaPbvaPaUcacacscacaaHaFctaaaaaaaaaacuaHacacacacacacaz
 azaFdudvdwdxduaHaFaIbnbrbnbrbnaDaHaFcycFcHcFcaaUaabvaaaUcycFcIcFcaaHaFcJcacacacacacKaHacacacacacacaz
 azaFbwaGdCaGbxaHaFbrbrbrbobrbraDaHaFcacFcMcFcaaUaabvaaaUcacFcFcFcaaHaFctcacacacacacuaHacacacacacacaz

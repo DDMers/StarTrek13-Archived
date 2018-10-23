@@ -60,6 +60,7 @@
 "bh" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/plating,/area/ship/mirandaDIY)
 "bi" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/turf/closed/wall/trek{icon_state = "wall_light"; dir = 8},/area/ship/mirandaDIY)
 "bj" = (/obj/structure/catwalk,/obj/machinery/power/smes/engineering,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/mirandaDIY)
+"bk" = (/obj/structure/ship_component/subsystem_relay,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/mirandaDIY)
 "bl" = (/turf/closed/wall/trek{icon_state = "wall_light"},/area/ship/mirandaDIY)
 "bm" = (/obj/machinery/atmospherics/pipe/layer_manifold,/turf/open/floor/plating,/area/ship/mirandaDIY)
 "bn" = (/obj/structure/antimatter_storage,/obj/structure/catwalk,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/mirandaDIY)
@@ -145,7 +146,7 @@ adaaaeakcdcdcdcdcdcucvbecwbecdcdcdcdcdamaeaeasaJcacxcxcxcxcxcxcxaeaeaeadad
 adaaaaakcdcdcdcdcdaXbRbSbTbScbcdcdcdcdalalalalaEalalalalalamaaaaaaaaaaadad
 adaaaaakcdcdcdcdcdcdbtcdchcmaFbSbSbSbSbSbSbSbSdbcdcdcdcdcdamaaaaaaaaaaadad
 adaaaaakcdcdcdcdaGaLcdcdcScTcUcdcdcdcdcdcdcdcdcdcdcdcdcdcdamaaaaaaaaaaadad
-adaaaaakcdcdcdcdcdcdcdcdcZdadbcdcdcdcdbQbUalaldcalalalalalamaaaaaaaaaaadad
+adaaaaakcdcdcdcdcdcdcdcdcZdadbcdcdcdcdbQbUalaldcalbkbkbkbkamaaaaaaaaaaadad
 adaaaaakcdcdcdcdcdcdcdcdaNatcdcdcdcdcdamakcdcdcdcdcdcdcdcdamaaaaaaaaaaadad
 adaaaaakcdcdcdcdcdcdcdcdcddjcdcdcdcdcdamakcdcdcdcdcdcdcdcdamaaaaaaaaaaadad
 adaaaaakcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdamakcdcdcdcdcdcdcdcdamaaaaaaaaaaadad
