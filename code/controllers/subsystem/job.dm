@@ -105,6 +105,8 @@ SUBSYSTEM_DEF(job)
 
 /datum/controller/subsystem/job/proc/FindOccupationCandidates(datum/job/job, level, flag)
 	JobDebug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
+	if(!job || level || flag)
+		message_admins("Couldn't find a job to find candidates for...may wanna fix that! (Jobs SS, line 110)")
 	var/list/candidates = list()
 	for(var/mob/dead/new_player/player in unassigned)
 		if(jobban_isbanned(player, job.title) || QDELETED(player))
@@ -272,6 +274,9 @@ SUBSYSTEM_DEF(job)
 	//People who wants to be the overflow role, sure, go on.
 	JobDebug("DO, Running Overflow Check 1")
 	var/datum/job/overflow = GetJob(SSjob.overflow_role)
+	if(!overflow)
+		JobDebug("Overflow role not assigned!")
+		return
 	var/list/overflow_candidates = FindOccupationCandidates(overflow, 3)
 	JobDebug("AC1, Candidates: [overflow_candidates.len]")
 	for(var/mob/dead/new_player/player in overflow_candidates)

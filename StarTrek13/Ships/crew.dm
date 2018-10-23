@@ -2,6 +2,30 @@
 #define MED 2
 #define HIGH 3
 
+/turf/open/floor/plating/emergencyspawnunfucker
+	name = "Subspace instantaneous body debit device"
+	color = "#FFC0CB"
+	desc = "This remarkable device debits all the molecules in your body from your current location and credits them somewhere else! Hopefully where you wanted to end up"
+	color = "#FFC0CB"
+
+/turf/open/floor/plating/emergencyspawnunfucker/Initialize(mapload)
+	START_PROCESSING(SSobj, src) //It hurts so bad
+
+/turf/open/floor/plating/emergencyspawnunfucker/process() //I hate making a turf process..
+	var/mob/living/themob = locate(/mob/living) in loc
+	if(themob)
+		rescue(themob)
+
+/turf/open/floor/plating/emergencyspawnunfucker/proc/rescue(mob/living/ohfuckmewhy)
+	if(!ohfuckmewhy)
+		ohfuckmewhy = locate(/mob/living) in loc
+	to_chat(ohfuckmewhy, "You have been returned to the lobby due to a bug, we're aware of this issue and are working on it (latejoins are more stable).")
+	var/client/theclient = ohfuckmewhy.client
+	ohfuckmewhy.dust() //quieter than gib
+	var/mob/dead/new_player/NP = new()
+	NP.ckey = theclient.ckey
+
+
 /mob
 	var/datum/crew/crew
 
