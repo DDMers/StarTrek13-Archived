@@ -32,6 +32,8 @@
 	link_to_area(user)
 
 /obj/item/clothing/neck/combadge/proc/link_to_area(mob/user)
+	playsound(loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 50, 1)
+	on = TRUE
 	if(linked)
 		linked.combadges -= src
 	linked = null
@@ -62,7 +64,8 @@
 			playsound(C.loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 10, 1)
 			to_chat(C.stored_user, "<span class='warning'><b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 		else
-			to_chat(C.stored_user, "Your [src] buzzes softly")
+		//	to_chat(C.stored_user, "Your [src] buzzes softly")
+			return
 	for(var/mob/O in GLOB.dead_mob_list)
 		to_chat(O, "<span class='warning'><b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 
