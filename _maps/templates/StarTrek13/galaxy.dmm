@@ -216,7 +216,7 @@
 "eh" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTH)"; icon_state = "trek_edge"; dir = 1},/obj/effect/turf_decal/trek/grey,/obj/structure/holoemitter,/obj/item/clothing/under/trek/grey/sov,/obj/item/clothing/under/trek/grey/sov,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "ei" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (EAST)"; icon_state = "trek_edge"; dir = 4},/turf/closed/wall/trek{icon_state = "medbay"; dir = 9},/area/ship/federation/galaxy)
 "ej" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (WEST)"; icon_state = "trek_edge"; dir = 8},/obj/item/storage/firstaid,/obj/item/storage/firstaid/brute,/obj/structure/table/glass,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
-"ek" = (/turf/open/floor/plating,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/galaxy)
+"ek" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 6},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/federation/galaxy)
 "el" = (/turf/open/floor/hallway/galaxy{icon_state = "galaxyhall"; dir = 1},/area/ship/federation/galaxy)
 "em" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 10},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "en" = (/turf/closed/wall/trek/galaxy{icon_state = "galaxyengi"; dir = 8},/area/ship/federation/galaxy)
@@ -228,7 +228,7 @@
 "et" = (/obj/structure/window/specialtrek{dir = 1; icon_state = "galaxywindow"},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/open/floor/hallway/galaxy{icon_state = "galaxyhall"; dir = 1},/area/ship/federation/galaxy)
 "eu" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/federation/galaxy)
 "ev" = (/obj/machinery/power/warp_coil,/obj/structure/cable/white{icon_state = "0-4"},/turf/open/floor/plating,/area/ship/federation/galaxy)
-"ew" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
+"ew" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/federation/galaxy)
 "ex" = (/obj/structure/table/optable/trek{icon_state = "medbay"; dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "ey" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTH)"; icon_state = "trek_edge"; dir = 1},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "ez" = (/obj/structure/table/optable/trek{icon_state = "medbay"; dir = 8},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTH)"; icon_state = "trek_edge"; dir = 1},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
@@ -242,7 +242,7 @@
 "eH" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
 "eI" = (/obj/structure/barricade/security{alpha = 0; opacity = 1},/obj/structure/special_trek_turf/brig{pixel_x = 20; pixel_y = -13},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "eJ" = (/obj/structure/special_trek_turf/brig{pixel_x = 20; pixel_y = -13},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
-"eK" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
+"eK" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 10},/turf/closed/wall/trek{icon_state = "wall_light"; dir = 8},/area/ship/federation/galaxy)
 "eL" = (/turf/open/floor/trek{icon_state = "1"},/area/ship/federation/galaxy)
 "eM" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/turf/open/floor/trek,/area/ship/federation/galaxy)
 "eN" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 4},/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge5"},/turf/open/floor/trek,/area/ship/federation/galaxy)
@@ -265,14 +265,14 @@
 "fe" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 5},/turf/open/floor/trek,/area/ship/federation/galaxy)
 "ff" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 6},/turf/open/floor/plating,/area/ship/federation/galaxy)
 "fg" = (/obj/machinery/light,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
-"fh" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/plating,/area/ship/federation/galaxy)
-"fi" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
+"fh" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
+"fi" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/closed/wall/trek{icon_state = "wall_light"; dir = 8},/area/ship/federation/galaxy)
 "fj" = (/obj/machinery/chem_heater,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "fk" = (/obj/machinery/light,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTH)"; icon_state = "trek_edge"; dir = 1},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "fl" = (/obj/item/clothing/suit/apron/surgical,/obj/item/clothing/suit/apron/surgical,/obj/item/storage/box/masks,/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHEAST)"; icon_state = "trek_edge"; dir = 6},/obj/structure/table/glass,/obj/item/reagent_containers/spray/cleaner,/obj/item/reagent_containers/dropper,/obj/item/storage/box/beakers{pixel_x = 2; pixel_y = 2},/obj/item/reagent_containers/hypospray,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "fm" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/plating,/area/ship/federation/galaxy)
 "fn" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 10},/turf/open/floor/plating,/area/ship/federation/galaxy)
-"fo" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/galaxy)
+"fo" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
 "fp" = (/turf/open/brig_overlay,/area/ship/federation/galaxy)
 "fq" = (/obj/structure/sign/warning/electricshock,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/federation/galaxy)
 "fr" = (/turf/open/floor/plating,/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/galaxy)
@@ -281,9 +281,9 @@
 "fu" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/obj/structure/catwalk,/obj/machinery/door/airlock/trek/tng/jeffries,/turf/open/floor/plating,/area/ship/federation/galaxy)
 "fv" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/cable/white{icon_state = "1-2"},/obj/structure/catwalk,/obj/structure/ladder/unbreakable{height = 2; id = "gal11"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
 "fw" = (/obj/structure/warp_storage,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/federation/galaxy)
-"fx" = (/obj/structure/cable/white{icon_state = "2-4"},/obj/machinery/atmospherics/components/binary/valve,/turf/open/floor/plating,/area/ship/federation/galaxy)
-"fy" = (/obj/structure/cable/white{icon_state = "1-4"},/obj/structure/cable/white{icon_state = "4-8"},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/federation/galaxy)
-"fz" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/plating,/area/ship/federation/galaxy)
+"fx" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 5},/turf/open/floor/plating,/area/ship/federation/galaxy)
+"fy" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
+"fz" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/galaxy)
 "fA" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/structure/cable/white{icon_state = "1-2"},/obj/structure/ladder/unbreakable{height = 1; id = "gal11"},/turf/open/floor/plating,/area/ship/federation/galaxy)
 "fB" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/open/floor/plating,/area/ship/federation/galaxy)
 "fC" = (/obj/structure/catwalk,/turf/open/floor/trek,/area/ship/federation/galaxy)
@@ -437,6 +437,7 @@
 "iu" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge5"; dir = 8},/turf/open/floor/trek,/area/ship/federation/galaxy)
 "iv" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 5},/turf/open/floor/trek,/area/ship/federation/galaxy)
 "iw" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 5},/turf/open/floor/trek,/area/ship/federation/galaxy)
+"ix" = (/obj/structure/cable/white{icon_state = "2-4"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 6},/turf/open/floor/plating,/area/ship/federation/galaxy)
 "iy" = (/obj/machinery/trek/transporter,/obj/item/tricorder,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/turf/open/floor/trek,/area/ship/federation/galaxy)
 "iz" = (/obj/machinery/computer/camera_advanced/transporter_control,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/turf/open/floor/trek,/area/ship/federation/galaxy)
 "iA" = (/obj/structure/special_trek_turf{tag = "icon-black (WEST)"; icon_state = "black"; dir = 8},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/turf/open/floor/trek,/area/ship/federation/galaxy)
@@ -539,6 +540,7 @@
 "kt" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 8},/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge5"},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "ku" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 8},/turf/open/floor/trek{icon_state = "trek3"},/area/ship/federation/galaxy)
 "kv" = (/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/turf/open/floor/trek{icon_state = "trek3"},/area/ship/federation/galaxy)
+"kw" = (/obj/structure/cable/white{icon_state = "1-4"},/obj/structure/cable/white{icon_state = "4-8"},/obj/machinery/atmospherics/components/binary/valve{icon_state = "mvalve_map"; dir = 4},/turf/open/floor/plating,/area/ship/federation/galaxy)
 "kx" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge5"; dir = 8},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "ky" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 9},/obj/structure/chair/office/dark{dir = 4},/obj/structure/cable/white{icon_state = "1-2"},/obj/effect/landmark/crewstart{name = "galaxy class cruiser"},/turf/open/floor/trek,/area/ship/federation/galaxy)
 "kz" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 9},/obj/structure/chair/trek/bridge{tag = "icon-bridgechair (NORTH)"; icon_state = "bridgechair"; dir = 1},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
@@ -564,6 +566,8 @@
 "kT" = (/obj/structure/holoemitter,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "kU" = (/obj/machinery/light{dir = 4},/obj/structure/holoemitter,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "kV" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTH)"; icon_state = "trek_edge"; dir = 1},/obj/machinery/light,/obj/structure/table/glass,/obj/item/clothing/under/trek/medsci/sov,/obj/item/clothing/under/trek/medsci/sov,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
+"kW" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/plating,/area/ship/federation/galaxy)
+"kX" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/turf/closed/wall/trek{icon_state = "wall_light"; dir = 8},/area/ship/federation/galaxy)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -651,14 +655,14 @@ abacacacacacacacacacacacacacacacbdbebfdGdHdIdJdGdKdLbgbfdGdKdMdHdLbgbebebfjUfQan
 abacacacacacacacacacacacacacacacacacaidPaydQdRayaydSanaidTayayaydUandFdFaijUfQanaieLawfffmfnaweLandFeDgRdsandFdFdFdFdFdVbmbmbmbmbmbmdWdXdWbmbmabacacacacacacacacacacacacacacacacacab
 abacacacacacacacacacacacacacacacacacaidYaIdZeaaIebbZanaiecaIaIaIedandFdFaijUfQanaikgdyeChBfRawkjandFeDgRdsandFdFdFdFdFdVkSaIaIaIkTaIaIaIaIaIaIabacacacacacacacacacacacacacacacacacab
 abacacacacacacacacacacacacacacacacacaiefegcceaaIkUeianaiejaIaIaIedandFdFaijUfQanaieLeukNawkOaweLandFeDgRdsandFdFdFdFdFdVaIaIaIaIaIaIaIaIaIaIaIabacacacacacacacacacacacacacacacacacab
-abacacacacacacacaiaMaMaMaMaManacacacaieoaIaIeaaIaIepanaieqaOkVaOesandFdFaiaVfQanaieLkkkleLkmeLeLandFeDgReFandFdFdFdFdFdVaIaIaIaIaIaIaIaIaIaIaIabacacacacacacacacacacacacacacacacacab
-abacacacacacacacaiafaQevewadanacacacaiexaOaOeyaOezaPanbdbebebebebebhdFdFaijUfQanbdbfgoeteleZenbgbhdFeDgRdsandFdFdFdFdFdVeIaIaIaIeIaIaIaIeJaIaIabacacacacacacacacacacacacacacacacacab
-abacacacacacacacaiafaQeveKadanacacacaidGdHdLdJdGdHdLandFdFdFdFdFdFdFdFdFaijUfQandFaikyeAdjfadAcNeReRcNgRdsandFdFdFdFdFdVeSaIaIabeSaIaIabeSaIaIabacacacacacacacacacacacacacacacacacab
-abacacacacacacacaiafaQeveKadanacacacaieTayaydRayayeUandFdFdFdFdFdFdFdFdFaijUfQandFaijTeGdifeeXeYeVeWcNgRdsandFdFdFdFdFdVaIaIaIabaIaIaIabaIaIaIabacacacacacacacacacacacacacacacacacab
-abacacacacacacacaiafaQfbeKadanacacacaifcaIaIeaaIaIfdandFdFdFdFacdFdFdFdFaijUfQandFaieBfOdidikfcNaQaQcNgRdsandFdFdFdFdFdVaIfgaIabaIfgaIabaIfgaIabacacacacacacacacacacacacacacacacacab
-abacacacacacacacaiafaQfhfiadanacacacaifjaOfkeyfkaOflandFdFdFdFacdFdFdFdFaijUfQandFaijTfPdididseHaQaQcNgRdsandFdFdFdFdFfpdVdVdVdVdVdVdVdVdVdVdVdVacacacacacacacacacacacacacacacacacab
-abacacacacacacacaifqfrekfofqanacacacbdbebebffubgbebebhacacacacacdFdFdFdFaijUfQandFaijWfZdodoeNbgbebeeDgRdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
-abacacacacacacacaifwawfxfyfzanacacacacacadaQfBaQafacacacacacacacdFdFdFdFaijUfQdtdtkFhUgadtdthVkFdtdtdtgRdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
+abacacacacacacacaiaMaMaMekeweKacacacaieoaIaIeaaIaIepanaieqaOkVaOesandFdFaiaVfQanaieLkkkleLkmeLeLandFeDgReFandFdFdFdFdFdVaIaIaIaIaIaIaIaIaIaIaIabacacacacacacacacacacacacacacacacacab
+abacacacacacacacaiafaQevfhadfiacacacaiexaOaOeyaOezaPanbdbebebebebebhdFdFaijUfQanbdbfgoeteleZenbgbhdFeDgRdsandFdFdFdFdFdVeIaIaIaIeIaIaIaIeJaIaIabacacacacacacacacacacacacacacacacacab
+abacacacacacacacaiafaQevfoadfiacacacaidGdHdLdJdGdHdLandFdFdFdFdFdFdFdFdFaijUfQandFaikyeAdjfadAcNeReRcNgRdsandFdFdFdFdFdVeSaIaIabeSaIaIabeSaIaIabacacacacacacacacacacacacacacacacacab
+abacacacacacacacaiafaQevfoadfiacacacaieTayaydRayayeUandFdFdFdFdFdFdFdFdFaijUfQandFaijTeGdifeeXeYeVeWcNgRdsandFdFdFdFdFdVaIaIaIabaIaIaIabaIaIaIabacacacacacacacacacacacacacacacacacab
+abacacacacacacacaiafaQfbfoadfiacacacaifcaIaIeaaIaIfdandFdFdFdFacdFdFdFdFaijUfQandFaieBfOdidikfcNaQaQcNgRdsandFdFdFdFdFdVaIfgaIabaIfgaIabaIfgaIabacacacacacacacacacacacacacacacacacab
+abacacacacacacacaiafaQfxfyadfiacacacaifjaOfkeyfkaOflandFdFdFdFacdFdFdFdFaijUfQandFaijTfPdididseHaQaQcNgRdsandFdFdFdFdFfpdVdVdVdVdVdVdVdVdVdVdVdVacacacacacacacacacacacacacacacacacab
+abacacacacacacacaifqfrfrfzfqfiacacacbdbebebffubgbebebhacacacacacdFdFdFdFaijUfQandFaijWfZdodoeNbgbebeeDgRdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
+abacacacacacacacaifwhBixkwkWkXacacacacacadaQfBaQafacacacacacacacdFdFdFdFaijUfQdtdtkFhUgadtdthVkFdtdtdtgRdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
 abacacacacacacacaifDfEfFfEfGanacacacacacadaQfvaQafacacacacacacacdFdFdFdFaijUgggnkbgnjXgudjdjePdjdjkddjjxdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
 abacacacacacacacaifJfKfLfKfManacacacacacadfNfBfNafacacacacacacacdFdFdFdFaikcjYjZjZjZkadododoeQdodododojydsandVbmbmbmbmbmbmbmbmbmdVdVdFdFdFdFacacacacacacacacacacacacacacacacacacacab
 abacacacacacacacaifSfTfUfVfSanacacacacacacfWfXfYacacacacacacdFdFdFdFdFdFaidNdsbgdtkFhVdtdtdthVkFdtdtbfjzdsandVdididididididigbgcdidVdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
