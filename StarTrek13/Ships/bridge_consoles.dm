@@ -474,6 +474,11 @@ Reconnect arrays
 	var/power_rating = 1 //Subsystems will always use 1 power as standard, but giving them more power makes them much stronger, you get 4 relays to start so you can overpower one system (or have one as a backup)
 	icon_state = "relay"
 
+/obj/structure/ship_component/subsystem_relay/examine(mob/user)
+	. = ..()
+	to_chat(user, "-It's [health] % in-tact")
+	to_chat(user, "--It is interfaced with the [chosen] subsystem")
+
 /obj/structure/ship_component/subsystem_relay/Initialize()
 	. = ..()
 
