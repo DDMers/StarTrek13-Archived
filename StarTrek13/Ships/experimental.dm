@@ -2,6 +2,10 @@
 	These are simple defaults for your project.
  */
 
+#define NORMAL = CONFIG_GET(string/default_view)
+#define LARGE = 20
+#define MASSIVE = 25
+
 /obj/structure/overmap
 	animate_movement = 0 //set it
 //	pixel_z = -128
@@ -87,6 +91,8 @@
 			C.theship = src
 		pilot.whatimControllingOMFG = src
 		pilot.client.pixelXYshit()
+		if(size_class && pilot.client)
+			pilot.client.change_view(size_class)
 		var/area/A = get_area(src)
 		if(A)
 			A.Entered(user)
@@ -111,6 +117,7 @@
 	pilot.forceMove(initial_loc)
 	initial_loc = null
 	if(pilot.client)
+		pilot.client.change_view(CONFIG_GET(string/default_view))
 		pilot.clear_alert("Weapon charge", /obj/screen/alert/charge)
 		pilot.clear_alert("Hull integrity", /obj/screen/alert/charge/hull)
 		RemoveActions()
@@ -258,3 +265,4 @@ atom/movable
 					mob.client.pixelXYshit()
 				else
 					..()
+

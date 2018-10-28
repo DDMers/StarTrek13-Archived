@@ -1,0 +1,14 @@
+{
+    "map_name": "ds9",
+    "map_path": "map_files/StarTrek13",
+    "map_file": ["gamemodes/DS9/ds9.dmm",
+				"gamemodes/DS9/ds9_s2.dmm",
+				"gamemodes/DS9/outposts.dmm"],
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	
+	"ships_map_file": [
+					"ship/ai_ships.dmm",
+					"ship/romulan_capital_ships.dmm",
+					"gamemodes/DS9/starfleet_ds9.dmm"]
+}

@@ -14,6 +14,7 @@
 	cost = 10000
 	soundlist = ('StarTrek13/sound/borg/machines/disruptor.ogg')
 	var/datum/crew/romulan/crew = new
+	size_class = 20
 
 /obj/structure/overmap/ship/romulan/attempt_fire()
 	update_weapons()

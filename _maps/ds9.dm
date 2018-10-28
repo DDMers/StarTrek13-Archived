@@ -1,0 +1,1 @@
+#define FORCE_MAP "_maps/ds9.json"

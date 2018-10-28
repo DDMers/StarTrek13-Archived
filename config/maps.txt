@@ -17,6 +17,12 @@ map star_trek
 	default
 	
 endmap
+
+map ds9
+	default
+	
+endmap
+
 map boxstation
 	#voteweight 1.5
 endmap

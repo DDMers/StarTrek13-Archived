@@ -1,5 +1,5 @@
 /obj/structure/overmap/away/station/system_outpost //This is how you'll capture a system, which will give you points on a regular basis to be used for buying ships etc.
-	name = "Barnard's star station"
+	name = "Starbase 559"
 	desc = "A station that coordinates all the operations within the system it occupies. You can beam aboard it to capture the outpost"
 	spawn_name = "barnardstar"
 	health = 100000000 //If you blow this up it'll break things

@@ -7,6 +7,10 @@
 #define TORPEDO_MODE 1//1309
 #define PHASER_MODE 2
 
+#define NORMAL 7
+#define LARGE 12
+#define MASSIVE 15
+
 /obj/structure/overmap
 	name = "generic structure"
 //	var/linked_ship = /area/ship //change me
@@ -89,7 +93,9 @@
 	var/cloaked = FALSE
 	var/stored_name //used in cloaking code to restore ship names
 	var/max_warp = 0 //Dictated by the warp core
+	var/size_class = NORMAL
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //no throwing acid on spaceships!
+
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -214,6 +220,7 @@
 	pixel_z = -128
 	pixel_w = -120
 	max_speed = 1
+	size_class = MASSIVE
 
 
 /obj/structure/overmap/away/station/starbase
@@ -232,6 +239,7 @@
 	pixel_w = -120
 	faction = "starfleet"
 	cost = 20000
+	size_class = LARGE
 
 /obj/structure/overmap/ship/federation_capitalclass/sovreign
 	name = "sovereign"
@@ -259,6 +267,7 @@
 	turnspeed = 0.6 //The galaxy is fucking massive
 	cost = 20000
 	var/datum/crew/galaxy/crew = new
+	size_class = MASSIVE
 
 /obj/structure/overmap/ship/cruiser
 	name = "USS Excelsior"
@@ -271,6 +280,7 @@
 	pixel_w = -120
 	faction = "starfleet"
 	cost = 20000
+	size_class = LARGE
 
 /obj/structure/overmap/ship/fighter_medium
 	name = "USS Hagan"
@@ -378,6 +388,7 @@
 	faction = "starfleet"
 	cost = 7000
 	var/datum/crew/cruiser/crew = new
+	size_class = NORMAL
 
 /obj/structure/overmap/ship/nanotrasen
 	name = "NSV Muffin"
@@ -968,3 +979,6 @@
 #undef TORPEDO_MODE
 #undef PHASER_MODE
 
+#undef NORMAL
+#undef LARGE
+#undef MASSIVE

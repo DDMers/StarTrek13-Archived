@@ -145,6 +145,8 @@
 /obj/structure/weapons_console/attack_hand(mob/user)
 	var/datum/asset/assets = get_asset_datum(/datum/asset/simple/weaponsconsole)
 	assets.send(user)
+	var/datum/asset/assets2 = get_asset_datum(/datum/asset/simple/engiconsole)
+	assets2.send(user)
 	if(!target)
 		var/list/L = list()
 		for(var/obj/structure/overmap/OM in get_area(our_ship))
