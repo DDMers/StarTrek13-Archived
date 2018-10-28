@@ -3,7 +3,7 @@
 "c" = (/obj/structure/space_object/planet{icon_state = "3"},/turf/open/floor/fakespace,/area/overmap/s2)
 "d" = (/obj/structure/space_object/simulated,/turf/open/floor/fakespace,/area/overmap/s2)
 "e" = (/obj/structure/space_object/planet{icon_state = "6"},/turf/open/floor/fakespace,/area/overmap/s2)
-"f" = (/turf/open/space/basic,/area/overmap/s2)
+"f" = (/turf/open/floor/fakespace,/area/overmap/s2)
 "j" = (/obj/effect/landmark{name = "betahydri"},/turf/open/floor/fakespace,/area/overmap/s2)
 "k" = (/obj/structure/space_object/rocky,/turf/open/floor/fakespace,/area/overmap/s2)
 "l" = (/obj/structure/space_object,/turf/open/floor/fakespace,/area/overmap/s2)

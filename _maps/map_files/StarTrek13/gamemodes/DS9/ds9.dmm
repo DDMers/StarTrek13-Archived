@@ -17,7 +17,7 @@
 "q" = (/obj/effect/landmark{name = "ship_spawn"},/turf/open/floor/fakespace,/area/overmap)
 "r" = (/obj/effect/landmark/music_controller,/turf/open/floor/fakespace,/area/overmap)
 "s" = (/obj/effect/landmark/warp_beacon,/turf/open/floor/fakespace,/area/overmap)
-"t" = (/turf/open/space/basic,/area/overmap)
+"t" = (/turf/open/floor/fakespace,/area/overmap)
 "u" = (/obj/effect/landmark{name = "barnardstar"},/turf/open/floor/fakespace,/area/overmap)
 "v" = (/obj/effect/landmark{name = "hotel"},/turf/open/floor/fakespace,/area/overmap)
 "w" = (/obj/structure/space_object/simulated,/turf/open/floor/fakespace,/area/overmap)
