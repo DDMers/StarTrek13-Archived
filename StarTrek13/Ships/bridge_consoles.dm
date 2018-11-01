@@ -520,7 +520,7 @@ Reconnect arrays
 			fail()
 			depower()
 	if(powered)
-		health -= 0.5 //Relays can and will fail on you if you keep them running. So it may be wise to keep your bonus relay there as a backup so you can instantly shunt power to it
+		health -= 0.05 //Relays can and will fail on you if you keep them running. So it may be wise to keep your bonus relay there as a backup so you can instantly shunt power to it
 		if(health > initial(health))
 			health = initial(health)
 
