@@ -549,7 +549,6 @@ Reconnect arrays
 		return
 
 /obj/structure/ship_component/subsystem_relay/proc/reset_state()
-	access = FALSE
 	decoupled = FALSE
 	descrambled = FALSE
 	reconnected = FALSE
