@@ -364,11 +364,12 @@ Might find a use for this later
 		return
 	flick("alien-pad", src)
 	var/mob/living/target = locate(/mob/living) in loc
-	if(target != src)
-		new /obj/effect/temp_visual/transporter(get_turf(target))
-		target.forceMove(teleport_target)
-		new /obj/effect/temp_visual/transporter/mob(get_turf(target))
-		playsound(target.loc, 'StarTrek13/sound/borg/machines/transporter2.ogg', 40, 4)
+	if(target)
+		if(target != src)
+			new /obj/effect/temp_visual/transporter(get_turf(target))
+			target.forceMove(teleport_target)
+			new /obj/effect/temp_visual/transporter/mob(get_turf(target))
+			playsound(target.loc, 'StarTrek13/sound/borg/machines/transporter2.ogg', 40, 4)
 
 /obj/machinery/trek/transporter/proc/retrieve(mob/living/target)
 	if(!powered())

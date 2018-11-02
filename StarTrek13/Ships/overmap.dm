@@ -926,10 +926,12 @@
 
 
 /obj/structure/overmap/proc/has_shields()
-	if(SC.shields.health >= 5000 && shields_active && SC.shields.toggled)
-		return 1
-	else//no
-		return 0
+	if(SC && SC.shields)
+		if(SC.shields.health >= 5000 && shields_active && SC.shields.toggled)
+			return TRUE
+		else//no
+			return FALSE
+	return FALSE
 
 /obj/structure/overmap/bullet_act(var/obj/item/projectile/P)
 	. = ..()

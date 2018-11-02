@@ -18,6 +18,8 @@
 				break
 	if(!what)
 		return //nothing's been said
+	if(!speaker) //If a crewmen complains that the shields are buckling when no one is around...
+		return FALSE
 	var/sound
 	switch(what)
 		if("hull")

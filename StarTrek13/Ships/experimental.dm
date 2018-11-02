@@ -64,7 +64,7 @@
 		PixelMove(x_speed,y_speed)
 
 /obj/structure/overmap/proc/parallax_update()
-	if(pilot)
+	if(pilot && pilot.client)
 		for(var/PP in pilot.client.parallax_layers)
 		//	var/turf/posobj = get_turf(src)
 			var/obj/screen/parallax_layer/P = PP
