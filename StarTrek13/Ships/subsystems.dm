@@ -337,7 +337,7 @@
 	var/active = FALSE
 	var/obj/structure/ship_component/capbooster/boosters = list()
 	icon_state = "shields"
-	var/chargeRate = 500 // per tick
+	var/chargeRate = 200 // per tick
 	var/health = 25000 //Shields start off drained
 	var/max_health = 40000 //This will become shield health, integrity is subsystem integrity ||  Buffed from 30K due to request. This will make ships a lot more robust, at 10 shield hits at sovereign damage, ignoring heat.
 	integrity = 20000

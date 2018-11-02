@@ -272,7 +272,7 @@
 					current_beam = new(source,target_ship,time=1000,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 					var/chosen_sound = pick(soundlist)
 					playsound(src,chosen_sound,100,1)
-					if(S.pilot)
+					if(S && S.pilot)
 						SEND_SOUND(S.pilot, sound('StarTrek13/sound/borg/machines/alert1.ogg'))
 					to_chat(pilot, "You successfully hit [S]")
 					var/list/L = list()

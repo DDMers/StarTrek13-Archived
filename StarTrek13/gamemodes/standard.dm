@@ -1,6 +1,3 @@
-//datum/game_mode
-//	var/list/faction_participants = list(/datum/faction/starfleet, /datum/faction/romulan)
-/*
 /datum/game_mode/conquest
 	name = "galactic conquest"
 	config_tag = "conquest"
@@ -9,14 +6,17 @@
 	<span class='danger'>Capture system outposts and accrue credits\n\
 	<span class='danger'>The winning faction shall be the one with the most remaining credits."
 	var/list/faction_participants = list("starfleet", "romulan empire", "the borg collective")
+	var/delaywarp = 0 //Some modes like DS9 allow extra time to prepare.
 
 /datum/game_mode/conquest/pre_setup()
 	for(var/datum/faction/F in SSfaction.factions)
 		if(F.name in faction_participants)
-			MESSAGE_ADMINS("DEBUG: [F] has been enabled for the round.")
+			message_admins("DEBUG: [F] has been enabled for the round.")
 			F.locked = FALSE
 		else
 			F.locked = TRUE //Lock specific factions out of gamemodes
+	if(delaywarp)
+		SSfaction.warpdelay = delaywarp
 	return ..()//We can add borg into this later, but no real need
 
 /datum/game_mode/conquest/post_setup()
@@ -35,6 +35,3 @@
 		if(F.credits >= highest)
 			winner = F
 	return "<div class='panel greenborder'><span class='header'>[winner] won the round with a total of [winner.credits] credits!</div>"
-*/
-
-//Deprecated. See gamemodes folder

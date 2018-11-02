@@ -194,6 +194,15 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 		D.set_species(speciestype)
 	return
 
+
+/datum/faction/borg/onspawn(mob/living/carbon/human/D)
+	. = ..()
+	sleep(50) //give autobalancer time to sort them
+	if(!istype(D.player_faction, /datum/faction/borg))
+		return
+	D.make_borg()
+	D.equipOutfit(/datum/outfit/borg, visualsOnly = FALSE)
+
 var/list/global/faction_spawns = list()
 
 /obj/effect/landmark/faction_spawn

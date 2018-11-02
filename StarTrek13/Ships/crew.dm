@@ -60,6 +60,11 @@
 		if(istype(F, /datum/faction/romulan))
 			required = F
 
+/datum/crew/borgship/pickthefaction() //This is shitcode. Fix it.
+	for(var/datum/faction/F in SSfaction.factions)
+		if(istype(F, /datum/faction/borg))
+			required = F
+
 /datum/crew/proc/Add(mob/M)
 	candidates += M
 
@@ -138,6 +143,12 @@
 /obj/effect/landmark/crewstart
 	name = "sovereign class heavy cruiser"
 
+/obj/effect/landmark/crewstart/borgship
+	name = "assimilated ship"
+
+/obj/effect/landmark/crewstart/ds9
+	name = "federation starbase class outpost"
+
 /obj/effect/landmark/crewstart/nerd
 	name = "uss woolfe research outpost"
 
@@ -152,6 +163,11 @@
 
 /datum/crew/sovereign
 	name = "sovereign class heavy cruiser"
+	priority = MED
+	faction = "starfleet"
+
+/datum/crew/ds9
+	name = "federation starbase class outpost"
 	priority = MED
 	faction = "starfleet"
 
@@ -176,6 +192,12 @@
 	faction = "romulan empire"
 	requiredtype = /datum/faction/romulan
 	locked = TRUE //We're only unlocking them when antags spawn 30 mins in
+
+/datum/crew/borgship
+	name = "assimilated ship"
+	priority = MED
+	faction = "the borg collective"
+	requiredtype = /datum/faction/borg
 
 /datum/crew/nerds
 	name = "uss woolfe research outpost"

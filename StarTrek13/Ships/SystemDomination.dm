@@ -5,8 +5,15 @@
 	health = 100000000 //If you blow this up it'll break things
 	max_health = 100000000
 
+/obj/structure/overmap/away/station/system_outpost/ds9
+	name = "Deep Space 9"
+	var/datum/crew/ds9/crew = new
+
 /area/ship/barnardstar
 	name = "Barnard's star outpost"
+
+/area/ship/ds9
+	name = "Deep Space 9"
 
 /obj/structure/overmap/away/station/system_outpost/old
 	name = "Beta Hydri Outpost"

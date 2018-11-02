@@ -18,6 +18,7 @@ SUBSYSTEM_DEF(faction)
 	var/Wirecuttername
 	var/obj/effect/landmark/music_controller/music_controllers = list()
 	var/datum/crew/most_popular
+	var/warpdelay = 2000 //about 5 mins as default. Gives you some time to prepare. Some gamemodes may change this.
 
 /datum/controller/subsystem/faction/Initialize(timeofday)
 	for(var/F in subtypesof(/datum/faction))
@@ -120,12 +121,12 @@ SUBSYSTEM_DEF(faction)
 
 
 /datum/controller/subsystem/faction/proc/announce_jumpgates()
-	priority_announce("Cross system warping will enable in 5 minutes. All crews should man their stations. Any crew posted on stations should beam over to nearby ships via the transporter", "Incoming Priority Message", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
-	addtimer(CALLBACK(src, .proc/announce_jumpgates_soon), 2000)
+	priority_announce("Subspace distortions prevent warping at this time. Crews should prepare to disembark after they clear", "Incoming Priority Message", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
+	addtimer(CALLBACK(src, .proc/announce_jumpgates_soon), warpdelay)
 
 
 /datum/controller/subsystem/faction/proc/announce_jumpgates_soon()
-	priority_announce("Cross system warping will enable shortly, all pilots should prepare for cross system travel.", "Incoming Priority Message", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
+	priority_announce("Cross system warping will enable shortly, all crews should prepare for cross system travel.", "Incoming Priority Message", 'StarTrek13/sound/trek/ship_effects/bosun.ogg')
 	addtimer(CALLBACK(src, .proc/allow_jumpgates), 1000)
 
 /datum/controller/subsystem/faction/proc/allow_jumpgates()

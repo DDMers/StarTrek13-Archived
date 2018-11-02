@@ -2,10 +2,16 @@
 	name = "deep space 9"
 	config_tag = "deepspacenine"
 	announce_span = "danger"
-	announce_text = "A key outpost in the Bajor system is in need of repairs\n\
-	<span class='danger'>Capture system outposts and accrue credits. Factions are not at war\n\
-	<span class='danger'>Prepare deep space 9 for an assault by the end of the round. Build a fleet and ensure DS9's station core does not fall."
-	faction_participants = list(/datum/faction/starfleet, /datum/faction/romulan)
+	announce_text = "A key outpost in the Bajor system is under threat\n\
+	<span class='danger'>Starfleet must defend deep space 9 at all costs\n\
+	<span class='danger'>The borg must assimilate Deep Space 9."
+	faction_participants = list("starfleet", "the borg collective")
+	delaywarp = 7000 //MUCH longer to prepare for the attack. You'll get about 15 mins to prepare
 
-/datum/game_mode/conquest/deepspacenine/generate_report()
-	return "The Federation outpost (on loan from bajor) Deep Space 9 is a key outpost next to the only stable worm-hole known to us, it is not fully operational. A defiant class warship has been assigned to the station. Use it to acquire resources to set up DS9. We have unconfirmed reports of a new alien empire in the delta quadrant with access to the wormhole. Shore up her defenses as much as possible."
+/datum/game_mode/conquest/deepspacenine/send_intercept() //Overriding the "security level elevated thing" because we don't really use it :)
+	priority_announce("Deep space outposts have detected a transwarp signature approaching the bajor system. All crew must defend deep space 9 at all costs. An uplink has been established with a nearby shipyard linked to DS9. You can use it to fabricate ships to build a defense fleet.")
+	var/ping = "<font color='green' size='2'><B><i>Borg Collective: </b> <b>Hivemind Notice:</b></i>Resource transfer request APPROVED: All drones must assimilate federation outpost #3055950. Threat level: Low. Continue with upgrades en route.</font></span>"
+	for(var/mob/living/carbon/human/H in SSfaction.borg_hivemind.borgs)
+		to_chat(H, ping)
+	for(var/mob/M in GLOB.dead_mob_list)
+		to_chat(M, ping)

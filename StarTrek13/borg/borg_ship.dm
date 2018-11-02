@@ -19,6 +19,7 @@
 	faction = "the borg"
 	cost = 0 //you only get one
 	soundlist = ('StarTrek13/sound/trek/borg_phaser.ogg')
+	var/datum/crew/borgship/crew = new
 
 /obj/structure/overmap/proc/check_assimilation()
 	switch(assimilation_tier)
