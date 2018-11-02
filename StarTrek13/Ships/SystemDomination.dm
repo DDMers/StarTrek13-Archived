@@ -4,6 +4,7 @@
 	spawn_name = "barnardstar"
 	health = 100000000 //If you blow this up it'll break things
 	max_health = 100000000
+	var/datum/faction/owner
 
 /obj/structure/overmap/away/station/system_outpost/ds9
 	name = "Deep Space 9"
@@ -141,6 +142,8 @@
 			beingcaptured = FALSE
 			station.name = initial(station.name)
 			station.name = "[station.name] ([user.player_faction])"
+			station.owner = owner
+			SSticker.mode.check_win()
 		beingcaptured = FALSE
 	else
 		to_chat(user, "Someone is already attempting a network breach!")
