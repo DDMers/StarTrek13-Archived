@@ -29,7 +29,7 @@
 		if(1)
 			icon_state = "borgship1"
 			health += 5000 //Get out clause, so they can run
-			max_health = initial(max_health)+8000
+			max_health = initial(max_health)+2000
 		if(2)
 			icon_state = "borgship2"
 			health += 5000 //Get out clause, so they can run
@@ -38,7 +38,7 @@
 		if(3)
 			icon_state = "borgship3" //By this point it gets borg cube abilities
 			health += 5000 //Get out clause, so they can run
-			max_health = initial(max_health)+5000
+			max_health = initial(max_health)+8000
 			name = "Submatrix [rand(0,999)]"
 		if(4)
 			icon_state = "borgship4" //fucking unit
