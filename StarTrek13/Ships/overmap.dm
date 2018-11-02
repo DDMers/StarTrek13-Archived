@@ -556,7 +556,7 @@
 			heat_multi = S.SC.shields.heat >= 5000 ? 2 : 1 // double damage if heat is over 500.
 			S.SC.shields.heat += (amount/70)
 			//	generator.take_damage(amount*heat_multi)
-			SC.shields.health -= amount*heat_multi
+			S.SC.shields.health -= amount*heat_multi
 			if(source)
 				if(source.target_subsystem)
 					source.target_subsystem.integrity -= (amount)/3 //Shields absorbs most of the damage
