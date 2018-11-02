@@ -29,26 +29,26 @@
 		if(1)
 			icon_state = "borgship1"
 			health += 5000 //Get out clause, so they can run
-			max_health += 8000
+			max_health = initial(max_health)+8000
 		if(2)
 			icon_state = "borgship2"
 			health += 5000 //Get out clause, so they can run
-			max_health += 5000
+			max_health = initial(max_health)+5000
 			name = "Scout [rand(0,999)]"
 		if(3)
 			icon_state = "borgship3" //By this point it gets borg cube abilities
 			health += 5000 //Get out clause, so they can run
-			max_health += 5000
+			max_health = initial(max_health)+5000
 			name = "Submatrix [rand(0,999)]"
 		if(4)
 			icon_state = "borgship4" //fucking unit
 			health += 7000 //Get out clause, so they can run
-			max_health += 10000
+			max_health = initial(max_health)+10000
 			name = "Unimatrix [rand(0,999)]"
 		if(5)
 			icon = 'StarTrek13/icons/trek/large_ships/borg_cube.dmi'
 			icon_state = "borg_cube" //fucking unit
-			max_health = 100000 ///Ohhh you've really done fucked up now. This will take inter faction cooperation to take down. This equates to 10 fucking photons JUST on its hull, do you realise how fucking strong that is? DO YOU?!
+			max_health = initial(max_health)+100000 ///Ohhh you've really done fucked up now. This will take inter faction cooperation to take down. This equates to 10 fucking photons JUST on its hull, do you realise how fucking strong that is? DO YOU?!
 			health = max_health
 			name = "Cube [rand(0,999)]"
 			turnspeed = 1
