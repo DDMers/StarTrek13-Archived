@@ -23,8 +23,9 @@
 /obj/structure/overmap/proc/check_assimilation()
 	switch(assimilation_tier)
 		if(0)
-			health += 1000 //Get out clause, so they can run
-			max_health += 2000
+			return //NO BORG FOR YOU KID
+		//	health += 1000
+		//	max_health += 2000 //holy shit kmc you were adding 2000 max health PER TICK you absolute mad lad ~Kmc
 		if(1)
 			icon_state = "borgship1"
 			health += 5000 //Get out clause, so they can run
