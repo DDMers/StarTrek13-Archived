@@ -251,7 +251,7 @@
 		update_weapons()
 	if(wrecked)
 		firinginprogress = FALSE
-		return
+		return FALSE
 	if(SC.weapons.damage <= 0)
 		to_chat(pilot, "<span_class = 'warning'>Weapon systems are depowered!</span>")
 		firinginprogress = FALSE
@@ -288,10 +288,12 @@
 				damage -= SC.weapons.gimp_damage()
 				S.take_damage(damage, TRUE)
 				return TRUE
+			else
+				return FALSE
 		if(FIRE_PHOTON)
 			if(assimilation_tier > 3)
 				borg_fire(S, 2)
-				return
+				return TRUE
 			if(photons > 0)
 				photons --
 				var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)

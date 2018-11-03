@@ -520,18 +520,7 @@
 	icon_state = "shieldhit"
 	duration = 10
 
-/obj/structure/overmap/take_damage(amount, var/override)
-	var/before = 0
-	before = health
-	var/after = 0
-	after = health - amount
-	if(before < after) //if it'd stain to be healed by a shot, kill it
-		return 0
-	if(prob(30))
-		playsound(src,'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg',100,1)
-	if(wrecked)
-		return 0
-	var/obj/structure/overmap/source = agressor
+/obj/structure/overmap/take_damage(amount)
 	if(prob(40))
 		var/meme = rand(1,6)
 		switch(meme)
@@ -547,84 +536,50 @@
 				visible_message("<spanR class='warning'>A beam tears across [name]'s hull!</span>")
 			if(6)
 				visible_message("<span class='warning'>[name]'s hull is scorched!</span>")
-	if(override)
-		if(has_shields())
+	var/before = 0
+	before = health
+	var/after = 0
+	after = health - amount
+	if(before < after) //if it'd stand to be healed by a shot, ignore the damage.
+		return 0
+	if(prob(30)) //Fluff
+		playsound(src,'StarTrek13/sound/trek/ship_effects/torpedoimpact.ogg',100,1)
+	if(wrecked)
+		return 0
+	var/obj/structure/overmap/source
+	if(agressor)
+		source = agressor
+	if(health > 0) //If not, then destroy will pick this up.
+		if(has_shields()) ///Case 1: Shields hit
 			new /obj/effect/temp_visual/trek/shieldhit(loc)
 			var/heat_multi = 1
 			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
-			var/obj/structure/overmap/ship/S = src
-			heat_multi = S.SC.shields.heat >= 5000 ? 2 : 1 // double damage if heat is over 500.
-			S.SC.shields.heat += (amount/70)
-			//	generator.take_damage(amount*heat_multi)
-			S.SC.shields.health -= amount*heat_multi
-			if(source)
-				if(source.target_subsystem)
-					source.target_subsystem.integrity -= (amount)/3 //Shields absorbs most of the damage
-				apply_damage(amount)
-				return//no shields are up! take the hit
-		else
-			new /obj/effect/temp_visual/trek(loc)
-			health -= amount
-			SC.hull_integrity.integrity -= amount
-			if(take_damage_traditionally)
-				apply_damage(amount)
-			return
-	if(take_damage_traditionally) //Set this var to 0 to do your own weird shitcode
-		if(has_shields())
-			new /obj/effect/temp_visual/trek/shieldhit(loc)
-			var/heat_multi = 1
-			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
-			var/obj/structure/overmap/ship/S = src
-			heat_multi = S.SC.shields.heat >= 50 ? 2 : 1 // double damage if heat is over 50.
-			S.SC.shields.heat += round(amount/S.SC.shields.heat_resistance)
-		//	generator.take_damage(amount*heat_multi)
+			heat_multi = SC.shields.heat >= 500 ? 2 : 1 // double damage if heat is over 500.
+			SC.shields.heat += round(amount/SC.shields.heat_resistance)
 			SC.shields.health -= amount*heat_multi
-			var/datum/effect_system/spark_spread/s = new
-			s.set_up(2, 1, src)
-			s.start() //make a better overlay effect or something, this is for testing
 			if(source)
 				if(source.target_subsystem)
-					source.target_subsystem.integrity -= (amount)/3 //Shields absorbs most of the damage
+					source.target_subsystem.integrity -= (amount)/2 //Shields absorbs most of the damage, but still damage it a lil'
 				apply_damage(amount)
 				return//no shields are up! take the hit
-		if(SC.hull_integrity.failed)
-			if(source)
-				if(source.target_subsystem)
+		else //Case 2: No shields are hit, look if there was a subsystem being targeted too.
+			var/new_amount = amount //If we want to mod damage because of anything
+			if(source) //Is there an attacker? or a null pointer
+				if(source.target_subsystem && source.target_subsystem in SC.systems) //They were targeting a subsystem, so apply most of the damage to that first. (So you can cripple and board a ship) Also check theyre targeting OUR subsystem.
+					source.target_subsystem.integrity -= amount
+					source.target_subsystem.heat += amount*0.004
 					if(source.target_subsystem.failed)
-						to_chat(source.pilot, "[src]'s [source.target_subsystem.failed] subsystem has failed.")
-						health -= amount
+						to_chat(source.pilot, "[src]'s [source.target_subsystem] failed.")
 						source.target_subsystem = null
-						apply_damage(amount)
-						return
-					source.target_subsystem.integrity -= (amount) //No shields, fry that system ~Kmc: I nerfed weapon damages, so this had to be buffed again
-					source.target_subsystem.heat += amount/10 //Heat for good measure :)
-					var/quickmaths = amount/5 //Fives the physical hull damage, the rest is given to the subsystems, so you can cripple a ship (just over half)
-					if(quickmaths)
-						health -= quickmaths
-					apply_damage(amount)
-					return
-			else
-				new /obj/effect/temp_visual/trek(loc)
-				health -= amount
-				apply_damage(amount)
-				return
-		else
-			if(source)
-				if(source.target_subsystem)
-					source.target_subsystem.integrity -= (amount)/2 //Hull plates protect
-					source.target_subsystem.heat += source.SC.weapons.damage/15 //Keeps the heat off
-			var/quickmaths = amount/5 //Fives the physical hull damage, because the hull plates take a bunch of that damage
-			health -= quickmaths
-			SC.hull_integrity.integrity -= amount
-			apply_damage(amount)
-			return
+					new_amount = new_amount*0.3 //3000 turns into 900 physical damage etc.
+			new /obj/effect/temp_visual/trek(loc)//And now apply the damage
+			health -= new_amount
+			apply_damage(new_amount) //And shake up the interior of the ship.
+			shake_camera(pilot, 1, 3)
+			var/sound/thesound = pick(ship_damage_sounds) //Plays a BANG to the pilot.
+			SEND_SOUND(pilot, thesound)
 	else
-		new /obj/effect/temp_visual/trek(loc)
-		shake_camera(pilot, 1, 10)
-		var/sound/thesound = pick(ship_damage_sounds)
-		SEND_SOUND(pilot, thesound)
-		health -= amount
-		return
+		Destroy(1)
 
 /obj/structure/overmap/proc/update_transporters()
 	var/list/L = range(5, src)

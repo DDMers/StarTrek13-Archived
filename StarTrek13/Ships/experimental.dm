@@ -202,7 +202,14 @@ atom/movable
 		if(prob(engine_prob))
 			playsound(src,engine_sound,40,1)
 	check_overlays()
+	if(SC)
+		if(SC.engines)
+			if(!SC.engines.check_power())
+				return
 	if(can_move)
+		if(assimilation_tier >= 5) //Borg cube hyperspeed cock block brigade here lads.
+			turnspeed = 1
+			max_speed = 2
 		switch(dir)
 			if(NORTH)
 				if(mob.whatimControllingOMFG)

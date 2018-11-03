@@ -9,6 +9,8 @@
 /obj/structure/overmap/away/station/system_outpost/ds9
 	name = "Deep Space 9"
 	var/datum/crew/ds9/crew = new
+	health = 40000 //Blowing it up is also a valid option
+	max_health = 40000
 
 /area/ship/barnardstar
 	name = "Barnard's star outpost"

@@ -11,7 +11,7 @@
 
 /datum/game_mode/conquest/deepspacenine/send_intercept() //Overriding the "security level elevated thing" because we don't really use it :)
 	priority_announce("Deep space outposts have detected a transwarp signature approaching the bajor system. All crew must defend deep space 9 at all costs. An uplink has been established with a nearby shipyard linked to DS9. You can use it to fabricate ships to build a defense fleet.")
-	var/ping = "<font color='green' size='2'><B><i>Borg Collective: </b> <b>Hivemind Notice:</b></i>Resource transfer request APPROVED: All drones must assimilate federation outpost #3055950. Threat level: Low. Continue with upgrades en route.</font></span>"
+	var/ping = "<font color='green' size='2'><B><i>Borg Collective: </b> <b>Hivemind Notice:</b></i> New directive: All drones must assimilate federation outpost #3055950 by claiming its station core. Threat level: Low. Continue with upgrades en route.</font></span>"
 	for(var/mob/living/carbon/human/H in SSfaction.borg_hivemind.borgs)
 		to_chat(H, ping)
 	for(var/mob/M in GLOB.dead_mob_list)
@@ -40,7 +40,7 @@
 
 
 /datum/game_mode/conquest/deepspacenine/special_report()
-	var/feedback = "Nobody won the round!"
+	var/feedback = "Federation minor victory! Deep space 9 did not fall."
 	switch(result)
 		if(1)
 			feedback = "Federation major victory! The borg invasion ship was destroyed. Resistance was evidently not futile."

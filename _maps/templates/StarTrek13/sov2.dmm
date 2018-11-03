@@ -361,7 +361,7 @@
 "gW" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "gX" = (/obj/effect/landmark/bird_spawner,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "gY" = (/obj/machinery/door/airlock/trek/tng/jeffries,/turf/open/floor/trek,/area/ship/federation/sovreign)
-"gZ" = (/obj/structure/fluff/ship/panel,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 8},/area/ship/federation/sovreign)
+"gZ" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/sovreign)
 "ha" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 8},/area/ship/federation/sovreign)
 "hb" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/obj/machinery/light{dir = 8},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "hc" = (/obj/structure/table/optable/trek{icon_state = "medbay"; dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
@@ -387,7 +387,7 @@
 "hw" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge2 (WEST)"; icon_state = "trek_edge2"; dir = 8},/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 1},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "hx" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "hy" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 4},/area/ship/federation/sovreign)
-"hz" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/sovreign)
+"hz" = (/obj/structure/ship_component/subsystem_relay,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 8},/area/ship/federation/sovreign)
 "hA" = (/obj/machinery/space_battle/shield_generator,/obj/structure/cable/white{icon_state = "0-2"},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/federation/sovreign)
 "hB" = (/obj/structure/ship_component/subsystem_relay,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/federation/sovreign)
 "hC" = (/obj/structure/catwalk,/obj/structure/ladder/unbreakable{height = 1; id = "sovjef4"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/sovreign)
@@ -643,12 +643,12 @@ kAacacacacacacacbTaBeAiqiWaziVacacacbTaucqcrdiaucqcrbLcmcmcmcmcmcmcmaNdfbeaJaKew
 kAacacacacacacacbTaBeAiqiWaziVacacacbTcPajajisajajdcbLcmcmcmcmcmcmcmaNdmbeaJdodqdqdrbebebebebedsbebebebebebedtaNcmcmcmcuaoaoaoaOaoaoaoaOaoaoaoaOacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTaBeAiKiWaziVacacacbTddaoaogvaoaodebLcmcmcmcmaccmcmcubebeaJdvbebebebebebebebedsbebebebebebebeaNcmcmcmcuaoiMaoaOaoiMaoaOaoiMaoaOacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTaBeAiXjiaziVacacacbTilarikiiikaribbLcmcmcmcmaccmcmaNbebeaJdwdxbebebebebebebedsbebebehNbebebeaNcmcmcmdncucucucucucucucucucucucuacacacacacacacacacacacacacacacacackA
-kAacacacacacacacbTiQiRiRhziQiVacacaceLbrbrbKifbJbrbrePacacacacaccmcmaNbebeaJdvbebebebebegGgGbedsbebebeaJbebebeaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
+kAacacacacacacacbTiQiRiRgZiQiVacacaceLbrbrbKifbJbrbrePacacacacaccmcmaNbebeaJdvbebebebebegGgGbedsbebebeaJbebebeaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTiUeGkIkJkKkLacacacacacacgLidgNacacacacacacacaccmcmaObebeaJdvbebebebebebebebedsbebebeaJbebebeaOcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTiYiZjaiZjbbLacacacacacazgOiPgPaBacacacacacacaccmcmaOaObeaJdvkGbebebegIgKiCiEdsbebekGaJbebeaOaOcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTjdjejfjejgbLacacacacacazjhiPjhaBacacacacacacaccmcmaOaObTgQhibLbebebegJiFiHiIdsbebebTgSgTbLcuaNaNaNaNaNaNaNaNaNcucucmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTkMjjjkjlkMbLacacacacacacgUiLgVacacacacacaccmcmcmcmaOaObTgWhlbLaObebejmdBdCjndsbeaObTgWaybLcudkbebebebebebedFdHcucucmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
-kAacacacacacacaceLbrgUjogVbrePacacacacacacaziPaBacacacacacaccmcmcmcmdGaObTfshmbLaOaOgYgZhahagZjpaOaObTfsapbLcudJdJbebebebebebebebecucmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
+kAacacacacacacaceLbrgUjogVbrePacacacacacacaziPaBacacacacacaccmcmcmcmdGaObTfshmbLaOaOgYhzhahahzjpaOaObTfsapbLcudJdJbebebebebebebebecucmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
 kAacacacacacacacacacazjqgNhyhyhyhyhyhyhyhygLjraBacacacacacaccmcmcmcmcmcmbTdDhnbLduazjtjtjujujtjzaBdubTdDcyfzcudJdJbebebebebeeIbebecucmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
 kAacacacacacacacacacazjvjwjwjwjwjxjwjwjwjwjwjyaBacacacacacaccmcmcmcmcmcmbTfshmbLduazjAjtjBjCjDkHaBdubTfsapfzaNaNbebekGbekGbebebecucucmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
 kAacacacacacacacacacblhdhdhdhdhdhdhdhdhdhdgUcgaBacacacacacaccmcmcmcmcmcmbTfshmbLduduhdhdhdhdhdhddudubTfsapfzdKdzcococoaLcococococococmcmcmcmcmcmacacacacacacacacacacacacacacacacackA

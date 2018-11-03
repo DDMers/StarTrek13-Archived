@@ -2662,6 +2662,7 @@
 #include "StarTrek13\Ships\is_defines.dm"
 #include "StarTrek13\Ships\jumpgate.dm"
 #include "StarTrek13\Ships\kirk_fu.dm"
+#include "StarTrek13\Ships\mentor.dm"
 #include "StarTrek13\Ships\overmap.dm"
 #include "StarTrek13\Ships\overmap_camera.dm"
 #include "StarTrek13\Ships\overmap_combat.dm"

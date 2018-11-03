@@ -231,7 +231,7 @@
 				L.say("Ahead, warp [speed]")
 				if(theship.pilot)
 					to_chat(theship.pilot, "Helm has engaged warp factor [speed]")
-				theship.vel = maxwarp
+				theship.max_speed = maxwarp //Speed limiter, or increaser
 				for(var/mob/LT in theship.linked_ship)
 					SEND_SOUND(LT, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
 			else

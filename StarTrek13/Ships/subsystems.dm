@@ -97,12 +97,20 @@
 		heat -= amount
 
 /datum/shipsystem/proc/check_power()
+	use_power()
+	if(stored_power >= power_required)
+		return TRUE
+	else
+		return FALSE
+
+/datum/shipsystem/proc/use_power()
 	if(stored_power < max_power)
 		stored_power += power //Add on the power we get from the relays
 	if(stored_power > 10)
 		stored_power -= power_use
 		if(stored_power < power_required)
 			fail(TRUE)
+			return FALSE
 		else
 			if(integrity > 5000)
 				failed = FALSE
@@ -365,17 +373,16 @@
 					health = 0
 	if(!failed && toggled)
 		health += chargeRate*power_modifier
-		heat -= 10
+		heat -= 7
 	if(heat)
 		health -= heat
 	if(heat < 0)
 		heat = 0
 	if(integrity < 0)
 		integrity = 0
-	heat -= 10
-	max_integrity = initial(max_integrity)
 	if(integrity <= 3000)
 		fail()
+		max_integrity = initial(max_integrity)
 	if(health > max_health)
 		health = max_health
 	if(integrity > max_integrity)
