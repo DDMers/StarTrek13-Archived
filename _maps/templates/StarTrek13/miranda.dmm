@@ -213,6 +213,9 @@
 "ee" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/turf/closed/wall/trek{icon_state = "wall_light"; dir = 8},/area/ship/miranda)
 "ef" = (/obj/structure/catwalk,/obj/machinery/power/smes/engineering,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/miranda)
 "eg" = (/obj/structure/ship_component/subsystem_relay,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/miranda)
+"eh" = (/obj/structure/cable/white{icon_state = "1-2"},/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/plating,/area/ship/miranda)
+"ei" = (/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/plating,/area/ship/miranda)
+"ej" = (/obj/machinery/door/airlock/trek/tng/single,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/hallway/galaxy,/area/ship/miranda)
 
 (1,1,1) = {"
 adadababababababababacababababababababababababababababababababababababadad
@@ -233,11 +236,11 @@ adaaaeakbDbHcbcmcdcncocdcpbecdchcbdLbHamaeaeascqcrcrcrcrcscscsctaoaeaeadad
 adaaaeakbDbHcbchcdcucvbecwbecdchcbdLbHamaeaeascDcacxcxcxcxcxcxcxaeaeaeadad
 adaaaaakdWbHcbchchcyczcAcBcAcCchcbdLdXalalalalcNalalalalalamaaaaaaaaaaadad
 adaaaaakbDbHcbcEcEcEcFcbcGcHcIcJcbcKcLcMcMcMcMdJdSbsbsbsdYamaaaaaaaaaaadad
-adaaaaakbDbHcbcOcPcTcRcbcSdZcUcdcbcVbEbFbFbFbFbFbFbFbFbFcWamaaaaaaaaaaadad
-adaaaaakbDbHcbcXaiaicYcbcZdadbcdcbdTbHbQbUalaldcalegegegegamaaaaaaaaaaadad
-adaaaaakbDbHcbcXaiaicYcbdddecdcdcbdTbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
-adaaaaakbDbHcbaWdgdgdhcbdidjdicdcbdTbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
-adaaaaakbDbHaldkalaldlalalalaldkaldTbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
+adaaaaakbDbHcbcOcPcTcRcbcSdZeheicbcVbEbFbFbFbFbFbFbFbFbFcWamaaaaaaaaaaadad
+adaaaaakbDbHcbcXaiaicYcbcZdadbcUcbdTbHbQbUalaldcalegegegegamaaaaaaaaaaadad
+adaaaaakbDbHcbcXaiaicYcbdddecdcUcbdTbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
+adaaaaakbDbHcbaWdgdgdhcbdidjdicUcbdTbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
+adaaaaakbDbHaldkalaldlalalalalejaldTbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
 adaaaaakdWdmbsbseabsdnbsbsbseadodVdUdXamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
 adaaaaakbDdPdpdpdpdpdNdpdpdpdpdpdpdqbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
 adaaaaakbDbHcbdkdrdsdtdudvdvdwdxdydzbHamakdfdAdfdfdfdfdfdfamaaaaaaaaaaadad
