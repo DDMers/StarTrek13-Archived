@@ -7,7 +7,9 @@
 	if(!F) //no doublenanites
 		var/obj/item/organ/borgNanites/biglongtube = new(src)
 		biglongtube.Insert(src)
-		biglongtube.forceMove(src)
+		biglongtube.owner = src //I don't know what's going on here but it ain't right
+		if(!biglongtube in internal_organs)
+			biglongtube.forceMove(src)
 	skin_tone = "albino"
 	to_chat(src, "<span_class='warning'>We have been assimilated! We should find a conversion suite to augment ourselves. All other drones are to be obeyed, all past lives and memories are forgotten.</span>")
 	if(!(src in SSfaction.borg_hivemind.borgs))

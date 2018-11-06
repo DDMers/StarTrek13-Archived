@@ -22,9 +22,9 @@
 
 /obj/structure/overmap/ship/runabout/process()
 	. = ..()
-	var/obj/structure/fluff/helm/desk/tactical/S = locate(/obj/structure/fluff/helm/desk/tactical) in (get_area(src))
-	if(S && S.theship)
-		carrier = S.theship
+//	var/obj/structure/fluff/helm/desk/tactical/S = locate(/obj/structure/fluff/helm/desk/tactical) in (get_area(src))
+//	if(S && S.theship)
+//		carrier = S.theship  we now do this as soon as someone boards the shuttle.
 	if(carrier)
 		for(var/obj/machinery/computer/camera_advanced/transporter_control/TC in carrier.transporters)
 			TC.destinations += src
@@ -66,14 +66,14 @@
 /obj/structure/overmap/ship/runabout/attack_hand(mob/user)
 	if(!shields_active)
 		to_chat(user, "You climb into the runabout")
+		var/obj/structure/weapons_console/WC = locate(/obj/structure/weapons_console) in get_area(user) //We only do this when they click on it by hand, otherwise on enter it'd bug out when the ship flies to overmap.
+		if(WC && WC.our_ship)
+			carrier = WC.our_ship
+			to_chat(user, "[src]'s docking consoles register it as being docked to [carrier]")
 		var/turf/open/T = pick(get_area_turfs(linked_ship))
 		if(!istype(T, /turf/open))
 			T = pick(get_area_turfs(linked_ship))
 		user.forceMove(T)
-		var/area/A = get_area(src)
-		for(var/obj/structure/weapons_console/C in A)
-			var/obj/structure/weapons_console/WC = C
-			carrier = WC.our_ship
 	else
 		to_chat(user, "[src] has its shields up!")
 		return ..()
@@ -81,13 +81,6 @@
 /obj/structure/overmap/ship/runabout/enter(mob/user)
 	. = ..()
 	to_chat(pilot, "<span_class='warning'>You are flying a runabout! Alt-click it to dock/undock from a ship/station providing it has a docking point.</span>")
-
-/obj/structure/overmap/ship/runabout/exit(var/forced = FALSE, var/runaboutexit = FALSE, var/mob/living/override = null)
-	if(runaboutexit && override)
-		if(carrier)
-			var/obj/effect/landmark/T = pick(carrier.docks)
-			override.forceMove(get_turf(T))
-	. = ..()
 
 /obj/structure/ladder/unbreakable/runabout
 	name = "Runabout exit ladder"
@@ -114,7 +107,7 @@
 		else
 			to_chat(pilot, "You cannot undock from [carrier] while its shields are raised")
 			icon_state = initial(icon_state)
-			exit(TRUE)
+			return
 	if(!pilot)
 		return
 	var/obj/structure/overmap/L = list()

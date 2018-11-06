@@ -148,6 +148,12 @@
 	icon_state = "whiskeybottle"
 	list_reagents = list("whiskey" = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/whiskey/special
+	name = "Ray's special draught whiskey"
+	desc = "A legendary and extremely drinkable draught of whiskey distilled inside of a romulan warbird's singularity core. It looks deep, impossibly deep..how much whiskey is in this thing?"
+	icon_state = "specialwhiskey"
+	list_reagents = list("whiskey" = 300)
+
 /obj/item/reagent_containers/food/drinks/bottle/vodka
 	name = "Tunguska triple distilled"
 	desc = "Aah, vodka. Prime choice of drink AND fuel by Russians worldwide."

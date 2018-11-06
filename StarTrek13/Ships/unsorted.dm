@@ -406,3 +406,10 @@
 	for(var/mob/O in GLOB.dead_mob_list)
 		if(!O in orange(mob, 10))
 			to_chat(M, "<font color='#3a9696'><b>(LOOC)</b>: <b>[mob]</b> ([ckey]):[message]</font>")
+
+/obj/item/gun/energy/laser/ec11
+	name ="Blaster pistol"
+	icon_state = "ec11"
+	desc = "A strangely shaped blaster from a superior universe."
+	ammo_x_offset = 3
+	fire_sound = 'StarTrek13/sound/borg/machines/laz2.ogg'

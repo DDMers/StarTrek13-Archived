@@ -151,6 +151,12 @@
 /datum/action/item_action/futile
 	name = "resistance is futile!"
 
+/datum/action/item_action/futile/Trigger()
+	var/obj/item/clothing/mask/gas/borg/FT = target
+	if(istype(FT))
+		FT.futile()
+	return ..()
+
 /obj/item/clothing/mask/gas/borg
 	name = "borg mask"
 	desc = "A built in respirator that covers our face, it is dark purple. Alt click or CTRL click it to play a sound."
