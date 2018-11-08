@@ -421,8 +421,8 @@ SUBSYSTEM_DEF(job)
 	if(job && H)
 		job.after_spawn(H, M)
 
-	SSfaction.TryToHandleJob(H, M) //Who can it be knockin at my door? go away, don't come down here no more
-
+	SSfaction.TryToHandleJob(H) //Who can it be knockin at my door? go away, don't come down here no more
+//Why did I parse two args into a proc that only takes one?
 
 //	H.player_faction = M.client.prefs.player_faction
 //	var/obj/effect/landmark/faction_spawn/S

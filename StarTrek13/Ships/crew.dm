@@ -74,18 +74,17 @@
 	S.FillRoles()
 	S.SanityCheck()
 
-/datum/crew/proc/addbyforce(mob/I) //Two mobs because job equip code seems to make two mobs when switching the client over, so one has no client. WHO CAN IT BE NOOWWWWWW
-	if(I)
-		for(var/datum/crew/F in SSfaction.crews) //To stop endless spam like poor tpos got :(
-			if(I in F.crewmen)
-				F.count --
-				F.crewmen -= I
-		if(I in candidates)
-			candidates -= I
-		count ++
-		crewmen += I
-		to_chat(I, "You have been posted on a [name]! If you didn't want to be here, you probably got autobalanced.")
-		SendToSpawn(I)
+/datum/crew/proc/addbyforce(mob/living/carbon/I)
+	SendToSpawn(I)
+	for(var/datum/crew/F in SSfaction.crews) //To stop endless spam like poor tpos got :(
+		if(I in F.crewmen)
+			F.count --
+			F.crewmen -= I
+	if(I in candidates)
+		candidates -= I
+	count ++
+	crewmen += I
+	return TRUE
 
 
 /datum/crew/proc/FillRoles()
@@ -134,11 +133,12 @@
 				to_chat(S, "<FONT color='red'>[unluckybastard] is your substitute pilot for this shift.</font>")
 
 /datum/crew/proc/SendToSpawn(mob/user)
-	for(var/obj/effect/landmark/crewstart/S in world)
+	for(var/obj/effect/landmark/crewstart/S in world) //GUY ARE YOU FUCKING RETARDED JESUS CHRISTTTTT NOW HAVING A FOR LOOP WITH NO RETURN JESUUUUS
 		if(S.name == name)
 			user.forceMove(S.loc)
 			to_chat(user, "<FONT color='red'><B>You have been assigned to a [name], you should not crew another ship unless explicitly ordered to do so by a higher ranking officer.</B></font>")
 			required.onspawn(user)
+			return TRUE
 
 /obj/effect/landmark/crewstart
 	name = "sovereign class heavy cruiser"

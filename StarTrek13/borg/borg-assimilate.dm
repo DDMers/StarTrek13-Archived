@@ -7,8 +7,9 @@
 	if(!F) //no doublenanites
 		var/obj/item/organ/borgNanites/biglongtube = new(src)
 		biglongtube.Insert(src)
-		biglongtube.owner = src //I don't know what's going on here but it ain't right
-		if(!biglongtube in internal_organs)
+		if(!biglongtube.owner)
+			biglongtube.owner = src //I don't know what's going on here but it ain't right
+		if(!biglongtube in contents)
 			biglongtube.forceMove(src)
 	skin_tone = "albino"
 	to_chat(src, "<span_class='warning'>We have been assimilated! We should find a conversion suite to augment ourselves. All other drones are to be obeyed, all past lives and memories are forgotten.</span>")
@@ -317,17 +318,10 @@
 		owner.set_species(/datum/species/infiltrator)
 		to_chat(owner, "<span_class='warning'>You feel unnaturally strong.. You have the internals of a machine, but you retain your organs. You are NOT a borg, you have free will, despite being able to interface with borg systems.</span>")
 		return
-	for(var/obj/item/organ/borgNanites/B in owner)
-		if(B.message_action)
-			if(B != src)
-				var/datum/action/innate/message_collective/M = B.message_action
-				M.Remove(B.owner)
-				M.target = null
-				qdel(B.message_action)
-	START_PROCESSING(SSobj, src)
 	message_action.B = src
 	message_action.Grant(owner)
 	message_action.target = owner
+	START_PROCESSING(SSobj, src)
 
 /obj/item/organ/borgNanites/proc/message_collective()
 	if(!owner)

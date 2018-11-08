@@ -34,7 +34,7 @@ SUBSYSTEM_DEF(faction)
 		S.pickthefaction()
 	. = ..()
 
-/datum/controller/subsystem/faction/proc/TryToHandleJob(mob/M)
+/datum/controller/subsystem/faction/proc/TryToHandleJob(mob/living/M)
 	var/datum/crew/mostpopulated
 	var/datum/crew/whatcrew
 	var/list/peoplemax = list()
@@ -51,29 +51,30 @@ SUBSYSTEM_DEF(faction)
 		if(EE.count >= highest)
 			mostpopulated = EE //yeah it's the most populated so no need to add someone to it
 			highest = EE.count
+			most_popular = mostpopulated //debug purposes
 			continue
 		var/quickmath = highest - EE.count
 		if(quickmath >= 2) //imbalance on crews there buddy :) Show those romulans some love.
 			whatcrew = EE
 			whatcrew.addbyforce(M) //If you want more even splits, 2 is a good number
 			return TRUE
-	if(prob(70))
-		if(M.client)
-			if(M.client.prefs.crews)
-				try:
-					whatcrew = pick(M.client.prefs.crews)
-					whatcrew.addbyforce(M)
-				catch:
-					whatcrew = pick(playable)
-					whatcrew.addbyforce(M)
-			else
-				whatcrew = pick(playable)
-				whatcrew.addbyforce(M)
+	if(M.client && M.client.prefs.crews.len)
+		whatcrew = pick(M.client.prefs.crews)
+		whatcrew.addbyforce(M)
+		return TRUE
 	else
 		whatcrew = pick(playable)
 		whatcrew.addbyforce(M)
-	most_popular = mostpopulated
-	return TRUE
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/proc/givemeafuckingjob()
+	to_chat(src, "get a job loser")
+	if(SSfaction.TryToHandleJob(src))
+		return TRUE
+	else
+		return FALSE
+
 
 /datum/controller/subsystem/faction/proc/InitToolNames()
 	Screwdrivername = pick(GLOB.toolnames)

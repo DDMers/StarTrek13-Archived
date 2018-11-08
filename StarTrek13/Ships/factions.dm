@@ -197,7 +197,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 
 /datum/faction/borg/onspawn(mob/living/carbon/human/D)
 	. = ..()
-	sleep(50) //give autobalancer time to sort them
+	sleep(20) //give autobalancer time to sort them
 	if(!istype(D.player_faction, /datum/faction/borg))
 		return
 	D.make_borg()

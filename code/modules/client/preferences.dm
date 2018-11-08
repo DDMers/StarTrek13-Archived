@@ -984,16 +984,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		var/datum/faction/thefaction = A
 		player_faction = thefaction
 		SetChoices(user)
-
 		return
+
 	if(href_list["crewchange"] == "true")
 		if(istype(user, /mob/dead/new_player))
 			var/mob/dead/new_player/fucc = user
 			var/datum/crew/A
-			A = input("Please sign up for any crews you'd be interested in (you can choose multiple), otherwise you may be autobalanced.", "Preferences", A) as null|anything in SSfaction.crews
+			var/list/selectable_crews = list()
+			for(var/datum/crew/C in SSfaction.crews)
+				if(!C.locked)
+					selectable_crews += C
+			A = input("Please sign up for any crews you'd be interested in (you can choose multiple), otherwise you may be autobalanced.", "Preferences", A) as null|anything in selectable_crews
 			if(!A)
 				return 0
-			to_chat(user, "You've signed up to crew a [A]")
+			to_chat(user, "You've signed up to crew a [A]. If there is a significant imbalance in playercount, you may be switched to another ship.")
 			fucc.crews += A
 			crews += A
 
