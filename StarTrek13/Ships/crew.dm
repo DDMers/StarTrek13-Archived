@@ -80,6 +80,7 @@
 		if(I in F.crewmen)
 			F.count --
 			F.crewmen -= I
+			continue
 	if(I in candidates)
 		candidates -= I
 	count ++
@@ -130,13 +131,13 @@
 		unluckybastard.skills.add_skill("piloting", 7)
 		for(var/mob/S in crewmen)
 			if(unluckybastard)
-				to_chat(S, "<FONT color='red'>[unluckybastard] is your substitute pilot for this shift.</font>")
+				to_chat(S, "<span_class='notice'>[unluckybastard] is your substitute pilot for this shift.</span>")
 
 /datum/crew/proc/SendToSpawn(mob/user)
-	for(var/obj/effect/landmark/crewstart/S in world) //GUY ARE YOU FUCKING RETARDED JESUS CHRISTTTTT NOW HAVING A FOR LOOP WITH NO RETURN JESUUUUS
+	for(var/obj/effect/landmark/crewstart/S in GLOB.landmarks_list) //GUY ARE YOU FUCKING RETARDED JESUS CHRISTTTTT NOW HAVING A FOR LOOP WITH NO RETURN JESUUUUS
 		if(S.name == name)
 			user.forceMove(S.loc)
-			to_chat(user, "<FONT color='red'><B>You have been assigned to a [name], you should not crew another ship unless explicitly ordered to do so by a higher ranking officer.</B></font>")
+			to_chat(user, "<span_class='notice'><B>You have been assigned to a [name], you should not crew another ship unless explicitly ordered to do so by a higher ranking officer.</B></span>")
 			required.onspawn(user)
 			return TRUE
 

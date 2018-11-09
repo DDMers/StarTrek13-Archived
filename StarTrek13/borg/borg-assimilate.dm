@@ -9,7 +9,7 @@
 		biglongtube.Insert(src)
 		if(!biglongtube.owner)
 			biglongtube.owner = src //I don't know what's going on here but it ain't right
-		if(!biglongtube in contents)
+		if(!biglongtube in src)
 			biglongtube.forceMove(src)
 	skin_tone = "albino"
 	to_chat(src, "<span_class='warning'>We have been assimilated! We should find a conversion suite to augment ourselves. All other drones are to be obeyed, all past lives and memories are forgotten.</span>")
