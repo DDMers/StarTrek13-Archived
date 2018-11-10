@@ -57,3 +57,20 @@
 	-Ships and crews automatically respawn, but this comes with a penalty towards win conditions.</span>")
 
 	message_admins("MENTOR REQUEST: [client.ckey] / [name] is requesting help as a [mind.assigned_role]")
+
+
+/client
+	var/widescreen = FALSE //i'll make this a pref later //I lied
+
+/mob/verb/widescreen()
+	set category = "OOC"
+	set name = "Toggle widescreen"
+	set desc = "Toggle W I D E screen mode, if you don't have an ultrawide monitor, expect this to break things"
+	if(!client.widescreen)
+		client.change_view("21x15")
+		client.widescreen = TRUE
+		to_chat(src, "Widescreen mode enabled")
+	else
+		client.change_view(CONFIG_GET(string/default_view))
+		client.widescreen = FALSE
+		to_chat(src, "Widescreen mode disabled")

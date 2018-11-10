@@ -248,10 +248,10 @@
 		s+="<area target='' alt='Warp' title='Warp' href='?src=\ref[src];warp2=1;clicker=\ref[user]' coords='76,210,0,301' shape='rect'>"
 		s+="<area target='' alt='Pilot' title='Pilot ship' href='?src=\ref[src];fly=1;clicker=\ref[user]' coords='75,335,2,455' shape='rect'>"
 		s+="</map>"
-		var/datum/browser/popup = new(user, "Helm control", name, 661, 500)
-		popup.set_content(s)
-		popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
-		popup.open()
+		var/datum/browser/popup1 = new(user, "Helm control", name, 661, 500)
+		popup1.set_content(s)
+		popup1.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
+		popup1.open()
 	if(href_list["redalert"])
 		redalert()
 	if(href_list["announce"])
@@ -277,6 +277,20 @@
 					if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 						SEND_SOUND(M, s)
 	if(href_list["starmap"])
+		var/mob/living/carbon/human/L = locate(href_list["clicker"]) //Bad client...WTF?
+		if(L)
+			var/list/beacon = list()
+			for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
+				if(wb.z)
+					beacon += wb.name
+			var/A = input(L,"Warp where?", "Weapons console)", null) as anything in beacon
+			var/obj/effect/landmark/warp_beacon/B
+			for(var/obj/effect/landmark/warp_beacon/ww in warp_beacons)
+				if(ww.name == A)
+					B = ww
+			if(A)
+				theship.do_warp(B, B.distance)
+			return
 		var/datum/asset/assetsmap = get_asset_datum(/datum/asset/simple/starmap)
 		assetsmap.send(user)
 		starmapUI = "\
@@ -427,13 +441,16 @@
 				</script>\
 			</body>\
 		</html>"
-		var/datum/browser/popup = new(user, "Long range warp", name, 661, 500)
-		popup.set_content(starmapUI)
-		popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
-		popup.open()
-	if(href_list["warp"] && targetBeacon)
-		theship.do_warp(targetBeacon, targetBeacon.distance)
-		targetBeacon = null
+		var/datum/browser/popupss = new(user, "Long range warp", name, 661, 500)
+		popupss.set_content(starmapUI)
+		popupss.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
+		popupss.open()
+//	if(href_list["warp"] && targetBeacon)
+	if(href_list["warp"]) //Bootstrap fix until I can unfuck things
+		var/mob/living/carbon/human/L = locate(href_list["clicker"]) //Bad client...WTF?
+		var/obj/effect/landmark/warp_beacon/A = input(L,"Warp where?", "Weapons console)", null) as obj in warp_beacons
+		if(A)
+			theship.do_warp(A, A.distance)
 	if(href_list["beacon"])
 		targetBeacon = locate(href_list["beacon"])
 
