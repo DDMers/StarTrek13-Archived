@@ -93,6 +93,7 @@
 		pilot.client.pixelXYshit()
 		if(size_class && pilot.client)
 			pilot.client.change_view(size_class)
+			pilot.client.widescreen = FALSE //So they get widescreen mode back after we dick with their view
 		var/area/A = get_area(src)
 		if(A)
 			A.Entered(user)

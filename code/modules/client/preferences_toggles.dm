@@ -250,7 +250,6 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_ooc)()
 /datum/verbs/menu/Settings/listen_ooc/Get_checked(client/C)
 	return C.prefs.chat_toggles & CHAT_OOC
 
-
 GLOBAL_LIST_INIT(ghost_forms, list("ghost","ghostking","ghostian2","skeleghost","ghost_red","ghost_black", \
 							"ghost_blue","ghost_yellow","ghost_green","ghost_pink", \
 							"ghost_cyan","ghost_dblue","ghost_dred","ghost_dgreen", \
@@ -338,6 +337,15 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	to_chat(src, "[(prefs.toggles & INTENT_STYLE) ? "Clicking directly on intents selects them." : "Clicking on intents rotates selection clockwise."]")
 	prefs.save_preferences()
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Intent Selection", "[prefs.toggles & INTENT_STYLE ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/verb/toggle_widescreen_pref()
+	set name = "Toggle widescreen"
+	set category = "Preferences"
+	set desc = "Enable / disable widescreen mode, NOT RECOMMENDED FOR ASPECT RATIOS LOWER THAN 21:9"
+	prefs.toggles ^= WIDESCREEN
+	prefs.save_preferences()
+	to_chat(usr, "Widescreen mode [(usr.client.prefs.toggles & WIDESCREEN) ? "Enabled" : "Disabled"]")
+	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle widescreen", "[prefs.toggles & WIDESCREEN ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/toggle_ghost_hud_pref()
 	set name = "Toggle Ghost HUD"

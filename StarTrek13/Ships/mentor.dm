@@ -62,6 +62,15 @@
 /client
 	var/widescreen = FALSE //i'll make this a pref later //I lied
 
+/mob/Move()
+	. = ..()
+	if(client)
+		if(client.prefs.toggles & WIDESCREEN && !client.widescreen)
+			to_chat(src, "Widescreen mode enabled")
+			client.change_view("21x15")
+			client.widescreen = TRUE
+
+/*
 /mob/verb/widescreen()
 	set category = "OOC"
 	set name = "Toggle widescreen"
@@ -74,3 +83,4 @@
 		client.change_view(CONFIG_GET(string/default_view))
 		client.widescreen = FALSE
 		to_chat(src, "Widescreen mode disabled")
+*/

@@ -255,6 +255,8 @@ Works together with spawning an observer, noted above.
 */
 
 /mob/proc/ghostize(can_reenter_corpse = 1)
+	if(client)
+		client.widescreen = FALSE
 	if(key)
 		if(!cmptext(copytext(key,1,2),"@")) // Skip aghosts.
 			stop_sound_channel(CHANNEL_HEARTBEAT) //Stop heartbeat sounds because You Are A Ghost Now
@@ -296,6 +298,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(updatedir)
 		setDir(direct)//only update dir if we actually need it, so overlays won't spin on base sprites that don't have directions of their own
 	var/oldloc = loc
+
+	if(client)
+		if(client.prefs.toggles & WIDESCREEN && !client.widescreen)
+			to_chat(src, "Widescreen mode enabled")
+			client.change_view("21x15")
+			client.widescreen = TRUE
 
 	if(NewLoc)
 		forceMove(NewLoc)
