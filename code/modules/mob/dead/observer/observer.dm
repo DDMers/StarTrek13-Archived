@@ -299,11 +299,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		setDir(direct)//only update dir if we actually need it, so overlays won't spin on base sprites that don't have directions of their own
 	var/oldloc = loc
 
-	if(client)
-		if(client.prefs.toggles & WIDESCREEN && !client.widescreen)
-			to_chat(src, "Widescreen mode enabled")
-			client.change_view("21x15")
-			client.widescreen = TRUE
+	check_widescreen()
 
 	if(NewLoc)
 		forceMove(NewLoc)

@@ -141,8 +141,16 @@
 	transfer_observers_to(O)
 
 	. = O
-
+	if(client)
+		client.widescreen = FALSE
 	qdel(src)
+
+/mob/proc/check_widescreen()
+	if(client)
+		if(client.prefs.toggles & WIDESCREEN && !client.widescreen)
+			to_chat(src, "Widescreen mode enabled")
+			client.change_view("21x15")
+			client.widescreen = TRUE
 
 //////////////////////////           Humanize               //////////////////////////////
 //Could probably be merged with monkeyize but other transformations got their own procs, too
@@ -299,7 +307,8 @@
 	for(var/A in loc.vars)
 		if(loc.vars[A] == src)
 			loc.vars[A] = O
-
+	if(client)
+		client.widescreen = FALSE
 	qdel(src)
 
 /mob/living/carbon/human/AIize()
@@ -320,6 +329,8 @@
 	canmove = 0
 	icon = null
 	invisibility = INVISIBILITY_MAXIMUM
+	if(client)
+		client.widescreen = FALSE
 	return ..()
 
 /mob/proc/AIize(transfer_after = TRUE)
@@ -393,6 +404,8 @@
 	R.notify_ai(NEW_BORG)
 
 	. = R
+	if(client)
+		client.widescreen = FALSE
 	qdel(src)
 
 //human -> alien
@@ -424,6 +437,8 @@
 
 	to_chat(new_xeno, "<B>You are now an alien.</B>")
 	. = new_xeno
+	if(client)
+		client.widescreen = FALSE
 	qdel(src)
 
 /mob/living/carbon/human/proc/slimeize(reproduce as num)
@@ -456,6 +471,8 @@
 
 	to_chat(new_slime, "<B>You are now a slime. Skreee!</B>")
 	. = new_slime
+	if(client)
+		client.widescreen = FALSE
 	qdel(src)
 
 /mob/proc/become_overmind(starting_points = 60)
@@ -484,6 +501,8 @@
 
 	to_chat(new_corgi, "<B>You are now a Corgi. Yap Yap!</B>")
 	. = new_corgi
+	if(client)
+		client.widescreen = FALSE
 	qdel(src)
 
 /mob/living/carbon/proc/gorillize()
@@ -510,6 +529,8 @@
 		new_gorilla.key = key
 	to_chat(new_gorilla, "<B>You are now a gorilla. Ooga ooga!</B>")
 	. = new_gorilla
+	if(client)
+		client.widescreen = FALSE
 	qdel(src)
 
 /mob/living/carbon/human/Animalize()
@@ -543,6 +564,8 @@
 
 	to_chat(new_mob, "You suddenly feel more... animalistic.")
 	. = new_mob
+	if(client)
+		client.widescreen = FALSE
 	qdel(src)
 
 /mob/proc/Animalize()
@@ -561,6 +584,8 @@
 	to_chat(new_mob, "You feel more... animalistic")
 
 	. = new_mob
+	if(client)
+		client.widescreen = FALSE
 	qdel(src)
 
 /* Certain mob types have problems and should not be allowed to be controlled by players.

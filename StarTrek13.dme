@@ -2676,6 +2676,7 @@
 #include "StarTrek13\Ships\runabout.dm"
 #include "StarTrek13\Ships\say.dm"
 #include "StarTrek13\Ships\ship.dm"
+#include "StarTrek13\Ships\stardestroyer.dm"
 #include "StarTrek13\Ships\StarTrek_Gamemode.dm"
 #include "StarTrek13\Ships\stealth.dm"
 #include "StarTrek13\Ships\subsystems.dm"

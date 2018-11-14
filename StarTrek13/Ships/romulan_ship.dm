@@ -18,6 +18,7 @@
 
 /obj/structure/overmap/ship/romulan/attempt_fire()
 	update_weapons()
+	check_assimilation()
 	if(cloaked)
 		to_chat(pilot, "<span_class = 'notice'>You cannot fire whilst cloaked.</span>")
 		firinginprogress = FALSE

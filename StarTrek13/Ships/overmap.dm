@@ -122,6 +122,18 @@
 	icon_state = "photon"
 	damage = 2500//Ouch!.
 
+/obj/item/projectile/beam/laser/turbolaser
+	hitscan = FALSE
+	name = "turbolaser"
+	icon_state = "turbolaser"
+	damage = 2500//Ouch!.
+
+/obj/item/projectile/beam/laser/miniturbolaser
+	hitscan = FALSE
+	name = "turbolaser volley"
+	icon_state = "turbolasermini"
+	damage = 100//Small volley of turbolaser fire
+
 /obj/item/projectile/beam/laser/disruptor
 	hitscan = FALSE
 	name = "photon torpedo"

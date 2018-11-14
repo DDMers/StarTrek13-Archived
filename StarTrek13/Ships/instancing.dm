@@ -102,6 +102,10 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	name = "dderidex"
 	mappath = "_maps/templates/StarTrek13/dderidex.dmm"
 
+/datum/map_template/ship/executor
+	name = "executor"
+	mappath = "_maps/templates/StarTrek13/executor.dmm"
+
 /datum/map_template/ship/yeet
 	name = "yeet"
 	mappath = "_maps/templates/StarTrek13/yeet.dmm"
@@ -116,6 +120,11 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	name = "Ship spawning warp beacon"
 	desc = "Spawns new ships!"
 	templatename = "dderidex"
+
+/obj/effect/landmark/ShipSpawner/executor //stur wurs
+	name = "Ship spawning hyperspace marker"
+	desc = "Spawns new ships!"
+	templatename = "executor"
 
 /obj/effect/landmark/ShipSpawner/defiant
 	name = "Ship spawning warp beacon"
