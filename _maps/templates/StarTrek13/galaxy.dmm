@@ -283,7 +283,7 @@
 "fw" = (/obj/structure/warp_storage,/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/federation/galaxy)
 "fx" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 5},/turf/open/floor/plating,/area/ship/federation/galaxy)
 "fy" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
-"fz" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/galaxy)
+"fz" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/fluff/helm/desk/functional/engineering{icon_state = "engi"; dir = 1},/turf/open/floor/trek,/area/ship/federation/galaxy)
 "fA" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/structure/cable/white{icon_state = "1-2"},/obj/structure/ladder/unbreakable{height = 1; id = "gal11"},/turf/open/floor/plating,/area/ship/federation/galaxy)
 "fB" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/open/floor/plating,/area/ship/federation/galaxy)
 "fC" = (/obj/structure/catwalk,/turf/open/floor/trek,/area/ship/federation/galaxy)
@@ -298,8 +298,8 @@
 "fL" = (/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
 "fM" = (/obj/structure/cable/white{icon_state = "2-8"},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/federation/galaxy)
 "fN" = (/obj/structure/catwalk,/obj/machinery/light,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
-"fO" = (/obj/structure/table/trek{icon_state = "engi"; dir = 1},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/open/floor/trek,/area/ship/federation/galaxy)
-"fP" = (/obj/structure/table/trek{icon_state = "engi"; dir = 8},/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/electrical,/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/open/floor/trek,/area/ship/federation/galaxy)
+"fO" = (/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/electrical,/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/structure/fluff/helm/desk/functional/engineering,/turf/open/floor/trek,/area/ship/federation/galaxy)
+"fP" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/galaxy)
 "fQ" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 4},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/open/floor/trek,/area/ship/federation/galaxy)
 "fR" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/plating,/area/ship/federation/galaxy)
 "fS" = (/obj/structure/catwalk,/obj/machinery/power/smes/engineering,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/galaxy)
@@ -658,9 +658,9 @@ abacacacacacacacaiaMaMaMekeweKacacacaieoaIaIeaaIaIepanaieqaOkVaOesandFdFaiaVfQan
 abacacacacacacacaiafaQevfhadfiacacacaiexaOaOeyaOezaPanbdbebebebebebhdFdFaijUfQanbdbfgoeteleZenbgbhdFeDgRdsandFdFdFdFdFdVeIaIaIaIeIaIaIaIeJaIaIabacacacacacacacacacacacacacacacacacab
 abacacacacacacacaiafaQevfoadfiacacacaidGdHdLdJdGdHdLandFdFdFdFdFdFdFdFdFaijUfQandFaikyeAdjfadAcNeReRcNgRdsandFdFdFdFdFdVeSaIaIabeSaIaIabeSaIaIabacacacacacacacacacacacacacacacacacab
 abacacacacacacacaiafaQevfoadfiacacacaieTayaydRayayeUandFdFdFdFdFdFdFdFdFaijUfQandFaijTeGdifeeXeYeVeWcNgRdsandFdFdFdFdFdVaIaIaIabaIaIaIabaIaIaIabacacacacacacacacacacacacacacacacacab
-abacacacacacacacaiafaQfbfoadfiacacacaifcaIaIeaaIaIfdandFdFdFdFacdFdFdFdFaijUfQandFaieBfOdidikfcNaQaQcNgRdsandFdFdFdFdFdVaIfgaIabaIfgaIabaIfgaIabacacacacacacacacacacacacacacacacacab
-abacacacacacacacaiafaQfxfyadfiacacacaifjaOfkeyfkaOflandFdFdFdFacdFdFdFdFaijUfQandFaijTfPdididseHaQaQcNgRdsandFdFdFdFdFfpdVdVdVdVdVdVdVdVdVdVdVdVacacacacacacacacacacacacacacacacacab
-abacacacacacacacaifqfrfrfzfqfiacacacbdbebebffubgbebebhacacacacacdFdFdFdFaijUfQandFaijWfZdodoeNbgbebeeDgRdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
+abacacacacacacacaiafaQfbfoadfiacacacaifcaIaIeaaIaIfdandFdFdFdFacdFdFdFdFaijUfQandFaieBfzdidikfcNaQaQcNgRdsandFdFdFdFdFdVaIfgaIabaIfgaIabaIfgaIabacacacacacacacacacacacacacacacacacab
+abacacacacacacacaiafaQfxfyadfiacacacaifjaOfkeyfkaOflandFdFdFdFacdFdFdFdFaijUfQandFaijTfOdididseHaQaQcNgRdsandFdFdFdFdFfpdVdVdVdVdVdVdVdVdVdVdVdVacacacacacacacacacacacacacacacacacab
+abacacacacacacacaifqfrfrfPfqfiacacacbdbebebffubgbebebhacacacacacdFdFdFdFaijUfQandFaijWfZdodoeNbgbebeeDgRdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
 abacacacacacacacaifwhBixkwkWkXacacacacacadaQfBaQafacacacacacacacdFdFdFdFaijUfQdtdtkFhUgadtdthVkFdtdtdtgRdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
 abacacacacacacacaifDfEfFfEfGanacacacacacadaQfvaQafacacacacacacacdFdFdFdFaijUgggnkbgnjXgudjdjePdjdjkddjjxdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
 abacacacacacacacaifJfKfLfKfManacacacacacadfNfBfNafacacacacacacacdFdFdFdFaikcjYjZjZjZkadododoeQdodododojydsandVbmbmbmbmbmbmbmbmbmdVdVdFdFdFdFacacacacacacacacacacacacacacacacacacacab

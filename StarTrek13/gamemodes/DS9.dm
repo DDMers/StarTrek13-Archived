@@ -25,7 +25,7 @@
 		result = 1
 		return TRUE
 	var/obj/structure/overmap/away/station/system_outpost/ds9 = locate(/obj/structure/overmap/away/station/system_outpost/ds9) in world
-	if(!ds9)
+	if(!ds9 || ds9.wrecked)
 		check_finished(TRUE)
 		SSticker.force_ending = 1
 		result = 2

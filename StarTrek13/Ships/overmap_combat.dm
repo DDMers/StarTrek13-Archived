@@ -201,7 +201,7 @@
 
 /obj/structure/overmap
 	var/firinginprogress = FALSE //are we shooting something by holding our mouse down?
-	var/stopclickspammingshezza = 20 //2 second cooldown to prevent megalag
+	var/stopclickspammingshezza = 10 //1 second cooldown to prevent megalag
 	var/saved_time_fuckoff_shezza
 
 /obj/structure/overmap/proc/onMouseDown(object, location, params, mob/mob)
@@ -213,6 +213,8 @@
 			return
 		if(istype(object, /obj/structure/overmap))
 			target_ship = object
+		if(istype(object, /turf))
+			target_turf = object
 		if((object in pilot.contents) || (object == mob))
 			return
 		firinginprogress = TRUE
@@ -231,6 +233,7 @@
 	firecount = 0
 	qdel(current_beam) //Aka finish the attack, and ready the SFX for another one. This saves my eardrums :b1:
 	current_beam = null
+	target_turf = null
 
 /obj/structure/overmap/fire(obj/structure/overmap/target,mob/user) //Try to get a lock on them, the more they move, the harder this is.
 	if(wrecked)
@@ -294,18 +297,26 @@
 			if(assimilation_tier > 3)
 				borg_fire(S, 2)
 				return TRUE
+			photons --
 			if(photons > 0)
-				photons --
-				var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)
-				A.starting = loc
-				A.preparePixelProjectile(target_ship,pilot)
-				A.pixel_x = rand(0, 5)
-				A.fire()
+				if(target_turf && mode == FIRE_PHOTON)
+					var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)
+					A.starting = loc
+					A.preparePixelProjectile(target_turf,pilot)
+					A.pixel_x = rand(0, 5)
+					A.fire()
+					return
+				else
+					var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)
+					A.starting = loc
+					A.preparePixelProjectile(target_ship,pilot)
+					A.pixel_x = rand(0, 5)
+					A.fire()
+					if(target_ship)
+						A.pixel_x = target_ship.pixel_x
+						A.pixel_y = target_ship.pixel_y
 				playsound(src,'StarTrek13/sound/borg/machines/torpedo1.ogg',100,1)
 				sleep(1)
-				if(target_ship)
-					A.pixel_x = target_ship.pixel_x
-					A.pixel_y = target_ship.pixel_y
 				return TRUE
 			else
 				to_chat(pilot, "No photon torpedoes remain.")

@@ -95,6 +95,7 @@
 	var/max_warp = 0 //Dictated by the warp core
 	var/size_class = NORMAL
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //no throwing acid on spaceships!
+	var/turf/target_turf //If we're firin' photons into a floor to aim ahead of the ship's path
 
 
 /obj/structure/overmap/shipwreck //Ship REKT
@@ -132,7 +133,7 @@
 	hitscan = FALSE
 	name = "turbolaser volley"
 	icon_state = "turbolasermini"
-	damage = 100//Small volley of turbolaser fire
+	damage = 300//Small volley of turbolaser fire
 
 /obj/item/projectile/beam/laser/disruptor
 	hitscan = FALSE
@@ -566,7 +567,7 @@
 			new /obj/effect/temp_visual/trek/shieldhit(loc)
 			var/heat_multi = 1
 			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
-			heat_multi = SC.shields.heat >= 500 ? 2 : 1 // double damage if heat is over 500.
+			heat_multi = SC.shields.heat >= 200 ? 2 : 1 // double damage if heat is over 200.
 			SC.shields.heat += round(amount/SC.shields.heat_resistance)
 			SC.shields.health -= amount*heat_multi
 			if(source)

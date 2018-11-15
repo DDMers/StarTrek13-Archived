@@ -90,16 +90,18 @@ Antimatter tank, if this is ever fucked with it'll explode
 	if(!outlet)
 		CheckPipes()
 		return
-	var/obj/structure/warp_storage/WS = locate(/obj/structure/warp_storage) in(get_area(src))
-	if(WS.matter)
-		var/math = WS.matter - WS.flow_rate
+	for(var/obj/structure/warp_storage/WS in get_area(src))
+		if(WS.matter)
+			var/math = WS.matter - WS.flow_rate
+			if(math) //Math sucks! xx---x-XD!
+				WS.matter -= WS.flow_rate
+				matter += WS.flow_rate
+	for(var/obj/structure/antimatter_storage/AS in get_area(src))
+		var/math = AS.antimatter - AS.flow_rate
 		if(math) //Math sucks! xx---x-XD!
-			WS.matter -= WS.flow_rate
-			matter += WS.flow_rate
-	var/obj/structure/antimatter_storage/AS = locate(/obj/structure/antimatter_storage) in(get_area(src))
-	if(AS.antimatter)
-		AS.antimatter -= AS.flow_rate
-		antimatter += AS.flow_rate
+			if(AS.antimatter)
+				AS.antimatter -= AS.flow_rate
+				antimatter += AS.flow_rate
 	if(containment < 10)
 		breach()
 	if(crystal) //The crystal balances the matter stream with the antimatter stream, if you don't have the crystal, the reaction becomes inert over time.

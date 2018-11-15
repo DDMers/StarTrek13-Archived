@@ -236,7 +236,7 @@
 	charge += chargeRate
 	if(charge < 0)
 		charge = 0
-	heat -= 30
+	heat -= 10
 	if(integrity > max_integrity)
 		integrity = max_integrity
 	if(heat < 0)
@@ -338,7 +338,7 @@
 /datum/shipsystem/shields
 	name = "shields" //in this case, integrity is shield health. If your shields are smashed to bits, it's assumed that all the control circuits are pretty fried anyways.
 	var/breakingpoint = 700 //at 700 heat, shields will take double damage
-	var/heat_resistance = 50 // how much we resist gaining heat
+	var/heat_resistance = 30 // how much we resist gaining heat
 	power_draw = 0//just so it's not an empty type TBH.
 	var/list/obj/machinery/space_battle/shield_generator/linked_generators = list()
 	var/regen_bonus = 10 //Bonus health gained per tick for having shield systems in-tact.
@@ -361,6 +361,7 @@
 			S2.deactivate()
 			S2.active = FALSE
 	health = 0
+	heat = 0
 
 /datum/shipsystem/shields/process()
 	check_power()
@@ -372,10 +373,10 @@
 				if(!controller.theship.generator.powered())
 					health = 0
 	if(!failed && toggled)
+		if(heat > 0)
+			health -= heat
+			integrity -= (heat/2)
 		health += chargeRate*power_modifier
-		heat -= 7
-	if(heat)
-		health -= heat
 	if(heat < 0)
 		heat = 0
 	if(integrity < 0)

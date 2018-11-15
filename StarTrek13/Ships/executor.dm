@@ -1,5 +1,5 @@
 /obj/structure/overmap/ship/federation_capitalclass/executor
-	name = "super star destroyer"
+	name = "executor class dreadnought"
 	icon = 'StarTrek13/icons/trek/large_ships/executor.dmi'
 	icon_state = "executor"
 //	pixel_x = -100
@@ -47,12 +47,12 @@
 					return TRUE
 				else
 					return FALSE //:(
-			if(SC.weapons.charge >= 7000) //Alright charge is good..try firing
+			if(SC.weapons.charge >= 2000) //Alright charge is good..try firing
 				if(SC.weapons.attempt_fire()) //We're doing this because I need a custom charge check
 					var/chosen_sound = pick(soundlist)
 					playsound(src,chosen_sound,100,1)
 					if(prob(50)) //:scp: Choose between a volley or a single shot high damage one
-						SC.weapons.charge -= 7000
+						SC.weapons.charge -= 2000
 						var/obj/item/projectile/beam/laser/turbolaser/A = new /obj/item/projectile/beam/laser/turbolaser(loc)
 						A.starting = loc
 						A.preparePixelProjectile(target_ship,pilot)
@@ -60,14 +60,25 @@
 						A.fire()
 						return TRUE
 					else
-						SC.weapons.charge -= 7000 //stop firing whilst we do the loop
-						for(var/I = 0 to 5)
-							var/obj/item/projectile/beam/laser/miniturbolaser/A = new /obj/item/projectile/beam/laser/miniturbolaser(loc)
-							A.starting = loc
-							A.preparePixelProjectile(target_ship,pilot)
-							A.pixel_x = rand(0,20)
-							A.pixel_y = rand(0,20)
-							A.fire()
+						SC.weapons.charge -= 2000 //stop firing whilst we do the loop
+						if(target_turf && mode == FIRE_PHOTON)
+							for(var/I = 0 to 5)
+								var/obj/item/projectile/beam/laser/miniturbolaser/A = new /obj/item/projectile/beam/laser/miniturbolaser(loc)
+								A.starting = loc
+								A.preparePixelProjectile(target_turf,pilot)
+								A.pixel_x = rand(0,20)
+								A.pixel_y = rand(0,20)
+								A.fire()
+							return
+						else
+							for(var/I = 0 to 5)
+								var/obj/item/projectile/beam/laser/miniturbolaser/A = new /obj/item/projectile/beam/laser/miniturbolaser(loc)
+								A.starting = loc
+								A.preparePixelProjectile(target_ship,pilot)
+								A.pixel_x = rand(0,20)
+								A.pixel_y = rand(0,20)
+								A.fire()
+
 						return TRUE
 					return TRUE
 		if(FIRE_PHOTON)

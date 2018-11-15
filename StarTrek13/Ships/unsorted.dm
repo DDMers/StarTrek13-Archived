@@ -407,9 +407,58 @@
 		if(!O in orange(mob, 10))
 			to_chat(M, "<font color='#3a9696'><b>(LOOC)</b>: <b>[mob]</b> ([ckey]):[message]</font>")
 
-/obj/item/gun/energy/laser/ec11
-	name ="Blaster pistol"
+/obj/item/gun/energy/laser/ec11 //Sprite credit goes to reddit
+	name ="E-11 Blaster pistol"
 	icon_state = "ec11"
 	desc = "A strangely shaped blaster from a superior universe."
 	ammo_x_offset = 3
 	fire_sound = 'StarTrek13/sound/borg/machines/laz2.ogg'
+
+/obj/item/clothing/under/wars
+	name = "Navy officer uniform"
+	icon_state = "SWofficer"
+
+/obj/item/clothing/under/wars/admiral
+	name = "Navy admiral uniform"
+	icon_state = "SWadmiral"
+
+/obj/item/clothing/head/wars
+	name = "Navy cap"
+	desc = "Worn by high ranking officers in the imperial navy"
+	icon_state = "SWofficer"
+
+/obj/item/clothing/suit/armor/wars
+	name = "neopolymer armour"
+	desc = "A suit of semi-flexible polycarbonate body armor. For the glory of the empire!"
+	icon_state = "SWtrooper"
+	item_state = "swat_suit"
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 20, "energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 80)
+	strip_delay = 80
+	equip_delay_other = 60
+
+/obj/item/clothing/suit/armor/wars/scout
+	name = "light-neopolymer armour"
+	desc = "A suit of very-flexible polycarbonate body armor. For the glory of the empire!"
+	icon_state = "SWscout"
+	item_state = "swat_suit"
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 20, "energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 80)
+	strip_delay = 80
+	equip_delay_other = 60
+
+/obj/item/clothing/head/helmet/wars
+	name = "neopolymer helmet"
+	desc = "A strange white helmet that looks very sad. FOR GLORY."
+	icon_state = "SWtrooper"
+	item_state = "helmet"
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+
+/obj/item/clothing/head/helmet/wars/scout
+	name = "scouting helmet"
+	desc = "A strange white helmet with inbuilt binocular attachment holes, but they contain no binoculars...damn cheapskates."
+	icon_state = "SWscout"

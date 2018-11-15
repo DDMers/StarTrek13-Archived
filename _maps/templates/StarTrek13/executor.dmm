@@ -24,7 +24,7 @@
 "ax" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 1},/area/ship/executor)
 "ay" = (/obj/machinery/atmospherics/components/unary/tank/air,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/executor)
 "az" = (/obj/structure/fluff/ship/sticker,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/executor)
-"aA" = (/turf/closed/wall/trek{icon_state = "black"},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHWEST)"; icon_state = "lift"; dir = 10},/area/ship/executor)
+"aA" = (/obj/structure/chair/bronze{icon_state = "brass_chair"; dir = 1},/obj/item/clothing/under/wars/admiral,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "aB" = (/obj/machinery/atmospherics/components/unary/tank{color = "#FF0000"},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/executor)
 "aC" = (/turf/closed/wall/trek{icon_state = "black"; dir = 1},/area/ship/executor)
 "aD" = (/obj/machinery/atmospherics/components/binary/pump/on,/turf/open/floor/plating,/area/ship/executor)
@@ -68,7 +68,7 @@
 "bp" = (/turf/closed/wall/trek{dir = 1; icon_state = "black2"},/area/space)
 "bq" = (/obj/structure/catwalk,/obj/machinery/light{dir = 4},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "br" = (/obj/structure/hailing_console/defiant,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
-"bs" = (/obj/structure/chair/bronze{icon_state = "brass_chair"; dir = 1},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
+"bs" = (/turf/closed/wall/trek{icon_state = "black"},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/turf/closed/trek_raised/lift{tag = "icon-lift (SOUTHWEST)"; icon_state = "lift"; dir = 10},/area/ship/executor)
 "bt" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 9},/area/ship/executor)
 "bu" = (/obj/structure/overmap/ship/federation_capitalclass/executor,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "bv" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 4},/area/space)
@@ -101,8 +101,8 @@
 "bW" = (/obj/structure/table/reinforced,/obj/item/storage/firstaid/fire,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "bX" = (/obj/structure/table/reinforced,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "bY" = (/obj/structure/table/reinforced,/obj/item/storage/firstaid/o2,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
-"bZ" = (/obj/structure/rack,/obj/item/gun/energy/laser/ec11,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
-"ca" = (/obj/structure/rack,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
+"bZ" = (/obj/structure/rack,/obj/item/gun/energy/laser/ec11,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/obj/item/clothing/suit/armor/wars/scout,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
+"ca" = (/obj/structure/rack,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/obj/item/gun/energy/laser/ec11,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "cb" = (/obj/structure/sign/directions/medical{dir = 1; icon_state = "direction_med"; pixel_y = 6},/obj/structure/sign/directions/security{icon_state = "direction_sec"; dir = 4; pixel_y = -6},/turf/closed/wall/trek{icon_state = "stardestroyer"},/area/ship/executor)
 "cc" = (/obj/structure/sign/directions/medical{dir = 1; icon_state = "direction_med"; pixel_y = 6},/obj/structure/sign/directions/security{icon_state = "direction_sec"; dir = 8; pixel_y = -6},/turf/closed/wall/trek{icon_state = "stardestroyer"},/area/ship/executor)
 "cd" = (/obj/structure/ladder/unbreakable/lift{height = 2; id = "destroyer2"},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
@@ -127,10 +127,10 @@
 "cw" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/open/floor/plating,/area/ship/executor)
 "cx" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/plating,/area/ship/executor)
 "cy" = (/obj/structure/sink/kitchen,/turf/closed/wall/trek{icon_state = "stardestroyer"},/area/ship/executor)
-"cz" = (/obj/structure/table/trek{icon_state = "engi"; dir = 1},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
+"cz" = (/obj/structure/fluff/helm/desk/functional/engineering{icon_state = "engi"; dir = 1},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "cA" = (/obj/structure/table/reinforced,/turf/open/floor/trek{icon_state = "stardestroyer"},/area/ship/executor)
 "cB" = (/obj/structure/table/reinforced,/obj/item/storage/bag/tray,/turf/open/floor/trek{icon_state = "stardestroyer"},/area/ship/executor)
-"cC" = (/obj/structure/table/trek{icon_state = "engi"; dir = 8},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
+"cC" = (/obj/structure/fluff/helm/desk/functional/engineering,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "cD" = (/obj/structure/table/reinforced,/obj/item/storage/bag/tray,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "cE" = (/obj/machinery/airalarm,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/executor)
 "cF" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1,/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
@@ -168,7 +168,7 @@
 "dl" = (/obj/effect/turf_decal/trek/warp,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "dm" = (/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{icon_state = "stardestroyer"},/area/ship/executor)
 "dn" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 1},/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
-"do" = (/turf/open/floor/trek{icon_state = "stardestroyer2"},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/executor)
+"do" = (/obj/structure/rack,/obj/item/gun/energy/laser/ec11,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/obj/item/clothing/head/helmet/wars,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "dp" = (/obj/structure/catwalk,/obj/machinery/light{dir = 8},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "dq" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "dr" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
@@ -180,11 +180,15 @@
 "dx" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/turf/open/floor/trek{icon_state = "stardestroyer"},/area/ship/executor)
 "dy" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 5},/area/ship/executor)
 "dz" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/components/unary/tank{color = "#FF0000"},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
-"dA" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 8},/obj/structure/cable/white{icon_state = "1-8"},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
-"dB" = (/obj/machinery/power/apc,/turf/closed/wall/trek{icon_state = "stardestroyer"},/area/ship/executor)
-"dC" = (/obj/structure/cable/white{icon_state = "0-8"},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
+"dA" = (/turf/open/floor/trek{icon_state = "stardestroyer2"},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/executor)
+"dB" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 8},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 8},/obj/structure/cable/white{icon_state = "1-8"},/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
+"dC" = (/obj/machinery/power/apc,/obj/structure/cable/white,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
+"dF" = (/obj/structure/rack,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/gun/energy/laser/ec11,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
+"dG" = (/obj/structure/rack,/obj/item/gun/energy/laser/ec11,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/obj/item/clothing/suit/armor/wars,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
+"dH" = (/obj/structure/rack,/obj/item/gun/energy/laser/ec11,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/head/helmet/wars/scout,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "dI" = (/obj/effect/turf_decal/trek/warp,/turf/open/floor/trek{icon_state = "stardestroyer"},/area/ship/executor)
 "dJ" = (/turf/open/floor/trek{icon_state = "stardestroyer"},/area/ship/executor)
+"dK" = (/obj/structure/rack,/obj/item/clothing/under/wars,/obj/item/clothing/under/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/obj/item/clothing/head/wars,/turf/open/floor/trek{icon_state = "stardestroyer"},/area/ship/executor)
 "dP" = (/obj/structure/lattice,/obj/structure/cable/white,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
 "dS" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 9},/area/ship/executor)
 "dT" = (/obj/effect/turf_decal/trek/warp,/turf/open/floor/trek{icon_state = "stardestroyer2"},/area/ship/executor)
@@ -260,11 +264,11 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaap
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapecbhdkbfaqaqefaqbibjbjaqefaqaqbfdkbheeawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkbhdkbfeodkdJdkdkdkdkdkdJdkeobfdkbhdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkbhdkbfbkdkdJdkdkbldkdkdJdkbqbfdkbhdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkbhdkbfeodkdJdkbrbsbydkdJdkeobfdkbhdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkbhdkbfeodkdJdkbraAbydkdJdkeobfdkbhdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkbhdkbfeoeoeoeoeoeoeoeoeoeoeobfdkbhdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkbhdkbfbzbBbzbBbCbBbCbBbzbBbzbfdkbhdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapeDbDeFbnatatatatatatatatatatatbpeDbEeFawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapeHaAeJaaaaaaaaaaaaaaaaaaaaaaaaaaeHaAeJawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapeHbseJaaaaaaaaaaaaaaaaaaaaaaaaaaeHbseJawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapaqbLaqaqaqaqaqbMaqaqaqbMaqaqaqaqaqbLaqawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkdJdkdkdkdJdkdkdkdJdkdkdkdJdkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkdJdkdkdkdJdkdkdkdJdkdkdkdJdkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -277,9 +281,9 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaap
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkawapdkbVbWbVdkbXbXbYdkawapdkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkdSdyaqaqaqaqaqaqaqaqaqdSdydkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkawapdJcRdkdkdJdkdkcRdJawapdkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkawapdJbZdkdkdJdkdkbZdJawapdkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkawapdJbZdkdkdJdkdkbZdJawapdkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapeceddkawapdJcadkdkdJdkdkcadJawapeceddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkawapdJdodkdkdKdkdkbZdJawapdkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkawapdJdHdkdkdKdkdkdGdJawapdkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapeceddkawapdJcadkdkdKdkdkdFdJawapeceddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkawapdJdkdkdkdJdkdkdkdJawapdkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapaqebcbaqaqaqaqaqefaqefaqaqaqaqaqccebaqawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkeddkdJdkdkdkdkdJcRdJdkdkdkdkdJdkeddkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -305,7 +309,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapcTeddSenenenenenenenenen
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapcTedawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdJbHdJawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapbHdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapcTedawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdJbHdJawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapbHdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapcTedawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdJbHdJawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapbHdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapcTedawaaaaaaaaaaaaaaaaaaaaapaqaqaqaqaqaqaldoalaqaqaqaqaqaqawaaaaaaaaaaaaaaaaaaaaapbHdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapcTedawaaaaaaaaaaaaaaaaaaaaapaqaqaqaqaqaqaldAalaqaqaqaqaqaqawaaaaaaaaaaaaaaaaaaaaapbHdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapddedawaaaaaaaaaaaaaaaaaaaaapdJdkdkdkcRdkdkbHdkdkcRdkdkdkdJawaaaaaaaaaaaaaaaaaaaaapcMdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapcTedawaaaaaaaaaaaaaaaaaaaaapdJdbdkdkdkdkdkbHdkdkdkdkdkdbdJawaaaaaaaaaaaaaaaaaaaaapbHdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapcTedawaaaaaaaaaaaaaaaaaaaaapdJdkdkdkdkdkdkbHdkdkdkdkdkdkdJawaaaaaaaaaaaaaaaaaaaaapbHdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -319,15 +323,15 @@ aaaaaaaaaaaaaaaaaaapapaDaEaHaEaGawawamdkdkbtaqaqaqaqaqefaqaqcYaqaqaqaqaqcgdkdkax
 aaaaaaaaaaaaaaaaaaapapaKaEaFaEaLawawamdkdkaxaCaCancNdWeMbGeNcZeOdkanaCaCamdkdkaxaaapdJdkdkdkdkdkdkbHdkdkdkdkdkdkdJawaaamdkdkaxaCaCancNdWeMbGeNcZeOdkanaCaCamdkdkaxapaJaEaMaNaMaEbxawaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaapapaPaQaRaSaTawawamdkdkaxaCaCanePdkePdkePdkePdkanaCaCamdkdkaxaaapdJdbdkdkdkdkdkbHdkdkdkdkdkdbdJawaaamdkdkaxaCaCanePdkePdkePdkePdkanaCaCamdkdkaxapaJaUaWaXaZbJbxawaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaapapbOclcnclaqawawamecdkaxaCaCanePdkePdkePdkePdkanaCaCamecdkaxaaapdIdTeBdTeCdTdkbHdkdTeCdTeBdTdIawaaamecdkaxaCaCanePdkePdkePdkdadkanaCaCamecdkaxapaJcsctcUctcsbxawaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaapapaEdkdxdkaEawawamdkdkaxaCaCanbodkdPdkdPdkbodkanaCaCamdkdkaxaaaaateDeEeFendyaldoaldSeneDeGeFenaaaaamdkdkaxaCaCanbodkdPdkdPdkbodkanaCaCamdkdkaxaadycsdkdJdkcsdSaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaapapaEdkdxdkaEawawamdkdkaxaCaCanbodkdPdkdPdkbodkanaCaCamdkdkaxaaaaateDeEeFendyaldAaldSeneDeGeFenaaaaamdkdkaxaCaCanbodkdPdkdPdkbodkanaCaCamdkdkaxaadycsdkdJdkcsdSaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaapapaEdkdUdkaEawawamdkdkaxaCaCaneoeoeobKeoeoeoeoanaCaCamdkdkaxaaaaaaeHeIeJaCapdJbHdJawaCeHeIeJaCaaaaamdkdkaxaCaCaneoeoeobKeoeoeoeoanaCaCamdkdkaxaaapdVdWdXdWdYawaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaapapdZdkdUdkeaawawamdkdkeqererererererererererererereresdkdkaxaaaaaaaCaCaCaCapdJbHdJawaCaCaCaCaCaaaaamdkdkeqererererererererererererereresdkdkaxaaapdZdkdmdkeaawaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaapapaEdkdUdkaEawawamdkdkdJdkdkdkdkdkdkdkdkdkdkdkdkdkdkdJdkdkaxaaaaaaaCaCaCaCapdJbHdJawaCaCaCaCaCaaaaamdkdkdJdkdkdkdkdkdkdkdkdkdkdkdkdkdkdJdkdkaxaaapaEdkdmdkaEawaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaapapaEdkdUdkaEawawamdkdkdJdkdkdkdkdkdkbFdkdkdkdkdkdkdkdJdkdkaxaaaaaaaCaCaCaCapeKdleKawaCaCaCaCaCaaaaamdkdkdJdkdkdkdkdkdkbFdkdkdkdkdkdkdkdJdkdkaxaaapaEdkdmdkaEawaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaapapaEdkdUdkaEawawaCevevevevevevevevevevevevevevevevevevevevaCapaqaqetaqaqaqaqeudheuaqaqaqaqetaqaqawaCevevevevevevevevevevevevevevevevevevevevaCaaapaEdkdmdkaEawaCawaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaapaqaqaqaqebaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqecdkdkdkdJdkdkdJbHdJdkdkdJdkdkdkeeaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqcVdBaqaqaqawaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaapecdkdkdkegeheheheheheheheheheheheheheheheheheheheheheheheheheheieheheheheieheheidnbIcJcJbIcJcJcJcJbIcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJdAdCdkdkeeawaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaapbudkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdJdkdkdkdkdJdkdkelemeldkdkdJdkdkdkdkdJdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkawaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaapaqaqaqaqebaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqecdkdkdkdJdkdkdJbHdJdkdkdJdkdkdkeeaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqcVaqaqaqaqawaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaapecdkdkdkegeheheheheheheheheheheheheheheheheheheheheheheheheheheieheheheheieheheidnbIcJcJbIcJcJcJcJbIcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJdBeOdkdkeeawaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaapbudkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdJdkdkdkdkdJdkdkelemeldkdkdJdkdkdkdkdJdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdCdkdkdkawaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenendyewewexewewdSenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkardkardkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapdkdJdkdJdkawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

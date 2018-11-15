@@ -111,6 +111,7 @@
 		else
 			firinginprogress = FALSE
 			target_ship = null
+			target_turf = null
 			return
 
 /obj/structure/overmap/proc/exit(mob/user)

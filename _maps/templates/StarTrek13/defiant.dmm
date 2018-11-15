@@ -233,6 +233,8 @@
 "ey" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/turf/closed/wall/trek{icon_state = "wall_light"; dir = 8},/area/ship/federation/entax)
 "ez" = (/obj/structure/catwalk,/obj/machinery/power/smes/engineering,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/entax)
 "eA" = (/obj/structure/ship_component/subsystem_relay,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 4},/area/ship/federation/entax)
+"eB" = (/obj/structure/fluff/helm/desk/functional/engineering{icon_state = "engi"; dir = 1},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/entax)
+"eC" = (/obj/structure/fluff/helm/desk/functional/engineering,/turf/open/floor/trek,/area/ship/federation/entax)
 
 (1,1,1) = {"
 bwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbw
@@ -271,8 +273,8 @@ bwbIbIbIbIbUcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcAcBbGbJbzcWacev
 bwbIbIbIbIbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbFbGbJbzdadbdcdbddbBbIbIbIbIbIbIbw
 bwbIbIbIbIbzeAeAeAaDeAaaaaapapapapapapapapapapapapaoaoaoaoaoaoaobBbFbGbJbzdedfdgdfdhbBbIbIbIbIbIbIbw
 bwbIbIbIbIbzacacacaRacdjafapdkaeaeaeaeaeaeajaedlapalanardmaranatbBbFbGbJbzezdodpdqezbBbIbIbIbIbIbIbw
-bwbIbIbIbIbzacacacdiacdrafapauauauauauauauauauaxapbNaSaSaSaSaSbObBbFbGbJdsbWcBdtdubWclbIbIbIbIbIbIbw
-bwbIbIbIbIbzacacacdiacdvdwdxdydzaxaxaxaxaxaxauaxapbNaSaSaSaSaSavbBbFbGcdcscsctdAbJbIbIbIbIbIbIbIbIbw
+bwbIbIbIbIbzacacacdiacdrafapauaueBauauauauauauaxapbNaSaSaSaSaSbObBbFbGbJdsbWcBdtdubWclbIbIbIbIbIbIbw
+bwbIbIbIbIbzacacacdiacdvdwdxdydzeCaxaxaxaxaxauaxapbNaSaSaSaSaSavbBbFbGcdcscsctdAbJbIbIbIbIbIbIbIbIbw
 bwbIbIbIbIbzacacacdiacacafapaudBaxaxaxaxaxaxauaxapbNcUcVdTelaSavbBbFdCdDdEdEdEdFbJbIbIbIbIbIbIbIbIbw
 bwbIbIbIbIbzawacacdiacacafapaxdGaxaxaxaxaxaxaxaxapbRememeneobSaCbBbFdHducAcAcAcAbKbIbIbIbIbIbIbIbIbw
 bwbIbIbIbIbzbYbYbYdJbYbYbYapaxdIaxaxaxaxaxaxaxaxapbYbYbYbZepbYbYbBbFdHbJbIbIbIbIbIbIbIbIbIbIbIbIbIbw

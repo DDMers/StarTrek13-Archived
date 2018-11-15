@@ -361,7 +361,7 @@
 "gW" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "gX" = (/obj/effect/landmark/bird_spawner,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "gY" = (/obj/machinery/door/airlock/trek/tng/jeffries,/turf/open/floor/trek,/area/ship/federation/sovreign)
-"gZ" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/sovreign)
+"gZ" = (/obj/structure/fluff/helm/desk/functional/engineering{icon_state = "engi"; dir = 1},/turf/open/floor/trek/dark,/area/ship/federation/sovreign)
 "ha" = (/obj/structure/fluff/ship/panel/type3,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 8},/area/ship/federation/sovreign)
 "hb" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTHWEST)"; icon_state = "trek_edge"; dir = 9},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/obj/machinery/light{dir = 8},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "hc" = (/obj/structure/table/optable/trek{icon_state = "medbay"; dir = 4},/obj/effect/turf_decal/trek{tag = "icon-trek_edge (SOUTHWEST)"; icon_state = "trek_edge"; dir = 10},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
@@ -484,6 +484,7 @@
 "jp" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/trek,/area/ship/federation/sovreign)
 "jq" = (/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/federation/sovreign)
 "jr" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/machinery/light{dir = 8},/turf/open/floor/plating,/area/ship/federation/sovreign)
+"js" = (/obj/structure/fluff/helm/desk/functional/engineering,/turf/open/floor/trek/dark,/area/ship/federation/sovreign)
 "jt" = (/obj/structure/catwalk,/turf/open/floor/trek/dark,/area/ship/federation/sovreign)
 "ju" = (/obj/structure/catwalk,/obj/machinery/atmospherics/components/unary/tank/toxins,/turf/open/floor/trek/dark,/area/ship/federation/sovreign)
 "jv" = (/obj/structure/cable/white{icon_state = "1-4"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 5},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/federation/sovreign)
@@ -556,6 +557,7 @@
 "kK" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "2-8"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/plating,/area/ship/federation/sovreign)
 "kL" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/turf/closed/wall/trek{icon_state = "wall_light"; dir = 8},/area/ship/federation/sovreign)
 "kM" = (/obj/structure/catwalk,/obj/machinery/power/smes/engineering,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/sovreign)
+"kN" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/sovreign)
 
 (1,1,1) = {"
 kAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -639,11 +641,11 @@ kAacacacacacacacacacacacacacacacacacbTcIaoiAgvaocFapbLbTkvaoaoaokwbLaNaObTfsiebL
 kAacacacacacacacacacacacacacacacacacbTimcMflgvaocNcCbLbTkxaoaoaokwbLaNaNaNgyioaOaNaNaNaNaNaNaNaNaNaOcGdkcHaNaOaOcmcmcmcuaoaoaoaoaoaoaoaoaoaoaoaOacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTetetetiriyiJacacacbTinaoaogvaoaocObLbTkyarjGarkzbLaOaNaNgAipaOaNaNdkdkdkdkdkdkaNaOdkdkdkaNaNaOcmcmcmcuaNaoaNaOaNaoaNaOaNaoaNaOacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTaBeAiqiNaziVacacacbThcarariiarijasbLeLbrbrbrbrbrePaNaNaNgDiucScTiviwiwiwiwiwixdkcUcVdkaNaNaNaNcmcmcmcucXcYaNaOcXcZaNaOdadbaNaOacacacacacacacacacacacacacacacacackA
-kAacacacacacacacbTaBeAiqiWaziVacacacbTaucqcrdiaucqcrbLcmcmcmcmcmcmcmaNdfbeaJaKewbedjdkdkdkdkdkdlbebeewbebebedgaNcmcmcmcudhaoaoaOdhaoaoaOdhaoaoaOacacacacacacacacacacacacacacacacackA
-kAacacacacacacacbTaBeAiqiWaziVacacacbTcPajajisajajdcbLcmcmcmcmcmcmcmaNdmbeaJdodqdqdrbebebebebedsbebebebebebedtaNcmcmcmcuaoaoaoaOaoaoaoaOaoaoaoaOacacacacacacacacacacacacacacacacackA
+kAacacacacacacacbTaBeAiqiWaziVacacacbTaucqcrdiaucqcrbLcmcmcmcmcmcmcmaNdfbeaJaKewbedjdkdkdkdkdkdlbebeewbegZbedgaNcmcmcmcudhaoaoaOdhaoaoaOdhaoaoaOacacacacacacacacacacacacacacacacackA
+kAacacacacacacacbTaBeAiqiWaziVacacacbTcPajajisajajdcbLcmcmcmcmcmcmcmaNdmbeaJdodqdqdrbebebebebedsbebebebejsbedtaNcmcmcmcuaoaoaoaOaoaoaoaOaoaoaoaOacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTaBeAiKiWaziVacacacbTddaoaogvaoaodebLcmcmcmcmaccmcmcubebeaJdvbebebebebebebebedsbebebebebebebeaNcmcmcmcuaoiMaoaOaoiMaoaOaoiMaoaOacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTaBeAiXjiaziVacacacbTilarikiiikaribbLcmcmcmcmaccmcmaNbebeaJdwdxbebebebebebebedsbebebehNbebebeaNcmcmcmdncucucucucucucucucucucucuacacacacacacacacacacacacacacacacackA
-kAacacacacacacacbTiQiRiRgZiQiVacacaceLbrbrbKifbJbrbrePacacacacaccmcmaNbebeaJdvbebebebebegGgGbedsbebebeaJbebebeaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
+kAacacacacacacacbTiQiRiRkNiQiVacacaceLbrbrbKifbJbrbrePacacacacaccmcmaNbebeaJdvbebebebebegGgGbedsbebebeaJbebebeaNcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTiUeGkIkJkKkLacacacacacacgLidgNacacacacacacacaccmcmaObebeaJdvbebebebebebebebedsbebebeaJbebebeaOcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTiYiZjaiZjbbLacacacacacazgOiPgPaBacacacacacacaccmcmaOaObeaJdvkGbebebegIgKiCiEdsbebekGaJbebeaOaOcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
 kAacacacacacacacbTjdjejfjejgbLacacacacacazjhiPjhaBacacacacacacaccmcmaOaObTgQhibLbebebegJiFiHiIdsbebebTgSgTbLcuaNaNaNaNaNaNaNaNaNcucucmcmcmcmcmcmacacacacacacacacacacacacacacacacackA
