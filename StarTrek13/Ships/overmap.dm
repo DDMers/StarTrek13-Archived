@@ -28,7 +28,6 @@
 	var/list/interactables_near_ship = list()
 	var/area/linked_ship //CHANGE ME WITH THE DIFFERENT TYPES!
 	var/max_shield_health = 20000 //default max shield health, changes on process
-	var/shields_active = FALSE
 	pixel_y = -32
 	var/next_vehicle_move = 0 //used for move delays
 	var/vehicle_move_delay = 6 //tick delay between movements, lower = faster, higher = slower
@@ -97,6 +96,12 @@
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //no throwing acid on spaceships!
 	var/turf/target_turf //If we're firin' photons into a floor to aim ahead of the ship's path
 
+
+/obj/structure/overmap/proc/shields_active()
+	if(SC.shields.toggled && !SC.shields.failed)
+		return TRUE
+	else
+		return FALSE
 
 /obj/structure/overmap/shipwreck //Ship REKT
 	name = "Wrecked ship"
@@ -563,7 +568,7 @@
 	if(agressor)
 		source = agressor
 	if(health > 0) //If not, then destroy will pick this up.
-		if(has_shields()) ///Case 1: Shields hit
+		if(shields_active()) ///Case 1: Shields hit
 			new /obj/effect/temp_visual/trek/shieldhit(loc)
 			var/heat_multi = 1
 			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
@@ -648,8 +653,6 @@
 	if(pilot)
 		for(var/obj/screen/alert/charge/C in pilot.alerts)
 			C.theship = src
-	if(SC.shields.failed)
-		shields_active = FALSE
 	if(health <= 0)
 		destroy(1)
 	if(!health)
@@ -814,11 +817,11 @@
 
 /obj/structure/overmap/proc/get_interactibles()
 	for(var/obj/structure/overmap/OM in interactables_near_ship)
-		if(OM.shields_active == 0) //its shields are down
+		if(!OM.shields_active()) //its shields are down
 			update_transporters()
-			return 1
+			return TRUE
 		else
-			return 0
+			return FALSE
 
 /obj/structure/overmap/proc/location() //OK we're using areas for this so that we can have the ship be within an N tile range of an object
 //	var/area/thearea = get_area(src)
@@ -891,19 +894,9 @@
 				qdel(SC)
 				qdel(src)
 
-
-
-/obj/structure/overmap/proc/has_shields()
-	if(SC && SC.shields)
-		if(SC.shields.health >= 5000 && shields_active && SC.shields.toggled)
-			return TRUE
-		else//no
-			return FALSE
-	return FALSE
-
 /obj/structure/overmap/bullet_act(var/obj/item/projectile/P)
 	. = ..()
-	if(has_shields())
+	if(shields_active())
 		var/thedamage = P.damage / 2 //Shields will deflect most conventional weapons, including photons
 		take_damage(thedamage,1)
 		return
@@ -918,7 +911,7 @@
 /obj/structure/overmap/CollidedWith(atom/movable/mover)
 	return ..() //This is fucky with fighters PINGING PEOPLE OFF INTO SPACE!!!
 	if(!isOVERMAP(mover))
-		if(!shields_active)
+		if(!shields_active())
 			var/turf/open/space/turfs = list()
 			for(var/turf/T in get_area_turfs(linked_ship))
 				if(istype(T, /turf/open/space))

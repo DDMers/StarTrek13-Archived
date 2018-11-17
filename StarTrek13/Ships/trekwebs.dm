@@ -271,7 +271,6 @@
 		for(var/obj/effect/adv_shield/S in shields)
 			S.deactivate()
 			S.active = 0
-			ship.shields_active = 0
 		ship.SC.shields.active = FALSE
 		return
 	if(!on)
@@ -282,7 +281,6 @@
 			for(var/obj/effect/adv_shield/S in shields)
 				S.activate()
 				S.active = 1
-			ship.shields_active = 1
 			return
 		else
 			on = 0

@@ -80,7 +80,7 @@
 	spawn_name = "runaboutbarnard"
 
 /obj/structure/overmap/ship/runabout/attack_hand(mob/user)
-	if(!shields_active)
+	if(!shields_active())
 		to_chat(user, "You climb into the runabout")
 		var/obj/structure/weapons_console/WC = locate(/obj/structure/weapons_console) in get_area(user) //We only do this when they click on it by hand, otherwise on enter it'd bug out when the ship flies to overmap.
 		if(WC && WC.our_ship)
@@ -114,7 +114,7 @@
 
 /obj/structure/overmap/ship/runabout/proc/try_dock()
 	if(carrier)
-		if(!carrier.shields_active)
+		if(!carrier.shields_active())
 			forceMove(carrier.loc)
 			carrier = null
 			to_chat(pilot, "Undocking..")
@@ -128,7 +128,7 @@
 		return
 	var/obj/structure/overmap/L = list()
 	for(var/obj/structure/overmap/S in orange(src, 9))
-		if(!S.shields_active)
+		if(!S.shields_active())
 			L += S
 	var/obj/structure/overmap/A = input(pilot,"Docking target?", "Weapons console)", null) as obj in L
 	if(!A && !carrier)

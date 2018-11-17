@@ -55,7 +55,7 @@
 			weapons.voiceline("hull")
 		if(prob(40)) //seperate gate to avoid hull and shields fighting over talk time
 			weapons.voiceline("shieldshp")
-		if(!has_shields())
+		if(!shields_active())
 			var/maths = 5
 			if(agressor)
 				if(istype(agressor.target_subsystem, /datum/shipsystem/integrity)) //If they target the hull subsystem, they deal heavy physical damage
@@ -76,7 +76,7 @@
 				theturf.atmos_spawn_air("plasma=30;TEMP=1000")
 				for(var/turf/open/floor/T in orange(5,theturf))
 					new /obj/effect/hotspot/shipfire(T.loc)
-				if(!shields_active)
+				if(!shields_active())
 					if(prob(15+maths))
 						explosion(theturf,2,4,0)
 				return

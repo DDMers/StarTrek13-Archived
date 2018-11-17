@@ -82,7 +82,7 @@
 	progress3 = CLAMP(progress3, 0, goal3)
 //	hulloverlay.icon_state = "[icon_state]-hull-[round(((progress3 / goal3) * 100), 50)]"
 	shieldoverlay.icon_state = "[icon_state]-shield-0"//This will mean the shield goes invisible, as such an icon state does not exist
-	if(has_shields())
+	if(shields_active())
 		shieldoverlay.icon_state = "[icon_state]-shield" //If we HAVE shields, make it the right iconstate so it's visible.
 	shieldoverlay.alpha = round(((progress3 / goal3) * 100), 25)
 	shieldoverlay.alpha += 50 //Even 100 alpha is really transparent, so give it a boost here

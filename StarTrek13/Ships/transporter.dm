@@ -152,7 +152,7 @@
 				var/list/L = list()
 				var/obj/structure/overmap/O = A
 
-				if(O.has_shields())
+				if(O.shields_active())
 					to_chat(user, "<span class='notice'>Cannot sustain a lock, target has their shield up</span>")
 					return
 
