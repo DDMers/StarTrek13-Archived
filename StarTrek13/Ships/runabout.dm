@@ -49,6 +49,16 @@
 	name = "Shuttlecraft"
 	spawn_name = "runaboutsov"
 
+/obj/structure/overmap/ship/runabout/wars
+	name = "T4 Shuttle"
+	spawn_name = "runaboutexecutor"
+	icon = 'StarTrek13/icons/trek/runabout-wars.dmi'
+
+/obj/structure/overmap/ship/runabout/wars/secondary
+	name = "T4 Shuttle"
+	spawn_name = "runaboutexecutor2"
+	icon = 'StarTrek13/icons/trek/runabout-wars.dmi'
+
 /obj/structure/overmap/ship/runabout/woolfe
 	name = "Shuttlecraft"
 	spawn_name = "runaboutwoolfe"
@@ -58,6 +68,12 @@
 
 /area/ship/ganges
 	name = "USS Ganges"
+
+/area/ship/empire
+	name = "ISS Empire"
+
+/area/ship/executorshuttle2
+	name = "ISS Empirical"
 
 /obj/structure/overmap/ship/runabout/station
 	name = "Shuttlecraft"
