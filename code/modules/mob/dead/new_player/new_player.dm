@@ -102,16 +102,6 @@
 		//Avoid updating ready if we're after PREGAME (they should use latejoin instead)
 		//This is likely not an actual issue but I don't have time to prove that this
 		//no longer is required
-		if(!client.prefs.player_faction)
-			if(client)
-				var/A
-				A = input(src,"Choose a faction to start as", "Preferences", A) as null|anything in SSfaction.factions
-				if(!A)
-					return 0
-				var/datum/faction/thefaction = A
-				client.prefs.player_faction = thefaction
-			else
-				return 0
 		if(SSticker.current_state <= GAME_STATE_PREGAME)
 			ready = tready
 		//if it's post initialisation and they're trying to observe we do the needful
@@ -128,13 +118,6 @@
 		if(!SSticker || !SSticker.IsRoundInProgress())
 			to_chat(usr, "<span class='danger'>The round is either not ready, or has already finished...</span>")
 			return
-		if(!client.prefs.player_faction)
-			var/A
-			A = input(src,"Choose a faction to start as", "Preferences", A) as null|anything in SSfaction.factions
-			if(!A)
-				return 0
-			var/datum/faction/thefaction = A
-			client.prefs.player_faction = thefaction
 		if(href_list["late_join"] == "override")
 			LateChoices()
 			return
@@ -267,6 +250,18 @@
 		return FALSE
 
 	var/this_is_like_playing_right = alert(src,"Are you sure you wish to observe? You will not be able to play this round!","Player Setup","Yes","No")
+	if(!client.prefs.player_faction)
+		if(client)
+			var/A
+			A = input(src,"Choose a faction to start as", "Preferences", A) as null|anything in SSfaction.factions
+			if(!A)
+				ready = PLAYER_NOT_READY
+				return FALSE
+			var/datum/faction/thefaction = A
+			client.prefs.player_faction = thefaction
+		else
+			ready = PLAYER_NOT_READY
+			return FALSE
 
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
 		ready = PLAYER_NOT_READY
@@ -465,9 +460,6 @@
 	var/job_count = 0
 	for(var/datum/job/job in SSjob.occupations)
 		if(job && IsJobUnavailable(job.title, TRUE) == JOB_AVAILABLE)
-			if(!client.prefs.player_faction)
-				client.prefs.player_faction = pick(SSfaction.factions)
-				to_chat(client, "A bug just happened, your faction was randomized instead.")
 			job_count++;
 			if (job_count > round(available_job_count / 2))
 				dat += "</div><div class='jobsColumn'>"

@@ -1,3 +1,8 @@
+/turf/closed/wall/shipsmooth
+	name = "hull"
+	icon = 'StarTrek13/icons/trek/flaksim-smooth.dmi'
+	smooth = TRUE
+	canSmoothWith = list(/turf/closed/wall/shipsmooth)
 
 /turf/closed/wall/ship
 	name = "hull"

@@ -218,6 +218,8 @@
 
 /obj/machinery/space_battle/shield_generator/ui_interact(mob/user)
 	. = ..()
+	if(user.stat == DEAD || istype(user, /mob/dead/observer))
+		return
 	if(shield_system.failed)
 		to_chat(user, "Shield Systems have failed.")
 		return

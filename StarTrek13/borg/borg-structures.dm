@@ -36,6 +36,14 @@
 			user.adjustBruteLoss(-20) //give them a real kick so they do actually revive
 			user.adjustFireLoss(-20)
 			user.adjustOxyLoss(-20)
+			user.adjustToxLoss(-20)
+			user.restoreEars()
+			user.adjust_eye_damage(-5)
+			if(user.eye_blind || user.eye_blurry)
+				user.set_blindness(0)
+				user.set_blurriness(0)
+			if(user.blood_volume < BLOOD_VOLUME_NORMAL)
+				user.blood_volume += 5 // regenerate blood rapidly
 
 	if(world.time >= saved_time2 + cooldown2)
 		saved_time2 = world.time
