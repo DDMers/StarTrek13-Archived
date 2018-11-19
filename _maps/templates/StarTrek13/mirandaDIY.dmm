@@ -46,9 +46,9 @@
 "aT" = (/turf/open/floor/plating,/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/mirandaDIY)
 "aU" = (/obj/structure/subsystem_panel/engines,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/mirandaDIY)
 "aV" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/mirandaDIY)
-"aW" = (/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/electrical,/obj/item/rcd_ammo/large,/obj/item/rcd_ammo/large,/obj/item/construction/rcd,/obj/item/construction/rcd,/turf/open/floor/plating,/area/ship/mirandaDIY)
+"aW" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/mirandaDIY)
 "aX" = (/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/plating,/area/ship/mirandaDIY)
-"aY" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/mirandaDIY)
+"aY" = (/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/electrical,/obj/item/rcd_ammo/large,/obj/item/rcd_ammo/large,/obj/item/construction/rcd,/obj/item/construction/rcd,/obj/item/ship_repair_tool,/turf/open/floor/plating,/area/ship/mirandaDIY)
 "aZ" = (/obj/structure/cable/white{icon_state = "2-4"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 6},/turf/open/floor/plating,/area/ship/mirandaDIY)
 "ba" = (/turf/closed/wall/trek{icon_state = "wall_light"; dir = 1},/area/ship/mirandaDIY)
 "bb" = (/obj/structure/cable/white{icon_state = "1-4"},/obj/structure/cable/white{icon_state = "4-8"},/obj/machinery/atmospherics/components/binary/valve{icon_state = "mvalve_map"; dir = 4},/turf/open/floor/plating,/area/ship/mirandaDIY)
@@ -134,14 +134,14 @@ adaaaeaeaeaeaeaeakagafcdcdahamaeaeaeaeaeaeaeaeaeaeaeaeaeakaoapaqaMasaIadad
 adaaaeaeaeaeaeaeakcdcdcdcdcdamaeaeaeaeaeaeaeaeaeaeaeaeaeakaoapaqaMasaIadad
 adaaaeakaAaAaAamakcdaucdaxcdamakaAaAaAamaeaeaeaeaeaeaeaeakaoapaBaMasaIadad
 adaaaeakcdaicdamakcdcdcdcdcdamakcdcdcdamaeaeaeaeaeaeaeaeakaoapaOaVasaIadad
-adaaaeakcdcdcdamakcdajcdcdcdamakcdcdcdamakaPalaQalaRamaeakaSaTaTaYaSaIadad
+adaaaeakcdcdcdamakcdajcdcdcdamakcdcdcdamakaPalaQalaRamaeakaSaTaTaWaSaIadad
 adaaaeakcdcdcdamakcdcdcdcdcdamakcdcdcdamakbcbdbebdbfamaeakbgcdaZbbbhbiadad
 adaaaeakalcdalalalalcdblcdalalalalcdalamakbmbebebebmamaeakbnbobpbobqamadad
 adaaaeakcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdamakbubvbwbxbyamaeakbzbAbBbAbCamadad
 adaaaeakcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdambIalbJbKbJalbLaeakbjbNbObPbjamadad
 adaaaeakcdcdcdcdanavcdcdcdalaUcdcdcdcdamaeaeasbVaoaebWbWbXbabYbZcababLadad
 adaaaeakcdcdcdaKcdbececfcgbecdcdcdcdcdamaeaeasazcicjcjcjcjcjckclaoaeaeadad
-adaaaeakcdcdcdaWcdcncocdcpbecdcdcdcdcdamaeaeasaCaDaDaDaDcscscsctaoaeaeadad
+adaaaeakcdcdcdaYcdcncocdcpbecdcdcdcdcdamaeaeasaCaDaDaDaDcscscsctaoaeaeadad
 adaaaeakcdcdcdcdcdcucvbecwbecdcdcdcdcdamaeaeasaJcacxcxcxcxcxcxcxaeaeaeadad
 adaaaaakcdcdcdcdcdaXbRbSbTbScbcdcdcdcdalalalalaEalalalalalamaaaaaaaaaaadad
 adaaaaakcdcdcdcdcdcdbtcdchcmaFbSbSbSbSbSbSbSbSdbcdcdcdcdcdamaaaaaaaaaaadad

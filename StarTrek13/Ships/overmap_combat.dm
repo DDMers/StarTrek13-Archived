@@ -217,6 +217,8 @@
 			target_turf = object
 		if((object in pilot.contents) || (object == mob))
 			return
+		if(!target_ship)
+			return
 		firinginprogress = TRUE
 		damage = SC.weapons.update_weapons()
 	else
@@ -231,7 +233,8 @@
 	damage = SC.weapons.update_weapons()
 	firinginprogress = FALSE
 	firecount = 0
-	qdel(current_beam) //Aka finish the attack, and ready the SFX for another one. This saves my eardrums :b1:
+	if(current_beam)
+		qdel(current_beam) //Aka finish the attack, and ready the SFX for another one. This saves my eardrums :b1:
 	current_beam = null
 	target_turf = null
 

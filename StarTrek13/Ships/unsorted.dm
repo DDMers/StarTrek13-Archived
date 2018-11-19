@@ -295,6 +295,7 @@
 	desc = "A standard issue phaser with two modes: Stun and Kill."
 	icon_state = "phaser"
 	ammo_x_offset = 2
+	selfcharge = TRUE
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode/phaserstun, /obj/item/ammo_casing/energy/laser/phaserkill)
 
 /obj/item/storage/book/skillbook
@@ -407,12 +408,13 @@
 		if(!O in orange(mob, 10))
 			to_chat(M, "<font color='#3a9696'><b>(LOOC)</b>: <b>[mob]</b> ([ckey]):[message]</font>")
 
-/obj/item/gun/energy/laser/ec11 //Sprite credit goes to reddit
+/obj/item/gun/energy/laser/e11 //Sprite credit goes to reddit
 	name ="E-11 Blaster pistol"
 	icon_state = "ec11"
 	desc = "A strangely shaped blaster from a superior universe."
 	ammo_x_offset = 3
 	fire_sound = 'StarTrek13/sound/borg/machines/laz2.ogg'
+	selfcharge = TRUE
 
 /obj/item/clothing/under/wars
 	name = "Navy officer uniform"
@@ -462,3 +464,17 @@
 	name = "scouting helmet"
 	desc = "A strange white helmet with inbuilt binocular attachment holes, but they contain no binoculars...damn cheapskates."
 	icon_state = "SWscout"
+
+/mob/verb/get_overmap()
+	set name = "Get ship/overmap object"
+	set desc = "Teleport an overmap object to you (ships, stations, planets etc.)"
+	set category = "Admin"
+	if(!check_rights(R_ADMIN, TRUE)) //We may want to change this to R_VAREDIT when we launch but for now I'd quite like mentors to have this too.
+		return
+	var/A
+	A = input("Teleport which ship?", "Admin tools", A) as null|anything in overmap_objects
+	if(!A)
+		return
+	var/obj/structure/overmap/O = A
+	O.forceMove(get_turf(src))
+	log_admin("([worldtime2text()]):[src] / [client.ckey] teleported [O] to themselves")

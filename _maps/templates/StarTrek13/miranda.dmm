@@ -216,6 +216,7 @@
 "eh" = (/obj/structure/cable/white{icon_state = "1-2"},/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/plating,/area/ship/miranda)
 "ei" = (/obj/structure/cable/white{icon_state = "2-8"},/turf/open/floor/plating,/area/ship/miranda)
 "ej" = (/obj/machinery/door/airlock/trek/tng/single,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/hallway/galaxy,/area/ship/miranda)
+"ek" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge (NORTH)"; icon_state = "trek_edge"; dir = 1},/obj/structure/rack,/obj/item/gun/energy/laser/retro,/obj/item/ship_repair_tool,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
 
 (1,1,1) = {"
 adadababababababababacababababababababababababababababababababababababadad
@@ -239,7 +240,7 @@ adaaaaakbDbHcbcEcEcEcFcbcGcHcIcJcbcKcLcMcMcMcMdJdSbsbsbsdYamaaaaaaaaaaadad
 adaaaaakbDbHcbcOcPcTcRcbcSdZeheicbcVbEbFbFbFbFbFbFbFbFbFcWamaaaaaaaaaaadad
 adaaaaakbDbHcbcXaiaicYcbcZdadbcUcbdTbHbQbUalaldcalegegegegamaaaaaaaaaaadad
 adaaaaakbDbHcbcXaiaicYcbdddecdcUcbdTbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
-adaaaaakbDbHcbaWdgdgdhcbdidjdicUcbdTbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
+adaaaaakbDbHcbaWdgekdhcbdidjdicUcbdTbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
 adaaaaakbDbHaldkalaldlalalalalejaldTbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
 adaaaaakdWdmbsbseabsdnbsbsbseadodVdUdXamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad
 adaaaaakbDdPdpdpdpdpdNdpdpdpdpdpdpdqbHamakdfdfdfdfdfdfdfdfamaaaaaaaaaaadad

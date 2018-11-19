@@ -106,9 +106,9 @@
 	var/obj/structure/fluff/helm/desk/tactical/T = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
 	if(T)
 		var/obj/structure/overmap/ship/runabout/S = T.theship
-		var/turf/TT = get_turf(S)
-		if(istype(TT, /turf/open/space/basic) || istype(TT, /turf/open/floor/fakespace))
-			to_chat(user, "Exiting onto open space would be dangerous!")
+		var/area/om = get_area(get_turf(S))
+		if(istype(om, /area/overmap))
+			to_chat(user, "Jumping out while the shuttle is moving is a bad idea!")
 			return
 		if(S.carrier) //Don't space yourself onto the overmap, please!
 			to_chat(user, "You climb out of [S]")

@@ -37,6 +37,7 @@ Assistant
 	name = "Crewman"
 	jobtype = /datum/job/trek/crewman
 	uniform = /obj/item/clothing/under/independant
+	belt = /obj/item/ship_repair_tool
 
 /datum/outfit/job/crewman/pre_equip(mob/living/carbon/human/H)
 	if(istype(H.player_faction, /datum/faction/starfleet))
@@ -90,7 +91,7 @@ Captain
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/jackboots
 //	head = /obj/item/clothing/head/caphat
-	backpack_contents = list(/obj/item/tricorder=1)
+	backpack_contents = list(/obj/item/tricorder=1, /obj/item/ship_repair_tool=1)
 
 	backpack = /obj/item/storage/backpack/captain
 	satchel = /obj/item/storage/backpack/satchel/cap
@@ -232,7 +233,7 @@ Head of Personnel
 	jobtype = /datum/job/trek/firstofficer
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/pda/heads/hop
+	belt = /obj/item/ship_repair_tool
 	ears = /obj/item/radio/headset/heads/hop
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -394,7 +395,7 @@ Chief Engineer
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility/chief/full
-	l_pocket = /obj/item/pda/heads/ce
+	l_pocket = /obj/item/ship_repair_tool
 	ears = /obj/item/radio/headset/heads/ce
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -451,7 +452,7 @@ Station Engineer
 	jobtype = /datum/job/trek/engineer
 
 	belt = /obj/item/storage/belt/utility/full/engi
-	l_pocket = /obj/item/pda/engineering
+	l_pocket = /obj/item/ship_repair_tool
 	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
