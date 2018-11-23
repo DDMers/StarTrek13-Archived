@@ -468,7 +468,7 @@
 				timing = TRUE
 				timer *= 10
 				to_chat(user, "You set [src] to detonate in [timer/10] seconds")
-				desc += "Its trigger is set for a delayed detonation of [timer] seconds!"
+				desc += "Its trigger is set for a delayed detonation!"
 				addtimer(CALLBACK(src, .proc/force_explode), timer)
 		if(mode == "no" || !mode)
 			return 0

@@ -178,6 +178,8 @@
 					return
 				if(cochranes < WARP_1)
 					warplist += 0
+					return
+				warplist += 0 //option to cancel
 				if(cochranes >WARP_1)
 					warplist += 1
 				if(cochranes >WARP_2)
@@ -283,7 +285,12 @@
 			for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
 				if(wb.z)
 					beacon += wb.name
-			var/A = input(L,"Warp where?", "Weapons console)", null) as anything in beacon
+			beacon += "cancel"
+			var/A = input(L,"Warp where?", "Weapons console", null) as anything in beacon
+			if(!A)
+				return
+			if(A == "cancel")
+				return
 			var/obj/effect/landmark/warp_beacon/B
 			for(var/obj/effect/landmark/warp_beacon/ww in warp_beacons)
 				if(ww.name == A)
