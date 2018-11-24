@@ -65,6 +65,11 @@
 		if(istype(F, /datum/faction/borg))
 			required = F
 
+/datum/crew/executor/pickthefaction() //This is shitcode. Fix it.
+	for(var/datum/faction/F in SSfaction.factions)
+		if(istype(F, /datum/faction/empire))
+			required = F
+
 /datum/crew/proc/Add(mob/M)
 	candidates += M
 
@@ -162,6 +167,9 @@
 /obj/effect/landmark/crewstart/borg
 	name = "submatrix class vessel"
 
+/obj/effect/landmark/crewstart/wars
+	name = "executor class dreadnought"
+
 /datum/crew/sovereign
 	name = "sovereign class heavy cruiser"
 	priority = MED
@@ -205,6 +213,11 @@
 	priority = LOW
 	faction = "starfleet"
 	max_crewmen = 6
+
+/datum/crew/executor
+	name = "executor class dreadnought"
+	priority = MED
+	faction = "the empire"
 
 #undef LOW
 #undef MED

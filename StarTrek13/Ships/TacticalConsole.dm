@@ -279,6 +279,8 @@
 					if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 						SEND_SOUND(M, s)
 	if(href_list["starmap"])
+		if(!theship.warp_capable || theship.max_warp <= 1)
+			return
 		var/mob/living/carbon/human/L = locate(href_list["clicker"]) //Bad client...WTF?
 		if(L)
 			var/list/beacon = list()

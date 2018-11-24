@@ -127,6 +127,16 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	factag = "borg"
 	speciestype = null
 
+/datum/faction/empire
+	name = "the empire"
+	description = "The empire protects all, quells rebel scum and maintains order in the galaxy...but something's not quite right."
+	flavourtext = "The ship's hyperdrive has malfunctioned! Coordinates: UNKNOWN. Establish contact with nearest imperial branch immediately."
+	pref_colour = "red"
+	required_race = /datum/species/human
+	factag = "empire"
+	speciestype = /datum/species/human
+	locked = TRUE //Admin only..for now
+
 /datum/faction/proc/add_objective(var/datum/factionobjective/O)
 	if(O in subtypesof(/datum/factionobjective))
 		if(current_objective)

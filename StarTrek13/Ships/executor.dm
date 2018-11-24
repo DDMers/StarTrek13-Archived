@@ -14,7 +14,9 @@
 	max_speed = 0.2
 	acceleration = 0.02
 	soundlist = ('StarTrek13/sound/trek/turbolaser.ogg')
-//	var/datum/crew/sovereign/crew = new add me later
+	var/datum/crew/executor/crew = new
+	spawn_name = "executor_spawn"
+	faction = "the empire"
 
 /area/ship/executor
 	name = "super star destroyer"
