@@ -73,6 +73,9 @@
 			to_chat(theship.pilot, "<span class='alert'>[fluff] <I>[sender]</I>: [message]</span>")
 	for(var/mob/living/M in get_area(src))
 		to_chat(M, "<span class='alert'>[fluff] <I>[sender]</I>: [message]</span>") //IM A FUCKING IDIOT
+	if(DMpartner)
+		for(var/mob/MM in GLOB.dead_mob_list)
+			to_chat(MM, "<span class='alert'>[fluff] <I>[sender]</I>: [message]</span>")
 
 /obj/structure/hailing_console/proc/hail_request(var/obj/structure/overmap/sender)
 	playsound(loc, 'StarTrek13/sound/trek/hail_incoming.ogg', 100)
