@@ -134,18 +134,18 @@
 							for(var/mob/M in GLOB.dead_mob_list)
 								to_chat(M, ping)
 					if(3)
-						if(stored_resources >= 700) //The apex borg ship, once it reaches this point, it is extremely difficult to stop.
+						if(stored_resources >= 900) //The apex borg ship, once it reaches this point, it is extremely difficult to stop.
 							icon_state = "converter-on"
-							stored_resources -= 700
+							stored_resources -= 900
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
 							sleep(20)
 							say("Augmentation of [ship]'s hull completed. Further assimilation will require more resources")
 							ship.assimilation_tier ++
 							ship.check_assimilation()
 					if(4)
-						if(stored_resources >= 3000) //Once they hit this tier, they're unstoppable unless everyone works together to gank them.
+						if(stored_resources >= 3500) //Once they hit this tier, they're unstoppable unless everyone works together to gank them.
 							icon_state = "converter-on"
-							stored_resources -= 5000
+							stored_resources -= 3500
 							playsound(src.loc, 'StarTrek13/sound/borg/machines/convertx.ogg', 40, 4)
 							sleep(20)
 							say("Augmentation of [ship]'s hull completed. No further upgrades are possible.")
