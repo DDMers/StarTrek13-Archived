@@ -326,6 +326,8 @@
 /obj/item/organ/borgNanites/proc/message_collective()
 	if(!owner)
 		return
+	if(owner.stat == DEAD || owner.IsUnconscious())
+		return
 	var/message = stripped_input(owner,"Communicate with the collective.","Send Message")
 	if(!message)
 		return
