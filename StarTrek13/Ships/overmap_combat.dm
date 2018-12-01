@@ -360,7 +360,10 @@
 				var/datum/shipsystem/engines/E = locate(/datum/shipsystem/engines) in(S.SC.systems)
 				E.charge = 0
 				var/datum/shipsystem/shields/SS = locate(/datum/shipsystem/shields) in(S.SC.systems)
-				SS.health -= 1000
+				if(SS.health <= 0)
+					return
+				else
+					SS.health -= 1000
 			S.vel = 0
 			if(!current_beam)
 				playsound(src,'StarTrek13/sound/trek/borg_tractorbeam.ogg',100,1) //this is where the fun begins

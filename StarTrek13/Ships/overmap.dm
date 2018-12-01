@@ -98,7 +98,7 @@
 
 
 /obj/structure/overmap/proc/shields_active()
-	if(SC.shields.toggled && !SC.shields.failed)
+	if(SC.shields.toggled && !SC.shields.failed && SC.shields.health > 2000)
 		return TRUE
 	else
 		return FALSE

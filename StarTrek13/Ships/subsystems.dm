@@ -386,6 +386,8 @@
 		max_integrity = initial(max_integrity)
 	if(health > max_health)
 		health = max_health
+	if(health <= 0)
+		health = 0
 	if(integrity > max_integrity)
 		integrity = max_integrity
 
