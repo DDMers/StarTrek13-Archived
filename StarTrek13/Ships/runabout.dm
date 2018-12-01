@@ -91,7 +91,9 @@
 			T = pick(get_area_turfs(linked_ship))
 		user.forceMove(T)
 	else
-		to_chat(user, "[src] has its shields up!")
+		to_chat(user, "You begin to bypass [src]'s shields")
+		if(do_after(user, 50, target = src))
+			SC.shields.toggled = FALSE
 		return ..()
 
 /obj/structure/overmap/ship/runabout/enter(mob/user)
