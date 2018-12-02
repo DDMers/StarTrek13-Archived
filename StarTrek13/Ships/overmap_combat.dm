@@ -205,12 +205,36 @@
 	var/saved_time_fuckoff_shezza
 
 /obj/structure/overmap/proc/onMouseDown(object, location, params, mob/mob)
+	var/list/modifiers = params2list(params)
+	if(modifiers["middle"])
+		if(istype(object, /obj/structure/overmap))
+			nav_target = object
+			return
+	if(modifiers["shift"])
+		if(istype(object, /obj/structure/overmap))
+			var/obj/structure/overmap/om = object
+			to_chat(pilot, "Shield health: [om.SC.shields.health] / [om.SC.shields.max_health] | Hull integrity: [om.health] / [om.max_health]")
+		return
+	if(modifiers["ctrl"])
+		if(istype(object, /obj/structure/overmap))
+			var/obj/structure/overmap/om = object
+			if(!om.comms)
+				to_chat(pilot, "[om]'s comms systems are nonfunctional, perhaps they do not have a hailing console?")
+				return FALSE
+			to_chat(pilot, "Attempting to hail [object] | Forwarding request to comms console")
+			om.comms.hail_request(src)
+		return
+	if(modifiers["alt"])
+		return
 	if(world.time >= saved_time_fuckoff_shezza + stopclickspammingshezza)
 		saved_time_fuckoff_shezza = world.time
 		if(object == src)
 			return
 		if(istype(object, /obj/screen) && !istype(object, /obj/screen/click_catcher))
 			return
+		if(istype(object, /turf/closed/mineral))
+			var/turf/closed/mineral/minecraft = object
+			mine(minecraft)
 		if(istype(object, /obj/structure/overmap))
 			target_ship = object
 		if(istype(object, /turf))
@@ -250,6 +274,58 @@
 
 /obj/structure/overmap
 	var/firecount  = 0
+
+/turf/closed/mineral/gets_drilled(obj/structure/overmap/overmap_miner = null)
+	if(overmap_miner)
+		if(mineralType && (mineralAmt > 0))
+			new mineralType(overmap_miner.weapons.loc, mineralAmt)
+			SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
+	else
+		if(mineralType && (mineralAmt > 0))
+			new mineralType(src, mineralAmt)
+			SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
+	for(var/obj/effect/temp_visual/mining_overlay/M in src)
+		qdel(M)
+	var/flags = NONE
+	if(defer_change) // TODO: make the defer change var a var for any changeturf flag
+		flags = CHANGETURF_DEFER_CHANGE
+	ScrapeAway(null, flags)
+	addtimer(CALLBACK(src, .proc/AfterChange), 1, TIMER_UNIQUE)
+	playsound(src, 'sound/effects/break_stone.ogg', 50, 1) //beautiful destruction
+
+/turf/closed/mineral/bullet_act(obj/item/projectile/P)
+	if(P.damage >= 2000) //It's a photon torpedo
+		explosion(src,5,10,5) //Mood honestly
+	else
+		return ..()
+
+/obj/structure/overmap/proc/mine(turf/closed/mineral/herobrine)
+	switch(fire_mode)
+		if(FIRE_PHASER)
+			if(SC.weapons.attempt_fire())
+				var/source = get_turf(src)
+				if(!current_beam)
+					current_beam = new(source,get_turf(herobrine),time=1000,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+					spawn(0)
+						current_beam.Start()
+					var/chosen_sound = pick(soundlist)
+					playsound(src,chosen_sound,200,1)
+					for(var/turf/closed/T in getline(get_turf(src), get_turf(herobrine))) //mine DIIIIIIIIIIIIIIIAMONDS
+						if(istype(T, /turf/closed/mineral))
+							var/turf/closed/mineral/TT = T
+							TT.gets_drilled(src)
+		if(FIRE_PHOTON)
+			if(assimilation_tier > 3)
+				to_chat(pilot, "Assimilating [herobrine] would be useless. Try using your phasers instead")
+				return FALSE //Nope you're borg
+			if(photons > 0)
+				photons --
+				var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)
+				A.starting = loc
+				A.preparePixelProjectile(herobrine,pilot)
+				A.pixel_x = rand(0, 5)
+				A.fire()
+				return
 
 /obj/structure/overmap/proc/attempt_fire()
 	check_assimilation() //Check for special borg weapon attachments
@@ -300,8 +376,8 @@
 			if(assimilation_tier > 3)
 				borg_fire(S, 2)
 				return TRUE
-			photons --
 			if(photons > 0)
+				photons --
 				if(target_turf && mode == FIRE_PHOTON)
 					var/obj/item/projectile/beam/laser/photon_torpedo/A = new /obj/item/projectile/beam/laser/photon_torpedo(loc)
 					A.starting = loc

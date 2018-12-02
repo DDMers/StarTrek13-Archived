@@ -179,12 +179,6 @@
 	else
 		vel = 0
 
-/obj/structure/overmap/proc/TurnTo(atom/target)
-	if(target)
-		var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
-		EditAngle()
-		angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
-
 /obj/structure/overmap/proc/Orbit(atom/target)
 	var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
 	EditAngle()

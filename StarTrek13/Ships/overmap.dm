@@ -95,7 +95,16 @@
 	var/size_class = NORMAL
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //no throwing acid on spaceships!
 	var/turf/target_turf //If we're firin' photons into a floor to aim ahead of the ship's path
+	var/datum/gas_mixture/cabin_air
 
+/obj/structure/overmap/proc/add_cabin()
+	cabin_air = new
+	cabin_air.temperature = T20C
+	cabin_air.volume = 200
+	cabin_air.add_gases(/datum/gas/oxygen, /datum/gas/nitrogen)
+	cabin_air.gases[/datum/gas/oxygen][MOLES] = O2STANDARD*cabin_air.volume/(R_IDEAL_GAS_EQUATION*cabin_air.temperature)
+	cabin_air.gases[/datum/gas/nitrogen][MOLES] = N2STANDARD*cabin_air.volume/(R_IDEAL_GAS_EQUATION*cabin_air.temperature)
+	return cabin_air
 
 /obj/structure/overmap/proc/shields_active()
 	if(SC.shields.toggled && !SC.shields.failed && SC.shields.health > 2000)
@@ -642,6 +651,11 @@
 	addtimer(CALLBACK(src, .proc/update_stats), 500)
 
 /obj/structure/overmap/process()
+	if(!cabin_air)
+		add_cabin()
+	if(cabin_air && cabin_air.return_volume() > 0)
+		var/delta = cabin_air.temperature - T20C
+		cabin_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
 	if(pilot)
 		update_observers()
 	if(wrecked)
@@ -703,10 +717,8 @@
 	//	START_PROCESSING(SSfastprocess,src)
 	if(!initial(can_move))
 		return // :(
-	if(nav_target in orange(src, 3))
-		nav_target = null
-		navigating = FALSE
-		if(vel > 4) //AKA, if theyre gonna shoot past it like a madlad
+	if(nav_target in orange(src, 3)) //make nav_target and navigating false if you want the ship to stop facing the target
+		if(vel >= 4) //AKA, if theyre gonna shoot past it like a madlad
 			vel = 1
 	TurnTo(nav_target)
 	//	STOP_PROCESSING(SSfastprocess,src)
@@ -875,6 +887,9 @@
 	for(var/obj/machinery/power/warpcore/W in linked_ship)
 		if(!W.breaching)
 			W.breach()
+	if(cabin_air)
+		qdel(cabin_air)
+		cabin_air = null
 	if(!istype(src, /obj/structure/overmap/ship/fighter))
 		switch(severity)
 			if(1)

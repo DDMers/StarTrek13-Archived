@@ -49,8 +49,8 @@
 	name = "USS Woolfe Research Outpost"
 	desc = "A station that coordinates all the operations within the system it occupies. You can beam aboard it to capture the outpost"
 	spawn_name = "research"
-	health = 100000000 //If you blow this up it'll break things
-	max_health = 100000000
+	health = 40000
+	max_health = 40000
 
 /obj/structure/overmap/away/station/system_outpost/trade
 	name = "USS Quark Trading Outpost"

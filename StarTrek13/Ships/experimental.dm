@@ -76,10 +76,13 @@
 /obj/structure/overmap/proc/enter(mob/user)
 	if(user.client)
 		if(pilot)
-			to_chat(user, "you kick [pilot] off the ship controls!")
-		//	M.revive(full_heal = 1)
-			exit()
-			return 0
+			var/mode = input("[pilot] is already on the helm, kick them off?", "Are you sure?")in list("yes","no")
+			if(mode == "yes")
+				to_chat(user, "you kick [pilot] off the ship controls!")
+				exit()
+				return FALSE
+			else
+				return FALSE
 		initial_loc = user.loc
 		user.loc = src
 		pilot = user
@@ -91,6 +94,7 @@
 			C.theship = src
 		pilot.whatimControllingOMFG = src
 		pilot.client.pixelXYshit()
+		pilot.status_flags |= GODMODE
 		if(size_class && pilot.client)
 			pilot.client.change_view(size_class)
 		var/area/A = get_area(src)
@@ -100,8 +104,8 @@
 			stoplag()
 			ProcessMove()
 			ProcessFire()
-		while(nav_target)
-			navigate()
+			if(nav_target)
+				navigate()
 
 
 /obj/structure/overmap/proc/ProcessFire()
@@ -115,6 +119,7 @@
 			return
 
 /obj/structure/overmap/proc/exit(mob/user)
+	pilot.status_flags &= ~GODMODE
 	pilot.forceMove(initial_loc)
 	initial_loc = null
 	if(pilot.client)
@@ -275,3 +280,14 @@ atom/movable
 				else
 					..()
 
+/obj/structure/overmap/proc/TurnTo(atom/target)
+	if(target)
+		var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
+		EditAngle()
+		var/target_angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
+		if(angle > target_angle)
+			angle -= turnspeed
+		if(angle < target_angle)
+			angle += turnspeed
+		if(angle == target_angle)
+			return

@@ -40,7 +40,7 @@
 
 
 /datum/game_mode/conquest/deepspacenine/special_report()
-	var/feedback = "Federation minor victory! Deep space 9 did not fall."
+	var/feedback = "Federation victory! Deep space 9 did not fall."
 	switch(result)
 		if(1)
 			feedback = "Federation major victory! The borg invasion ship was destroyed. Resistance was evidently not futile."

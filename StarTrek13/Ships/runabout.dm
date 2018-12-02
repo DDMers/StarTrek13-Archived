@@ -5,7 +5,7 @@
 	icon_state = "runabout"
 	spawn_name = null
 	var/obj/structure/overmap/ship/carrier
-	photons = 0 //no :)
+	photons = 2 //for mining
 	turnspeed = 2
 	max_speed = 5
 	warp_capable = TRUE
@@ -13,6 +13,10 @@
 	max_health = 6000
 	health = 6000
 	anchored = TRUE
+	pixel_z = -30
+	pixel_w = -30
+	pixel_collision_size_x = -32
+	pixel_collision_size_y = -32
 
 /obj/structure/overmap/ship/runabout/Initialize()
 	. = ..()
@@ -79,7 +83,10 @@
 	name = "Shuttlecraft"
 	spawn_name = "runaboutbarnard"
 
-/obj/structure/overmap/ship/runabout/attack_hand(mob/user)
+/obj/structure/overmap/ship/runabout/attack_hand(mob/user, proximity)
+	if(!proximity)
+		if(!user in orange(3, src))
+			return
 	if(!shields_active())
 		to_chat(user, "You climb into the runabout")
 		var/obj/structure/weapons_console/WC = locate(/obj/structure/weapons_console) in get_area(user) //We only do this when they click on it by hand, otherwise on enter it'd bug out when the ship flies to overmap.
@@ -152,11 +159,6 @@
 	if(T)
 		icon_state = initial(icon_state)
 	carrier = A
-
-/obj/structure/overmap/ship/runabout/CtrlClick(mob/user)
-	if(user != pilot)
-		return
-	try_dock()
 
 /obj/structure/overmap/ship/runabout/AltClick(mob/user)
 	if(user != pilot)
