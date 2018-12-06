@@ -52,7 +52,6 @@ In this mode the nondescript evil empire must cut their way through rebel strong
 
 /area/overmap/planet
 	name = "Crait"
-	area_base_turf = /turf/open/floor/plating/dirt
 
 /area/overmap/planet/dqar
 	name = "D'qar"
