@@ -34,7 +34,14 @@ SUBSYSTEM_DEF(faction)
 		S.pickthefaction()
 	. = ..()
 
-/datum/controller/subsystem/faction/proc/TryToHandleJob(mob/living/M)
+/datum/controller/subsystem/faction/proc/TryToHandleJob(mob/M)
+	if(istype(M, /mob/dead))
+		var/mob/dead/new_player/N
+		var/mob/living/H
+		N = M
+		H = makeBody(N)
+		SSjob.EquipRank(H) //Force that latejoin, dab.
+		return
 	var/datum/crew/mostpopulated
 	var/datum/crew/whatcrew
 	var/list/peoplemax = list()

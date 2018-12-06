@@ -1,3 +1,7 @@
+/datum/game_mode
+	var/list/faction_participants = list("starfleet", "romulan empire", "the borg collective")
+	var/delaywarp = 0 //Some modes like DS9 allow extra time to prepare.
+
 /datum/game_mode/conquest
 	name = "galactic conquest"
 	config_tag = "conquest"
@@ -5,10 +9,8 @@
 	announce_text = "A romulan incursion into the neutral zone has put starfleet on red alert\n\
 	<span class='danger'>Capture system outposts and accrue credits\n\
 	<span class='danger'>The winning faction shall be the one with the most remaining credits."
-	var/list/faction_participants = list("starfleet", "romulan empire", "the borg collective")
-	var/delaywarp = 0 //Some modes like DS9 allow extra time to prepare.
 
-/datum/game_mode/conquest/pre_setup()
+/datum/game_mode/pre_setup()
 	for(var/datum/faction/F in SSfaction.factions)
 		if(F.name in faction_participants)
 			message_admins("DEBUG: [F] has been enabled for the round.")

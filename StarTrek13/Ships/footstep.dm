@@ -71,7 +71,7 @@
 /turf/open/floor/fixed/get_footstep_sound()
 	return safepick(footstep_sounds[FOOTSTEP_PLATING])
 
-/turf/open/floor/borg/trek/get_footstep_sound()
+/turf/open/floor/trek/get_footstep_sound()
 	return safepick(footstep_sounds[FOOTSTEP_CARPET])
 
 /turf/open/floor/Entered(var/mob/living/carbon/human/H)

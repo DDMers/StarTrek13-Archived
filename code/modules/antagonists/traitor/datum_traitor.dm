@@ -69,6 +69,7 @@
 		else
 			forge_human_objectives()
 
+/* Unmodified code
 /datum/antagonist/traitor/proc/forge_human_objectives()
 	var/is_hijacker = FALSE
 	if (GLOB.joined_player_list.len >= 30) // Less murderboning on lowpop thanks
@@ -113,6 +114,42 @@
 			escape_objective.owner = owner
 			add_objective(escape_objective)
 			return
+*/
+//Trek stuff begins here:
+
+/datum/antagonist/traitor/proc/forge_human_objectives()
+	var/martyr_chance = prob(20)
+	var/objective_count = 0
+	if(!SSticker.mode.exchange_blue && SSticker.mode.traitors.len >= 8) 	//Set up an exchange if there are enough traitors
+		if(!SSticker.mode.exchange_red)
+			SSticker.mode.exchange_red = owner
+		else
+			SSticker.mode.exchange_blue = owner
+			assign_exchange_role(SSticker.mode.exchange_red)
+			assign_exchange_role(SSticker.mode.exchange_blue)
+		objective_count += 1					//Exchange counts towards number of objectives
+	var/toa = CONFIG_GET(number/traitor_objectives_amount)
+	for(var/i = objective_count, i < toa, i++)
+		forge_single_objective()
+
+	var/martyr_compatibility = 1 //You can't succeed in stealing if you're dead.
+	for(var/datum/objective/O in owner.objectives)
+		if(!O.martyr_compatible)
+			martyr_compatibility = 0
+			break
+
+	if(martyr_compatibility && martyr_chance)
+		var/datum/objective/martyr/martyr_objective = new
+		martyr_objective.owner = owner
+		add_objective(martyr_objective)
+		return
+
+	else //Need to revisit how traitors can escape off of starships..
+		if(!(locate(/datum/objective/escape) in owner.objectives))
+			var/datum/objective/escape/escape_objective = new
+			escape_objective.owner = owner
+			add_objective(escape_objective)
+			return
 
 /datum/antagonist/traitor/proc/forge_ai_objectives()
 	var/objective_count = 0
@@ -137,6 +174,8 @@
 			return forge_single_AI_objective()
 		else
 			return forge_single_human_objective()
+
+/*
 
 /datum/antagonist/traitor/proc/forge_single_human_objective() //Returns how many objectives are added
 	.=1
@@ -168,6 +207,25 @@
 			steal_objective.owner = owner
 			steal_objective.find_target()
 			add_objective(steal_objective)
+*/
+
+/datum/antagonist/traitor/proc/forge_single_human_objective() //Returns how many objectives are added ~Trek stuff: We ALWAYS want traitors to have to steal the death star plans, we also don't have traditional steal objectives so.
+	.=1
+	if(!(locate(/datum/objective/deathstarplans) in owner.objectives))
+		var/datum/objective/deathstarplans/steal_objective = new
+		steal_objective.owner = owner
+		add_objective(steal_objective)
+	if(prob(30))
+		var/datum/objective/maroon/maroon_objective = new
+		maroon_objective.owner = owner
+		maroon_objective.find_target()
+		add_objective(maroon_objective)
+	else
+		var/datum/objective/assassinate/kill_objective = new
+		kill_objective.owner = owner
+		kill_objective.find_target()
+		add_objective(kill_objective)
+
 
 /datum/antagonist/traitor/proc/forge_single_AI_objective()
 	.=1

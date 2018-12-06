@@ -17,6 +17,7 @@
 	pixel_w = -30
 	pixel_collision_size_x = -32
 	pixel_collision_size_y = -32
+	max_warp = 8
 
 /obj/structure/overmap/ship/runabout/Initialize()
 	. = ..()
@@ -116,7 +117,7 @@
 	if(T)
 		var/obj/structure/overmap/ship/runabout/S = T.theship
 		var/area/om = get_area(get_turf(S))
-		if(istype(om, /area/overmap))
+		if(istype(om, /area/overmap) && !istype(om, /area/overmap/planet))
 			to_chat(user, "Jumping out while the shuttle is moving is a bad idea!")
 			return
 		if(S.carrier) //Don't space yourself onto the overmap, please!

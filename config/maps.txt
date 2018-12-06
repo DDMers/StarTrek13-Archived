@@ -14,12 +14,19 @@ Format:
 endmap
 
 map star_trek
-	default
+	0
+	0
 	
 endmap
 
 map ds9
 	default
+	
+endmap
+
+map rebelspies
+	0
+	0
 	
 endmap
 

@@ -7,7 +7,6 @@
 	<span class='danger'>The borg must assimilate Deep Space 9."
 	faction_participants = list("starfleet", "the borg collective")
 	delaywarp = 7000 //MUCH longer to prepare for the attack. You'll get about 15 mins to prepare
-	var/result = 0
 
 /datum/game_mode/conquest/deepspacenine/send_intercept() //Overriding the "security level elevated thing" because we don't really use it :)
 	priority_announce("Deep space outposts have detected a transwarp signature approaching the bajor system. All crew must defend deep space 9 at all costs. An uplink has been established with a nearby shipyard linked to DS9. You can use it to fabricate ships to build a defense fleet.")
@@ -24,8 +23,13 @@
 		SSticker.force_ending = 1
 		result = 1
 		return TRUE
-	var/obj/structure/overmap/away/station/system_outpost/ds9 = locate(/obj/structure/overmap/away/station/system_outpost/ds9) in world
-	if(!ds9 || ds9.wrecked)
+	var/obj/structure/overmap/away/station/system_outpost/ds9/ds9 = locate(/obj/structure/overmap/away/station/system_outpost/ds9) in world
+	if(!ds9)
+		check_finished(TRUE)
+		SSticker.force_ending = 1
+		result = 2
+		return TRUE
+	if(ds9.wrecked || !ds9.health)
 		check_finished(TRUE)
 		SSticker.force_ending = 1
 		result = 2

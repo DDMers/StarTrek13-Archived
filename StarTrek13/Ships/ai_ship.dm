@@ -16,12 +16,13 @@
 	max_speed = 1
 	acceleration = 0.1
 	damage = 5000
-	spawn_name = "ai_spawn"
+//	spawn_name = "ai_spawn"
 	var/firecost = 1000 // Buffs AI ships
 	var/dam = 3500 //They always hit quite hard, this is to prevent negative numbers
 	var/chargerate = 500
 	var/maxcharge = 6000
 	faction = "pirate"
+	spawn_random = FALSE
 
 /obj/structure/overmap/ship/AI/Initialize(timeofday)
 	. = ..()
@@ -40,6 +41,7 @@
 		if(spawn_random)
 			forceMove(theloc)
 	check_overlays()
+	SC.shields.toggled = TRUE
 
 /obj/structure/overmap/ship/AI/linkto()	//weapons etc. don't link!
 	for(var/area/AR in world)
@@ -101,9 +103,10 @@
 
 /obj/structure/overmap/ship/AI/New()
 	. = ..()
-	if(weapons)
-		weapons.shieldgen.toggle(src)
 	while(1)
+		if(!SC.shields.toggled)
+			SC.shields.toggled = TRUE
+			SC.shields.power_supplied = 2
 		stoplag()
 		ProcessMove()
 		EditAngle()
@@ -129,7 +132,7 @@
 		stored_target = agressor
 	if(!stored_target)
 		for(var/obj/structure/overmap/S in orange(src, 5))
-			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck)) //No ai megaduels JUST yet!
+			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck) && !istype(S, /obj/structure/overmap/planet)) //No ai megaduels JUST yet!
 				if(S.faction == faction) //allows for teams of ships
 					continue
 				if(!S.cloaked)

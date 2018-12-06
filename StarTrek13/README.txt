@@ -32,6 +32,7 @@ hud.dm ~Cdey
 hud/human.dm ~Cdey
 screen_objects.dm ~Cdey
 screen_midnight.dmi ~Cdey
-say.dm ~Kmc
+say.dm ~Kmc - Combadges
+antagonists/datum_traitor.dm ~Kmc - Traitor stuff for new modes
 
 Thanks ~Kmc

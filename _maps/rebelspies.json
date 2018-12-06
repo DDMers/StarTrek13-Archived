@@ -1,0 +1,13 @@
+{
+    "map_name": "rebel_spies",
+    "map_path": "map_files/StarTrek13",
+    "map_file": ["gamemodes/rebelspies/empire.dmm",
+				"gamemodes/rebelspies/empire_s2.dmm",
+				"gamemodes/rebelspies/outposts.dmm"],
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	
+	"ships_map_file": [
+					"ship/ai_ships.dmm",
+					"gamemodes/rebelspies/empire_ships.dmm"]
+}

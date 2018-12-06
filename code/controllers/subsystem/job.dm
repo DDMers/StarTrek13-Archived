@@ -439,7 +439,7 @@ SUBSYSTEM_DEF(job)
 //	else
 	//	H.crew = pick(SSfaction.crews)
 //		H.crew.Add(H)
-	return H
+//	return H
 
 
 /datum/controller/subsystem/job/proc/setup_officer_positions()

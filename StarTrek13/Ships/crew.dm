@@ -16,15 +16,47 @@
 	if(themob)
 		rescue(themob)
 
-/turf/open/floor/plating/emergencyspawnunfucker/proc/rescue(mob/living/ohfuckmewhy)
+/turf/open/floor/plating/emergencyspawnunfucker/proc/rescue(mob/living/carbon/human/ohfuckmewhy)
 	if(!ohfuckmewhy)
 		ohfuckmewhy = locate(/mob/living) in loc
-	to_chat(ohfuckmewhy, "You have been returned to the lobby due to a bug, we're aware of this issue and are working on it (latejoins are more stable).")
-	var/client/theclient = ohfuckmewhy.client
-	ohfuckmewhy.dust() //quieter than gib
-	var/mob/dead/new_player/NP = new()
-	NP.ckey = theclient.ckey
+	var/list/jobslist = list()
+	for(var/datum/job/job in SSjob.occupations)
+		if(job && IsJobUnavailable(ohfuckmewhy,job.title, TRUE) == JOB_AVAILABLE)
+			jobslist += job.title
+	var/rank = input(ohfuckmewhy, "Select a job", "Job Selection", null) as null|anything in jobslist
+	if(!rank)
+		to_chat(ohfuckmewhy, "Be like that then. I'm going to spawn you as an assistant :)")
+		SSfaction.TryToHandleJob(ohfuckmewhy)
+		ohfuckmewhy.equipOutfit(/datum/outfit/job/crewman)
+		return
+	SSjob.EquipRank(ohfuckmewhy, rank, TRUE)
+	SSfaction.TryToHandleJob(ohfuckmewhy)
+	ohfuckmewhy = null
 
+/turf/open/floor/plating/emergencyspawnunfucker/proc/IsJobUnavailable(mob/living/player,rank, latejoin = FALSE)
+	var/datum/job/job = SSjob.GetJob(rank)
+	if(!job)
+		return JOB_UNAVAILABLE_GENERIC
+	if((job.current_positions >= job.total_positions) && job.total_positions != -1)
+		if(job.title == "Assistant")
+			if(isnum(player.client.player_age) && player.client.player_age <= 14) //Newbies can always be assistants
+				return JOB_AVAILABLE
+			for(var/datum/job/J in SSjob.occupations)
+				if(J && J.current_positions < J.total_positions && J.title != job.title)
+					return JOB_UNAVAILABLE_SLOTFULL
+		else
+			return JOB_UNAVAILABLE_SLOTFULL
+	if(jobban_isbanned(player,rank))
+		return JOB_UNAVAILABLE_BANNED
+	if(QDELETED(player))
+		return JOB_UNAVAILABLE_GENERIC
+	if(!job.player_old_enough(player.client))
+		return JOB_UNAVAILABLE_ACCOUNTAGE
+	if(job.required_playtime_remaining(player.client))
+		return JOB_UNAVAILABLE_PLAYTIME
+	if(latejoin && !job.special_check_latejoin(player.client))
+		return JOB_UNAVAILABLE_GENERIC
+	return JOB_AVAILABLE
 
 /mob
 	var/datum/crew/crew

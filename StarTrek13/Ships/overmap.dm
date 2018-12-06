@@ -890,11 +890,13 @@
 	if(cabin_air)
 		qdel(cabin_air)
 		cabin_air = null
+	SSticker.mode.check_win()
 	if(!istype(src, /obj/structure/overmap/ship/fighter))
 		switch(severity)
 			if(1)
 				var/obj/structure/overmap/shipwreck/wreck = new(src.loc)
 				wreck.name = "Shipwreck ([name])"
+				wreck.respawn = respawn
 				if(linked_ship)
 					wreck.linked_ship = linked_ship
 					wreck.linkto()

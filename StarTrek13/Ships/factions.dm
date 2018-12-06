@@ -210,6 +210,9 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	sleep(40) //give autobalancer time to sort them
 	if(!istype(D.player_faction, /datum/faction/borg))
 		return
+	var/area/A = get_area(D)
+	if(istype(A, /area/ship/ds9)) //Ohhhh hello starfleet borg :)!!!!
+		return
 	D.make_borg()
 	D.equipOutfit(/datum/outfit/borg, visualsOnly = FALSE)
 

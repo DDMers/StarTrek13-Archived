@@ -285,9 +285,11 @@
 		if(L)
 			var/list/beacon = list()
 			for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
-				if(wb.z)
+				if(wb.z && !wb.warp_restricted)
 					beacon += wb.name
 			beacon += "cancel"
+			if(!beacon.len)
+				to_chat(L, "No available warp points.")
 			var/A = input(L,"Warp where?", "Weapons console", null) as anything in beacon
 			if(!A)
 				return

@@ -13,6 +13,8 @@ var/global/list/global_ship_list = list()
 	flags = NONE
 	requires_power = FALSE
 	var/jumpgate_position = 1 //Change me! whenever you add a new system, incriment this by 1!
+	has_gravity = TRUE
+	area_base_turf = /turf/open/floor/fakespace
 
 /area/overmap/s2
 	name = "Sector 417543 (Neutral zone)"

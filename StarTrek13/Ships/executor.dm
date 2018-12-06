@@ -5,7 +5,7 @@
 //	pixel_x = -100
 //	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
-	warp_capable = FALSE // No warp coils
+	warp_capable = TRUE // No warp coils so it can only do inter system warps
 	max_health = 80000
 	pixel_z = -200
 	pixel_w = -250
@@ -17,6 +17,8 @@
 	var/datum/crew/executor/crew = new
 	spawn_name = "executor_spawn"
 	faction = "the empire"
+	max_warp = 5
+	respawn = FALSE
 
 /area/ship/executor
 	name = "super star destroyer"
