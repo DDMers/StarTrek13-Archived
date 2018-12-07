@@ -111,6 +111,7 @@ In this mode the nondescript evil empire must cut their way through rebel strong
 /datum/game_mode/conquest/wars/send_intercept() //Overriding the "security level elevated thing" because we don't really use it :)
 	priority_announce("By the order of the galactic empire, all available ships will mount an assault to break rebel supply lines. Eradicate each rebel base and move on to the next, failure will not be tolerated. Your captain has been given a set of documents of the utmost importance: see that these reach their destination safely.")
 	to_chat(world,"<span class='warning'>-You cannot advance till you have captured the enemy bases, once captured look for the coordinates of the next base - They will be on a blue console which you need to click.</span>")
+	return "By the order of the galactic empire, all available ships will mount an assault to break rebel supply lines. Capture each rebel base and move on to the next, failure will not be tolerated. Your captain has been given a set of documents of the utmost importance: see that these reach their destination safely."
 
 /datum/game_mode/traitor/wars/check_win()
 	return ..()

@@ -30,18 +30,32 @@
 	overmap_objects += src
 	START_PROCESSING(SSobj,src)
 	linkto()
-	var/list/thelist = list()
-	for(var/obj/effect/landmark/A in GLOB.landmarks_list)
-		if(A.name == spawn_name)
-			thelist += A
-			continue
-	if(thelist.len)
-		var/obj/effect/landmark/A = pick(thelist)
-		var/turf/theloc = get_turf(A)
-		if(spawn_random)
-			forceMove(theloc)
+	if(spawn_random)
+		var/list/thelist = list()
+		for(var/obj/effect/landmark/A in GLOB.landmarks_list)
+			if(A.name == spawn_name)
+				thelist += A
+				continue
+		if(thelist.len)
+			var/obj/effect/landmark/A = pick(thelist)
+			var/turf/theloc = get_turf(A)
+			if(spawn_random)
+				forceMove(theloc)
 	check_overlays()
 	SC.shields.toggled = TRUE
+	SC.shields.power = 90000000000 //IT'S OVER 9000000
+	SC.shields.power_supplied = 2
+
+/obj/structure/overmap/ship/AI/New()
+	. = ..()
+	while(1)
+		stoplag()
+		ProcessMove()
+		EditAngle()
+		if(!stored_target in orange(src, 6))
+			stored_target = null
+		if(stored_target)
+			TurnTo(stored_target)
 
 /obj/structure/overmap/ship/AI/linkto()	//weapons etc. don't link!
 	for(var/area/AR in world)
@@ -56,6 +70,15 @@
 	max_health = 8000
 	max_speed = 2
 	acceleration = 0.5
+	faction = "pirate"
+
+/obj/structure/overmap/ship/AI/wars
+	name = "Blockade runner"
+	icon = 'StarTrek13/icons/trek/large_ships/tantive_iv.dmi'
+	icon_state = "corvette"
+	max_health = 25000
+	max_speed = 2
+	acceleration = 0.3
 	faction = "pirate"
 
 /area/ship/ai
@@ -101,25 +124,11 @@
 	EditAngle()
 	ProcessMove()
 
-/obj/structure/overmap/ship/AI/New()
-	. = ..()
-	while(1)
-		if(!SC.shields.toggled)
-			SC.shields.toggled = TRUE
-			SC.shields.power_supplied = 2
-		stoplag()
-		ProcessMove()
-		EditAngle()
-		if(!stored_target in orange(src, 6))
-			stored_target = null
-		if(stored_target)
-			TurnTo(stored_target)
-
 /obj/structure/overmap/ship/AI/process()
 	. = ..()
 	if(!stored_target)
 		PickRandomShip()
-	if(stored_target in orange(src, 10))
+	if(stored_target in orange(src, 15))
 		if(prob(60)) //Allow it time to recharge
 			fire(stored_target)
 	else
