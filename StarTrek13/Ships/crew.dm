@@ -10,7 +10,7 @@
 	var/list/whowehaveaskedtobeacrewman = list()
 
 /turf/open/floor/plating/emergencyspawnunfucker/Initialize(mapload)
-	START_PROCESSING(SSobj, src) //It hurts so bad
+	START_PROCESSING(SSfastprocess, src) //It hurts so bad
 
 /turf/open/floor/plating/emergencyspawnunfucker/process() //I hate making a turf process..
 	rescue()
@@ -18,8 +18,8 @@
 /turf/open/floor/plating/emergencyspawnunfucker/proc/rescue(mob/living/carbon/human/ohfuckmewhy)
 	if(!ohfuckmewhy)
 		ohfuckmewhy = locate(/mob/living) in loc
-		if(ohfuckmewhy in whowehaveaskedtobeacrewman)
-			return
+	to_chat(ohfuckmewhy, "We're moving you to a safe spawn whilst you pick a job, please don't be alarmed.")
+	ohfuckmewhy.forceMove(pick(GLOB.prisonwarp))
 	whowehaveaskedtobeacrewman += ohfuckmewhy
 	var/list/jobslist = list()
 	for(var/datum/job/job in SSjob.occupations)
