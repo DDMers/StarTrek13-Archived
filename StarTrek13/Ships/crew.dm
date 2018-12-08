@@ -18,11 +18,13 @@
 /turf/open/floor/plating/emergencyspawnunfucker/proc/rescue(mob/living/carbon/human/ohfuckmewhy)
 	if(!ohfuckmewhy)
 		ohfuckmewhy = locate(/mob/living) in loc
-	whowehaveaskedtobeacrewman += ohfuckmewhy
 	var/list/jobslist = list()
 	for(var/datum/job/job in SSjob.occupations)
 		if(job && IsJobUnavailable(ohfuckmewhy,job.title, TRUE) == JOB_AVAILABLE)
 			jobslist += job.title
+	if(!ohfuckmewhy)
+		return
+	whowehaveaskedtobeacrewman += ohfuckmewhy
 	to_chat(ohfuckmewhy, "We're moving you to a safe spawn whilst you pick a job, please don't be alarmed.")
 	ohfuckmewhy.forceMove(pick(GLOB.prisonwarp))
 	sleep(15)
