@@ -34,6 +34,19 @@
 			martialart.themind = mind
 			addtimer(CALLBACK(martialart, /datum/martial_art/kirkfu.proc/explain, src), 3)
 
+/mob/living/carbon/human/verb/recall_kirkfu()
+	set name = "recall kirkfu"
+	set desc = "Recalls the ancient teachings of captain kirk's famous martial arts."
+	set category = "IC"
+	if(!mind)
+		return
+	if(mind.martial_art || istype(mind.martial_art, /datum/martial_art/kirkfu))
+		var/datum/martial_art/kirkfu/KF = mind.martial_art
+		if(KF)
+			KF.explain(src)
+	else
+		return
+
 /datum/martial_art
 	var/constant_block = 0 // CONSTANT block chance, rather than requiring to have thrown mode on
 
