@@ -279,7 +279,7 @@
 					if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 						SEND_SOUND(M, s)
 	if(href_list["starmap"])
-		if(!theship.warp_capable || theship.max_warp <= 1)
+		if(!theship.warp_capable)
 			return
 		var/mob/living/carbon/human/L = locate(href_list["clicker"]) //Bad client...WTF?
 		if(L)
@@ -287,6 +287,7 @@
 			for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
 				if(wb.z && !wb.warp_restricted)
 					beacon += wb.name
+					to_chat(L, "Registered [wb.name] as a warp target")
 			beacon += "cancel"
 			if(!beacon.len)
 				to_chat(L, "No available warp points.")

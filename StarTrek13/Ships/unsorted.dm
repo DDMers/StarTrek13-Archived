@@ -13,8 +13,11 @@
 /obj/item/clothing/neck/combadge/Initialize()
 	. = ..()
 	var/mob/living/theuser = loc
-	if(theuser)
-		link_to_area(theuser)
+	if(theuser && ismob(theuser))
+		if(!linked) //Yeah. People got confused
+			link_to_area(theuser)
+			if(!on)
+				CtrlClick(theuser)
 
 /obj/item/clothing/neck/combadge/CtrlClick(mob/user)
 	playsound(loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 50, 1)

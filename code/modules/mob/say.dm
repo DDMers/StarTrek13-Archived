@@ -95,7 +95,7 @@
 	if(key == "#")
 		return MODE_WHISPER
 	else if(key == ";")
-		return MODE_HEADSET
+		return MODE_COMBADGE
 	else if(length(message) > 2 && (key in GLOB.department_radio_prefixes))
 		var/key_symbol = lowertext(copytext(message, 2, 3))
 		return GLOB.department_radio_keys[key_symbol]
