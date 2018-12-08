@@ -7,25 +7,27 @@
 	color = "#FFC0CB"
 	desc = "This remarkable device debits all the molecules in your body from your current location and credits them somewhere else! Hopefully where you wanted to end up"
 	color = "#FFC0CB"
+	var/list/whowehaveaskedtobeacrewman = list()
 
 /turf/open/floor/plating/emergencyspawnunfucker/Initialize(mapload)
 	START_PROCESSING(SSobj, src) //It hurts so bad
 
 /turf/open/floor/plating/emergencyspawnunfucker/process() //I hate making a turf process..
-	var/mob/living/themob = locate(/mob/living) in loc
-	if(themob)
-		rescue(themob)
+	rescue()
 
 /turf/open/floor/plating/emergencyspawnunfucker/proc/rescue(mob/living/carbon/human/ohfuckmewhy)
 	if(!ohfuckmewhy)
 		ohfuckmewhy = locate(/mob/living) in loc
+		if(ohfuckmewhy in whowehaveaskedtobeacrewman)
+			return
+	whowehaveaskedtobeacrewman += ohfuckmewhy
 	var/list/jobslist = list()
 	for(var/datum/job/job in SSjob.occupations)
 		if(job && IsJobUnavailable(ohfuckmewhy,job.title, TRUE) == JOB_AVAILABLE)
 			jobslist += job.title
 	var/rank = input(ohfuckmewhy, "Select a job", "Job Selection", null) as null|anything in jobslist
 	if(!rank)
-		to_chat(ohfuckmewhy, "Be like that then. I'm going to spawn you as an assistant :)")
+		to_chat(ohfuckmewhy, "Spawning you in as a [SSjob.overflow_role]")
 		SSfaction.TryToHandleJob(ohfuckmewhy)
 		ohfuckmewhy.equipOutfit(/datum/outfit/job/crewman)
 		return
