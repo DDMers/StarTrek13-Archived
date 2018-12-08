@@ -85,7 +85,6 @@ Captain
 	jobtype = /datum/job/trek/captain
 
 	id = /obj/item/card/id/gold
-	belt = /obj/item/pda/captain
 //	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/black
@@ -154,7 +153,6 @@ Captain
 	jobtype = /datum/job/trek/admiral
 
 	id = /obj/item/card/id/gold
-	belt = /obj/item/pda/captain
 //	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/black
@@ -295,7 +293,6 @@ Shaft Miner
 	name = "Shaft Miner (Lavaland)"
 	jobtype = /datum/job/trek/mining
 
-	belt = /obj/item/pda/shaftminer
 	ears = /obj/item/radio/headset/headset_cargo/mining
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black
@@ -415,7 +412,6 @@ Chief Engineer
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
-	pda_slot = SLOT_L_STORE
 
 /datum/outfit/job/ce/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
@@ -473,7 +469,6 @@ Station Engineer
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
-	pda_slot = SLOT_L_STORE
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1)
 
 /datum/outfit/job/engineer/pre_equip(mob/living/carbon/human/H)
@@ -520,7 +515,6 @@ Chief Medical Officer
 	jobtype = /datum/job/trek/cmo
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/pda/heads/cmo
 	l_pocket = /obj/item/pinpointer/crew
 	ears = /obj/item/radio/headset/heads/cmo
 	uniform = /obj/item/clothing/under/independant
@@ -576,7 +570,6 @@ Medical Doctor
 	name = "Doctor"
 	jobtype = /datum/job/trek/doctor
 
-	belt = /obj/item/pda/medical
 	ears = /obj/item/radio/headset/headset_med
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -634,7 +627,6 @@ Research Director
 	jobtype = /datum/job/trek/rd
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/pda/heads/rd
 	ears = /obj/item/radio/headset/heads/rd
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -681,7 +673,6 @@ Scientist
 	name = "Researcher"
 	jobtype = /datum/job/trek/scientist
 
-	belt = /obj/item/pda/toxins
 	ears = /obj/item/radio/headset/headset_sci
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -742,7 +733,6 @@ Head of Security
 	jobtype = /datum/job/trek/hos
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/pda/heads/hos
 	ears = /obj/item/radio/headset/heads/hos/alt
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -804,7 +794,6 @@ Security Officer
 	name = "Ship Security Officer"
 	jobtype = /datum/job/trek/officer
 
-	belt = /obj/item/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/independant
 	gloves = /obj/item/clothing/gloves/color/black
@@ -880,7 +869,6 @@ Security Officer
 	name = "Starfleet Infantry"
 	jobtype = /datum/job/trek/soldier
 
-	belt = /obj/item/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/independant
 	gloves = /obj/item/clothing/gloves/color/black
@@ -943,7 +931,6 @@ Security Officer
 	jobtype = /datum/job/trek/pilot
 
 	id = /obj/item/card/id
-	belt = /obj/item/pda
 	ears = /obj/item/radio/headset
 	uniform = /obj/item/clothing/under/independant
 	shoes = /obj/item/clothing/shoes/laceup
