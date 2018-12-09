@@ -13,6 +13,11 @@
 	var/command_allowed = FALSE //upgrade it with a encryption key
 	var/obj/item/encryptionkey/thekey
 
+/obj/item/clothing/neck/combadge/examine(mob/user)
+	. = ..()
+	if(command_allowed)
+		to_chat(user, "Its command frequency is enabled, use :c to speak on it")
+
 /obj/item/clothing/neck/combadge/attackby(obj/I, mob/user)
 	if(istype(I, /obj/item/encryptionkey/headset_com) || istype(I, /obj/item/encryptionkey/heads))
 		I.forceMove(src)
@@ -85,7 +90,10 @@
 	stored_user = user
 //	to_chat(stored_user, "<span class='warning'><b>[linked] ship comms: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
-		if(C.on)
+		if(C != src)
+			if(C.stored_user == stored_user)
+				C.stored_user = null
+		if(C.on && C.stored_user)
 			playsound(C.loc, C.comms_sound, 20, 1)
 			to_chat(C.stored_user, "<span class='warning'><b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 		else
@@ -109,14 +117,17 @@
 	stored_user = user
 //	to_chat(stored_user, "<span class='warning'><b>[linked] ship comms: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
-		if(C.on && C.command_allowed)
+		if(C != src)
+			if(C.stored_user == stored_user)
+				C.stored_user = null
+		if(C.on && C.command_allowed && C.stored_user)
 			playsound(C.loc, C.comms_sound, 20, 1)
-			to_chat(C.stored_user, "<span class='notice'><b>[linked] command frequency:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: <i>[message]</i></span>")
+			to_chat(C.stored_user, "<span class='notice'><b>[linked] command frequency: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: <i>[message]</i></span>")
 		else
 		//	to_chat(C.stored_user, "Your [src] buzzes softly")
 			return
 	for(var/mob/O in GLOB.dead_mob_list)
-		to_chat(O, "<span class='notice'><b>[linked] command frequency:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: <i>[message]</i></span>")
+		to_chat(O, "<span class='notice'><b>[linked] command frequency: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: <i>[message]</i></span>")
 
 
 /obj/item/clothing/neck/combadge/proc/pm_user(var/message, mob/living/user)
@@ -478,6 +489,17 @@
 	name = "Navy cap"
 	desc = "Worn by high ranking officers in the imperial navy"
 	icon_state = "SWofficer"
+	var/obj/item/clothing/neck/combadge/wars/radio
+
+/obj/item/clothing/head/wars/Initialize()
+	. = ..()
+	radio = new /obj/item/clothing/neck/combadge/wars(src)
+	radio.forceMove(src)
+
+/obj/item/clothing/head/wars/attackby(obj/I, mob/user)
+	. = ..()
+	if(radio)
+		radio.attackby(I, user)
 
 /obj/item/clothing/suit/armor/wars
 	name = "neopolymer armour"
@@ -510,6 +532,11 @@
 	item_state = "helmet"
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 100, "rad" = 80, "fire" = 50, "acid" = 50)
 	var/obj/item/clothing/neck/combadge/wars/radio
+
+/obj/item/clothing/head/helmet/wars/attackby(obj/I, mob/user)
+	. = ..()
+	if(radio)
+		radio.attackby(I, user)
 
 /obj/item/clothing/head/helmet/wars/Initialize()
 	. = ..()

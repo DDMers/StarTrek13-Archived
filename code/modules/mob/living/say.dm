@@ -130,6 +130,13 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 				CS.radio.stored_user = src
 				message = treat_message(message)
 				CS.radio.send_message(message,src)
+		var/obj/item/clothing/head/wars/CSS = locate(/obj/item/clothing/head/wars) in contents
+		if(CSS)
+			if(CSS.radio)
+				CSS.radio.stored_user = src
+				message = treat_message(message)
+				CSS.radio.send_message(message,src)
+
 	if(message_mode == "combadge-bridge")
 		var/obj/item/clothing/neck/combadge/c = locate(/obj/item/clothing/neck/combadge) in contents
 		if(c)
@@ -141,6 +148,13 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 				CS.radio.stored_user = src
 				message = treat_message(message)
 				CS.radio.send_message_command(message,src)
+		var/obj/item/clothing/head/wars/CSS = locate(/obj/item/clothing/head/wars) in contents
+		if(CSS)
+			if(CSS.radio)
+				CSS.radio.stored_user = src
+				message = treat_message(message)
+				CSS.radio.send_message_command(message,src)
+
 
 	if(stat == DEAD)
 		say_dead(original_message)
