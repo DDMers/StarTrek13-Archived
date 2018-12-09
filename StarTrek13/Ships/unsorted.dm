@@ -114,9 +114,6 @@
 	stored_user = user
 //	to_chat(stored_user, "<span class='warning'><b>[linked] ship comms: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
-		if(C != src)
-			if(C.stored_user == stored_user)
-				C.stored_user = null
 		if(C.on && C.command_allowed && C.stored_user)
 			playsound(C.loc, C.comms_sound, 20, 1)
 			to_chat(C.stored_user, "<span class='notice'><b>[linked] command frequency: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: <i>[message]</i></span>")
