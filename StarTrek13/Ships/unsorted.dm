@@ -11,19 +11,19 @@
 	var/talk_delay = 0.1
 	var/comms_sound = 'StarTrek13/sound/borg/machines/combadge.ogg'
 	var/command_allowed = FALSE //upgrade it with a encryption key
-	var/obj/item/encryptionkey/key
+	var/obj/item/encryptionkey/thekey
 
 /obj/item/clothing/neck/combadge/attackby(obj/I, mob/user)
 	if(istype(I, /obj/item/encryptionkey/headset_com) || istype(I, /obj/item/encryptionkey/heads))
 		I.forceMove(src)
-		key = I
+		thekey = I
 		to_chat(user, "You slot [I] into [src]")
 		command_allowed = TRUE
 	if(istype(I, /obj/item/screwdriver))
-		if(key)
-		//	key.forceMove(get_turf(user))
-			to_chat(user, "You remove [key] from [src]")
-			key = null
+		if(thekey)
+			thekey.forceMove(get_turf(src))
+			to_chat(user, "You remove [thekey] from [src]")
+			thekey = null
 			command_allowed = FALSE
 
 /obj/item/clothing/neck/combadge/wars
