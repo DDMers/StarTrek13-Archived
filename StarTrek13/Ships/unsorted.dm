@@ -9,18 +9,25 @@
 	var/on = FALSE
 	var/next_talk = 0 //used for move delays
 	var/talk_delay = 0.1
+	var/comms_sound = 'StarTrek13/sound/borg/machines/combadge.ogg'
+
+/obj/item/clothing/neck/combadge/wars
+	name = "stormtrooper helmet radio"
+	comms_sound = 'StarTrek13/sound/trek/radioclick.ogg'
 
 /obj/item/clothing/neck/combadge/Initialize()
 	. = ..()
-	var/mob/living/theuser = loc
+	var/mob/living/theuser = locate(/mob/living) in get_turf(src)
 	if(theuser && ismob(theuser))
 		if(!linked) //Yeah. People got confused
+			to_chat(theuser, "Activating comms")
+			stored_user = theuser
 			link_to_area(theuser)
 			if(!on)
 				CtrlClick(theuser)
 
 /obj/item/clothing/neck/combadge/CtrlClick(mob/user)
-	playsound(loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 50, 1)
+	playsound(loc, comms_sound, 30, 1)
 	stored_user = user
 	if(on)
 		to_chat(user, "Broadcasting disabled")
@@ -35,7 +42,7 @@
 	link_to_area(user)
 
 /obj/item/clothing/neck/combadge/proc/link_to_area(mob/user)
-	playsound(loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 50, 1)
+	playsound(loc, comms_sound, 30, 1)
 	on = TRUE
 	if(linked)
 		linked.combadges -= src
@@ -64,7 +71,7 @@
 //	to_chat(stored_user, "<span class='warning'><b>[linked] ship comms: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
 		if(C.on)
-			playsound(C.loc, 'StarTrek13/sound/borg/machines/combadge.ogg', 10, 1)
+			playsound(C.loc, C.comms_sound, 20, 1)
 			to_chat(C.stored_user, "<span class='warning'><b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 		else
 		//	to_chat(C.stored_user, "Your [src] buzzes softly")
@@ -76,10 +83,10 @@
 	if(world.time < next_talk)
 		return 0
 	next_talk = world.time + talk_delay
-	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
-		if(C.stored_user)
-			if(findtext(message, "[C.stored_user.first_name()] "))
-				to_chat(world, "HAHAHAHA")
+//	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
+//		if(C.stored_user)
+//			if(findtext(message, "[C.stored_user.first_name()] "))
+//				to_chat(world, "HAHAHAHA")
 
 /*
 
@@ -440,7 +447,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	armor = list("melee" = 10, "bullet" = 10, "laser" = 20, "energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 80)
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 20, "energy" = 10, "bomb" = 10, "bio" = 100, "rad" = 80, "fire" = 80, "acid" = 80)
 	strip_delay = 80
 	equip_delay_other = 60
 
@@ -452,20 +459,32 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	armor = list("melee" = 10, "bullet" = 10, "laser" = 20, "energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 80)
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 20, "energy" = 10, "bomb" = 10, "bio" = 100, "rad" = 80, "fire" = 80, "acid" = 80)
 	strip_delay = 80
 	equip_delay_other = 60
 
 /obj/item/clothing/head/helmet/wars
 	name = "neopolymer helmet"
-	desc = "A strange white helmet that looks very sad. FOR GLORY."
+	desc = "A strange white helmet that looks very sad. It has an inbuilt radio"
 	icon_state = "SWtrooper"
 	item_state = "helmet"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 100, "rad" = 80, "fire" = 50, "acid" = 50)
+	var/obj/item/clothing/neck/combadge/wars/radio
+
+/obj/item/clothing/head/helmet/wars/Initialize()
+	. = ..()
+	radio = new /obj/item/clothing/neck/combadge/wars(src)
+	radio.forceMove(src)
+
+/obj/item/clothing/head/helmet/wars/CtrlClick(mob/user)
+	radio.CtrlClick(user)
+
+/obj/item/clothing/head/helmet/wars/AltClick(mob/user)
+	radio.AltClick(user)
 
 /obj/item/clothing/head/helmet/wars/scout
 	name = "scouting helmet"
-	desc = "A strange white helmet with inbuilt binocular attachment holes, but they contain no binoculars...damn cheapskates."
+	desc = "A strange white helmet with inbuilt binocular attachment holes, but they contain no binoculars...damn cheapskates. It has an inbuilt radio"
 	icon_state = "SWscout"
 
 /mob/verb/get_overmap()
