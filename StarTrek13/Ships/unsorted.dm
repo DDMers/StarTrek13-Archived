@@ -10,6 +10,21 @@
 	var/next_talk = 0 //used for move delays
 	var/talk_delay = 0.1
 	var/comms_sound = 'StarTrek13/sound/borg/machines/combadge.ogg'
+	var/command_allowed = FALSE //upgrade it with a encryption key
+	var/obj/item/encryptionkey/key
+
+/obj/item/clothing/neck/combadge/attackby(obj/I, mob/user)
+	if(istype(I, /obj/item/encryptionkey/headset_com) || istype(I, /obj/item/encryptionkey/heads))
+		I.forceMove(src)
+		key = I
+		to_chat(user, "You slot [I] into [src]")
+		command_allowed = TRUE
+	if(istype(I, /obj/item/screwdriver))
+		if(key)
+		//	key.forceMove(get_turf(user))
+			to_chat(user, "You remove [key] from [src]")
+			key = null
+			command_allowed = FALSE
 
 /obj/item/clothing/neck/combadge/wars
 	name = "stormtrooper helmet radio"
@@ -78,6 +93,31 @@
 			return
 	for(var/mob/O in GLOB.dead_mob_list)
 		to_chat(O, "<span class='warning'><b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
+
+/obj/item/clothing/neck/combadge/proc/send_message_command(var/message, mob/living/user)
+	if(user.stat == DEAD)
+		return 0
+	if(!linked) //Yeah. People got confused
+		link_to_area(user)
+		if(!on)
+			CtrlClick(user)
+	if(world.time < next_talk)
+		return 0
+	next_talk = world.time + talk_delay
+	if(!linked)
+		link_to_area(user)
+	stored_user = user
+//	to_chat(stored_user, "<span class='warning'><b>[linked] ship comms: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
+	for(var/obj/item/clothing/neck/combadge/C in linked.combadges)
+		if(C.on && C.command_allowed)
+			playsound(C.loc, C.comms_sound, 20, 1)
+			to_chat(C.stored_user, "<span class='notice'><b>[linked] command frequency:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: <i>[message]</i></span>")
+		else
+		//	to_chat(C.stored_user, "Your [src] buzzes softly")
+			return
+	for(var/mob/O in GLOB.dead_mob_list)
+		to_chat(O, "<span class='notice'><b>[linked] command frequency:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: <i>[message]</i></span>")
+
 
 /obj/item/clothing/neck/combadge/proc/pm_user(var/message, mob/living/user)
 	if(world.time < next_talk)

@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	// Department
 	"h" = "department",
-	"c" = "Command",
+	"c" = "combadge-bridge",
 	"n" = "Science",
 	"m" = "Medical",
 	"e" = "Engineering",
@@ -125,10 +125,22 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			message = treat_message(message)
 			c.send_message(message, src)
 		var/obj/item/clothing/head/helmet/wars/CS = locate(/obj/item/clothing/head/helmet/wars) in contents
-		if(CS.radio)
-			CS.radio.stored_user = src
+		if(CS)
+			if(CS.radio)
+				CS.radio.stored_user = src
+				message = treat_message(message)
+				CS.radio.send_message(message,src)
+	if(message_mode == "combadge-bridge")
+		var/obj/item/clothing/neck/combadge/c = locate(/obj/item/clothing/neck/combadge) in contents
+		if(c)
 			message = treat_message(message)
-			CS.radio.send_message(message,src)
+			c.send_message_command(message, src)
+		var/obj/item/clothing/head/helmet/wars/CS = locate(/obj/item/clothing/head/helmet/wars) in contents
+		if(CS)
+			if(CS.radio)
+				CS.radio.stored_user = src
+				message = treat_message(message)
+				CS.radio.send_message_command(message,src)
 
 	if(stat == DEAD)
 		say_dead(original_message)
