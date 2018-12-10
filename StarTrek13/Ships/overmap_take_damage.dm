@@ -50,10 +50,11 @@
 			SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/shiphitbase.ogg')
 			var/sound/thesound = pick(ship_damage_sounds)
 			SEND_SOUND(L, thesound)
-		if(prob(30))
+		if(prob(55))
 			weapons.explode_effect()
 			weapons.voiceline("hull")
-		if(prob(40)) //seperate gate to avoid hull and shields fighting over talk time
+		else //seperate gate to avoid hull and shields fighting over talk time
+			weapons.explode_effect()
 			weapons.voiceline("shieldshp")
 		if(!shields_active())
 			var/maths = 5

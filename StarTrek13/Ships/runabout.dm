@@ -18,6 +18,8 @@
 	pixel_collision_size_x = -32
 	pixel_collision_size_y = -32
 	max_warp = 8
+	var/docking_cooldown = 60 //6 second cooldown to prevent ear destruction
+	var/saved_time
 
 /obj/structure/overmap/ship/runabout/Initialize()
 	. = ..()
@@ -127,39 +129,56 @@
 			to_chat(user, "You cannot exit the runabout unless it's docked to a ship.")
 
 /obj/structure/overmap/ship/runabout/proc/try_dock()
-	if(carrier)
-		if(!carrier.shields_active())
-			forceMove(carrier.loc)
-			carrier = null
-			to_chat(pilot, "Undocking..")
+	if(world.time >= saved_time + docking_cooldown)
+		if(carrier)
+			if(!carrier.shields_active())
+				forceMove(carrier.loc)
+				carrier = null
+				if(pilot)
+					to_chat(pilot, "Undocking..")
+				icon_state = "runabout-small"
+				saved_time = world.time
+				for(var/mob/M in linked_ship)
+					SEND_SOUND(M, 'StarTrek13/sound/trek/shuttletakeoff.ogg')
+					shake_camera(M, 5, 5)
+					to_chat(M, "The deck plates shudder as [src] takes off")
+				playsound(src,'StarTrek13/sound/trek/shuttletakeoff.ogg',100,1)
+				return
+			else
+				to_chat(pilot, "You cannot undock from [carrier] while its shields are raised")
+				icon_state = initial(icon_state)
+				return
+		if(!pilot)
+			return
+		var/obj/structure/overmap/L = list()
+		for(var/obj/structure/overmap/S in orange(src, 9))
+			if(!S.shields_active())
+				L += S
+		var/obj/structure/overmap/A = input(pilot,"Docking target?", "Weapons console)", null) as obj in L
+		if(!A && !carrier)
+			to_chat(pilot, "Unable to dock")
 			icon_state = "runabout-small"
 			return
+		A.linkto()
+		var/obj/effect/landmark/T
+		if(A.docks.len)
+			T = pick(A.docks)
 		else
-			to_chat(pilot, "You cannot undock from [carrier] while its shields are raised")
+			for(var/obj/effect/landmark/runaboutdock/R in A.linked_ship)  //fallback, in case it fails
+				T = R
+		forceMove(get_turf(T))
+		if(T)
 			icon_state = initial(icon_state)
-			return
-	if(!pilot)
-		return
-	var/obj/structure/overmap/L = list()
-	for(var/obj/structure/overmap/S in orange(src, 9))
-		if(!S.shields_active())
-			L += S
-	var/obj/structure/overmap/A = input(pilot,"Docking target?", "Weapons console)", null) as obj in L
-	if(!A && !carrier)
-		to_chat(pilot, "Unable to dock")
-		icon_state = "runabout-small"
-		return
-	A.linkto()
-	var/obj/effect/landmark/T
-	if(A.docks.len)
-		T = pick(A.docks)
+		saved_time = world.time
+		for(var/mob/M in linked_ship)
+			SEND_SOUND(M, 'StarTrek13/sound/trek/shuttletakeoff.ogg')
+			shake_camera(M, 5, 5)
+			to_chat(M, "The deck plates shudder as [src] lands")
+		playsound(src,'StarTrek13/sound/trek/shuttletakeoff.ogg',100,1)
+		carrier = A
 	else
-		for(var/obj/effect/landmark/runaboutdock/R in A.linked_ship)  //fallback, in case it fails
-			T = R
-	forceMove(get_turf(T))
-	if(T)
-		icon_state = initial(icon_state)
-	carrier = A
+		to_chat(pilot, "Unable to comply: Docking thrusters are recharging")
+		return
 
 /obj/structure/overmap/ship/runabout/AltClick(mob/user)
 	if(user != pilot)

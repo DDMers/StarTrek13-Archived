@@ -7,7 +7,7 @@
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE // No warp coils so it can only do inter system warps
 	max_health = 80000
-	pixel_z = -200
+	pixel_z = -110
 	pixel_w = -250
 	turnspeed = 0.1 //This ship is a titan, it should be slow as shit, unwieldy, but an utter monster in battle.
 	cost = 200000
