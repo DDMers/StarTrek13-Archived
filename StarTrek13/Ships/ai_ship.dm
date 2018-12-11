@@ -13,6 +13,7 @@
 	pixel_z = -128
 	pixel_w = -120
 	var/obj/structure/overmap/stored_target
+	var/obj/structure/overmap/force_target //Forced to attack another overmap by a player. HUNT IT DOWN UNTIL IT'S DEAD
 	max_speed = 1
 	acceleration = 0.1
 	damage = 5000
@@ -23,6 +24,18 @@
 	var/maxcharge = 6000
 	faction = "pirate"
 	spawn_random = FALSE
+	var/turf/rally_point //Are we being told to move to a rally point?
+	respawn = FALSE
+	var/agressive = TRUE
+
+
+/* COMMAND PRIORITY:
+
+	: Check for force target / what we're ordered to attack :
+	: Check if there's a rally point :
+	: If no to both, attack our stored_target which is one we chose at random:
+
+*/
 
 /obj/structure/overmap/ship/AI/Initialize(timeofday)
 	. = ..()
@@ -54,14 +67,125 @@
 		EditAngle()
 		if(!stored_target in orange(src, 6))
 			stored_target = null
-		if(stored_target)
-			TurnTo(stored_target)
+		if(force_target)
+			TurnTo(force_target)
+		else if(rally_point)
+			move_to_rally()
+		else
+			if(stored_target)
+				TurnTo(stored_target)
 
 /obj/structure/overmap/ship/AI/linkto()	//weapons etc. don't link!
 	for(var/area/AR in world)
 		if(istype(AR, /area/ship/ai))
 			linked_ship = AR
 			return
+
+/obj/structure/overmap/ship/AI/process()
+	. = ..()
+	if(force_target)
+		if(stored_target in orange(src, 15))
+			if(prob(60)) //Allow it time to recharge
+				fire(force_target)
+	if(!stored_target)
+		PickRandomShip()
+	if(stored_target in orange(src, 15))
+		if(prob(60)) //Allow it time to recharge
+			fire(stored_target)
+	else
+		stored_target = null
+	if(vel < max_speed)
+		vel += acceleration
+
+/obj/structure/overmap/ship/AI/take_damage()
+	if(agressor)
+		stored_target = agressor
+	. = ..()
+
+
+/obj/structure/overmap/ship/AI/proc/PickRandomShip()
+	if(agressor)
+		stored_target = agressor
+	if(!agressive) //Do we attack on sight?
+		return
+	if(!stored_target)
+		for(var/obj/structure/overmap/S in orange(src, 5))
+			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck) && !istype(S, /obj/structure/overmap/planet)) //No ai megaduels JUST yet!
+				if(S.faction == faction) //allows for teams of ships
+					continue
+				if(!S.cloaked)
+					stored_target = S
+					break
+		return
+
+/obj/structure/overmap/ship/AI/fire(obj/structure/overmap/target) //Try to get a lock on them, the more they move, the harder this is.
+	if(wrecked)
+		return 0
+	if(target)
+		if(istype(target, /obj/structure/overmap))
+			target.agressor = src
+	attempt_fire() //Time to fire then
+	return
+
+/obj/structure/overmap/ship/AI/attempt_fire()
+	if(wrecked)
+		return
+	var/obj/structure/overmap/S = null
+	if(force_target)
+		force_target.agressor = src
+		S = force_target
+	if(stored_target && !S) //No force target? Okay well did we pick one at random, then?
+		stored_target.agressor = src
+		S = stored_target
+	if(S)
+		if(SC.weapons.attempt_fire())
+			SC.weapons.damage = damage
+			S.take_damage(SC.weapons.damage,1)
+			var/source = get_turf(src)
+			SC.weapons.charge -= SC.weapons.fire_cost
+			current_beam = new(source,S,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+			spawn(0)
+			current_beam.Start()
+			return
+
+/obj/structure/overmap/ship/AI/TurnTo(atom/target)
+	if(force_target)
+		if(force_target in orange(src, 2))
+			vel = 0
+			target = force_target
+			var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
+			EditAngle()
+			angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
+			return
+	if(rally_point)
+		move_to_rally()
+		return
+	if(stored_target in orange(src, 2))
+		vel = 0
+		return
+	target = stored_target
+	if(target)
+		var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
+		EditAngle()
+		angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
+
+/obj/structure/overmap/ship/AI/proc/move_to_rally()
+	if(rally_point)
+		if(rally_point in orange(src, 2))
+			vel = 0
+			rally_point = null //Finished moving to the rally point
+			return
+		else
+			var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
+			EditAngle()
+			angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*rally_point.y+rally_point.pixel_y) - (32*self.y+self.pixel_y), (32*rally_point.x+rally_point.pixel_x) - (32*self.x+self.pixel_x)))
+
+
+/obj/structure/overmap/proc/Orbit(atom/target)
+	var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
+	EditAngle()
+	angle = 360 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
+
 
 /obj/structure/overmap/ship/AI/small
 	name = "Pirate Reaver"
@@ -86,112 +210,3 @@
 
 /area/ship/ai/two
 	name = "Uss AI ship 2: Electric boogaloo"
-
-/obj/structure/overmap/missile
-	name = "missile"
-	desc = "You should probably run away."
-	max_health = 100
-	SC = null
-	var/obj/structure/overmap/stored_target
-	max_speed = 4
-	var/burntime = 50 //5 seconds before the missile blows
-	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
-	icon_state = "missile"
-	var/missile_damage = 1000
-
-/obj/structure/overmap/missile/New()
-	if(!stored_target)
-		stored_target = pick(orange(src, 10))
-		if(!istype(stored_target, /obj/structure/overmap))
-			stored_target = null
-	QDEL_IN(src, burntime)
-	while(src)
-		stoplag()
-		vel = max_speed
-		ProcessMove()
-
-/obj/structure/overmap/missile/process()
-	if(!stored_target)
-		stored_target = pick(orange(src, 10))
-		if(!istype(stored_target, /obj/structure/overmap))
-			stored_target = null
-	if(stored_target in orange(src, 1))
-		stored_target.take_damage(missile_damage)
-		qdel(src)
-	if(!health)
-		qdel(src)
-	TurnTo(stored_target)
-	EditAngle()
-	ProcessMove()
-
-/obj/structure/overmap/ship/AI/process()
-	. = ..()
-	if(!stored_target)
-		PickRandomShip()
-	if(stored_target in orange(src, 15))
-		if(prob(60)) //Allow it time to recharge
-			fire(stored_target)
-	else
-		stored_target = null
-	if(vel < max_speed)
-		vel += acceleration
-
-/obj/structure/overmap/ship/AI/proc/PickRandomShip()
-	if(agressor)
-		stored_target = agressor
-	if(!stored_target)
-		for(var/obj/structure/overmap/S in orange(src, 5))
-			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck) && !istype(S, /obj/structure/overmap/planet)) //No ai megaduels JUST yet!
-				if(S.faction == faction) //allows for teams of ships
-					continue
-				if(!S.cloaked)
-					stored_target = S
-					break
-		return
-
-/obj/structure/overmap/ship/AI/fire(obj/structure/overmap/target) //Try to get a lock on them, the more they move, the harder this is.
-	if(wrecked)
-		return 0
-	if(target)
-		if(istype(target, /obj/structure/overmap))
-			target.agressor = src
-	attempt_fire() //Time to fire then
-	return
-
-/obj/structure/overmap/ship/AI/attempt_fire()
-	if(wrecked)
-		return
-	var/obj/structure/overmap/S = stored_target
-	if(stored_target)
-		stored_target.agressor = src
-		if(SC.weapons.attempt_fire())
-			if(S) //Is the locked target the one we're clicking?
-				SC.weapons.damage = damage
-				S.take_damage(SC.weapons.damage,1)
-				var/source = get_turf(src)
-				var/list/L = list()
-				if(S.linked_ship)
-					var/area/thearea = S.linked_ship
-					for(var/turf/T in get_area_turfs(thearea.type))
-						L+=T
-				SC.weapons.charge -= SC.weapons.fire_cost
-				current_beam = new(source,S,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
-				spawn(0)
-				current_beam.Start()
-				return
-
-/obj/structure/overmap/ship/AI/TurnTo(atom/target)
-	if(stored_target in orange(src, 2))
-		vel = 0
-		return
-	if(target)
-		var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
-		EditAngle()
-		angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
-	else
-		vel = 0
-
-/obj/structure/overmap/proc/Orbit(atom/target)
-	var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
-	EditAngle()
-	angle = 360 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))

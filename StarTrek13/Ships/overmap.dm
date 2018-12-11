@@ -87,7 +87,6 @@
 	var/wrecked = FALSE
 	var/list/docks = list()
 	var/true_name = null //For respawning
-	var/faction = null //Are we a faction's ship? if so, when we blow up, DEDUCT EXPENSES
 	var/cost = 8000 //How much does this ship cost to replace?
 	var/cloaked = FALSE
 	var/stored_name //used in cloaking code to restore ship names

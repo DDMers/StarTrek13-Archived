@@ -192,7 +192,6 @@
 		locked = null
 		qdel(progbar)
 
-
 /mob/living/carbon/canMobMousedown(atom/object, location, params)
 	. = ..()
 	if(istype(src.loc, /obj/structure/overmap))

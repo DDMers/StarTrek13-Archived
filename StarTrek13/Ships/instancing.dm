@@ -58,6 +58,9 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 
 /obj/structure/overmap/Destroy(var/severity = 1)
 	SSticker.mode.check_win()
+	if(!respawn)
+		. = ..()
+		return
 	if(faction)
 		var/datum/faction/F
 		for(var/datum/faction/S in SSfaction.factions)
