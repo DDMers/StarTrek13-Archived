@@ -183,9 +183,10 @@ Captain
 /datum/outfit/job/admiral/post_equip(mob/living/carbon/human/H)
 	if(H.skills)
 		H.skills.add_skill("piloting", 5)
+		H.skills.add_skill("micromanagement", 10)//So they can use the RTS consoles
 	else
 		H.skills = new
-		H.skills.add_skill("piloting", 5)
+		H.skills.add_skill("micromanagement", 10)
 
 /*
 /datum/outfit/job/admiral/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

@@ -30,6 +30,7 @@
 	var/agressive = TRUE
 	random_name = FALSE
 	inherit_name_from_area = FALSE
+	var/mob/camera/aiEye/remote/rts/RTSeye //used to relay combat sounds
 
 
 /* COMMAND PRIORITY:
@@ -99,6 +100,10 @@
 /obj/structure/overmap/ship/AI/take_damage()
 	if(agressor)
 		stored_target = agressor
+	if(RTSeye)
+		var/sound/S = pick(ship_damage_sounds)
+		if(RTSeye.console && RTSeye.console.operator)
+			RTSeye.play_voice(S)
 	. = ..()
 
 
@@ -136,15 +141,19 @@
 	if(stored_target && !S) //No force target? Okay well did we pick one at random, then?
 		stored_target.agressor = src
 		S = stored_target
-	if(S)
+	if(S && S in orange(src, 6))
 		if(SC.weapons.attempt_fire())
 			SC.weapons.damage = damage
 			S.take_damage(SC.weapons.damage,1)
 			var/source = get_turf(src)
 			SC.weapons.charge -= SC.weapons.fire_cost
-			current_beam = new(source,S,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+			current_beam = new(source,get_turf(S),time=30,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 			var/sound/thesound = pick(soundlist)
-			playsound(src,thesound,100,1)
+			if(S.pilot)
+				SEND_SOUND(S.pilot, thesound)
+			if(RTSeye)
+				if(RTSeye.console && RTSeye.console.operator)
+					RTSeye.play_voice(thesound)
 			spawn(0)
 			current_beam.Start()
 			return

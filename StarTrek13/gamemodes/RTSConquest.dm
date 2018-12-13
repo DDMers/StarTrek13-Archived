@@ -294,12 +294,11 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/mob/camera/aiEye/remote/rts/RTSeye
 	var/faction = "starfleet" //Which ships are we allowed to control? the operator does NOT change this! so you can sabotage enemy bases!
 	var/list/saved_fleet = list() //save fleet when you re-use the cam
-	var/zoom_out = 15
+	var/zoom_out = 12
 
 /obj/machinery/computer/camera_advanced/rts_control/Initialize()
 	. = ..()
 	START_PROCESSING(SSmachines,src)
-
 
 /obj/machinery/computer/camera_advanced/rts_control/process()
 	. = ..()
@@ -311,6 +310,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "romulan empire"
 
 /obj/machinery/computer/camera_advanced/rts_control/attack_hand(mob/user)
+	if(!user.skills.skillcheck(user, "micromanagement", 10))
+		return
 	if(!theship)
 		var/obj/structure/fluff/helm/desk/tactical/AA = locate(/obj/structure/fluff/helm/desk/tactical) in get_area(src)
 		theship = AA.theship
@@ -323,6 +324,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	if(!RTSeye)
 		CreateEye()
 	give_eye_control(user, get_turf(theship))//Make the RTS eye appear over the ship
+	if(operator.client)
+		operator.client.change_view(zoom_out) //ZOOOOM ZOOOM
 
 
 /obj/machinery/computer/camera_advanced/rts_control/CreateEye()
@@ -335,8 +338,6 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	RTSeye.icon = 'icons/obj/abductor.dmi'
 	RTSeye.icon_state = "camera_target"
 	RTSeye.console = src
-	if(operator.client)
-		operator.client.change_view(zoom_out) //ZOOOOM ZOOOM
 	if(saved_fleet.len)
 		RTSeye.fleet = saved_fleet.Copy()
 		to_chat(operator, "The previous user of this console had a command group set. That group has been transferred to you.")
@@ -489,7 +490,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		saved_time = world.time
 		SEND_SOUND(console.operator, sound) //Prevents multiple things overlapping
 
-/mob/camera/aiEye/remote/rts/Move()
+/mob/camera/aiEye/remote/rts/relaymove(mob/user, direction)
 	. = ..()
 	if(tracking_target)
 		tracking_target = null
@@ -520,6 +521,10 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		qdel(SS)
 	var/obj/effect/temp_visual/trek/rallypoint/rs = new /obj/effect/temp_visual/trek/rallypoint(T)
 	to_clear += rs //prevent multiple rally point icons spamming everything
+	if(fleet.len)
+		var/list/thelist = list('StarTrek13/sound/voice/rts/construction/movingout.ogg','StarTrek13/sound/voice/rts/combat/movingout.ogg')
+		var/tsound = pick(thelist)
+		play_voice(tsound)
 	for(var/obj/structure/overmap/ship/AI/S in fleet)
 		S.rally_point = T
 		S.stored_target = null
@@ -559,6 +564,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	for(var/obj/effect/temp_visual/trek/rallypoint/SS in to_clear)
 		qdel(SS)
 	if(OM)
+		play_voice('StarTrek13/sound/voice/rts/combat/intercepting.ogg')
 		to_chat(console.operator, "Command confirmed, moving in to attack!")
 		var/obj/effect/temp_visual/trek/rallypoint/rs = new /obj/effect/temp_visual/trek/rallypoint(OM.loc)
 		to_clear += rs //prevent multiple rally point icons spamming everything
@@ -573,12 +579,40 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/thesound = pick(bleeps)
 	SEND_SOUND(console.operator,thesound)
 	var/list/modifiers = params2list(params)
+	if(istype(object, /obj/structure/overmap/rts_structure/shipyard)) //https://www.youtube.com/watch?v=53t_GEJliEo
+		if(console.faction == "starfleet")
+			var/list/options = list("miranda", "constructor", "galaxy", "sovereign", "repair")
+			for(var/option in options)
+				options[option] = image(icon = 'StarTrek13/icons/actions/rts_actions.dmi', icon_state = "[option]")
+			var/dowhat = show_radial_menu(console.operator,get_turf(object),options)
+			if(!dowhat)
+				return
+			var/obj/structure/overmap/rts_structure/shipyard/sy = object
+			sy.RTSeye = src
+			if(dowhat == "repair")
+				sy.repair()
+				return
+			sy.build(dowhat)
+
+		if(console.faction == "romulan empire")
+			var/list/options = list("constructor-rom", "birdofprey", "dderidex")
+			for(var/option in options)
+				options[option] = image(icon = 'StarTrek13/icons/actions/rts_actions.dmi', icon_state = "[option]")
+			var/dowhat = show_radial_menu(console.operator,get_turf(object),options)
+			if(!dowhat)
+				return
+			var/obj/structure/overmap/rts_structure/shipyard/sy = object
+			sy.RTSeye = src
+			sy.build(dowhat)
 	if(modifiers["middle"])
 		if(istype(object, /turf/open))
 			rally(object)
 		else
 			if(istype(object, /obj/structure/overmap)) //For now, you can't attack your own stuff. We may need to change this!
 				var/obj/structure/overmap/om = object
+				if(om.faction == console.faction)
+					play_voice('StarTrek13/sound/voice/rts/combat/notfiring.ogg')
+					return
 				fleet_attack(om)
 		return
 	if(modifiers["shift"])
@@ -588,6 +622,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				if(om in fleet)
 					fleet -= om
 					console.saved_fleet -= om
+					om.RTSeye = null
 					to_chat(console.operator, "[om] has been removed your command group")
 		else
 			var/atom/theobj = object
@@ -744,9 +779,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/building = FALSE
 	pixel_z = -48
 	pixel_w = -48
-	var/mob/camera/aiEye/remote/rts/RTSeye //used for voice
 
-/obj/structure/overmap/ship/AI/constructor/romulan
+/obj/structure/overmap/ship/AI/constructor/romulan //https://www.youtube.com/watch?v=53t_GEJliEo
 	name = "Tal'dar class construction vessel"
 	icon_state = "romulan-constructor"
 	faction = "romulan empire"
@@ -759,12 +793,13 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioninprogress.ogg')
 
 /obj/structure/overmap/ship/AI/constructor/proc/build()
+	building = FALSE
 	if(build_target)
 		var/obj/structure/overmap/built = new build_target(rally_point)
-		to_chat(RTSeye.console.operator, "Construction of [built] complete!")
-		RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
+		if(RTSeye.console && RTSeye.console.operator)
+			to_chat(RTSeye.console.operator, "Construction of [built] complete!")
+			RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
 		RTSeye = null
-		building = FALSE
 		rally_point = null
 		build_target = null
 
@@ -784,6 +819,89 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	name = "Class IV shipyard"
 	desc = "This massive structure is the birthplace of ships, simply click it while in RTS mode to access its properties."
 	icon_state = "shipyard"
+	var/mob/camera/aiEye/remote/rts/RTSeye
+	var/build_time = 100 //How long will it take to build this unit? defaults to 10 seconds
+	var/metal_cost = 0
+	var/dilithium_cost = 0 //How much is that bill for?!
+	var/repair_range = 3 //3 tiles around the shipyard for repairs? not a bad deal
+
+/obj/structure/overmap/rts_structure/shipyard/proc/build(what)
+	var/obj/structure/overmap/ship/tobuild
+	var/found = FALSE //Found a refinery to steal ore from?
+	switch(what)
+		if("miranda")
+			tobuild = /obj/structure/overmap/ship/AI/federation
+			metal_cost = 5000 //Quite cheap
+			dilithium_cost = 2
+		if("constructor")
+			tobuild = /obj/structure/overmap/ship/AI/constructor
+			metal_cost = 10000 //Pricy
+			dilithium_cost = 5
+
+		if("galaxy")
+			tobuild = /obj/structure/overmap/ship/AI/federation/galaxy
+			metal_cost = 30000 //Oof ow my bones
+			dilithium_cost = 20
+
+		if("sovereign")
+			tobuild = /obj/structure/overmap/ship/AI/federation/sovereign
+			metal_cost = 50000 //the ferrari of spaceships
+			dilithium_cost = 50
+
+		if("constructor-rom")
+			tobuild = /obj/structure/overmap/ship/AI/constructor/romulan
+			metal_cost = 5000
+			dilithium_cost = 2
+
+		if("birdofprey")
+			tobuild = /obj/structure/overmap/ship/AI/romulan/cruiser
+			metal_cost = 6000 //Quite cheap, it's also better than the miranda.
+			dilithium_cost = 5
+
+		if("dderidex")
+			tobuild = /obj/structure/overmap/ship/AI/romulan
+			metal_cost = 45000 //The staple of the romulan empire's navy
+			dilithium_cost = 20
+
+	for(var/obj/structure/overmap/rts_structure/refinery/rs in overmap_objects)
+		if(rs.faction == RTSeye.console.faction && !found)
+			if(rs.metal >= metal_cost && rs.dilithium >= dilithium_cost)
+				rs.metal -= metal_cost
+				rs.dilithium -= dilithium_cost
+				found = TRUE
+	if(!found)
+		to_chat(RTSeye.console.operator, "Insufficient resources! Ensure that you have refineries stocked up and built.")
+		return
+	RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioninprogress.ogg')
+	addtimer(CALLBACK(src, .proc/build_finish, tobuild), build_time)
+
+/obj/structure/overmap/rts_structure/shipyard/proc/build_finish(var/obj/structure/overmap/ship/what)
+	if(!what)
+		return
+	RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
+	var/obj/structure/overmap/ship/newthing = new what(get_turf(src))
+	to_chat(RTSeye.console.operator, "Construction of [newthing] complete")
+	RTSeye = null
+
+/obj/structure/overmap/rts_structure/shipyard/proc/repair()
+	to_chat(RTSeye.console.operator, "Repairs in progress, please ensure ships in need of repair remain inside the highlighted radius, or they will not be repaired.")
+	var/longasstime = build_time*2
+	addtimer(CALLBACK(src, .proc/repair_finish), longasstime)
+	for(var/turf/T in orange(src, repair_range))
+		var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal(T)
+		H.duration = 50
+		H.color = "#FF4500" //orangered
+
+/obj/structure/overmap/rts_structure/shipyard/proc/repair_finish()
+	RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/repairscomplete.ogg')
+	for(var/obj/structure/overmap/OM in orange(src, repair_range))
+		if(OM.faction == RTSeye.console.faction)
+			var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal(get_turf(OM))
+			H.color = "#00FFFF" //Cyan
+			for(var/datum/shipsystem/SS in OM.SC.systems)
+				SS.integrity = SS.max_integrity
+				SS.failed = FALSE
+			OM.health = OM.max_health
 
 /obj/structure/overmap/rts_structure/shipyard/romulan
 	name = "Class IV shipyard"
@@ -822,9 +940,11 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			metal += 50
 	if(prob(5))
 		if(dilithium < max_dilithium)
-			dilithium += 0.2
+			dilithium += 0.5
 	if(metal >= 2000)
 		prepare_transport()
+	if(dilithium >= 10)
+		prepare_transport_dilithium()
 
 /obj/structure/overmap/rts_structure/mining/proc/prepare_transport()
 	if(metal < 2000)
@@ -836,8 +956,16 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/obj/structure/overmap/ship/AI/tug/transport
 	transport = new /obj/structure/overmap/ship/AI/tug(get_turf(src))
 	transport.faction = faction
+
+/obj/structure/overmap/rts_structure/mining/proc/prepare_transport_dilithium()
+	var/obj/structure/overmap/rts_structure/refinery/RF = locate(/obj/structure/overmap/rts_structure/refinery) in get_area(src)
+	if(!RF) //No need to spawn a tug with no refinery alive.
+		return
 	if(dilithium >= 10)
 		dilithium -= 10
+		var/obj/structure/overmap/ship/AI/tug/dilithium/morecrystalisrequired
+		morecrystalisrequired = new /obj/structure/overmap/ship/AI/tug/dilithium(get_turf(src))
+		morecrystalisrequired.faction = faction
 
 /obj/structure/overmap/rts_structure/refinery
 	name = "Amazon class ore refinery"
@@ -867,6 +995,10 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	agressive = FALSE
 	pixel_z = -48
 	pixel_w = -48
+
+/obj/structure/overmap/ship/AI/tug/dilithium
+	name = "Dilithium hauler"
+	dilithium = 5
 
 /obj/structure/overmap/ship/AI/tug/Initialize()
 	. = ..()
@@ -917,14 +1049,38 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	icon_state = "destroyer"
 	max_health = 9500 //Player controlled miranda has 15000 HP
-	max_speed = 5
-	acceleration = 1
+	max_speed = 8.5
+	acceleration = 1.5
 	faction = "starfleet"
 	spawn_random = FALSE
 	damage = 900 //This should be low, as it will ALWAYS hit for this much damage
 	agressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -48
 	pixel_w = -48
+
+/obj/structure/overmap/ship/AI/federation/sovereign
+	name = "Sovereign class heavy cruiser"
+	desc = "A technologically unrivalled battlecruiser armed with a ridiculous amount of weaponry. Its sole purpose in the design phase was to combat the borg however it's fallen into more common use."
+	icon = 'StarTrek13/icons/trek/large_ships/sovreign.dmi'
+	icon_state = "sovreign"
+	warp_capable = TRUE
+	max_health = 50000
+	pixel_z = -128
+	pixel_w = -120
+	max_speed = 6
+	acceleration = 2 //These things are fucking rapid, too
+
+/obj/structure/overmap/ship/AI/federation/galaxy
+	name = "Galaxy class cruiser"
+	desc = "A massive cruiser that allows for ultra-extended voyages as the crew ship with their family members."
+	icon = 'StarTrek13/icons/trek/large_ships/galaxy.dmi'
+	icon_state = "galaxy"
+	warp_capable = TRUE
+	max_health = 28000 //real galaxy has 35K HP
+	pixel_z = -128
+	pixel_w = -120
+	max_speed = 7
+	acceleration = 1.2 //Pretty damn fast
 
 /obj/structure/overmap/ship/AI/romulan/cruiser
 	name = "Romulan bird of prey class light cruiser"

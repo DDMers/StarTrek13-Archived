@@ -334,7 +334,7 @@
 	pixel_w = -120
 
 
-/obj/structure/overmap/Initialize(timeofday)
+/obj/structure/overmap/Initialize()
 	true_name = name //We want true name to always be the same, so we can respawn things correctly
 	var/area/A = get_area(src)
 	if(inherit_name_from_area)
@@ -344,6 +344,7 @@
 	SC = new(src)
 	SC.generate_shipsystems()
 	SC.theship = src
+	SC.shields.max_health = (max_health + 2500)
 	global_ship_list += src
 	START_PROCESSING(SSobj,src)
 	linkto()

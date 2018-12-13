@@ -147,8 +147,9 @@
 /datum/shipsystem/proc/fail(var/silent = FALSE)
 	if(!failed) //captain they've disabled our warp engines (x55)
 		if(voiceline)
-			if(controller.theship.weapons && !silent)
-				controller.theship.weapons.voiceline(voiceline)
+			if(controller.theship)
+				if(controller.theship.weapons && !silent)
+					controller.theship.weapons.voiceline(voiceline)
 	failed = TRUE
 	for(var/obj/structure/shipsystem_console/T in linked_objects)
 		T.fail()

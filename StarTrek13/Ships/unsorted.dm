@@ -394,6 +394,21 @@
 	else
 		. = ..()
 
+/obj/item/storage/book/skillbook/micromanagement
+	name = "the gamer's guide to micromanagement: redux"
+	desc = "This book will tell you how to operate system overview consoles and manage thousands of operations per second whilst you control a whole fleet of ships, it seems to have come with an old computer game."
+
+/obj/item/storage/book/skillbook/micromanagement/attack_self(mob/user)
+	if(ishuman(user))
+		var/datum/skill/S = user.skills.getskill("micromanagement")
+		if(S.value >= 10)
+			to_chat(user, "You skim through the manual, but you're already an RTS god.")
+			return ..()
+		user.skills.add_skill("micromanagement", (10 - S.value))
+		to_chat(user, "After skimming through [src] you suddenly feel like you can play RTS games!")
+		qdel(src)
+	else
+		. = ..()
 
 	//Atmospherics
 /obj/item/clothing/head/helmet/space/hardsuit/trek

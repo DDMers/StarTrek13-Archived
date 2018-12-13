@@ -35,6 +35,13 @@ GLOBAL_LIST_INIT(trek_battle_music, world.file2list("strings/trekmusic_battle.tx
 		if(danger)
 			web_sound_input = "[pick(GLOB.trek_battle_music)]"
 			playing_danger = TRUE
+			for(var/obj/structure/overmap/SS in get_area(src))
+				if(SS && SS.linked_ship)
+					var/obj/machinery/computer/camera_advanced/rts_control/rts = locate(/obj/machinery/computer/camera_advanced/rts_control) in(SS.linked_ship)
+					if(rts.RTSeye && rts.operator)
+						SEND_SOUND(rts.operator, 'StarTrek13/sound/voice/rts/beeps/smallredalert.ogg')
+						to_chat(rts.operator, "Ships engaging in combat in [get_area(src)]!")
+						rts.RTSeye.play_voice('StarTrek13/sound/voice/rts/combat/engaged.ogg')
 		var/ytdl = CONFIG_GET(string/invoke_youtubedl)
 		if(!ytdl)
 			to_chat(src, "<span class='boldwarning'>Youtube-dl was not configured, action unavailable</span>") //Check config.txt for the INVOKE_YOUTUBEDL value

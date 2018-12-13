@@ -110,3 +110,6 @@
 
 /datum/skill/piloting
 	name = "piloting"
+
+/datum/skill/micromanagement
+	name = "micromanagement"
