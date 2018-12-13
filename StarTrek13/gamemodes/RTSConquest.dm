@@ -651,7 +651,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				for(var/mob/O in GLOB.dead_mob_list)
 					to_chat(O, "<font size='2' color='#FFD700'><I>Gold-band transmission:</I> <b>[console.operator] -> [om]</b>, [html_encode(message)]</span>")
 		return
-	var/obj/structure/overmap/away/station/system_outpost/S = locate(/obj/structure/overmap/away/station/system_outpost) in get_area(src)
+	var/obj/structure/overmap/away/station/system_outpost/rts/S = locate(/obj/structure/overmap/away/station/system_outpost/rts) in get_area(src)
 	if(!S || S.faction != console.faction)
 		to_chat(console.operator, "<span_class='warning'>You must capture [S] by beaming an away team down onto it before you can build here!</span>")
 		return FALSE
@@ -687,8 +687,12 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/dowhat = show_radial_menu(console.operator,T,options)
 	if(!dowhat)
 		return
+	var/obj/structure/overmap/away/station/system_outpost/rts/S = locate(/obj/structure/overmap/away/station/system_outpost/rts) in(get_area(src))
+	if(S.structures >= S.structure_limit)
+		to_chat(console.operator, "There are too many structures in this system, we should expand our operations to a new system")
+		return
 	for(var/obj/structure/overmap/ship/AI/constructor/CS in builders)
-		if(!CS.build_target && !CS.building)
+		if(!CS.build_target && !CS.building && !CS.build_turret && !CS.build_turret_rom)
 			var/whattomake = null
 			var/cost_metal = 0 //How much does it cost to make what we want?
 			var/cost_dilithium = 0
@@ -722,13 +726,19 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 						cost_dilithium = 0 //add me later!
 				if("turret")
 					if(console.faction == "starfleet")
-						whattomake = /obj/structure/overmap/ship/AI/turret
+						CS.build_turret = TRUE
 						cost_metal = 0
 						cost_dilithium = 0 //add me later!
+						CS.rally_point = T
+						CS.RTSeye = src
+						return
 					if(console.faction == "romulan empire")
-						whattomake = /obj/structure/overmap/ship/AI/turret/romulan
+						CS.build_turret_rom = TRUE
 						cost_metal = 0
 						cost_dilithium = 0 //add me later!
+						CS.rally_point = T //fix this shit reee
+						CS.RTSeye = src
+						return
 				if("comms")
 					if(console.faction == "starfleet")
 						whattomake = /obj/structure/overmap/rts_structure/comms
@@ -779,6 +789,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/building = FALSE
 	pixel_z = -48
 	pixel_w = -48
+	var/build_turret = FALSE //yeah turrets are buggy alright?
+	var/build_turret_rom = FALSE
 
 /obj/structure/overmap/ship/AI/constructor/romulan //https://www.youtube.com/watch?v=53t_GEJliEo
 	name = "Tal'dar class construction vessel"
@@ -786,19 +798,48 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "romulan empire"
 
 /obj/structure/overmap/ship/AI/constructor/on_reach_rally()
+	var/obj/structure/overmap/away/station/system_outpost/rts/S = locate(/obj/structure/overmap/away/station/system_outpost/rts) in(get_area(src))
+	if(S.structures >= S.structure_limit)
+		rally_point = null
+		building = FALSE
+		build_target = null
+		return //No more room
 	if(build_target && !building)
 		building = TRUE
 		new /obj/effect/temp_visual/swarmer/disintegration(rally_point)
 		addtimer(CALLBACK(src, .proc/build), build_time)
-		RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioninprogress.ogg')
+		if(RTSeye)
+			RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioninprogress.ogg')
+	if(build_turret && !building)
+		if(RTSeye.console && RTSeye.console.operator)
+			to_chat(RTSeye.console.operator, "Construction of a turret complete!")
+			RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
+			new /obj/structure/overmap/ship/AI/turret(get_turf(src))
+			build_turret = FALSE
+			build_turret_rom = FALSE
+			rally_point = null
+	if(build_turret_rom && !building)
+		if(RTSeye.console && RTSeye.console.operator)
+			to_chat(RTSeye.console.operator, "Construction of a turret complete!")
+			RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
+			new /obj/structure/overmap/ship/AI/turret/romulan(get_turf(src))
+			build_turret_rom = FALSE
+			build_turret = FALSE
+			rally_point = null
 
 /obj/structure/overmap/ship/AI/constructor/proc/build()
+	var/obj/structure/overmap/away/station/system_outpost/rts/S = locate(/obj/structure/overmap/away/station/system_outpost/rts) in(get_area(src))
+	if(S.structures >= S.structure_limit)
+		return //No more room
 	if(build_target)
 		var/obj/structure/overmap/built = new build_target(rally_point)
 		if(RTSeye)
 			if(RTSeye.console && RTSeye.console.operator)
 				to_chat(RTSeye.console.operator, "Construction of [built] complete!")
 				RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
+		var/obj/structure/overmap/away/station/system_outpost/rts/SS = locate(/obj/structure/overmap/away/station/system_outpost/rts) in(get_area(src))
+		if(SS)
+			SS.structures ++ //Add a structure because we're a structure.
 		RTSeye = null
 		rally_point = null
 		build_target = null
@@ -889,7 +930,9 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		return
 	RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
 	var/obj/structure/overmap/ship/newthing = new what(get_turf(src))
-	to_chat(RTSeye.console.operator, "Construction of [newthing] complete")
+	if(RTSeye.console)
+		if(RTSeye.console.operator)
+			to_chat(RTSeye.console.operator, "Construction of [newthing] complete")
 	RTSeye = null
 
 /obj/structure/overmap/rts_structure/shipyard/proc/repair()

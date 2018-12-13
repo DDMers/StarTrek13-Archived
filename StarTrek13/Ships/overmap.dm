@@ -683,7 +683,9 @@
 			agressor = null
 	check_overlays()
 	counter ++
-	damage = SC.weapons.damage
+	if(SC)
+		if(SC.weapons)
+			damage = SC.weapons.damage
 	if(nav_target)
 		navigate()
 	if(can_move)

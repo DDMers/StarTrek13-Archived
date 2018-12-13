@@ -6,6 +6,8 @@
 	max_health = 100000000
 	var/datum/faction/owner
 	faction = "starfleet"
+	var/structures = 0
+	var/structure_limit = 6
 
 /obj/structure/overmap/away/station/system_outpost/process()
 	. = ..()
