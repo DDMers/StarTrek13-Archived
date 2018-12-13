@@ -47,6 +47,8 @@
 
 /obj/structure/overmap/proc/check_overlays()
 	cut_overlays()
+	if(!SC)
+		return
 	engines.ship = src
 	engines.system = SC.engines
 	engines.icon = icon

@@ -51,11 +51,13 @@
 			var/sound/thesound = pick(ship_damage_sounds)
 			SEND_SOUND(L, thesound)
 		if(prob(55))
-			weapons.explode_effect()
-			weapons.voiceline("hull")
+			if(weapons)
+				weapons.explode_effect()
+				weapons.voiceline("hull")
 		else //seperate gate to avoid hull and shields fighting over talk time
-			weapons.explode_effect()
-			weapons.voiceline("shieldshp")
+			if(weapons)
+				weapons.explode_effect()
+				weapons.voiceline("shieldshp")
 		if(!shields_active())
 			var/maths = 5
 			if(agressor)

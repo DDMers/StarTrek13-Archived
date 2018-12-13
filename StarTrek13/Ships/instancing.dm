@@ -41,7 +41,8 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 		message_admins("a [true_name] class ship has been destroyed, it will respawn in about 3 mins")
 		addtimer(CALLBACK(src, .proc/respawn), 1200)
 	else
-		message_admins("a [true_name] class ship has been destroyed, respawn is not enabled. To force-respawn it, call respawn on this wreck with atom proccall")
+		return
+	//	message_admins("a [true_name] class ship has been destroyed, respawn is not enabled. To force-respawn it, call respawn on this wreck with atom proccall")
 
 /obj/structure/overmap/shipwreck/proc/respawn() //Time's up to ditch the wreck, respawn time!
 	if(!respawning)

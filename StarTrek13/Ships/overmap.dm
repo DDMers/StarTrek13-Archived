@@ -338,7 +338,8 @@
 	true_name = name //We want true name to always be the same, so we can respawn things correctly
 	var/area/A = get_area(src)
 	if(inherit_name_from_area)
-		name = A.name
+		if(A)
+			name = A.name
 	linked_ship = A
 	health = max_health
 	SC = new(src)

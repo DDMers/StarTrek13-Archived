@@ -593,9 +593,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				sy.repair()
 				return
 			sy.build(dowhat)
-
 		if(console.faction == "romulan empire")
-			var/list/options = list("constructor-rom", "birdofprey", "dderidex")
+			var/list/options = list("constructor-rom", "birdofprey", "dderidex", "repair")
 			for(var/option in options)
 				options[option] = image(icon = 'StarTrek13/icons/actions/rts_actions.dmi', icon_state = "[option]")
 			var/dowhat = show_radial_menu(console.operator,get_turf(object),options)
@@ -603,6 +602,9 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				return
 			var/obj/structure/overmap/rts_structure/shipyard/sy = object
 			sy.RTSeye = src
+			if(dowhat == "repair")
+				sy.repair()
+				return
 			sy.build(dowhat)
 	if(modifiers["middle"])
 		if(istype(object, /turf/open))
@@ -692,7 +694,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		to_chat(console.operator, "There are too many structures in this system, we should expand our operations to a new system")
 		return
 	for(var/obj/structure/overmap/ship/AI/constructor/CS in builders)
-		if(!CS.build_target && !CS.building && !CS.build_turret && !CS.build_turret_rom)
+		if(!CS.build_target && !CS.building)
 			var/whattomake = null
 			var/cost_metal = 0 //How much does it cost to make what we want?
 			var/cost_dilithium = 0
@@ -726,18 +728,12 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 						cost_dilithium = 0 //add me later!
 				if("turret")
 					if(console.faction == "starfleet")
-						CS.build_turret = TRUE
-						cost_metal = 0
-						cost_dilithium = 0 //add me later!
-						CS.rally_point = T
-						CS.RTSeye = src
+						play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
+						new /obj/structure/overmap/ship/AI/turret/romulan(T)
 						return
 					if(console.faction == "romulan empire")
-						CS.build_turret_rom = TRUE
-						cost_metal = 0
-						cost_dilithium = 0 //add me later!
-						CS.rally_point = T //fix this shit reee
-						CS.RTSeye = src
+						play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
+						new /obj/structure/overmap/ship/AI/turret/romulan(T)
 						return
 				if("comms")
 					if(console.faction == "starfleet")
@@ -789,8 +785,6 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/building = FALSE
 	pixel_z = -48
 	pixel_w = -48
-	var/build_turret = FALSE //yeah turrets are buggy alright?
-	var/build_turret_rom = FALSE
 
 /obj/structure/overmap/ship/AI/constructor/romulan //https://www.youtube.com/watch?v=53t_GEJliEo
 	name = "Tal'dar class construction vessel"
@@ -810,22 +804,6 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		addtimer(CALLBACK(src, .proc/build), build_time)
 		if(RTSeye)
 			RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioninprogress.ogg')
-	if(build_turret && !building)
-		if(RTSeye.console && RTSeye.console.operator)
-			to_chat(RTSeye.console.operator, "Construction of a turret complete!")
-			RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
-			new /obj/structure/overmap/ship/AI/turret(get_turf(src))
-			build_turret = FALSE
-			build_turret_rom = FALSE
-			rally_point = null
-	if(build_turret_rom && !building)
-		if(RTSeye.console && RTSeye.console.operator)
-			to_chat(RTSeye.console.operator, "Construction of a turret complete!")
-			RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
-			new /obj/structure/overmap/ship/AI/turret/romulan(get_turf(src))
-			build_turret_rom = FALSE
-			build_turret = FALSE
-			rally_point = null
 
 /obj/structure/overmap/ship/AI/constructor/proc/build()
 	var/obj/structure/overmap/away/station/system_outpost/rts/S = locate(/obj/structure/overmap/away/station/system_outpost/rts) in(get_area(src))
@@ -1007,7 +985,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	metal -= 2000 //take some metal and let's head off
 	var/obj/structure/overmap/ship/AI/tug/transport
 	transport = new /obj/structure/overmap/ship/AI/tug(get_turf(src))
-	transport.faction = faction
+	if(transport)
+		transport.faction = faction
 
 /obj/structure/overmap/rts_structure/mining/proc/prepare_transport_dilithium()
 	var/obj/structure/overmap/rts_structure/refinery/RF = locate(/obj/structure/overmap/rts_structure/refinery) in get_area(src)
@@ -1015,9 +994,10 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		return
 	if(dilithium >= 10)
 		dilithium -= 10
-		var/obj/structure/overmap/ship/AI/tug/dilithium/morecrystalisrequired
+		var/obj/structure/overmap/ship/AI/tug/dilithium/morecrystalisrequired = null
 		morecrystalisrequired = new /obj/structure/overmap/ship/AI/tug/dilithium(get_turf(src))
-		morecrystalisrequired.faction = faction
+		if(morecrystalisrequired)
+			morecrystalisrequired.faction = faction
 
 /obj/structure/overmap/rts_structure/refinery
 	name = "Amazon class ore refinery"

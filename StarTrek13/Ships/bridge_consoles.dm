@@ -509,6 +509,8 @@ Reconnect arrays
 		var/obj/structure/fluff/helm/desk/tactical/W = locate(/obj/structure/fluff/helm/desk/tactical) in(get_area(src))
 		our_ship = W.theship
 		if(our_ship)
+			if(!our_ship.SC)
+				return
 			for(var/datum/shipsystem/S in our_ship.SC.systems)
 				if(!S.relays.len)
 					S.relays += src
