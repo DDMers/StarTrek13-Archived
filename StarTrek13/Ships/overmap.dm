@@ -95,6 +95,8 @@
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //no throwing acid on spaceships!
 	var/turf/target_turf //If we're firin' photons into a floor to aim ahead of the ship's path
 	var/datum/gas_mixture/cabin_air
+	var/random_name = TRUE
+	var/inherit_name_from_area = TRUE
 
 /obj/structure/overmap/proc/add_cabin()
 	cabin_air = new
@@ -335,7 +337,8 @@
 /obj/structure/overmap/Initialize(timeofday)
 	true_name = name //We want true name to always be the same, so we can respawn things correctly
 	var/area/A = get_area(src)
-	name = A.name
+	if(inherit_name_from_area)
+		name = A.name
 	linked_ship = A
 	health = max_health
 	SC = new(src)
@@ -603,7 +606,8 @@
 			apply_damage(new_amount) //And shake up the interior of the ship.
 			shake_camera(pilot, 1, 3)
 			var/sound/thesound = pick(ship_damage_sounds) //Plays a BANG to the pilot.
-			SEND_SOUND(pilot, thesound)
+		//	SEND_SOUND(pilot, thesound)
+			playsound(src,thesound,100,1)
 	else
 		Destroy(1)
 
@@ -752,14 +756,16 @@
 				temp += T
 			var/turf/theturf = pick(temp)
 			forceMove(theturf)
-			can_move = 0 //Don't want them moving around warp space.
-			shake_camera(pilot, 1, 10)
-			SEND_SOUND(pilot, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
-			to_chat(pilot, "The ship has entered warp space")
+			if(pilot)
+				shake_camera(pilot, 1, 10)
+				SEND_SOUND(pilot, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
+				to_chat(pilot, "The ship has entered warp space")
 			angle = 180
 			EditAngle()
 		//	setDir(4)
 			for(var/mob/L in linked_ship)
+				if(!L)
+					continue
 				shake_camera(L, 1, 10)
 				SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
 				to_chat(L, "The deck plates shudder as the ship builds up immense speed.")
@@ -768,11 +774,15 @@
 			for(var/obj/structure/overmap/ship/AI/A in world)
 				if(A.stored_target == src)
 					A.stored_target = null
+				if(A.force_target == src)
+					A.force_target = null
 		else
-			to_chat(pilot, "Warp engines are recharging, or have been damaged.")
-			return
+			if(pilot)
+				to_chat(pilot, "Warp engines are recharging, or have been damaged.")
+				return
 	else
-		to_chat(pilot,"Subspace distortions prevent warping at this time.")
+		if(pilot)
+			to_chat(pilot,"Subspace distortions prevent warping at this time.")
 
 
 /obj/structure/overmap/proc/do_warp_thing(var/fuckyou, var/byond)

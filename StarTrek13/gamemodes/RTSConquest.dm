@@ -5,13 +5,13 @@ One player per faction becomes an admiral, though captains can use this console 
 This gives you an RTS like view (THINK: STELLARIS, red alert etc.) where you can:
 
 Build stations:
-Stations allow you to build other structures in a 10 tile radius of the station, they cost a lot initially but are VITAL. You will get a maximum of about 5 stations per game.
-Refineries generate metal, which is used for starships and can tip the balance of power
-Mining outposts generate dilithium which is a pre requisite for construction starships
+Mining outposts generate metal and dilithium, both are needed to build starships
+Refineries take shipments from mining outposts, converting their raw materials into usable materials
 
-Repair bays, which heal ships at the cost of a LOT of metal
+TO BUILD ANYTHING IN A SYSTEM: You must capture the system outpost. If you capture an enemy system outpost, their structures become yours
+
 Defense turrets which can be set to attack anything that isnt your faction, or just retaliate.
-Shipyards, which allow you to build new ships
+Shipyards, which allow you to build new ships and repair pre-existing ones
 Communications outposts, which clear fog of war in an area (darkness, theyre a bigass light source)
 
 Command ships:
@@ -53,17 +53,230 @@ FOG OF WAR:
 We're going to make the overmap DARK
 All ships will have LIGHTS
 All overmaps in general will have LIGHTS
+When you place a station in a system, upon entering that system you get NIGHT VISION and can see everything. If you go around enemy systems, you'll just see what your ships are lighting up (you cant enter without at least one ship in there)
 
 This way, to see past fog of war, you must build structures
 You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send your ships in to clear them first
 
 */
 
+//SHIT TO FUCKING ADD://
+//STOP THROWING PEOPLE OFF THE CONSOLE OH GOD//
+//A WAY TO FIND FUCKING SHIPS//
+//TOGGLEABLE ZOOMMMMMMM ZOOOOOOOOOOOOOOOOOOOOOM//
+
+
 //Let's begin!//
+
+/datum/game_mode/conquest/send_intercept() //Overriding the "security level elevated thing" because we don't really use it :)
+	priority_announce("Attention all crews: Due to increased pirate activity all claims on neutral zone systems are now void, factions may now claim these systems on a first come, first served basis. Any future violations after claiming are an act of war.")
+	to_chat(world,"<span class='warning'>-The neutral zone is now unclaimed, it is to be claimed on a first come-first served basis. If you violate another faction's territory, be prepared to pay the price!</span>")
+	return "By the order of the galactic empire, all available ships will mount an assault to break rebel supply lines. Capture each rebel base and move on to the next, failure will not be tolerated. Your captain has been given a set of documents of the utmost importance: see that these reach their destination safely."
+
+
+//Federation space
+
+/obj/structure/overmap/away/station/system_outpost/rts
+	name = "A starbase"
+	spawn_name = "earth_spawn"
+	spawn_random = TRUE
+	faction = "starfleet"
+
+/obj/effect/landmark/ship_spawner
+	name = "earth_spawn"
+
+/area/overmap/rts
+	name = "Sector 001 (Earth)"
+
+/area/ship/earth
+	name = "Spacedock"
+
+/area/overmap/rts/fed
+	name = "Denobula"
+
+/area/ship/denobula
+	name = "Starbase 229"
+
+/obj/structure/overmap/away/station/system_outpost/rts/denobula
+	spawn_name = "denobula_spawn"
+
+/obj/effect/landmark/ship_spawner/denobula
+	name = "denobula_spawn"
+
+/area/overmap/rts/fed/trill
+	name = "Trill"
+
+/area/ship/trill
+	name = "Starbase 235"
+
+/obj/structure/overmap/away/station/system_outpost/rts/trill
+	spawn_name = "trill_spawn"
+
+/obj/effect/landmark/ship_spawner/trill
+	name = "trill_spawn"
+
+/area/overmap/rts/fed/betazed
+	name = "Betazed"
+
+/area/ship/betazed
+	name = "Starbase 449"
+
+/obj/structure/overmap/away/station/system_outpost/rts/betazed
+	spawn_name = "betazed_spawn"
+
+/obj/effect/landmark/ship_spawner/betazed
+	name = "betazed_spawn"
+
+/area/overmap/rts/fed/risa
+	name = "Risa"
+
+/area/ship/risa
+	name = "Starbase 759"
+
+/obj/structure/overmap/away/station/system_outpost/rts/risa
+	spawn_name = "risa_spawn"
+
+/obj/effect/landmark/ship_spawner/risa
+	name = "risa_spawn"
+
+//Neutral zone
+/area/overmap/rts/neutral
+	name = "Galorndon Core (neutral zone)"
+	desc = "A system in the ever-contested neutral zone."
+
+/area/ship/neutral
+	name = "Star outpost 399"
+
+/obj/structure/overmap/away/station/system_outpost/rts/galorndon
+	spawn_name = "galorndon_spawn"
+
+/obj/effect/landmark/ship_spawner/galorndon
+	name = "galorndon_spawn"
+
+/area/overmap/rts/neutral/jolanisar
+	name = "Jolanisar (neutral zone)"
+
+/area/ship/jolanisar
+	name = "Star outpost 449"
+
+/obj/structure/overmap/away/station/system_outpost/rts/jolanisar
+	spawn_name = "jolanisar_spawn"
+
+/obj/effect/landmark/ship_spawner/jolanisar
+	name = "jolanisar_spawn"
+
+/area/overmap/rts/neutral/alasayan
+	name = "Al'Asayan (neutral zone)"
+
+/area/ship/alasayan
+	name = "Star outpost 250"
+
+/obj/structure/overmap/away/station/system_outpost/rts/alasayan
+	spawn_name = "alasayan_spawn"
+
+/obj/effect/landmark/ship_spawner/alasayan
+	name = "alasayan_spawn"
+
+/area/overmap/rts/neutral/aurillac
+	name = "Aurillac (neutral zone)"
+
+/area/ship/aurillac
+	name = "Star outpost 150"
+
+/obj/structure/overmap/away/station/system_outpost/rts/aurillac
+	spawn_name = "aurillac_spawn"
+
+/obj/effect/landmark/ship_spawner/aurillac
+	name = "aurillac_spawn"
+
+//Romulan
+/area/overmap/rts/romulan
+	name = "Romulus"
+
+/area/ship/romulus
+	name = "Star fortress 'praetor'"
+
+/obj/structure/overmap/away/station/system_outpost/rts/romulus
+	spawn_name = "romulus_spawn"
+	faction = "romulan empire"
+	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
+	icon_state = "romstarbase"
+
+/obj/effect/landmark/ship_spawner/romulus
+	name = "romulus_spawn"
+
+/area/overmap/rts/romulan/devron
+	name = "Devron"
+
+/area/ship/devron
+	name = "Star outpost 'imperator'"
+
+/obj/structure/overmap/away/station/system_outpost/rts/devron
+	spawn_name = "devron_spawn"
+	faction = "romulan empire"
+	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
+	icon_state = "romstarbase"
+
+/obj/effect/landmark/ship_spawner/devron
+	name = "devron_spawn"
+
+/area/overmap/rts/romulan/talon
+	name = "Talon"
+
+/area/ship/talon
+	name = "Star outpost 'talon'"
+
+/obj/structure/overmap/away/station/system_outpost/rts/talon
+	spawn_name = "talon_spawn"
+	faction = "romulan empire"
+	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
+	icon_state = "romstarbase"
+
+/obj/effect/landmark/ship_spawner/talon
+	name = "talon_spawn"
+
+/area/overmap/rts/romulan/pretorian
+	name = "Pretorian"
+
+/area/ship/pretorian
+	name = "Star outpost 'victory'"
+
+/obj/structure/overmap/away/station/system_outpost/rts/pretorian
+	spawn_name = "pretorian_spawn"
+	faction = "romulan empire"
+	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
+	icon_state = "romstarbase"
+
+/obj/effect/landmark/ship_spawner/pretorian
+	name = "pretorian_spawn"
+
+/area/overmap/rts/romulan/minos
+	name = "Minos Tureth"
+
+/area/ship/minos
+	name = "Observation post 'eagle'"
+
+/obj/structure/overmap/away/station/system_outpost/rts/minos
+	spawn_name = "minos_spawn"
+	faction = "romulan empire"
+	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
+	icon_state = "romstarbase"
+
+/obj/effect/landmark/ship_spawner/minos
+	name = "minos_spawn"
+
+
+//Borg
+/area/overmap/rts/borg
+	name = "Spatial component 543459"
+
+/area/ship/borg_rts
+	name = "Unimatrix 141" //We aren't ready for the borg...yet.
 
 //The most important of all...the RTS eye//
 /obj/machinery/computer/camera_advanced/rts_control
-	name = "transporter control station"
+	name = "system analysis module"
+	desc = "Allows direct interfacing with the computer systems of starships, granting its user direct control over many ships."
 	icon = 'StarTrek13/icons/trek/star_trek.dmi'
 	icon_state = "helm"
 	dir = 4
@@ -74,10 +287,25 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	can_be_unanchored = TRUE
 	var/datum/action/innate/jump_area/area_action = new
 	var/datum/action/innate/rally/rally_action = new
+	var/datum/action/innate/jumptoship/jumptoship_action = new
+	var/datum/action/innate/fleet_warp/warp_action = new
 	var/obj/structure/overmap/theship
 	var/mob/living/carbon/operator
 	var/mob/camera/aiEye/remote/rts/RTSeye
 	var/faction = "starfleet" //Which ships are we allowed to control? the operator does NOT change this! so you can sabotage enemy bases!
+	var/list/saved_fleet = list() //save fleet when you re-use the cam
+	var/zoom_out = 15
+
+/obj/machinery/computer/camera_advanced/rts_control/Initialize()
+	. = ..()
+	START_PROCESSING(SSmachines,src)
+
+
+/obj/machinery/computer/camera_advanced/rts_control/process()
+	. = ..()
+	if(RTSeye)
+		if(RTSeye.tracking_target)
+			RTSeye.forceMove(get_turf(RTSeye.tracking_target))
 
 /obj/machinery/computer/camera_advanced/rts_control/romulan
 	faction = "romulan empire"
@@ -107,17 +335,22 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	RTSeye.icon = 'icons/obj/abductor.dmi'
 	RTSeye.icon_state = "camera_target"
 	RTSeye.console = src
+	if(operator.client)
+		operator.client.change_view(zoom_out) //ZOOOOM ZOOOM
+	if(saved_fleet.len)
+		RTSeye.fleet = saved_fleet.Copy()
+		to_chat(operator, "The previous user of this console had a command group set. That group has been transferred to you.")
 
 /obj/machinery/computer/camera_advanced/rts_control/give_eye_control(mob/living/carbon/user, var/turf/TT)
 	if(user == operator)
 		GrantActions(user)
 		current_user = user
 		RTSeye.eye_user = user
-		RTSeye.name = "Camera Eye ([user.name])"
+		RTSeye.name = "RTS controller ([user.name])"
 		user.remote_control = RTSeye
 		user.reset_perspective(RTSeye)
 		RTSeye.forceMove(TT)
-		user.sight = 60 //see through walls
+		//user.sight = 60 //see through walls
 	else
 		to_chat(user, "This is already in use!")
 
@@ -131,6 +364,11 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	if(user.client)
 		user.reset_perspective(null)
 		RTSeye.RemoveImages()
+		user.client.change_view(CONFIG_GET(string/default_view))
+		user.client.widescreen = FALSE //So they get widescreen mode back after we dick with their view
+	if(RTSeye.fleet.len)
+		saved_fleet = RTSeye.fleet.Copy()
+		to_chat(operator, "Command group saved")
 	RTSeye.eye_user = null
 	user.remote_control = null
 	current_user = null
@@ -149,6 +387,16 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		rally_action.target = user
 		rally_action.Grant(user)
 		actions += rally_action
+	if(jumptoship_action)
+		jumptoship_action.RTSeye = RTSeye
+		jumptoship_action.target = user
+		jumptoship_action.Grant(user)
+		actions += jumptoship_action
+	if(warp_action)
+		warp_action.RTSeye = RTSeye
+		warp_action.target = user
+		warp_action.Grant(user)
+		actions += warp_action
 
 /obj/machinery/computer/camera_advanced/rts_control/proc/RemoveActions(mob/living/carbon/user)
 	if(off_action)
@@ -158,6 +406,14 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		rally_action.Remove(user)
 		rally_action.RTSeye = null
 		rally_action.target = null
+	if(jumptoship_action)
+		jumptoship_action.Remove(user)
+		jumptoship_action.RTSeye = null
+		jumptoship_action.target = null
+	if(warp_action)
+		warp_action.Remove(user)
+		warp_action.RTSeye = null
+		warp_action.target = null
 
 //ACTIONS!//
 
@@ -169,6 +425,24 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 
 /datum/action/innate/rally/Activate()
 	RTSeye.rally(RTSeye.loc) //Rally the selected fleet to this location
+
+/datum/action/innate/fleet_warp
+	name = "Fleet warp"
+	icon_icon = 'StarTrek13/icons/actions/rts_actions.dmi'
+	button_icon_state = "warp"
+	var/mob/camera/aiEye/remote/rts/RTSeye //Set this!
+
+/datum/action/innate/fleet_warp/Activate()
+	RTSeye.fleet_warp() //Rally the selected fleet to this location
+
+/datum/action/innate/jumptoship
+	name = "Jump to ship"
+	icon_icon = 'StarTrek13/icons/actions/rts_actions.dmi'
+	button_icon_state = "jumptoship"
+	var/mob/camera/aiEye/remote/rts/RTSeye //Set this!
+
+/datum/action/innate/jumptoship/Activate()
+	RTSeye.jump() //Rally the selected fleet to this location
 
 //END ACTIONS!//
 
@@ -199,77 +473,485 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	name = "RTS camera eye"
 	var/list/fleet = list()
 	var/obj/machinery/computer/camera_advanced/rts_control/console
+	var/obj/structure/overmap/tracking_target
+	var/list/to_clear = list() //list of rally point icons we need to clear up
+	var/voice_cooldown = 10 //Small voice cooldown
+	var/saved_time = 0
+
+/mob/camera/aiEye/remote/rts/proc/play_voice(sound)
+	if(!sound)
+		return
+	if(!console)
+		return
+	if(!console.operator)
+		return
+	if(world.time >= saved_time + voice_cooldown)
+		saved_time = world.time
+		SEND_SOUND(console.operator, sound) //Prevents multiple things overlapping
+
+/mob/camera/aiEye/remote/rts/Move()
+	. = ..()
+	if(tracking_target)
+		tracking_target = null
+
+/mob/camera/aiEye/remote/rts/proc/jump() //Jump to any overmap ship in this sector
+	if(tracking_target)
+		tracking_target = null
+	var/A
+	var/list/theships = list() //We need a special one for jumping to command groups
+	for(var/obj/structure/overmap/O in overmap_objects)
+		if(O.faction)
+			if(O.faction == console.faction)
+				theships += O
+	if(!theships.len)
+		return
+	A = input(console.operator,"What ship shall we track?", "Ship navigation", A) as null|anything in theships//overmap_objects
+	if(!A)
+		return
+	var/obj/structure/overmap/O = A
+	forceMove(O.loc)
+	tracking_target = O
+	to_chat(console.operator, "Now following [O], use this button again to cancel tracking")
 
 /mob/camera/aiEye/remote/rts/proc/rally(turf/T)
 	if(!T)
 		return
-	new /obj/effect/temp_visual/trek/shieldhit(T.loc)
+	for(var/obj/effect/temp_visual/trek/rallypoint/SS in to_clear)
+		qdel(SS)
+	var/obj/effect/temp_visual/trek/rallypoint/rs = new /obj/effect/temp_visual/trek/rallypoint(T)
+	to_clear += rs //prevent multiple rally point icons spamming everything
 	for(var/obj/structure/overmap/ship/AI/S in fleet)
 		S.rally_point = T
+		S.stored_target = null
+		S.force_target = null
+		S.agressive = FALSE
+
+/mob/camera/aiEye/remote/rts/proc/fleet_warp()
+	if(fleet.len >= 1)
+		var/list/beacon = list()
+		for(var/obj/effect/landmark/warp_beacon/wb in warp_beacons)
+			if(wb.z && !wb.warp_restricted)
+				beacon += wb.name
+		beacon += "cancel"
+		if(!beacon.len)
+			to_chat(console.operator, "Unable to fleet warp: No available warp points.")
+		var/A = input(console.operator,"Warp where?", "Fleet warp", null) as anything in beacon
+		if(!A || A == "cancel")
+			return
+		var/obj/effect/landmark/warp_beacon/B
+		for(var/obj/effect/landmark/warp_beacon/ww in warp_beacons)
+			if(ww.name == A)
+				B = ww
+		if(B)
+			to_chat(console.operator, "Confirmed commander, preparing to warp")
+			for(var/obj/structure/overmap/ship/AI/S in fleet)
+				S.do_warp(B, B.distance)
+				S.stored_target = null
+				S.force_target = null
+				S.rally_point = null
+				S.agressive = FALSE
+		return
 
 /mob/camera/aiEye/remote/rts/proc/fleet_attack(obj/structure/overmap/OM)
 	if(!OM)
 		return
 	//if(OM.faction != console.faction) RE-ADD ME WHEN WE'RE DONE TESTING FOR THE LOVE OF ALL THAT IS HOLY JESUSUUUSUSUDUADJASKXMJNDKMASDKMAN
+	for(var/obj/effect/temp_visual/trek/rallypoint/SS in to_clear)
+		qdel(SS)
 	if(OM)
 		to_chat(console.operator, "Command confirmed, moving in to attack!")
-		new /obj/effect/temp_visual/trek/shieldhit(OM.loc)
+		var/obj/effect/temp_visual/trek/rallypoint/rs = new /obj/effect/temp_visual/trek/rallypoint(OM.loc)
+		to_clear += rs //prevent multiple rally point icons spamming everything
 		for(var/obj/structure/overmap/ship/AI/S in fleet)
 			S.force_target = OM
 			S.rally_point = null
 			S.stored_target = null
-			message_admins("DEBUG! [S] is now hunting [OM]")
+			S.agressive = TRUE
 
 /mob/camera/aiEye/remote/rts/proc/onMouseDown(object, location, params)
+	var/bleeps = list('StarTrek13/sound/voice/rts/beeps/beep.ogg','StarTrek13/sound/voice/rts/beeps/beep2.ogg','StarTrek13/sound/voice/rts/beeps/beep3.ogg')
+	var/thesound = pick(bleeps)
+	SEND_SOUND(console.operator,thesound)
 	var/list/modifiers = params2list(params)
-	to_chat(console.operator, "click")
 	if(modifiers["middle"])
-		to_chat(console.operator, "middle-click")
 		if(istype(object, /turf/open))
 			rally(object)
 		else
 			if(istype(object, /obj/structure/overmap)) //For now, you can't attack your own stuff. We may need to change this!
 				var/obj/structure/overmap/om = object
 				fleet_attack(om)
+		return
 	if(modifiers["shift"])
 		if(istype(object, /obj/structure/overmap/ship/AI))
 			var/obj/structure/overmap/ship/AI/om = object
 			if(om.faction == console.faction)
 				if(om in fleet)
 					fleet -= om
+					console.saved_fleet -= om
 					to_chat(console.operator, "[om] has been removed your command group")
+		else
+			var/atom/theobj = object
+			theobj.examine(console.operator)
+		return
 	if(modifiers["ctrl"])
 		if(istype(object, /obj/structure/overmap/ship/AI))
 			var/obj/structure/overmap/ship/AI/om = object
 			if(om.faction == console.faction)
 				fleet += om
+				console.saved_fleet += om
 				to_chat(console.operator, "[om] has been added to your command group")
+				play_voice('StarTrek13/sound/voice/rts/construction/yescommander.ogg')
+		return
 	if(modifiers["alt"])
 		if(istype(object, /obj/structure/overmap))
-			return //ADD COMMS CODE HERE WEEE
-		//	var/obj/structure/overmap/om = object
+			var/obj/structure/overmap/om = object
+			var/message = stripped_input(console.operator,"Gold-channel frequency.","Transmit message.")
+			if(message)
+				if(om)
+					to_chat(console.operator, "<font size='2' color='#FFD700'><I>Gold-band transmission:</I> <b>You -> [om]</b>, [html_encode(message)]</span>")
+					if(om.pilot)
+						to_chat(om.pilot, "<font size='2' color='#FFD700'><I>Gold-band transmission:</I> <b>[console.operator] -> [om]</b>, [html_encode(message)]</span>")
+					for(var/mob/living/M in om.linked_ship)
+						to_chat(M, "<font size='2' color='#FFD700'><I>Gold-band transmission:</I> <b>[console.operator] -> [om]</b>, [html_encode(message)]</span>") //IM A FUCKING IDIOT
+				for(var/mob/O in GLOB.dead_mob_list)
+					to_chat(O, "<font size='2' color='#FFD700'><I>Gold-band transmission:</I> <b>[console.operator] -> [om]</b>, [html_encode(message)]</span>")
 		return
+	var/obj/structure/overmap/away/station/system_outpost/S = locate(/obj/structure/overmap/away/station/system_outpost) in get_area(src)
+	if(!S || S.faction != console.faction)
+		to_chat(console.operator, "<span_class='warning'>You must capture [S] by beaming an away team down onto it before you can build here!</span>")
+		return FALSE
+	var/list/options = list("build", "destroy", "upgrade") //Thanks for this  nich :)
+	for(var/option in options)
+		options[option] = image(icon = 'StarTrek13/icons/actions/rts_actions.dmi', icon_state = "[option]")
+	var/dowhat = show_radial_menu(console.operator,get_turf(object),options)
+	if(!dowhat)
+		return
+	switch(dowhat)
+		if("build")
+			if(isturf(object))
+				var/turf/T = object
+				build(T)
+		if("destroy")
+			if(istype(object, /obj/structure/overmap))
+				try_destroy(object)
+		if("upgrade")
+			if(istype(object, /obj/structure/overmap))
+				upgrade(object)
+
+/mob/camera/aiEye/remote/rts/proc/build(turf/open/T)
+	var/list/builders = list()
+	for(var/obj/structure/overmap/ship/AI/constructor/C in get_area(src))
+		if(C.faction == console.faction)
+			builders += C
+	if(!builders.len)
+		to_chat(console.operator, "Could not locate any builder ships in this sector!")
+		return
+	var/list/options = list("shipyard", "mining","refinery","turret","comms")
+	for(var/option in options)
+		options[option] = image(icon = 'StarTrek13/icons/actions/rts_actions.dmi', icon_state = "[option]")
+	var/dowhat = show_radial_menu(console.operator,T,options)
+	if(!dowhat)
+		return
+	for(var/obj/structure/overmap/ship/AI/constructor/CS in builders)
+		if(!CS.build_target && !CS.building)
+			var/whattomake = null
+			var/cost_metal = 0 //How much does it cost to make what we want?
+			var/cost_dilithium = 0
+			switch(dowhat)
+				if("shipyard")
+					if(console.faction == "starfleet")
+						whattomake = /obj/structure/overmap/rts_structure/shipyard
+						cost_metal = 0
+						cost_dilithium = 0 //add me later!
+					if(console.faction == "romulan empire")
+						whattomake = /obj/structure/overmap/rts_structure/shipyard/romulan
+						cost_metal = 0
+						cost_dilithium = 0 //add me later!
+				if("mining")
+					if(console.faction == "starfleet")
+						whattomake = /obj/structure/overmap/rts_structure/mining
+						cost_metal = 0
+						cost_dilithium = 0 //add me later!
+					if(console.faction == "romulan empire")
+						whattomake = /obj/structure/overmap/rts_structure/mining/romulan
+						cost_metal = 0
+						cost_dilithium = 0 //add me later!
+				if("refinery")
+					if(console.faction == "starfleet")
+						whattomake = /obj/structure/overmap/rts_structure/refinery
+						cost_metal = 0
+						cost_dilithium = 0 //add me later!
+					if(console.faction == "romulan empire")
+						whattomake = /obj/structure/overmap/rts_structure/refinery/romulan
+						cost_metal = 0
+						cost_dilithium = 0 //add me later!
+				if("turret")
+					if(console.faction == "starfleet")
+						whattomake = /obj/structure/overmap/ship/AI/turret
+						cost_metal = 0
+						cost_dilithium = 0 //add me later!
+					if(console.faction == "romulan empire")
+						whattomake = /obj/structure/overmap/ship/AI/turret/romulan
+						cost_metal = 0
+						cost_dilithium = 0 //add me later!
+				if("comms")
+					if(console.faction == "starfleet")
+						whattomake = /obj/structure/overmap/rts_structure/comms
+						cost_metal = 0
+						cost_dilithium = 0 //add me later!
+					if(console.faction == "romulan empire")
+						whattomake = /obj/structure/overmap/rts_structure/comms/romulan
+						cost_metal = 0
+						cost_dilithium = 0 //add me later!
+			if(whattomake)
+				if(CS.metal < cost_metal)
+				//	to_chat(console.operator, "Insufficient metal!")
+					continue //OK, well maybe one of our constructors has enough?
+				if(CS.dilithium < cost_dilithium)
+			//		to_chat(console.operator, "Insufficient dilithium!")
+					continue
+				CS.rally_point = T
+				CS.build_target = whattomake
+				CS.RTSeye = src
+				to_chat(console.operator, "Construction ship moving out")
+				play_voice('StarTrek13/sound/voice/rts/construction/movingout.ogg')
+				return
+
+/mob/camera/aiEye/remote/rts/proc/try_destroy()
+	return
+
+/mob/camera/aiEye/remote/rts/proc/upgrade()
+	return
+
+//RTS specific structures!//
+
+/obj/structure/overmap/ship/AI/constructor //These badboys allow you to construct things, you can use them in combat but it's highly inadvisable as they're super expensive and important!
+	name = "Knox class construction frigate"
+	desc = "An industrial tug ship fitted with advanced replication technology, these ships allow you to build all kinds of structures but are ineffective in combat!"
+	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
+	icon_state = "constructor"
+	max_health = 8500 //Quite tough, but still squishy
+	max_speed = 6
+	acceleration = 0.5 //slow
+	faction = "starfleet"
+	spawn_random = FALSE
+	damage = 200 //It can sort of fight back, but not very well
+	agressive = FALSE //Do we attack on sight? admirals can change this!
+	var/build_target = null //As a type, what do we want to build when we reach our rally point?
+	var/build_time = 50 //5 seconds build time, this can be reduced with upgrades, set this higher when done testing!
+	var/metal = 1000 //give them a starting amount so they can build the basics.
+	var/dilithium = 50
+	var/building = FALSE
+	pixel_z = -48
+	pixel_w = -48
+	var/mob/camera/aiEye/remote/rts/RTSeye //used for voice
+
+/obj/structure/overmap/ship/AI/constructor/romulan
+	name = "Tal'dar class construction vessel"
+	icon_state = "romulan-constructor"
+	faction = "romulan empire"
+
+/obj/structure/overmap/ship/AI/constructor/on_reach_rally()
+	if(build_target && !building)
+		building = TRUE
+		new /obj/effect/temp_visual/swarmer/disintegration(rally_point)
+		addtimer(CALLBACK(src, .proc/build), build_time)
+		RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioninprogress.ogg')
+
+/obj/structure/overmap/ship/AI/constructor/proc/build()
+	if(build_target)
+		var/obj/structure/overmap/built = new build_target(rally_point)
+		to_chat(RTSeye.console.operator, "Construction of [built] complete!")
+		RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
+		RTSeye = null
+		building = FALSE
+		rally_point = null
+		build_target = null
+
+/obj/structure/overmap/rts_structure
+	name = "generic thing"
+	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
+	icon_state = "generic"
+	desc = "Add me!"
+	faction = "starfleet"
+	respawn = FALSE
+	pixel_z = -78
+	pixel_w = -78
+	inherit_name_from_area = FALSE
+	spawn_random = FALSE
+
+/obj/structure/overmap/rts_structure/shipyard
+	name = "Class IV shipyard"
+	desc = "This massive structure is the birthplace of ships, simply click it while in RTS mode to access its properties."
+	icon_state = "shipyard"
+
+/obj/structure/overmap/rts_structure/shipyard/romulan
+	name = "Class IV shipyard"
+	desc = "This massive structure is the birthplace of ships, simply click it while in RTS mode to access its properties."
+	icon_state = "shipyard"
+	faction = "romulan empire"
+
+/obj/structure/overmap/rts_structure/comms
+	name = "Subspace relay station"
+	desc = "This station relays thousands of subspace transmissions a second allowing for a sensor net to be formed. It will alert its owner when ships enter the system as well as giving full sight to the owner over a system."
+	icon_state = "comms"
+
+/obj/structure/overmap/rts_structure/comms/romulan
+	name = "Subspace relay station"
+	desc = "This station relays thousands of subspace transmissions a second allowing for a sensor net to be formed. It will alert its owner when ships enter the system as well as giving full sight to the owner over a system."
+	icon_state = "romcomms"
+
+/obj/structure/overmap/rts_structure/mining //This passively generates dilithium and metal, then sends little ships to ferry it over to refineries to get processed.
+	name = "Yangtzee-Kiang class mining outpost"
+	desc = "An extra large station orbiting a nearby asteroid, it mines minerals and ships them to refineries."
+	icon_state = "mining"
+	var/metal = 0 //How much metal have we mined?
+	var/dilithium = 0 //how much dilithium have we mined?
+	var/max_metal = 5000 //Maximum amount of minerals we can store
+	var/max_dilithium = 5000
+
+/obj/structure/overmap/rts_structure/mining/romulan
+	name = "Reman mining colony"
+	icon_state = "rommining"
+	faction = "romulan empire"
+
+/obj/structure/overmap/rts_structure/mining/process()
+	. = ..() //Soulless minions of orthodoxy..
+	if(prob(50))
+		if(metal < max_metal)
+			metal += 50
+	if(prob(5))
+		if(dilithium < max_dilithium)
+			dilithium += 0.2
+	if(metal >= 2000)
+		prepare_transport()
+
+/obj/structure/overmap/rts_structure/mining/proc/prepare_transport()
+	if(metal < 2000)
+		return
+	var/obj/structure/overmap/rts_structure/refinery/RF = locate(/obj/structure/overmap/rts_structure/refinery) in get_area(src)
+	if(!RF) //No need to spawn a tug with no refinery alive.
+		return
+	metal -= 2000 //take some metal and let's head off
+	var/obj/structure/overmap/ship/AI/tug/transport
+	transport = new /obj/structure/overmap/ship/AI/tug(get_turf(src))
+	transport.faction = faction
+	if(dilithium >= 10)
+		dilithium -= 10
+
+/obj/structure/overmap/rts_structure/refinery
+	name = "Amazon class ore refinery"
+	desc = "A small station with a massive array of silos attached, designed for storing and refining ore. It requires a mining station to operate."
+	icon_state = "refinery"
+	var/metal = 0 //How much metal have we mined?
+	var/dilithium = 0 //how much dilithium have we mined?
+
+/obj/structure/overmap/rts_structure/refinery/romulan
+	name = "Industrious class ore refinery"
+	desc = "A small station with a massive array of silos attached, designed for storing and refining ore. It requires a mining station to operate."
+	icon_state = "romfinery"
+	faction = "romulan empire"
+
+/obj/structure/overmap/ship/AI/tug
+	name = "Fortunate class ore freighter"
+	desc = "A small ship designed to ferry ore from mining outposts to refineries. It has a class 1 mining laser installed, which is probably too low powered to penetrate even navigational shields"
+	max_health = 2000 //Squishy as fuck.
+	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
+	icon_state = "freighter"
+	faction = "starfleet"
+	damage = 5
+	acceleration = 1
+	var/obj/structure/overmap/rts_structure/refinery/target_refinery
+	var/metal = 2000 //How many mats are on this tug?
+	var/dilithium = 0
+	agressive = FALSE
+	pixel_z = -48
+	pixel_w = -48
+
+/obj/structure/overmap/ship/AI/tug/Initialize()
+	. = ..()
+	var/obj/structure/overmap/rts_structure/refinery/RF = locate(/obj/structure/overmap/rts_structure/refinery) in get_area(src)
+	if(RF)
+		rally_point = get_turf(RF)
+		target_refinery = RF
+
+/obj/structure/overmap/ship/AI/tug/on_reach_rally()
+	if(!target_refinery)
+		return
+	if(src in orange(get_turf(target_refinery), 1))
+		target_refinery.metal += metal
+		target_refinery.dilithium += dilithium
+		qdel(src) //Thank you for your service o7
+
+/obj/structure/overmap/ship/AI
+	var/cost_metal = 0 //Construction cost
+	var/cost_dilithium = 0
+
+/obj/structure/overmap/ship/AI/turret
+	name = "Charon class defense platform"
+	desc = "A self-contained turret solution that offers solid protection for bases"
+	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
+	icon_state = "turret"
+	max_health = 15000 //Designed to hold off decent sized swarms of roflstompers
+	max_speed = 0
+	acceleration = 0
+	faction = "starfleet"
+	spawn_random = FALSE
+	damage = 500 //A solid deterrant, but not overly lethal. We can add a photon torpedo upgrade for it later
+	agressive = TRUE //Turret KILLLLL
+	pixel_z = -78
+	pixel_w = -78
+
+/obj/structure/overmap/ship/AI/turret/romulan
+	name = "'Early strike' class defense platform"
+	desc = "A self-contained turret solution that offers solid protection for bases"
+	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
+	faction = "romulan empire"
+	icon_state = "romturret"
+
+//Ships!
 
 /obj/structure/overmap/ship/AI/federation
-	name = "Miranda class light cruiser"
+	name = "Miranda class patrol cruiser"
+	desc = "A lightweight cruiser which specializes in border control, whilst it's not the strongest it can rapidly respond to threats with its solid engines"
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	icon_state = "destroyer"
 	max_health = 9500 //Player controlled miranda has 15000 HP
-	max_speed = 3
-	acceleration = 0.5
+	max_speed = 5
+	acceleration = 1
 	faction = "starfleet"
 	spawn_random = FALSE
-	damage = 1500 //This should be low, as it will ALWAYS hit for this much damage
+	damage = 900 //This should be low, as it will ALWAYS hit for this much damage
 	agressive = FALSE //Do we attack on sight? admirals can change this!
+	pixel_z = -48
+	pixel_w = -48
+
+/obj/structure/overmap/ship/AI/romulan/cruiser
+	name = "Romulan bird of prey class light cruiser"
+	desc = "A light cruiser with an impressive armament, it is ideal for border skirmishes"
+	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
+	icon_state = "birdofprey"
+	max_health = 12000 //No player controlled analogue just yet :(
+	max_speed = 5
+	acceleration = 1.15
+	faction = "romulan empire"
+	spawn_random = FALSE
+	damage = 920 //This should be low, as it will ALWAYS hit for this much damage
+	agressive = FALSE //Do we attack on sight? admirals can change this!
+	pixel_z = -48
+	pixel_w = -48
 
 /obj/structure/overmap/ship/AI/romulan
 	name = "Dderidex class warbird"
+	desc = "The pride of the romulan fleet, this ship dwarfs most of the starfleet lineup but will find its match against other capital class ships."
 	icon = 'StarTrek13/icons/trek/large_ships/dderidex.dmi'
 	icon_state = "dderidex"
-	max_health = 30000 //Player controlled miranda has 15000 HP
-	max_speed = 3
+	max_health = 25000 //Player controlled dderi has 30K
+	max_speed = 5
 	acceleration = 0.5
 	faction = "romulan empire"
 	spawn_random = FALSE
-	damage = 3000 //This should be low, as it will ALWAYS hit for this much damage --This is a fucking warbird they hit HARD
+	damage = 1500 //This should be low, as it will ALWAYS hit for this much damage --This is a fucking warbird they hit HARD
 	agressive = FALSE //Do we attack on sight? admirals can change this!
+	pixel_z = -128
+	pixel_w = -128

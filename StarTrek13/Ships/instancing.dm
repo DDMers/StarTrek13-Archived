@@ -38,8 +38,8 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 
 /obj/structure/overmap/shipwreck/proc/announcedanger()//GET THE FUCK OUTTA THAT WRECK BOYOH
 	if(respawn)
-		message_admins("a [true_name] class ship has been destroyed, it will respawn in about 2 mins")
-		addtimer(CALLBACK(src, .proc/respawn), 400)
+		message_admins("a [true_name] class ship has been destroyed, it will respawn in about 3 mins")
+		addtimer(CALLBACK(src, .proc/respawn), 1200)
 	else
 		message_admins("a [true_name] class ship has been destroyed, respawn is not enabled. To force-respawn it, call respawn on this wreck with atom proccall")
 
@@ -72,6 +72,8 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	. = ..()
 
 /obj/structure/overmap/proc/SetName(var/string)
+	if(!random_name)
+		return
 	if(!string)
 		string = pick(GLOB.ship_names)
 	name =  string //Keep true name seperate for respawning
@@ -79,6 +81,8 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	message_admins("[true_name] has been renamed to [name]")
 
 /obj/structure/overmap/ship/romulan/SetName(string)
+	if(!random_name)
+		return
 	if(!string)
 		string = pick(GLOB.romulan_ship_names)
 	name = string //Keep true name seperate for respawning

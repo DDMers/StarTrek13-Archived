@@ -1,6 +1,6 @@
 var/global/list/jumpgates = list()
 var/global/list/warp_beacons = list() //1400 is 2 mins. Only do that long for jumping halfway across the galaxy. Jeez
-#define DEFAULT_TIME 800	//1 minute jump time.
+#define DEFAULT_TIME 350	//1 minute jump time was too loooong.
 #define MEDIUM_TIME 1800
 #define FAR_TIME 2600
 #define DEADSPACE_TIME 4000 //Looooooong way away
@@ -101,7 +101,7 @@ Jumpgates are vastly more limited than warp speed, as they can only lock on to a
 
 /obj/effect/landmark/warp_beacon //These are used for warp capable vessels
 	name = "Warp beacon"
-	var/distance = 800 //Distance as in how remote this jump-beacon is.
+	var/distance = 350 //Distance as in how remote this jump-beacon is.
 	var/warp_restricted = FALSE //Add in warp inhibitors for faction home space.
 	var/factionOwner = "null"
 

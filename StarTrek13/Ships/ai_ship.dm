@@ -9,6 +9,7 @@
 //	pixel_y = -100
 //	var/datum/shipsystem_controller/SC
 	warp_capable = TRUE
+	max_warp = 2
 	max_health = 20000
 	pixel_z = -128
 	pixel_w = -120
@@ -27,6 +28,8 @@
 	var/turf/rally_point //Are we being told to move to a rally point?
 	respawn = FALSE
 	var/agressive = TRUE
+	random_name = FALSE
+	inherit_name_from_area = FALSE
 
 
 /* COMMAND PRIORITY:
@@ -61,19 +64,14 @@
 
 /obj/structure/overmap/ship/AI/New()
 	. = ..()
+	name = "[name] ([rand(0,1000)])"
 	while(1)
 		stoplag()
 		ProcessMove()
 		EditAngle()
+		TurnTo()
 		if(!stored_target in orange(src, 6))
 			stored_target = null
-		if(force_target)
-			TurnTo(force_target)
-		else if(rally_point)
-			move_to_rally()
-		else
-			if(stored_target)
-				TurnTo(stored_target)
 
 /obj/structure/overmap/ship/AI/linkto()	//weapons etc. don't link!
 	for(var/area/AR in world)
@@ -96,6 +94,7 @@
 		stored_target = null
 	if(vel < max_speed)
 		vel += acceleration
+	SC.engines.charge += 500 //So theyre able to warp
 
 /obj/structure/overmap/ship/AI/take_damage()
 	if(agressor)
@@ -110,7 +109,7 @@
 		return
 	if(!stored_target)
 		for(var/obj/structure/overmap/S in orange(src, 5))
-			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck) && !istype(S, /obj/structure/overmap/planet)) //No ai megaduels JUST yet!
+			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck) && !istype(S, /obj/structure/overmap/planet) && !istype(S, /obj/structure/overmap/away/station/system_outpost)) //Don't blow up crucial game things
 				if(S.faction == faction) //allows for teams of ships
 					continue
 				if(!S.cloaked)
@@ -144,14 +143,22 @@
 			var/source = get_turf(src)
 			SC.weapons.charge -= SC.weapons.fire_cost
 			current_beam = new(source,S,time=10,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+			var/sound/thesound = pick(soundlist)
+			playsound(src,thesound,100,1)
 			spawn(0)
 			current_beam.Start()
 			return
 
 /obj/structure/overmap/ship/AI/TurnTo(atom/target)
 	if(force_target)
-		if(force_target in orange(src, 2))
+		if(force_target in orange(src, 5))
 			vel = 0
+			target = force_target
+			var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
+			EditAngle()
+			angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
+			return
+		else
 			target = force_target
 			var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
 			EditAngle()
@@ -160,26 +167,31 @@
 	if(rally_point)
 		move_to_rally()
 		return
+	target = stored_target
 	if(stored_target in orange(src, 2))
 		vel = 0
 		return
-	target = stored_target
 	if(target)
 		var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
 		EditAngle()
 		angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*target.y+target.pixel_y) - (32*self.y+self.pixel_y), (32*target.x+target.pixel_x) - (32*self.x+self.pixel_x)))
 
 /obj/structure/overmap/ship/AI/proc/move_to_rally()
+	if(!rally_point in get_area(src))
+		rally_point = null
+		return
 	if(rally_point)
 		if(rally_point in orange(src, 2))
 			vel = 0
-			rally_point = null //Finished moving to the rally point
+			on_reach_rally()
 			return
 		else
 			var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
 			EditAngle()
 			angle = 450 - SIMPLIFY_DEGREES(ATAN2((32*rally_point.y+rally_point.pixel_y) - (32*self.y+self.pixel_y), (32*rally_point.x+rally_point.pixel_x) - (32*self.x+self.pixel_x)))
 
+/obj/structure/overmap/ship/AI/proc/on_reach_rally()
+	return //Mainly used for constructor ships
 
 /obj/structure/overmap/proc/Orbit(atom/target)
 	var/obj/structure/overmap/ship/self = src //I'm a reel cumputer syentist :)
