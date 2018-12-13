@@ -143,6 +143,12 @@ var/global/list/global_ship_list = list()
 		return
 
 	for(var/obj/structure/overmap/S in orange(src, 6))
+		if(istype(S, /obj/structure/overmap/rts_structure))
+			return
+		if(istype(S, /obj/structure/overmap/ship/AI))
+			return
+		if(S.linked_ship == get_area(src))
+			return
 		if(!S.shields_active())
 			to_chat(S.pilot, "Warning: hull temperature rising.")
 			var/turf/open/floor/picked_turf = pick(get_area_turfs(S.linked_ship))

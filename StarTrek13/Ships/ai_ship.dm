@@ -86,7 +86,8 @@
 		if(stored_target in orange(src, 15))
 			if(prob(60)) //Allow it time to recharge
 				fire(force_target)
-	if(!stored_target)
+	if(!stored_target || !stored_target || !rally_point)
+		agressive = TRUE //Alright no target, back to autotarget
 		PickRandomShip()
 	if(stored_target in orange(src, 15))
 		if(prob(60)) //Allow it time to recharge
@@ -147,7 +148,7 @@
 			S.take_damage(SC.weapons.damage,1)
 			var/source = get_turf(src)
 			SC.weapons.charge -= SC.weapons.fire_cost
-			current_beam = new(source,get_turf(S),time=30,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+			current_beam = new(source,get_turf(S),time=300,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 			var/sound/thesound = pick(soundlist)
 			if(S.pilot)
 				SEND_SOUND(S.pilot, thesound)

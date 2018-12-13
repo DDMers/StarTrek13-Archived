@@ -772,7 +772,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	spawn_random = FALSE
 	damage = 200 //It can sort of fight back, but not very well
 	agressive = FALSE //Do we attack on sight? admirals can change this!
-	var/build_target = null //As a type, what do we want to build when we reach our rally point?
+	var/obj/structure/overmap/build_target = null //As a type, what do we want to build when we reach our rally point?
 	var/build_time = 50 //5 seconds build time, this can be reduced with upgrades, set this higher when done testing!
 	var/metal = 1000 //give them a starting amount so they can build the basics.
 	var/dilithium = 50
@@ -793,15 +793,18 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioninprogress.ogg')
 
 /obj/structure/overmap/ship/AI/constructor/proc/build()
-	building = FALSE
 	if(build_target)
 		var/obj/structure/overmap/built = new build_target(rally_point)
-		if(RTSeye.console && RTSeye.console.operator)
-			to_chat(RTSeye.console.operator, "Construction of [built] complete!")
-			RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
+		if(RTSeye)
+			if(RTSeye.console && RTSeye.console.operator)
+				to_chat(RTSeye.console.operator, "Construction of [built] complete!")
+				RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
 		RTSeye = null
 		rally_point = null
 		build_target = null
+		building = FALSE
+		force_target = null
+		stored_target = null
 
 /obj/structure/overmap/rts_structure
 	name = "generic thing"
@@ -815,12 +818,18 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	inherit_name_from_area = FALSE
 	spawn_random = FALSE
 
+/obj/structure/overmap/rts_structure/linkto()
+	for(var/area/AR in world)
+		if(istype(AR, /area/ship/ai))
+			linked_ship = AR
+			return
+
 /obj/structure/overmap/rts_structure/shipyard
 	name = "Class IV shipyard"
 	desc = "This massive structure is the birthplace of ships, simply click it while in RTS mode to access its properties."
 	icon_state = "shipyard"
 	var/mob/camera/aiEye/remote/rts/RTSeye
-	var/build_time = 100 //How long will it take to build this unit? defaults to 10 seconds
+	var/build_time = 300 //How long will it take to build this unit? defaults to 30 seconds
 	var/metal_cost = 0
 	var/dilithium_cost = 0 //How much is that bill for?!
 	var/repair_range = 3 //3 tiles around the shipyard for repairs? not a bad deal
@@ -1010,7 +1019,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 /obj/structure/overmap/ship/AI/tug/on_reach_rally()
 	if(!target_refinery)
 		return
-	if(src in orange(get_turf(target_refinery), 1))
+	if(src in orange(get_turf(target_refinery), 2))
 		target_refinery.metal += metal
 		target_refinery.dilithium += dilithium
 		qdel(src) //Thank you for your service o7
