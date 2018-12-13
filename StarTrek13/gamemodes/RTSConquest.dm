@@ -421,7 +421,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 /datum/action/innate/rally
 	name = "Set rally point"
 	icon_icon = 'StarTrek13/icons/actions/rts_actions.dmi'
-	button_icon_state = "rally"
+	button_icon_state = "rallybutton"
 	var/mob/camera/aiEye/remote/rts/RTSeye //Set this!
 
 /datum/action/innate/rally/Activate()
