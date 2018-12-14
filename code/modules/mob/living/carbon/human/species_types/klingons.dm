@@ -23,7 +23,7 @@
 /datum/species/klingon/proc/give_language(mob/living/carbon/C)
 	C.grant_language(/datum/language/klingon)
 	C.mind.language_holder.omnitongue = TRUE
-	to_chat(C, "<font size=3 color=red>You are playing a roleplay heavy race! As a Klingon, you should be agressive and short tempered, you despise romulans and tribbles in particular.</font>")
+	to_chat(C, "<font size=3 color=red>You are playing a roleplay heavy race! As a Klingon, you should be aggressive and short tempered, you despise romulans and tribbles in particular.</font>")
 
 
 /datum/species/klingon/qualifies_for_rank(rank, list/features)
