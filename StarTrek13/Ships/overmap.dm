@@ -11,6 +11,8 @@
 #define LARGE 12
 #define MASSIVE 15
 
+GLOBAL_LIST_INIT(overmap_ships, list())
+
 /obj/structure/overmap
 	name = "generic structure"
 //	var/linked_ship = /area/ship //change me
@@ -335,6 +337,7 @@
 
 
 /obj/structure/overmap/Initialize()
+	GLOB.overmap_ships += src
 	true_name = name //We want true name to always be the same, so we can respawn things correctly
 	var/area/A = get_area(src)
 	if(inherit_name_from_area)

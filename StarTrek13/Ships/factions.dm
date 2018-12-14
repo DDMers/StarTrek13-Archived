@@ -84,6 +84,8 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/factag = "none" //Faction icon tag
 	var/datum/species/speciestype = null
 	var/locked = FALSE //Lock this one at roundstart?
+	var/ships = 0 //How many ships have we built? PREVENT THE ROMULAN POWERBALL
+	var/max_ships = 15
 /*
 /datum/faction/independant
 	name = "independant"
@@ -93,6 +95,14 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 */
 
 //"<FONT color='blue'><B>As this station was initially staffed with a [CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] have been added to your ID card.</B></font>")
+
+/datum/faction/proc/faction_process()
+	ships = 0
+	for(var/obj/structure/overmap/ship/AI/OM in GLOB.overmap_ships)
+		if(!istype(OM, /obj/structure/overmap/ship/AI/turret))
+			if(OM.faction == name)
+				ships ++
+
 
 /datum/faction/starfleet
 	name = "starfleet"

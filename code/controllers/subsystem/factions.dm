@@ -107,9 +107,9 @@ SUBSYSTEM_DEF(faction)
 			timing_jumpgates = TRUE
 		for(var/datum/crew/S in crews)
 			S.SanityCheck()
-	if(factions)
-		return
-	else
+	for(var/datum/faction/F in factions)
+		F.faction_process()
+	if(!factions)
 		WARNING("There are no factions in the game!")
 
 /datum/controller/subsystem/faction/proc/addToFaction(mob/living/carbon/human/M)

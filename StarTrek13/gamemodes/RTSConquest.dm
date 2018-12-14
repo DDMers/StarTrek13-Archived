@@ -82,6 +82,12 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	spawn_random = TRUE
 	faction = "starfleet"
 
+/obj/structure/overmap/away/station/system_outpost/rts/process()
+	. = ..()
+	structures = 0
+	for(var/obj/structure/overmap/rts_structure/rts in get_area(src))
+		structures ++
+
 /obj/effect/landmark/ship_spawner
 	name = "earth_spawn"
 
@@ -295,6 +301,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/faction = "starfleet" //Which ships are we allowed to control? the operator does NOT change this! so you can sabotage enemy bases!
 	var/list/saved_fleet = list() //save fleet when you re-use the cam
 	var/zoom_out = 12
+	var/datum/faction/our_faction
 
 /obj/machinery/computer/camera_advanced/rts_control/Initialize()
 	. = ..()
@@ -338,6 +345,14 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	RTSeye.icon = 'icons/obj/abductor.dmi'
 	RTSeye.icon_state = "camera_target"
 	RTSeye.console = src
+	for(var/obj/structure/overmap/away/station/system_outpost/rts/RTS in get_area(theship))
+		if(RTS)
+			RTSeye.station = RTS
+			continue
+	for(var/datum/faction/F in SSfaction.factions)
+		if(F.name == faction)
+			our_faction = F
+	RTSeye.our_faction = our_faction
 	if(saved_fleet.len)
 		RTSeye.fleet = saved_fleet.Copy()
 		to_chat(operator, "The previous user of this console had a command group set. That group has been transferred to you.")
@@ -478,6 +493,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/list/to_clear = list() //list of rally point icons we need to clear up
 	var/voice_cooldown = 10 //Small voice cooldown
 	var/saved_time = 0
+	var/datum/faction/our_faction
+	var/obj/structure/overmap/away/station/system_outpost/rts/station //What's the station in this system, then?
 
 /mob/camera/aiEye/remote/rts/proc/play_voice(sound)
 	if(!sound)
@@ -513,6 +530,10 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	forceMove(O.loc)
 	tracking_target = O
 	to_chat(console.operator, "Now following [O], use this button again to cancel tracking")
+	station = null
+	for(var/obj/structure/overmap/away/station/system_outpost/rts/TS in get_area(src))
+		if(TS.faction == console.faction)
+			station = TS
 
 /mob/camera/aiEye/remote/rts/proc/rally(turf/T)
 	if(!T)
@@ -554,7 +575,6 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				S.stored_target = null
 				S.force_target = null
 				S.rally_point = null
-				S.agressive = FALSE
 		return
 
 /mob/camera/aiEye/remote/rts/proc/fleet_attack(obj/structure/overmap/OM)
@@ -592,7 +612,9 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			if(dowhat == "repair")
 				sy.repair()
 				return
-			sy.build(dowhat)
+			if(!sy.building)
+				sy.build(dowhat)
+			return
 		if(console.faction == "romulan empire")
 			var/list/options = list("constructor-rom", "birdofprey", "dderidex", "repair")
 			for(var/option in options)
@@ -605,7 +627,9 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			if(dowhat == "repair")
 				sy.repair()
 				return
-			sy.build(dowhat)
+			if(!sy.building)
+				sy.build(dowhat)
+			return
 	if(modifiers["middle"])
 		if(istype(object, /turf/open))
 			rally(object)
@@ -669,7 +693,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				var/turf/T = object
 				build(T)
 		if("destroy")
-			if(istype(object, /obj/structure/overmap))
+			if(istype(object, /obj/structure/overmap) && !istype(object, /obj/structure/overmap/away/station/system_outpost) && !istype(object, /obj/structure/overmap/away/station/system_outpost/rts))
 				try_destroy(object)
 		if("upgrade")
 			if(istype(object, /obj/structure/overmap))
@@ -689,8 +713,10 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/dowhat = show_radial_menu(console.operator,T,options)
 	if(!dowhat)
 		return
-	var/obj/structure/overmap/away/station/system_outpost/rts/S = locate(/obj/structure/overmap/away/station/system_outpost/rts) in(get_area(src))
-	if(S.structures >= S.structure_limit)
+	if(!station)
+		to_chat(console.operator, "Capture the station in this system first.")
+		return
+	if(station.structures >= station.structure_limit)
 		to_chat(console.operator, "There are too many structures in this system, we should expand our operations to a new system")
 		return
 	for(var/obj/structure/overmap/ship/AI/constructor/CS in builders)
@@ -729,7 +755,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				if("turret")
 					if(console.faction == "starfleet")
 						play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
-						new /obj/structure/overmap/ship/AI/turret/romulan(T)
+						new /obj/structure/overmap/ship/AI/turret(T)
 						return
 					if(console.faction == "romulan empire")
 						play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
@@ -758,8 +784,18 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				play_voice('StarTrek13/sound/voice/rts/construction/movingout.ogg')
 				return
 
-/mob/camera/aiEye/remote/rts/proc/try_destroy()
-	return
+/mob/camera/aiEye/remote/rts/proc/try_destroy(var/obj/structure/overmap/what)
+	if(!what.faction)
+		return FALSE
+	if(what.faction != console.faction)
+		to_chat(console.operator, "You don't own this")
+		return FALSE
+	var/A = input(console.operator, "Are you sure you want to DESTROY [what]?", "Scuttle ship") in list("yes","no")
+	if(A == "yes")
+		to_chat(console.operator, "Ship scuttled.") //https://www.youtube.com/watch?v=hVPjGkVOaJ8
+		qdel(what) //Thank you for your service
+		return TRUE
+	return FALSE
 
 /mob/camera/aiEye/remote/rts/proc/upgrade()
 	return
@@ -815,9 +851,6 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			if(RTSeye.console && RTSeye.console.operator)
 				to_chat(RTSeye.console.operator, "Construction of [built] complete!")
 				RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
-		var/obj/structure/overmap/away/station/system_outpost/rts/SS = locate(/obj/structure/overmap/away/station/system_outpost/rts) in(get_area(src))
-		if(SS)
-			SS.structures ++ //Add a structure because we're a structure.
 		RTSeye = null
 		rally_point = null
 		build_target = null
@@ -852,8 +885,18 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/metal_cost = 0
 	var/dilithium_cost = 0 //How much is that bill for?!
 	var/repair_range = 3 //3 tiles around the shipyard for repairs? not a bad deal
+	var/building = FALSE
 
 /obj/structure/overmap/rts_structure/shipyard/proc/build(what)
+	var/datum/faction/thefaction
+	for(var/datum/faction/F in SSfaction.factions)
+		if(F.name == faction)
+			thefaction = F
+	if(!thefaction)
+		return
+	if(thefaction.ships >= thefaction.max_ships)
+		to_chat(RTSeye.console.operator, "Maximum buildable shipcount has already been reached!")
+		return FALSE
 	var/obj/structure/overmap/ship/tobuild
 	var/found = FALSE //Found a refinery to steal ore from?
 	switch(what)
@@ -900,10 +943,12 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	if(!found)
 		to_chat(RTSeye.console.operator, "Insufficient resources! Ensure that you have refineries stocked up and built.")
 		return
+	building = TRUE
 	RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioninprogress.ogg')
 	addtimer(CALLBACK(src, .proc/build_finish, tobuild), build_time)
 
 /obj/structure/overmap/rts_structure/shipyard/proc/build_finish(var/obj/structure/overmap/ship/what)
+	building = FALSE
 	if(!what)
 		return
 	RTSeye.play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
@@ -911,6 +956,11 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	if(RTSeye.console)
 		if(RTSeye.console.operator)
 			to_chat(RTSeye.console.operator, "Construction of [newthing] complete")
+	var/datum/faction/thefaction
+	for(var/datum/faction/F in SSfaction.factions)
+		if(F.name == faction)
+			thefaction = F
+	thefaction.ships ++
 	RTSeye = null
 
 /obj/structure/overmap/rts_structure/shipyard/proc/repair()
@@ -948,6 +998,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	name = "Subspace relay station"
 	desc = "This station relays thousands of subspace transmissions a second allowing for a sensor net to be formed. It will alert its owner when ships enter the system as well as giving full sight to the owner over a system."
 	icon_state = "romcomms"
+	faction = "romulan empire"
 
 /obj/structure/overmap/rts_structure/mining //This passively generates dilithium and metal, then sends little ships to ferry it over to refineries to get processed.
 	name = "Yangtzee-Kiang class mining outpost"
@@ -999,6 +1050,29 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		if(morecrystalisrequired)
 			morecrystalisrequired.faction = faction
 
+/obj/structure/overmap/rts_structure/mining/romulan/prepare_transport()
+	if(metal < 2000)
+		return
+	var/obj/structure/overmap/rts_structure/refinery/RF = locate(/obj/structure/overmap/rts_structure/refinery) in get_area(src)
+	if(!RF) //No need to spawn a tug with no refinery alive.
+		return
+	metal -= 2000 //take some metal and let's head off
+	var/obj/structure/overmap/ship/AI/tug/romulan/transport
+	transport = new /obj/structure/overmap/ship/AI/tug/romulan(get_turf(src))
+	if(transport)
+		transport.faction = faction
+
+/obj/structure/overmap/rts_structure/mining/romulan/prepare_transport_dilithium()
+	var/obj/structure/overmap/rts_structure/refinery/RF = locate(/obj/structure/overmap/rts_structure/refinery) in get_area(src)
+	if(!RF) //No need to spawn a tug with no refinery alive.
+		return
+	if(dilithium >= 10)
+		dilithium -= 10
+		var/obj/structure/overmap/ship/AI/tug/dilithium/romulan/morecrystalisrequired = null
+		morecrystalisrequired = new /obj/structure/overmap/ship/AI/tug/dilithium/romulan(get_turf(src))
+		if(morecrystalisrequired)
+			morecrystalisrequired.faction = faction
+
 /obj/structure/overmap/rts_structure/refinery
 	name = "Amazon class ore refinery"
 	desc = "A small station with a massive array of silos attached, designed for storing and refining ore. It requires a mining station to operate."
@@ -1027,10 +1101,20 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	agressive = FALSE
 	pixel_z = -48
 	pixel_w = -48
+	var/transferred = FALSE //have we dumped our mats yet?
 
 /obj/structure/overmap/ship/AI/tug/dilithium
 	name = "Dilithium hauler"
 	dilithium = 5
+
+/obj/structure/overmap/ship/AI/tug/dilithium/romulan
+	name = "Dilithium hauler"
+	faction = "romulan empire"
+
+
+/obj/structure/overmap/ship/AI/tug/romulan
+	name = "Ore freighter"
+	faction = "romulan empire"
 
 /obj/structure/overmap/ship/AI/tug/Initialize()
 	. = ..()
@@ -1042,10 +1126,11 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 /obj/structure/overmap/ship/AI/tug/on_reach_rally()
 	if(!target_refinery)
 		return
-	if(src in orange(get_turf(target_refinery), 2))
+	if(!transferred)
 		target_refinery.metal += metal
 		target_refinery.dilithium += dilithium
-		qdel(src) //Thank you for your service o7
+		transferred = TRUE
+	qdel(src) //Thank you for your service o7
 
 /obj/structure/overmap/ship/AI
 	var/cost_metal = 0 //Construction cost

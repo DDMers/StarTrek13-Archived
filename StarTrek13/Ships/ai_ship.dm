@@ -63,6 +63,7 @@
 	SC.shields.power = 90000000000 //IT'S OVER 9000000
 	SC.shields.power_supplied = 2
 
+
 /obj/structure/overmap/ship/AI/New()
 	. = ..()
 	name = "[name] ([rand(0,1000)])"
@@ -86,9 +87,11 @@
 		if(stored_target in orange(src, 15))
 			if(prob(60)) //Allow it time to recharge
 				fire(force_target)
-	if(!stored_target || !stored_target || !rally_point)
+	if(!stored_target || !force_target || !rally_point)
 		agressive = TRUE //Alright no target, back to autotarget
 		PickRandomShip()
+		if(current_beam)
+			qdel(current_beam)
 	if(stored_target in orange(src, 15))
 		if(prob(60)) //Allow it time to recharge
 			fire(stored_target)
@@ -114,7 +117,7 @@
 	if(!agressive) //Do we attack on sight?
 		return
 	if(!stored_target)
-		for(var/obj/structure/overmap/S in orange(src, 5))
+		for(var/obj/structure/overmap/S in orange(src, 15))
 			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck) && !istype(S, /obj/structure/overmap/planet) && !istype(S, /obj/structure/overmap/away/station/system_outpost)) //Don't blow up crucial game things
 				if(S.faction == faction) //allows for teams of ships
 					continue
@@ -148,7 +151,9 @@
 			S.take_damage(SC.weapons.damage,1)
 			var/source = get_turf(src)
 			SC.weapons.charge -= SC.weapons.fire_cost
-			current_beam = new(source,get_turf(S),time=300,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+			if(current_beam)
+				qdel(current_beam)
+			current_beam = new(source,get_turf(S),time=500,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 			var/sound/thesound = pick(soundlist)
 			if(S.pilot)
 				SEND_SOUND(S.pilot, thesound)
