@@ -29,6 +29,7 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 		if(istype(S, /mob))
 			if(!istype(S, /mob/dead))
 				to_chat(S, "you're filled with an overwhelming sense of dread as the wreck around you deteriorates completely.")
+				to_chat(S, "Your ship has been destroyed! It will respawn in a few minutes, keep an eye out for notifications")
 				qdel(S)
 	return TRUE
 
@@ -187,13 +188,15 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 	spawn_crew()
 
 /obj/effect/landmark/crewspawnermachine/proc/spawn_crew() //this is a machine that spawns crew, HOW DID I LEARN TO CODE THIS?!!! -Nickvr circa 2017
+	var/list/scurvy_crew = list() //yarrr this be for iteratin' over' the list so ghostly ghosts can be stealin' yar body
 	for(var/datum/faction/F in SSfaction.factions)
 		if(F.name == faction)
 			thefaction = F
 			break
-	for(var/i = 1 to humanstomake)
+	for(var/i = 0 to humanstomake)
 		var/turf/t = get_turf(src)
 		var/mob/living/carbon/human/S = new(t)
+		scurvy_crew += S
 		if(thefaction)
 			thefaction.addMember(S) //This stops romulans getting the same rommie name they always use
 		switch(i) //We're prioritising the really critical jobs first
@@ -215,9 +218,19 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 				S.equipOutfit(/datum/outfit/job/security)
 			if(9)
 				S.equipOutfit(/datum/outfit/job/engineer)
-		offer_control(S) //now offer them to ghosts!
-		if(!S.mind || !S.client)
-			qdel(S) //No players want to fill this one up, kill them.
-		to_chat(S, "<span_class='warning'>All past lives are forgotten! You are a new character who has just been assigned to a new ship. You should act differently to any previous characters you've played this round.")
 		i ++
-	message_admins("Respawned a crew at [get_area(src)]")
+	var/poll_message = "Do you want to respawn as a member of [get_area(src)]'s crew? "
+	var/list/mob/dead/observer/candidates = pollCandidatesForMob(poll_message, ROLE_PAI, null, FALSE, 100, src)
+	if(LAZYLEN(candidates))
+		for(var/mob/dead/observer/CNT in candidates)
+			var/mob/living/carbon/M = pick(scurvy_crew)
+			log_game("[key_name_admin(CNT)] has taken control of ([key_name_admin(M)]) as a replacement crewmember.")
+			candidates -= CNT
+			M.ghostize(0)
+			M.key = CNT.key
+			to_chat(M, "<span_class='warning'>All past lives are forgotten! You are a new character who has just been assigned to a new ship. You should act differently to any previous characters you've played this round.")
+			scurvy_crew -= M
+			continue
+	else
+		message_admins("No ghosts were willing to become replacement crew members for [get_area(src)].")
+		return

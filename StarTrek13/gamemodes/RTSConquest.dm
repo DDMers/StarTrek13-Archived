@@ -543,7 +543,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/obj/effect/temp_visual/trek/rallypoint/rs = new /obj/effect/temp_visual/trek/rallypoint(T)
 	to_clear += rs //prevent multiple rally point icons spamming everything
 	if(fleet.len)
-		var/list/thelist = list('StarTrek13/sound/voice/rts/construction/movingout.ogg','StarTrek13/sound/voice/rts/combat/movingout.ogg')
+		var/list/thelist = list('StarTrek13/sound/voice/rts/construction/movingout.ogg','StarTrek13/sound/voice/rts/misc/atonce.ogg','StarTrek13/sound/voice/rts/misc/movingtoassignedlocation.ogg','StarTrek13/sound/voice/rts/misc/headingout.ogg')
 		var/tsound = pick(thelist)
 		play_voice(tsound)
 	for(var/obj/structure/overmap/ship/AI/S in fleet)
@@ -551,6 +551,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		S.stored_target = null
 		S.force_target = null
 		S.aggressive = FALSE
+		if(S.current_beam)
+			qdel(S.current_beam)
 
 /mob/camera/aiEye/remote/rts/proc/fleet_warp()
 	if(fleet.len >= 1)
@@ -584,7 +586,9 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	for(var/obj/effect/temp_visual/trek/rallypoint/SS in to_clear)
 		qdel(SS)
 	if(OM)
-		play_voice('StarTrek13/sound/voice/rts/combat/intercepting.ogg')
+		var/list/thelist = list('StarTrek13/sound/voice/rts/misc/movingtointercept.ogg','StarTrek13/sound/voice/rts/combat/intercepting.ogg','StarTrek13/sound/voice/rts/misc/finallysomeaction.ogg')
+		var/sound/SS = pick(thelist)
+		play_voice(SS)
 		to_chat(console.operator, "Command confirmed, moving in to attack!")
 		var/obj/effect/temp_visual/trek/rallypoint/rs = new /obj/effect/temp_visual/trek/rallypoint(OM.loc)
 		to_clear += rs //prevent multiple rally point icons spamming everything
@@ -642,6 +646,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				fleet_attack(om)
 		return
 	if(modifiers["shift"])
+		var/atom/theobj = object
+		theobj.examine(console.operator)
 		if(istype(object, /obj/structure/overmap/ship/AI))
 			var/obj/structure/overmap/ship/AI/om = object
 			if(om.faction == console.faction)
@@ -650,9 +656,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 					console.saved_fleet -= om
 					om.RTSeye = null
 					to_chat(console.operator, "[om] has been removed your command group")
-		else
-			var/atom/theobj = object
-			theobj.examine(console.operator)
+
 		return
 	if(modifiers["ctrl"])
 		if(istype(object, /obj/structure/overmap/ship/AI))
@@ -661,7 +665,9 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				fleet += om
 				console.saved_fleet += om
 				to_chat(console.operator, "[om] has been added to your command group")
-				play_voice('StarTrek13/sound/voice/rts/construction/yescommander.ogg')
+				var/list/thelist = list('StarTrek13/sound/voice/rts/misc/sir.ogg','StarTrek13/sound/voice/rts/misc/yescommander.ogg','StarTrek13/sound/voice/rts/construction/yescommander.ogg')
+				var/sound/S = pick(thelist)
+				play_voice(S)
 		return
 	if(modifiers["alt"])
 		if(istype(object, /obj/structure/overmap))
@@ -717,42 +723,56 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		to_chat(console.operator, "Capture the station in this system first.")
 		return
 	if(station.structures >= station.structure_limit)
+		play_voice('StarTrek13/sound/voice/rts/misc/constructfailed.ogg')
 		to_chat(console.operator, "There are too many structures in this system, we should expand our operations to a new system")
 		return
 	for(var/obj/structure/overmap/ship/AI/constructor/CS in builders)
 		if(!CS.build_target && !CS.building)
 			var/whattomake = null
-			var/cost_metal = 0 //How much does it cost to make what we want?
-			var/cost_dilithium = 0
+			var/metal_cost = 0 //How much does it cost to make what we want?
+			var/dilithium_cost = 0
 			switch(dowhat)
 				if("shipyard")
 					if(console.faction == "starfleet")
 						whattomake = /obj/structure/overmap/rts_structure/shipyard
-						cost_metal = 0
-						cost_dilithium = 0 //add me later!
+						metal_cost = 10000
+						dilithium_cost = 10 //add me later!
 					if(console.faction == "romulan empire")
 						whattomake = /obj/structure/overmap/rts_structure/shipyard/romulan
-						cost_metal = 0
-						cost_dilithium = 0 //add me later!
+						metal_cost = 10000
+						dilithium_cost = 10 //add me later!
 				if("mining")
 					if(console.faction == "starfleet")
 						whattomake = /obj/structure/overmap/rts_structure/mining
-						cost_metal = 0
-						cost_dilithium = 0 //add me later!
+						metal_cost = 5000
+						dilithium_cost = 5 //add me later!
 					if(console.faction == "romulan empire")
 						whattomake = /obj/structure/overmap/rts_structure/mining/romulan
-						cost_metal = 0
-						cost_dilithium = 0 //add me later!
+						metal_cost = 5000
+						dilithium_cost = 5 //add me later!
 				if("refinery")
 					if(console.faction == "starfleet")
 						whattomake = /obj/structure/overmap/rts_structure/refinery
-						cost_metal = 0
-						cost_dilithium = 0 //add me later!
+						metal_cost = 5000
+						dilithium_cost = 5 //add me later!
 					if(console.faction == "romulan empire")
 						whattomake = /obj/structure/overmap/rts_structure/refinery/romulan
-						cost_metal = 0
-						cost_dilithium = 0 //add me later!
+						metal_cost = 5000
+						dilithium_cost = 5 //add me later!
 				if("turret")
+					metal_cost = 4000
+					dilithium_cost = 0
+					var/foundd = FALSE //Have we found a resource depot to take on our burdens?
+					for(var/obj/structure/overmap/rts_structure/refinery/rss in overmap_objects)
+						if(rss.faction == console.faction && !foundd)
+							if(rss.metal >= metal_cost && rss.dilithium >= dilithium_cost)
+								rss.metal -= metal_cost
+								rss.dilithium -= dilithium_cost
+								foundd = TRUE
+					if(!foundd)
+						play_voice('StarTrek13/sound/voice/rts/misc/morematerials.ogg')
+						to_chat(console.operator, "Insufficient resources! Ensure that you have refineries stocked up and built.")
+						return
 					if(console.faction == "starfleet")
 						play_voice('StarTrek13/sound/voice/rts/construction/constructioncomplete.ogg')
 						new /obj/structure/overmap/ship/AI/turret(T)
@@ -764,25 +784,30 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				if("comms")
 					if(console.faction == "starfleet")
 						whattomake = /obj/structure/overmap/rts_structure/comms
-						cost_metal = 0
-						cost_dilithium = 0 //add me later!
+						metal_cost = 0
+						dilithium_cost = 0 //add me later!
 					if(console.faction == "romulan empire")
 						whattomake = /obj/structure/overmap/rts_structure/comms/romulan
-						cost_metal = 0
-						cost_dilithium = 0 //add me later!
+						metal_cost = 0
+						dilithium_cost = 0 //add me later!
 			if(whattomake)
-				if(CS.metal < cost_metal)
-				//	to_chat(console.operator, "Insufficient metal!")
-					continue //OK, well maybe one of our constructors has enough?
-				if(CS.dilithium < cost_dilithium)
-			//		to_chat(console.operator, "Insufficient dilithium!")
-					continue
-				CS.rally_point = T
-				CS.build_target = whattomake
-				CS.RTSeye = src
-				to_chat(console.operator, "Construction ship moving out")
-				play_voice('StarTrek13/sound/voice/rts/construction/movingout.ogg')
-				return
+				var/found = FALSE //Have we found a resource depot to take on our burdens?
+				for(var/obj/structure/overmap/rts_structure/refinery/rs in overmap_objects)
+					if(rs.faction == console.faction && !found)
+						if(rs.metal >= metal_cost && rs.dilithium >= dilithium_cost)
+							rs.metal -= metal_cost
+							rs.dilithium -= dilithium_cost
+							found = TRUE
+				if(found)
+					CS.rally_point = T
+					CS.build_target = whattomake
+					CS.RTSeye = src
+					to_chat(console.operator, "Construction ship moving out")
+					play_voice('StarTrek13/sound/voice/rts/construction/movingout.ogg')
+					return
+				else
+					play_voice('StarTrek13/sound/voice/rts/misc/morematerials.ogg')
+					to_chat(console.operator, "Insufficient resources! Ensure that you have refineries stocked up and built.")
 
 /mob/camera/aiEye/remote/rts/proc/try_destroy(var/obj/structure/overmap/what)
 	if(!what.faction)
@@ -940,7 +965,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				rs.metal -= metal_cost
 				rs.dilithium -= dilithium_cost
 				found = TRUE
-	if(!found)
+	if(RTSeye && !found)
+		RTSeye.play_voice('StarTrek13/sound/voice/rts/misc/morematerials.ogg')
 		to_chat(RTSeye.console.operator, "Insufficient resources! Ensure that you have refineries stocked up and built.")
 		return
 	building = TRUE
@@ -1133,8 +1159,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	qdel(src) //Thank you for your service o7
 
 /obj/structure/overmap/ship/AI
-	var/cost_metal = 0 //Construction cost
-	var/cost_dilithium = 0
+	var/metal_cost = 0 //Construction cost
+	var/dilithium_cost = 0
 
 /obj/structure/overmap/ship/AI/turret
 	name = "Charon class defense platform"
