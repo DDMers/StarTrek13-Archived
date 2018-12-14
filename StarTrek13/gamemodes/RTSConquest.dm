@@ -550,7 +550,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		S.rally_point = T
 		S.stored_target = null
 		S.force_target = null
-		S.agressive = FALSE
+		S.aggressive = FALSE
 
 /mob/camera/aiEye/remote/rts/proc/fleet_warp()
 	if(fleet.len >= 1)
@@ -592,7 +592,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			S.force_target = OM
 			S.rally_point = null
 			S.stored_target = null
-			S.agressive = TRUE
+			S.aggressive = TRUE
 
 /mob/camera/aiEye/remote/rts/proc/onMouseDown(object, location, params)
 	var/bleeps = list('StarTrek13/sound/voice/rts/beeps/beep.ogg','StarTrek13/sound/voice/rts/beeps/beep2.ogg','StarTrek13/sound/voice/rts/beeps/beep3.ogg')
@@ -813,7 +813,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "starfleet"
 	spawn_random = FALSE
 	damage = 200 //It can sort of fight back, but not very well
-	agressive = FALSE //Do we attack on sight? admirals can change this!
+	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	var/obj/structure/overmap/build_target = null //As a type, what do we want to build when we reach our rally point?
 	var/build_time = 50 //5 seconds build time, this can be reduced with upgrades, set this higher when done testing!
 	var/metal = 1000 //give them a starting amount so they can build the basics.
@@ -1098,7 +1098,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/obj/structure/overmap/rts_structure/refinery/target_refinery
 	var/metal = 2000 //How many mats are on this tug?
 	var/dilithium = 0
-	agressive = FALSE
+	aggressive = FALSE
 	pixel_z = -48
 	pixel_w = -48
 	var/transferred = FALSE //have we dumped our mats yet?
@@ -1147,7 +1147,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "starfleet"
 	spawn_random = FALSE
 	damage = 500 //A solid deterrant, but not overly lethal. We can add a photon torpedo upgrade for it later
-	agressive = TRUE //Turret KILLLLL
+	aggressive = TRUE //Turret KILLLLL
 	pixel_z = -78
 	pixel_w = -78
 
@@ -1171,7 +1171,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "starfleet"
 	spawn_random = FALSE
 	damage = 900 //This should be low, as it will ALWAYS hit for this much damage
-	agressive = FALSE //Do we attack on sight? admirals can change this!
+	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -48
 	pixel_w = -48
 
@@ -1210,7 +1210,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "romulan empire"
 	spawn_random = FALSE
 	damage = 920 //This should be low, as it will ALWAYS hit for this much damage
-	agressive = FALSE //Do we attack on sight? admirals can change this!
+	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -48
 	pixel_w = -48
 
@@ -1225,6 +1225,6 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "romulan empire"
 	spawn_random = FALSE
 	damage = 1500 //This should be low, as it will ALWAYS hit for this much damage --This is a fucking warbird they hit HARD
-	agressive = FALSE //Do we attack on sight? admirals can change this!
+	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -128
 	pixel_w = -128

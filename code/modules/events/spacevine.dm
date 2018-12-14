@@ -519,7 +519,7 @@
 				master.spawn_spacevine_piece(stepturf, src)
 
 /obj/structure/spacevine/ex_act(severity, target)
-	if(istype(target, type)) //if its agressive spread vine dont do anything
+	if(istype(target, type)) //if its aggressive spread vine dont do anything
 		return
 	var/i
 	for(var/datum/spacevine_mutation/SM in mutations)

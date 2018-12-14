@@ -563,7 +563,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		else if ("wings" in mutant_bodyparts)
 			bodyparts_to_add -= "wings_open"
 
-	//Digitigrade legs are stuck in the phantom zone between true limbs and mutant bodyparts. Mainly it just needs more agressive updating than most limbs.
+	//Digitigrade legs are stuck in the phantom zone between true limbs and mutant bodyparts. Mainly it just needs more aggressive updating than most limbs.
 	var/update_needed = FALSE
 	var/not_digitigrade = TRUE
 	for(var/X in H.bodyparts)

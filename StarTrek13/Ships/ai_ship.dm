@@ -27,7 +27,7 @@
 	spawn_random = FALSE
 	var/turf/rally_point //Are we being told to move to a rally point?
 	respawn = FALSE
-	var/agressive = TRUE
+	var/aggressive = TRUE
 	random_name = FALSE
 	inherit_name_from_area = FALSE
 	var/mob/camera/aiEye/remote/rts/RTSeye //used to relay combat sounds
@@ -88,7 +88,7 @@
 			if(prob(60)) //Allow it time to recharge
 				fire(force_target)
 	if(!stored_target || !force_target || !rally_point)
-		agressive = TRUE //Alright no target, back to autotarget
+		aggressive = TRUE //Alright no target, back to autotarget
 		PickRandomShip()
 		if(current_beam)
 			qdel(current_beam)
@@ -114,7 +114,7 @@
 /obj/structure/overmap/ship/AI/proc/PickRandomShip()
 	if(agressor)
 		stored_target = agressor
-	if(!agressive) //Do we attack on sight?
+	if(!aggressive) //Do we attack on sight?
 		return
 	if(!stored_target)
 		for(var/obj/structure/overmap/S in orange(src, 15))
