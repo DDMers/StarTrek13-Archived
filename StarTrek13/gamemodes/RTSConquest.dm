@@ -310,6 +310,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 /obj/machinery/computer/camera_advanced/rts_control/process()
 	. = ..()
 	if(RTSeye)
+		RTSeye.process_grid()
 		if(RTSeye.tracking_target)
 			RTSeye.forceMove(get_turf(RTSeye.tracking_target))
 
@@ -496,6 +497,16 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/datum/faction/our_faction
 	var/obj/structure/overmap/away/station/system_outpost/rts/station //What's the station in this system, then?
 
+/mob/camera/aiEye/remote/rts/proc/process_grid() //Removes the romulan DEATHBALL stratagem
+	var/I = 0 //Position in array cba to linkedlist
+	var/max_I
+	for(var/obj/structure/overmap/ship/AI/S in fleet)
+		if(max_I <= 7) //stop some ships fucking off OFF SCREEN
+			S.pixel_w = initial(S.pixel_w)+(I*50) //Offset this ship in the grid
+		else
+			S.pixel_w = initial(S.pixel_w)+(I*20) //Offset this ship in the grid
+		I ++
+
 /mob/camera/aiEye/remote/rts/proc/play_voice(sound)
 	if(!sound)
 		return
@@ -646,17 +657,19 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 				fleet_attack(om)
 		return
 	if(modifiers["shift"])
-		var/atom/theobj = object
-		theobj.examine(console.operator)
+		if(istype(object, /obj/structure/overmap))
+			if(!object in fleet)
+				var/atom/theobj = object
+				theobj.examine(console.operator)
 		if(istype(object, /obj/structure/overmap/ship/AI))
 			var/obj/structure/overmap/ship/AI/om = object
 			if(om.faction == console.faction)
 				if(om in fleet)
 					fleet -= om
+					om.pixel_w = initial(om.pixel_w)
 					console.saved_fleet -= om
 					om.RTSeye = null
 					to_chat(console.operator, "[om] has been removed your command group")
-
 		return
 	if(modifiers["ctrl"])
 		if(istype(object, /obj/structure/overmap/ship/AI))
@@ -894,6 +907,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	pixel_w = -78
 	inherit_name_from_area = FALSE
 	spawn_random = FALSE
+	max_health = 60000
 
 /obj/structure/overmap/rts_structure/linkto()
 	for(var/area/AR in world)
@@ -1112,6 +1126,9 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	icon_state = "romfinery"
 	faction = "romulan empire"
 
+/obj/structure/overmap
+	var/counts_to_shipcap = TRUE //set this to false on things like tugs
+
 /obj/structure/overmap/ship/AI/tug
 	name = "Fortunate class ore freighter"
 	desc = "A small ship designed to ferry ore from mining outposts to refineries. It has a class 1 mining laser installed, which is probably too low powered to penetrate even navigational shields"
@@ -1128,6 +1145,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	pixel_z = -48
 	pixel_w = -48
 	var/transferred = FALSE //have we dumped our mats yet?
+	counts_to_shipcap = FALSE
 
 /obj/structure/overmap/ship/AI/tug/dilithium
 	name = "Dilithium hauler"

@@ -31,7 +31,13 @@
 	random_name = FALSE
 	inherit_name_from_area = FALSE
 	var/mob/camera/aiEye/remote/rts/RTSeye //used to relay combat sounds
+	show_shield_overlay = FALSE
+	var/obj/effect/temp_visual/trek/shieldhit/AI/shieldhitFX //Stop multiple shield hits from overlapping
 
+/obj/effect/temp_visual/trek/shieldhit/AI
+	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
+	icon_state = "shieldhit"
+	duration = 10
 
 /* COMMAND PRIORITY:
 
@@ -108,6 +114,11 @@
 		var/sound/S = pick(ship_damage_sounds)
 		if(RTSeye.console && RTSeye.console.operator)
 			RTSeye.play_voice(S)
+	damage = initial(damage)
+	if(QDELETED(shieldhitFX) || !shieldhitFX)
+		if(shields_active())
+			shieldhitFX = new/obj/effect/temp_visual/trek/shieldhit/AI(src)
+			add_overlay(shieldhitFX)
 	. = ..()
 
 
@@ -147,6 +158,7 @@
 		S = stored_target
 	if(S && S in orange(src, 6))
 		if(SC.weapons.attempt_fire())
+			damage = initial(damage)
 			SC.weapons.damage = damage
 			S.take_damage(SC.weapons.damage,1)
 			var/source = get_turf(src)

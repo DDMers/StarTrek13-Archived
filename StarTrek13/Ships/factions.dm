@@ -100,7 +100,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	ships = 0
 	for(var/obj/structure/overmap/ship/AI/OM in GLOB.overmap_ships)
 		if(!istype(OM, /obj/structure/overmap/ship/AI/turret))
-			if(OM.faction == name)
+			if(OM.faction == name && !OM.counts_to_shipcap)
 				ships ++
 
 

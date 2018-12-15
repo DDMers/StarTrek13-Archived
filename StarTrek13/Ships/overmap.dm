@@ -585,7 +585,6 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 		source = agressor
 	if(health > 0) //If not, then destroy will pick this up.
 		if(shields_active()) ///Case 1: Shields hit
-			new /obj/effect/temp_visual/trek/shieldhit(loc)
 			var/heat_multi = 1
 			playsound(src,'StarTrek13/sound/borg/machines/shieldhit.ogg',40,1)
 			heat_multi = SC.shields.heat >= 200 ? 2 : 1 // double damage if heat is over 200.
@@ -746,6 +745,10 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 		if(!SC.engines.failed)
 			do_warp(SS, SS.distance) //distance being the warp transit time.
 
+/obj/effect/temp_visual/trek/warp
+	icon = 'StarTrek13/icons/trek/effects.dmi'
+	icon_state = "warp"
+	duration = 10
 
 /obj/structure/overmap/proc/do_warp(destination, jump_time) //Don't want to lock this behind warp capable because jumpgates call this
 	if(!can_move)
@@ -754,6 +757,7 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 		return
 	if(!SSfaction.jumpgates_forbidden)
 		if(SC.engines.try_warp())
+			new /obj/effect/temp_visual/trek/warp(get_turf(src))
 			var/area/hyperspace_area
 			for(var/obj/effect/landmark/L in GLOB.landmarks_list)
 				if(L.name == "hyperspace")
