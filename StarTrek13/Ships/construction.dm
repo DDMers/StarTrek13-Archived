@@ -121,7 +121,7 @@
 	desc = "A recently prototyped battleship with cutting edge technology, developed to face the ongoing Dominion threat, it is a truly a force to be reckoned with."
 	templatename = "sovereign"
 	loaded
-	cost = 80000 ///SUUUUUUUUPER expensive, the average faction earns 300K over two hours
+	cost = 50000 ///SUUUUUUUUPER expensive, the average faction earns 300K over two hours
 	icon = 'StarTrek13/icons/trek/large_ships/sovreign.dmi'
 	icon_state = "sovreign-full"
 	checktype = /obj/structure/overmap/ship/federation_capitalclass/sovreign
@@ -130,7 +130,7 @@
 	name = "D'deridex class warbird"
 	desc = "The might of the Romulan star empire given form. This design has seen such astounding success, that the Romulan empire doesn't officially employ any other military ships apart from it."
 	templatename = "dderidex"
-	cost = 70000 //This ship can take on a sovereign
+	cost = 20000 //This ship can take on a sovereign
 	icon = 'StarTrek13/icons/trek/large_ships/dderidex.dmi'
 	icon_state = "dderidex"
 	checktype = /obj/structure/overmap/ship/romulan
@@ -139,7 +139,7 @@
 	name = "D'deridex class warbird"
 	desc = "The might of the Romulan star empire given form. This design has seen such astounding success, that the Romulan empire doesn't officially employ any other military ships apart from it."
 	templatename = "dderidex"
-	cost = 70000 //This ship can take on a sovereign
+	cost = 20000 //This ship can take on a sovereign
 	icon = 'StarTrek13/icons/trek/large_ships/dderidex.dmi'
 	icon_state = "dderidex"
 
@@ -147,7 +147,7 @@
 	name = "Defiant class light cruiser"
 	desc = "The defiant class is a prototype warship developed exclusively for military roles, due to an agreement with the Romulan empire, it does not feature a cloaking device. This ship is ideal for rapid travel, escort missions and general patrols"
 	templatename = "defiant"
-	cost = 20000 //Here's your true workhorse of the fleet
+	cost = 15000 //Here's your true workhorse of the fleet
 	icon = 'StarTrek13/icons/trek/large_ships/defiant.dmi'
 	icon_state = "defiant"
 	checktype = /obj/structure/overmap/ship/defiant
@@ -156,7 +156,7 @@
 	name = "Galaxy class cruiser"
 	desc = "A huge ship with average armaments, it is suited for capital ship combat, if a little underpowered."
 	templatename = "galaxy"
-	cost = 50000 //Powerful, but also not
+	cost = 30000 //Powerful, but also not
 	icon = 'StarTrek13/icons/trek/large_ships/galaxy.dmi'
 	icon_state = "galaxy"
 	checktype = /obj/structure/overmap/ship/federation_capitalclass/galaxy
@@ -174,7 +174,7 @@
 	name = "Build your own ship (miranda class)"
 	desc = "For vast interstellar civilisations on a budget, this will allow you to manufacture your own ship. It comes equipped with a shield generator, one phaser and a transporter as well as some complementary RCDs. Walls not included. The rest is up to you"
 	templatename = "mirandaDIY"
-	cost = 5000 //For the budding shipbuilders out there
+	cost = 3000 //For the budding shipbuilders out there
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	icon_state = "destroyer-full"
 	checktype = /obj/structure/overmap/ship/target/diy

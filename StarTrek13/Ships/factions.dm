@@ -85,7 +85,10 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/datum/species/speciestype = null
 	var/locked = FALSE //Lock this one at roundstart?
 	var/ships = 0 //How many ships have we built? PREVENT THE ROMULAN POWERBALL
-	var/max_ships = 15
+	var/max_ships = 18
+	var/metal = 0//used as a win condition
+	var/dilithium = 0
+	var/points = 0
 /*
 /datum/faction/independant
 	name = "independant"
@@ -99,9 +102,8 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 /datum/faction/proc/faction_process()
 	ships = 0
 	for(var/obj/structure/overmap/ship/AI/OM in GLOB.overmap_ships)
-		if(!istype(OM, /obj/structure/overmap/ship/AI/turret))
-			if(OM.faction == name && !OM.counts_to_shipcap)
-				ships ++
+		if(OM.faction == name && OM.counts_to_shipcap)
+			ships ++
 
 
 /datum/faction/starfleet

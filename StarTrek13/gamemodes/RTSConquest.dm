@@ -74,6 +74,63 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	return "By the order of the galactic empire, all available ships will mount an assault to break rebel supply lines. Capture each rebel base and move on to the next, failure will not be tolerated. Your captain has been given a set of documents of the utmost importance: see that these reach their destination safely."
 
 
+/datum/game_mode/conquest/special_report()
+	var/list/ships = list()
+	var/list/metal = list()
+	var/list/dilithium = list()
+	for(var/obj/structure/overmap/rts_structure/refinery/rss in overmap_objects)
+		if(rss.faction)
+			for(var/datum/faction/FF in SSfaction.factions)
+				if(FF.locked)
+					continue
+				if(FF.name == rss.faction)
+					FF.metal += rss.metal
+					FF.dilithium += rss.dilithium
+					metal += FF.metal
+					dilithium += FF.dilithium
+	for(var/datum/faction/F in SSfaction.factions)
+		ships += F.ships
+	var/most_ships = max(ships)
+	var/most_metal = max(metal)
+	var/most_dilithium = max(dilithium)
+	var/datum/faction/highest
+	var/datum/faction/richest_d
+	var/datum/faction/richest_m
+	var/datum/faction/military
+	var/topscore
+	for(var/datum/faction/F in SSfaction.factions) //Hierarchical win system, the overall winner
+		if(F.locked)
+			continue //Skip over the ones that aren't meant to be in this game
+		if(F.ships >= most_ships)
+			F.points += 10
+			military = F
+		if(F.metal >= most_metal)
+			F.points += 10
+			richest_m = F
+		if(F.dilithium >= most_dilithium)
+			F.points += 10
+			richest_d = F
+		if(F.points > topscore)
+			highest = F
+	var/output = "<div class='panel greenborder'><span class='header'>[highest] finished the round as the most powerful faction!</div>"
+	output += "<br>[richest_m] mined the most metal that round"
+	output += "<br>[richest_d] mined the most dilithium that round"
+	output += "<br>[military] had the most military assets at the end of that round"
+
+	return output
+
+/obj/screen/alert/metal
+	name = "Stored metal"
+	icon = 'StarTrek13/icons/actions/rts_alert.dmi'
+	icon_state = "alert-metal"
+	desc = "Cumulative total of all the metal in your faction's refineries"
+
+/obj/screen/alert/dilithium
+	name = "Stored dilithium"
+	icon = 'StarTrek13/icons/actions/rts_alert.dmi'
+	icon_state = "alert-dilithium"
+	desc = "Cumulative total of all the dilithium in your faction's refineries"
+
 //Federation space
 
 /obj/structure/overmap/away/station/system_outpost/rts
@@ -81,6 +138,19 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	spawn_name = "earth_spawn"
 	spawn_random = TRUE
 	faction = "starfleet"
+
+/obj/structure/overmap/away/station/system_outpost/rts/earth
+	max_health = 60000
+
+/obj/structure/overmap/away/station/system_outpost/rts/earth/Destroy()
+	var/datum/faction/penalty
+	for(var/datum/faction/F in SSfaction.factions)
+		if(F.name == faction)
+			penalty = F
+	penalty.points -= 50 //50 points from griffindor!
+	SSticker.mode.check_win()
+	SSticker.mode.check_finished(TRUE)
+	SSticker.force_ending = 1
 
 /obj/structure/overmap/away/station/system_outpost/rts/process()
 	. = ..()
@@ -202,11 +272,23 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 /area/ship/romulus
 	name = "Star fortress 'praetor'"
 
-/obj/structure/overmap/away/station/system_outpost/rts/romulus
+/obj/structure/overmap/away/station/system_outpost/rts/romulus //Losing this one means Game Over
 	spawn_name = "romulus_spawn"
 	faction = "romulan empire"
 	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
 	icon_state = "romstarbase"
+	max_health = 60000
+
+/obj/structure/overmap/away/station/system_outpost/rts/romulus/Destroy()
+	var/datum/faction/penalty
+	for(var/datum/faction/F in SSfaction.factions)
+		if(F.name == faction)
+			penalty = F
+	penalty.points -= 50 //50 points from griffindor!
+	SSticker.mode.check_win()
+	SSticker.mode.check_finished(TRUE)
+	SSticker.force_ending = 1
+
 
 /obj/effect/landmark/ship_spawner/romulus
 	name = "romulus_spawn"
@@ -302,6 +384,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/list/saved_fleet = list() //save fleet when you re-use the cam
 	var/zoom_out = 12
 	var/datum/faction/our_faction
+	var/list/alerts = list()
 
 /obj/machinery/computer/camera_advanced/rts_control/Initialize()
 	. = ..()
@@ -309,6 +392,20 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 
 /obj/machinery/computer/camera_advanced/rts_control/process()
 	. = ..()
+	if(!RTSeye)
+		return
+	var/metal
+	var/dilithium
+	for(var/obj/structure/overmap/rts_structure/refinery/rss in overmap_objects)
+		if(rss.faction == faction)
+			metal += rss.metal
+			dilithium += rss.dilithium
+	var/metalmath = round(metal/1000)
+	for(var/obj/screen/alert/metal/C in alerts)
+		C.maptext = "[metalmath] K"
+
+	for(var/obj/screen/alert/dilithium/CC in alerts)
+		CC.maptext = "[dilithium]"
 	if(RTSeye)
 		RTSeye.process_grid()
 		if(RTSeye.tracking_target)
@@ -361,6 +458,10 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 /obj/machinery/computer/camera_advanced/rts_control/give_eye_control(mob/living/carbon/user, var/turf/TT)
 	if(user == operator)
 		GrantActions(user)
+		var/obj/screen/alert/S = operator.throw_alert("Stored metal", /obj/screen/alert/metal)
+		var/obj/screen/alert/SS = operator.throw_alert("Stored dilithium", /obj/screen/alert/dilithium)
+		alerts += SS
+		alerts += S
 		current_user = user
 		RTSeye.eye_user = user
 		RTSeye.name = "RTS controller ([user.name])"
@@ -386,6 +487,9 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	if(RTSeye.fleet.len)
 		saved_fleet = RTSeye.fleet.Copy()
 		to_chat(operator, "Command group saved")
+	operator.clear_alert("Stored metal", /obj/screen/alert/metal)
+	operator.clear_alert("Stored dilithium", /obj/screen/alert/dilithium)
+	alerts = list()
 	RTSeye.eye_user = null
 	user.remote_control = null
 	current_user = null
@@ -502,9 +606,11 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/max_I
 	for(var/obj/structure/overmap/ship/AI/S in fleet)
 		if(max_I <= 7) //stop some ships fucking off OFF SCREEN
-			S.pixel_w = initial(S.pixel_w)+(I*50) //Offset this ship in the grid
-		else
 			S.pixel_w = initial(S.pixel_w)+(I*20) //Offset this ship in the grid
+			S.pixel_z = initial(S.pixel_z)+(I*10) //Offset this ship in the grid
+		else
+			S.pixel_w = initial(S.pixel_w)+(I*10) //Offset this ship in the grid
+			S.pixel_z = initial(S.pixel_z)+(I*5) //Offset this ship in the grid
 		I ++
 
 /mob/camera/aiEye/remote/rts/proc/play_voice(sound)
@@ -665,8 +771,10 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			var/obj/structure/overmap/ship/AI/om = object
 			if(om.faction == console.faction)
 				if(om in fleet)
+					om.rally_point = null
 					fleet -= om
 					om.pixel_w = initial(om.pixel_w)
+					om.pixel_z = initial(om.pixel_z)
 					console.saved_fleet -= om
 					om.RTSeye = null
 					to_chat(console.operator, "[om] has been removed your command group")
@@ -828,6 +936,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	if(what.faction != console.faction)
 		to_chat(console.operator, "You don't own this")
 		return FALSE
+	if(!istype(what, /obj/structure/overmap/ship/AI) || !istype(what, /obj/structure/overmap/rts_structure))
+		return FALSE //no sudden destruction of planets or player ships, please!
 	var/A = input(console.operator, "Are you sure you want to DESTROY [what]?", "Scuttle ship") in list("yes","no")
 	if(A == "yes")
 		to_chat(console.operator, "Ship scuttled.") //https://www.youtube.com/watch?v=hVPjGkVOaJ8
@@ -909,11 +1019,13 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	spawn_random = FALSE
 	max_health = 60000
 
-/obj/structure/overmap/rts_structure/linkto()
+/obj/structure/overmap/rts_structure/Initialize()
+	. = ..()
 	for(var/area/AR in world)
 		if(istype(AR, /area/ship/ai))
 			linked_ship = AR
 			return
+
 
 /obj/structure/overmap/rts_structure/shipyard
 	name = "Class IV shipyard"
@@ -1049,6 +1161,18 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/max_metal = 5000 //Maximum amount of minerals we can store
 	var/max_dilithium = 5000
 
+/obj/structure/overmap/rts_structure/linkto()
+	for(var/area/AR in world)
+		if(istype(AR, /area/ship/ai))
+			linked_ship = AR
+			return
+
+/obj/structure/overmap/rts_structure/mining/linkto()
+	for(var/area/AR in world)
+		if(istype(AR, /area/ship/ai))
+			linked_ship = AR
+			return
+
 /obj/structure/overmap/rts_structure/mining/romulan
 	name = "Reman mining colony"
 	icon_state = "rommining"
@@ -1061,10 +1185,10 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			metal += 50
 	if(prob(5))
 		if(dilithium < max_dilithium)
-			dilithium += 0.5
+			dilithium += 1
 	if(metal >= 2000)
 		prepare_transport()
-	if(dilithium >= 10)
+	if(dilithium >= 2)
 		prepare_transport_dilithium()
 
 /obj/structure/overmap/rts_structure/mining/proc/prepare_transport()
@@ -1149,7 +1273,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 
 /obj/structure/overmap/ship/AI/tug/dilithium
 	name = "Dilithium hauler"
-	dilithium = 5
+	dilithium = 2
 
 /obj/structure/overmap/ship/AI/tug/dilithium/romulan
 	name = "Dilithium hauler"
@@ -1185,15 +1309,16 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	desc = "A self-contained turret solution that offers solid protection for bases"
 	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
 	icon_state = "turret"
-	max_health = 15000 //Designed to hold off decent sized swarms of roflstompers
+	max_health = 10000 //Designed to hold off decent sized swarms of roflstompers
 	max_speed = 0
 	acceleration = 0
 	faction = "starfleet"
 	spawn_random = FALSE
-	damage = 500 //A solid deterrant, but not overly lethal. We can add a photon torpedo upgrade for it later
+	damage = 700 //A solid deterrant, but not overly lethal. We can add a photon torpedo upgrade for it later
 	aggressive = TRUE //Turret KILLLLL
 	pixel_z = -78
 	pixel_w = -78
+	counts_to_shipcap = FALSE
 
 /obj/structure/overmap/ship/AI/turret/romulan
 	name = "'Early strike' class defense platform"
@@ -1214,7 +1339,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	acceleration = 1.5
 	faction = "starfleet"
 	spawn_random = FALSE
-	damage = 900 //This should be low, as it will ALWAYS hit for this much damage
+	damage = 1200 //This should be low, as it will ALWAYS hit for this much damage
 	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -48
 	pixel_w = -48
@@ -1229,6 +1354,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	pixel_z = -128
 	pixel_w = -120
 	max_speed = 6
+	damage = 2000
 	acceleration = 2 //These things are fucking rapid, too
 
 /obj/structure/overmap/ship/AI/federation/galaxy
@@ -1242,6 +1368,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	pixel_w = -120
 	max_speed = 7
 	acceleration = 1.2 //Pretty damn fast
+	damage = 1500
 
 /obj/structure/overmap/ship/AI/romulan/cruiser
 	name = "Romulan bird of prey class light cruiser"
@@ -1253,7 +1380,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	acceleration = 1.15
 	faction = "romulan empire"
 	spawn_random = FALSE
-	damage = 920 //This should be low, as it will ALWAYS hit for this much damage
+	damage = 1050 //This should be low, as it will ALWAYS hit for this much damage
 	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -48
 	pixel_w = -48
@@ -1268,7 +1395,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	acceleration = 0.5
 	faction = "romulan empire"
 	spawn_random = FALSE
-	damage = 1500 //This should be low, as it will ALWAYS hit for this much damage --This is a fucking warbird they hit HARD
+	damage = 1850 //This should be low, as it will ALWAYS hit for this much damage --This is a fucking warbird they hit HARD
 	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -128
 	pixel_w = -128

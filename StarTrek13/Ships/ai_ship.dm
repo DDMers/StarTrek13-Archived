@@ -37,7 +37,7 @@
 /obj/effect/temp_visual/trek/shieldhit/AI
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	icon_state = "shieldhit"
-	duration = 10
+	duration = 5
 
 /* COMMAND PRIORITY:
 
@@ -92,6 +92,8 @@
 	if(force_target)
 		if(stored_target in orange(src, 15))
 			if(prob(60)) //Allow it time to recharge
+				if(current_beam)
+					qdel(current_beam)
 				fire(force_target)
 	if(!stored_target || !force_target || !rally_point)
 		aggressive = TRUE //Alright no target, back to autotarget
@@ -163,9 +165,7 @@
 			S.take_damage(SC.weapons.damage,1)
 			var/source = get_turf(src)
 			SC.weapons.charge -= SC.weapons.fire_cost
-			if(current_beam)
-				qdel(current_beam)
-			current_beam = new(source,get_turf(S),time=500,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
+			current_beam = new(source,get_turf(S),time=1000,beam_icon_state="phaserbeam",maxdistance=5000,btype=/obj/effect/ebeam/phaser)
 			var/sound/thesound = pick(soundlist)
 			if(S.pilot)
 				SEND_SOUND(S.pilot, thesound)
