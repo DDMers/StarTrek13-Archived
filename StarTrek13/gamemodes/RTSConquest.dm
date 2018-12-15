@@ -140,7 +140,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "starfleet"
 
 /obj/structure/overmap/away/station/system_outpost/rts/earth
-	max_health = 60000
+	max_health = 200000
 
 /obj/structure/overmap/away/station/system_outpost/rts/earth/Destroy()
 	var/datum/faction/penalty
@@ -277,7 +277,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "romulan empire"
 	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
 	icon_state = "romstarbase"
-	max_health = 60000
+	max_health = 200000
 
 /obj/structure/overmap/away/station/system_outpost/rts/romulus/Destroy()
 	var/datum/faction/penalty
@@ -539,13 +539,19 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 //ACTIONS!//
 
 /datum/action/innate/rally
-	name = "Set rally point"
+	name = "Switch command groups"
 	icon_icon = 'StarTrek13/icons/actions/rts_actions.dmi'
-	button_icon_state = "rallybutton"
+	button_icon_state = "commandgroups"
 	var/mob/camera/aiEye/remote/rts/RTSeye //Set this!
 
 /datum/action/innate/rally/Activate()
-	RTSeye.rally(RTSeye.loc) //Rally the selected fleet to this location
+	var/A = input(RTSeye.console.operator, "Do what?", "Command groups") in list("save to group", "switch group")
+	if(!A)
+		return
+	if(A == "save to group")
+		RTSeye.save_group()
+	else
+		RTSeye.switch_group()
 
 /datum/action/innate/fleet_warp
 	name = "Fleet warp"
@@ -563,7 +569,13 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/mob/camera/aiEye/remote/rts/RTSeye //Set this!
 
 /datum/action/innate/jumptoship/Activate()
-	RTSeye.jump() //Rally the selected fleet to this location
+	var/A = input(RTSeye.console.operator, "Jump to what?", "Command groups") in list("all ships", "ships in command group")
+	if(!A)
+		return
+	if(A == "all ships")
+		RTSeye.jump() //Rally the selected fleet to this location
+	else
+		RTSeye.jump(FALSE)
 
 //END ACTIONS!//
 
@@ -600,8 +612,44 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/saved_time = 0
 	var/datum/faction/our_faction
 	var/obj/structure/overmap/away/station/system_outpost/rts/station //What's the station in this system, then?
+	var/list/group1 = list()
+	var/list/group2 = list()
+	var/list/group3 = list()
+
+/mob/camera/aiEye/remote/rts/proc/save_group()
+	var/A = input(console.operator,"Save command group") in list("Alpha", "Foxtrot","Sierra","cancel")
+	if(!A)
+		return
+	switch(A)
+		if("Alpha")
+			group1 = fleet.Copy()
+		if("Foxtrot")
+			group2 = fleet.Copy()
+		if("Sierra")
+			group3 = fleet.Copy()
+	to_chat(console.operator, "Command group saved")
+
+/mob/camera/aiEye/remote/rts/proc/switch_group()
+	var/A = input(console.operator,"Switch command group") in list("Alpha", "Foxtrot","Sierra","cancel")
+	if(!A)
+		return
+	switch(A)
+		if("Alpha")
+			fleet = group1.Copy()
+			console.saved_fleet = fleet.Copy()
+		if("Foxtrot")
+			fleet = group2.Copy()
+			console.saved_fleet = fleet.Copy()
+		if("Sierra")
+			fleet = group3.Copy()
+			console.saved_fleet = fleet.Copy()
+	to_chat(console.operator, "Command group switched")
+
 
 /mob/camera/aiEye/remote/rts/proc/process_grid() //Removes the romulan DEATHBALL stratagem
+	for(var/obj/structure/overmap/away/station/system_outpost/rts/RTS in get_area(src))
+		if(RTS.faction == console.faction)
+			station = RTS
 	var/I = 0 //Position in array cba to linkedlist
 	var/max_I
 	for(var/obj/structure/overmap/ship/AI/S in fleet)
@@ -629,15 +677,21 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	if(tracking_target)
 		tracking_target = null
 
-/mob/camera/aiEye/remote/rts/proc/jump() //Jump to any overmap ship in this sector
+/mob/camera/aiEye/remote/rts/proc/jump(var/includeall = TRUE) //Jump to any overmap ship in this sector
 	if(tracking_target)
 		tracking_target = null
 	var/A
 	var/list/theships = list() //We need a special one for jumping to command groups
-	for(var/obj/structure/overmap/O in overmap_objects)
-		if(O.faction)
-			if(O.faction == console.faction)
-				theships += O
+	if(includeall)
+		for(var/obj/structure/overmap/O in overmap_objects)
+			if(O.faction)
+				if(O.faction == console.faction)
+					theships += O
+	else
+		for(var/obj/structure/overmap/O in fleet)
+			if(O.faction)
+				if(O.faction == console.faction)
+					theships += O
 	if(!theships.len)
 		return
 	A = input(console.operator,"What ship shall we track?", "Ship navigation", A) as null|anything in theships//overmap_objects

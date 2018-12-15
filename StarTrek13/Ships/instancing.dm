@@ -197,6 +197,7 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 		var/turf/t = get_turf(src)
 		var/mob/living/carbon/human/S = new(t)
 		scurvy_crew += S
+		i ++
 		if(thefaction)
 			thefaction.addMember(S) //This stops romulans getting the same rommie name they always use
 		switch(i) //We're prioritising the really critical jobs first
@@ -218,7 +219,9 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 				S.equipOutfit(/datum/outfit/job/security)
 			if(9)
 				S.equipOutfit(/datum/outfit/job/engineer)
-		i ++
+			else:
+				S.equipOutfit(/datum/outfit/job/crewman)
+
 	var/poll_message = "Do you want to respawn as a member of [get_area(src)]'s crew? "
 	var/list/mob/dead/observer/candidates = pollCandidatesForMob(poll_message, ROLE_PAI, null, FALSE, 100, src)
 	if(LAZYLEN(candidates))

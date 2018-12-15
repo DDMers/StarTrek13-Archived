@@ -2,7 +2,7 @@
 "b" = (/turf/open/floor/fakespace,/area/space)
 "c" = (/obj/effect/landmark{name = "borg_spawn"},/turf/open/floor/fakespace,/area/space)
 "d" = (/obj/structure/overmap/rts_structure/shipyard/romulan,/turf/open/floor/fakespace,/area/overmap/rts/romulan)
-"e" = (/turf/closed/indestructible/riveted{alpha = 0},/area/space)
+"e" = (/turf/closed/indestructible/transporter_block/riveted{alpha = 0},/area/space)
 "f" = (/obj/effect/landmark/music_controller,/turf/open/floor/fakespace,/area/overmap/rts/romulan)
 "g" = (/turf/open/floor/fakespace,/area/overmap/rts/romulan)
 "h" = (/obj/effect/landmark/warp_beacon,/turf/open/floor/fakespace,/area/overmap/rts/romulan)
