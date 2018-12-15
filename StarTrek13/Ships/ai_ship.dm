@@ -131,7 +131,7 @@
 		return
 	if(!stored_target)
 		for(var/obj/structure/overmap/S in orange(src, 15))
-			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck) && !istype(S, /obj/structure/overmap/planet) && !istype(S, /obj/structure/overmap/away/station/system_outpost)) //Don't blow up crucial game things
+			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck) && !istype(S, /obj/structure/overmap/planet) && !istype(S, /obj/structure/overmap/away/station/system_outpost) && !istype(S, /obj/structure/overmap/lavaland)) //Don't blow up crucial game things
 				if(S.faction == faction) //allows for teams of ships
 					continue
 				if(!S.cloaked)

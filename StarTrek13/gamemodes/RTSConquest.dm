@@ -606,11 +606,11 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/max_I
 	for(var/obj/structure/overmap/ship/AI/S in fleet)
 		if(max_I <= 7) //stop some ships fucking off OFF SCREEN
-			S.pixel_w = initial(S.pixel_w)+(I*20) //Offset this ship in the grid
-			S.pixel_z = initial(S.pixel_z)+(I*10) //Offset this ship in the grid
+			S.pixel_w = initial(S.pixel_w)+(I*2) //Offset this ship in the grid
+			S.pixel_z = initial(S.pixel_z)+(I*2) //Offset this ship in the grid
 		else
-			S.pixel_w = initial(S.pixel_w)+(I*10) //Offset this ship in the grid
-			S.pixel_z = initial(S.pixel_z)+(I*5) //Offset this ship in the grid
+			S.pixel_w = initial(S.pixel_w)+(I*2) //Offset this ship in the grid
+			S.pixel_z = initial(S.pixel_z)+(I*2) //Offset this ship in the grid
 		I ++
 
 /mob/camera/aiEye/remote/rts/proc/play_voice(sound)
@@ -721,6 +721,9 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	SEND_SOUND(console.operator,thesound)
 	var/list/modifiers = params2list(params)
 	if(istype(object, /obj/structure/overmap/rts_structure/shipyard)) //https://www.youtube.com/watch?v=53t_GEJliEo
+		var/obj/structure/overmap/rts_structure/shipyard/sy = object
+		if(sy.faction != console.faction)
+			return
 		if(console.faction == "starfleet")
 			var/list/options = list("miranda", "constructor", "galaxy", "sovereign", "repair")
 			for(var/option in options)
@@ -728,7 +731,6 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			var/dowhat = show_radial_menu(console.operator,get_turf(object),options)
 			if(!dowhat)
 				return
-			var/obj/structure/overmap/rts_structure/shipyard/sy = object
 			sy.RTSeye = src
 			if(dowhat == "repair")
 				sy.repair()
@@ -1054,7 +1056,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		if("miranda")
 			tobuild = /obj/structure/overmap/ship/AI/federation
 			metal_cost = 5000 //Quite cheap
-			dilithium_cost = 2
+			dilithium_cost = 5
 		if("constructor")
 			tobuild = /obj/structure/overmap/ship/AI/constructor
 			metal_cost = 10000 //Pricy
@@ -1183,9 +1185,9 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	if(prob(50))
 		if(metal < max_metal)
 			metal += 50
-	if(prob(5))
+	if(prob(15))
 		if(dilithium < max_dilithium)
-			dilithium += 1
+			dilithium += 1.5
 	if(metal >= 2000)
 		prepare_transport()
 	if(dilithium >= 2)

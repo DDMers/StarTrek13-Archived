@@ -623,7 +623,6 @@ obj/structure/torpedo_launcher/CollidedWith(atom/movable/AM)
 			our_ship.photons ++
 			qdel(AM)
 		else
-			src.say("[our_ship] is at full capacity already.")
 			return ..()
 
 obj/structure/torpedo_launcher/Initialize(timeofday)

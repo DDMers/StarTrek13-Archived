@@ -237,7 +237,7 @@
 	priority = HIGH
 	faction = "romulan empire"
 	requiredtype = /datum/faction/romulan
-	locked = TRUE //We're only unlocking them when antags spawn 30 mins in
+	locked = FALSE
 
 /datum/crew/borgship
 	name = "assimilated ship"
