@@ -721,8 +721,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	SEND_SOUND(console.operator,thesound)
 	var/list/modifiers = params2list(params)
 	if(istype(object, /obj/structure/overmap/rts_structure/shipyard)) //https://www.youtube.com/watch?v=53t_GEJliEo
-		var/obj/structure/overmap/rts_structure/shipyard/sy = object
-		if(sy.faction != console.faction)
+		var/obj/structure/overmap/ommsy = object
+		if(ommsy.faction != console.faction)
 			return
 		if(console.faction == "starfleet")
 			var/list/options = list("miranda", "constructor", "galaxy", "sovereign", "repair")
@@ -731,6 +731,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			var/dowhat = show_radial_menu(console.operator,get_turf(object),options)
 			if(!dowhat)
 				return
+			var/obj/structure/overmap/rts_structure/shipyard/sy = object
 			sy.RTSeye = src
 			if(dowhat == "repair")
 				sy.repair()
