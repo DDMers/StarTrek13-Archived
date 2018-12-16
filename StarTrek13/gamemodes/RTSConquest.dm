@@ -838,6 +838,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		return
 	if(modifiers["ctrl"])
 		if(istype(object, /obj/structure/overmap/ship/AI))
+			if(object in fleet)
+				return
 			var/obj/structure/overmap/ship/AI/om = object
 			if(om.faction == console.faction)
 				fleet += om
@@ -991,15 +993,14 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	if(!what.faction)
 		return FALSE
 	if(what.faction != console.faction)
-		to_chat(console.operator, "You don't own this")
+		to_chat(console.operator, "You don't own this.")
 		return FALSE
-	if(!istype(what, /obj/structure/overmap/ship/AI) || !istype(what, /obj/structure/overmap/rts_structure))
-		return FALSE //no sudden destruction of planets or player ships, please!
-	var/A = input(console.operator, "Are you sure you want to DESTROY [what]?", "Scuttle ship") in list("yes","no")
-	if(A == "yes")
-		to_chat(console.operator, "Ship scuttled.") //https://www.youtube.com/watch?v=hVPjGkVOaJ8
-		qdel(what) //Thank you for your service
-		return TRUE
+	if(istype(what, /obj/structure/overmap/ship/AI) || istype(what, /obj/structure/overmap/rts_structure))
+		var/A = input(console.operator, "Are you sure you want to DESTROY [what]?", "Scuttle ship") in list("yes","no")
+		if(A == "yes")
+			to_chat(console.operator, "Ship scuttled.") //https://www.youtube.com/watch?v=hVPjGkVOaJ8
+			qdel(what) //Thank you for your service
+			return TRUE
 	return FALSE
 
 /mob/camera/aiEye/remote/rts/proc/upgrade()

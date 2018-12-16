@@ -807,6 +807,8 @@ Reconnect arrays
 					to_chat(L, "You begin to repair [src]'s damaged isolinear circuitry")
 					playsound(L.loc,'StarTrek13/sound/trek/tools/spanner.ogg',100,1)
 					if(do_after(user, 50, target = src))
+						if(!chosen)
+							check_ship()
 						to_chat(L, "<span class='notice'>Isolinear circuits repaired. You still need to repower [src].</span>")
 						reset_stats()
 						chosen.integrity = chosen.max_integrity
