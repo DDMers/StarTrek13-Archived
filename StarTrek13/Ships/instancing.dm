@@ -185,7 +185,7 @@ GLOBAL_LIST_INIT(romulan_ship_names, world.file2list("strings/names/romulan_ship
 
 /obj/effect/landmark/crewspawnermachine/Initialize()
 	. = ..()
-	spawn_crew()
+	addtimer(CALLBACK(src, .proc/spawn_crew), 100) //Give the ship time to spawn in too
 
 /obj/effect/landmark/crewspawnermachine/proc/spawn_crew() //this is a machine that spawns crew, HOW DID I LEARN TO CODE THIS?!!! -Nickvr circa 2017
 	var/list/scurvy_crew = list() //yarrr this be for iteratin' over' the list so ghostly ghosts can be stealin' yar body
