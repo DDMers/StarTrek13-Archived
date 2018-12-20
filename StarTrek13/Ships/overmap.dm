@@ -593,7 +593,8 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 			if(source)
 				if(source.target_subsystem)
 					source.target_subsystem.integrity -= (amount)/2 //Shields absorbs most of the damage, but still damage it a lil'
-				apply_damage(amount)
+				if(take_damage_traditionally)//Don't hit the interior of smol ships like fighters and escape pods
+					apply_damage(amount)
 				return//no shields are up! take the hit
 		else //Case 2: No shields are hit, look if there was a subsystem being targeted too.
 			var/new_amount = amount //If we want to mod damage because of anything
@@ -607,7 +608,8 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 					new_amount = new_amount*0.3 //3000 turns into 900 physical damage etc.
 			new /obj/effect/temp_visual/trek(loc)//And now apply the damage
 			health -= new_amount
-			apply_damage(new_amount) //And shake up the interior of the ship.
+			if(take_damage_traditionally)
+				apply_damage(new_amount) //And shake up the interior of the ship.
 			shake_camera(pilot, 1, 3)
 			var/sound/thesound = pick(ship_damage_sounds) //Plays a BANG to the pilot.
 		//	SEND_SOUND(pilot, thesound)

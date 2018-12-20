@@ -236,6 +236,7 @@
 "eB" = (/obj/structure/fluff/helm/desk/functional/engineering{icon_state = "engi"; dir = 1},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/federation/entax)
 "eC" = (/obj/structure/fluff/helm/desk/functional/engineering,/turf/open/floor/trek,/area/ship/federation/entax)
 "eD" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{icon_state = "intact"; dir = 1},/turf/open/floor/plating,/area/ship/federation/entax)
+"eE" = (/obj/structure/escape_pod_launcher,/turf/closed/wall/trek{icon_state = "wall_light"; dir = 4},/area/ship/federation/entax)
 
 (1,1,1) = {"
 bwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbwbw
@@ -275,7 +276,7 @@ bwbIbIbIbIbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbKbFbGbJbzdadbdc
 bwbIbIbIbIbzeAeAeAaDeAaaaaapapapapapapapapapapapapaoaoaoaoaoaoaobBbFbGbJbzdedfdgdfdhbBbIbIbIbIbIbIbw
 bwbIbIbIbIbzacacacaRacdjafapdkaeaeaeaeaeaeajaedlapalandWdmaranatbBbFbGbJbzezdodpdqezbBbIbIbIbIbIbIbw
 bwbIbIbIbIbzacacacdiaceDafapauaueBauauauauauauaxapbNaSaSaSaSaSbObBbFbGbJdsbWcBdtdubWclbIbIbIbIbIbIbw
-bwbIbIbIbIbzacacacdiacdvdwdxdydzeCaxaxaxaxaxauaxapbNaSaSaSaSaSavbBbFbGcdcscsctdAbJbIbIbIbIbIbIbIbIbw
+bwbIbIbIbIeEacacacdiacdvdwdxdydzeCaxaxaxaxaxauaxapbNaSaSaSaSaSavbBbFbGcdcscsctdAbJbIbIbIbIbIbIbIbIbw
 bwbIbIbIbIbzacacacdiacacafapaudBaxaxaxaxaxaxauaxapbNcUcVdTelaSavbBbFdCdDdEdEdEdFbJbIbIbIbIbIbIbIbIbw
 bwbIbIbIbIbzawacacdiacacafapaxdGaxaxaxaxaxaxaxaxapbRememeneobSaCbBbFdHducAcAcAcAbKbIbIbIbIbIbIbIbIbw
 bwbIbIbIbIbzbYbYbYdJbYbYbYapaxdIaxaxaxaxaxaxaxaxapbYbYbYbZepbYbYbBbFdHbJbIbIbIbIbIbIbIbIbIbIbIbIbIbw

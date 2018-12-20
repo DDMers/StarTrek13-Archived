@@ -100,7 +100,7 @@
 		PickRandomShip()
 		if(current_beam)
 			qdel(current_beam)
-	if(stored_target in orange(src, 15))
+	if(stored_target in orange(src, 15) || force_target in orange(src, 15))
 		if(prob(60)) //Allow it time to recharge
 			fire(stored_target)
 	else

@@ -569,3 +569,79 @@
 	var/obj/structure/overmap/O = A
 	O.forceMove(get_turf(src))
 	log_admin("([worldtime2text()]):[src] / [client.ckey] teleported [O] to themselves")
+
+/obj/structure/escape_pod_launcher //click to launch escape pod, you then input a target system to aim for. This starts a timer for a few mins and youre then warped to your target system where you can dock with ships. docking with any ship wrecks the pod
+	name = "Emergency escape pod hatch"
+	desc = "An advanced system capable of packing people into escape pods and simultaneously launching said pods into space... Just hope that whoever finds you is friendly."
+	icon = 'icons/obj/doors/airlocks/external/external.dmi'
+	icon_state = "closed"
+
+/obj/structure/overmap/escape_pod
+	name = "Class IV escape pod"
+	desc = "It likely contains a sailor homeward bound. To scoop it up simply alt click it."
+	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
+	icon_state = "escapepod"
+	take_damage_traditionally = FALSE
+	warp_capable = FALSE
+	max_warp = 0
+	can_move = FALSE
+	max_health = 2000
+	spawn_name = null
+	spawn_random = FALSE
+	max_speed = 2
+
+/obj/structure/overmap/escape_pod/Initialize()
+	. = ..()
+	vel = 2
+	angle = rand(0,360)
+	EditAngle() //Shoot off in a random direction
+
+/obj/structure/overmap/escape_pod/AltClick(mob/user)
+	if(user != pilot)
+		var/obj/structure/overmap/A = user.loc
+		A.linkto()
+		var/obj/effect/landmark/T
+		if(A.docks.len)
+			T = pick(A.docks)
+		else
+			for(var/obj/effect/landmark/runaboutdock/R in A.linked_ship)  //fallback, in case it fails
+				T = R
+		if(!T)
+			to_chat(user, "Error! Your ship has no assigned docking points.")
+			return
+		forceMove(get_turf(T))
+		to_chat(pilot, "Docking initiated")
+		to_chat(user, "Engaging recovery protocols on [src]")
+		SpinAnimation(0,0)
+		return
+
+
+/obj/structure/overmap/escape_pod/exit()
+	var/turf/T = get_turf(src)
+	if(istype(T, /turf/open/space/basic) || istype(T, /turf/open/floor/fakespace))
+		to_chat(pilot, "Exiting the pod onto open space would be unwise..")
+		return
+	var/mob/living/M = pilot //Store this
+	. = ..() //Do the parent to clear alerts etc.
+	M.forceMove(get_turf(src)) //And move them properly
+	visible_message("<span_class='warning>[src] falls to pieces!</span>")
+	qdel(src)
+
+/obj/structure/escape_pod_launcher/attack_hand(mob/living/user) //You can put anything in these things :) Admins,  you can have an alien try this for example
+	var/A = input(user, "Launch an escape pod for yourself?") in list("yes", "no")
+	if(A == "yes")
+		var/obj/structure/fluff/helm/desk/tactical/F = locate(/obj/structure/fluff/helm/desk/tactical) in get_area(src)
+		if(F)
+			if(!F.theship)
+				return
+			var/obj/structure/overmap/escape_pod/ES = new(get_turf(F.theship))
+			ES.name = "[F.theship] escape pod ([rand(0,1000)])"
+			ES.SpinAnimation(1000,1000)
+			ES.enter(user)
+			to_chat(user, "<span_class='warning'>You clamber into an escape pod as it whooshes into space! It's pretty cramped in here...</span>")
+			ES.forceMove(get_turf(F.theship))
+			ES.faction = F.theship.faction
+			ES.vel = 5 //Give them a headstart
+		else
+			to_chat(user, "Error! Unable to access ship escape pods")
+			return

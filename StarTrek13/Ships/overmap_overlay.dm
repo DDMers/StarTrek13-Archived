@@ -32,18 +32,19 @@
 	START_PROCESSING(SSobj,src)
 	linkto()
 	linked_ship = get_area(src)
-	var/list/thelist = list()
-	for(var/obj/effect/landmark/A in GLOB.landmarks_list)
-		if(A.name == spawn_name)
-			thelist += A
-			continue
-//	for(var/obj/effect/landmark/transport_zone/T in world)
-	//	transport_zone = get_area(T)
-	if(thelist.len)
-		var/obj/effect/landmark/A = pick(thelist)
-		var/turf/theloc = get_turf(A)
-		if(spawn_random)
-			forceMove(theloc)
+	if(spawn_random)
+		var/list/thelist = list()
+		for(var/obj/effect/landmark/A in GLOB.landmarks_list)
+			if(A.name == spawn_name)
+				thelist += A
+				continue
+	//	for(var/obj/effect/landmark/transport_zone/T in world)
+		//	transport_zone = get_area(T)
+		if(thelist.len)
+			var/obj/effect/landmark/A = pick(thelist)
+			var/turf/theloc = get_turf(A)
+			if(spawn_random)
+				forceMove(theloc)
 	check_overlays()
 
 /obj/structure/overmap/proc/check_overlays()

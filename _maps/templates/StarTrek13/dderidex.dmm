@@ -260,6 +260,7 @@
 "eZ" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
 "fa" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 10},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
 "fb" = (/obj/structure/table,/obj/item/surgical_drapes,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
+"fc" = (/obj/structure/escape_pod_launcher,/turf/closed/wall/trek{icon_state = "wall_light"; dir = 1},/area/ship/romulan)
 
 (1,1,1) = {"
 azababababababababababababababababababababababababababababababababababababababababababababababababab
@@ -304,7 +305,7 @@ azacacacacacacacacacacacacacacacbWbXbYaFdeeydfdhdicwaacwcwaKcXdzaaaaaaaaaaaaaaaa
 azacacacacacacacacacacacacacacacbWbXbYaFdtaKcwdAdBdBdBdMdNcxcXaUaaaaaaaaaaaaaaaaaaaaaaaHacacacacacaz
 azacacacacacacacacacacacacacacacbWbXbYaFdtaVcwcwcwcwcwcwdOaVcXaUaaaaaaaaaaaaaaaaaaaaaaaHacacacacacaz
 azacacacacacacacacacacacacacacacbWeCbYaFbybgbgbgbgbgbgbgdPbgbqaUcLcLcLdVaadWaadWcLcLcLaHacacacacacaz
-azacacacacacacacacacacacacacacacbWbXbYbFbGczaZcqcqcqcqcqeMcAbGbGbGbGbGbGbGbGbGbGbGbGbGbMacacacacacaz
+azacacacacacacacacacacacacacacacbWbXbYbFbGczaZcqcqcqcqcqeMcAbGbGbGbGbGbGfcbGfcbGbGbGbGbMacacacacacaz
 azacacacacacacacacacacacacacacacbWbXbYacacaFcCdkaPaaaPaacjaHacacacacacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacbWbXbYacacaFcCdydQdRdRdRePaHacacacacacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacbWbXbYacacaFcCaadSdSdSdSeRaHacacacacacacacacacacacacacacacacacacacaz
