@@ -90,7 +90,8 @@
 /obj/structure/overmap/ship/AI/process()
 	. = ..()
 	if(force_target)
-		if(stored_target in orange(src, 15))
+		stored_target = force_target
+		if(force_target in orange(src, 15))
 			if(prob(60)) //Allow it time to recharge
 				if(current_beam)
 					qdel(current_beam)
