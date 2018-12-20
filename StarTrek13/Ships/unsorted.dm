@@ -589,6 +589,8 @@
 	spawn_name = null
 	spawn_random = FALSE
 	max_speed = 2
+	photons = 0
+	max_photons = 0
 
 /obj/structure/overmap/escape_pod/Initialize()
 	. = ..()

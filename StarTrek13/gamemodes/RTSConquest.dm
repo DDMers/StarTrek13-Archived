@@ -1035,6 +1035,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 
 /obj/structure/overmap/ship/AI/constructor/on_reach_rally()
 	var/obj/structure/overmap/away/station/system_outpost/rts/S = locate(/obj/structure/overmap/away/station/system_outpost/rts) in(get_area(src))
+	if(!S)
+		return
 	if(S.structures >= S.structure_limit)
 		rally_point = null
 		building = FALSE
