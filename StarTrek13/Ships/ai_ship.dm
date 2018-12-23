@@ -78,7 +78,7 @@
 		ProcessMove()
 		EditAngle()
 		TurnTo()
-		if(!stored_target in orange(src, 6))
+		if(!stored_target in orange(src, 15))
 			stored_target = null
 
 /obj/structure/overmap/ship/AI/linkto()	//weapons etc. don't link!
@@ -87,21 +87,16 @@
 			linked_ship = AR
 			return
 
-/obj/structure/overmap/ship/AI/process()
+/obj/structure/overmap/ship/AI/process() //Ai ships no longer pick random targets, FIX
 	. = ..()
-	if(force_target)
-		stored_target = force_target
-		if(force_target in orange(src, 15))
-			if(prob(60)) //Allow it time to recharge
-				if(current_beam)
-					qdel(current_beam)
-				fire(force_target)
+	if(current_beam)
+		qdel(current_beam)
 	if(!stored_target || !force_target || !rally_point)
 		aggressive = TRUE //Alright no target, back to autotarget
 		PickRandomShip()
-		if(current_beam)
-			qdel(current_beam)
-	if(stored_target in orange(src, 15) || force_target in orange(src, 15))
+	if(stored_target in orange(src, 15))
+		if(force_target)
+			stored_target = force_target
 		if(prob(60)) //Allow it time to recharge
 			fire(stored_target)
 	else

@@ -916,31 +916,31 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 					if(console.faction == "starfleet")
 						whattomake = /obj/structure/overmap/rts_structure/shipyard
 						metal_cost = 10000
-						dilithium_cost = 10 //add me later!
+						dilithium_cost = 5 //add me later!
 					if(console.faction == "romulan empire")
 						whattomake = /obj/structure/overmap/rts_structure/shipyard/romulan
 						metal_cost = 10000
-						dilithium_cost = 10 //add me later!
+						dilithium_cost = 5 //add me later!
 				if("mining")
 					if(console.faction == "starfleet")
 						whattomake = /obj/structure/overmap/rts_structure/mining
 						metal_cost = 5000
-						dilithium_cost = 5 //add me later!
+						dilithium_cost = 2 //add me later!
 					if(console.faction == "romulan empire")
 						whattomake = /obj/structure/overmap/rts_structure/mining/romulan
 						metal_cost = 5000
-						dilithium_cost = 5 //add me later!
+						dilithium_cost = 2 //add me later!
 				if("refinery")
 					if(console.faction == "starfleet")
 						whattomake = /obj/structure/overmap/rts_structure/refinery
 						metal_cost = 5000
-						dilithium_cost = 5 //add me later!
+						dilithium_cost = 2 //add me later!
 					if(console.faction == "romulan empire")
 						whattomake = /obj/structure/overmap/rts_structure/refinery/romulan
 						metal_cost = 5000
-						dilithium_cost = 5 //add me later!
+						dilithium_cost = 2 //add me later!
 				if("turret")
-					metal_cost = 4000
+					metal_cost = 6000
 					dilithium_cost = 0
 					var/foundd = FALSE //Have we found a resource depot to take on our burdens?
 					for(var/obj/structure/overmap/rts_structure/refinery/rss in overmap_objects)
@@ -1123,12 +1123,12 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 		if("galaxy")
 			tobuild = /obj/structure/overmap/ship/AI/federation/galaxy
 			metal_cost = 30000 //Oof ow my bones
-			dilithium_cost = 20
+			dilithium_cost = 10
 
 		if("sovereign")
 			tobuild = /obj/structure/overmap/ship/AI/federation/sovereign
 			metal_cost = 50000 //the ferrari of spaceships
-			dilithium_cost = 50
+			dilithium_cost = 20
 
 		if("constructor-rom")
 			tobuild = /obj/structure/overmap/ship/AI/constructor/romulan
@@ -1142,8 +1142,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 
 		if("dderidex")
 			tobuild = /obj/structure/overmap/ship/AI/romulan
-			metal_cost = 45000 //The staple of the romulan empire's navy
-			dilithium_cost = 20
+			metal_cost = 35000 //The staple of the romulan empire's navy
+			dilithium_cost = 10
 
 	for(var/obj/structure/overmap/rts_structure/refinery/rs in overmap_objects)
 		if(rs.faction == RTSeye.console.faction && !found)

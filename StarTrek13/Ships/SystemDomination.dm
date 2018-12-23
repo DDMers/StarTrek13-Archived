@@ -7,7 +7,7 @@
 	var/datum/faction/owner
 	faction = "starfleet"
 	var/structures = 0
-	var/structure_limit = 8
+	var/structure_limit = 5
 
 /obj/structure/overmap/away/station/system_outpost/process()
 	. = ..()

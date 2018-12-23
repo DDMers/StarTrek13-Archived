@@ -636,6 +636,8 @@
 		if(F)
 			if(!F.theship)
 				return
+			if(!F.theship.loc)
+				return
 			var/obj/structure/overmap/escape_pod/ES = new(get_turf(F.theship))
 			ES.name = "[F.theship] escape pod ([rand(0,1000)])"
 			ES.SpinAnimation(1000,1000)
