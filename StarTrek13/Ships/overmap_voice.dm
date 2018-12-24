@@ -67,7 +67,7 @@
 						playsound(loc,'StarTrek13/sound/voice/ShieldsFailed.ogg',100,0)
 						sound = 'StarTrek13/sound/voice/ShieldsFailed.ogg'
 		if("shieldsinteg")
-			if(theship.SC.shields.integrity)
+			if(!theship.SC.shields.failed)
 				playsound(loc,'StarTrek13/sound/voice/shields100.ogg',100,0)
 				sound = 'StarTrek13/sound/voice/shields100.ogg'
 			else
