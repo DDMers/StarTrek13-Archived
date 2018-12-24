@@ -1,6 +1,6 @@
 <!-- Most valid html will work in here, excluding images. -->
-
-<h1>Welcome to Star Trek 13!</h1>
+<font color = '#7289da'>
+<b><u>Welcome to Star Trek 13!</u></b>
 <br>
 
 <b> Roleplay rules are in full effect, please follow them (press the rules button up top) </b>
@@ -9,3 +9,4 @@
 <br>
 
 <i>This server is running a /tg/station 13 Git build.</i>
+</font>

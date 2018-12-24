@@ -46,7 +46,7 @@
 "aT" = (/turf/open/floor/plating,/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/mirandaDIY)
 "aU" = (/obj/structure/subsystem_panel/engines,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/mirandaDIY)
 "aV" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 9},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/mirandaDIY)
-"aW" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/mirandaDIY)
+"aW" = (/obj/machinery/holopad,/turf/open/floor/plating,/area/ship/mirandaDIY)
 "aX" = (/obj/structure/cable/white{icon_state = "1-4"},/turf/open/floor/plating,/area/ship/mirandaDIY)
 "aY" = (/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/electrical,/obj/item/rcd_ammo/large,/obj/item/rcd_ammo/large,/obj/item/construction/rcd,/obj/item/construction/rcd,/obj/item/ship_repair_tool,/turf/open/floor/plating,/area/ship/mirandaDIY)
 "aZ" = (/obj/structure/cable/white{icon_state = "2-4"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 6},/turf/open/floor/plating,/area/ship/mirandaDIY)
@@ -79,6 +79,7 @@
 "bA" = (/obj/structure/sign/warning/securearea,/obj/structure/cable/white{icon_state = "4-8"},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/mirandaDIY)
 "bB" = (/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "2-4"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/mirandaDIY)
 "bC" = (/obj/structure/cable/white{icon_state = "2-8"},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/mirandaDIY)
+"bD" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/mirandaDIY)
 "bI" = (/turf/closed/wall/trek{icon_state = "black2"; dir = 8},/area/ship/mirandaDIY)
 "bJ" = (/obj/structure/fluff/ship/sticker,/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/mirandaDIY)
 "bK" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/mirandaDIY)
@@ -132,10 +133,10 @@ adadababababababababacababababababababababababababababababababababababadad
 adaaaeaeaeaeaeaeakalalalalalamaeaeaeaeaeaeaeaeaeaeaeaeaeakalalalarawayadad
 adaaaeaeaeaeaeaeakcdcdcdcdcdamaeaeaeaeaeaeaeaeaeaeaeaeaeakaoapaqaHasaIadad
 adaaaeaeaeaeaeaeakagafcdcdahamaeaeaeaeaeaeaeaeaeaeaeaeaeakaoapaqaMasaIadad
-adaaaeaeaeaeaeaeakcdcdcdcdcdamaeaeaeaeaeaeaeaeaeaeaeaeaeakaoapaqaMasaIadad
+adaaaeaeaeaeaeaeakcdcdaWcdcdamaeaeaeaeaeaeaeaeaeaeaeaeaeakaoapaqaMasaIadad
 adaaaeakaAaAaAamakcdaucdaxcdamakaAaAaAamaeaeaeaeaeaeaeaeakaoapaBaMasaIadad
 adaaaeakcdaicdamakcdcdcdcdcdamakcdcdcdamaeaeaeaeaeaeaeaeakaoapaOaVasaIadad
-adaaaeakcdcdcdamakcdajcdcdcdamakcdcdcdamakaPalaQalaRamaeakaSaTaTaWaSaIadad
+adaaaeakcdcdcdamakcdajcdcdcdamakcdcdcdamakaPalaQalaRamaeakaSaTaTbDaSaIadad
 adaaaeakcdcdcdamakcdcdcdcdcdamakcdcdcdamakbcbdbebdbfamaeakbgcdaZbbbhbiadad
 adaaaeakalcdalalalalcdblcdalalalalcdalamakbmbebebebmamaeakbnbobpbobqamadad
 adaaaeakcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdamakbubvbwbxbyamaeakbzbAbBbAbCamadad

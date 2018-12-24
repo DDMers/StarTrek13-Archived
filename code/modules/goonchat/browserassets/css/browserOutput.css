@@ -7,11 +7,11 @@ html, body {
 	padding: 0;
 	margin: 0;
 	height: 100%;
-	color: #000000;
+	color: #dcddde;
 }
 body {
-	background: #fff;
-    font-family: Verdana, sans-serif;
+	background: #2c2f33;
+    font-family: Arial, sans-serif;
     font-size: 9pt;
     line-height: 1.2;
 	overflow-x: hidden;
@@ -256,21 +256,21 @@ a.popt {text-decoration: none;}
 .highlight {background: yellow;}
 
 h1, h2, h3, h4, h5, h6	{color: #0000ff;font-family: Georgia, Verdana, sans-serif;}
-h1.alert, h2.alert		{color: #000000;}
+h1.alert, h2.alert		{color: #dcddde;}
 
 em						{font-style: normal;	font-weight: bold;}
 
 .ooc					{					font-weight: bold;}
-.adminobserverooc		{color: #0099cc;	font-weight: bold;}
+.adminobserverooc		{color: #7289da;	font-weight: bold;}
 .adminooc				{color: #700038;	font-weight: bold;}
 
-.adminobserver			{color: #996600;	font-weight: bold;}
+.adminobserver			{color: #7289da;	font-weight: bold;}
 .admin					{color: #386aff;	font-weight: bold;}
 
 .name					{					font-weight: bold;}
 
 .say					{}
-.deadsay				{color: #5c00e6;}
+.deadsay				{color: #e395ff;}
 .binarysay    			{color: #20c20e; background-color: #000000; display: block;}
 .binarysay a  			{color: #00ff00;}
 .binarysay a:active, .binarysay a:visited {color: #88ff88;}
@@ -290,8 +290,8 @@ em						{font-style: normal;	font-weight: bold;}
 
 .yell					{					font-weight: bold;}
 
-.alert					{color: #ff0000;}
-h1.alert, h2.alert		{color: #000000;}
+.alert					{color: #f80c0d;}
+h1.alert, h2.alert		{color: #ffffff;}
 
 .emote					{					font-style: italic;}
 .selecteddna			{color: #ffffff; 	background-color: #001B1B}
@@ -308,9 +308,9 @@ h1.alert, h2.alert		{color: #000000;}
 .boldannounce			{color: #ff0000;	font-weight: bold;}
 .greenannounce			{color: #00ff00;	font-weight: bold;}
 .rose					{color: #ff5050;}
-.info					{color: #0000CC;}
-.notice					{color: #000099;}
-.boldnotice				{color: #000099;	font-weight: bold;}
+.info					{color: #7289da;}
+.notice					{color: #7289da;}
+.boldnotice				{color: #7289da;	font-weight: bold;}
 .adminnotice			{color: #0000ff;}
 .adminhelp              {color: #ff0000;    font-weight: bold;}
 .unconscious			{color: #0000ff;	font-weight: bold;}

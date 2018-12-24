@@ -110,7 +110,7 @@
 "cf" = (/obj/machinery/conveyor{dir = 8; id = "romconveyor_ship1"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
 "cg" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 4},/area/ship/romulan)
 "ch" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 6},/area/ship/romulan)
-"ci" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
+"ci" = (/obj/machinery/holopad,/turf/open/floor/trek/dark,/area/ship/romulan)
 "cj" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek{color = "#A9A9A9"},/area/ship/romulan)
 "ck" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "cl" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
@@ -261,6 +261,7 @@
 "fa" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 10},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
 "fb" = (/obj/structure/table,/obj/item/surgical_drapes,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "fc" = (/obj/structure/escape_pod_launcher,/turf/closed/wall/trek{icon_state = "wall_light"; dir = 1},/area/ship/romulan)
+"fd" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
 
 (1,1,1) = {"
 azababababababababababababababababababababababababababababababababababababababababababababababababab
@@ -274,7 +275,7 @@ azacacacacacacacacacacacacacacacacadaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeadacacacacacac
 azacacacacacacacacacacacacacacacacadadadadaeadadadadadadadaeadadadadacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacacadaeadaeaeaeaeagaeaeaeaeaeaeaeaeadacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacacadadaeahaeaeaaaaaaaaaaaeaeakaeadadacacacacacacacacacacacacacacacaz
-azacacacacacacacacacacacacacacacacadadaealaaaaaaaaaaaaaaaaaaamaeadadacacacacacacacacacacacacacacacaz
+azacacacacacacacacacacacacacacacacadadaealaaaaaaaaciaaaaaaaaamaeadadacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacacadadaaaaelcPcPcPajaocPcPcTaaaaadadacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacacadadaaaadtcacacacacacacacXaaaaadadacacacacacacacacacacacacacacacaz
 azacacacacacacacacacacacacacacacacadanaaaaaqarascaavcaaxcacXaaaaanadacacacacacacacacacacacacacacacaz
@@ -284,7 +285,7 @@ azaFbYcCbCbPbWbRaFaaaaaEaaaaaaaHacadaeadaaaNaOaiaiaiaiaiaOaiaaadadadaJaFaacaejca
 azaFbYcCbCbPbWbRaFaaaRaRaRcaaaaHacadatadadaQadadadadadadadauadadadadaJaFaSbbcacacaaTaHacacacacacacaz
 azaFbYcCccbPbWbRaFbaaaaaaaaabaaUaWaXaXaXaWaYaWaXaXaXaXaXaWaZaWaXaXaXaWaUaSbbcacabiaaaHacacacacacacaz
 azaFbYcCaVcjbWbRaFaWaXaXaZaXaXaWbcbdbdbdbdbebdbdbdbfbdbdbdbgbdbdbdbdbhaWaXaXaZaXaXaWaHacacacacacacaz
-azaFaWcrcrciaWbRaFbdbdbdbdbdbdbdbqbrbrbsbtbubrbrbrbvbrbrbrbrbrbrbrbrbybdbdbdbdbdbdbdaHacacacacacacaz
+azaFaWcrcrfdaWbRaFbdbdbdbdbdbdbdbqbrbrbsbtbubrbrbrbvbrbrbrbrbrbrbrbrbybdbdbdbdbdbdbdaHacacacacacacaz
 azaFcvaVcmcBcGcSaFbrbrbrbrbrbrbrbrbrbrbrbDbQbQbQbQaBbQbQbQbQbZbrbrbrbrbrbrbrbrbrbrbraHacacacacacacaz
 azaFdldmdndmdoaHaFaGaGaGaZaGaGaGaHaFcVcVegcVcVaUaWbvaWaUbjbkeMblbmaHaFaGaGaGaZaGaGaGaHacacacacacacaz
 azaFdpdqdrdqdsaHaFaCbrbrbrbrbraDaHaFcackclcacaaUaPbvaPaUcacacscacaaHaFctaaaaaaaaaacuaHacacacacacacaz

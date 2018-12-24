@@ -140,7 +140,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "starfleet"
 
 /obj/structure/overmap/away/station/system_outpost/rts/earth
-	max_health = 200000
+	max_health = 100000
 
 /obj/structure/overmap/away/station/system_outpost/rts/earth/Destroy()
 	var/datum/faction/penalty
@@ -277,7 +277,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	faction = "romulan empire"
 	icon = 'StarTrek13/icons/trek/overmap_rts.dmi'
 	icon_state = "romstarbase"
-	max_health = 200000
+	max_health = 100000
 
 /obj/structure/overmap/away/station/system_outpost/rts/romulus/Destroy()
 	var/datum/faction/penalty
@@ -1027,6 +1027,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	var/building = FALSE
 	pixel_z = -48
 	pixel_w = -48
+	random_patrol = FALSE
 
 /obj/structure/overmap/ship/AI/constructor/romulan //https://www.youtube.com/watch?v=53t_GEJliEo
 	name = "Tal'dar class construction vessel"
@@ -1132,8 +1133,8 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 
 		if("constructor-rom")
 			tobuild = /obj/structure/overmap/ship/AI/constructor/romulan
-			metal_cost = 5000
-			dilithium_cost = 2
+			metal_cost = 10000
+			dilithium_cost = 5
 
 		if("birdofprey")
 			tobuild = /obj/structure/overmap/ship/AI/romulan/cruiser
@@ -1379,6 +1380,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	pixel_z = -78
 	pixel_w = -78
 	counts_to_shipcap = FALSE
+	random_patrol = FALSE
 
 /obj/structure/overmap/ship/AI/turret/romulan
 	name = "'Early strike' class defense platform"
@@ -1403,6 +1405,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -48
 	pixel_w = -48
+	random_patrol = FALSE
 
 /obj/structure/overmap/ship/AI/federation/sovereign
 	name = "Sovereign class heavy cruiser"
@@ -1459,3 +1462,4 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -128
 	pixel_w = -128
+	random_patrol = FALSE

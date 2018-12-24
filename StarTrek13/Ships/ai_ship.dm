@@ -33,6 +33,7 @@
 	var/mob/camera/aiEye/remote/rts/RTSeye //used to relay combat sounds
 	show_shield_overlay = FALSE
 	var/obj/effect/temp_visual/trek/shieldhit/AI/shieldhitFX //Stop multiple shield hits from overlapping
+	var/random_patrol = TRUE
 
 /obj/effect/temp_visual/trek/shieldhit/AI
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
@@ -101,9 +102,10 @@
 			fire(stored_target)
 	else
 		stored_target = null
-	if(vel < max_speed)
-		vel += acceleration
-	SC.engines.charge += 500 //So theyre able to warp
+	if(random_patrol)
+		if(vel < max_speed)
+			vel += acceleration
+		SC.engines.charge += 500 //So theyre able to warp
 
 /obj/structure/overmap/ship/AI/take_damage()
 	if(agressor)

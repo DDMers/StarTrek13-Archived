@@ -286,17 +286,17 @@ SUBSYSTEM_DEF(ticker)
 	round_start_time = world.time
 	SSdbcore.SetRoundStart()
 
-	to_chat(world, "<FONT color='blue'><B>Welcome to [station_name()], enjoy your stay!</B></FONT>")
+	to_chat(world, "<FONT color='#7289da'><B>Welcome to [station_name()], enjoy your stay!</B></FONT>")
 	SEND_SOUND(world, sound('sound/ai/welcome.ogg'))
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
 
 	if(SSevents.holidays)
-		to_chat(world, "<font color='blue'>and...</font>")
+		to_chat(world, "<font color='#7289da'>and...</font>")
 		for(var/holidayname in SSevents.holidays)
 			var/datum/holiday/holiday = SSevents.holidays[holidayname]
-			to_chat(world, "<h4>[holiday.greet()]</h4>")
+			to_chat(world, "<h4><font color='#7289da'>[holiday.greet()]</font></h4>")
 
 	PostSetup()
 
@@ -408,7 +408,7 @@ SUBSYSTEM_DEF(ticker)
 			m = pick(memetips)
 
 	if(m)
-		to_chat(world, "<font color='purple'><b>Tip of the round: </b>[html_encode(m)]</font>")
+		to_chat(world, "<font color='#e395ff'><b>Tip of the round: </b>[html_encode(m)]</font>")
 
 /datum/controller/subsystem/ticker/proc/check_queue()
 	var/hpc = CONFIG_GET(number/hard_popcap)

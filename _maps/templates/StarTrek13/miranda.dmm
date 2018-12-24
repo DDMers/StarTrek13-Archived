@@ -18,7 +18,7 @@
 "ar" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 6},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/miranda)
 "as" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 2},/area/ship/miranda)
 "at" = (/obj/structure/chair/trek/bridge{icon_state = "bridgechair"; dir = 8},/obj/machinery/light{dir = 8},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
-"au" = (/obj/structure/overmap/ship/target,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
+"au" = (/obj/structure/overmap/ship/target,/obj/machinery/holopad,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
 "av" = (/obj/structure/chair/trek/bridge{icon_state = "bridgechair"; dir = 4},/obj/machinery/light{dir = 4},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)
 "aw" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/turf/closed/wall/trek{icon_state = "stationwall"; dir = 1},/area/ship/miranda)
 "ax" = (/obj/structure/hailing_console/defiant,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/miranda)

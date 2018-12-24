@@ -1,7 +1,7 @@
 // This is eventually for wjohn to add more color standardization stuff like I keep asking him >:(
 
-#define COLOR_INPUT_DISABLED "#F0F0F0"
-#define COLOR_INPUT_ENABLED "#D3B5B5"
+#define COLOR_INPUT_DISABLED "#7289da"
+#define COLOR_INPUT_ENABLED "#484b51"
 
 //#define COLOR_WHITE            "#EEEEEE"
 //#define COLOR_SILVER           "#C0C0C0"

@@ -311,7 +311,7 @@
 "fY" = (/turf/closed/wall/trek{icon_state = "jeffriestube"; dir = 9},/area/ship/federation/galaxy)
 "fZ" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 1},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/open/floor/trek,/area/ship/federation/galaxy)
 "ga" = (/obj/machinery/atmospherics/pipe/simple/orange/hidden,/turf/closed/wall/trek/galaxy,/area/ship/federation/galaxy)
-"gb" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/galaxy)
+"gb" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{icon_state = "intact"; dir = 8},/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 1},/obj/machinery/holopad,/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/galaxy)
 "gc" = (/obj/structure/escape_pod_launcher,/turf/closed/wall/trek/galaxy,/area/ship/federation/galaxy)
 "gd" = (/obj/machinery/door/airlock/trek/tng/jeffries,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/federation/galaxy)
 "ge" = (/obj/effect/turf_decal/trek/grey{icon_state = "trek_edge3"; dir = 1},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,/obj/structure/cable/white{icon_state = "4-8"},/turf/open/floor/trek,/area/ship/federation/galaxy)
@@ -325,6 +325,7 @@
 "gm" = (/obj/structure/catwalk,/obj/structure/cable/white{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/orange/hidden,/obj/machinery/light{dir = 8},/turf/open/floor/plating,/area/ship/federation/galaxy)
 "gn" = (/obj/effect/turf_decal/trek/grey,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/turf/open/floor/trek,/area/ship/federation/galaxy)
 "go" = (/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/wall/trek/galaxy{icon_state = "galaxyengi"; dir = 4},/area/ship/federation/galaxy)
+"gp" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/federation/galaxy)
 "gq" = (/obj/structure/cable/white{icon_state = "1-4"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 5},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/federation/galaxy)
 "gr" = (/obj/structure/cable/white{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/catwalk,/turf/open/floor/plating,/area/ship/federation/galaxy)
 "gs" = (/obj/structure/cable/white{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 8},/obj/structure/catwalk,/obj/machinery/light{dir = 1},/turf/open/floor/plating,/area/ship/federation/galaxy)
@@ -597,7 +598,7 @@ abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacac
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacababadblafababababbkacabababacacacacacacacacacacacacacacacacacacacacacacacacabbqbqbqbqbqbqbqbqbqbqbqbqbq
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbmabbmabbAabkJabababjkabbmabacacacacacacacacacacacacacacacacacacacacacacacacacabababababababababababababab
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabbmbmkCbLaIkKaIaIaIkAkCbmbmabacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacab
-abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabbraIaIbnkobMbMbMktboaIaIbuabacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacab
+abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabbraIaIbnkobMgbbMktboaIaIbuabacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacab
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabbpaIkHbObsbybtbzemeekIaIbvabacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacab
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaIbwbCkrbtbBbtbBbtbtbGbwaIabacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacab
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacbFaHaIbCkubDbDbEbtbtbtbGaIaJbJacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacab
@@ -662,7 +663,7 @@ abacacacacacacacaiafaQevfoadfiacacacaidGdHdLdJdGdHdLandFdFdFdFdFdFdFdFdFaijUfQan
 abacacacacacacacaiafaQevfoadfiacacacaieTayaydRayayeUandFdFdFdFdFdFdFdFdFaijUfQandFaijTeGdifeeXeYeVeWcNgRdsandFdFdFdFdFdVaIaIaIabaIaIaIabaIaIaIabacacacacacacacacacacacacacacacacacab
 abacacacacacacacaiafaQfbfoadfiacacacaifcaIaIeaaIaIfdandFdFdFdFacdFdFdFdFaijUfQandFaieBfzdidikfcNaQaQcNgRdsandFdFdFdFdFdVaIfgaIabaIfgaIabaIfgaIabacacacacacacacacacacacacacacacacacab
 abacacacacacacacaiafaQfxfyadfiacacacaifjaOfkeyfkaOflandFdFdFdFacdFdFdFdFaijUfQandFaijTfOdididseHfPfPcNgRdsandFdFdFdFdFfpdVdVdVdVdVdVdVdVdVdVdVdVacacacacacacacacacacacacacacacacacab
-abacacacacacacacaifqfrfrgbfqfiacacacbdbebebffubgbebebhacacacacacdFdFdFdFaijUfQandFaijWfZdodoeNbgbebeeDgRdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
+abacacacacacacacaifqfrfrgpfqfiacacacbdbebebffubgbebebhacacacacacdFdFdFdFaijUfQandFaijWfZdodoeNbgbebeeDgRdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
 abacacacacacacacaifwhBixkwkWkXacacacacacadaQfBaQafacacacacacacacdFdFdFdFaijUfQdtdtkFhUgadtdthVkFdtdtdtgRdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
 abacacacacacacacaifDfEfFfEfGanacacacacacadaQfvaQafacacacacacacacdFdFdFdFaijUgggnkbgnjXgudjdjePdjdjkddjjxdsandFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFdFacacacacacacacacacacacacacacacacacab
 abacacacacacacacaifJfKfLfKfManacacacacacadfNfBfNafacacacacacacacdFdFdFdFaikcjYjZjZjZkadododoeQdodododojydsandVbmbmbmbmbmbmbmbmbmdVdVdFdFdFdFacacacacacacacacacacacacacacacacacacacab
