@@ -763,59 +763,59 @@ Reconnect arrays
 						to_chat(L, "<span class='notice'>Warning: Plasma nodes decoupled. Functionality limited.</span>")
 						decoupled = TRUE
 						powered = FALSE
-		if(decoupled)
-			if(href_list["disengagenode"])
-				var/obj/item/l_hand = L.get_item_for_held_index(1) //hardcoded 2-hands only, for now. No doctor octopi thanks.
-				var/obj/item/r_hand = L.get_item_for_held_index(2)
-				if(istype(l_hand, /obj/item/wrench) || istype(r_hand, /obj/item/wrench))
-					to_chat(L, "You begin to disengage [src]s plasma relays")
-					playsound(L.loc,'StarTrek13/sound/trek/tools/spanner.ogg',100,1)
-					if(do_after(user, 50, target = src))
-						to_chat(L, "<span class='notice'>You've finished disengaging [src]'s plasma relays</span>")
-						descrambled = TRUE
-						powered = FALSE
-						decoupled = FALSE
-		if(descrambled)
-			if(href_list["decouplearray"])
-				var/obj/item/l_hand = L.get_item_for_held_index(1) //hardcoded 2-hands only, for now. No doctor octopi thanks.
-				var/obj/item/r_hand = L.get_item_for_held_index(2)
-				if(istype(l_hand, /obj/item/screwdriver) || istype(r_hand, /obj/item/screwdriver))
-					to_chat(L, "You begin to decouple [src]s isolinear arrays")
-					playsound(L.loc,'StarTrek13/sound/trek/tools/spanner.ogg',100,1)
-					if(do_after(user, 50, target = src))
-						to_chat(L, "<span class='notice'>Isolinear arrays decoupled.</span>")
-						arraysdecoupled = TRUE
-						powered = FALSE
-						descrambled = FALSE
-		if(arraysdecoupled)
-			if(href_list["disengagearray"])
-				var/obj/item/l_hand = L.get_item_for_held_index(1) //hardcoded 2-hands only, for now. No doctor octopi thanks.
-				var/obj/item/r_hand = L.get_item_for_held_index(2)
-				if(istype(l_hand, /obj/item/wrench) || istype(r_hand, /obj/item/wrench))
-					to_chat(L, "You begin to disengage [src]s isolinear arrays")
-					playsound(L.loc,'StarTrek13/sound/trek/tools/spanner.ogg',100,1)
-					if(do_after(user, 50, target = src))
-						to_chat(L, "<span class='notice'>Isolinear arrays disengaged.</span>")
-						arraysdisengaged = TRUE
-						powered = FALSE
-						arraysdecoupled = FALSE
-		if(arraysdisengaged)
-			if(href_list["repair"])
-				var/obj/item/l_hand = L.get_item_for_held_index(1) //hardcoded 2-hands only, for now. No doctor octopi thanks.
-				var/obj/item/r_hand = L.get_item_for_held_index(2)
-				if(istype(l_hand, /obj/item/wrench) || istype(r_hand, /obj/item/wrench))
-					to_chat(L, "You begin to repair [src]'s damaged isolinear circuitry")
-					playsound(L.loc,'StarTrek13/sound/trek/tools/spanner.ogg',100,1)
-					if(do_after(user, 50, target = src))
-						if(!chosen)
-							check_ship()
-						to_chat(L, "<span class='notice'>Isolinear circuits repaired. You still need to repower [src].</span>")
-						reset_stats()
-						chosen.integrity = chosen.max_integrity
-						chosen.failed = FALSE
-						chosen.heat = 0
-						START_PROCESSING(SSobj, chosen)
-						our_ship.weapons.voiceline(voiceline)
+			if(decoupled)
+				if(href_list["disengagenode"])
+					var/obj/item/l_hand = L.get_item_for_held_index(1) //hardcoded 2-hands only, for now. No doctor octopi thanks.
+					var/obj/item/r_hand = L.get_item_for_held_index(2)
+					if(istype(l_hand, /obj/item/wrench) || istype(r_hand, /obj/item/wrench))
+						to_chat(L, "You begin to disengage [src]s plasma relays")
+						playsound(L.loc,'StarTrek13/sound/trek/tools/spanner.ogg',100,1)
+						if(do_after(user, 50, target = src))
+							to_chat(L, "<span class='notice'>You've finished disengaging [src]'s plasma relays</span>")
+							descrambled = TRUE
+							powered = FALSE
+							decoupled = FALSE
+			if(descrambled)
+				if(href_list["decouplearray"])
+					var/obj/item/l_hand = L.get_item_for_held_index(1) //hardcoded 2-hands only, for now. No doctor octopi thanks.
+					var/obj/item/r_hand = L.get_item_for_held_index(2)
+					if(istype(l_hand, /obj/item/screwdriver) || istype(r_hand, /obj/item/screwdriver))
+						to_chat(L, "You begin to decouple [src]s isolinear arrays")
+						playsound(L.loc,'StarTrek13/sound/trek/tools/spanner.ogg',100,1)
+						if(do_after(user, 50, target = src))
+							to_chat(L, "<span class='notice'>Isolinear arrays decoupled.</span>")
+							arraysdecoupled = TRUE
+							powered = FALSE
+							descrambled = FALSE
+			if(arraysdecoupled)
+				if(href_list["disengagearray"])
+					var/obj/item/l_hand = L.get_item_for_held_index(1) //hardcoded 2-hands only, for now. No doctor octopi thanks.
+					var/obj/item/r_hand = L.get_item_for_held_index(2)
+					if(istype(l_hand, /obj/item/wrench) || istype(r_hand, /obj/item/wrench))
+						to_chat(L, "You begin to disengage [src]s isolinear arrays")
+						playsound(L.loc,'StarTrek13/sound/trek/tools/spanner.ogg',100,1)
+						if(do_after(user, 50, target = src))
+							to_chat(L, "<span class='notice'>Isolinear arrays disengaged.</span>")
+							arraysdisengaged = TRUE
+							powered = FALSE
+							arraysdecoupled = FALSE
+			if(arraysdisengaged)
+				if(href_list["repair"])
+					var/obj/item/l_hand = L.get_item_for_held_index(1) //hardcoded 2-hands only, for now. No doctor octopi thanks.
+					var/obj/item/r_hand = L.get_item_for_held_index(2)
+					if(istype(l_hand, /obj/item/wrench) || istype(r_hand, /obj/item/wrench))
+						to_chat(L, "You begin to repair [src]'s damaged isolinear circuitry")
+						playsound(L.loc,'StarTrek13/sound/trek/tools/spanner.ogg',100,1)
+						if(do_after(user, 50, target = src))
+							if(!chosen)
+								check_ship()
+							to_chat(L, "<span class='notice'>Isolinear circuits repaired. You still need to repower [src].</span>")
+							reset_stats()
+							chosen.integrity = chosen.max_integrity
+							chosen.failed = FALSE
+							chosen.heat = 0
+							START_PROCESSING(SSobj, chosen)
+							our_ship.weapons.voiceline(voiceline)
 	else
 		to_chat(user, "Move closer to [src]")
 

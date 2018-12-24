@@ -148,7 +148,6 @@
 /mob/proc/check_widescreen()
 	if(client)
 		if(client.prefs.toggles & WIDESCREEN && !client.widescreen)
-			to_chat(src, "Widescreen mode enabled")
 			client.change_view("21x15")
 			client.widescreen = TRUE
 

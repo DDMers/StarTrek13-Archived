@@ -382,15 +382,13 @@
 		heat = 0
 	if(integrity < 0)
 		integrity = 0
-	if(integrity <= 3000)
-		fail()
-		max_integrity = initial(max_integrity)
 	if(health > max_health)
 		health = max_health
 	if(health <= 0)
 		health = 0
 	if(integrity > max_integrity)
 		integrity = max_integrity
+	. = ..()
 
 
 //round(100 * value / max_value PERCENTAGE CALCULATIONS, quick maths.

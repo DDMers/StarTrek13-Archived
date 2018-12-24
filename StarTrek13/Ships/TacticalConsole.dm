@@ -257,27 +257,26 @@
 	if(href_list["redalert"])
 		redalert()
 	if(href_list["announce"])
-		if(user)
-			var/message = stripped_input(user,"Communications.","Send a shipwide announcement:")
-			if(!message)
-				return
-			var/announcement
-			var/sound = 'StarTrek13/sound/trek/ship_effects/bosun.ogg'
-			announcement += "<br><h2 class='alert'>Attention crew of [theship]:</h2>"
-			announcement += "<br><span class='alert'>[html_encode(message)]</span><br>"
-			announcement += "<br>"
-			var/list/list = list()
-			list += theship.pilot
-			for(var/mob/living/M in theship.linked_ship)
-				list += M
-			for(var/mob/O in GLOB.dead_mob_list)
-				list += O
-			var/s = sound(sound)
-			for(var/mob/M in list)
-				if(!isnewplayer(M) && M.can_hear())
-					to_chat(M, announcement)
-					if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
-						SEND_SOUND(M, s)
+		var/message = stripped_input(user,"Communications.","Send a shipwide announcement:")
+		if(!message)
+			return
+		var/announcement
+		var/sound = 'StarTrek13/sound/trek/ship_effects/bosun.ogg'
+		announcement += "<br><h2 class='alert'>Attention crew of [theship]:</h2>"
+		announcement += "<br><span class='alert'>[html_encode(message)]</span><br>"
+		announcement += "<br>"
+		var/list/list = list()
+		list += theship.pilot
+		for(var/mob/living/M in theship.linked_ship)
+			list += M
+		for(var/mob/O in GLOB.dead_mob_list)
+			list += O
+		var/s = sound(sound)
+		for(var/mob/M in list)
+			if(!isnewplayer(M) && M.can_hear())
+				to_chat(M, announcement)
+				if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
+					SEND_SOUND(M, s)
 	if(href_list["starmap"])
 		if(!theship.warp_capable)
 			return
