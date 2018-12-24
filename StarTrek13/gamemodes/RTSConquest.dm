@@ -1018,7 +1018,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	acceleration = 0.5 //slow
 	faction = "starfleet"
 	spawn_random = FALSE
-	damage = 200 //It can sort of fight back, but not very well
+	damage = 100 //It can sort of fight back, but not very well
 	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	var/obj/structure/overmap/build_target = null //As a type, what do we want to build when we reach our rally point?
 	var/build_time = 50 //5 seconds build time, this can be reduced with upgrades, set this higher when done testing!
@@ -1375,7 +1375,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	acceleration = 0
 	faction = "starfleet"
 	spawn_random = FALSE
-	damage = 700 //A solid deterrant, but not overly lethal. We can add a photon torpedo upgrade for it later
+	damage = 500 //A solid deterrant, but not overly lethal. We can add a photon torpedo upgrade for it later
 	aggressive = TRUE //Turret KILLLLL
 	pixel_z = -78
 	pixel_w = -78
@@ -1401,7 +1401,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	acceleration = 1.5
 	faction = "starfleet"
 	spawn_random = FALSE
-	damage = 1200 //This should be low, as it will ALWAYS hit for this much damage
+	damage = 1000 //This should be low, as it will ALWAYS hit for this much damage
 	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -48
 	pixel_w = -48
@@ -1417,7 +1417,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	pixel_z = -128
 	pixel_w = -120
 	max_speed = 6
-	damage = 2000
+	damage = 1500
 	acceleration = 2 //These things are fucking rapid, too
 
 /obj/structure/overmap/ship/AI/federation/galaxy
@@ -1431,7 +1431,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	pixel_w = -120
 	max_speed = 7
 	acceleration = 1.2 //Pretty damn fast
-	damage = 1500
+	damage = 1300
 
 /obj/structure/overmap/ship/AI/romulan/cruiser
 	name = "Romulan bird of prey class light cruiser"
@@ -1453,12 +1453,12 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 	desc = "The pride of the romulan fleet, this ship dwarfs most of the starfleet lineup but will find its match against other capital class ships."
 	icon = 'StarTrek13/icons/trek/large_ships/dderidex.dmi'
 	icon_state = "dderidex"
-	max_health = 25000 //Player controlled dderi has 30K
+	max_health = 28500 //Player controlled dderi has 30K
 	max_speed = 5
 	acceleration = 0.5
 	faction = "romulan empire"
 	spawn_random = FALSE
-	damage = 1850 //This should be low, as it will ALWAYS hit for this much damage --This is a fucking warbird they hit HARD
+	damage = 1450 //This should be low, as it will ALWAYS hit for this much damage --This is a fucking warbird they hit HARD
 	aggressive = FALSE //Do we attack on sight? admirals can change this!
 	pixel_z = -128
 	pixel_w = -128

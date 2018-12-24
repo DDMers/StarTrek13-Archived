@@ -18,20 +18,25 @@
 			var/num = round(((progress / goal) * 100), 5)
 			switch(num)
 				if(90 to 100)
-					playsound(loc,'StarTrek13/sound/voice/Hull100.ogg',100,0)
-					sound = 'StarTrek13/sound/voice/Hull100.ogg'
+					if(prob(20))
+						playsound(loc,'StarTrek13/sound/voice/Hull100.ogg',100,0)
+						sound = 'StarTrek13/sound/voice/Hull100.ogg'
 				if(65 to 80)
-					playsound(loc,'StarTrek13/sound/voice/Hull75.ogg',100,0)
-					sound = 'StarTrek13/sound/voice/Hull75.ogg'
+					if(prob(30))
+						playsound(loc,'StarTrek13/sound/voice/Hull75.ogg',100,0)
+						sound = 'StarTrek13/sound/voice/Hull75.ogg'
 				if(45 to 60)
-					playsound(loc,'StarTrek13/sound/voice/Hull50.ogg',100,0)
-					sound = 'StarTrek13/sound/voice/Hull50.ogg'
+					if(prob(30))
+						playsound(loc,'StarTrek13/sound/voice/Hull50.ogg',100,0)
+						sound = 'StarTrek13/sound/voice/Hull50.ogg'
 				if(30 to 40)
-					playsound(loc,'StarTrek13/sound/voice/Hull25.ogg',100,0)
-					sound = 'StarTrek13/sound/voice/Hull25.ogg'
+					if(prob(30))
+						playsound(loc,'StarTrek13/sound/voice/Hull25.ogg',100,0)
+						sound = 'StarTrek13/sound/voice/Hull25.ogg'
 				if(29 to 29)
-					playsound(loc,'StarTrek13/sound/voice/Hull20.ogg',100,0)
-					sound = 'StarTrek13/sound/voice/Hull20.ogg'
+					if(prob(30))
+						playsound(loc,'StarTrek13/sound/voice/Hull20.ogg',100,0)
+						sound = 'StarTrek13/sound/voice/Hull20.ogg'
 				if(10 to 19)
 					playsound(loc,'StarTrek13/sound/voice/Hull15.ogg',100,0)
 					sound = 'StarTrek13/sound/voice/Hull15.ogg'

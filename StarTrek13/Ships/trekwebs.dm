@@ -147,7 +147,7 @@
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		damage += C.rating*60//rating of 1 is stock, rating of 4 gives insane power
 	for(var/obj/item/stock_parts/cell/P in component_parts)
-		charge_rate += P.chargerate //They were getting wayyyy heyy HEYYYYY too strong for my tastes alright?
+		charge_rate += (P.chargerate+50) //They were getting wayyyy heyy HEYYYYY too strong for my tastes alright?
 
 /obj/machinery/ship/phaser/ex_act(severity)
 	return 0

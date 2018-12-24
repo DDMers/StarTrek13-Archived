@@ -97,8 +97,6 @@
 //	qdel(chargebar)
 	target = src
 
-
-
 /obj/screen/alert/charge
 	icon = 'StarTrek13/icons/trek/overmap_indicators2.dmi'
 	icon_state = "prog_bar_0"
@@ -107,7 +105,7 @@
 
 /obj/screen/alert/charge/Initialize(timeofday)
 	. = ..()
-	START_PROCESSING(SSobj, src)
+	START_PROCESSING(SSfastprocess, src)
 	if(mob_viewer)
 		theship = mob_viewer.overmap_ship
 

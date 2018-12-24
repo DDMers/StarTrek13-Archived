@@ -95,13 +95,12 @@
 	if(!stored_target || !force_target || !rally_point)
 		aggressive = TRUE //Alright no target, back to autotarget
 		PickRandomShip()
+	if(!stored_target in orange(src, 15))
+		stored_target = null
 	if(stored_target in orange(src, 15))
 		if(force_target)
 			stored_target = force_target
-		if(prob(60)) //Allow it time to recharge
-			fire(stored_target)
-	else
-		stored_target = null
+		fire(stored_target)
 	if(random_patrol)
 		if(vel < max_speed)
 			vel += acceleration
