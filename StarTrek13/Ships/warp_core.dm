@@ -53,7 +53,14 @@ Antimatter tank, if this is ever fucked with it'll explode
 	var/power = 0
 	var/stored_cochranes = 0
 	var/cochranes = 0
+	var/list/tanks = list() //When a fuel tank is brought online, add it to our list
 
+/obj/machinery/power/warpcore/Initialize()
+	. = ..()
+	for(var/obj/structure/warp_storage/WS in get_area(src))
+		tanks += WS
+	for(var/obj/structure/antimatter_storage/AS in get_area(src))
+		tanks += AS
 
 /obj/machinery/power/warpcore/massive
 	name = "high powered warp core"
@@ -90,13 +97,13 @@ Antimatter tank, if this is ever fucked with it'll explode
 	if(!outlet)
 		CheckPipes()
 		return
-	for(var/obj/structure/warp_storage/WS in get_area(src))
+	for(var/obj/structure/warp_storage/WS in tanks)
 		if(WS.matter)
 			var/math = WS.matter - WS.flow_rate
 			if(math) //Math sucks! xx---x-XD!
 				WS.matter -= WS.flow_rate
 				matter += WS.flow_rate
-	for(var/obj/structure/antimatter_storage/AS in get_area(src))
+	for(var/obj/structure/antimatter_storage/AS in tanks)
 		var/math = AS.antimatter - AS.flow_rate
 		if(math) //Math sucks! xx---x-XD!
 			if(AS.antimatter)
@@ -191,6 +198,9 @@ Antimatter tank, if this is ever fucked with it'll explode
 /obj/structure/warp_storage/examine(mob/user)
 	. = ..()
 	to_chat(user, "It has [matter] L  stored, with a max of [max_matter]")
+	var/obj/machinery/power/warpcore/WP = locate(/obj/machinery/power/warpcore) in get_area(src)
+	if(!src in WP.tanks)
+		WP.tanks += src
 
 /obj/structure/warp_storage/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/wrench))
@@ -199,6 +209,9 @@ Antimatter tank, if this is ever fucked with it'll explode
 			var/t = input(user,"Set fuel transfer rate", "Deuterium Storage Tank") as num
 			if(t) //No negative numbers!
 				flow_rate = t
+		var/obj/machinery/power/warpcore/WP = locate(/obj/machinery/power/warpcore) in get_area(src)
+		if(!src in WP.tanks)
+			WP.tanks += src
 
 /obj/structure/antimatter_storage
 	name = "Anti-Deuterium storage tank"
@@ -218,10 +231,16 @@ Antimatter tank, if this is ever fucked with it'll explode
 			var/t = input(user,"Set fuel transfer rate", "Anti-Deuterium Storage Tank") as num
 			if(t) //No negative numbers!
 				flow_rate = t
+			var/obj/machinery/power/warpcore/WP = locate(/obj/machinery/power/warpcore) in get_area(src)
+			if(!src in WP.tanks)
+				WP.tanks += src
 
 /obj/structure/antimatter_storage/examine(mob/user)
 	. = ..()
 	to_chat(user, "It has [antimatter] L  stored, with a max of [max_antimatter]")
+	var/obj/machinery/power/warpcore/WP = locate(/obj/machinery/power/warpcore) in get_area(src)
+	if(!src in WP.tanks)
+		WP.tanks += src
 
 /obj/machinery/power/warpcore/proc/breach()
 	if(!breaching)
