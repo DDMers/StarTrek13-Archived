@@ -829,6 +829,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			if(om.faction == console.faction)
 				if(om in fleet)
 					om.rally_point = null
+					om.random_patrol = initial(om.random_patrol)
 					fleet -= om
 					om.pixel_w = initial(om.pixel_w)
 					om.pixel_z = initial(om.pixel_z)
@@ -843,6 +844,7 @@ You will NOT be able to jump to systems with ENEMY BASES IN THEM. You must send 
 			var/obj/structure/overmap/ship/AI/om = object
 			if(om.faction == console.faction)
 				fleet += om
+				om.random_patrol = TRUE
 				console.saved_fleet += om
 				to_chat(console.operator, "[om] has been added to your command group")
 				var/list/thelist = list('StarTrek13/sound/voice/rts/misc/sir.ogg','StarTrek13/sound/voice/rts/misc/yescommander.ogg','StarTrek13/sound/voice/rts/construction/yescommander.ogg')

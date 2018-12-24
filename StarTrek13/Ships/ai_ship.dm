@@ -92,7 +92,10 @@
 	. = ..()
 	if(current_beam)
 		qdel(current_beam)
-	if(!stored_target || !force_target || !rally_point)
+	if(!stored_target && !rally_point)
+		if(force_target)
+			stored_target = force_target
+			return
 		aggressive = TRUE //Alright no target, back to autotarget
 		PickRandomShip()
 	if(!stored_target in orange(src, 15))
