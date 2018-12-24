@@ -929,6 +929,7 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 				wreck.true_name = true_name
 				wreck.linked_ship = linked_ship
 				wreck.weapons = weapons
+				weapons.theship = wreck
 				wreck.announcedanger()
 				qdel(SC)
 				qdel(src)
