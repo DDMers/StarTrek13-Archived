@@ -138,6 +138,11 @@
 #define SANITY_CRAZY 25
 #define SANITY_INSANE 0
 
+//Hygiene levels for humans
+#define HYGIENE_LEVEL_CLEAN 250
+#define HYGIENE_LEVEL_NORMAL 200
+#define HYGIENE_LEVEL_DIRTY 75
+
 //Beauty levels of areas for carbons
 #define BEAUTY_LEVEL_HORRID -100
 #define BEAUTY_LEVEL_BAD -66
@@ -255,6 +260,7 @@
 #define	HUNGER_FACTOR		0.1	//factor at which mob nutrition decreases
 #define	REAGENTS_METABOLISM 0.4	//How many units of reagent are consumed per tick, by default.
 #define REAGENTS_EFFECT_MULTIPLIER (REAGENTS_METABOLISM / 0.4)	// By defining the effect multiplier this way, it'll exactly adjust all effects according to how they originally were with the 0.4 metabolism
+#define	HYGIENE_FACTOR  0.1	//factor at which mob hygiene decreases
 
 // Roundstart trait system
 

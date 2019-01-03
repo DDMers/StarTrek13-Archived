@@ -74,6 +74,13 @@
 	overlays_file = 'StarTrek13/icons/trek/door_voy_single.dmi'
 	desc = "An advanced door designed in the future, now having relieved bipedal sentients the need to suffer the horror of raising their hands to go into another room."
 
+/obj/machinery/door/airlock/trek/tng/voy
+	name = "airlock"
+	icon = 'StarTrek13/icons/trek/trek_voy_door.dmi'
+	icon_state = "closed"
+	overlays_file = 'StarTrek13/icons/trek/door_voy_single.dmi'
+	desc = "An advanced door designed in the future, now having relieved bipedal sentients the need to suffer the horror of raising their hands to go into another room."
+
 
 /obj/machinery/door/airlock/trek/tng/jeffries
 	name = "hatch"

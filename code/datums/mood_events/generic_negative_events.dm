@@ -121,3 +121,8 @@
 /datum/mood_event/surgery
 	description = "<span class='boldwarning'>HE'S CUTTING ME OPEN!!</span>\n"
 	mood_change = -8
+
+/datum/mood_event/idiot_shower
+	description = "<span class='warning'>I showered with my clothes on, I don't feel so good.</span>\n"
+	mood_change = -3
+	timeout = 900

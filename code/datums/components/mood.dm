@@ -102,6 +102,15 @@
 			mood_level = 9
 	update_mood_icon()
 
+/datum/component/mood/proc/HandleHygiene(mob/living/carbon/human/H)
+	switch(H.hygiene)
+		if(0 to HYGIENE_LEVEL_DIRTY)
+			add_event(null, "neat", /datum/mood_event/dirty)
+			HygieneMiasma(H)
+		if(HYGIENE_LEVEL_DIRTY to HYGIENE_LEVEL_NORMAL)
+			clear_event(null, "neat")
+		if(HYGIENE_LEVEL_NORMAL to HYGIENE_LEVEL_CLEAN)
+			add_event(null, "neat", /datum/mood_event/neat)
 
 /datum/component/mood/proc/update_mood_icon()
 	if(owner.client && owner.hud_used)
@@ -219,3 +228,16 @@
 			add_event("area_beauty", /datum/mood_event/goodroom)
 		if(BEAUTY_LEVEL_GREAT to INFINITY)
 			add_event("area_beauty", /datum/mood_event/greatroom)
+
+/datum/component/mood/proc/HygieneMiasma(mob/living/carbon/human/H)
+	// Properly stored humans shouldn't create miasma
+	if(istype(H.loc, /obj/structure/closet/crate/coffin)|| istype(H.loc, /obj/structure/closet/body_bag) || istype(H.loc, /obj/structure/bodycontainer))
+		return
+
+	var/turf/T = get_turf(H)
+	var/datum/gas_mixture/air = T.return_air()
+	var/list/cached_gases = air.gases
+
+	ASSERT_GAS(/datum/gas/miasma, air)
+	cached_gases[/datum/gas/miasma][MOLES] += MIASMA_HYGIENE_MOLES
+	T.air_update_turf()
