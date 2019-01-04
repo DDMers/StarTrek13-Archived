@@ -50,7 +50,6 @@
 	if(href_list["SelectedJob"])
 		var/mob/living/carbon/human/L = locate(href_list["clicker"])
 		var/datum/job/F = locate(href_list["SelectedJob"])
-		to_chat(world, "[F.title]")
 		if(L in helpme)
 			SSjob.EquipRank(L, F.title, TRUE)
 			SSfaction.TryToHandleJob(L)
