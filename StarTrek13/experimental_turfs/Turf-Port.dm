@@ -212,6 +212,7 @@ turf
 			flaksim_trek
 				density = TRUE //Hereeee we gooo
 				opacity = TRUE
+				CanAtmosPass = FALSE
 				icon='Images and icons/Turfs.dmi'
 				name = "hull"
 				TrekWall1
