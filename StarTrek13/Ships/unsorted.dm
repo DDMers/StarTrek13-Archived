@@ -353,7 +353,7 @@
 	cell_type = /obj/item/stock_parts/cell/upgraded/plus
 	icon_state = "phaserrifle"
 	weapon_weight = WEAPON_HEAVY
-	item_state = "sniper"
+	item_state = "phaserrifle"
 
 /obj/item/storage/book/skillbook
 	name = "piloting field manual"

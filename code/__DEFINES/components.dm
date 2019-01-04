@@ -136,6 +136,7 @@
 	#define COMPONENT_DELETE_NEW_IMPLANT 2
 	#define COMPONENT_DELETE_OLD_IMPLANT 4
 #define COMSIG_IMPLANT_EXISTING_UPLINK "implant_uplink_exists"	//called on implants being implanted into someone with an uplink implant: (datum/component/uplink)
+#define COMSIG_MOB_ALLOWED "mob_allowed"//from base of obj/allowed(mob/M): (/obj) returns bool, if TRUE the mob has id access to the obj
 	//This uses all return values of COMSIG_IMPLANT_OTHER
 
 // /obj/item/pda signals

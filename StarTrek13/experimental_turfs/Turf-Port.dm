@@ -190,10 +190,14 @@ turf
 				CoreOverlay
 					icon = 'Images and icons/CoreOverlay.dmi'
 					layer = 9
+					density = FALSE
+					opacity = FALSE
 
 				StairsOverlay
 					icon = 'Images and icons/StairsOverlay.dmi'
 					layer = 9
+					density = FALSE
+					opacity = FALSE
 
 				DockingBayOverlay
 					icon = 'Images and icons/Docking Bay Overlay.dmi'
