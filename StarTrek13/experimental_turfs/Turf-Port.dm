@@ -126,60 +126,74 @@ turf
 					density = FALSE
 					opacity = FALSE
 
+obj
+	structure
+		table
+			flaksim_trek
 				Table
 					icon = 'Images and icons/Table.dmi'
 					density = FALSE
 					opacity = FALSE
+					smooth = FALSE
 
 				Tableoverlay
 					icon = 'Images and icons/Table Overlay.dmi'
 					layer = 9
 					density = FALSE
 					opacity = FALSE
+					smooth = FALSE
 
 				Table2
 					icon = 'Images and icons/Table2.dmi'
 					density = FALSE
 					opacity = FALSE
+					smooth = FALSE
 
 				Table2overlay
 					icon = 'Images and icons/Table2 Overlay.dmi'
 					layer = 9
 					density = FALSE
 					opacity = FALSE
+					smooth = FALSE
 
 				Table3
 					icon = 'Images and icons/Table3.dmi'
 					density = FALSE
 					opacity = FALSE
+					smooth = FALSE
 
 				Table3overlay
 					icon = 'Images and icons/Table3 Overlay.dmi'
 					layer = 9
 					density = FALSE
 					opacity = FALSE
+					smooth = FALSE
 
 				Table4
 					icon = 'Images and icons/Table4.dmi'
 					density = FALSE
 					opacity = FALSE
+					smooth = FALSE
 
 				Table4overlay
 					icon = 'Images and icons/Table4 Overlay.dmi'
 					layer = 9
 					density = FALSE
 					opacity = FALSE
+					smooth = FALSE
 
-				Desk1
-					icon = 'Images and icons/Desk1.dmi'
-					density = FALSE
-					opacity = FALSE
+/obj/structure/table/Desk1
+	icon = 'Images and icons/Desk1.dmi'
+	density = FALSE
+	opacity = FALSE
+	smooth = FALSE
 
-				Desk1overlay
-					icon = 'Images and icons/Desk1 Overlay.dmi'
-					layer = 9
-					density = FALSE
-					opacity = FALSE
+/obj/structure/table/Desk1overlay
+	icon = 'Images and icons/Desk1 Overlay.dmi'
+	layer = 9
+	density = FALSE
+	opacity = FALSE
+	smooth = FALSE
 
 
 /turf/closed/wall/flaksim_trek/CanAtmosPass()
