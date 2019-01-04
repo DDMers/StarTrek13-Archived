@@ -36,7 +36,7 @@ Assistant
 /datum/outfit/job/crewman
 	name = "Crewman"
 	jobtype = /datum/job/trek/crewman
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/medsci/ent
 	belt = /obj/item/ship_repair_tool
 
 /datum/outfit/job/crewman/pre_equip(mob/living/carbon/human/H)
@@ -88,7 +88,7 @@ Captain
 //	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/black
-	uniform =  /obj/item/clothing/under/independant
+	uniform =  /obj/item/clothing/under/trek/command/ent
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/jackboots
 //	head = /obj/item/clothing/head/caphat
@@ -157,7 +157,7 @@ Captain
 //	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/black
-	uniform =  /obj/item/clothing/under/independant
+	uniform =  /obj/item/clothing/under/trek/command/ent
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/jackboots
 //	head = /obj/item/clothing/head/caphat
@@ -241,7 +241,7 @@ Head of Personnel
 	id = /obj/item/card/id/silver
 	belt = /obj/item/ship_repair_tool
 	ears = /obj/item/radio/headset/heads/hop
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/command/ent
 	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(/obj/item/storage/box/ids=1,\
 		/obj/item/modular_computer/tablet/preset/advanced = 1,/obj/item/tricorder,/obj/item/encryptionkey/headset_com=1)
@@ -298,7 +298,7 @@ Shaft Miner
 	ears = /obj/item/radio/headset/headset_cargo/mining
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/engsec/ent
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival
 	r_pocket = /obj/item/flashlight/seclite
 	backpack_contents = list(
@@ -405,7 +405,7 @@ Chief Engineer
 	belt = /obj/item/storage/belt/utility/chief/full
 	l_pocket = /obj/item/ship_repair_tool
 	ears = /obj/item/radio/headset/heads/ce
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/engsec/ent
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black/ce
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
@@ -463,7 +463,7 @@ Station Engineer
 	belt = /obj/item/storage/belt/utility/full/engi
 	l_pocket = /obj/item/ship_repair_tool
 	ears = /obj/item/radio/headset/headset_eng
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/engsec/ent
 	shoes = /obj/item/clothing/shoes/jackboots
 	r_pocket = /obj/item/tricorder
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
@@ -520,7 +520,7 @@ Chief Medical Officer
 	id = /obj/item/card/id/silver
 	l_pocket = /obj/item/pinpointer/crew
 	ears = /obj/item/radio/headset/heads/cmo
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/medsci/ent
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/toggle/labcoat/cmo
 	l_hand = /obj/item/storage/firstaid/regular
@@ -574,7 +574,7 @@ Medical Doctor
 	jobtype = /datum/job/trek/doctor
 
 	ears = /obj/item/radio/headset/headset_med
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/medsci/ent
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_hand = /obj/item/storage/firstaid/regular
 	suit_store = /obj/item/flashlight/pen
@@ -631,7 +631,7 @@ Research Director
 
 	id = /obj/item/card/id/silver
 	ears = /obj/item/radio/headset/heads/rd
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/medsci/ent
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_hand = /obj/item/clipboard
 	l_pocket = /obj/item/laser_pointer
@@ -677,7 +677,7 @@ Scientist
 	jobtype = /datum/job/trek/scientist
 
 	ears = /obj/item/radio/headset/headset_sci
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/medsci/ent
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/toggle/labcoat/science
 
@@ -737,7 +737,7 @@ Head of Security
 
 	id = /obj/item/card/id/silver
 	ears = /obj/item/radio/headset/heads/hos/alt
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/engsec/ent
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black/hos
 	head = /obj/item/clothing/head/HoS/beret
@@ -798,7 +798,7 @@ Security Officer
 	jobtype = /datum/job/trek/officer
 
 	ears = /obj/item/radio/headset/headset_sec/alt
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/engsec/ent
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/beret/sec
 	suit = /obj/item/clothing/suit/armor/vest/alt
@@ -873,7 +873,7 @@ Security Officer
 	jobtype = /datum/job/trek/soldier
 
 	ears = /obj/item/radio/headset/headset_sec/alt
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/engsec/ent
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/beret/sec
 	suit = /obj/item/clothing/suit/armor/vest/alt
@@ -934,7 +934,7 @@ Security Officer
 
 	id = /obj/item/card/id
 	ears = /obj/item/radio/headset
-	uniform = /obj/item/clothing/under/independant
+	uniform = /obj/item/clothing/under/trek/command/ent
 	shoes = /obj/item/clothing/shoes/laceup
 	backpack_contents = list(/obj/item/encryptionkey/headset_com=1)
 

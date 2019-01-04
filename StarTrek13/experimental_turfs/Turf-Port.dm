@@ -360,19 +360,23 @@ obj
 				to_chat(user, floor_directory)
 				var/max = max(Levels)
 				var/S = input(user,"Select a deck (max: [max])") as num
+				if(S > max || S <= 0)
+					to_chat(user, "That floor doesn't exist.")
+					in_use = FALSE
+					return
 				if(S)
 					playsound(loc, 'StarTrek13/sound/turbolift/turbolift-close.ogg')
 					icon_state = "lift-closed"
-					density = TRUE
-					opacity = TRUE
-					for(var/obj/machinery/door/airlock/F in get_step(src, NORTH))
-						F.close()
-						F.bolt()
 					for(var/obj/structure/turbolift/O in GLOB.elevators)
 						if(O.z == z)
 							if(O.Floor == S)
+								density = TRUE
+								opacity = TRUE
+								for(var/obj/machinery/door/airlock/F in get_step(src, NORTH))
+									F.close()
+									F.bolt()
 								user.say("[O.name]")
-								shake_camera(user, 2, 25)
+								shake_camera(user, 10, 50)
 								for(var/mob/living/M in get_turf(src))
 									SEND_SOUND(M, 'StarTrek13/sound/turbolift/turbolift.ogg')
 								sleep(100) //change
