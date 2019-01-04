@@ -38,6 +38,7 @@ Assistant
 	jobtype = /datum/job/trek/crewman
 	uniform = /obj/item/clothing/under/trek/medsci/ent
 	belt = /obj/item/ship_repair_tool
+	accessory = /obj/item/clothing/accessory/rank_pips
 
 /datum/outfit/job/crewman/pre_equip(mob/living/carbon/human/H)
 	if(istype(H.player_faction, /datum/faction/starfleet))
@@ -47,6 +48,7 @@ Assistant
 	if(istype( H.player_faction, /datum/faction/empire))
 		uniform = /obj/item/clothing/under/wars
 	..()
+
 
 //ADD SPAWNS FOR THE NEW JOBS!
 /*
@@ -99,7 +101,7 @@ Captain
 	duffelbag = /obj/item/storage/backpack/duffelbag/captain
 
 	implants = list(/obj/item/implant/mindshield)
-	accessory = /obj/item/clothing/accessory/medal/gold/captain
+	accessory = /obj/item/clothing/accessory/rank_pips/capt
 
 /datum/outfit/job/captain/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -168,7 +170,7 @@ Captain
 	duffelbag = /obj/item/storage/backpack/duffelbag/captain
 
 	implants = list(/obj/item/implant/mindshield)
-	accessory = /obj/item/clothing/accessory/medal/gold/captain
+	accessory = /obj/item/clothing/accessory/rank_pips/admiral
 
 /datum/outfit/job/admiral/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
@@ -243,6 +245,7 @@ Head of Personnel
 	ears = /obj/item/radio/headset/heads/hop
 	uniform = /obj/item/clothing/under/trek/command/ent
 	shoes = /obj/item/clothing/shoes/jackboots
+	accessory = /obj/item/clothing/accessory/rank_pips/cmdr
 	backpack_contents = list(/obj/item/storage/box/ids=1,\
 		/obj/item/modular_computer/tablet/preset/advanced = 1,/obj/item/tricorder,/obj/item/encryptionkey/headset_com=1)
 
@@ -269,7 +272,6 @@ Head of Personnel
 
 	if(visualsOnly)
 		return
-
 	H.grant_all_languages(omnitongue=TRUE)
 /*
 Shaft Miner
@@ -312,6 +314,7 @@ Shaft Miner
 	satchel = /obj/item/storage/backpack/satchel/explorer
 	duffelbag = /obj/item/storage/backpack/duffelbag
 	box = /obj/item/storage/box/survival_mining
+	accessory = /obj/item/clothing/accessory/rank_pips
 
 /datum/outfit/job/miner/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
@@ -408,7 +411,7 @@ Chief Engineer
 	uniform = /obj/item/clothing/under/trek/engsec/ent
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black/ce
-	accessory = /obj/item/clothing/accessory/pocketprotector/full
+	accessory = /obj/item/clothing/accessory/rank_pips/lt/cmdr
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1,/obj/item/tricorder,/obj/item/encryptionkey/headset_com=1)
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -466,7 +469,7 @@ Station Engineer
 	uniform = /obj/item/clothing/under/trek/engsec/ent
 	shoes = /obj/item/clothing/shoes/jackboots
 	r_pocket = /obj/item/tricorder
-	accessory = /obj/item/clothing/accessory/pocketprotector/full
+	accessory = /obj/item/clothing/accessory/rank_pips/lt
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -530,6 +533,7 @@ Chief Medical Officer
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+	accessory = /obj/item/clothing/accessory/rank_pips/lt/cmdr
 
 /datum/outfit/job/cmo/pre_equip(mob/living/carbon/human/H)
 	H.skills.add_skill("medicine", 8)
@@ -582,6 +586,7 @@ Medical Doctor
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+	accessory = /obj/item/clothing/accessory/rank_pips/lt
 
 /datum/outfit/job/doctor/pre_equip(mob/living/carbon/human/H)
 	H.skills.add_skill("medicine", 6)
@@ -635,7 +640,7 @@ Research Director
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_hand = /obj/item/clipboard
 	l_pocket = /obj/item/laser_pointer
-	accessory = /obj/item/clothing/accessory/pocketprotector/full
+	accessory = /obj/item/clothing/accessory/rank_pips/lt/cmdr
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1,/obj/item/encryptionkey/headset_com=1)
 
 	backpack = /obj/item/storage/backpack/science
@@ -683,7 +688,7 @@ Scientist
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
-	accessory = /obj/item/clothing/accessory/pocketprotector/full
+	accessory = /obj/item/clothing/accessory/rank_pips/lt
 
 /datum/outfit/job/scientist/pre_equip(mob/living/carbon/human/H)
 	if(istype( H.player_faction, /datum/faction/starfleet))
@@ -751,6 +756,7 @@ Head of Security
 	satchel = /obj/item/storage/backpack/satchel/sec
 	duffelbag = /obj/item/storage/backpack/duffelbag/sec
 	box = /obj/item/storage/box/security
+	accessory = /obj/item/clothing/accessory/rank_pips/lt/cmdr
 
 	implants = list(/obj/item/implant/mindshield)
 
@@ -770,7 +776,7 @@ Security Officer
 /datum/job/trek/officer
 	title = "Security Officer"
 	flag = OFFICER
-	department_head = list("Ship Security Coordinator")
+	department_head = list("Chief Of Security")
 	department_flag = ENGSEC
 	faction = "Station"
 
@@ -812,6 +818,7 @@ Security Officer
 	satchel = /obj/item/storage/backpack/satchel/sec
 	duffelbag = /obj/item/storage/backpack/duffelbag/sec
 	box = /obj/item/storage/box/security
+	accessory = /obj/item/clothing/accessory/rank_pips/lt
 
 	implants = list(/obj/item/implant/mindshield)
 
@@ -885,6 +892,7 @@ Security Officer
 	satchel = /obj/item/storage/backpack/satchel/sec
 	duffelbag = /obj/item/storage/backpack/duffelbag/sec
 	box = /obj/item/storage/box/security
+	accessory = /obj/item/clothing/accessory/rank_pips/lt/cmdr
 
 	implants = list(/obj/item/implant/mindshield)
 
@@ -936,6 +944,7 @@ Security Officer
 	ears = /obj/item/radio/headset
 	uniform = /obj/item/clothing/under/trek/command/ent
 	shoes = /obj/item/clothing/shoes/laceup
+	accessory = /obj/item/clothing/accessory/rank_pips/lt
 	backpack_contents = list(/obj/item/encryptionkey/headset_com=1)
 
 	backpack = /obj/item/storage/backpack

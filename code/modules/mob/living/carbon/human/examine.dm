@@ -22,6 +22,11 @@
 	if(!(SPECIES_SHOWN in obscured))
 		msg += "[t_He] [t_is] a [dna.species.name].\n"
 
+	if(w_uniform.attached_accessory)
+		if(istype(w_uniform.attached_accessory, /obj/item/clothing/accessory/rank_pips))
+			var/obj/item/clothing/accessory/rank_pips/pips = w_uniform.attached_accessory
+			msg += "<span class='warning'>[t_He] [t_is] a [pips.rank].</span>\n"
+
 	//uniform
 	if(w_uniform && !(SLOT_W_UNIFORM in obscured))
 		//accessory

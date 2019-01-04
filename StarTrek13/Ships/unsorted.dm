@@ -691,3 +691,73 @@
 			</body>
 			</html>
 			"}
+
+/obj/item/clothing/accessory/rank_pips
+	name = "Rank Pips"
+	var/rank = "Ensign"
+	desc = "These pips denote your rank, the more you collect - the better"
+	icon_state = "pips-ensign"
+	item_state = "pips-ensign"
+	item_color = "pips-ensign"
+
+/obj/item/clothing/accessory/rank_pips/lt
+	rank = "Lieutenant"
+	desc = "These pips denote your rank, the more you collect - the better"
+	icon_state = "pips-lt"
+	item_state = "pips-lt"
+	item_color = "pips-lt"
+
+/obj/item/clothing/accessory/rank_pips/lt/cmdr
+	rank = "Lieutenant Commander"
+	desc = "These pips denote your rank, the more you collect - the better"
+	icon_state = "pips-lt"
+
+/obj/item/clothing/accessory/rank_pips/cmdr
+	rank = "Commander"
+	desc = "These pips denote your rank, the more you collect - the better"
+	icon_state = "pips-cmdr"
+	item_state = "pips-cmdr"
+	item_color = "pips-cmdr"
+
+
+/obj/item/clothing/accessory/rank_pips/capt
+	rank = "Captain"
+	desc = "These pips denote your rank, the more you collect - the better. Who wants a desk job anyway?"
+	icon_state = "pips-capt"
+	item_state = "pips-capt"
+	item_color = "pips-capt"
+
+/obj/item/clothing/accessory/rank_pips/admiral
+	rank = "Rear Admiral"
+	desc = "These pips denote your rank. Owning these pips means you've reached the highest rank starfleet has to offer."
+	icon_state = "pips-admiral"
+	item_state = "pips-admiral"
+	item_color = "pips-admiral"
+
+/obj/item/storage/lockbox/pips
+	name = "rank pips strongbox"
+	desc = "A locked box containing rank pips, use these to promote exemplary crewmen."
+
+/obj/item/storage/lockbox/pips/ComponentInitialize()
+	. = ..()
+	GET_COMPONENT(STR, /datum/component/storage)
+	STR.max_w_class = WEIGHT_CLASS_SMALL
+	STR.max_items = 25
+	STR.max_combined_w_class = 40
+	STR.can_hold = typecacheof(list(/obj/item/clothing/accessory/rank_pips))
+
+/obj/item/storage/lockbox/pips/PopulateContents()
+	new /obj/item/clothing/accessory/rank_pips/lt(src)
+	new /obj/item/clothing/accessory/rank_pips/lt(src)
+	new /obj/item/clothing/accessory/rank_pips/lt(src)
+	new /obj/item/clothing/accessory/rank_pips/lt(src)
+	new /obj/item/clothing/accessory/rank_pips/lt/cmdr(src)
+	new /obj/item/clothing/accessory/rank_pips/lt/cmdr(src)
+	new /obj/item/clothing/accessory/rank_pips/cmdr(src)
+	new /obj/item/clothing/accessory/rank_pips/cmdr(src)
+	new /obj/item/clothing/accessory/rank_pips/capt(src)
+	new /obj/item/clothing/accessory/rank_pips/admiral(src)
+	new /obj/item/clothing/accessory/rank_pips/capt(src)
+	new /obj/item/clothing/accessory/rank_pips/admiral(src)
+	for(var/i in 1 to 5)
+		new /obj/item/clothing/accessory/rank_pips(src)
