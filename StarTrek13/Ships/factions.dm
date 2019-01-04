@@ -199,21 +199,25 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	to_chat(D, "<FONT color='#7289da'><B>You have been recruited into [name]!</B></font>")
 	to_chat(D, "<FONT color='[pref_colour]'><B>[flavourtext]</B></font>")
 	onspawn(D)
-	if(istype(src, /datum/faction/romulan))
-		if(D.client)
-			if(D.client.prefs.romulan_name && !isnull(D.client.prefs.romulan_name))
-				D.real_name = D.client.prefs.romulan_name
-				D.name = D.client.prefs.romulan_name
-				to_chat(D, "You have been renamed to [D.client.prefs.romulan_name], your chosen romulan name.")
-				return
 
 /datum/faction/proc/onspawn(mob/living/carbon/human/D) //If you want things to happen to someone as they join a faction, put it here
 	var/image/factionoverlay = new
 	factionoverlay.icon = 'StarTrek13/icons/trek/faction_icons.dmi'
 	factionoverlay.icon_state = "[factag]"
 	D.add_overlay(factionoverlay)
-	if(speciestype)
-		D.set_species(speciestype)
+	sleep(50)
+	if(D in members)
+		if(speciestype)
+			D.set_species(speciestype)
+			if(istype(src, /datum/faction/romulan))
+				if(D.client)
+					if(D.client.prefs.romulan_name && !isnull(D.client.prefs.romulan_name))
+						D.real_name = D.client.prefs.romulan_name
+						D.name = D.client.prefs.romulan_name
+						to_chat(D, "You have been renamed to [D.client.prefs.romulan_name], your chosen romulan name.")
+	for(var/datum/faction/F in SSfaction.factions)
+		if(D in F.members)
+			F.members -= D
 	return
 
 
@@ -225,8 +229,9 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	var/area/A = get_area(D)
 	if(istype(A, /area/ship/ds9)) //Ohhhh hello starfleet borg :)!!!!
 		return
-	D.make_borg()
-	D.equipOutfit(/datum/outfit/borg, visualsOnly = FALSE)
+	if(D in members)
+		D.make_borg()
+		D.equipOutfit(/datum/outfit/borg, visualsOnly = FALSE)
 
 var/list/global/faction_spawns = list()
 

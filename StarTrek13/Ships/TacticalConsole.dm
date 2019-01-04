@@ -267,7 +267,7 @@
 		announcement += "<br>"
 		var/list/list = list()
 		list += theship.pilot
-		for(var/mob/living/M in theship.linked_ship)
+		for(var/mob/living/M in get_area(src))
 			list += M
 		for(var/mob/O in GLOB.dead_mob_list)
 			list += O

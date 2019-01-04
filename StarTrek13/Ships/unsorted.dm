@@ -346,6 +346,15 @@
 	selfcharge = TRUE
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode/phaserstun, /obj/item/ammo_casing/energy/laser/phaserkill)
 
+/obj/item/gun/energy/laser/retro/rifle
+	name = "Heavy phaser rifle"
+	desc = "For suppressing large crowds or engaging the borg. This weapon requires you to use both hands."
+	w_class = WEIGHT_CLASS_HUGE
+	cell_type = /obj/item/stock_parts/cell/upgraded/plus
+	icon_state = "phaserrifle"
+	weapon_weight = WEAPON_HEAVY
+	item_state = "sniper"
+
 /obj/item/storage/book/skillbook
 	name = "piloting field manual"
 	desc = "This small book contains a myriad of complex annotated digrams which will help you learn to fly ships! After clicking this in hand, you will learn basic piloting skills and the book will disappear."

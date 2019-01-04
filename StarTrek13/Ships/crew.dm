@@ -8,6 +8,7 @@
 	desc = "This remarkable device debits all the molecules in your body from your current location and credits them somewhere else! Hopefully where you wanted to end up"
 	color = "#FFC0CB"
 	var/list/whowehaveaskedtobeacrewman = list()
+	var/list/helpme = list()
 
 /turf/open/floor/plating/emergencyspawnunfucker/Initialize(mapload)
 	START_PROCESSING(SSfastprocess, src) //It hurts so bad
@@ -18,16 +19,22 @@
 /turf/open/floor/plating/emergencyspawnunfucker/proc/rescue(mob/living/carbon/human/ohfuckmewhy)
 	if(!ohfuckmewhy)
 		ohfuckmewhy = locate(/mob/living) in loc
-	var/list/jobslist = list()
+	var/dat
 	for(var/datum/job/job in SSjob.occupations)
 		if(job && IsJobUnavailable(ohfuckmewhy,job.title, TRUE) == JOB_AVAILABLE)
-			jobslist += job.title
+			dat += "<a href='byond://?src=\ref[src];SelectedJob=\ref[job];clicker=\ref[ohfuckmewhy]'>[job.title] ([job.current_positions])</a><br>"
 	if(!ohfuckmewhy)
 		return
-	whowehaveaskedtobeacrewman += ohfuckmewhy
+	helpme += ohfuckmewhy
 	to_chat(ohfuckmewhy, "We're moving you to a safe spawn whilst you pick a job, please don't be alarmed.")
 	ohfuckmewhy.forceMove(pick(GLOB.prisonwarp))
 	sleep(15)
+	var/datum/browser/popup = new(ohfuckmewhy, "latechoices", "Choose Profession", 440, 500)
+	popup.set_content(dat)
+	popup.open(FALSE)
+
+
+/*
 	var/rank = input(ohfuckmewhy, "Select a job", "Job Selection", null) as null|anything in jobslist
 	if(!rank)
 		to_chat(ohfuckmewhy, "Spawning you in as a [SSjob.overflow_role]")
@@ -37,6 +44,18 @@
 	SSjob.EquipRank(ohfuckmewhy, rank, TRUE)
 	SSfaction.TryToHandleJob(ohfuckmewhy)
 	ohfuckmewhy = null
+*/
+
+/turf/open/floor/plating/emergencyspawnunfucker/Topic(href, href_list)
+	if(href_list["SelectedJob"])
+		var/mob/living/carbon/human/L = locate(href_list["clicker"])
+		var/datum/job/F = locate(href_list["SelectedJob"])
+		to_chat(world, "[F.title]")
+		if(L in helpme)
+			SSjob.EquipRank(L, F.title, TRUE)
+			SSfaction.TryToHandleJob(L)
+			helpme -= L
+
 
 /turf/open/floor/plating/emergencyspawnunfucker/proc/IsJobUnavailable(mob/living/player,rank, latejoin = FALSE)
 	var/datum/job/job = SSjob.GetJob(rank)
@@ -117,6 +136,10 @@
 	S.SanityCheck()
 
 /datum/crew/proc/addbyforce(mob/living/carbon/I)
+	if(I.player_faction || I.client.prefs.player_faction)
+		I.player_faction.members -= I
+		I.player_faction = required
+		I.client.prefs.player_faction = required
 	SendToSpawn(I)
 	for(var/datum/crew/F in SSfaction.crews) //To stop endless spam like poor tpos got :(
 		if(I in F.crewmen)
