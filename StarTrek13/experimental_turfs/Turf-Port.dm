@@ -126,6 +126,62 @@ turf
 					density = FALSE
 					opacity = FALSE
 
+				Table
+					icon = 'Images and icons/Table.dmi'
+					density = FALSE
+					opacity = FALSE
+
+				Tableoverlay
+					icon = 'Images and icons/Table Overlay.dmi'
+					layer = 9
+					density = FALSE
+					opacity = FALSE
+
+				Table2
+					icon = 'Images and icons/Table2.dmi'
+					density = FALSE
+					opacity = FALSE
+
+				Table2overlay
+					icon = 'Images and icons/Table2 Overlay.dmi'
+					layer = 9
+					density = FALSE
+					opacity = FALSE
+
+				Table3
+					icon = 'Images and icons/Table3.dmi'
+					density = FALSE
+					opacity = FALSE
+
+				Table3overlay
+					icon = 'Images and icons/Table3 Overlay.dmi'
+					layer = 9
+					density = FALSE
+					opacity = FALSE
+
+				Table4
+					icon = 'Images and icons/Table4.dmi'
+					density = FALSE
+					opacity = FALSE
+
+				Table4overlay
+					icon = 'Images and icons/Table4 Overlay.dmi'
+					layer = 9
+					density = FALSE
+					opacity = FALSE
+
+				Desk1
+					icon = 'Images and icons/Desk1.dmi'
+					density = FALSE
+					opacity = FALSE
+
+				Desk1overlay
+					icon = 'Images and icons/Desk1 Overlay.dmi'
+					layer = 9
+					density = FALSE
+					opacity = FALSE
+
+
 /turf/closed/wall/flaksim_trek/CanAtmosPass()
 	if(density)
 		return 0
@@ -221,61 +277,6 @@ turf
 					icon = 'Images and icons/Warp Door 2.dmi'
 					density = 1
 					density = TRUE
-
-				Table
-					icon = 'Images and icons/Table.dmi'
-					density = FALSE
-					opacity = FALSE
-
-				Tableoverlay
-					icon = 'Images and icons/Table Overlay.dmi'
-					layer = 9
-					density = FALSE
-					opacity = FALSE
-
-				Table2
-					icon = 'Images and icons/Table2.dmi'
-					density = FALSE
-					opacity = FALSE
-
-				Table2overlay
-					icon = 'Images and icons/Table2 Overlay.dmi'
-					layer = 9
-					density = FALSE
-					opacity = FALSE
-
-				Table3
-					icon = 'Images and icons/Table3.dmi'
-					density = FALSE
-					opacity = FALSE
-
-				Table3overlay
-					icon = 'Images and icons/Table3 Overlay.dmi'
-					layer = 9
-					density = FALSE
-					opacity = FALSE
-
-				Table4
-					icon = 'Images and icons/Table4.dmi'
-					density = FALSE
-					opacity = FALSE
-
-				Table4overlay
-					icon = 'Images and icons/Table4 Overlay.dmi'
-					layer = 9
-					density = FALSE
-					opacity = FALSE
-
-				Desk1
-					icon = 'Images and icons/Desk1.dmi'
-					density = FALSE
-					opacity = FALSE
-
-				Desk1overlay
-					icon = 'Images and icons/Desk1 Overlay.dmi'
-					layer = 9
-					density = FALSE
-					opacity = FALSE
 
 				Turbolift
 					icon = 'Images and icons/Lift2.PNG'
