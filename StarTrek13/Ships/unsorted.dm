@@ -658,3 +658,36 @@
 		else
 			to_chat(user, "Error! Unable to access ship escape pods")
 			return
+
+/obj/item/book/manual/wiki/starfleet_regulations
+	name = "The officer's compendium of starfleet regulations"
+	desc = "The starfleet officer's bible, it contains all the regulations you can inflict upon your crew. Failure to follow regulations may result in punishment."
+	icon_state = "starfleetregs"
+	author = "Starfleet Command"
+	title = "Starfleet Regulations"
+	page_link = "Starfleet_Regulations"
+
+
+/obj/item/book/manual/wiki/starfleet_regulations/initialize_wikibook()
+	var/wikiurl = "https://st.ddmers.com/wiki/"
+	if(wikiurl)
+		dat = {"
+			<html><head>
+			<style>
+				iframe {
+					display: none;
+				}
+			</style>
+			</head>
+			<body>
+			<script type="text/javascript">
+				function pageloaded(myframe) {
+					document.getElementById("loading").style.display = "none";
+					myframe.style.display = "inline";
+    			}
+			</script>
+			<p id='loading'>You start skimming through the manual...</p>
+			<iframe width='100%' height='97%' onload="pageloaded(this)" src="[wikiurl]/[page_link]?printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+			</body>
+			</html>
+			"}

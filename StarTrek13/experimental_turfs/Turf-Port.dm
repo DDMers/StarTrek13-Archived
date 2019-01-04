@@ -383,6 +383,12 @@ obj
 								in_use = FALSE
 								for(var/mob/living/M in get_turf(src))
 									M.forceMove(get_turf(O))
+									var/atom/movable/AM
+									if(M.pulling)
+										AM = M.pulling
+										AM.forceMove(get_turf(O))
+									if(AM)
+										user.start_pulling(AM)
 									to_chat(M,"<font color=yellow>Now at: [O.name]</font>")
 								animate_opening()
 								O.animate_opening()
