@@ -392,25 +392,27 @@ obj
 									F.close()
 									F.bolt()
 								user.say("[O.name]")
-								shake_camera(user, 10, 50)
+								shake_camera(user, 5, 5)
 								for(var/mob/living/M in get_turf(src))
 									SEND_SOUND(M, 'StarTrek13/sound/turbolift/turbolift.ogg')
-								sleep(100) //change
-								in_use = FALSE
-								for(var/mob/living/M in get_turf(src))
-									M.forceMove(get_turf(O))
-									var/atom/movable/AM
-									if(M.pulling)
-										AM = M.pulling
-										AM.forceMove(get_turf(O))
-									if(AM)
-										user.start_pulling(AM)
-									to_chat(M,"<font color=yellow>Now at: [O.name]</font>")
-								animate_opening()
-								O.animate_opening()
-								return TRUE
+								addtimer(CALLBACK(src, .proc/finish, O), 90)
 				else
 					in_use = FALSE
+
+/obj/structure/turbolift/proc/finish(var/obj/structure/turbolift/O)
+	in_use = FALSE
+	for(var/mob/living/M in get_turf(src))
+		M.forceMove(get_turf(O))
+		var/atom/movable/AM
+		if(M.pulling)
+			AM = M.pulling
+			AM.forceMove(get_turf(O))
+		if(AM)
+			M.start_pulling(AM)
+		to_chat(M,"<font color=yellow>Now at: [O.name]</font>")
+	animate_opening()
+	O.animate_opening()
+	return TRUE
 
 /obj/structure/turbolift/proc/animate_opening()
 	icon_state = "lift-opening"
