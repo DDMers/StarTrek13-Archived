@@ -692,8 +692,9 @@
 			</html>
 			"}
 
+
 /obj/item/clothing/accessory/rank_pips
-	name = "Rank Pips"
+	name = "rank pip"
 	var/rank = "Ensign"
 	desc = "These pips denote your rank, the more you collect - the better"
 	icon_state = "pips-ensign"
