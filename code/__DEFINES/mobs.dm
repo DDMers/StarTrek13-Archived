@@ -139,9 +139,9 @@
 #define SANITY_INSANE 0
 
 //Hygiene levels for humans
-#define HYGIENE_LEVEL_CLEAN 220
+#define HYGIENE_LEVEL_CLEAN 200
 #define HYGIENE_LEVEL_NORMAL 150
-#define HYGIENE_LEVEL_DIRTY 125
+#define HYGIENE_LEVEL_DIRTY 100
 
 //Beauty levels of areas for carbons
 #define BEAUTY_LEVEL_HORRID -100
