@@ -65,7 +65,7 @@
 "bm" = (/obj/structure/ship_component/capbooster,/turf/closed/wall/trek{icon_state = "romulanwall"; dir = 2},/area/ship/romulan)
 "bn" = (/obj/effect/landmark/faction_spawn/romulan,/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
 "bo" = (/obj/effect/landmark/crewspawnermachine/romulan,/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
-"bp" = (/obj/structure/closet,/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
+"bp" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
 "bq" = (/obj/effect/turf_decal/trek/cargo{name = "floor"; icon_state = "rom_edge"; dir = 6},/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "br" = (/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
 "bs" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/layer3{icon_state = "scrub_map"; dir = 4},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{icon_state = "vent_map_on"; dir = 4},/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
@@ -261,7 +261,7 @@
 "fa" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{icon_state = "manifold"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{icon_state = "manifold"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/orange/hidden{icon_state = "intact"; dir = 10},/obj/structure/cable/white{icon_state = "2-8"},/obj/structure/cable/white{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/romulan)
 "fb" = (/obj/structure/table,/obj/item/surgical_drapes,/turf/open/floor/trek/light{color = "#808080"},/area/ship/romulan)
 "fc" = (/obj/structure/escape_pod_launcher,/turf/closed/wall/trek{icon_state = "wall_light"; dir = 1},/area/ship/romulan)
-"fd" = (/turf/open/floor/plating,/obj/structure/cable/white{icon_state = "1-2"},/turf/closed/trekshield{icon_state = "shield"; dir = 4},/area/ship/romulan)
+"fd" = (/obj/machinery/shower{dir = 4},/turf/open/floor/trek/light{color = "#A9A9A9"},/area/ship/romulan)
 
 (1,1,1) = {"
 azababababababababababababababababababababababababababababababababababababababababababababababababab
@@ -285,13 +285,13 @@ azaFbYcCbCbPbWbRaFaaaaaEaaaaaaaHacadaeadaaaNaOaiaiaiaiaiaOaiaaadadadaJaFaacaejca
 azaFbYcCbCbPbWbRaFaaaRaRaRcaaaaHacadatadadaQadadadadadadadauadadadadaJaFaSbbcacacaaTaHacacacacacacaz
 azaFbYcCccbPbWbRaFbaaaaaaaaabaaUaWaXaXaXaWaYaWaXaXaXaXaXaWaZaWaXaXaXaWaUaSbbcacabiaaaHacacacacacacaz
 azaFbYcCaVcjbWbRaFaWaXaXaZaXaXaWbcbdbdbdbdbebdbdbdbfbdbdbdbgbdbdbdbdbhaWaXaXaZaXaXaWaHacacacacacacaz
-azaFaWcrcrfdaWbRaFbdbdbdbdbdbdbdbqbrbrbsbtbubrbrbrbvbrbrbrbrbrbrbrbrbybdbdbdbdbdbdbdaHacacacacacacaz
+azaFaWcrcrbpaWbRaFbdbdbdbdbdbdbdbqbrbrbsbtbubrbrbrbvbrbrbrbrbrbrbrbrbybdbdbdbdbdbdbdaHacacacacacacaz
 azaFcvaVcmcBcGcSaFbrbrbrbrbrbrbrbrbrbrbrbDbQbQbQbQaBbQbQbQbQbZbrbrbrbrbrbrbrbrbrbrbraHacacacacacacaz
 azaFdldmdndmdoaHaFaGaGaGaZaGaGaGaHaFcVcVegcVcVaUaWbvaWaUbjbkeMblbmaHaFaGaGaGaZaGaGaGaHacacacacacacaz
 azaFdpdqdrdqdsaHaFaCbrbrbrbrbraDaHaFcackclcacaaUaPbvaPaUcacacscacaaHaFctaaaaaaaaaacuaHacacacacacacaz
 azaFdudvdwdxduaHaFaIbnbrbnbrbnaDaHaFcycFcHcFcaaUaabvaaaUcycFcIcFcaaHaFcJcacacacacacKaHacacacacacacaz
-azaFbwaGdCaGbxaHaFbrbrbrbobrbraDaHaFcacFcMcFcaaUaabvaaaUcacFcFcFcaaHaFctcacacacacacuaHacacacacacacaz
-azaFbzbAdDbAbBaHaFbpbrbrbrbrbraDaHaFcacacNcacaaUaabvaaaUcacacacacaaHaFctaaaaaaaaaacuaHacacacacacacaz
+azaFbwaGdCaGbxaHaFfdbrbrbobrbraDaHaFcacFcMcFcaaUaabvaaaUcacFcFcFcaaHaFctcacacacacacuaHacacacacacacaz
+azaFbzbAdDbAbBaHaFfdbrbrbrbrbraDaHaFcacacNcacaaUaabvaaaUcacacacacaaHaFctaaaaaaaaaacuaHacacacacacacaz
 azaFbEbAdDbAbEaHbFbGbGbHbIbJbGbGbKbFbGbGeYbGbGaFaWbvaWaHbGbGbGbGbGbMbFbGbGbGbNbGbGbGbMacacacacacacaz
 azaFbOdEdFdGbSaHaJaJaJbTbUbVaJaJacacacbWeZbYacaFaPbvaPaHacacacacacacacacacbWcCbYacacacacacacacacacaz
 azaFaGaGdHcbaGaHacacacacacacacacacacacbWeZbYacaFaabvaaaHacacacacacacacacacbWcCbYacacacacacacacacacaz
