@@ -396,6 +396,7 @@ obj
 								for(var/mob/living/M in get_turf(src))
 									SEND_SOUND(M, 'StarTrek13/sound/turbolift/turbolift.ogg')
 								addtimer(CALLBACK(src, .proc/finish, O), 90)
+								return
 				else
 					in_use = FALSE
 
