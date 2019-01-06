@@ -311,7 +311,7 @@ h1.alert, h2.alert		{color: #ffffff;}
 .info					{color: #7289da;}
 .notice					{color: #7289da;}
 .boldnotice				{color: #7289da;	font-weight: bold;}
-.adminnotice			{color: #0000ff;}
+.adminnotice			{color: #7289da;}
 .adminhelp              {color: #ff0000;    font-weight: bold;}
 .unconscious			{color: #0000ff;	font-weight: bold;}
 .suicide				{color: #ff5050;	font-style: italic;}
@@ -333,9 +333,9 @@ h1.alert, h2.alert		{color: #ffffff;}
 .purple					{color: #5e2d79;}
 .holoparasite			{color: #35333a;}
 
-.revennotice			{color: #1d2953;}
-.revenboldnotice		{color: #1d2953;	font-weight: bold;}
-.revenbignotice			{color: #1d2953;	font-weight: bold; font-size: 24px;}
+.revennotice			{color: #7289da;}
+.revenboldnotice		{color: #7289da;	font-weight: bold;}
+.revenbignotice			{color: #7289da;	font-weight: bold; font-size: 24px;}
 .revenminor				{color: #823abb}
 .revenwarning			{color: #760fbb;	font-style: italic;}
 .revendanger			{color: #760fbb;	font-weight: bold; font-size: 24px;}

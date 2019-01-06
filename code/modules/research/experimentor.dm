@@ -125,7 +125,7 @@
 		var/list/listin = techweb_item_boost_check(src)
 		if(listin)
 			var/list/output = list("<b><font color='purple'>Research Boost Data:</font></b>")
-			var/list/res = list("<b><font color='blue'>Already researched:</font></b>")
+			var/list/res = list("<b><font color='#7289da'>Already researched:</font></b>")
 			var/list/boosted = list("<b><font color='red'>Already boosted:</font></b>")
 			for(var/node_id in listin)
 				var/datum/techweb_node/N = get_techweb_node_by_id(node_id)

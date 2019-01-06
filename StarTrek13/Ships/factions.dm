@@ -97,7 +97,7 @@ var/global/list/factionRosters[][] = list(list("Independent Roster"),
 	pref_colour = "grey"
 */
 
-//"<FONT color='blue'><B>As this station was initially staffed with a [CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] have been added to your ID card.</B></font>")
+//"<font color='#7289da'><B>As this station was initially staffed with a [CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] have been added to your ID card.</B></font>")
 
 /datum/faction/proc/faction_process()
 	ships = 0

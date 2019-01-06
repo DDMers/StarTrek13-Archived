@@ -502,7 +502,7 @@
 	wearer.movement_type |= FLYING
 	wearer.pass_flags |= flight_passflags
 	usermessage("ENGAGING FLIGHT ENGINES.")
-	wearer.visible_message("<font color='blue' size='2'>[wearer]'s flight engines activate as [wearer.p_they()] lift[wearer.p_s()] into the air!</font>")
+	wearer.visible_message("<font color='#7289da' size='2'>[wearer]'s flight engines activate as [wearer.p_they()] lift[wearer.p_s()] into the air!</font>")
 	flight = TRUE
 	update_slowdown()
 	update_icon()
@@ -518,7 +518,7 @@
 		momentum_y = 0
 		calculate_momentum_speed()
 		usermessage("DISENGAGING FLIGHT ENGINES.")
-		wearer.visible_message("<font color='blue' size='2'>[wearer] drops to the ground as [wearer.p_their()] flight engines cut out!</font>")
+		wearer.visible_message("<font color='#7289da' size='2'>[wearer] drops to the ground as [wearer.p_their()] flight engines cut out!</font>")
 		wearer.movement_type &= ~FLYING
 		wearer.pass_flags &= ~flight_passflags
 		flight = FALSE

@@ -213,7 +213,7 @@ GLOBAL_PROTECT(AdminProcCallSpamPrevention)
 	. = ""
 	if(islist(returnval))
 		var/list/returnedlist = returnval
-		. = "<font color='blue'>"
+		. = "<font color='#7289da'>"
 		if(returnedlist.len)
 			var/assoc_check = returnedlist[1]
 			if(istext(assoc_check) && (returnedlist[assoc_check] != null))
@@ -230,7 +230,7 @@ GLOBAL_PROTECT(AdminProcCallSpamPrevention)
 		. += "</font>"
 
 	else
-		. = "<font color='blue'>[procname] returned: [!isnull(returnval) ? returnval : "null"]</font>"
+		. = "<font color='#7289da'>[procname] returned: [!isnull(returnval) ? returnval : "null"]</font>"
 
 
 /client/proc/Cell()
