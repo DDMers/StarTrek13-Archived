@@ -590,10 +590,12 @@
 	desc = "It likely contains a sailor homeward bound. To scoop it up simply alt click it."
 	icon = 'StarTrek13/icons/trek/overmap_ships.dmi'
 	icon_state = "escapepod"
+	faction = "neutral"
 	take_damage_traditionally = FALSE
 	warp_capable = FALSE
 	max_warp = 0
-	can_move = FALSE
+	can_move = TRUE
+	turnspeed = 1
 	max_health = 2000
 	spawn_name = null
 	spawn_random = FALSE
@@ -623,7 +625,6 @@
 		forceMove(get_turf(T))
 		to_chat(pilot, "Docking initiated")
 		to_chat(user, "Engaging recovery protocols on [src]")
-		SpinAnimation(0,0)
 		return
 
 

@@ -1948,7 +1948,7 @@
 "Lx" = (/turf/open/floor/flaksim_trek/Brig5{tag = "icon-6,8"; icon_state = "6,8"},/turf/closed/wall/flaksim_trek{icon_state = ""; opacity = 0},/area/ship/federation/sovreign)
 "Ly" = (/turf/open/floor/flaksim_trek/Brig5{tag = "icon-7,8"; icon_state = "7,8"},/turf/closed/wall/flaksim_trek{icon_state = ""; opacity = 0},/area/ship/federation/sovreign)
 "Lz" = (/turf/open/floor/flaksim_trek/Brig5{tag = "icon-9,8"; icon_state = "9,8"},/turf/closed/wall/flaksim_trek{icon_state = ""; opacity = 0},/area/ship/federation/sovreign)
-"LA" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/structure/bodycontainer/morgue{icon_state = "morgue1"; dir = 1},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
+"LA" = (/obj/effect/turf_decal/trek{tag = "icon-trek_edge"; icon_state = "trek_edge"; dir = 2},/obj/structure/bodycontainer/morgue{icon_state = "morgue1"; dir = 2},/turf/open/floor/trek{icon_state = "trek2"},/area/ship/federation/sovreign)
 "LB" = (/turf/open/floor/flaksim_trek/Brig5{tag = "icon-0,4"; icon_state = "0,4"},/turf/closed/wall/flaksim_trek{icon_state = ""; opacity = 0},/area/ship/federation/sovreign)
 "LC" = (/turf/open/floor/flaksim_trek/Brig5{tag = "icon-1,4"; icon_state = "1,4"},/turf/closed/wall/flaksim_trek{icon_state = ""; opacity = 0},/area/ship/federation/sovreign)
 "LD" = (/obj/machinery/door/window/brigdoor/trek{id = "sov6"},/turf/open/floor/flaksim_trek/Brig5{tag = "icon-2,4"; icon_state = "2,4"},/area/ship/federation/sovreign)

@@ -29,6 +29,8 @@
 	desc = "Try boosting power to the annular confinement beam?"
 	alpha = 0
 
+/mob/camera/aiEye
+	var/area/area_lock = null
 
 /mob/camera/aiEye/remote/setLoc(T)
 	if(eye_user)
@@ -37,7 +39,11 @@
 		T = get_turf(T)
 		if (T)
 			if(istype(T, /turf/closed/indestructible/transporter_block)) //stop breaking my game transporter NERDS
-				return 0
+				return FALSE
+			if(area_lock)
+				var/area/a = get_area(T)
+				if(a != area_lock)
+					return FALSE
 			forceMove(T)
 		else
 			moveToNullspace()
@@ -100,7 +106,7 @@
 	for(var/turf/open/T in A)
 		available_turfs += T
 
-/obj/machinery/computer/camera_advanced/transporter_control/CreateEye()
+/obj/machinery/computer/camera_advanced/transporter_control/CreateEye(var/area/target_area)
 	if(eyeobj)
 		qdel(eyeobj)
 	eyeobj = new()
@@ -109,6 +115,8 @@
 	eyeobj.visible_icon = 1
 	eyeobj.icon = 'icons/obj/abductor.dmi'
 	eyeobj.icon_state = "camera_target"
+	if(target_area)
+		eyeobj.area_lock = target_area
 
 /obj/machinery/computer/camera_advanced/transporter_control/give_eye_control(mob/living/carbon/user, list/L)
 	if(user == operator)
@@ -160,7 +168,7 @@
 					L += T
 				target_area = O.linked_ship
 				if(!eyeobj)
-					CreateEye()
+					CreateEye(O.linked_ship)
 				give_eye_control(user, L)
 			else
 				to_chat(user, "<span class='notice'>There are no linked transporter pads</span>")

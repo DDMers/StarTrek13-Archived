@@ -752,7 +752,7 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 	icon_state = "warp"
 	duration = 10
 
-/obj/structure/overmap/proc/do_warp(destination, jump_time) //Don't want to lock this behind warp capable because jumpgates call this
+/obj/structure/overmap/proc/do_warp(destination, jump_time,var/slipstream = FALSE) //Don't want to lock this behind warp capable because jumpgates call this
 	if(!can_move)
 		return
 	if(SC.engines.failed) //i hate you nichlas
@@ -779,12 +779,29 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 			for(var/mob/L in linked_ship)
 				if(!L)
 					continue
-				shake_camera(L, 1, 10)
-				SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
-				to_chat(L, "The deck plates shudder as the ship builds up immense speed.")
+				if(!slipstream)
+					shake_camera(L, 1, 10)
+					SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
+					to_chat(L, "The deck plates shudder as the ship builds up immense speed.")
+				else
+					SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/slipstream.ogg')
+					jump_time = 600
+					if(ishuman(L))
+						var/mob/living/carbon/human/H = L
+						if(H.buckled)
+							shake_camera(H, 1, 10)
+							to_chat(H, "<span_class='notice'><b>Acceleration presses you into your chair!</b></span>")
+							continue
+						to_chat(H, "<span_class='notice'><b>You're slammed into the hull as the ship gains incredible speed!</b></span>")
+						H.Stun(20)
+						var/atom/throw_target = get_edge_target_turf(H, SOUTH)
+						H.throw_at(throw_target, 4, 3)
+						shake_camera(H, 5, 5)
+						H.Knockdown(100)
+						H.adjustStaminaLoss(40)
 				linked_ship.parallax_movedir = NORTH
 			addtimer(CALLBACK(src, .proc/finish_warp, destination),jump_time)
-			for(var/obj/structure/overmap/ship/AI/A in world)
+			for(var/obj/structure/overmap/ship/AI/A in GLOB.overmap_ships)
 				if(A.stored_target == src)
 					A.stored_target = null
 				if(A.force_target == src)

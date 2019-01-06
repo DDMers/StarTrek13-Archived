@@ -3,6 +3,7 @@
 	icon = 'StarTrek13/icons/trek/runabout.dmi'
 	desc = "A small self-contained starship, you can enter it by clicking it, and exit it by either beaming out, or alt-clicking its tactical console: To dock, alt or shift click the craft."
 	icon_state = "runabout"
+	faction = "starfleet"
 	spawn_name = null
 	var/obj/structure/overmap/ship/carrier
 	photons = 2 //for mining

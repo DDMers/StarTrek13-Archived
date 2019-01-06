@@ -1,0 +1,11 @@
+{
+    "map_name": "odyssey",
+    "map_path": "map_files/StarTrek13",
+    "map_file": ["gamemodes/odyssey/system.dmm",
+				"gamemodes/odyssey/large_outposts.dmm"],
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	
+	"ships_map_file": [
+					"ship/starfleet_ships.dmm"]
+}

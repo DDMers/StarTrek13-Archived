@@ -142,3 +142,4 @@ SUBSYSTEM_DEF(faction)
 	jumpgates_forbidden = FALSE
 	flags |= SS_NO_FIRE //we no longer need to fire, and this may(?) prevent a bug
 	can_fire = FALSE
+	SSticker.mode.on_allow_jumpgates()

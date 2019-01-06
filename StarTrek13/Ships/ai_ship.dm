@@ -132,7 +132,7 @@
 	if(!stored_target)
 		for(var/obj/structure/overmap/S in orange(src, 15))
 			if(istype(S, /obj/structure/overmap)&& !istype(S, /obj/structure/overmap/shipwreck) && !istype(S, /obj/structure/overmap/planet) && !istype(S, /obj/structure/overmap/away/station/system_outpost) && !istype(S, /obj/structure/overmap/lavaland)) //Don't blow up crucial game things
-				if(S.faction == faction) //allows for teams of ships
+				if(S.faction == faction || S.faction == "neutral") //allows for teams of ships
 					continue
 				if(!S.cloaked)
 					stored_target = S

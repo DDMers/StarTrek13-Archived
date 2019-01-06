@@ -30,6 +30,12 @@ map rebelspies
 	
 endmap
 
+map odyssey
+	0
+	0
+	
+endmap
+
 map boxstation
 	#voteweight 1.5
 endmap
