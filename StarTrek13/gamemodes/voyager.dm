@@ -45,7 +45,7 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 	<span class='danger'>Survive the test\n\
 	<span class='danger'>Hack the blue console on each away mission to unlock a new warp target."
 	faction_participants = list("starfleet")
-	delaywarp = 2000 //Not very long to prepare, we want to catch them off-guard
+	delaywarp = 600 //Not very long to prepare, we want to catch them off-guard
 
 /datum/game_mode/proc/on_allow_jumpgates() //When the timer's up...
 	return
@@ -102,6 +102,7 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 		to_chat(M, flufftext)
 
 /obj/structure/overmap/ship/proc/quantum_slipstream()
+	weapons.redalert()
 	var/obj/effect/landmark/warp_beacon/rebel/snowdin/S = locate(/obj/effect/landmark/warp_beacon/rebel/snowdin) in GLOB.landmarks_list
 	if(S)
 		do_warp(S, S.distance,TRUE)
@@ -113,7 +114,6 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 	if(weapons)
 		playsound(weapons.loc,'StarTrek13/sound/borg/machines/alert2.ogg',100,0)
 		weapons.say("WARNING: Quantum slipstream device has been activated. All hands brace for acceleration.")
-		weapons.redalert()
 
 /obj/effect/landmark/warp_beacon/rebel/snowdin //Special warp markers for rebel bases, the imperials must cut their way thru each base to unlock the next
 	name = "Warp beacon"
