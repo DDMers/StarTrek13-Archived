@@ -111,7 +111,7 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 	if(pilot)
 		to_chat(pilot, "<span_class='warning'><b>Quantum slipstream drive activated.</b></span>")
 	if(weapons)
-		playsound(loc,'StarTrek13/sound/borg/machines/alert2.ogg',100,0)
+		playsound(weapons.loc,'StarTrek13/sound/borg/machines/alert2.ogg',100,0)
 		weapons.say("WARNING: Quantum slipstream device has been activated. All hands brace for acceleration.")
 
 /obj/effect/landmark/warp_beacon/rebel/snowdin //Special warp markers for rebel bases, the imperials must cut their way thru each base to unlock the next
