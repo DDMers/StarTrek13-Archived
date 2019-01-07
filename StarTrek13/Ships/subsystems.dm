@@ -336,6 +336,12 @@
 	. = ..()
 	heat -= 10
 
+//IDEA DIRECTIONAL SHIELDS:
+/* add overlays for them
+When you fire, do a get dir from target to shooter
+drain power from that shield
+*/
+
 /datum/shipsystem/shields
 	name = "shields" //in this case, integrity is shield health. If your shields are smashed to bits, it's assumed that all the control circuits are pretty fried anyways.
 	var/breakingpoint = 700 //at 700 heat, shields will take double damage

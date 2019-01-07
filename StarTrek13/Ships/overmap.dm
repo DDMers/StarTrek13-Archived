@@ -784,8 +784,8 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 					SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/warp.ogg')
 					to_chat(L, "The deck plates shudder as the ship builds up immense speed.")
 				else
+					SEND_SOUND(L, null)
 					SEND_SOUND(L, 'StarTrek13/sound/trek/ship_effects/slipstream.ogg')
-					jump_time = 600
 					if(ishuman(L))
 						var/mob/living/carbon/human/H = L
 						if(H.buckled)
@@ -821,7 +821,7 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 			do_warp(fuckoff, fuckoff.distance)
 			break;
 
-/obj/structure/overmap/proc/finish_warp(atom/movable/destination)
+/obj/structure/overmap/proc/finish_warp(var/obj/effect/landmark/warp_beacon/destination)
 	can_move = 1
 	shake_camera(pilot, 4, 2)
 	to_chat(pilot, "The ship has left warp space.")
@@ -830,6 +830,7 @@ GLOBAL_LIST_INIT(overmap_ships, list())
 		to_chat(pilot, "The ship slows.")
 		linked_ship.parallax_movedir = FALSE
 	forceMove(get_turf(destination))
+	destination.on_reach(src)
 
 /obj/structure/overmap/proc/set_nav_target(mob/user)
 	if(nav_target)

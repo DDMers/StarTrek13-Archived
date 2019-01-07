@@ -94,7 +94,8 @@
 			playsound(C.loc, C.comms_sound, 20, 1)
 			to_chat(C.stored_user, "<span class='warning'><b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 	for(var/mob/O in GLOB.dead_mob_list)
-		to_chat(O, "<span class='warning'><b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
+		var/link = FOLLOW_LINK(O, user)
+		to_chat(O, "<span class='warning'>[link]<b>[linked] ship comms:</b><b>[user]</b> <b>([user.mind.assigned_role])</b>: [message]</span>")
 
 /obj/item/clothing/neck/combadge/proc/send_message_command(var/message, mob/living/user)
 	if(user.stat == DEAD)
@@ -114,7 +115,8 @@
 			playsound(C.loc, C.comms_sound, 20, 1)
 			to_chat(C.stored_user, "<span class='notice'><b>[linked] command frequency: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: <i>[message]</i></span>")
 	for(var/mob/O in GLOB.dead_mob_list)
-		to_chat(O, "<span class='notice'><b>[linked] command frequency: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: <i>[message]</i></span>")
+		var/link = FOLLOW_LINK(O, user)
+		to_chat(O, "<span class='notice'>[link]<b>[linked] command frequency: </b><b>[user]</b> <b>([user.mind.assigned_role])</b>: <i>[message]</i></span>")
 
 
 /obj/item/clothing/neck/combadge/proc/pm_user(var/message, mob/living/user)

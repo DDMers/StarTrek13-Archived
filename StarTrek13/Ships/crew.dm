@@ -51,7 +51,12 @@
 		var/mob/living/carbon/human/L = locate(href_list["clicker"])
 		var/datum/job/F = locate(href_list["SelectedJob"])
 		if(L in helpme)
-			SSjob.EquipRank(L, F.title, TRUE)
+			if(SSjob.AssignRole(L, F.title))
+				SSjob.EquipRank(L, F.title, TRUE)
+				return
+			else
+				to_chat(L, "That job is unavailable!")
+				return
 			SSfaction.TryToHandleJob(L)
 			helpme -= L
 

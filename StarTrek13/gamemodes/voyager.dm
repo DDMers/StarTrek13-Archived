@@ -45,7 +45,7 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 	<span class='danger'>Survive the test\n\
 	<span class='danger'>Hack the blue console on each away mission to unlock a new warp target."
 	faction_participants = list("starfleet")
-	delaywarp = 600 //Not very long to prepare, we want to catch them off-guard
+	delaywarp = 500 //Not very long to prepare, we want to catch them off-guard
 
 /datum/game_mode/proc/on_allow_jumpgates() //When the timer's up...
 	return
@@ -86,7 +86,7 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 	name =  "Restricted sector -08"
 
 /area/overmap/odyssey/research
-	name =  "Restricted research sector -08"
+	name =  "Restricted research sector -09"
 
 /obj/structure/overmap/planet
 	var/obj/structure/overmap/ship/narration_target = null //Who are we going to send our flufftext to?
@@ -101,9 +101,13 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 		SEND_SOUND(M, captains_log)
 		to_chat(M, flufftext)
 
-/obj/structure/overmap/ship/proc/quantum_slipstream()
-	weapons.redalert()
+/obj/structure/overmap/ship/proc/quantum_slipstream(var/admin_override = FALSE)
 	var/obj/effect/landmark/warp_beacon/rebel/snowdin/S = locate(/obj/effect/landmark/warp_beacon/rebel/snowdin) in GLOB.landmarks_list
+	if(admin_override)
+		forceMove(get_turf(S))
+		S.on_reach(src)
+		return
+	weapons.redalert()
 	if(S)
 		do_warp(S, S.distance,TRUE)
 	else
@@ -119,6 +123,49 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 	name = "Warp beacon"
 	distance = 600 //1 min
 	warp_restricted = TRUE
+	scripted_text ={"
+	DELAY 40
+	NAME Arctic Research Outpost
+	SAY <span_class='warning'>MAYDAY, MAYDAY outpost overr####"93$$%%% THEY'RE EVERYW''###555^^^^^^ TO ANY SHIPS IN THE SECT---O66^^%%%</span>
+	PLAYSOUND fuck
+	DELAY 20
+	NAME Unknown
+	SAY <I>FUCK FUCK THEY'RE ALL OVER THE PLACE</I>
+	SAY Liberate ]###@@%%%--''me
+	DELAY 30
+	NAME Main Computer
+	SAY <span_class='warning'>Distress call terminated.</span>
+	DELAY 20"}
+
+/obj/effect/landmark/warp_beacon/rebel/snowdin/play_sounds(var/obj/structure/overmap/what) //The PLAYSOUNDS tag runs this
+	if(!what)
+		what = locate(/obj/structure/overmap) in orange(src,1)
+	for(var/mob/M in what.linked_ship)
+		SEND_SOUND(M, null)
+		SEND_SOUND(M, 'sound/ambience/antag/ling_aler.ogg')
+		sleep(10)
+		SEND_SOUND(M, 'sound/effects/glassbr1.ogg')
+		sleep(5)
+		SEND_SOUND(M, 'sound/effects/glassbr1.ogg')
+		sleep(10)
+		SEND_SOUND(M, 'sound/weapons/laser.ogg')
+		sleep(5)
+		SEND_SOUND(M, 'sound/weapons/laser.ogg')
+
+/obj/effect/mob_spawn/human/alive/changeling
+	name = "frozen sleeper"
+	desc = "This stasis pod is frozen over, but contains some-thin..someone? Inside..."
+	icon = 'icons/obj/machines/sleeper.dmi'
+	icon_state = "sleeper"
+	death = FALSE
+	flavour_text = "<span class='big bold'>You are a survivor.</span><b> A massacre on artic outpost 13 killed most of the crew but your victim who was locked in a dorm room. You have assumed a new form \
+	survived, but now you hunger for more genomes. Find a new ship to infiltrate at all costs..sensors show one's just arrived in the system you're in.</b>"
+	outfit = /datum/outfit/job/crewman
+
+/obj/effect/mob_spawn/human/alive/changeling/special(mob/living/new_spawn)
+	if(new_spawn.mind)
+		new_spawn.mind.make_Changling()
+
 
 /obj/structure/rebel_capture/snowdin/pass_coordinates()
 	var/obj/effect/landmark/warp_beacon/rebel/moonoutpost/S = locate(/obj/effect/landmark/warp_beacon/rebel/moonoutpost) in GLOB.landmarks_list
@@ -126,8 +173,30 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 
 /obj/effect/landmark/warp_beacon/rebel/moonoutpost //Specialised
 	name = "Warp beacon"
-	distance = 2000
+	distance = 600
 	warp_restricted = TRUE
+	scripted_text ={"
+	DELAY 10
+	PLAYSOUND fuck
+	NAME Moon Outpost 19
+	SAY <span_class='warning'>Attempting to connect to NTnet...</span>
+	DELAY 20
+	SAY <I>Failed</I>
+	SAY Attempt 5e-17 failed. Re-establishing connection
+	DELAY 30
+	SAY <I>Failed.</I>
+	DELAY 10
+	SAY Main communication array: offline. Status: CODE DELTA | Threat level: NULL.
+	NAME Main Computer
+	SAY <span_class='warning'>Distress call terminated.</span>
+	DELAY 20"}
+
+/obj/effect/landmark/warp_beacon/rebel/moonoutpost/play_sounds(var/obj/structure/overmap/what) //The PLAYSOUNDS tag runs this
+	if(!what)
+		what = locate(/obj/structure/overmap) in orange(src,1)
+	for(var/mob/M in what.linked_ship)
+		SEND_SOUND(M, null)
+		SEND_SOUND(M, 'sound/ambience/ambicave.ogg')
 
 /obj/structure/rebel_capture/moonoutpost/pass_coordinates()
 	var/obj/effect/landmark/warp_beacon/rebel/underground/S = locate(/obj/effect/landmark/warp_beacon/rebel/underground) in GLOB.landmarks_list
@@ -135,8 +204,29 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 
 /obj/effect/landmark/warp_beacon/rebel/underground //Specialised
 	name = "Warp beacon"
-	distance = 2000
+	distance = 600
 	warp_restricted = TRUE
+	scripted_text ={"
+	PLAYSOUND fuck
+	NAME Underground outpost 45
+	SAY <span_class='warning'>Julliet Mayo Endemic System Alpha 4 4 B-4</span>
+	DELAY 20
+	SAY <I>'###~%%4444%^--</I>
+	SAY Relay fail failed incomplete juliet four romeo
+	DELAY 30
+	SAY <I>Failed.</I>
+	DELAY 10
+	SAY Attempting to assimilate information romeo alpha four four delta party parties ballon happy
+	NAME Main Computer
+	SAY <span_class='warning'>Distress call terminated.</span>
+	DELAY 20"}
+
+/obj/effect/landmark/warp_beacon/rebel/underground/play_sounds(var/obj/structure/overmap/what) //The PLAYSOUNDS tag runs this
+	if(!what)
+		what = locate(/obj/structure/overmap) in orange(src,1)
+	for(var/mob/M in what.linked_ship)
+		SEND_SOUND(M, null)
+		SEND_SOUND(M, 'sound/ambience/antag/malf.ogg')
 
 /obj/structure/rebel_capture/underground/pass_coordinates()
 	var/obj/effect/landmark/warp_beacon/rebel/caves/S = locate(/obj/effect/landmark/warp_beacon/rebel/caves) in GLOB.landmarks_list
@@ -144,8 +234,23 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 
 /obj/effect/landmark/warp_beacon/rebel/caves //Specialised
 	name = "Warp beacon"
-	distance = 2000
+	distance = 600
 	warp_restricted = TRUE
+	scripted_text ={"
+	PLAYSOUND fuck
+	NAME Unsigned 64-Bit transmission code
+	SAY <span_class='warning'>S--s-s-sss V'or T'ahk Kan. Te'ndil egh kan.</span>
+	DELAY 10
+	SAY <span_class='warning'>Transmission ended.</span>
+	DELAY 20"}
+
+/obj/effect/landmark/warp_beacon/rebel/caves/play_sounds(var/obj/structure/overmap/what) //The PLAYSOUNDS tag runs this
+	if(!what)
+		what = locate(/obj/structure/overmap) in orange(src,1)
+	for(var/mob/M in what.linked_ship)
+		SEND_SOUND(M, null)
+		SEND_SOUND(M, 'sound/ambience/ambidanger2.ogg')
+
 
 /obj/structure/rebel_capture/caves/pass_coordinates()
 	var/obj/effect/landmark/warp_beacon/rebel/beach/S = locate(/obj/effect/landmark/warp_beacon/rebel/beach) in GLOB.landmarks_list
@@ -153,8 +258,22 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 
 /obj/effect/landmark/warp_beacon/rebel/beach //Specialised
 	name = "Warp beacon"
-	distance = 2000
+	distance = 600
 	warp_restricted = TRUE
+	scripted_text ={"
+	PLAYSOUND fuck
+	NAME CB Radio signal
+	SAY <span_class='warning'>Welcome to '~~~###! The home of pleasure, '@@"%55 and RRR_----. Why not set down for some fun, sun fun sun fun, sun, fun, sun...sun</span>
+	DELAY 10
+	SAY <span_class='warning'>Transmission ended.</span>
+	DELAY 20"}
+
+/obj/effect/landmark/warp_beacon/rebel/beach/play_sounds(var/obj/structure/overmap/what) //The PLAYSOUNDS tag runs this
+	if(!what)
+		what = locate(/obj/structure/overmap) in orange(src,1)
+	for(var/mob/M in what.linked_ship)
+		SEND_SOUND(M, null)
+		SEND_SOUND(M, 'sound/ambience/ambiruin.ogg')
 
 /obj/structure/rebel_capture/beach/pass_coordinates()
 	var/obj/effect/landmark/warp_beacon/rebel/academy/S = locate(/obj/effect/landmark/warp_beacon/rebel/academy) in GLOB.landmarks_list
@@ -162,8 +281,22 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 
 /obj/effect/landmark/warp_beacon/rebel/academy //Specialised
 	name = "Warp beacon"
-	distance = 2000
+	distance = 600
 	warp_restricted = TRUE
+	scripted_text ={"
+	PLAYSOUND fuck
+	NAME Unknown origin
+	SAY <span_class='warning'>You have violated the sacred territory of geldor the strange, leave this space immediately and do not violate our space further by landing on our prestigious academy.</span>
+	DELAY 10
+	SAY <span_class='warning'>Transmission ended.</span>
+	DELAY 20"}
+
+/obj/effect/landmark/warp_beacon/rebel/academy/play_sounds(var/obj/structure/overmap/what) //The PLAYSOUNDS tag runs this
+	if(!what)
+		what = locate(/obj/structure/overmap) in orange(src,1)
+	for(var/mob/M in what.linked_ship)
+		SEND_SOUND(M, null)
+		SEND_SOUND(M, 'sound/ambience/ambimystery.ogg')
 
 /obj/structure/rebel_capture/academy/pass_coordinates()
 	var/obj/effect/landmark/warp_beacon/rebel/spacebattle/S = locate(/obj/effect/landmark/warp_beacon/rebel/spacebattle) in GLOB.landmarks_list
@@ -171,8 +304,23 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 
 /obj/effect/landmark/warp_beacon/rebel/spacebattle //Specialised
 	name = "Warp beacon"
-	distance = 2000
+	distance = 600
 	warp_restricted = TRUE
+	scripted_text ={"
+	PLAYSOUND fuck
+	NAME NT Cruiser 'Gallahad'
+	SAY <span_class='warning'>Mayday! Mayday this is the NTS Gallahad requiring IMMEDIATE assistance, we are under attack by multip---'x;'~~%%% We were en route to moon outpost 19--%%£$E££333</span>
+	DELAY 10
+	SAY IF YOU CAN HEAR US PLEASE HELP FOR THE LOVE OF GOD
+	SAY <span_class='warning'>Transmission ended.</span>
+	DELAY 20"}
+
+/obj/effect/landmark/warp_beacon/rebel/spacebattle/play_sounds(var/obj/structure/overmap/what) //The PLAYSOUNDS tag runs this
+	if(!what)
+		what = locate(/obj/structure/overmap) in orange(src,1)
+	for(var/mob/M in what.linked_ship)
+		SEND_SOUND(M, null)
+		SEND_SOUND(M, 'sound/ambience/ambitech3.ogg')
 
 /obj/structure/rebel_capture/spacebattle/pass_coordinates()
 	var/obj/effect/landmark/warp_beacon/rebel/wildwest/S = locate(/obj/effect/landmark/warp_beacon/rebel/wildwest) in GLOB.landmarks_list
@@ -180,8 +328,14 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 
 /obj/effect/landmark/warp_beacon/rebel/wildwest //Specialised
 	name = "Warp beacon"
-	distance = 2000
+	distance = 600
 	warp_restricted = TRUE
+	scripted_text ={"
+	NAME Prospector George
+	SAY <span_class='warning'>Howdy! Welcome to our humble abode, why not-wno---w-why not? stay a while? FOREVER @@'###^0--</span>
+	DELAY 10
+	SAY <span_class='warning'>Transmission ended.</span>
+	DELAY 20"}
 
 /obj/structure/rebel_capture/wildwest/pass_coordinates()
 	var/obj/effect/landmark/warp_beacon/rebel/research/S = locate(/obj/effect/landmark/warp_beacon/rebel/research) in GLOB.landmarks_list
@@ -189,8 +343,22 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 
 /obj/effect/landmark/warp_beacon/rebel/research //Specialised
 	name = "Warp beacon"
-	distance = 2000
+	distance = 600
 	warp_restricted = TRUE
+	scripted_text ={"
+	PLAYSOUND fuck
+	NAME NT Research outpost 447 V
+	SAY <span_class='warning'>Error. Error. Transmission failure error. Uncaught exception. Status: DELTA. Code: DELTA. Destruction state: IMMINENT</span>
+	DELAY 10
+	SAY <span_class='warning'>Transmission ended.</span>
+	DELAY 20"}
+
+/obj/effect/landmark/warp_beacon/rebel/research/play_sounds(var/obj/structure/overmap/what) //The PLAYSOUNDS tag runs this
+	if(!what)
+		what = locate(/obj/structure/overmap) in orange(src,1)
+	for(var/mob/M in what.linked_ship)
+		SEND_SOUND(M, null)
+		SEND_SOUND(M, 'sound/ambience/ambireebe1.ogg')
 
 /obj/structure/rebel_capture/research/pass_coordinates()
 	SSticker.mode.result = 1
@@ -277,3 +445,83 @@ So say for medbay, it seals it off protecting it's atmosphere, but also cuts off
 	spawn_name = "research_spawn_ruin"
 	max_health = 1000000000
 	health = 1000000000
+
+/obj/structure/overmap/proc/beacons_test()
+	for(var/obj/effect/landmark/warp_beacon/W in GLOB.landmarks_list)
+		W.distance = 30
+		W.warp_restricted = FALSE
+	to_chat(world, "Beacons test active")
+	SSfaction.jumpgates_forbidden = FALSE
+
+/obj/effect/landmark/warp_beacon
+	name = "Warp beacon"
+	var/scripted_text = null //Play a message when a ship arrives in this system?
+
+/obj/structure/overmap/proc/relay_message(var/what) //Send a ping to everyone inside a ship
+	if(!linked_ship) //FUCK
+		return
+	for(var/mob/L in linked_ship)
+		to_chat(L, what)
+
+/obj/structure/overmap/proc/relay_sound(var/what) //Send a ping to everyone inside a ship
+	if(!linked_ship) //FUCK
+		return
+	for(var/mob/L in linked_ship)
+		SEND_SOUND(L, what)
+/obj/structure/overmap/planet
+	var/list/sleepers = list() //Where can people spawn?
+
+/obj/structure/overmap/planet/proc/get_spawns()//Get turfs for our sleeper spawns so ghosts can fill the roles!
+	for(var/obj/effect/mob_spawn/MS in linked_ship)
+		sleepers += MS
+
+/obj/effect/landmark/warp_beacon/proc/on_reach(var/obj/structure/overmap/what)
+	if(scripted_text)
+		var/list/lines = splittext(scripted_text,"\n")
+		var/speaker = ""
+		var/msg
+		what.relay_sound('StarTrek13/sound/trek/hail_incoming.ogg')
+		what.relay_message("<span_class='warning'>Incoming transmission: routing to main speakers...</span>")
+		sleep(10)
+		what.relay_sound('StarTrek13/sound/trek/hail_open.ogg')
+		var/obj/structure/overmap/planet/FF = locate(/obj/structure/overmap/planet) in(get_area(src))
+		if(FF)
+			FF.get_spawns()
+			if(FF.sleepers.len)
+				for(var/obj/effect/mob_spawn/MS in FF.sleepers)
+					for(var/mob/dead/observer/F in GLOB.dead_mob_list)
+						var/turf/turfy = get_turf(MS)
+						var/link = TURF_LINK(F, turfy)
+						if(F)
+							to_chat(F, "<font color='#EE82EE'><b>Antagonist spawn available (just click the sleeper): [link]</b></font>")
+		for(var/line in lines) //Run through the script
+			var/prepared_line = trim(line)
+			if(!length(prepared_line))
+				continue
+			var/splitpoint = findtext(prepared_line," ")
+			if(!splitpoint)
+				continue
+			var/command = copytext(prepared_line,1,splitpoint)
+			var/value = copytext(prepared_line,splitpoint+1)
+			switch(command)
+				if("DELAY")
+					var/delay_value = text2num(value)
+					if(!delay_value)
+						continue
+					sleep(delay_value)
+					continue
+				if("NAME")
+					speaker = value
+					continue
+				if("SAY")
+					msg = value
+				if("PLAYSOUND")
+					play_sounds(what)
+					continue
+			msg = "<font color='red'>[speaker]:[msg]</font>"
+			what.relay_message(msg)
+			continue
+	return //We can now make cutscenes, woo!
+
+/obj/effect/landmark/warp_beacon/proc/play_sounds(var/obj/structure/overmap/what)
+	return
