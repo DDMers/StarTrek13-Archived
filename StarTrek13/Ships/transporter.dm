@@ -75,7 +75,6 @@
 	icon = 'StarTrek13/icons/trek/transporter.dmi'
 	icon_state = "pad"
 
-
 /obj/machinery/computer/camera_advanced/transporter_control/proc/activate_pads()
 	if(!powered())
 		return

@@ -45,8 +45,7 @@
 	systems += hull_integrity
 
 /datum/shipsystem_controller/proc/take_damage(amount) ///if the shipsystem controller takes damage, that means the enemy ship didn't pick a system to disable. So pick one at random, there is a chance that the hull will glance off the hit.
-	var/list/thesystems() = systems
-	var/datum/shipsystem/thetarget = pick(thesystems)//Don't want to damage the hull twice!
+	var/datum/shipsystem/thetarget = pick(systems)//Don't want to damage the hull twice!
 	thetarget.take_damage(amount)
 
 
@@ -65,7 +64,7 @@
 	var/overclock = 0 //Overclock a shipsystem to get better performance, at a higher power draw. Numbers pending warp core and power code
 	var/efficiency = 40 //as a percent, we take our desired effect, such as weapons power, and divide it by this, so a 600 damage rated phaser would be 600*40%, so 40% of 600, in other words; 240 damage. You'll want to be overclocking tbh.
 	var/failed = FALSE //If failed, do not process, cut the shipsystem and other such scary things.
-	var/list/linked_objects()
+	var/list/linked_objects = list()
 	var/integrity_sensitive = TRUE
 	var/datum/shipsystem_controller/controller
 	var/power_supplied = 0 //How much power is available right now? until we connect these to the powernet, it'll just be done by snowflake EPS conduits.
