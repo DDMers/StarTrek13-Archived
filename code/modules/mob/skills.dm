@@ -1,7 +1,7 @@
-#define CRIT_SUCCESS 3
-#define CRIT_FAILURE 4
-#define SUCCESS 1
+#define CRIT_SUCCESS 4
+#define SUCCESS 3
 #define FAILURE 2
+#define CRIT_FAILURE 1
 
 ////SKILLHANDLER\\\
 
@@ -29,7 +29,7 @@
 	if(S)
 		S.value += num
 		if(S.value > 10)
-			S.value = 10 // NO GODS ALLOWED.. Unless and admeme modifies it.
+			S.value = 10
 
 /datum/skillhandler/proc/skillcheck(var/mob/target, var/skill, var/requirement, var/show_message = TRUE, var/message = pick("I've failed.", "I have failed to complete this task."))
 	var/datum/skill/S = getskill(skill)
@@ -38,24 +38,28 @@
 		return
 	skill = S.value
 
+	if(!skill)
+		skill = 1 //Because people were having serious issues with this.
+
 	if(requirement == 0)
-		return TRUE
+		return SUCCESS
 
 	if(prob(get_chance(skill, requirement)))
-		if(prob((skill - 4) * 10)) //trained+ are the only ones allowed for a crit success roll
-			return TRUE
+		if(prob(get_chance((skill / 2), requirement * 1.5))) //Brain failure. Crit success is still a low chance, but it can do some really memey things.
+			return CRIT_SUCCESS
 		else
-			return TRUE
+			return SUCCESS
 
 	else if(!prob(get_chance(skill, requirement))) //Roll again. if we fail AGAIN, critfail.
 		if(show_message)
 			message = "CRITICAL FAILURE! [message]"
 			if(show_message)
 				to_chat(target, "<span class='userdanger'>[message]</span>")
-			return FALSE
+			return CRIT_FAILURE
 	else
-		to_chat(target, "<span class='userdanger'>[message]</span>")
-		return FALSE
+		if(show_message)
+			to_chat(target, "<span class='userdanger'>[message]</span>")
+		return FAILURE
 
 /datum/skillhandler/proc/get_chance(var/num1, var/num2)
 	var/percentage = (num1 / num2) * 100
